@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Sun2D : MonoBehaviour
 {
     public float distance;
     public float maxIntensity;
+    public Texture2D skyGradient;
     public float timeOffset;
 
     Light2D sunlight;
@@ -24,8 +26,8 @@ public class Sun2D : MonoBehaviour
     void Update()
     {
         System.TimeSpan time = System.DateTime.Now.TimeOfDay;
-        double sunAngle = ((time.TotalMinutes + timeOffset) / (24 * 60)) * 2 * Mathf.PI;
-        sunAngle = sunAngle % (2 * Mathf.PI);
+        double dayPercentage = ((time.TotalMinutes + timeOffset) / (24 * 60)) % 1.0;
+        double sunAngle = dayPercentage * (2 * Mathf.PI);
 
         Vector3 pos = transform.position;
         pos.x = distance * -Mathf.Sin((float)sunAngle);
@@ -34,5 +36,7 @@ public class Sun2D : MonoBehaviour
 
         float intensity = Mathf.Cos(((float)sunAngle - Mathf.PI) * 0.75f) * maxIntensity;
         sunlight.intensity = intensity > 0 ? intensity : 0;
+
+        mainCamera.backgroundColor = skyGradient.GetPixel(Mathf.RoundToInt((float)dayPercentage * skyGradient.width), 0);
     }
 }

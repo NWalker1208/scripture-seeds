@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plant.unity
     guid: a35e35d49dce58a40a73139bbe01ae5c
+  - enabled: 1
+    path: Assets/Scenes/TestActivity.unity
+    guid: c9afe3fd26bd5ec4eb3a2dff148963cb
   m_configObjects: {}
