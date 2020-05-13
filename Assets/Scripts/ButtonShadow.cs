@@ -38,7 +38,7 @@ public class ButtonShadow : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
             case AnimationState.MOUSE_UP:
                 if (Time.time < clickTime + animationLength / 2)
-                    shadowImage.transform.localScale = Vector3.one * (1 - shadowShrink * Mathf.Sin((Time.time - clickTime + animationLength) / animationLength * (Mathf.PI / 2)));
+                    shadowImage.transform.localScale = Vector3.one * (1 - shadowShrink * (1 - Mathf.Sin((Time.time - clickTime) / animationLength * (Mathf.PI / 2))));
                 else
                 {
                     shadowImage.transform.localScale = Vector3.one;

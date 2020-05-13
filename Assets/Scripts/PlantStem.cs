@@ -4,10 +4,10 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Plant : MonoBehaviour
+public class PlantStem : MonoBehaviour
 {
     [SerializeField]
-    float _baseWidth;
+    float _baseWidth = 0.25f;
     public float baseWidth
     {
         get { return _baseWidth; }
@@ -15,7 +15,7 @@ public class Plant : MonoBehaviour
     }
 
     [SerializeField]
-    Vector2[] _spine;
+    Vector2[] _spine = new Vector2[10];
     public Vector2[] spine
     {
         get { return _spine; }
@@ -24,25 +24,33 @@ public class Plant : MonoBehaviour
 
     Mesh plantMesh;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         plantMesh = GetComponent<MeshFilter>().mesh;
-        GenerateSpine();
-        GenerateMesh();
     }
 
-    void GenerateSpine()
+    void Start()
     {
-        Vector2[] newSpine = new Vector2[spine.Length];
+        GenerateSpine();
+    }
+
+    public void GenerateSpine(int length = 0, bool generateMesh = true)
+    {
+        if (length == 0)
+            length = spine.Length;
+
+        Vector2[] newSpine = new Vector2[length];
 
         for (int i = 0; i < newSpine.Length; i++)
             newSpine[i] = new Vector2(math.cos(i*0.5f) * 0.1f, i * 0.25f);
 
         spine = newSpine;
+
+        if (generateMesh)
+            GenerateMesh();
     }
 
-    void GenerateMesh()
+    public void GenerateMesh()
     {
         Vector3[] verts = new Vector3[spine.Length * 2];
         Vector2[] uv = new Vector2[spine.Length * 2];
