@@ -19,8 +19,8 @@ class PlantPage extends StatelessWidget {
             title: Text('Water')
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.opacity),
-            title: Text('Water')
+            icon: Icon(Icons.share),
+            title: Text('Share')
           )
         ]
       ),
