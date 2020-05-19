@@ -1,29 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class PlantPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Faith")
+        title: Text('My Plant')
       ),
-      body: Text("Image"),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home')
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.opacity),
-            title: Text('Water')
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.share),
-            title: Text('Share')
-          )
-        ]
+
+      drawer: Drawer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+              child: Text(
+                "My Garden",
+                style: Theme.of(context).textTheme.headline6.merge(TextStyle(
+                  color: Colors.white
+                ))
+              ),
+            )
+          ],
+        )
       ),
+
+      backgroundColor: Colors.lightBlue[400],
+      body: Container(
+        decoration: BoxDecoration( gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Colors.lightBlue[200],
+            Colors.lightBlue[400],
+          ]
+        )),
+        child: Center(
+          child: Text('Hello World')
+        ),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/plant/activity');
+        },
+        backgroundColor: Colors.blue[700],
+        child: Icon(Icons.opacity)
+      ),
+
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {
+                Share.share('I\'m doing great!', subject: 'Faith');
+              },
+            )
+          ],
+        )
+      )
     );
   }
 }
