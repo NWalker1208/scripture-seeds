@@ -64,7 +64,12 @@ flutter:
   fonts:
    - family: Scriptina
      fonts:
-       - asset: fonts/scriptina.ttf
+       - asset: fonts/Scriptina/scriptina.ttf
+   - family: Buenard
+     fonts:
+       - asset: fonts/Buenard/Buenard-Regular.ttf
+       - asset: fonts/Buenard/Buenard-Bold.ttf
+         weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

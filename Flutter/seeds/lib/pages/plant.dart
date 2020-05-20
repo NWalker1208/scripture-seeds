@@ -21,33 +21,62 @@ class PlantPage extends StatelessWidget {
                   color: Colors.white
                 ))
               ),
+            ),
+          ],
+        )
+      ),
+
+      backgroundColor: (Theme.of(context).brightness == Brightness.light ?
+        Colors.lightBlue[200] :
+        Colors.indigo[900]
+      ),
+      body: Container(
+        decoration: BoxDecoration( gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: (
+            Theme.of(context).brightness == Brightness.light ?
+            <Color>[
+              Colors.lightBlue[100],
+              Colors.lightBlue[200],
+            ] :
+            <Color>[
+              Colors.indigo[800],
+              Colors.indigo[900],
+            ]
+          )
+        )),
+        alignment: Alignment.bottomCenter,
+        clipBehavior: Clip.none,
+
+        // Plant Display Region
+        child: Stack(
+          overflow: Overflow.visible,
+          children: <Widget>[
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: -50,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(50)
+                ),
+                alignment: Alignment.topCenter,
+                height: 200,
+                child: Text("Hello, I am plant"),
+              ),
             )
           ],
         )
       ),
 
-      backgroundColor: Colors.lightBlue[400],
-      body: Container(
-        decoration: BoxDecoration( gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: <Color>[
-            Colors.lightBlue[200],
-            Colors.lightBlue[400],
-          ]
-        )),
-        child: Center(
-          child: Text('Hello World')
-        ),
-      ),
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.opacity),
         onPressed: () {
           Navigator.pushNamed(context, '/plant/activity');
-        },
-        backgroundColor: Colors.blue[700],
-        child: Icon(Icons.opacity)
+        }
       ),
 
       bottomNavigationBar: BottomAppBar(

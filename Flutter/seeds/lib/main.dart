@@ -13,13 +13,15 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
+        accentColor: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-//      darkTheme: ThemeData(
-//        brightness: Brightness.dark,
-//        primarySwatch: Colors.green,
-//        visualDensity: VisualDensity.adaptivePlatformDensity,
-//      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.green,
+        accentColor: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       initialRoute: '/plant',
       routes: {
         '/plant': (context) => PlantPage(),
