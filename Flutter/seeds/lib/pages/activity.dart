@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/highlightable.dart';
+import 'package:seeds/services/highlight_text.dart';
 import 'package:seeds/services/scripture.dart';
 
 class ActivityPage extends StatelessWidget {
@@ -31,7 +31,7 @@ class ActivityPage extends StatelessWidget {
               SizedBox(height: 15),
 
               // Scripture quote
-              Highlightable(text: scripture.text)
+              HighlightText(scripture.text)
             ],
           ),
         ),
