@@ -19,11 +19,11 @@ class _SelectableWordState extends State<SelectableWord> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          selected = !selected;
-        });
-      },
+      //onTap: () {
+      //  setState(() {
+      //    selected = !selected;
+     //   });
+     // },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 100),
         color: selected ? Theme.of(context).textSelectionColor : Theme.of(context).textSelectionColor.withAlpha(0),

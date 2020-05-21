@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/highlightable.dart';
 import 'package:seeds/services/scripture.dart';
-import 'package:seeds/services/selectable_word.dart';
 
 class ActivityPage extends StatelessWidget {
 
@@ -8,13 +8,6 @@ class ActivityPage extends StatelessWidget {
     book: 'Moroni', chapter: 10, verse: 5,
     text: 'And by the power of the Holy Ghost ye may know the truth of all things.'
   );
-
-  List<Widget> createParagraph(BuildContext context, String str)
-  {
-    List<Widget> text = str.split(' ').map((word) => SelectableWord(word: word)).toList();
-
-    return text;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +31,7 @@ class ActivityPage extends StatelessWidget {
               SizedBox(height: 15),
 
               // Scripture quote
-              Wrap(
-                direction: Axis.horizontal,
-                alignment: WrapAlignment.start,
-                children: createParagraph(context, scripture.text)
-              ),
+              Highlightable(text: scripture.text)
             ],
           ),
         ),
