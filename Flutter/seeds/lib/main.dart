@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.green,
         accentColor: Colors.blue,
+        textSelectionColor: Colors.green[500],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/plant',

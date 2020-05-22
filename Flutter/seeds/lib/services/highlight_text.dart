@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -15,10 +17,37 @@ class HighlightText extends StatefulWidget {
   _HighlightTextState createState() => _HighlightTextState();
 }
 
-class _HighlightTextState extends State<HighlightText> {
-  List<GlobalKey> wordKeys;
-  List<bool> highlight;
+enum HighlightAppearance {
+  off, changing, on
+}
 
+class _HighlightTextState extends State<HighlightText> {
+
+  List<GlobalKey> wordKeys;
+  List<bool> highlightedWords;
+
+  int highlightStart;
+  int highlightEnd;
+  bool highlightAction;
+
+  // Returns true if the word is highlighted or will be highlighted
+  HighlightAppearance appearsHighlighted(int word)
+  {
+    if (highlightStart != null) {
+      if (word >= min(highlightStart, highlightEnd) &&
+          word <= max(highlightStart, highlightEnd) &&
+          highlightedWords[word] != highlightAction)
+        return HighlightAppearance.changing;
+    }
+
+    if (highlightedWords[word])
+      return HighlightAppearance.on;
+    else
+      return HighlightAppearance.off;
+  }
+
+  // Determines which word is displayed at the given point on screen
+  // Returns null if no word is present at that location
   int getWordAt(Offset globalPos)
   {
     for (int i = 0; i < wordKeys.length; i++)
@@ -35,34 +64,85 @@ class _HighlightTextState extends State<HighlightText> {
     return null;
   }
 
+  // Updates highlight selection based on which word the tap is currently on
+  void updateHighlight(int currentWord, {bool setStart = false, bool apply = false})
+  {
+    setState(() {
+      if (setStart) {
+        highlightStart = currentWord;
+        highlightEnd = currentWord;
+
+        if (currentWord != null)
+          highlightAction = !highlightedWords[currentWord];
+      } else if (currentWord != null && highlightStart != null) {
+        highlightEnd = currentWord;
+      }
+    });
+
+    if (apply)
+    {
+      applyHighlight(min(highlightStart, highlightEnd), max(highlightStart, highlightEnd), highlightAction);
+      highlightStart = highlightEnd = null;
+    }
+  }
+
+  // Applies highlight selection to highlight data
+  void applyHighlight(int start, int end, bool highlighted)
+  {
+    setState(() {
+      for (int i = start; i <= end; i++)
+        highlightedWords[i] = highlighted;
+    });
+  }
+
+  // Uses the list of words to build a list of widgets
   List<Widget> buildParagraph(BuildContext context)
   {
     List<Widget> children = List<Widget>(widget.words.length);
 
+    Color highlightColor = Theme.of(context).textSelectionColor;
+    Color changingColor = Color.lerp(
+      Theme.of(context).textSelectionColor,
+      Theme.of(context).scaffoldBackgroundColor,
+      0.5
+    );
+    Color offColor = Theme.of(context).textSelectionColor.withAlpha(0);
+
     for (int i = 0; i < widget.words.length; i++) {
-      // Padding to separate words
-      
+      Color boxColor = (appearsHighlighted(i) != HighlightAppearance.on) ?
+      ((appearsHighlighted(i) == HighlightAppearance.off) ? offColor : changingColor) :
+      highlightColor;
+
+      // Select color for decoration box
+
       children[i] = GestureDetector(
+        // Detect tabs to change highlight
         onTap: () {
           setState(() {
-            highlight[i] = !highlight[i];
+            highlightedWords[i] = !highlightedWords[i];
           });
         },
-        
+
+        // Animated for changing highlight
         child: AnimatedContainer(
           key: wordKeys[i],
+
           duration: Duration(milliseconds: 100),
           decoration: BoxDecoration(
+            color: boxColor,
+
+            // Corners are rounded at ends of highlighted region
             borderRadius: BorderRadius.horizontal(
-              left: (i == 0 || !highlight[i - 1]) ? Radius.circular(5) : Radius.zero,
-              right: (i == (widget.words.length - 1) || !highlight[i + 1]) ? Radius.circular(5) : Radius.zero
+              left: (i == 0 || appearsHighlighted(i - 1) == HighlightAppearance.off) ? Radius.circular(5) : Radius.zero,
+              right: (i == (widget.words.length - 1) ||  appearsHighlighted(i + 1) == HighlightAppearance.off) ? Radius.circular(5) : Radius.zero
             ),
-            
-            color: Theme.of(context).textSelectionColor.withAlpha(highlight[i] ? 255 : 0),
           ),
-          
+
+          // Padding to separate words
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 2.5, vertical: 2),
+
+            // Word text
             child: Text(
               '${widget.words[i]}',
               style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(
@@ -81,56 +161,17 @@ class _HighlightTextState extends State<HighlightText> {
   @override
   void initState() {
     super.initState();
-    highlight = List<bool>.filled(widget.words.length, false);
-    wordKeys = highlight.map((e) => GlobalKey()).toList();
+    highlightedWords = List<bool>.filled(widget.words.length, false);
+    wordKeys = highlightedWords.map((e) => GlobalKey()).toList();
   }
-
-  int highlightStart;
-  int highlightEnd;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       // Detect highlighting gestures
-      onLongPressStart: (LongPressStartDetails details) {
-        highlightStart = getWordAt(details.globalPosition);
-        highlightEnd = highlightStart;
-
-        setState(() {
-          highlight[highlightStart] = true;
-        });
-      },
-      onLongPressMoveUpdate: (LongPressMoveUpdateDetails details) {
-        int currentWord = getWordAt(details.globalPosition);
-        if (currentWord != null && currentWord != highlightEnd) {
-          highlightEnd = currentWord;
-
-          setState(() {
-            if (highlightStart <= highlightEnd)
-              for (int i = highlightStart; i <= highlightEnd; i++)
-                highlight[i] = true;
-            else
-              for (int i = highlightStart; i >= highlightEnd; i--)
-                highlight[i] = true;
-          });
-        }
-      },
-      onLongPressEnd: (LongPressEndDetails details) {
-        int currentWord = getWordAt(details.globalPosition);
-        if (currentWord != null)
-          highlightEnd = currentWord;
-
-        print('$highlightStart -> $highlightEnd');
-
-        setState(() {
-          if (highlightStart <= highlightEnd)
-            for (int i = highlightStart; i <= highlightEnd; i++)
-              highlight[i] = true;
-          else
-            for (int i = highlightStart; i >= highlightEnd; i--)
-              highlight[i] = true;
-        });
-      },
+      onLongPressStart: (LongPressStartDetails details) => updateHighlight(getWordAt(details.globalPosition), setStart: true),
+      onLongPressMoveUpdate: (LongPressMoveUpdateDetails details) => updateHighlight(getWordAt(details.globalPosition)),
+      onLongPressEnd: (LongPressEndDetails details) => updateHighlight(getWordAt(details.globalPosition), apply: true),
 
       child: Wrap(
         direction: Axis.horizontal,
