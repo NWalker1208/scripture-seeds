@@ -1,3 +1,5 @@
+import 'package:seeds/services/utility.dart';
+
 class ProgressRecord {
   static const String kName = 'name';
   static const String kProgress = 'progress';
@@ -25,4 +27,6 @@ class ProgressRecord {
   String toString() {
     return toMap().toString();
   }
+
+  bool get canMakeProgressToday => isFutureDay(lastUpdate, DateTime.now());
 }

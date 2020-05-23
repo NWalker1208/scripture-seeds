@@ -35,5 +35,5 @@ class PlantPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
+  bool shouldRepaint(PlantPainter oldDelegate) => oldDelegate.length != length;
 }

@@ -1,15 +1,16 @@
-import 'package:seeds/services/utility.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:sqflite/sqflite.dart';
+import 'dart:io';
 
 class DatabaseManager {
   static const String kDatabaseFile = 'progress.db';
   static const String kProgressTable = 'progress';
 
   Database db;
+
   DatabaseManager(this.db);
 
-  //static void databaseLog(String );
+  bool get isOpen => db.isOpen;
 
   // Creates the table of progress records
   static Future<void> createProgressTable(Database db, int version) async {
@@ -28,7 +29,8 @@ class DatabaseManager {
     final String databasePath = await getDatabasesPath();
     final String path = databasePath + kDatabaseFile;
 
-    return DatabaseManager(await openDatabase(path, version: 1, onCreate: createProgressTable));
+    return DatabaseManager(
+      await openDatabase(path, version: 1, onCreate: createProgressTable));
   }
 
   // Creates a new progress record
@@ -40,10 +42,15 @@ class DatabaseManager {
   Future<List<ProgressRecord>> getRecords() async {
     List<Map<String, dynamic>> recordMaps = await db.query(
       kProgressTable,
-      columns: [ProgressRecord.kName, ProgressRecord.kProgress, ProgressRecord.kLastUpdate]
+      columns: [
+        ProgressRecord.kName,
+        ProgressRecord.kProgress,
+        ProgressRecord.kLastUpdate
+      ]
     );
 
-    List<ProgressRecord> records = recordMaps.map((map) => ProgressRecord.fromMap(map)).toList();
+    List<ProgressRecord> records = recordMaps.map((map) =>
+      ProgressRecord.fromMap(map)).toList();
     return records;
   }
 
@@ -51,7 +58,11 @@ class DatabaseManager {
   Future<ProgressRecord> getProgress(String name) async {
     List<Map<String, dynamic>> results = await db.query(
       kProgressTable,
-      columns: [ProgressRecord.kName, ProgressRecord.kProgress, ProgressRecord.kLastUpdate],
+      columns: [
+        ProgressRecord.kName,
+        ProgressRecord.kProgress,
+        ProgressRecord.kLastUpdate
+      ],
       where: 'name = ?',
       whereArgs: [name]
     );
@@ -70,7 +81,7 @@ class DatabaseManager {
       await createRecord(ProgressRecord(name: name, progress: 1, lastUpdate: DateTime.now()));
       return true;
     }
-    else if (force || isFutureDay(progress.lastUpdate, DateTime.now())) {
+    else if (force || progress.canMakeProgressToday) {
       progress.progress++;
       progress.lastUpdate = DateTime.now();
 
@@ -85,7 +96,27 @@ class DatabaseManager {
     return false;
   }
 
+  // Deletes all progress entries
+  Future<void> resetProgress() async {
+    await db.delete(kProgressTable);
+  }
+
+  // Must run this before destroying database manager
   Future<void> close() async {
     await db.close();
+  }
+
+  // Deletes the database file
+  static Future<bool> deleteDatabase() async {
+    final String databasePath = await getDatabasesPath();
+    final String path = databasePath + kDatabaseFile;
+
+    File file = File(path);
+
+    if (!file.existsSync())
+      return false;
+
+    file.deleteSync();
+    return true;
   }
 }

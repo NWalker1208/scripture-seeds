@@ -41,12 +41,15 @@ class ActivityPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         onPressed: () async {
-          Navigator.pop(context, true);
-
           DatabaseManager db = await DatabaseManager.getDatabase();
-          db.updateProgress('faith', force: true);
-          print(await db.getRecords());
-          await db.close();
+
+          if (db.isOpen) {
+            await db.updateProgress('faith');
+            await db.close();
+            Navigator.pop(context, true);
+          }
+          else
+            print('Unable to save progress!');
         },
       ),
     );

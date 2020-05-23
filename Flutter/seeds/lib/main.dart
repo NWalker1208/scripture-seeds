@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/plant',
       routes: {
-        '/plant': (context) => PlantPage(),
+        '/plant': (context) => PlantPage('faith'),
         '/plant/activity': (context) => ActivityPage(),
       },
     );
