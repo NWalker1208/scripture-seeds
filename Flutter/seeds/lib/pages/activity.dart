@@ -17,7 +17,7 @@ class ActivityPage extends StatelessWidget {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: EdgeInsets.all(40.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

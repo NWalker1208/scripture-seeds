@@ -106,7 +106,7 @@ class _HighlightTextState extends State<HighlightText> {
       Theme.of(context).scaffoldBackgroundColor,
       0.5
     );
-    Color offColor = Theme.of(context).textSelectionColor.withAlpha(0);
+    Color offColor = Theme.of(context).scaffoldBackgroundColor; //Theme.of(context).textSelectionColor.withAlpha(0);
 
     for (int i = 0; i < widget.words.length; i++) {
       Color boxColor = (appearsHighlighted(i) != HighlightAppearance.on) ?

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/plant_painter.dart';
 import 'package:share/share.dart';
 
 class PlantPage extends StatelessWidget {
@@ -50,24 +51,9 @@ class PlantPage extends StatelessWidget {
         clipBehavior: Clip.none,
 
         // Plant Display Region
-        child: Stack(
-          overflow: Overflow.visible,
-          children: <Widget>[
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: -50,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(50)
-                ),
-                alignment: Alignment.topCenter,
-                height: 200,
-                child: Text("Hello, I am plant"),
-              ),
-            )
-          ],
+        child: CustomPaint(
+          painter: PlantPainter(10),
+          child: Container(),
         )
       ),
 
