@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/highlight_text.dart';
 import 'package:seeds/services/scripture.dart';
+import 'package:seeds/services/database_manager.dart';
 
 class ActivityPage extends StatelessWidget {
 
@@ -39,8 +40,13 @@ class ActivityPage extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
-        onPressed: () {
+        onPressed: () async {
           Navigator.pop(context, true);
+
+          DatabaseManager db = await DatabaseManager.getDatabase();
+          db.updateProgress('faith', force: true);
+          print(await db.getRecords());
+          await db.close();
         },
       ),
     );

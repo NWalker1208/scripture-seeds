@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/plant_painter.dart';
+import 'package:seeds/services/plant_display.dart';
 import 'package:share/share.dart';
 
 class PlantPage extends StatelessWidget {
@@ -51,10 +51,7 @@ class PlantPage extends StatelessWidget {
         clipBehavior: Clip.none,
 
         // Plant Display Region
-        child: CustomPaint(
-          painter: PlantPainter(10),
-          child: Container(),
-        )
+        child: PlantDisplay(plantName: 'faith',)
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
