@@ -10,30 +10,49 @@ class PlantList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> topics = Library.topics.keys.toList();
-    int disableIndex = -1;
 
-    if (currentlyOpen != null && topics.contains(currentlyOpen))
-      disableIndex = topics.indexOf(currentlyOpen);
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: topics.map((topic) {
+              var onPressed = () => Navigator.of(context).pushReplacementNamed(
+                '/plant',
+                arguments: topic
+              );
 
-    return Container(
-      height: 200,
-      child: ListView.builder(
-        itemCount: topics.length,
-        itemBuilder: (context, index) {
-          var onPressed = () => Navigator.of(context).pushReplacementNamed(
-            '/plant',
-            arguments: topics[index]
-          );
+              if (topic == currentlyOpen)
+                onPressed = null;
 
-          if (index == disableIndex)
-            onPressed = null;
+              Color color = Theme.of(context).brightness == Brightness.light ?
+                Colors.green[800] :
+                Colors.green[300];
 
-          return FlatButton(
-            onPressed: onPressed,
-
-            child: Text('${topics[index].capitalize()}'),
-          );
-        }
+              return Row(
+                children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    // TODO: Make this depend on if the daily activity has been completed.
+                    false ? Icons.error : Icons.done,
+                    color: onPressed == null ? color : null,
+                  ),
+                ),
+                Expanded(
+                    child: FlatButton(
+                      onPressed: onPressed,
+                      disabledTextColor: color,
+                      padding: EdgeInsets.all(8.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('${topic.capitalize()}', textAlign: TextAlign.left,)
+                      ),
+                    ),
+                  )
+                ],
+              );
+            }).toList()
       ),
     );
   }

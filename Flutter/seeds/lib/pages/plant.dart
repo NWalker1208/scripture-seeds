@@ -101,11 +101,13 @@ class _PlantPageState extends State<PlantPage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              child: Text(
-                "My Garden",
-                style: Theme.of(context).textTheme.headline6.merge(TextStyle(
-                  color: Colors.white
-                ))
+              child: Center(
+                child: Text(
+                  "My Garden",
+                  style: Theme.of(context).textTheme.headline5.merge(TextStyle(
+                    color: Colors.white
+                  ))
+                ),
               ),
             ),
 
