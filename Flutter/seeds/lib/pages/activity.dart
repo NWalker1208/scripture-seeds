@@ -39,12 +39,10 @@ class ActivityPage extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
-        onPressed: () async {
-          DatabaseManager db = await DatabaseManager.getDatabase();
-
-          if (db.isOpen) {
-            await db.updateProgress(topic);
-            await db.close();
+        onPressed: () {
+          if (DatabaseManager.isLoaded) {
+            DatabaseManager.updateProgress(topic);
+            DatabaseManager.saveData();
             Navigator.pop(context, true);
           }
           else

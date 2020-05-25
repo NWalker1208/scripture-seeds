@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/database_manager.dart';
 import 'package:seeds/services/library.dart';
+import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/services/utility.dart';
 
 class PlantList extends StatelessWidget {
@@ -17,42 +19,47 @@ class PlantList extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: topics.map((topic) {
-              var onPressed = () => Navigator.of(context).pushReplacementNamed(
-                '/plant',
-                arguments: topic
-              );
+          // Create an onPressed event if the topic is not currently open
+          var onPressed = () => Navigator.of(context).pushReplacementNamed(
+            '/plant',
+            arguments: topic
+          );
 
-              if (topic == currentlyOpen)
-                onPressed = null;
+          if (topic == currentlyOpen)
+            onPressed = null;
 
-              Color color = Theme.of(context).brightness == Brightness.light ?
-                Colors.green[800] :
-                Colors.green[300];
+          // Choose a color based on the theme for the item that is currently open
+          Color selectedColor = Theme.of(context).brightness == Brightness.light ?
+            Colors.green[800] :
+            Colors.green[300];
 
-              return Row(
-                children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    // TODO: Make this depend on if the daily activity has been completed.
-                    false ? Icons.error : Icons.done,
-                    color: onPressed == null ? color : null,
+          // Determine if the icon should show that the user should complete the daily activity
+          ProgressRecord progress = DatabaseManager.getProgressRecord(topic);
+          bool canMakeProgress = (progress == null) ? true : progress.canMakeProgressToday;
+
+          return Row(
+            children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                canMakeProgress ? Icons.error : Icons.done,
+                color: onPressed == null ? selectedColor : null,
+              ),
+            ),
+            Expanded(
+                child: FlatButton(
+                  onPressed: onPressed,
+                  disabledTextColor: selectedColor,
+                  padding: EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('${topic.capitalize()}', textAlign: TextAlign.left,)
                   ),
                 ),
-                Expanded(
-                    child: FlatButton(
-                      onPressed: onPressed,
-                      disabledTextColor: color,
-                      padding: EdgeInsets.all(8.0),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text('${topic.capitalize()}', textAlign: TextAlign.left,)
-                      ),
-                    ),
-                  )
-                ],
-              );
-            }).toList()
+              )
+            ],
+          );
+        }).toList()
       ),
     );
   }

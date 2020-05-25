@@ -24,18 +24,19 @@ class _PlantPageState extends State<PlantPage> {
   int progress = 0;
   bool canMakeProgress = true;
 
-  void getProgress() async {
-    DatabaseManager db = await DatabaseManager.getDatabase();
+  void getProgress() {
+    print('Getting progress for plant view...');
+    ProgressRecord record = DatabaseManager.getProgressRecord(widget.plantName);
 
-    if (db.isOpen) {
-      ProgressRecord record = await db.getProgress(widget.plantName);
-
+    if (DatabaseManager.isLoaded) {
+      print('Using cached database progress.');
       setState(() {
         progress = (record != null) ? min(record.progress, 14) : 0;
         canMakeProgress = (record != null) ? record.canMakeProgressToday : true;
       });
-
-      await db.close();
+    } else {
+      print('Database has not been loaded. Retrieving data...');
+      DatabaseManager.loadData().then((e) => getProgress());
     }
   }
 
@@ -46,7 +47,7 @@ class _PlantPageState extends State<PlantPage> {
 
       builder: (_) => AlertDialog(
         title: Text('Daily Activity'),
-        content: Text('You can\'t water your plant again until tomorrow. Would you like to do an activity anyways?'),
+        content: Text('You can\'t water this plant again until tomorrow. Would you like to do an activity anyways?'),
         actions: <Widget>[
           FlatButton(
             child: Text('Yes'),
@@ -197,11 +198,13 @@ class _PlantPageState extends State<PlantPage> {
             IconButton(
               icon: Icon(Icons.home),
               onPressed: () async {
-                if (await DatabaseManager.deleteDatabase()) {
+                DatabaseManager.resetProgress();
+                getProgress();
+                /*if (await DatabaseManager.deleteDatabase()) {
                   print('Deleted database file');
                   getProgress();
                 } else
-                  print('Database file does not exist');
+                  print('Database file does not exist');*/
               },
             ),
             IconButton(
