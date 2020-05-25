@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/highlight_text.dart';
+import 'package:seeds/widgets/highlight_text.dart';
+import 'package:seeds/services/library.dart';
 import 'package:seeds/services/scripture.dart';
 import 'package:seeds/services/database_manager.dart';
 
 class ActivityPage extends StatelessWidget {
 
-  final Scripture scripture = Scripture(
-    book: 'Esther', chapter: 8, verse: 9,
-    text: "Then were the king’s scribes called at that time in the third month, that is, the month Sivan, on the three and twentieth day thereof; and it was written according to all that Mordecai commanded unto the Jews, and to the lieutenants, and the deputies and rulers of the provinces which are from India unto Ethiopia, an hundred twenty and seven provinces, unto every province according to the writing thereof, and unto every people after their language, and to the Jews according to their writing, and according to their language."
-  );
-
   @override
   Widget build(BuildContext context) {
+    String topic = ModalRoute.of(context).settings.arguments as String;
+    List<Scripture> verses = Library.topics[topic].first;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Daily Activity'),
@@ -28,11 +27,11 @@ class ActivityPage extends StatelessWidget {
               SizedBox(height: 30),
 
               // Scripture reference
-              Text(scripture.toString(), style: Theme.of(context).textTheme.headline5),
+              Text(verses[0].toString(), style: Theme.of(context).textTheme.headline5),
               SizedBox(height: 15),
 
               // Scripture quote
-              HighlightText(scripture.text)
+              HighlightText(verses[0].text)
             ],
           ),
         ),
@@ -44,7 +43,7 @@ class ActivityPage extends StatelessWidget {
           DatabaseManager db = await DatabaseManager.getDatabase();
 
           if (db.isOpen) {
-            await db.updateProgress('faith');
+            await db.updateProgress(topic);
             await db.close();
             Navigator.pop(context, true);
           }

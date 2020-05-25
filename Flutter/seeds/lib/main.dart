@@ -10,7 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Seeds',
+
       theme: ThemeData(
         primarySwatch: Colors.green,
         accentColor: Colors.blue,
@@ -23,9 +24,10 @@ class MyApp extends StatelessWidget {
         textSelectionColor: Colors.green[500],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+
       initialRoute: '/plant',
       routes: {
-        '/plant': (context) => PlantPage('faith'),
+        '/plant': (context) => PlantPage(ModalRoute.of(context).settings.arguments),
         '/plant/activity': (context) => ActivityPage(),
       },
     );

@@ -1,14 +1,20 @@
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seeds/widgets/plant_list.dart';
 import 'package:share/share.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:seeds/services/database_manager.dart';
 import 'package:seeds/services/progress_record.dart';
-import 'package:seeds/services/plant_painter.dart';
+import 'package:seeds/widgets/plant_painter.dart';
 
 class PlantPage extends StatefulWidget {
+  static final String defaultPlant = 'faith';
   final String plantName;
 
-  PlantPage(this.plantName, {Key key}) : super(key: key);
+  PlantPage(plantName, {Key key}) :
+      plantName = (plantName == null) ? defaultPlant : plantName,
+      super(key: key);
 
   @override
   _PlantPageState createState() => _PlantPageState();
@@ -25,7 +31,7 @@ class _PlantPageState extends State<PlantPage> {
       ProgressRecord record = await db.getProgress(widget.plantName);
 
       setState(() {
-        progress = (record != null) ? record.progress : 0;
+        progress = (record != null) ? min(record.progress, 14) : 0;
         canMakeProgress = (record != null) ? record.canMakeProgressToday : true;
       });
 
@@ -44,12 +50,10 @@ class _PlantPageState extends State<PlantPage> {
         actions: <Widget>[
           FlatButton(
             child: Text('Yes'),
-            onPressed: () => Navigator.of(context).popAndPushNamed('/plant/activity').then(
-                (value) {
-                if (value == true)
-                  getProgress();
-              }
-            )
+            onPressed: () {
+              Navigator.of(context).pop();
+              openActivity();
+            }
           ),
 
           FlatButton(
@@ -62,6 +66,19 @@ class _PlantPageState extends State<PlantPage> {
       ),
 
       barrierDismissible: true,
+    );
+  }
+
+  void openActivity() {
+    Navigator.pushNamed(
+      context,
+      '/plant/activity',
+      arguments: widget.plantName
+    ).then(
+        (value) {
+        if (value == true)
+          getProgress();
+      }
     );
   }
 
@@ -91,6 +108,8 @@ class _PlantPageState extends State<PlantPage> {
                 ))
               ),
             ),
+
+            PlantList(widget.plantName)
           ],
         )
       ),
@@ -122,16 +141,35 @@ class _PlantPageState extends State<PlantPage> {
         child:  CustomPaint(
           painter: PlantPainter(progress),
           child: Container(
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Text(
-                widget.plantName,
-                style: Theme.of(context).textTheme.headline3.merge(TextStyle(
-                  fontFamily: 'Scriptina',
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
-                ))
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  widget.plantName,
+                  style: Theme.of(context).textTheme.headline3.merge(TextStyle(
+                    fontFamily: 'Scriptina',
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
+                  ))
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                  child: LinearPercentIndicator(
+                    backgroundColor: Colors.green[700].withAlpha(80),
+                    progressColor: Colors.green,
+                    linearStrokeCap: LinearStrokeCap.roundAll,
+                    animation: true,
+                    animationDuration: 500,
+
+                    leading: Text('${(progress/14 * 100).round()} %'),
+                    trailing: Icon(Icons.flag),
+
+                    percent: progress / 14.0,
+                  ),
+                )
+              ],
             ),
           ),
         )
@@ -145,12 +183,7 @@ class _PlantPageState extends State<PlantPage> {
           if (!canMakeProgress)
             openActivityDialog();
           else
-            Navigator.pushNamed(context, '/plant/activity').then(
-                (value) {
-                  if (value == true)
-                    getProgress();
-                }
-            );
+            openActivity();
         }
       ),
 
