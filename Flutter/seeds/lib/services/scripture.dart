@@ -18,8 +18,20 @@ class Scripture {
       throw Exception('$book $chapter:$verse is not in the library.');
   }
 
+  static List<Scripture> block(String book, int chapter, List<int> verses)
+  {
+    return verses.map((verse) => Scripture(book, chapter, verse)).toList();
+  }
+
+  String reference({showVerse = true}) {
+    if (showVerse)
+      return '$book $chapter:$verse';
+    else
+      return '$book $chapter';
+  }
+
   @override
   String toString() {
-    return '$book $chapter:$verse';
+    return text;
   }
 }

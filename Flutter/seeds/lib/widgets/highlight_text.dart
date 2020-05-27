@@ -6,8 +6,9 @@ import 'package:flutter/rendering.dart';
 class HighlightText extends StatefulWidget {
   final String text;
   final List<String> words;
+  final int disabledWords;
 
-  HighlightText(String text, {Key key}) :
+  HighlightText(String text, {this.disabledWords = 0, Key key}) :
       this.text = text,
       words = text.split(' ').toList(),
       super(key: key);
@@ -32,6 +33,9 @@ class _HighlightTextState extends State<HighlightText> {
   // Returns true if the word is highlighted or will be highlighted
   HighlightAppearance appearsHighlighted(int word)
   {
+    if (word < widget.disabledWords)
+      return HighlightAppearance.off;
+
     if (highlightStart != null) {
       if (word >= min(highlightStart, highlightEnd) &&
           word <= max(highlightStart, highlightEnd) &&
@@ -66,6 +70,9 @@ class _HighlightTextState extends State<HighlightText> {
   // Updates highlight selection based on which word the tap is currently on
   void updateHighlight(int currentWord, {bool setStart = false, bool apply = false})
   {
+    if (currentWord != null && currentWord < widget.disabledWords)
+      currentWord = null;
+
     setState(() {
       if (setStart) {
         highlightStart = currentWord;
@@ -78,7 +85,7 @@ class _HighlightTextState extends State<HighlightText> {
       }
     });
 
-    if (apply)
+    if (apply && highlightStart != null && highlightEnd != null)
     {
       applyHighlight(min(highlightStart, highlightEnd), max(highlightStart, highlightEnd), highlightAction);
       highlightStart = highlightEnd = null;
@@ -90,7 +97,8 @@ class _HighlightTextState extends State<HighlightText> {
   {
     setState(() {
       for (int i = start; i <= end; i++)
-        highlightedWords[i] = highlighted;
+        if (i >= widget.disabledWords)
+          highlightedWords[i] = highlighted;
     });
   }
 
@@ -108,18 +116,18 @@ class _HighlightTextState extends State<HighlightText> {
     Color offColor = Theme.of(context).scaffoldBackgroundColor; //Theme.of(context).textSelectionColor.withAlpha(0);
 
     for (int i = 0; i < widget.words.length; i++) {
+      // Select color for decoration box
       Color boxColor = (appearsHighlighted(i) != HighlightAppearance.on) ?
       ((appearsHighlighted(i) == HighlightAppearance.off) ? offColor : changingColor) :
       highlightColor;
 
-      // Select color for decoration box
-
       children[i] = GestureDetector(
-        // Detect tabs to change highlight
+        // Detect taps to change highlight
         onTap: () {
-          setState(() {
-            highlightedWords[i] = !highlightedWords[i];
-          });
+          if (i >= widget.disabledWords)
+            setState(() {
+              highlightedWords[i] = !highlightedWords[i];
+            });
         },
 
         // Animated for changing highlight

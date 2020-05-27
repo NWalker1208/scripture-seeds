@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/highlight_text.dart';
 import 'package:seeds/services/library.dart';
@@ -5,36 +6,53 @@ import 'package:seeds/services/scripture.dart';
 import 'package:seeds/services/database_manager.dart';
 
 class ActivityPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
+    Random generator = Random();
+
     String topic = ModalRoute.of(context).settings.arguments as String;
-    List<Scripture> verses = Library.topics[topic].first;
+    int todayScripture = generator.nextInt(Library.topics[topic].length);
+    List<Scripture> verses = Library.topics[topic][todayScripture];
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Daily Activity'),
       ),
 
-      body: Padding(
-        padding: EdgeInsets.all(40.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // Instructions
-              Text('Study the following scripture and highlight the parts that stand out to you.'),
-              SizedBox(height: 30),
+      body: ListView(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                // Instructions
+                Text('Study the following scripture and highlight the parts that are most important to you.',
+                  style: Theme.of(context).textTheme.bodyText1,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 10),
+                Text('Tap a word to highlight it.\nTap and hold to highlight a block of text.',
+                  style: Theme.of(context).textTheme.bodyText2,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 30),
 
-              // Scripture reference
-              Text(verses[0].toString(), style: Theme.of(context).textTheme.headline5),
-              SizedBox(height: 15),
+                // Chapter title
+                Text(verses[0].reference(showVerse: false), style: Theme.of(context).textTheme.headline4.merge(TextStyle(
+                  fontFamily: 'Buenard'
+                ))),
 
-              // Scripture quote
-              HighlightText(verses[0].text)
-            ],
+              ] + verses.map((scripture) {
+                return Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: HighlightText('${scripture.verse}. ${scripture.text}', disabledWords: 1),
+                );
+              }).toList()
+            ),
           ),
-        ),
+        ],
       ),
 
       floatingActionButton: FloatingActionButton(
