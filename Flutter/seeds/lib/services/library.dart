@@ -25,6 +25,19 @@ class Library {
       },
     },
 
+    'James': {
+      2: {
+        14: 'What doth it profit, my brethren, though a man say he hath faith, ' +
+            'and have not works? can faith save him?',
+        17: 'Even so faith, if it hath not works, is dead, being alone.',
+        18: 'Yea, a man may say, Thou hast faith, and I have works: shew me ' +
+            'thy faith without thy works, and I will shew thee my faith by my works.',
+        19: 'Thou believest that there is one God; thou doest well: the devils ' +
+            'also believe, and tremble.',
+        24: 'Ye see then how that by works a man is justified, and not by faith only.',
+      },
+    },
+
     /// Book of Mormon
     'Moroni': {
       9: {
@@ -39,13 +52,14 @@ class Library {
 
   static final SplayTreeMap<String, List<List<Scripture>>> topics = SplayTreeMap.from({
     'diligence': [
-      [Scripture('Moroni',9,6)]
+      [Scripture('Moroni',9,6)],
     ],
     'faith': [
-      [Scripture('Matthew',17,20)]
+      [Scripture('Matthew',17,20)],
+      Scripture.block('James', 2, [14, 17, 18, 19, 24]),
     ],
     'integrity': [
-      [Scripture('Job',2,3)]
+      [Scripture('Job',2,3)],
     ],
   });
 

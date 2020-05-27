@@ -6,9 +6,15 @@ import 'package:seeds/services/scripture.dart';
 import 'package:seeds/services/database_manager.dart';
 
 class ActivityPage extends StatelessWidget {
+  final seed;
+
+  ActivityPage({Key key}) :
+    seed = DateTime.now().millisecondsSinceEpoch,
+    super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    Random generator = Random();
+    Random generator = Random(seed);
 
     String topic = ModalRoute.of(context).settings.arguments as String;
     int todayScripture = generator.nextInt(Library.topics[topic].length);
@@ -22,10 +28,10 @@ class ActivityPage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(40.0),
+            padding: const EdgeInsets.fromLTRB(40.0, 40.0, 40.0, 80.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 // Instructions
                 Text('Study the following scripture and highlight the parts that are most important to you.',
@@ -40,9 +46,11 @@ class ActivityPage extends StatelessWidget {
                 SizedBox(height: 30),
 
                 // Chapter title
-                Text(verses[0].reference(showVerse: false), style: Theme.of(context).textTheme.headline4.merge(TextStyle(
-                  fontFamily: 'Buenard'
-                ))),
+                Text(
+                  verses[0].reference(showVerse: false),
+                  style: Theme.of(context).textTheme.headline4.merge(TextStyle(fontFamily: 'Buenard')),
+                  textAlign: TextAlign.center,
+                ),
 
               ] + verses.map((scripture) {
                 return Padding(
