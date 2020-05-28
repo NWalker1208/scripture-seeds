@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seeds/services/custom_icons_icons.dart';
+import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/widgets/plant_list.dart';
 import 'package:share/share.dart';
 import 'package:percent_indicator/percent_indicator.dart';
