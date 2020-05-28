@@ -4,10 +4,30 @@ import 'package:seeds/services/library.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/services/utility.dart';
 
-class PlantList extends StatelessWidget {
+class PlantList extends StatefulWidget {
   final String currentlyOpen;
 
   PlantList(this.currentlyOpen, {Key key}) : super(key: key);
+
+  @override
+  _PlantListState createState() => _PlantListState();
+}
+
+class _PlantListState extends State<PlantList> {
+  bool isLoaded;
+
+  @override
+  void initState() {
+    super.initState();
+    if (DatabaseManager.isLoaded)
+      isLoaded = true;
+    else {
+      isLoaded = false;
+      DatabaseManager.loadData().then((succeeded) => setState(() {
+        isLoaded = true;
+      }));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +45,7 @@ class PlantList extends StatelessWidget {
             arguments: topic
           );
 
-          if (topic == currentlyOpen)
+          if (topic == widget.currentlyOpen)
             onPressed = null;
 
           // Choose a color based on the theme for the item that is currently open

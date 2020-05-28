@@ -73,6 +73,9 @@ flutter:
        - asset: fonts/Buenard/Buenard-Regular.ttf
        - asset: fonts/Buenard/Buenard-Bold.ttf
          weight: 700
+   - family: CustomIcons
+     fonts:
+      - asset: fonts/CustomIcons/CustomIcons.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

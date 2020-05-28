@@ -45,7 +45,12 @@ class DatabaseManager {
 
   // Deletes all progress entries
   static void resetProgress() {
-    _records.clear();
+    if (_records != null)
+      _records.clear();
+    else
+      _records = Map<String, ProgressRecord>();
+
+    print('All progress was reset.');
   }
 
   // Deletes the database file

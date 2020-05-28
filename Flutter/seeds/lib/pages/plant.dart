@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seeds/services/custom_icons_icons.dart';
 import 'package:seeds/widgets/plant_list.dart';
 import 'package:share/share.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -48,6 +49,7 @@ class _PlantPageState extends State<PlantPage> {
       builder: (_) => AlertDialog(
         title: Text('Daily Activity'),
         content: Text('You can\'t water this plant again until tomorrow. Would you like to do an activity anyways?'),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         actions: <Widget>[
           FlatButton(
             child: Text('Yes'),
@@ -62,8 +64,6 @@ class _PlantPageState extends State<PlantPage> {
             onPressed: () => Navigator.of(context).pop()
           ),
         ],
-
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
       ),
 
       barrierDismissible: true,
@@ -102,13 +102,26 @@ class _PlantPageState extends State<PlantPage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              child: Center(
-                child: Text(
-                  "My Garden",
-                  style: Theme.of(context).textTheme.headline5.merge(TextStyle(
-                    color: Colors.white
-                  ))
-                ),
+              child: Stack(
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      "My Garden",
+                      style: Theme.of(context).textTheme.headline5.merge(TextStyle(
+                        color: Colors.white
+                      ))
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      icon: Icon(Icons.settings),
+                      color: Colors.white,
+                      tooltip: 'Settings',
+                      onPressed: () => Navigator.pushNamed(context, '/settings').then((value) => getProgress()),
+                    ),
+                  ),
+                ],
               ),
             ),
 
@@ -180,7 +193,7 @@ class _PlantPageState extends State<PlantPage> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.opacity),
+        child: Icon(CustomIcons.water_drop),
         backgroundColor: canMakeProgress ? Theme.of(context).accentColor : Colors.grey[500],
         onPressed: () {
           if (!canMakeProgress)
@@ -197,21 +210,11 @@ class _PlantPageState extends State<PlantPage> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home),
-              onPressed: () async {
-                DatabaseManager.resetProgress();
-                getProgress();
-                /*if (await DatabaseManager.deleteDatabase()) {
-                  print('Deleted database file');
-                  getProgress();
-                } else
-                  print('Database file does not exist');*/
-              },
+              onPressed: () => Navigator.popAndPushNamed(context, '/'),
             ),
             IconButton(
               icon: Icon(Icons.share),
-              onPressed: () {
-                Share.share('Day $progress of 14 on faith!', subject: 'Seeds');
-              },
+              onPressed: () => Share.share('Day $progress of 14 on ${widget.plantName}!', subject: 'Seeds'),
             )
           ],
         )
