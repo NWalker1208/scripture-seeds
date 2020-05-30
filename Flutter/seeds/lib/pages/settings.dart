@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/database_manager.dart';
+import 'package:seeds/widgets/theme_mode_selector.dart';
 
 class SettingsPage extends StatelessWidget {
 
@@ -43,17 +44,34 @@ class SettingsPage extends StatelessWidget {
       ),
 
       body: Builder(
-        builder: (scaffoldContext) => ListView(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+        builder: (scaffoldContext) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            children: <Widget>[
+              // Theme Dropdown
+              Row(
+                children: <Widget>[
+                  Expanded(child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      'App Theme',
+                      style: Theme.of(context).textTheme.bodyText1
+                    ),
+                  )),
+                  SizedBox(width: 8),
+                  ThemeModeSelector()
+                ],
+              ),
+              SizedBox(height: 8,),
+
+              // Reset Progress Button
+              RaisedButton(
                 onPressed: () => resetProgress(scaffoldContext),
                 child: Text('Reset Progress'),
                 color: Colors.redAccent
               ),
-            )
-          ],
+            ],
+          ),
         ),
       )
     );
