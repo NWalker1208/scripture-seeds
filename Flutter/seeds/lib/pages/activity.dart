@@ -1,25 +1,55 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/highlight_text.dart';
 import 'package:seeds/services/library.dart';
 import 'package:seeds/services/scripture.dart';
 import 'package:seeds/services/database_manager.dart';
+import 'package:share/share.dart';
 
-class ActivityPage extends StatelessWidget {
-  final seed;
+class ActivityPage extends StatefulWidget {
+  final String topic;
 
-  ActivityPage({Key key}) :
-    seed = DateTime.now().millisecondsSinceEpoch,
-    super(key: key);
+  ActivityPage(this.topic, {Key key}) : super(key: key);
+
+  @override
+  _ActivityPageState createState() => _ActivityPageState();
+}
+
+class _ActivityPageState extends State<ActivityPage> {
+  List<Scripture> verses;
+  List<List<bool>> highlights;
+  bool activityComplete;
+
+  void updateHighlight(List<bool> highlight, int verse) {
+    setState(() => highlights[verse] = highlight);
+
+    // Determine if the activity is complete
+    bool activityCompleteNew = false;
+    highlights.forEach((verse) => verse.forEach((word) =>
+      activityCompleteNew = activityCompleteNew || word
+    ));
+
+    setState(() {
+      activityComplete = activityCompleteNew;
+    });
+
+    // Print a quote style for debugging
+    print(Scripture.quoteBlockHighlight(verses, highlights));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    int currentProgress = DatabaseManager.getProgressRecord(widget.topic).progress;
+    int scriptureIndex = currentProgress % Library.topics[widget.topic].length;
+    verses = Library.topics[widget.topic][scriptureIndex];
+
+    highlights = List<List<bool>>()..length = verses.length;
+    activityComplete = false;
+  }
 
   @override
   Widget build(BuildContext context) {
-    Random generator = Random(seed);
-
-    String topic = ModalRoute.of(context).settings.arguments as String;
-    int todayScripture = generator.nextInt(Library.topics[topic].length);
-    List<Scripture> verses = Library.topics[topic][todayScripture];
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Daily Activity'),
@@ -52,10 +82,18 @@ class ActivityPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
 
-              ] + verses.map((scripture) {
+              // Map the list of scriptures to a list of highlight text blocks
+              ] + verses.asMap().entries.map((MapEntry scripture) {
                 return Padding(
                   padding: const EdgeInsets.only(top: 15),
-                  child: HighlightText('${scripture.verse}. ${scripture.text}', disabledWords: 1),
+                  child: HighlightText(
+                    '${scripture.value.verse}. ${scripture.value.text}',
+                    disabledWords: 1,
+
+                    // Save highlighted region when changed
+                    onChangeHighlight: (List<bool> highlight) =>
+                      updateHighlight(highlight.sublist(1), scripture.key),
+                  ),
                 );
               }).toList()
             ),
@@ -65,15 +103,21 @@ class ActivityPage extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
-        onPressed: () {
+        backgroundColor: activityComplete ? null : Colors.grey[500],
+        disabledElevation: 2,
+        onPressed: activityComplete ? () {
+          // Share what the user highlighted
+          // TODO: Separate this into a different activity
+          Share.share('"${Scripture.quoteBlockHighlight(verses, highlights)}"');
+
           if (DatabaseManager.isLoaded) {
-            DatabaseManager.updateProgress(topic);
+            DatabaseManager.updateProgress(widget.topic);
             DatabaseManager.saveData();
             Navigator.pop(context, true);
           }
           else
             print('Unable to save progress!');
-        },
+        } : null,
       ),
     );
   }

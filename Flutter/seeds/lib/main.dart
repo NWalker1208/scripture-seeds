@@ -40,7 +40,7 @@ class SeedsApp extends StatelessWidget {
             routes: {
               '/' : (context) => HomePage(),
               '/plant': (context) => PlantPage(ModalRoute.of(context).settings.arguments),
-              '/plant/activity': (context) => ActivityPage(),
+              '/plant/activity': (context) => ActivityPage(ModalRoute.of(context).settings.arguments),
               '/settings' : (context) => SettingsPage(),
             },
           )

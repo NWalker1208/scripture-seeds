@@ -34,4 +34,31 @@ class Scripture {
   String toString() {
     return text;
   }
+
+  String quoteHighlight(List<bool> wordsHighlighted) {
+    List<String> quote = List<String>();
+    List<String> words = text.split(' ');
+
+    bool wordsSkipped = false;
+    for (int i = 0; i < wordsHighlighted.length && i < words.length; i++) {
+      if (wordsHighlighted[i]) {
+        quote.add(words[i]);
+        wordsSkipped = false;
+      } else if (!wordsSkipped) {
+        quote.add('...');
+        wordsSkipped = true;
+      }
+    }
+
+    return quote.join(' ');
+  }
+
+  static String quoteBlockHighlight(List<Scripture> verses, List<List<bool>> wordsHighlighted) {
+    List<String> quote = List<String>();
+
+    for (int i = 0; i < verses.length; i++)
+      quote.add(verses[i].quoteHighlight(wordsHighlighted[i]));
+
+    return quote.join(' ');
+  }
 }

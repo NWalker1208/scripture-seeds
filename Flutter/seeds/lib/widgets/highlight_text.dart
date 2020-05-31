@@ -8,7 +8,9 @@ class HighlightText extends StatefulWidget {
   final List<String> words;
   final int disabledWords;
 
-  HighlightText(String text, {this.disabledWords = 0, Key key}) :
+  final void Function(List<bool>) onChangeHighlight;
+
+  HighlightText(String text, {this.onChangeHighlight, this.disabledWords = 0, Key key}) :
       this.text = text,
       words = text.split(' ').toList(),
       super(key: key);
@@ -23,12 +25,12 @@ enum HighlightAppearance {
 
 class _HighlightTextState extends State<HighlightText> {
 
-  List<GlobalKey> wordKeys;
-  List<bool> highlightedWords;
+  List<bool> _highlightedWords;
+  List<GlobalKey> _wordKeys;
 
-  int highlightStart;
-  int highlightEnd;
-  bool highlightAction;
+  int _highlightStart;
+  int _highlightEnd;
+  bool _highlightAction;
 
   // Returns true if the word is highlighted or will be highlighted
   HighlightAppearance appearsHighlighted(int word)
@@ -36,14 +38,14 @@ class _HighlightTextState extends State<HighlightText> {
     if (word < widget.disabledWords)
       return HighlightAppearance.off;
 
-    if (highlightStart != null) {
-      if (word >= min(highlightStart, highlightEnd) &&
-          word <= max(highlightStart, highlightEnd) &&
-          highlightedWords[word] != highlightAction)
+    if (_highlightStart != null) {
+      if (word >= min(_highlightStart, _highlightEnd) &&
+          word <= max(_highlightStart, _highlightEnd) &&
+          _highlightedWords[word] != _highlightAction)
         return HighlightAppearance.changing;
     }
 
-    if (highlightedWords[word])
+    if (_highlightedWords[word])
       return HighlightAppearance.on;
     else
       return HighlightAppearance.off;
@@ -53,9 +55,9 @@ class _HighlightTextState extends State<HighlightText> {
   // Returns null if no word is present at that location
   int getWordAt(Offset globalPos)
   {
-    for (int i = 0; i < wordKeys.length; i++)
+    for (int i = 0; i < _wordKeys.length; i++)
     {
-      RenderBox wordBox = wordKeys[i].currentContext.findRenderObject();
+      RenderBox wordBox = _wordKeys[i].currentContext.findRenderObject();
       Size size = wordBox.size;
       Offset localPos = wordBox.globalToLocal(globalPos);
 
@@ -75,20 +77,20 @@ class _HighlightTextState extends State<HighlightText> {
 
     setState(() {
       if (setStart) {
-        highlightStart = currentWord;
-        highlightEnd = currentWord;
+        _highlightStart = currentWord;
+        _highlightEnd = currentWord;
 
         if (currentWord != null)
-          highlightAction = !highlightedWords[currentWord];
-      } else if (currentWord != null && highlightStart != null) {
-        highlightEnd = currentWord;
+          _highlightAction = !_highlightedWords[currentWord];
+      } else if (currentWord != null && _highlightStart != null) {
+        _highlightEnd = currentWord;
       }
     });
 
-    if (apply && highlightStart != null && highlightEnd != null)
+    if (apply && _highlightStart != null && _highlightEnd != null)
     {
-      applyHighlight(min(highlightStart, highlightEnd), max(highlightStart, highlightEnd), highlightAction);
-      highlightStart = highlightEnd = null;
+      applyHighlight(min(_highlightStart, _highlightEnd), max(_highlightStart, _highlightEnd), _highlightAction);
+      _highlightStart = _highlightEnd = null;
     }
   }
 
@@ -98,7 +100,9 @@ class _HighlightTextState extends State<HighlightText> {
     setState(() {
       for (int i = start; i <= end; i++)
         if (i >= widget.disabledWords)
-          highlightedWords[i] = highlighted;
+          _highlightedWords[i] = highlighted;
+
+      widget.onChangeHighlight(_highlightedWords);
     });
   }
 
@@ -126,13 +130,14 @@ class _HighlightTextState extends State<HighlightText> {
         onTap: () {
           if (i >= widget.disabledWords)
             setState(() {
-              highlightedWords[i] = !highlightedWords[i];
+              _highlightedWords[i] = !_highlightedWords[i];
+              widget.onChangeHighlight(_highlightedWords);
             });
         },
 
         // Animated for changing highlight
         child: AnimatedContainer(
-          key: wordKeys[i],
+          key: _wordKeys[i],
 
           duration: Duration(milliseconds: 100),
           decoration: BoxDecoration(
@@ -168,8 +173,8 @@ class _HighlightTextState extends State<HighlightText> {
   @override
   void initState() {
     super.initState();
-    highlightedWords = List<bool>.filled(widget.words.length, false);
-    wordKeys = highlightedWords.map((e) => GlobalKey()).toList();
+    _highlightedWords = List<bool>.filled(widget.words.length, false);
+    _wordKeys = _highlightedWords.map((e) => GlobalKey()).toList();
   }
 
   @override
