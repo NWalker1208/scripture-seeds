@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/theme_mode_setting.dart';
+import 'package:seeds/services/theme_preference.dart';
 
 class ThemeModeSelector extends StatefulWidget {
   @override
@@ -9,12 +9,12 @@ class ThemeModeSelector extends StatefulWidget {
 
 class _ThemeModeSelectorState extends State<ThemeModeSelector> {
   void setMode(BuildContext context, ThemeMode newMode) {
-    Provider.of<ThemeModeSetting>(context, listen: false).mode = newMode;
+    Provider.of<ThemePreference>(context, listen: false).mode = newMode;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeModeSetting>(
+    return Consumer<ThemePreference>(
       builder: (context, setting, child) => DropdownButton<ThemeMode>(
         value: setting.mode,
         icon: Icon(Icons.arrow_drop_down),

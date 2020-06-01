@@ -1,56 +1,84 @@
+import 'package:flutter/material.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mutex/mutex.dart';
 import 'dart:io';
 
-class DatabaseManager {
+class ProgressData extends ChangeNotifier {
   static const String kDatabaseFile = 'progress.db';
   static const String kProgressTable = 'progress';
 
-  static Map<String, ProgressRecord> _records;
+  Map<String, ProgressRecord> _records;
 
   /// Front-End
-  // Check if the database has been loaded
-  static bool get isLoaded => _records != null;
-
-  // Creates a progress record
-  static void createProgressRecord(ProgressRecord record) {
-    _records[record.name] = record;
+  ProgressData() {
+    _loadData().then((success) {
+      if (success)
+        notifyListeners();
+    });
   }
 
+  // Check if the database has been loaded
+  bool get isLoaded => _records != null;
+
   // Gets the progress for a specific item
-  static ProgressRecord getProgressRecord(String name) {
-    if (_records == null)
+  // Returns null if the database has not been loaded.
+  // Returns a record with 0 progress if the record does not exist.
+  ProgressRecord getProgressRecord(String name) {
+    if (!isLoaded)
       return null;
+
+    if (!_records.containsKey(name))
+      return ProgressRecord(name);
 
     return _records[name];
   }
 
-  // Updates the progress for specific item by incrementing by 1 and setting the date
-  static bool updateProgress(String name, {bool force = false}) {
-    ProgressRecord progress = _records[name];
+  // Creates a progress record
+  bool createProgressRecord(ProgressRecord record) {
+    if (!isLoaded)
+      return false;
 
-    if (progress == null) {
-      createProgressRecord(ProgressRecord(name: name, progress: 1, lastUpdate: DateTime.now()));
-      return true;
-    }
-    else if (force || progress.canMakeProgressToday) {
+    _records[record.name] = record;
+    // Save to database and notify listeners
+    _saveData();
+    notifyListeners();
+
+    return true;
+  }
+
+  // Updates the progress for specific item by incrementing by 1 and setting the date
+  bool updateProgress(String name, {bool force = false}) {
+    if (!isLoaded)
+      return false;
+
+    ProgressRecord progress = getProgressRecord(name);
+
+    if (progress == null)
+      return false;
+
+    if (force || progress.canMakeProgressToday) {
       progress.progress++;
       progress.lastUpdate = DateTime.now();
       _records[name] = progress;
+      // Save to database and notify listeners
+      _saveData();
+      notifyListeners();
+
       return true;
-    }
-    return false;
+    } else
+      return false;
   }
 
   // Deletes all progress entries
-  static void resetProgress() {
-    if (_records != null)
+  bool resetProgress() {
+    if (isLoaded) {
       _records.clear();
-    else
-      _records = Map<String, ProgressRecord>();
-
-    print('All progress was reset.');
+      _saveData();
+      notifyListeners();
+      return true;
+    } else
+      return false;
   }
 
   // Deletes the database file
@@ -72,7 +100,7 @@ class DatabaseManager {
 
   // Loads in data from the database file.
   // This should only need to be called when the program starts.
-  static Future<bool> loadData() async {
+  Future<bool> _loadData() async {
     try {
       print('Loading database...');
       await _databaseMutex.acquire();
@@ -90,13 +118,13 @@ class DatabaseManager {
     }
   }
 
-  static Future<bool> saveData() async {
+  Future<bool> _saveData() async {
     try {
       print('Saving database...');
       await _databaseMutex.acquire();
       Database db = await _openDatabase();
 
-      await _updateRecords(db);
+      await _updateRecords(db, _records);
 
       await db.close();
       _databaseMutex.release();
@@ -152,8 +180,7 @@ class DatabaseManager {
   }
 
   // Updates the records in the database with the records cached here
-  static Future<void> _updateRecords(Database db) async {
-    Map<String, ProgressRecord> recordsCopy = Map.from(_records);
+  static Future<void> _updateRecords(Database db, Map<String, ProgressRecord> records) async {
     Map<String, ProgressRecord> oldRecords = await _queryRecords(db);
 
     // Save all actions to a batch
@@ -161,12 +188,12 @@ class DatabaseManager {
 
     // Delete oldRecords that don't exist any more
     oldRecords.forEach((name, progress) {
-      if (!recordsCopy.containsKey(name))
+      if (!records.containsKey(name))
         batch.delete(kProgressTable, where: 'name = ?', whereArgs: [name]);
     });
 
     // Update or create records
-    recordsCopy.forEach((name, progress) {
+    records.forEach((name, progress) {
       if (oldRecords.containsKey(name)) {
         batch.update(
           kProgressTable,

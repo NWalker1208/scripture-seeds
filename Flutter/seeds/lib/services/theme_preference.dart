@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeModeSetting extends ChangeNotifier {
-  static const String kThemeModePref = 'theme';
+class ThemePreference extends ChangeNotifier {
+  static const String kThemePref = 'theme';
 
   ThemeMode _mode;
 
@@ -23,16 +23,16 @@ class ThemeModeSetting extends ChangeNotifier {
       else if (_mode == ThemeMode.dark)
         savedMode = 2;
 
-      prefs.setInt(kThemeModePref, savedMode);
+      prefs.setInt(kThemePref, savedMode);
     });
   }
 
-  ThemeModeSetting({ThemeMode defaultMode = ThemeMode.system}) {
+  ThemePreference({ThemeMode defaultMode = ThemeMode.system}) {
     _mode = defaultMode;
 
     // Get shared preferences
     SharedPreferences.getInstance().then((prefs) {
-      int savedMode = prefs.getInt(kThemeModePref) ?? 0;
+      int savedMode = prefs.getInt(kThemePref) ?? 0;
 
       if (savedMode == 0)
         _mode = ThemeMode.system;

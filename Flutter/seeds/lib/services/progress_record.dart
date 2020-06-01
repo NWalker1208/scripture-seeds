@@ -9,10 +9,10 @@ class ProgressRecord {
   int progress;
   DateTime lastUpdate;
 
-  ProgressRecord({this.name, this.progress = 0, this.lastUpdate});
+  ProgressRecord(this.name, {this.progress = 0, this.lastUpdate});
 
   factory ProgressRecord.fromMap(Map<String, dynamic> data) => ProgressRecord(
-    name: data[kName],
+    data[kName],
     progress: data[kProgress],
     lastUpdate: DateTime.parse(data[kLastUpdate])
   );

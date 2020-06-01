@@ -1,15 +1,13 @@
-import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/widgets/plant_list.dart';
 import 'package:share/share.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:seeds/services/database_manager.dart';
-import 'package:seeds/services/progress_record.dart';
+import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/plant_painter.dart';
+import 'package:provider/provider.dart';
 
-class PlantPage extends StatefulWidget {
+class PlantPage extends StatelessWidget {
   static final String defaultPlant = 'faith';
   final String plantName;
 
@@ -17,45 +15,21 @@ class PlantPage extends StatefulWidget {
       plantName = (plantName == null) ? defaultPlant : plantName,
       super(key: key);
 
-  @override
-  _PlantPageState createState() => _PlantPageState();
-}
-
-class _PlantPageState extends State<PlantPage> {
-  int progress = 0;
-  bool canMakeProgress = true;
-
-  void getProgress() {
-    print('Getting progress for plant view...');
-    ProgressRecord record = DatabaseManager.getProgressRecord(widget.plantName);
-
-    if (DatabaseManager.isLoaded) {
-      print('Using cached database progress.');
-      setState(() {
-        progress = (record != null) ? min(record.progress, 14) : 0;
-        canMakeProgress = (record != null) ? record.canMakeProgressToday : true;
-      });
-    } else {
-      print('Database has not been loaded. Retrieving data...');
-      DatabaseManager.loadData().then((e) => getProgress());
-    }
-  }
-
   // Opens a dialog for when today's activity has already been completed
-  void openActivityDialog() {
+  void openActivityDialog(BuildContext context) {
     showDialog(
       context: context,
 
       builder: (_) => AlertDialog(
         title: Text('Daily Activity'),
         content: Text('You can\'t water this plant again until tomorrow. Would you like to do an activity anyways?'),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+
         actions: <Widget>[
           FlatButton(
             child: Text('Yes'),
             onPressed: () {
               Navigator.of(context).pop();
-              openActivity();
+              openActivity(context);
             }
           ),
 
@@ -70,23 +44,12 @@ class _PlantPageState extends State<PlantPage> {
     );
   }
 
-  void openActivity() {
+  void openActivity(BuildContext context) {
     Navigator.pushNamed(
       context,
       '/plant/activity',
-      arguments: widget.plantName
-    ).then(
-        (value) {
-        if (value == true)
-          getProgress();
-      }
+      arguments: plantName
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getProgress();
   }
 
   @override
@@ -118,18 +81,19 @@ class _PlantPageState extends State<PlantPage> {
                       icon: Icon(Icons.settings),
                       color: Colors.white,
                       tooltip: 'Settings',
-                      onPressed: () => Navigator.pushNamed(context, '/settings').then((value) => getProgress()),
+                      onPressed: () => Navigator.pushNamed(context, '/settings'),
                     ),
                   ),
                 ],
               ),
             ),
 
-            PlantList(widget.plantName)
+            PlantList(plantName)
           ],
         )
       ),
 
+      // Body area of scaffold with plant image
       backgroundColor: (Theme.of(context).brightness == Brightness.light ?
         Colors.lightBlue[200] :
         Colors.indigo[900]
@@ -154,53 +118,69 @@ class _PlantPageState extends State<PlantPage> {
         clipBehavior: Clip.none,
 
         // Plant Display Region
-        child:  CustomPaint(
-          painter: PlantPainter(progress),
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  widget.plantName,
-                  style: Theme.of(context).textTheme.headline3.merge(TextStyle(
-                    fontFamily: 'Scriptina',
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
-                  ))
+        child:  Consumer<ProgressData>(
+          builder: (context, progressData, child) {
+            int progress = progressData.getProgressRecord(plantName).progress;
+
+            return CustomPaint(
+              painter: PlantPainter(progress),
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    // Title (plantName)
+                    child,
+
+                    // Progress bar
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                      child: LinearPercentIndicator(
+                        backgroundColor: Colors.green[700].withAlpha(80),
+                        progressColor: Colors.green,
+                        linearStrokeCap: LinearStrokeCap.roundAll,
+                        animation: true,
+                        animationDuration: 500,
+
+                        leading: Text('${(progress/14 * 100).round()} %'),
+                        trailing: Icon(Icons.flag),
+
+                        percent: progress / 14.0,
+                      ),
+                    )
+                  ],
                 ),
+              ),
+            );
+          },
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
-                  child: LinearPercentIndicator(
-                    backgroundColor: Colors.green[700].withAlpha(80),
-                    progressColor: Colors.green,
-                    linearStrokeCap: LinearStrokeCap.roundAll,
-                    animation: true,
-                    animationDuration: 500,
-
-                    leading: Text('${(progress/14 * 100).round()} %'),
-                    trailing: Icon(Icons.flag),
-
-                    percent: progress / 14.0,
-                  ),
-                )
-              ],
-            ),
-          ),
+          child: Text(
+            plantName,
+            style: Theme.of(context).textTheme.headline3.merge(TextStyle(
+              fontFamily: 'Scriptina',
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
+            ))
+          )
         )
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(CustomIcons.water_drop),
-        backgroundColor: canMakeProgress ? Theme.of(context).accentColor : Colors.grey[500],
-        onPressed: () {
-          if (!canMakeProgress)
-            openActivityDialog();
-          else
-            openActivity();
-        }
+      floatingActionButton: Consumer<ProgressData>(
+        builder: (context, progressData, child) {
+          bool canMakeProgress = progressData.getProgressRecord(plantName).canMakeProgressToday;
+
+          return FloatingActionButton(
+            child: Icon(CustomIcons.water_drop),
+            backgroundColor: canMakeProgress ? Theme.of(context).accentColor : Colors.grey[500],
+            onPressed: () {
+              if (!canMakeProgress)
+                openActivityDialog(context);
+              else
+                openActivity(context);
+            }
+          );
+        },
       ),
 
       bottomNavigationBar: BottomAppBar(
@@ -212,9 +192,11 @@ class _PlantPageState extends State<PlantPage> {
               icon: Icon(Icons.home),
               onPressed: () => Navigator.popAndPushNamed(context, '/'),
             ),
-            IconButton(
-              icon: Icon(Icons.share),
-              onPressed: () => Share.share('Day $progress of 14 on ${widget.plantName}!', subject: 'Seeds'),
+            Consumer<ProgressData>(
+              builder: (context, progressData, child) => IconButton(
+                icon: Icon(Icons.share),
+                onPressed: () => Share.share('Day ${progressData.getProgressRecord(plantName).progress} of 14 on $plantName!', subject: 'Seeds'),
+              ),
             )
           ],
         )

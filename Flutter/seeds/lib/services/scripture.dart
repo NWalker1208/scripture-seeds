@@ -57,7 +57,8 @@ class Scripture {
     List<String> quote = List<String>();
 
     for (int i = 0; i < verses.length; i++)
-      quote.add(verses[i].quoteHighlight(wordsHighlighted[i]));
+      if (wordsHighlighted[i] != null)
+        quote.add(verses[i].quoteHighlight(wordsHighlighted[i]));
 
     return quote.join(' ');
   }

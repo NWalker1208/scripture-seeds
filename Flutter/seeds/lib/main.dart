@@ -3,7 +3,9 @@ import 'package:seeds/pages/home.dart';
 import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/settings.dart';
-import 'package:seeds/services/theme_mode_setting.dart';
+import 'package:seeds/services/progress_data.dart';
+import 'package:seeds/services/theme_preference.dart';
+import 'package:seeds/services/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -13,26 +15,21 @@ void main() {
 class SeedsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ThemeModeSetting>(
-      create: (context) => ThemeModeSetting(),
+    return MultiProvider(
+      providers: [
+        // ThemePreference notifier
+        ChangeNotifierProvider(create: (context) => ThemePreference()),
+        // ThemePreference notifier
+        ChangeNotifierProvider(create: (context) => ProgressData())
+      ],
 
-      child: Consumer<ThemeModeSetting>(
+      child: Consumer<ThemePreference>(
         builder: (context, setting, child) =>
           MaterialApp(
             title: 'Seeds',
 
-            theme: ThemeData(
-              primarySwatch: Colors.green,
-              accentColor: Colors.blue,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-            ),
-            darkTheme: ThemeData(
-              brightness: Brightness.dark,
-              primarySwatch: Colors.green,
-              accentColor: Colors.blue,
-              textSelectionColor: Colors.green[500],
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-            ),
+            theme: AppThemes.lightTheme,
+            darkTheme: AppThemes.darkTheme,
 
             themeMode: setting.mode,
 

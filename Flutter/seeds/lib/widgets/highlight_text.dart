@@ -188,7 +188,7 @@ class _HighlightTextState extends State<HighlightText> {
       child: Wrap(
         direction: Axis.horizontal,
         alignment: WrapAlignment.start,
-        spacing: -1,
+        spacing: -0.5,
         runSpacing: 4,
         children: buildParagraph(context)
       ),

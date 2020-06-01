@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/database_manager.dart';
+import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/theme_mode_selector.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
 
@@ -8,32 +9,29 @@ class SettingsPage extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: true,
-      builder: (BuildContext context) =>
+      builder: (BuildContext dialogContext) =>
         AlertDialog(
           title: Text('Reset Progress'),
           content: Text('Are you sure you want to reset your progress? This cannot be undone.'),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+
           actions: <Widget>[
-            new FlatButton(child: Text('Yes'), onPressed: () => Navigator.pop(context, true),),
-            new RaisedButton(child: Text('No'), onPressed: () => Navigator.pop(context, false),)
+            // Reset progress if user selects yes
+            new FlatButton(child: Text('Yes'), onPressed: () {
+              Navigator.pop(dialogContext);
+
+              ProgressData progressData = Provider.of<ProgressData>(context, listen: false);
+              progressData.resetProgress();
+
+              Scaffold.of(context).showSnackBar(SnackBar(
+                content: Text('Your progress has been reset.'),
+              ));
+            }),
+
+            // Close dialog if user selects no
+            new RaisedButton(child: Text('No'), onPressed: () => Navigator.pop(context),)
           ],
         )
-    ).then((doReset) {
-      if (doReset == true) {
-        if (DatabaseManager.isLoaded) {
-          DatabaseManager.resetProgress();
-          DatabaseManager.saveData();
-        } else
-          DatabaseManager.loadData().then((succeeded) {
-            DatabaseManager.resetProgress();
-            DatabaseManager.saveData();
-          });
-
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Your progress has been reset.'),
-        ));
-      }
-    });
+    );
   }
 
   @override
