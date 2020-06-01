@@ -14,7 +14,10 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: PlantList(''),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: PlantList(''),
+      ),
     );
   }
 }

@@ -64,31 +64,55 @@ class PlantPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             DrawerHeader(
+              margin: EdgeInsets.zero,
               decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              child: Stack(
-                children: <Widget>[
-                  Center(
-                    child: Text(
-                      "My Garden",
-                      style: Theme.of(context).textTheme.headline5.merge(TextStyle(
-                        color: Colors.white
-                      ))
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      icon: Icon(Icons.settings),
-                      color: Colors.white,
-                      tooltip: 'Settings',
-                      onPressed: () => Navigator.pushNamed(context, '/settings'),
-                    ),
-                  ),
-                ],
+              child: Center(
+                child: Text(
+                  "My Garden",
+                  style: Theme.of(context).textTheme.headline5.merge(TextStyle(
+                    color: Colors.white
+                  ))
+                ),
               ),
             ),
 
-            PlantList(plantName)
+            Padding(padding: EdgeInsets.all(8.0), child: Column(children: <Widget>[
+              PlantList(plantName),
+
+              Divider(thickness: 1, indent: 8, endIndent: 8,),
+
+              FlatButton(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(right:16.0),
+                      child: Icon(Icons.home),
+                    ),
+                    Expanded(child: Text('Home')),
+                  ],
+                ),
+
+                onPressed: () { Navigator.pop(context); Navigator.pushReplacementNamed(context, '/'); },
+              ),
+
+              FlatButton(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(right:16.0),
+                      child: Icon(Icons.settings),
+                    ),
+                    Expanded(child: Text('Settings')),
+                  ],
+                ),
+
+                onPressed: () => Navigator.pushNamed(context, '/settings'),
+              )
+              ],
+
+            ),),
           ],
         )
       ),
