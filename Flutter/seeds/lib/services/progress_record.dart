@@ -4,6 +4,7 @@ class ProgressRecord {
   static const String kName = 'name';
   static const String kProgress = 'progress';
   static const String kLastUpdate = 'lastUpdate';
+  static const int kMaxInactiveDays = 3;
 
   String name;
   int progress;
@@ -28,5 +29,29 @@ class ProgressRecord {
     return toMap().toString();
   }
 
-  bool get canMakeProgressToday => isFutureDay(lastUpdate, DateTime.now());
+  int get daysSinceLastUpdate => lastUpdate.daysUntil(DateTime.now());
+  bool get canMakeProgressToday => lastUpdate == null || daysSinceLastUpdate > 0;
+  int get progressLost {
+    int lost = daysSinceLastUpdate;
+
+    if (lost == null)
+      return 0;
+    else
+      lost -= kMaxInactiveDays;
+
+    if (lost < 0)
+      lost = 0;
+
+    return lost;
+  }
+
+  // Returns the stored progress minus progress lost from inactivity
+  int get totalProgress {
+    int total = progress - progressLost;
+
+    if (total < 0)
+      total = 0;
+
+    return total;
+  }
 }

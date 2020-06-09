@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class PlantPainter extends CustomPainter {
   final int length;
+  final bool wilted;
 
-  PlantPainter(this.length);
+  PlantPainter(this.length, this.wilted);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -16,7 +17,7 @@ class PlantPainter extends CustomPainter {
     // Draw plant
     Paint plant = Paint()
       ..style = PaintingStyle.stroke
-      ..color = Colors.green
+      ..color = (wilted ? Color(0xFFB98D51) : Colors.green)
       ..strokeWidth = 5;
 
     Path plantPath = Path();

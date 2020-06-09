@@ -48,7 +48,7 @@ class ProgressData extends ChangeNotifier {
   }
 
   // Updates the progress for specific item by incrementing by 1 and setting the date
-  bool updateProgress(String name, {bool force = false}) {
+  bool addProgress(String name, {bool force = false}) {
     if (!isLoaded)
       return false;
 
@@ -58,7 +58,7 @@ class ProgressData extends ChangeNotifier {
       return false;
 
     if (force || progress.canMakeProgressToday) {
-      progress.progress++;
+      progress.progress = progress.totalProgress + 1;
       progress.lastUpdate = DateTime.now();
       _records[name] = progress;
       // Save to database and notify listeners

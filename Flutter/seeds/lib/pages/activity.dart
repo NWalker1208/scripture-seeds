@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/study.dart';
-import 'package:share/share.dart';
+//import 'package:share/share.dart';
 import 'package:provider/provider.dart';
 
 class ActivityPage extends StatefulWidget {
@@ -40,7 +40,7 @@ class _ActivityPageState extends State<ActivityPage> {
           // TODO: Separate this into a different activity
           //Share.share('"${Scripture.quoteBlockHighlight(verses, highlights)}"');
 
-          Provider.of<ProgressData>(context, listen: false).updateProgress(widget.topic);
+          Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
           Navigator.pop(context, true);
         } : null,
       ),

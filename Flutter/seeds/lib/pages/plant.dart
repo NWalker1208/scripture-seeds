@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
+import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/widgets/plant_list.dart';
 import 'package:share/share.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -144,10 +145,12 @@ class PlantPage extends StatelessWidget {
         // Plant Display Region
         child:  Consumer<ProgressData>(
           builder: (context, progressData, child) {
-            int progress = progressData.getProgressRecord(plantName).progress;
+            ProgressRecord record = progressData.getProgressRecord(plantName);
+            int progress = record.totalProgress;
+            bool wilted = record.progressLost > 0;
 
             return CustomPaint(
-              painter: PlantPainter(progress),
+              painter: PlantPainter(progress, wilted),
               child: Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -219,7 +222,7 @@ class PlantPage extends StatelessWidget {
             Consumer<ProgressData>(
               builder: (context, progressData, child) => IconButton(
                 icon: Icon(Icons.share),
-                onPressed: () => Share.share('Day ${progressData.getProgressRecord(plantName).progress} of 14 on $plantName!', subject: 'Seeds'),
+                onPressed: () => Share.share('Day ${progressData.getProgressRecord(plantName).totalProgress} of 14 on $plantName!', subject: 'Seeds'),
               ),
             )
           ],
