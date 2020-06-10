@@ -3,6 +3,7 @@ import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/study.dart';
 //import 'package:share/share.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/activity_progress.dart';
 
 class ActivityPage extends StatefulWidget {
   final String topic;
@@ -31,10 +32,11 @@ class _ActivityPageState extends State<ActivityPage> {
 
       body: StudyActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed)),
 
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         backgroundColor: activityComplete ? null : Colors.grey[500],
-        disabledElevation: 2,
+        disabledElevation: 1,
         onPressed: activityComplete ? () {
           // Share what the user highlighted
           // TODO: Separate this into a different activity
@@ -43,6 +45,12 @@ class _ActivityPageState extends State<ActivityPage> {
           Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
           Navigator.pop(context, true);
         } : null,
+      ),
+
+      // Bottom app bar shows progress through the day's activity
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: ActivityProgressMap(activityComplete ? 1 : 0)
       ),
     );
   }
