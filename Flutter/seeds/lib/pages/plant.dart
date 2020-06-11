@@ -9,12 +9,10 @@ import 'package:seeds/widgets/plant_painter.dart';
 import 'package:provider/provider.dart';
 
 class PlantPage extends StatelessWidget {
-  static final String defaultPlant = 'faith';
   final String plantName;
+  final int initialProgress;
 
-  PlantPage(plantName, {Key key}) :
-      plantName = (plantName == null) ? defaultPlant : plantName,
-      super(key: key);
+  PlantPage({this.plantName = 'faith', this.initialProgress = 0, Key key}) : super(key: key);
 
   // Opens a dialog for when today's activity has already been completed
   void openActivityDialog(BuildContext context) {
@@ -147,7 +145,9 @@ class PlantPage extends StatelessWidget {
           builder: (context, progressData, child) {
             ProgressRecord record = progressData.getProgressRecord(plantName);
             int progress = record.totalProgress;
-            bool wilted = record.progressLost > 0;
+            bool wilted = (record.lastUpdate == null) ?
+                            false :
+                            (record.daysSinceLastUpdate >= ProgressRecord.kMaxInactiveDays);
 
             return CustomPaint(
               painter: PlantPainter(progress, wilted),
@@ -162,17 +162,22 @@ class PlantPage extends StatelessWidget {
                     // Progress bar
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.green[700].withAlpha(80),
-                        progressColor: Colors.green,
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        animation: true,
-                        animationDuration: 500,
+                      child: TweenAnimationBuilder(
+                        tween: Tween<double>(begin: initialProgress/14.0, end: progress/14.0),
+                        duration: Duration(milliseconds: 1000),
+                        curve: Curves.easeInOutCubic,
 
-                        leading: Text('${(progress/14 * 100).round()} %'),
-                        trailing: Icon(Icons.flag),
+                        builder: (BuildContext context, double percent, Widget child) => LinearPercentIndicator(
+                          backgroundColor: Colors.green[700].withAlpha(80),
+                          progressColor: Colors.green,
+                          linearStrokeCap: LinearStrokeCap.roundAll,
+                          animation: false,
 
-                        percent: progress / 14.0,
+                          leading: Text('${(progress/14.0 * 100).round()} %'),
+                          trailing: Icon(Icons.flag),
+
+                          percent: percent,
+                        ),
                       ),
                     )
                   ],

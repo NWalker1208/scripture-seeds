@@ -50,7 +50,10 @@ class _ActivityPageState extends State<ActivityPage> {
       // Bottom app bar shows progress through the day's activity
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
-        child: ActivityProgressMap(activityComplete ? 1 : 0)
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(15, 15, 90, 15),
+          child: ActivityProgressMap(activityComplete ? 1 : 0),
+        )
       ),
     );
   }
