@@ -65,7 +65,7 @@ class SettingsPage extends StatelessWidget {
               // Reset Progress Button
               RaisedButton(
                 onPressed: () => resetProgress(scaffoldContext),
-                child: Text('Reset Progress'),
+                child: Text('Reset Progress', style: Theme.of(context).textTheme.button.copyWith(color: Colors.white)),
                 color: Theme.of(context).errorColor
               ),
             ],
