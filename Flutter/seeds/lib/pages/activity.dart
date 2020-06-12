@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/progress_data.dart';
+import 'package:seeds/widgets/activities/activity_widget.dart';
+import 'package:seeds/widgets/activities/ponder.dart';
 import 'package:seeds/widgets/activities/study.dart';
-//import 'package:share/share.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/widgets/activity_progress.dart';
 
@@ -16,21 +17,42 @@ class ActivityPage extends StatefulWidget {
 
 class _ActivityPageState extends State<ActivityPage> {
   bool activityComplete;
+  int activityStage;
 
   @override
   void initState() {
     super.initState();
     activityComplete = false;
+    activityStage = 0;
   }
 
   @override
   Widget build(BuildContext context) {
+    ActivityWidget activity;
+
+    // Display the current activity
+    switch (activityStage) {
+      case 0:
+        activity = StudyActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        break;
+      case 1:
+        activity = PonderActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        break;
+      case 2:
+        // TODO: Replace with share activity
+        activity = PonderActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        break;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Daily Activity'),
       ),
 
-      body: StudyActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed)),
+      body: AnimatedSwitcher(
+        duration: Duration(milliseconds: 200),
+        child: activity
+      ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
@@ -38,12 +60,15 @@ class _ActivityPageState extends State<ActivityPage> {
         backgroundColor: activityComplete ? null : Colors.grey[500],
         disabledElevation: 1,
         onPressed: activityComplete ? () {
-          // Share what the user highlighted
-          // TODO: Separate this into a different activity
-          //Share.share('"${Scripture.quoteBlockHighlight(verses, highlights)}"');
-
-          Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
-          Navigator.pop(context, true);
+          if (activityStage == 2) {
+            Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
+            Navigator.pop(context, true);
+          } else {
+            setState(() {
+              activityComplete = false;
+              activityStage++;
+            });
+          }
         } : null,
       ),
 
@@ -52,7 +77,7 @@ class _ActivityPageState extends State<ActivityPage> {
         shape: CircularNotchedRectangle(),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(15, 15, 90, 15),
-          child: ActivityProgressMap(activityComplete ? 1 : 0),
+          child: ActivityProgressMap(activityStage),
         )
       ),
     );

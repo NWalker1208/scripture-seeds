@@ -11,3 +11,4 @@ An app to encourage the development of Christ-like attributes.
 ## Bonus
 - Improve animation of plant and progress bar
 - Improve plant display
+- Define word
