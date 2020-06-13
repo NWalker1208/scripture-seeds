@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
-import 'package:seeds/widgets/activities/ponder.dart';
 import 'package:seeds/widgets/activities/study.dart';
+import 'package:seeds/widgets/activities/ponder.dart';
+import 'package:seeds/widgets/activities/share.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/widgets/activity_progress.dart';
 
@@ -39,8 +40,7 @@ class _ActivityPageState extends State<ActivityPage> {
         activity = PonderActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
         break;
       case 2:
-        // TODO: Replace with share activity
-        activity = PonderActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        activity = ShareActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
         break;
     }
 

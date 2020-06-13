@@ -59,4 +59,13 @@ extension StringExtension on String {
     else
       return '';
   }
+
+  int get wordCount {
+    final RegExp containsLetter = RegExp(r'.*[a-zA-Z].*');
+
+    List<String> words = this.split(' ');
+    words.removeWhere((word) => !containsLetter.hasMatch(word));
+
+    return words.length;
+  }
 }
