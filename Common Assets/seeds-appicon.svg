@@ -8,17 +8,17 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:export-ydpi="153.60001"
-   inkscape:export-xdpi="153.60001"
-   inkscape:export-filename="C:\Users\natha\Programming\Orchard\Common Assets\seeds-logo-white.png"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="seeds-appicon.svg"
-   id="svg33"
-   height="640"
-   width="640"
-   viewBox="0 0 640 640"
+   version="1.1"
    preserveAspectRatio="xMidYMid meet"
-   version="1.1">
+   viewBox="0 0 640 640"
+   width="640"
+   height="640"
+   id="svg33"
+   sodipodi:docname="seeds-appicon.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:export-filename="C:\Users\natha\Programming\Orchard\Common Assets\seeds-appicon-bg.png"
+   inkscape:export-xdpi="153.60001"
+   inkscape:export-ydpi="153.60001">
   <metadata
      id="metadata37">
     <rdf:RDF>
@@ -32,150 +32,150 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:current-layer="layer3"
-     inkscape:window-maximized="1"
-     inkscape:window-y="-8"
-     inkscape:window-x="-8"
-     inkscape:cy="350.11765"
-     inkscape:cx="-85.336845"
-     inkscape:zoom="0.66245342"
-     showgrid="false"
-     id="namedview35"
-     inkscape:window-height="1017"
-     inkscape:window-width="1920"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
-     bordercolor="#666666"
+     inkscape:document-rotation="0"
      pagecolor="#ffffff"
-     inkscape:document-rotation="0" />
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview35"
+     showgrid="false"
+     inkscape:zoom="0.66245342"
+     inkscape:cx="-85.336845"
+     inkscape:cy="350.11765"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3" />
   <defs
      id="defs7">
     <linearGradient
-       inkscape:collect="always"
-       id="linearGradient1037">
+       id="linearGradient1037"
+       inkscape:collect="always">
       <stop
-         style="stop-color:#3a2e00;stop-opacity:1;"
+         id="stop1033"
          offset="0"
-         id="stop1033" />
+         style="stop-color:#3a2e00;stop-opacity:1;" />
       <stop
-         style="stop-color:#665100;stop-opacity:1"
+         id="stop1035"
          offset="1"
-         id="stop1035" />
+         style="stop-color:#665100;stop-opacity:1" />
     </linearGradient>
     <path
-       id="eUndEUxv8"
-       d="M185.23 490.22C214.9 556.29 323.33 572.06 427.21 525.4C531.09 478.75 591.33 387.22 561.65 321.15C531.97 255.08 487.72 370.31 383.85 416.96C279.97 463.62 155.55 424.15 185.23 490.22Z" />
+       d="M185.23 490.22C214.9 556.29 323.33 572.06 427.21 525.4C531.09 478.75 591.33 387.22 561.65 321.15C531.97 255.08 487.72 370.31 383.85 416.96C279.97 463.62 155.55 424.15 185.23 490.22Z"
+       id="eUndEUxv8" />
     <path
-       id="ibZZ2zmH6"
-       d="M217.41 413.37C231.88 443.75 305.22 439.08 381.08 402.95C456.94 366.82 506.79 312.82 492.32 282.44C477.85 252.06 404.51 256.73 328.65 292.86C252.79 328.99 202.94 382.99 217.41 413.37Z" />
+       d="M217.41 413.37C231.88 443.75 305.22 439.08 381.08 402.95C456.94 366.82 506.79 312.82 492.32 282.44C477.85 252.06 404.51 256.73 328.65 292.86C252.79 328.99 202.94 382.99 217.41 413.37Z"
+       id="ibZZ2zmH6" />
     <path
-       id="c17GiecwRz"
-       d="M233.25 262.39C226.89 219.65 208.77 182.21 178.88 150.09C148.99 117.96 112.96 97.19 70.78 87.77C77.14 130.52 95.26 167.95 125.15 200.08C155.04 232.2 191.08 252.97 233.25 262.39Z" />
+       d="M233.25 262.39C226.89 219.65 208.77 182.21 178.88 150.09C148.99 117.96 112.96 97.19 70.78 87.77C77.14 130.52 95.26 167.95 125.15 200.08C155.04 232.2 191.08 252.97 233.25 262.39Z"
+       id="c17GiecwRz" />
     <path
-       id="aavObWQwz"
-       d="M199.32 263.03C241.75 271.23 283.08 266.56 323.31 249.04C363.54 231.51 395.09 204.42 417.98 167.76C375.55 159.57 334.22 164.23 294 181.76C253.77 199.28 222.21 226.37 199.32 263.03Z" />
+       d="M199.32 263.03C241.75 271.23 283.08 266.56 323.31 249.04C363.54 231.51 395.09 204.42 417.98 167.76C375.55 159.57 334.22 164.23 294 181.76C253.77 199.28 222.21 226.37 199.32 263.03Z"
+       id="aavObWQwz" />
     <path
-       id="a2lcawskfw"
-       d="M188.29 440.13C200.71 438.25 211.04 429.73 202.36 412.13C193.68 394.54 141.43 380.02 139.37 350.01C137.31 320.01 158.14 300.71 171.64 289.86C185.13 279.01 208.42 267.21 221.51 258.81C242.95 245.03 210.72 227.93 196.38 240.32C182.04 252.71 102 291.37 103.31 348.33C104.61 405.28 175.88 442 188.29 440.13Z" />
+       d="M188.29 440.13C200.71 438.25 211.04 429.73 202.36 412.13C193.68 394.54 141.43 380.02 139.37 350.01C137.31 320.01 158.14 300.71 171.64 289.86C185.13 279.01 208.42 267.21 221.51 258.81C242.95 245.03 210.72 227.93 196.38 240.32C182.04 252.71 102 291.37 103.31 348.33C104.61 405.28 175.88 442 188.29 440.13Z"
+       id="a2lcawskfw" />
     <linearGradient
-       gradientTransform="matrix(1.34375,0,0,1.34375,-110,-110)"
-       inkscape:collect="always"
-       xlink:href="#linearGradient1037"
-       id="linearGradient1039"
-       x1="0"
-       y1="640"
-       x2="0"
+       gradientUnits="userSpaceOnUse"
        y2="0"
-       gradientUnits="userSpaceOnUse" />
+       x2="0"
+       y1="640"
+       x1="0"
+       id="linearGradient1039"
+       xlink:href="#linearGradient1037"
+       inkscape:collect="always"
+       gradientTransform="matrix(1.40625,0,0,1.40625,-130,-130)" />
   </defs>
   <g
      id="g31">
     <g
-       inkscape:groupmode="layer"
+       inkscape:label="background"
        id="layer3"
-       inkscape:label="background">
+       inkscape:groupmode="layer">
       <rect
-         style="fill:url(#linearGradient1039);fill-opacity:1;stroke:none;stroke-width:1.34375"
+         y="-130"
+         x="-130"
+         height="900"
+         width="900"
          id="rect92"
-         width="860"
-         height="860"
-         x="-110"
-         y="-110" />
+         style="fill:url(#linearGradient1039);fill-opacity:1;stroke:none;stroke-width:1.40625" />
     </g>
     <g
-       inkscape:groupmode="layer"
+       inkscape:label="foreground"
        id="layer2"
-       inkscape:label="foreground">
+       inkscape:groupmode="layer">
       <g
          id="g29">
         <g
-           style="fill:#d3bc5f"
-           id="g11">
+           id="g11"
+           style="fill:#d3bc5f">
           <use
-             style="fill:#d3bc5f"
+             xlink:href="#eUndEUxv8"
+             opacity="1"
+             fill="#000000"
+             fill-opacity="1"
              id="use9"
-             fill-opacity="1"
-             fill="#000000"
-             opacity="1"
-             xlink:href="#eUndEUxv8" />
+             style="fill:#d3bc5f" />
         </g>
         <g
-           style="fill:#d3bc5f"
-           id="g15">
+           id="g15"
+           style="fill:#d3bc5f">
           <use
-             style="fill:#d3bc5f"
+             xlink:href="#ibZZ2zmH6"
+             opacity="1"
+             fill="#000000"
+             fill-opacity="1"
              id="use13"
-             fill-opacity="1"
-             fill="#000000"
-             opacity="1"
-             xlink:href="#ibZZ2zmH6" />
+             style="fill:#d3bc5f" />
         </g>
         <g
-           style="fill:#aad400"
+           id="g19"
            transform="translate(-4.5176471)"
-           id="g19">
+           style="fill:#aad400">
           <use
-             style="fill:#aad400"
-             height="100%"
-             width="100%"
-             y="0"
-             x="0"
+             xlink:href="#c17GiecwRz"
+             opacity="1"
+             fill="#000000"
+             fill-opacity="1"
              id="use17"
-             fill-opacity="1"
-             fill="#000000"
-             opacity="1"
-             xlink:href="#c17GiecwRz" />
-        </g>
-        <g
-           style="fill:#aad400"
-           transform="translate(-8.2823529,-3.7647059)"
-           id="g23">
-          <use
-             style="fill:#aad400"
-             height="100%"
-             width="100%"
-             y="0"
              x="0"
-             id="use21"
-             fill-opacity="1"
-             fill="#000000"
-             opacity="1"
-             xlink:href="#aavObWQwz" />
+             y="0"
+             width="100%"
+             height="100%"
+             style="fill:#aad400" />
         </g>
         <g
-           style="fill:#aad400"
-           id="g27">
+           id="g23"
+           transform="translate(-8.2823529,-3.7647059)"
+           style="fill:#aad400">
           <use
-             style="fill:#aad400"
-             id="use25"
-             fill-opacity="1"
-             fill="#000000"
+             xlink:href="#aavObWQwz"
              opacity="1"
-             xlink:href="#a2lcawskfw" />
+             fill="#000000"
+             fill-opacity="1"
+             id="use21"
+             x="0"
+             y="0"
+             width="100%"
+             height="100%"
+             style="fill:#aad400" />
+        </g>
+        <g
+           id="g27"
+           style="fill:#aad400">
+          <use
+             xlink:href="#a2lcawskfw"
+             opacity="1"
+             fill="#000000"
+             fill-opacity="1"
+             id="use25"
+             style="fill:#aad400" />
         </g>
       </g>
     </g>
