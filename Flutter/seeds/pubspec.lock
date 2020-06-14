@@ -69,6 +69,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_launcher_icons:
+    dependency: "direct dev"
+    description:
+      name: flutter_launcher_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.5"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -101,7 +108,7 @@ packages:
     source: hosted
     version: "1.1.8"
   mutex:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: mutex
       url: "https://pub.dartlang.org"
@@ -122,7 +129,7 @@ packages:
     source: hosted
     version: "1.6.4"
   percent_indicator:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: percent_indicator
       url: "https://pub.dartlang.org"
@@ -136,7 +143,7 @@ packages:
     source: hosted
     version: "2.4.0"
   provider:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"
@@ -157,7 +164,7 @@ packages:
     source: hosted
     version: "0.6.4+2"
   shared_preferences:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: shared_preferences
       url: "https://pub.dartlang.org"
@@ -197,7 +204,7 @@ packages:
     source: hosted
     version: "1.7.0"
   sqflite:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: sqflite
       url: "https://pub.dartlang.org"
@@ -273,6 +280,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.1"
+  yaml:
+    dependency: transitive
+    description:
+      name: yaml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
 sdks:
   dart: ">=2.7.0 <3.0.0"
   flutter: ">=1.16.0 <2.0.0"
