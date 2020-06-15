@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/custom_icons.dart';
 import 'package:share/share.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
+import 'package:seeds/services/social_share_image.dart';
 
 class ShareActivity extends ActivityWidget {
   ShareActivity(String topic, {void Function(bool) onProgressChange, Key key}) :
@@ -11,6 +13,14 @@ class ShareActivity extends ActivityWidget {
 }
 
 class _ShareActivityState extends State<ShareActivity> {
+
+  void shareQuote(SocialPlatform platform) async {
+    SocialShareImage.shareImage('test', platform, onReturn: (success) {
+      if (success)
+        widget.onProgressChange(true);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,9 +49,23 @@ class _ShareActivityState extends State<ShareActivity> {
                 label: Text('Share'),
               ),
 
-              IconButton(icon: Icon(Icons.face),), // TODO: FaceBook icon
-              IconButton(icon: Icon(Icons.terrain),), // TODO: Twitter icon
-              IconButton(icon: Icon(Icons.photo),) // TODO: Instagram icon
+              // FaceBook button
+              IconButton(
+                  icon: Icon(CustomIcons.facebook),
+                  onPressed: () => shareQuote(SocialPlatform.FaceBook)
+              ),
+
+              // Instagram button
+              IconButton(
+                  icon: Icon(CustomIcons.instagram),
+                  onPressed: () => shareQuote(SocialPlatform.Instagram)
+              ),
+
+              // Twitter button
+              IconButton(
+                  icon: Icon(CustomIcons.twitter),
+                  onPressed: () => shareQuote(SocialPlatform.Twitter)
+              )
             ],
           )
         ],

@@ -16,7 +16,7 @@
    id="svg33"
    sodipodi:docname="seeds-appicon.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   inkscape:export-filename="C:\Users\natha\Programming\Orchard\Common Assets\seeds-appicon-bg.png"
+   inkscape:export-filename="C:\Users\natha\Programming\Orchard\Common Assets\seeds-appicon.png"
    inkscape:export-xdpi="153.60001"
    inkscape:export-ydpi="153.60001">
   <metadata
@@ -45,9 +45,9 @@
      inkscape:window-height="1017"
      id="namedview35"
      showgrid="false"
-     inkscape:zoom="0.66245342"
-     inkscape:cx="-85.336845"
-     inkscape:cy="350.11765"
+     inkscape:zoom="0.8117387"
+     inkscape:cx="275.52544"
+     inkscape:cy="307.93265"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -95,6 +95,7 @@
   <g
      id="g31">
     <g
+       style="display:inline"
        inkscape:label="background"
        id="layer3"
        inkscape:groupmode="layer">
@@ -104,39 +105,42 @@
          height="900"
          width="900"
          id="rect92"
-         style="fill:url(#linearGradient1039);fill-opacity:1;stroke:none;stroke-width:1.40625" />
+         style="fill:url(#linearGradient1039);fill-opacity:1;stroke:none;stroke-width:1.40625"
+         inkscape:export-xdpi="153.60001"
+         inkscape:export-ydpi="153.60001" />
     </g>
     <g
+       style="display:inline"
        inkscape:label="foreground"
        id="layer2"
        inkscape:groupmode="layer">
       <g
-         id="g29">
+         id="g29"
+         transform="translate(68.519521,32.224163)"
+         inkscape:export-xdpi="153.60001"
+         inkscape:export-ydpi="153.60001">
         <g
            id="g11"
-           style="fill:#d3bc5f">
-          <use
-             xlink:href="#eUndEUxv8"
-             opacity="1"
-             fill="#000000"
-             fill-opacity="1"
+           style="fill:#d3bc5f"
+           transform="matrix(0.70854367,0,0,0.70854367,60.234943,126.23017)">
+          <path
              id="use9"
-             style="fill:#d3bc5f" />
+             d="M 184.52956,476.91159 C 187.70842,551.03675 323.33,572.06 427.21,525.4 531.09,478.75 602.20792,381.16002 561.65,321.15 515.91107,253.47411 511.80839,352.64518 379.03232,408.93054 244.64036,471.64946 182.53233,422.68689 184.52956,476.91159 Z"
+             style="fill:#d3bc5f;fill-opacity:1"
+             sodipodi:nodetypes="ccscc" />
         </g>
         <g
            id="g15"
-           style="fill:#d3bc5f">
-          <use
-             xlink:href="#ibZZ2zmH6"
-             opacity="1"
-             fill="#000000"
-             fill-opacity="1"
+           style="fill:#d3bc5f"
+           transform="matrix(0.70845626,0.01112932,-0.01112932,0.70845626,65.239307,122.40026)">
+          <path
              id="use13"
-             style="fill:#d3bc5f" />
+             d="m 209.38054,410.15821 c 14.47,30.38 87.81,25.71 163.67,-10.42 75.86,-36.13 125.71,-90.13 111.24,-120.51 -14.47,-30.38 -87.81,-25.71 -163.67,10.42 -75.86,36.13 -125.71,90.13 -111.24,120.51 z"
+             style="fill:#d3bc5f;fill-opacity:1" />
         </g>
         <g
            id="g19"
-           transform="translate(-4.5176471)"
+           transform="translate(-10.206873,2.2756902)"
            style="fill:#aad400">
           <use
              xlink:href="#c17GiecwRz"
@@ -152,7 +156,7 @@
         </g>
         <g
            id="g23"
-           transform="translate(-8.2823529,-3.7647059)"
+           transform="translate(-13.971578,-1.4890157)"
            style="fill:#aad400">
           <use
              xlink:href="#aavObWQwz"
@@ -168,14 +172,19 @@
         </g>
         <g
            id="g27"
-           style="fill:#aad400">
+           style="fill:#aad400"
+           transform="translate(-5.6892256,2.2756902)">
           <use
              xlink:href="#a2lcawskfw"
              opacity="1"
              fill="#000000"
              fill-opacity="1"
              id="use25"
-             style="fill:#aad400" />
+             style="fill:#aad400"
+             x="0"
+             y="0"
+             width="100%"
+             height="100%" />
         </g>
       </g>
     </g>

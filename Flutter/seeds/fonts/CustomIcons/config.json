@@ -11,6 +11,24 @@
       "css": "water_drop",
       "code": 60132,
       "src": "rpgawesome"
+    },
+    {
+      "uid": "c99e966e3d22ec0b9d8678fd524e5512",
+      "css": "facebook",
+      "code": 59392,
+      "src": "elusive"
+    },
+    {
+      "uid": "94ca559902b8930f0b267a588ffddb0b",
+      "css": "instagram",
+      "code": 59393,
+      "src": "elusive"
+    },
+    {
+      "uid": "26969cfbd811730075e4c657cc9fda2a",
+      "css": "twitter",
+      "code": 59394,
+      "src": "elusive"
     }
   ]
 }

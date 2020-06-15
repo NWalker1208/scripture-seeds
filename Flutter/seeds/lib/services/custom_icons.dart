@@ -9,9 +9,13 @@
 ///   fonts:
 ///    - family:  CustomIcons
 ///      fonts:
-///       - asset: fonts/CustomIcons/CustomIcons.ttf
+///       - asset: fonts/CustomIcons.ttf
 ///
 /// 
+/// * Elusive, Copyright (C) 2013 by Aristeides Stathopoulos
+///         Author:    Aristeides Stathopoulos
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://aristeides.com/
 /// * RPG Awesome, Copyright (c) 2014, Daniela Howe
 ///         Author:    Daniela Howe & Ivan Montiel
 ///         License:   SIL (http://scripts.sil.org/OFL)
@@ -25,5 +29,8 @@ class CustomIcons {
   static const _kFontFam = 'CustomIcons';
   static const _kFontPkg = null;
 
+  static const IconData facebook = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData instagram = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData twitter = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData water_drop = IconData(0xeae4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
