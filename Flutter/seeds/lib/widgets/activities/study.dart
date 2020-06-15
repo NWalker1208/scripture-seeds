@@ -7,7 +7,7 @@ import 'package:seeds/services/progress_data.dart';
 import 'package:provider/provider.dart';
 
 class StudyActivity extends ActivityWidget {
-  StudyActivity(String topic, {void Function(bool) onProgressChange, Key key}) :
+  StudyActivity(String topic, {void Function(bool, String) onProgressChange, Key key}) :
       super(topic, onProgressChange: onProgressChange, key: key);
 
   @override
@@ -17,25 +17,21 @@ class StudyActivity extends ActivityWidget {
 class _StudyActivityState extends State<StudyActivity> {
   List<Scripture> verses;
   List<List<bool>> highlights;
-  bool activityComplete;
 
   void updateHighlight(List<bool> highlight, int verse) {
     setState(() => highlights[verse] = highlight);
 
     // Determine if the activity is complete
-    bool activityCompleteNew = false;
+    bool activityComplete = false;
     highlights.forEach((verse) {
       if (verse != null)
-        verse.forEach((word) => activityCompleteNew = activityCompleteNew || word);
+        verse.forEach((word) => activityComplete = activityComplete || word);
     });
 
-    if (activityCompleteNew != activityComplete) {
-      widget.onProgressChange(activityCompleteNew);
-      activityComplete = activityCompleteNew;
-    }
-
-    // Print a quote style for debugging
-    print(Scripture.quoteBlockHighlight(verses, highlights));
+    widget.onProgressChange(
+        activityComplete,
+        '"${Scripture.quoteBlockHighlight(verses, highlights)}" - Scripture 0:0'
+    );
   }
 
   @override
@@ -47,7 +43,6 @@ class _StudyActivityState extends State<StudyActivity> {
     verses = Library.topics[widget.topic][scriptureIndex];
 
     highlights = List<List<bool>>()..length = verses.length;
-    activityComplete = false;
   }
 
   @override

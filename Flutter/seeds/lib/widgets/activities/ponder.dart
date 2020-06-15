@@ -3,7 +3,7 @@ import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';
 
 class PonderActivity extends ActivityWidget {
-  PonderActivity(String topic, {void Function(bool) onProgressChange, Key key}) :
+  PonderActivity(String topic, {void Function(bool, String) onProgressChange, Key key}) :
         super(topic, onProgressChange: onProgressChange, key: key);
 
   @override
@@ -18,7 +18,7 @@ class _PonderActivityState extends State<PonderActivity> {
   void updateCount(String text) {
     setState(() {
       wordCount = text.wordCount;
-      widget.onProgressChange(wordCount >= kMinWords);
+      widget.onProgressChange(wordCount >= kMinWords, text);
     });
   }
 

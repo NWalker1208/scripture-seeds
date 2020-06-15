@@ -11,6 +11,11 @@ class AppThemes {
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
+    cardTheme: CardTheme(
+      color: Colors.green[100],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+    ),
+
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 
@@ -28,6 +33,11 @@ class AppThemes {
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
+    cardTheme: CardTheme(
+        color: Colors.green[900],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+    ),
+
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 }

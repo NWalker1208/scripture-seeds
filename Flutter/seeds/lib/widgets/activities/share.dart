@@ -5,7 +5,9 @@ import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/social_share_image.dart';
 
 class ShareActivity extends ActivityWidget {
-  ShareActivity(String topic, {void Function(bool) onProgressChange, Key key}) :
+  final List<String> sharableText;
+
+  ShareActivity(String topic, this.sharableText, {void Function(bool, String) onProgressChange, Key key}) :
         super(topic, onProgressChange: onProgressChange, key: key);
 
   @override
@@ -15,9 +17,9 @@ class ShareActivity extends ActivityWidget {
 class _ShareActivityState extends State<ShareActivity> {
 
   void shareQuote(SocialPlatform platform) async {
-    SocialShareImage.shareImage('test', platform, onReturn: (success) {
+    SocialShareImage.shareImage(widget.sharableText[1], platform, onReturn: (success) {
       if (success)
-        widget.onProgressChange(true);
+        widget.onProgressChange(true, '');
     });
   }
 
@@ -35,14 +37,28 @@ class _ShareActivityState extends State<ShareActivity> {
           ),
           SizedBox(height: 30),
 
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(widget.sharableText[0]),
+                  Text(widget.sharableText[1])
+                ]
+              ),
+            ),
+          ),
+          SizedBox(height: 30),
+
           // Share buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               RaisedButton.icon(
                 onPressed: () {
-                  widget.onProgressChange(true);
-                  Share.share('Just completed studying ${widget.topic} for today!');
+                  widget.onProgressChange(true, '');
+                  Share.share('${widget.sharableText[0]}\n${widget.sharableText[1]}');
                 },
 
                 icon: Icon(Icons.share),

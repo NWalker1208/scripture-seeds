@@ -19,12 +19,21 @@ class ActivityPage extends StatefulWidget {
 class _ActivityPageState extends State<ActivityPage> {
   bool activityComplete;
   int activityStage;
+  List<String> activityShareText;
+
+  void onProgressChange(bool completed, String text) {
+    setState(() {
+      activityComplete = completed;
+      activityShareText[activityStage] = text;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     activityComplete = false;
     activityStage = 0;
+    activityShareText = new List<String>(3);
   }
 
   @override
@@ -34,13 +43,13 @@ class _ActivityPageState extends State<ActivityPage> {
     // Display the current activity
     switch (activityStage) {
       case 0:
-        activity = StudyActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        activity = StudyActivity(widget.topic, onProgressChange: onProgressChange);
         break;
       case 1:
-        activity = PonderActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        activity = PonderActivity(widget.topic, onProgressChange: onProgressChange);
         break;
       case 2:
-        activity = ShareActivity(widget.topic, onProgressChange: (completed) => setState(() => activityComplete = completed));
+        activity = ShareActivity(widget.topic, activityShareText, onProgressChange: onProgressChange);
         break;
     }
 
