@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
-import 'package:share/share.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
-import 'package:seeds/services/social_share_image.dart';
+import 'package:seeds/services/social_share_system.dart';
 
 class ShareActivity extends ActivityWidget {
   final List<String> sharableText;
@@ -16,11 +15,16 @@ class ShareActivity extends ActivityWidget {
 
 class _ShareActivityState extends State<ShareActivity> {
 
-  void shareQuote(SocialPlatform platform) async {
-    SocialShareImage.shareImage(widget.sharableText[1], platform, onReturn: (success) {
-      if (success)
-        widget.onProgressChange(true, '');
-    });
+  void shareQuote(SharePlatform platform) async {
+    SocialShareSystem.shareScriptureQuote(
+      platform,
+      quote: widget.sharableText[0],
+      commentary: widget.sharableText[1],
+      onReturn: (success) {
+        if (success)
+          widget.onProgressChange(true, '');
+      }
+    );
   }
 
   @override
@@ -43,8 +47,8 @@ class _ShareActivityState extends State<ShareActivity> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.sharableText[0]),
-                  Text(widget.sharableText[1])
+                  Text(widget.sharableText[0], style: Theme.of(context).textTheme.bodyText1.copyWith(height: 1.5),),
+                  Text(widget.sharableText[1], style: Theme.of(context).textTheme.bodyText1.copyWith(height: 1.5),)
                 ]
               ),
             ),
@@ -56,10 +60,7 @@ class _ShareActivityState extends State<ShareActivity> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               RaisedButton.icon(
-                onPressed: () {
-                  widget.onProgressChange(true, '');
-                  Share.share('${widget.sharableText[0]}\n${widget.sharableText[1]}');
-                },
+                onPressed: () => shareQuote(SharePlatform.System),
 
                 icon: Icon(Icons.share),
                 label: Text('Share'),
@@ -68,19 +69,19 @@ class _ShareActivityState extends State<ShareActivity> {
               // FaceBook button
               IconButton(
                   icon: Icon(CustomIcons.facebook),
-                  onPressed: () => shareQuote(SocialPlatform.FaceBook)
+                  onPressed: () => shareQuote(SharePlatform.FaceBook)
               ),
 
               // Instagram button
               IconButton(
                   icon: Icon(CustomIcons.instagram),
-                  onPressed: () => shareQuote(SocialPlatform.Instagram)
+                  onPressed: () => shareQuote(SharePlatform.Instagram)
               ),
 
               // Twitter button
               IconButton(
                   icon: Icon(CustomIcons.twitter),
-                  onPressed: () => shareQuote(SocialPlatform.Twitter)
+                  onPressed: () => shareQuote(SharePlatform.Twitter)
               )
             ],
           )

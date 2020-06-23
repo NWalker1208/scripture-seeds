@@ -60,6 +60,58 @@ class Scripture {
       if (wordsHighlighted[i] != null)
         quote.add(verses[i].quoteHighlight(wordsHighlighted[i]));
 
-    return quote.join(' ');
+    return quote.join('\n');
+  }
+
+  static String blockReference(List<Scripture> verses) {
+    String lastBook;
+    int lastChapter;
+    int lastVerse;
+
+    String ref = '';
+
+    for(int i = 0; i < verses.length; i++) {
+      // Add name of book if first or different
+      if (verses[i].book != lastBook) {
+        lastBook = verses[i].book;
+        lastChapter = null;
+        lastVerse = null;
+
+        if (lastVerse != null)
+          ref += ', ';
+        ref += lastBook + ' ';
+      }
+
+      // Add chapter if first or different
+      if (verses[i].chapter != lastChapter) {
+        lastChapter = verses[i].chapter;
+        lastVerse = null;
+
+        if (lastVerse != null)
+          ref += ', ';
+        ref += lastChapter.toString() + ':';
+      }
+
+      // Add verse if first, last, or there is a gap
+      if (verses[i].verse - 1 != lastVerse) {
+        if (lastVerse != null)
+          ref += ',';
+
+        ref += verses[i].verse.toString();
+      } else if (i == verses.length - 1 ||
+                 verses[i + 1].book != lastBook ||
+                 verses[i + 1].chapter != lastChapter ||
+                 verses[i + 1].verse - 2 != lastVerse) {
+
+        if (lastVerse != null)
+          ref += '-';
+
+        ref += verses[i].verse.toString();
+      }
+
+      lastVerse = verses[i].verse;
+    }
+
+    return ref;
   }
 }

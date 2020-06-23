@@ -28,9 +28,25 @@ class _StudyActivityState extends State<StudyActivity> {
         verse.forEach((word) => activityComplete = activityComplete || word);
     });
 
+    // Eliminate verses that aren't highlighted
+    List<Scripture> sparseVerses = new List<Scripture>.from(verses, growable: true);
+    List<List<bool>> sparseHighlights = new List<List<bool>>.from(highlights, growable: true);
+
+    for(int i = 0; i < sparseVerses.length; i++) {
+      bool deleteVerse = true;
+      if (sparseHighlights[i] != null)
+        sparseHighlights[i].forEach((word) => deleteVerse = !word && deleteVerse);
+
+      if (deleteVerse) {
+        sparseVerses.removeAt(i);
+        sparseHighlights.removeAt(i);
+        i--;
+      }
+    }
+
     widget.onProgressChange(
         activityComplete,
-        '"${Scripture.quoteBlockHighlight(verses, highlights)}" - Scripture 0:0'
+        '\u{201C}${Scripture.quoteBlockHighlight(sparseVerses, sparseHighlights)}\u{201D}\n- ${Scripture.blockReference(sparseVerses)}'
     );
   }
 
