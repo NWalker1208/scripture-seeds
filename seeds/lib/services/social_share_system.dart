@@ -13,9 +13,9 @@ class SocialShareSystem {
     bool success = false;
 
     if (platform == SharePlatform.System) {
-      success = await SocialShare.shareOptions("$quote\n$commentary");
+      success = await SocialShare.shareOptions('$quote\n$commentary');
     } else if (platform == SharePlatform.Twitter) {
-      success = (await SocialShare.shareTwitter("$commentary", url: '', trailingText: '')) == 'true';
+      success = (await SocialShare.shareTwitter('$commentary', url: '', trailingText: '')) == 'true';
     } else {
       print('Error: Platform ${platform.toString()} not yet implemented.');
     }

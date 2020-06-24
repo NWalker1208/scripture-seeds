@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/widgets/plant_list.dart';
-import 'package:share/share.dart';
+import 'package:social_share/social_share.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/plant_painter.dart';
@@ -227,7 +227,7 @@ class PlantPage extends StatelessWidget {
             Consumer<ProgressData>(
               builder: (context, progressData, child) => IconButton(
                 icon: Icon(Icons.share),
-                onPressed: () => Share.share('Day ${progressData.getProgressRecord(plantName).totalProgress} of 14 on $plantName!', subject: 'Seeds'),
+                onPressed: () => SocialShare.shareOptions('Day ${progressData.getProgressRecord(plantName).totalProgress} of 14 on $plantName!'),
               ),
             )
           ],
