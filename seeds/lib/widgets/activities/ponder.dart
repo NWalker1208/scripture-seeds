@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';
@@ -45,18 +46,28 @@ class _PonderActivityState extends State<PonderActivity> {
 
           // Ponder text
           TextField(
-            keyboardType: TextInputType.multiline,
+            textCapitalization: TextCapitalization.sentences,
+            keyboardType: TextInputType.text,
             maxLines: null,
-            onChanged: (text) => updateCount(text),
-          ),
-          SizedBox(height: 8,),
 
-          // Word count
-          Text(
-            '$wordCount/$kMinWords words',
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
-              color: (wordCount < kMinWords) ? Colors.red : null
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(12),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              /*focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.green, width: 2.0),
+                borderRadius: BorderRadius.circular(12),
+              ),*/
+              
+              hintText: '${widget.topic.capitalize()} is...',
+              counterText: '$wordCount/$kMinWords words',
+              counterStyle: Theme.of(context).textTheme.bodyText2.copyWith(
+                color: (wordCount < kMinWords) ? Colors.red : null
+              )
             ),
+
+            onChanged: (text) => updateCount(text),
           )
         ],
       ),

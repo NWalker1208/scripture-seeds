@@ -35,7 +35,7 @@ class _ShareActivityState extends State<ShareActivity> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           // Instructions
-          Text('Consider sharing what you studied today.',
+          Text('Share what you studied today.',
             style: Theme.of(context).textTheme.bodyText1,
             textAlign: TextAlign.center,
           ),
@@ -57,32 +57,26 @@ class _ShareActivityState extends State<ShareActivity> {
 
           // Share buttons
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
+
             children: <Widget>[
-              RaisedButton.icon(
-                onPressed: () => shareQuote(SharePlatform.System),
+              Expanded(
+                child: RaisedButton.icon(
+                  onPressed: () => shareQuote(SharePlatform.System),
 
-                icon: Icon(Icons.share),
-                label: Text('Share'),
+                  icon: Icon(Icons.share),
+                  label: Text('Share'),
+                ),
               ),
+              SizedBox(width: 5),
+              Expanded(
+                child: RaisedButton.icon(
+                  onPressed: null,
 
-              // FaceBook button
-              IconButton(
-                  icon: Icon(CustomIcons.facebook),
-                  onPressed: () => shareQuote(SharePlatform.FaceBook)
+                  icon: Icon(Icons.save_alt),
+                  label: Text('Save to Journal'),
+                ),
               ),
-
-              // Instagram button
-              IconButton(
-                  icon: Icon(CustomIcons.instagram),
-                  onPressed: () => shareQuote(SharePlatform.Instagram)
-              ),
-
-              // Twitter button
-              IconButton(
-                  icon: Icon(CustomIcons.twitter),
-                  onPressed: () => shareQuote(SharePlatform.Twitter)
-              )
             ],
           )
         ],

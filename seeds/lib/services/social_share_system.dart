@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:social_share/social_share.dart';
 
 enum SharePlatform {
-  System,
+  System, // Only one implemented
   FaceBook,
   Instagram,
   Twitter
@@ -14,8 +14,6 @@ class SocialShareSystem {
 
     if (platform == SharePlatform.System) {
       success = await SocialShare.shareOptions('$quote\n$commentary');
-    } else if (platform == SharePlatform.Twitter) {
-      success = (await SocialShare.shareTwitter('$commentary', url: '', trailingText: '')) == 'true';
     } else {
       print('Error: Platform ${platform.toString()} not yet implemented.');
     }

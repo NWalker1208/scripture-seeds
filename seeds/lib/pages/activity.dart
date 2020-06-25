@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/activities/study.dart';
@@ -63,7 +64,7 @@ class _ActivityPageState extends State<ActivityPage> {
         child: activity
       ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         backgroundColor: activityComplete ? null : Colors.grey[500],
@@ -83,10 +84,9 @@ class _ActivityPageState extends State<ActivityPage> {
 
       // Bottom app bar shows progress through the day's activity
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 15, 90, 15),
-          child: ActivityProgressMap(activityStage),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          child: ActivityProgressMap(activityStage)
         )
       ),
     );

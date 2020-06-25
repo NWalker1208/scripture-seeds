@@ -4,6 +4,7 @@ class AppThemes {
   static final ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.green,
     accentColor: Colors.blue,
+    cursorColor: Colors.blue,
 
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
@@ -26,6 +27,7 @@ class AppThemes {
     // Copied from above
     primarySwatch: Colors.green,
     accentColor: Colors.blue,
+    cursorColor: Colors.blue,
 
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
@@ -34,7 +36,7 @@ class AppThemes {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     cardTheme: CardTheme(
-        color: Colors.green[900],
+        color: Colors.green.withAlpha(126),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
 
