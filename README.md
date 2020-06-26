@@ -7,7 +7,7 @@ An app to encourage the development of Christ-like attributes and aid in persona
 ### 1) Functionality (finish before beta)
 These items are necessary for the app to serve it's purpose.
 - [x] Functioning activity share (1 week)
-- [ ] Back-button use in activities (0.5 weeks)
+- [x] Back-button use in activities (0.5 weeks)
 - [ ] Fruit growth after reaching goal (1 week)
   - [ ] Store to buy more seeds with fruit
 
