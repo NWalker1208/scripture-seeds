@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/activities/study.dart';
@@ -7,6 +6,7 @@ import 'package:seeds/widgets/activities/ponder.dart';
 import 'package:seeds/widgets/activities/share.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/widgets/activity_progress.dart';
+import 'package:seeds/widgets/animated_indexed_stack.dart';
 
 class ActivityPage extends StatefulWidget {
   final String topic;
@@ -18,76 +18,81 @@ class ActivityPage extends StatefulWidget {
 }
 
 class _ActivityPageState extends State<ActivityPage> {
-  bool activityComplete;
-  int activityStage;
-  List<String> activityShareText;
+  int _stage;
+  List<bool> _completed;
+  List<String> _shareText;
 
   void onProgressChange(bool completed, String text) {
     setState(() {
-      activityComplete = completed;
-      activityShareText[activityStage] = text;
+      _completed[_stage] = completed;
+      _shareText[_stage] = text;
     });
   }
 
   @override
   void initState() {
     super.initState();
-    activityComplete = false;
-    activityStage = 0;
-    activityShareText = new List<String>(3);
+    _stage = 0;
+    _completed = new List<bool>.filled(3, false);
+    _shareText = new List<String>.filled(3, '');
   }
 
   @override
   Widget build(BuildContext context) {
-    ActivityWidget activity;
+    return WillPopScope(
+      onWillPop: () async {
+        if (_stage == 0)
+          return true;
+        else {
+          setState(() {
+            FocusScope.of(context).unfocus();
+            _stage--;
+          });
+          return false;
+        }
+      },
 
-    // Display the current activity
-    switch (activityStage) {
-      case 0:
-        activity = StudyActivity(widget.topic, onProgressChange: onProgressChange);
-        break;
-      case 1:
-        activity = PonderActivity(widget.topic, onProgressChange: onProgressChange);
-        break;
-      case 2:
-        activity = ShareActivity(widget.topic, activityShareText, onProgressChange: onProgressChange);
-        break;
-    }
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Daily Activity'),
+        ),
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Daily Activity'),
-      ),
+        body: AnimatedIndexedStack(
+          duration: Duration(milliseconds: 150),
+          index: _stage,
+          children: <ActivityWidget>[
+            StudyActivity(widget.topic, onProgressChange: onProgressChange),
+            PonderActivity(widget.topic, onProgressChange: onProgressChange),
+            ShareActivity(widget.topic, _shareText, onProgressChange: onProgressChange)
+          ]
+        ),
 
-      body: AnimatedSwitcher(
-        duration: Duration(milliseconds: 200),
-        child: activity
-      ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.check),
+          backgroundColor: _completed[_stage] ? null : Colors.grey[500],
+          disabledElevation: 1,
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.check),
-        backgroundColor: activityComplete ? null : Colors.grey[500],
-        disabledElevation: 1,
-        onPressed: activityComplete ? () {
-          if (activityStage == 2) {
-            Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
-            Navigator.pop(context, true);
-          } else {
-            setState(() {
-              activityComplete = false;
-              activityStage++;
-            });
-          }
-        } : null,
-      ),
+          onPressed: _completed[_stage] ? () {
+            if (_stage == 2) {
+              Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
+              Navigator.pop(context, true);
+            } else {
+              setState(() {
+                FocusScope.of(context).unfocus();
+                _stage++;
+              });
+            }
+          } : null,
+        ),
 
-      // Bottom app bar shows progress through the day's activity
-      bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-          child: ActivityProgressMap(activityStage)
-        )
+        // Bottom app bar shows progress through the day's activity
+        bottomNavigationBar: BottomAppBar(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            child: ActivityProgressMap(_stage)
+          )
+        ),
       ),
     );
   }
