@@ -157,7 +157,7 @@ class _HighlightTextState extends State<HighlightText> {
             // Word text
             child: Text(
               '${widget.words[i]}',
-              style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(
+              style: DefaultTextStyle.of(context).style.merge(TextStyle(
                 fontFamily: 'Buenard',
                 fontSize: 20
               ))

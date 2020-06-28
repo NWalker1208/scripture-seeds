@@ -51,10 +51,7 @@ class SettingsPage extends StatelessWidget {
                 children: <Widget>[
                   Expanded(child: Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      'App Theme',
-                      style: Theme.of(context).textTheme.bodyText1
-                    ),
+                    child: Text('App Theme'),
                   )),
                   SizedBox(width: 8),
                   ThemeModeSelector()

@@ -73,12 +73,10 @@ class _StudyActivityState extends State<StudyActivity> {
             children: <Widget>[
               // Instructions
               Text('Study the following scripture and highlight the parts that are most important to you.',
-                style: Theme.of(context).textTheme.bodyText1,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 10),
               Text('Tap a word to highlight it.\nTap and hold to highlight a block of text.',
-                style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 30),

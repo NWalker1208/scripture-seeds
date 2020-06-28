@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/social_share_system.dart';
 
@@ -36,7 +35,6 @@ class _ShareActivityState extends State<ShareActivity> {
         children: <Widget>[
           // Instructions
           Text('Share what you studied today.',
-            style: Theme.of(context).textTheme.bodyText1,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30),
@@ -47,8 +45,8 @@ class _ShareActivityState extends State<ShareActivity> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.sharableText[0], style: Theme.of(context).textTheme.bodyText1.copyWith(height: 1.5),),
-                  Text(widget.sharableText[1], style: Theme.of(context).textTheme.bodyText1.copyWith(height: 1.5),)
+                  Text(widget.sharableText[0], style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),),
+                  Text(widget.sharableText[1], style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),)
                 ]
               ),
             ),

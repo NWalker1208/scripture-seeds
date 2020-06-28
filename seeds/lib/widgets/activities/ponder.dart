@@ -39,7 +39,6 @@ class _PonderActivityState extends State<PonderActivity> {
         children: <Widget>[
           // Instructions
           Text('Write down your thoughts on the previous scripture and what it teaches you about ${widget.topic}.',
-            style: Theme.of(context).textTheme.bodyText1,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30),
