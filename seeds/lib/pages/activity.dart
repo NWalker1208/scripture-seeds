@@ -68,22 +68,33 @@ class _ActivityPageState extends State<ActivityPage> {
         ),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.check),
-          backgroundColor: _completed[_stage] ? null : Colors.grey[500],
-          disabledElevation: 1,
+        floatingActionButton: TweenAnimationBuilder(
+          tween: ColorTween(
+              begin: Colors.grey[500],
+              end: _completed[_stage] ?
+                (Theme.of(context).accentColor) :
+                Colors.grey[500]
+          ),
+          duration: Duration(milliseconds: 150),
 
-          onPressed: _completed[_stage] ? () {
-            if (_stage == 2) {
-              Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
-              Navigator.pop(context, true);
-            } else {
-              setState(() {
-                FocusScope.of(context).unfocus();
-                _stage++;
-              });
-            }
-          } : null,
+          builder: (BuildContext context, Color color, Widget child) => FloatingActionButton(
+            child: child,
+            backgroundColor: color,
+            disabledElevation: 1,
+
+            onPressed: _completed[_stage] ? () {
+              if (_stage == 2) {
+                Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
+                Navigator.pop(context, true);
+              } else {
+                setState(() {
+                  FocusScope.of(context).unfocus();
+                  _stage++;
+                });
+              }
+            } : null,
+          ),
+          child: Icon(Icons.check),
         ),
 
         // Bottom app bar shows progress through the day's activity
