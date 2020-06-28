@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
+import 'package:seeds/widgets/highlight_rich_text.dart';
 import 'package:seeds/widgets/highlight_text.dart';
 import 'package:seeds/services/library.dart';
 import 'package:seeds/services/scripture.dart';
@@ -84,21 +85,27 @@ class _StudyActivityState extends State<StudyActivity> {
               // Chapter title
               Text(
                 verses[0].reference(showVerse: false),
-                style: Theme.of(context).textTheme.headline4.merge(TextStyle(fontFamily: 'Buenard')),
+                style: Theme.of(context).textTheme.headline4.copyWith(fontFamily: 'Buenard'),
                 textAlign: TextAlign.center,
               ),
 
               // Map the list of scriptures to a list of highlight text blocks
-            ] + verses.asMap().entries.map((MapEntry scripture) {
+            ] + List<Widget>.generate(verses.length, (index) {
               return Padding(
                 padding: const EdgeInsets.only(top: 15),
-                child: HighlightText(
-                  '${scripture.value.verse}. ${scripture.value.text}',
-                  disabledWords: 1,
+                child: HighlightRichText(
+                  '${verses[index].text}',
+                  leadingText: '${verses[index].verse}. ',
+
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                    fontFamily: 'Buenard',
+                    fontSize: 20,
+                    height: 1.5
+                  ),
 
                   // Save highlighted region when changed
                   onChangeHighlight: (List<bool> highlight) =>
-                    updateHighlight(highlight.sublist(1), scripture.key),
+                    updateHighlight(highlight, index),
                 ),
               );
             }).toList()

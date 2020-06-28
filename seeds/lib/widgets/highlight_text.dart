@@ -157,10 +157,10 @@ class _HighlightTextState extends State<HighlightText> {
             // Word text
             child: Text(
               '${widget.words[i]}',
-              style: DefaultTextStyle.of(context).style.merge(TextStyle(
+              style: DefaultTextStyle.of(context).style.copyWith(
                 fontFamily: 'Buenard',
                 fontSize: 20
-              ))
+              )
             ),
           ),
         ),

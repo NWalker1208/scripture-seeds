@@ -68,9 +68,7 @@ class PlantPage extends StatelessWidget {
               child: Center(
                 child: Text(
                   "My Garden",
-                  style: Theme.of(context).textTheme.headline5.merge(TextStyle(
-                    color: Colors.white
-                  ))
+                  style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white)
                 ),
               ),
             ),
@@ -188,11 +186,11 @@ class PlantPage extends StatelessWidget {
 
           child: Text(
             plantName,
-            style: Theme.of(context).textTheme.headline3.merge(TextStyle(
+            style: Theme.of(context).textTheme.headline3.copyWith(
               fontFamily: 'Scriptina',
               fontWeight: FontWeight.bold,
               color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
-            ))
+            )
           )
         )
       ),
