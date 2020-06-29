@@ -76,10 +76,6 @@ class _StudyActivityState extends State<StudyActivity> {
               Text('Study the following scripture and highlight the parts that are most important to you.',
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 10),
-              Text('Tap a word to highlight it.\nTap and hold to highlight a block of text.',
-                textAlign: TextAlign.center,
-              ),
               SizedBox(height: 30),
 
               // Chapter title

@@ -61,7 +61,7 @@ class _PonderActivityState extends State<PonderActivity> {
               
               hintText: '${widget.topic.capitalize()} is...',
               counterText: '$wordCount/$kMinWords words',
-              counterStyle: Theme.of(context).textTheme.bodyText2.copyWith(
+              counterStyle: DefaultTextStyle.of(context).style.copyWith(
                 color: (wordCount < kMinWords) ? Colors.red : null
               )
             ),
