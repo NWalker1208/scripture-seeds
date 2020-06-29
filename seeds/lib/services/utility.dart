@@ -1,4 +1,6 @@
 // The home of miscellaneous functions
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 extension DateTimeExtension on DateTime {
   // Return true if present is on a future date from past
@@ -68,4 +70,20 @@ extension StringExtension on String {
 
     return words.length;
   }
+}
+
+int hitTestList(Offset position, List<GlobalKey> widgets) {
+  print('Testing position $position');
+
+  for (int i = 0; i < widgets.length; i++){
+    RenderBox renderBox = widgets[i].currentContext.findRenderObject();
+    Offset localPosition = renderBox.globalToLocal(position);
+    BoxHitTestResult result = BoxHitTestResult();
+
+    print('Testing renderbox ${renderBox.paintBounds} with $localPosition');
+    if (renderBox.hitTest(result, position: localPosition))
+      return i;
+  }
+
+  return null;
 }
