@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+@Deprecated('Use HighlightRichText instead')
 class HighlightText extends StatefulWidget {
   final String text;
   final List<String> words;

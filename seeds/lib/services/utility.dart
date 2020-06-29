@@ -73,14 +73,11 @@ extension StringExtension on String {
 }
 
 int hitTestList(Offset position, List<GlobalKey> widgets) {
-  print('Testing position $position');
-
   for (int i = 0; i < widgets.length; i++){
     RenderBox renderBox = widgets[i].currentContext.findRenderObject();
     Offset localPosition = renderBox.globalToLocal(position);
     BoxHitTestResult result = BoxHitTestResult();
 
-    print('Testing renderbox ${renderBox.paintBounds} with $localPosition');
     if (renderBox.hitTest(result, position: localPosition))
       return i;
   }

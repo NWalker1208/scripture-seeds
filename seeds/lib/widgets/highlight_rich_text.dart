@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:seeds/services/utility.dart';
 
@@ -37,7 +36,8 @@ class _HighlightRichTextState extends State<HighlightRichText> {
       return _HighlightAppearance.off;
 
     if (selectionStart != null && selectionEnd != null &&
-        index >= selectionStart && index <= selectionEnd &&
+        ((index >= selectionStart && index <= selectionEnd) ||
+        (index <= selectionStart && index >= selectionEnd)) &&
         highlightedWords[index] != selectionAction)
       return _HighlightAppearance.selected;
     else if (highlightedWords[index])
@@ -47,10 +47,8 @@ class _HighlightRichTextState extends State<HighlightRichText> {
   }
 
   /// Gesture handlers
-  void _handleDragUpdate(DragUpdateDetails details) {
-    int word = hitTestList(details.globalPosition, _wordKeys);
-    print('Word[$word] is below cursor');
-
+  void _handleDragUpdate(Offset position) {
+    int word = hitTestList(position, _wordKeys);
     if (word != null)
       _updateSelection(word);
   }
@@ -95,6 +93,14 @@ class _HighlightRichTextState extends State<HighlightRichText> {
 
         widget.onChangeHighlight(highlightedWords);
       });
+  }
+
+  void _quickSelect(int index) {
+    setState(() {
+      _clearSelection();
+      highlightedWords[index] = !highlightedWords[index];
+      widget.onChangeHighlight(highlightedWords);
+    });
   }
 
   /// Widget functions
@@ -144,13 +150,19 @@ class _HighlightRichTextState extends State<HighlightRichText> {
             child: GestureDetector(
               key: _wordKeys[index],
 
-              onTapDown: (details) => _startSelection(index),
-              onTapUp: (details) => _applySelection(),
+              // Gestures
+              onTap: () => _quickSelect(index),
+
+              onLongPressStart: (details) => _startSelection(index),
+              onLongPressMoveUpdate: (details) => _handleDragUpdate(details.globalPosition),
+              onLongPressEnd: (details) => _applySelection(),
+
               onHorizontalDragStart: (details) => _startSelection(index),
-              onHorizontalDragUpdate: _handleDragUpdate,
+              onHorizontalDragUpdate: (details) => _handleDragUpdate(details.globalPosition),
               onHorizontalDragEnd: (details) => _applySelection(),
               onHorizontalDragCancel: () => _clearSelection(),
 
+              // Highlighted word
               child: Padding(
                 padding: const EdgeInsets.only(top: 4),
                 child: Stack(
