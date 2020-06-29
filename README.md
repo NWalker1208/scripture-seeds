@@ -8,8 +8,8 @@ An app to encourage the development of Christ-like attributes and aid in persona
 These items are necessary for the app to serve it's purpose.
 - [x] Functioning activity share (1 week)
 - [x] Back-button use in activities (0.5 weeks)
-- [ ] Fruit growth after reaching goal (1 week)
-  - [ ] Store to buy more seeds with fruit
+- [ ] Finish home page
+- [ ] Study journal
 
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.
@@ -21,9 +21,10 @@ These items are necessary, but can be built upon over time.
 
 ### 3) Features and Design (finish before release)
 These items are unnecessary, but improve the user experience.
+- [ ] Fruit growth after reaching goal (1 week)
+  - [ ] Store to buy more seeds with fruit
 - [ ] Define word in scripture (1 week)
 - [ ] Share picture quote (1 week)
-- [ ] Study journal
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
 - [ ] Improve plant display (1 week)
