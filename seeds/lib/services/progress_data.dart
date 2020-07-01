@@ -22,13 +22,10 @@ class ProgressData extends ChangeNotifier {
   bool get isLoaded => _records != null;
 
   // Gets the progress for a specific item
-  // Returns null if the database has not been loaded.
-  // Returns a record with 0 progress if the record does not exist.
+  // Returns a record with 0 progress if the record does not exist or if the
+  // records have not been loaded.
   ProgressRecord getProgressRecord(String name) {
-    if (!isLoaded)
-      return null;
-
-    if (!_records.containsKey(name))
+    if (!isLoaded || !_records.containsKey(name))
       return ProgressRecord(name);
 
     return _records[name];

@@ -31,23 +31,25 @@ class ProgressRecord {
 
   int get daysSinceLastUpdate => lastUpdate.daysUntil(DateTime.now());
   bool get canMakeProgressToday => lastUpdate == null || daysSinceLastUpdate > 0;
+  // Returns null if the user will not lose progress. Returns 0 or greater if the
+  // user is about to lose progress.
   int get progressLost {
     int lost = daysSinceLastUpdate;
 
     if (lost == null)
-      return 0;
+      return null;
     else
       lost -= kMaxInactiveDays;
 
     if (lost < 0)
-      lost = 0;
-
-    return lost;
+      return null;
+    else
+      return lost;
   }
 
   // Returns the stored progress minus progress lost from inactivity
   int get totalProgress {
-    int total = progress - progressLost;
+    int total = progress - (progressLost ?? 0);
 
     if (total < 0)
       total = 0;

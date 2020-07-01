@@ -38,7 +38,7 @@ class PlantList extends StatelessWidget {
 
           // Determine if the icon should show that the user should complete the daily activity
           ProgressRecord progress = progressData.getProgressRecord(topic);
-          bool canMakeProgress = (progress == null) ? true : progress.canMakeProgressToday;
+          bool canMakeProgress = progress.canMakeProgressToday;
 
           return FlatButton(
             padding: EdgeInsets.all(8.0),

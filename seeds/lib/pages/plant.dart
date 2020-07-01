@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/widgets/plant_list.dart';
+import 'package:seeds/widgets/plant_view.dart';
 import 'package:social_share/social_share.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:seeds/services/progress_data.dart';
@@ -114,84 +115,55 @@ class PlantPage extends StatelessWidget {
         )
       ),
 
-      // Body area of scaffold with plant image
-      backgroundColor: (Theme.of(context).brightness == Brightness.light ?
-        Colors.lightBlue[200] :
-        Colors.indigo[900]
-      ),
-      body: Container(
-        decoration: BoxDecoration( gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: (
-            Theme.of(context).brightness == Brightness.light ?
-            <Color>[
-              Colors.lightBlue[100],
-              Colors.lightBlue[200],
-            ] :
-            <Color>[
-              Colors.indigo[800],
-              Colors.indigo[900],
-            ]
-          )
-        )),
+      body: Align(
         alignment: Alignment.bottomCenter,
-        clipBehavior: Clip.none,
-
         // Plant Display Region
-        child:  Consumer<ProgressData>(
-          builder: (context, progressData, child) {
-            ProgressRecord record = progressData.getProgressRecord(plantName);
-            int progress = record.totalProgress;
-            bool wilted = (record.lastUpdate == null) ?
-                            false :
-                            (record.daysSinceLastUpdate >= ProgressRecord.kMaxInactiveDays);
-
-            return CustomPaint(
-              painter: PlantPainter(progress, wilted),
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    // Title (plantName)
-                    child,
-
-                    // Progress bar
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
-                      child: TweenAnimationBuilder(
-                        tween: Tween<double>(begin: initialProgress/14.0, end: progress/14.0),
-                        duration: Duration(milliseconds: 1000),
-                        curve: Curves.easeInOutCubic,
-
-                        builder: (BuildContext context, double percent, Widget child) => LinearPercentIndicator(
-                          backgroundColor: Colors.green[700].withAlpha(80),
-                          progressColor: Colors.green,
-                          linearStrokeCap: LinearStrokeCap.roundAll,
-                          animation: false,
-
-                          leading: Text('${(progress/14.0 * 100).round()} %'),
-                          trailing: Icon(Icons.flag),
-
-                          percent: percent,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+        child: PlantView(
+          plantName,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              // Title (plantName)
+              Text(
+                plantName,
+                style: Theme.of(context).textTheme.headline3.copyWith(
+                  fontFamily: 'Scriptina',
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
+                )
               ),
-            );
-          },
 
-          child: Text(
-            plantName,
-            style: Theme.of(context).textTheme.headline3.copyWith(
-              fontFamily: 'Scriptina',
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
-            )
-          )
+              // Progress bar
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                child: Consumer<ProgressData>(
+                  builder: (context, progressData, child) {
+                    ProgressRecord record = progressData.getProgressRecord(plantName);
+                    int progress = record.totalProgress;
+
+                    return TweenAnimationBuilder(
+                      tween: Tween<double>(begin: initialProgress/14.0, end: progress/14.0),
+                      duration: Duration(milliseconds: 1000),
+                      curve: Curves.easeInOutCubic,
+
+                      builder: (BuildContext context, double percent, Widget child) => LinearPercentIndicator(
+                        backgroundColor: Colors.green[700].withAlpha(80),
+                        progressColor: Colors.green,
+                        linearStrokeCap: LinearStrokeCap.roundAll,
+                        animation: false,
+
+                        leading: Text('${(progress/14.0 * 100).round()} %'),
+                        trailing: Icon(Icons.flag),
+
+                        percent: percent,
+                      ),
+                    );
+                  }
+                )
+              )
+            ],
+          ),
         )
       ),
 
