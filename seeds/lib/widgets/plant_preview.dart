@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:provider/provider.dart';
-import 'package:seeds/widgets/plant_painter.dart';
-import 'package:seeds/services/progress_data.dart';
-import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/widgets/plant_view.dart';
+import 'package:seeds/services/utility.dart';
 
 class PlantPreview extends StatelessWidget {
   final String topic;
@@ -14,6 +11,9 @@ class PlantPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
+      padding: EdgeInsets.zero,
+      clipBehavior: Clip.antiAlias,
+
       onPressed: () => Navigator.of(context).pushNamed(
         '/plant',
         arguments: topic
@@ -25,7 +25,7 @@ class PlantPreview extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(topic),
+            child: Text(topic.capitalize(), style: Theme.of(context).textTheme.subtitle1,),
           )
         )
       )

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';

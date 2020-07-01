@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/plant_list.dart';
+import 'package:seeds/services/library.dart';
+import 'package:seeds/widgets/plant_preview.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<String> topics = Library.topics.keys.toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('My Garden'),
@@ -16,7 +19,15 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: PlantList(''),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: topics.map((topic) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: PlantPreview(topic),
+            );
+          }).toList(),
+        )
       ),
     );
   }

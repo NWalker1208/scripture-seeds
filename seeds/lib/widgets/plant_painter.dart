@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 enum SkyColorMode {
@@ -52,6 +51,8 @@ class PlantPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    // TODO: Fix coordinates to be relative to size
+
     // Draw background
     _ColorPair sky = getSkyColors();
 
