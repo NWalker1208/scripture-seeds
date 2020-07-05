@@ -8,11 +8,13 @@ An app to encourage the development of Christ-like attributes and aid in persona
 These items are necessary for the app to serve it's purpose.
 - [x] Functioning activity share (1 week)
 - [x] Back-button use in activities (0.5 weeks)
-- [ ] Finish home page
+- [x] Finish home page
 - [ ] Study journal
+  - [ ] Share, delete, and filter journal items
 
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.
+- [ ] Revamp library system to be more extensible (1 week)
 - [ ] Add more topics and scriptures (1 week)
 - [ ] Add more variety to activities (extra, pre-release)
   - Videos
@@ -28,6 +30,7 @@ These items are unnecessary, but improve the user experience.
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
 - [ ] Improve plant display (1 week)
+  - [ ] Make scaling relative to size
   - [ ] Create actual plant graphic
   - [ ] Improve animation
   - [ ] Sunrise/sunset
