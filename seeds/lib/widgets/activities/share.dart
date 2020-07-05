@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/social_share_system.dart';
+import 'package:seeds/widgets/journal_entry.dart';
 
 class ShareActivity extends ActivityWidget {
   final List<String> sharableText;
@@ -13,6 +16,7 @@ class ShareActivity extends ActivityWidget {
 }
 
 class _ShareActivityState extends State<ShareActivity> {
+  bool savedToJournal;
 
   void shareQuote(SharePlatform platform) async {
     SocialShareSystem.shareScriptureQuote(
@@ -27,7 +31,30 @@ class _ShareActivityState extends State<ShareActivity> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    savedToJournal = false;
+  }
+
+  @override
+  void didUpdateWidget(ShareActivity oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.sharableText[0] != widget.sharableText[0] ||
+        oldWidget.sharableText[1] != widget.sharableText[1])
+      setState(() {
+        savedToJournal = false;
+      });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    JournalEntry journalEntry = JournalEntry(
+      reference: widget.sharableText[0],
+      commentary: widget.sharableText[1],
+      tags: [widget.topic]
+    );
+
     return Padding(
       padding: EdgeInsets.all(40.0),
       child: Column(
@@ -39,18 +66,7 @@ class _ShareActivityState extends State<ShareActivity> {
           ),
           SizedBox(height: 30),
 
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(widget.sharableText[0], style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),),
-                  Text(widget.sharableText[1], style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),)
-                ]
-              ),
-            ),
-          ),
+          JournalEntryView(journalEntry),
           SizedBox(height: 30),
 
           // Share buttons
@@ -69,7 +85,14 @@ class _ShareActivityState extends State<ShareActivity> {
               SizedBox(width: 5),
               Expanded(
                 child: RaisedButton.icon(
-                  onPressed: null,
+                  onPressed: savedToJournal ? null : () {
+                    Provider.of<JournalData>(context, listen: false).createEntry(journalEntry);
+                    widget.onProgressChange(true, '');
+
+                    setState(() {
+                      savedToJournal = true;
+                    });
+                  },
 
                   icon: Icon(Icons.save_alt),
                   label: Text('Save to Journal'),

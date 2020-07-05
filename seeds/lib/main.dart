@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:seeds/pages/home.dart';
+import 'package:seeds/pages/settings.dart';
 import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
-import 'package:seeds/pages/settings.dart';
+import 'package:seeds/pages/journal.dart';
+import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/services/theme_preference.dart';
 import 'package:seeds/services/themes.dart';
@@ -23,8 +25,10 @@ class SeedsApp extends StatelessWidget {
       providers: [
         // ThemePreference notifier
         ChangeNotifierProvider(create: (context) => ThemePreference()),
-        // ThemePreference notifier
-        ChangeNotifierProvider(create: (context) => ProgressData())
+        // ProgressData notifier
+        ChangeNotifierProvider(create: (context) => ProgressData()),
+        // JournalData notifier
+        ChangeNotifierProvider(create: (context) => JournalData())
       ],
 
       child: Consumer<ThemePreference>(
@@ -51,6 +55,8 @@ class SeedsApp extends StatelessWidget {
 
             '/plant/activity': (context) =>
               ActivityPage(ModalRoute.of(context).settings.arguments),
+
+            '/journal': (context) => JournalPage(),
           },
         )
       )

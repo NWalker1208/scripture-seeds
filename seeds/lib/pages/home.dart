@@ -19,14 +19,30 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          children: topics.map((topic) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: PlantPreview(topic),
-            );
-          }).toList(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                children: topics.map((topic) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: PlantPreview(topic),
+                  );
+                }).toList(),
+              ),
+            ),
+
+            Divider(),
+
+            RaisedButton.icon(
+              onPressed: () => Navigator.pushNamed(context, '/journal'),
+              icon: Icon(Icons.book),
+              label: Text('Study Journal'),
+              textColor: Colors.white,
+            )
+          ],
         )
       ),
     );

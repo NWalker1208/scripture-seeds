@@ -101,8 +101,7 @@ class JournalData extends ChangeNotifier {
       entryFiles.forEach((entity) {
         if (entity is File) {
           try {
-            JournalEntry entry = JournalEntry.fromJSON(
-                entity.readAsStringSync());
+            JournalEntry entry = JournalEntry.fromJSON(entity.readAsStringSync());
             entries.add(entry);
           } on FormatException {
             print('Encountered invalid journal entry at ${entity.path}, deleting...');

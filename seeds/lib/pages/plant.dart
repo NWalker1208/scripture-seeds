@@ -92,7 +92,7 @@ class PlantPage extends StatelessWidget {
                     ],
                   ),
 
-                  onPressed: () { Navigator.pop(context); Navigator.pushReplacementNamed(context, '/'); },
+                  onPressed: () { Navigator.pop(context); Navigator.pop(context); },
                 ),
 
                 FlatButton(
@@ -190,8 +190,8 @@ class PlantPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () => Navigator.popAndPushNamed(context, '/'),
+                icon: Icon(Icons.book),
+                onPressed: () => Navigator.pushNamed(context, '/journal'),
               ),
               Consumer<ProgressData>(
                 builder: (context, progressData, child) => IconButton(
