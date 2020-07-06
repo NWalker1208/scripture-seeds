@@ -1,9 +1,10 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';
 
 class PonderActivity extends ActivityWidget {
-  PonderActivity(String topic, {void Function(bool, String) onProgressChange, Key key}) :
+  PonderActivity(String topic, {FutureOr<void> Function(bool, String) onProgressChange, Key key}) :
         super(topic, onProgressChange: onProgressChange, key: key);
 
   @override

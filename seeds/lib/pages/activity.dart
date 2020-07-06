@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/activities/study.dart';
@@ -21,6 +22,7 @@ class _ActivityPageState extends State<ActivityPage> {
   int _stage;
   List<bool> _completed;
   List<String> _shareText;
+  bool _saveToJournal;
 
   void onProgressChange(bool completed, String text) {
     setState(() {
@@ -35,10 +37,17 @@ class _ActivityPageState extends State<ActivityPage> {
     _stage = 0;
     _completed = new List<bool>.filled(3, false);
     _shareText = new List<String>.filled(3, '');
+    _saveToJournal = false;
   }
 
   @override
   Widget build(BuildContext context) {
+    JournalEntry journalEntry = JournalEntry(
+      reference: _shareText[0],
+      commentary: _shareText[1],
+      tags: [widget.topic]
+    );
+
     return WillPopScope(
       onWillPop: () async {
         if (_stage == 0)
@@ -63,7 +72,11 @@ class _ActivityPageState extends State<ActivityPage> {
           children: <ActivityWidget>[
             StudyActivity(widget.topic, onProgressChange: onProgressChange),
             PonderActivity(widget.topic, onProgressChange: onProgressChange),
-            ShareActivity(widget.topic, _shareText, onProgressChange: onProgressChange)
+            ShareActivity(widget.topic, journalEntry, onProgressChange: onProgressChange,
+              onSaveToJournalChange: (saveToJournal) {
+                _saveToJournal = saveToJournal;
+              },
+            )
           ]
         ),
 
@@ -84,6 +97,9 @@ class _ActivityPageState extends State<ActivityPage> {
 
             onPressed: _completed[_stage] ? () {
               if (_stage == 2) {
+                if (_saveToJournal)
+                  Provider.of<JournalData>(context, listen: false).createEntry(journalEntry);
+
                 Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
                 Navigator.pop(context, true);
               } else {

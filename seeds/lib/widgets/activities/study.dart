@@ -1,14 +1,14 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/highlight_rich_text.dart';
-import 'package:seeds/widgets/highlight_text.dart';
 import 'package:seeds/services/library.dart';
 import 'package:seeds/services/scripture.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:provider/provider.dart';
 
 class StudyActivity extends ActivityWidget {
-  StudyActivity(String topic, {void Function(bool, String) onProgressChange, Key key}) :
+  StudyActivity(String topic, {FutureOr<void> Function(bool, String) onProgressChange, Key key}) :
       super(topic, onProgressChange: onProgressChange, key: key);
 
   @override

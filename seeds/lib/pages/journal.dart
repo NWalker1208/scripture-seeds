@@ -11,16 +11,16 @@ class JournalPage extends StatelessWidget {
           title: Text('My Journal')
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Consumer<JournalData>(
-          builder: (context, journal, child) {
-            return ListView.builder(
-              itemCount: journal.entries.length,
-              itemBuilder: (context, index) => JournalEntryView(journal.entries[index])
-            );
-          },
-        ),
+      body: Consumer<JournalData>(
+        builder: (context, journal, child) {
+          return ListView.builder(
+            itemCount: journal.entries.length,
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
+              child: JournalEntryView(journal.entries[index]),
+            )
+          );
+        },
       ),
     );
   }

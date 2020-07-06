@@ -1,64 +1,37 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
-import 'package:seeds/services/social_share_system.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
 class ShareActivity extends ActivityWidget {
-  final List<String> sharableText;
+  final JournalEntry journalEntry;
+  final FutureOr<void> Function(bool) onSaveToJournalChange;
 
-  ShareActivity(String topic, this.sharableText, {void Function(bool, String) onProgressChange, Key key}) :
-        super(topic, onProgressChange: onProgressChange, key: key);
+  ShareActivity(String topic, this.journalEntry,
+      {this.onSaveToJournalChange, FutureOr<void> Function(bool, String) onProgressChange, Key key}) :
+      super(topic, onProgressChange: onProgressChange, key: key);
 
   @override
   _ShareActivityState createState() => _ShareActivityState();
 }
 
 class _ShareActivityState extends State<ShareActivity> {
-  bool savedToJournal;
-
-  void shareQuote(SharePlatform platform) async {
-    SocialShareSystem.shareScriptureQuote(
-      platform,
-      quote: widget.sharableText[0],
-      commentary: widget.sharableText[1],
-      onReturn: (success) {
-        if (success)
-          widget.onProgressChange(true, '');
-      }
-    );
-  }
+  bool saveToJournal;
 
   @override
   void initState() {
     super.initState();
-    savedToJournal = false;
-  }
-
-  @override
-  void didUpdateWidget(ShareActivity oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    if (oldWidget.sharableText[0] != widget.sharableText[0] ||
-        oldWidget.sharableText[1] != widget.sharableText[1])
-      setState(() {
-        savedToJournal = false;
-      });
+    saveToJournal = false;
   }
 
   @override
   Widget build(BuildContext context) {
-    JournalEntry journalEntry = JournalEntry(
-      reference: widget.sharableText[0],
-      commentary: widget.sharableText[1],
-      tags: [widget.topic]
-    );
-
     return Padding(
       padding: EdgeInsets.all(40.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           // Instructions
           Text('Share what you studied today.',
@@ -66,40 +39,27 @@ class _ShareActivityState extends State<ShareActivity> {
           ),
           SizedBox(height: 30),
 
-          JournalEntryView(journalEntry),
-          SizedBox(height: 30),
+          JournalEntryView(
+            widget.journalEntry,
+            onShare: () => widget.onProgressChange?.call(true, ''),
+          ),
+          SizedBox(height: 12),
 
-          // Share buttons
+          // Journal
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Expanded(
-                child: RaisedButton.icon(
-                  onPressed: () => shareQuote(SharePlatform.System),
-
-                  icon: Icon(Icons.share),
-                  label: Text('Share'),
-                ),
+              Checkbox(
+                value: saveToJournal,
+                onChanged: (save) => setState(() {
+                  saveToJournal = save;
+                  widget.onProgressChange?.call(true, '');
+                  widget.onSaveToJournalChange?.call(save);
+                })
               ),
-              SizedBox(width: 5),
-              Expanded(
-                child: RaisedButton.icon(
-                  onPressed: savedToJournal ? null : () {
-                    Provider.of<JournalData>(context, listen: false).createEntry(journalEntry);
-                    widget.onProgressChange(true, '');
-
-                    setState(() {
-                      savedToJournal = true;
-                    });
-                  },
-
-                  icon: Icon(Icons.save_alt),
-                  label: Text('Save to Journal'),
-                ),
-              ),
+              Text('Save to Journal')
             ],
-          )
+          ),
         ],
       ),
     );

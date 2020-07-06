@@ -1,19 +1,21 @@
 import 'dart:async';
+import 'package:seeds/services/journal_data.dart';
 import 'package:social_share/social_share.dart';
 
 enum SharePlatform {
-  System, // Only one implemented
-  FaceBook,
-  Instagram,
-  Twitter
+  system, // Only one implemented
+  faceBook,
+  instagram,
+  twitter
 }
 
 class SocialShareSystem {
-  static Future<void> shareScriptureQuote(SharePlatform platform, {String quote = '', String commentary = '', FutureOr<void> Function(bool) onReturn}) async {
+  static Future<void> shareJournalEntry({SharePlatform platform = SharePlatform.system,
+      JournalEntry entry, FutureOr<void> Function(bool) onReturn}) async {
     bool success = false;
 
-    if (platform == SharePlatform.System) {
-      success = await SocialShare.shareOptions('$quote\n$commentary');
+    if (platform == SharePlatform.system) {
+      success = await SocialShare.shareOptions('${entry.reference}\n${entry.commentary}');
     } else {
       print('Error: Platform ${platform.toString()} not yet implemented.');
     }

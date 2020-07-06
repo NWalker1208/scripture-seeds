@@ -73,21 +73,21 @@ class SettingsPage extends StatelessWidget {
 
       body: Builder(
         builder: (scaffoldContext) => Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: ListView(
             children: <Widget>[
               // Theme Dropdown
               Row(
                 children: <Widget>[
                   Expanded(child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.only(left: 12.0),
                     child: Text('App Theme'),
                   )),
-                  SizedBox(width: 8),
+                  SizedBox(width: 12.0),
                   ThemeModeSelector()
                 ],
               ),
-              SizedBox(height: 8,),
+              SizedBox(height: 12.0,),
 
               // Reset Progress Button
               Row(
@@ -99,7 +99,7 @@ class SettingsPage extends StatelessWidget {
                       color: Theme.of(context).errorColor
                     ),
                   ),
-                  SizedBox(width: 5,),
+                  SizedBox(width: 12.0),
                   Expanded(
                     child: RaisedButton(
                       onPressed: () => resetProgress(scaffoldContext),

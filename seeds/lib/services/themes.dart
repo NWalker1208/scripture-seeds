@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppThemes {
   static final ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.green,
+    toggleableActiveColor: Colors.green,
     accentColor: Colors.blue,
     cursorColor: Colors.blue,
 
@@ -26,6 +27,7 @@ class AppThemes {
 
     // Copied from above
     primarySwatch: Colors.green,
+    toggleableActiveColor: Colors.green,
     accentColor: Colors.blue,
     cursorColor: Colors.blue,
 
