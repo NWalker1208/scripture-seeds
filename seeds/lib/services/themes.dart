@@ -38,7 +38,7 @@ class AppThemes {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     cardTheme: CardTheme(
-        color: Colors.green.withAlpha(126),
+        color: Colors.green[800],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
 

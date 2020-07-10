@@ -69,9 +69,15 @@ class JournalData extends ChangeNotifier {
     _saveNewEntry(entry);
   }
 
-  void deleteEntry(JournalEntry entry) {
-    if (_entries.contains(entry)) {
+  void deleteEntry({JournalEntry entry, int index}) {
+    if (entry != null && _entries.contains(entry)) {
       _entries.remove(entry);
+      notifyListeners();
+
+      _deleteEntry(entry);
+    } else if (index != null) {
+      entry = _entries[index];
+      _entries.removeAt(index);
       notifyListeners();
 
       _deleteEntry(entry);
