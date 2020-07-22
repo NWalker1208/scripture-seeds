@@ -9,8 +9,8 @@ These items are necessary for the app to serve it's purpose.
 - [x] Functioning activity share (1 week)
 - [x] Back-button use in activities (0.5 weeks)
 - [x] Finish home page
-- [ ] Study journal
-  - [ ] Share, delete, and filter journal items
+- [x] Study journal
+  - [x] Share, delete, and filter journal items
 
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.
