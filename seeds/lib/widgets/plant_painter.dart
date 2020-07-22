@@ -49,19 +49,16 @@ class PlantPainter extends CustomPainter {
     return colors;
   }
 
-  @override
-  void paint(Canvas canvas, Size size) {
-    // TODO: Fix coordinates to be relative to size
-
-    // Draw background
+  // Paints sky and ground
+  void _paintBackground(Canvas canvas, Size size) {
     _ColorPair sky = getSkyColors();
 
     Rect rect = Offset.zero & size;
     Gradient gradient = LinearGradient(
-      begin: Alignment.bottomCenter,
-      end: Alignment.topCenter,
-      colors: [sky.bottom, sky.top],
-      stops: [0, 1]
+        begin: Alignment.bottomCenter,
+        end: Alignment.topCenter,
+        colors: [sky.bottom, sky.top],
+        stops: [0, 1]
     );
     Paint background = Paint()
       ..shader = gradient.createShader(rect);
@@ -71,9 +68,14 @@ class PlantPainter extends CustomPainter {
     Paint ground = Paint()
       ..color = Colors.brown;
 
-    canvas.drawOval(Rect.fromLTRB(-75, size.height - 200, size.width + 75, size.height + 50), ground);
+    canvas.drawOval(Rect.fromLTRB(
+        -75, size.height - 200,
+        size.width + 75, size.height + 50
+    ), ground);
+  }
 
-    // Draw plant
+  // Paints plant graphic
+  void _paintForeground(Canvas canvas, Size size) {
     Paint plant = Paint()
       ..style = PaintingStyle.stroke
       ..color = (wilted ? Color(0xFFB98D51) : Colors.green)
@@ -84,14 +86,20 @@ class PlantPainter extends CustomPainter {
 
     for (int i = 1; i < length + 1; i++) {
       plantPath.quadraticBezierTo(
-        size.width / 2 - 5, size.height - 200 - i * 20.0,
-        size.width / 2 - 2, size.height - 190 - i * 20.0);
+          size.width / 2 - 5, size.height - 200 - i * 20.0,
+          size.width / 2 - 2, size.height - 190 - i * 20.0);
       plantPath.quadraticBezierTo(
-        size.width / 2 + 5, size.height - 200 - i * 20.0,
-        size.width / 2 + 2, size.height - 190 - i * 20.0);
+          size.width / 2 + 5, size.height - 200 - i * 20.0,
+          size.width / 2 + 2, size.height - 190 - i * 20.0);
     }
 
     canvas.drawPath(plantPath, plant);
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    _paintBackground(canvas, size);
+    _paintForeground(canvas, size);
   }
 
   @override
