@@ -1,83 +1,76 @@
 import 'dart:core';
-import 'package:xml/xml.dart' as XML;
 import 'package:flutter/material.dart';
-
-enum _ElementType {
-  Image, Video, Title, Text, HighlightText
-}
-
-class _Element {
-  _ElementType type;
-  String content;
-
-  _Element(this.content, {this.type = _ElementType.Text});
-
-  @override
-  String toString() {
-    return '{$type, content: $content}';
-  }
-}
-
-class StudyResource {
-  int id;
-  List<String> topics;
-  String reference;
-  String referenceURL;
-
-  List<_Element> _body;
-
-  StudyResource(this.id, this.topics, this.reference, this.referenceURL, this._body);
-
-  @override
-  String toString() {
-    return 'StudyResource #$id {$topics, $reference, $referenceURL}: $_body';
-  }
-}
+import 'package:xml/xml.dart' as XML;
+import 'package:seeds/services/study_resource.dart';
 
 class Library {
   List<String> topics;
   List<StudyResource> resources;
 
+  bool get loaded => topics != null && resources != null;
+
   Library(BuildContext context, {lang = 'en'}) {
-    DefaultAssetBundle.of(context).loadStructuredData('assets/library_$lang.xml', (text) async => XML.parse(text))
-        .then((XML.XmlDocument xmlDoc) {
-          topics = List<String>();
-          resources = List<StudyResource>();
+    // Load library XML file
+    DefaultAssetBundle.of(context).loadStructuredData(
+      'assets/library_$lang.xml',
+      (text) async => XML.parse(text)
+    ).then((XML.XmlDocument xmlDoc) {
+      // Process XML file after loading
+      resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
+      _updateTopics();
 
-          xmlDoc.findAllElements('resource').forEach((resource) {
-            print('Parsing resource: ${resource.toString()}');
+      // Print study resources for debug
+      print('Processed resources: $resources');
+    });
+  }
 
-            resources.add(StudyResource(
-              int.parse(resource.getAttribute('id')),
-              resource.findElements('topic').map((t) => t.text).toList(),
-              resource.findElements('reference').first.text,
-              resource.findElements('reference').first.getAttribute('url'),
-              resource.findElements('body').first.children.map(
-                (element) {
-                  // TODO: Break this out into a separate system to skip irrelevant elements
-                  if (element is XML.XmlText)
-                    return _Element(element.text);
-                  else if (element is XML.XmlElement)
-                    switch (element.name.local) {
-                      case 'image':
-                        return _Element(element.getAttribute('url'), type: _ElementType.Image);
-                      case 'video':
-                        return _Element(element.getAttribute('url'), type: _ElementType.Video);
-                      case 'title':
-                        return _Element(element.text, type: _ElementType.Title);
-                      case 'highlight':
-                        return _Element(element.text, type: _ElementType.HighlightText);
-                      default:
-                        return null;
-                    }
-                  else
-                    return null;
-                }
-              ).toList()
-            ));
-          });
+  void _updateTopics() {
+    topics = List<String>();
 
-          print(resources);
-        });
+    resources.forEach((res) {
+      res.topics.forEach((topic) {
+        String lowercase = topic.toLowerCase();
+        if (!topics.contains(lowercase))
+          topics.add(lowercase);
+      });
+    });
+  }
+
+  static List<StudyResource> _xmlToStudyResources(Iterable<XML.XmlElement> xmlResources) {
+    List<StudyResource> resources = List<StudyResource>();
+
+    // Iterate over every resource tag
+    xmlResources.forEach((resource) {
+      // Locate topics, reference, and body of study resource
+      Iterable<XML.XmlElement> topics = resource.findElements('topic');
+      XML.XmlElement reference = resource.findElements('reference').first;
+      Iterable<XML.XmlNode> bodyElements = resource.findElements('body').first.children;
+
+      // Convert XmlElements to StudyResource
+      resources.add(StudyResource(
+          int.parse(resource.getAttribute('id')),
+          topics.map((t) => t.text).toList(),
+          reference.text,
+          reference.getAttribute('url'),
+          _xmlToStudyElements(bodyElements)
+      ));
+    });
+
+    return resources;
+  }
+
+  static List<StudyElement> _xmlToStudyElements(Iterable<XML.XmlNode> xmlNodes) {
+    List<StudyElement> elements = List<StudyElement>();
+
+    xmlNodes.forEach((node) {
+      if (node is XML.XmlElement) {
+        StudyElement element = StudyElement.fromXmlElement(node);
+
+        if (element != null)
+          elements.add(element);
+      }
+    });
+
+    return elements;
   }
 }
