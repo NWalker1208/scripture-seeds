@@ -91,7 +91,7 @@ class _HighlightRichTextState extends State<HighlightRichText> {
         selectionStart = null;
         selectionEnd = null;
 
-        widget.onChangeHighlight(highlightedWords);
+        widget.onChangeHighlight?.call(highlightedWords);
       });
   }
 
@@ -99,7 +99,7 @@ class _HighlightRichTextState extends State<HighlightRichText> {
     setState(() {
       _clearSelection();
       highlightedWords[index] = !highlightedWords[index];
-      widget.onChangeHighlight(highlightedWords);
+      widget.onChangeHighlight?.call(highlightedWords);
     });
   }
 

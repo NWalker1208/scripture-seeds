@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/widgets/highlight_rich_text.dart';
 import 'package:xml/xml.dart' as XML;
 
 enum _MediaType {Image, Video}
@@ -13,7 +14,10 @@ class _MediaElement extends StudyElement {
 
   @override
   Widget toWidget(BuildContext context) {
-    return Text(url);
+    if (type == _MediaType.Image)
+      return Image.network(url);
+    else
+      return Text('Video: $url');
   }
 }
 
@@ -27,7 +31,11 @@ class _TitleElement extends StudyElement {
 
   @override
   Widget toWidget(BuildContext context) {
-    return Text(text);
+    return Text(
+      text,
+      style: Theme.of(context).textTheme.headline4.copyWith(fontFamily: 'Buenard'),
+      textAlign: TextAlign.center,
+    );
   }
 }
 
@@ -42,7 +50,15 @@ class _TextElement extends StudyElement {
 
   @override
   Widget toWidget(BuildContext context) {
-    return Text(text);
+    return HighlightRichText(
+      text,
+      leadingText: verse == null ? null : '$verse. ',
+      style: DefaultTextStyle.of(context).style.copyWith(
+        fontFamily: 'Buenard',
+        fontSize: 20,
+        height: 1.5
+      ),
+    );
   }
 }
 
@@ -72,12 +88,12 @@ class StudyResource {
   String reference;
   String referenceURL;
 
-  List<StudyElement> _body;
+  List<StudyElement> body;
 
-  StudyResource(this.id, this.topics, this.reference, this.referenceURL, this._body);
+  StudyResource(this.id, this.topics, this.reference, this.referenceURL, this.body);
 
   @override
   String toString() {
-    return 'StudyResource #$id {$topics, $reference, $referenceURL}: $_body';
+    return 'StudyResource #$id {$topics, $reference, $referenceURL}: $body';
   }
 }

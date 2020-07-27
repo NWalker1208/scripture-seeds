@@ -6,6 +6,7 @@ import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
 import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/library2.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/services/theme_preference.dart';
 import 'package:seeds/services/themes.dart';
@@ -21,6 +22,8 @@ void main() {
 class SeedsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Library lib = Library(context);
+
     return MultiProvider(
       providers: [
         // ThemePreference notifier
@@ -28,7 +31,9 @@ class SeedsApp extends StatelessWidget {
         // ProgressData notifier
         ChangeNotifierProvider(create: (context) => ProgressData()),
         // JournalData notifier
-        ChangeNotifierProvider(create: (context) => JournalData())
+        ChangeNotifierProvider(create: (context) => JournalData()),
+        // Library notifier
+        ChangeNotifierProvider.value(value: lib),
       ],
 
       child: Consumer<ThemePreference>(
@@ -53,8 +58,7 @@ class SeedsApp extends StatelessWidget {
               );
             },
 
-            '/plant/activity': (context) =>
-              ActivityPage(ModalRoute.of(context).settings.arguments),
+            '/plant/activity': (context) => ActivityPage(ModalRoute.of(context).settings.arguments),
 
             '/journal': (context) => JournalPage(),
           },

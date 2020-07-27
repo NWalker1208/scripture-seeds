@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:xml/xml.dart' as XML;
 import 'package:seeds/services/study_resource.dart';
 
-class Library {
+class Library extends ChangeNotifier {
   List<String> topics;
   List<StudyResource> resources;
 
@@ -18,6 +18,7 @@ class Library {
       // Process XML file after loading
       resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
       _updateTopics();
+      notifyListeners();
 
       // Print study resources for debug
       print('Processed resources: $resources');
