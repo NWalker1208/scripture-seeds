@@ -186,7 +186,7 @@ class ProgressData extends ChangeNotifier {
     // Delete oldRecords that don't exist any more
     oldRecords.forEach((name, progress) {
       if (!records.containsKey(name))
-        batch.delete(kProgressTable, where: 'name = ?', whereArgs: [name]);
+        batch.delete(kProgressTable, where: '${ProgressRecord.kName} = ?', whereArgs: [name]);
     });
 
     // Update or create records
@@ -195,7 +195,7 @@ class ProgressData extends ChangeNotifier {
         batch.update(
           kProgressTable,
           progress.toMap(),
-          where: 'name = ?',
+          where: '${ProgressRecord.kName} = ?',
           whereArgs: [name]
         );
       } else {

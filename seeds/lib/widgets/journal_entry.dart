@@ -7,7 +7,7 @@ class JournalEntryView extends StatelessWidget {
   final JournalEntry entry;
   final FutureOr<void> Function() onShare;
 
-  JournalEntryView(this.entry, {this.onShare});
+  JournalEntryView(this.entry, {this.onShare, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
