@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
+import 'package:seeds/services/library/library_history.dart';
 import 'package:xml/xml.dart' as XML;
 import 'package:seeds/services/library/study_resource.dart';
 
@@ -23,6 +24,25 @@ class Library extends ChangeNotifier {
       // Print study resources for debug
       print('Processed resources: $resources');
     });
+  }
+
+  // Finds the least recent study resource for the given topic
+  StudyResource leastRecent(LibraryHistory history, {String topic}) {
+    StudyResource leastRecent;
+    DateTime leastRecentDate;
+
+    resources.forEach((res) {
+      if (topic == null || res.topics.contains(topic)) {
+        DateTime lastStudied = history.dateLastStudied(res);
+
+        if (leastRecentDate == null || lastStudied.isBefore(leastRecentDate)) {
+          leastRecent = res;
+          leastRecentDate = lastStudied;
+        }
+      }
+    });
+
+    return leastRecent;
   }
 
   void _updateTopics() {

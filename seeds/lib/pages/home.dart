@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/library/library.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/widgets/plant_preview.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> topics = Library.topics.keys.toList();
+    List<String> topics = Provider.of<Library>(context, listen: false).topics.toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -41,7 +43,15 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.book),
               label: Text('Study Journal'),
               textColor: Colors.white,
-            )
+            ),
+
+            if (!kReleaseMode)
+              RaisedButton.icon(
+                onPressed: () => Navigator.pushNamed(context, '/libtest'),
+                icon: Icon(Icons.warning),
+                label: Text('Lib Test'),
+                textColor: Colors.white,
+              )
           ],
         )
       ),

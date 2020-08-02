@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/progress_data.dart';
-import 'package:seeds/services/library/library.dart';
+import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/services/utility.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +12,7 @@ class PlantList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> topics = Library.topics.keys.toList();
+    List<String> topics = Provider.of<Library>(context, listen: false).topics.toList();
 
     return Consumer<ProgressData>(
       builder: (context, progressData, child) => Column(

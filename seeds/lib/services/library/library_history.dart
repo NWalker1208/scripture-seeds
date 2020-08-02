@@ -47,7 +47,7 @@ class LibraryHistory extends ChangeNotifier {
   }
 
   // Deletes all history entries
-  bool resetProgress() {
+  bool resetHistory() {
     if (isLoaded) {
       _history.clear();
       _saveData();

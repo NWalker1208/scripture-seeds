@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/highlight/span.dart';
+import 'package:seeds/widgets/highlight/study_block.dart';
 import 'package:xml/xml.dart' as XML;
 
 enum _MediaType {Image, Video}
@@ -50,14 +51,10 @@ class _TextElement extends StudyElement {
 
   @override
   Widget toWidget(BuildContext context) {
-    return HighlightTextSpan(
-      List<WordState>(),
-      leadingText: verse == null ? null : '$verse. ',
-      style: DefaultTextStyle.of(context).style.copyWith(
-        fontFamily: 'Buenard',
-        fontSize: 20,
-        height: 1.5
-      ),
+    return HighlightStudyBlock(
+      text,
+      id: verse ?? 0,
+      leadingText: verse == null ? null : '$verse. '
     );
   }
 }

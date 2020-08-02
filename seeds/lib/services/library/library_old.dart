@@ -1,5 +1,5 @@
 import 'dart:collection';
-import 'package:seeds/services/scripture.dart';
+import 'package:seeds/services/library/scripture.dart';
 
 class Library {
 

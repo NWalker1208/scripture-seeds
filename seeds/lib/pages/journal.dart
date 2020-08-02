@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/services/library/library.dart';
+import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/utility.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
@@ -73,7 +73,7 @@ class _JournalPageState extends State<JournalPage> {
                     value: 'All',
                     child: Text('All'),
                   )] +
-                  Library.topics.keys.map((topic) => DropdownMenuItem<String>(
+                  Provider.of<Library>(context, listen: false).topics.map((topic) => DropdownMenuItem<String>(
                     value: topic.capitalize(),
                     child: Text(topic.capitalize()),
                   )).toList()
