@@ -1,4 +1,4 @@
-import 'library.dart';
+import 'package:seeds/services/library/library.dart';
 
 class Scripture {
   String book;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/study_resource.dart';
+import 'package:seeds/services/library/study_resource.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mutex/mutex.dart';
 import 'dart:io';

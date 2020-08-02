@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/study_resource.dart';
+import 'package:seeds/services/library/study_resource.dart';
 
 class StudyResourceDisplay extends StatelessWidget {
   final StudyResource resource;

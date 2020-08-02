@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/library.dart';
+import 'package:seeds/services/library/library.dart';
 import 'package:seeds/widgets/plant_preview.dart';
 
 class HomePage extends StatelessWidget {

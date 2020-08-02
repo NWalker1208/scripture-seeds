@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/highlight_rich_text.dart';
+import 'package:seeds/widgets/highlight/span.dart';
 import 'package:xml/xml.dart' as XML;
 
 enum _MediaType {Image, Video}
@@ -50,8 +50,8 @@ class _TextElement extends StudyElement {
 
   @override
   Widget toWidget(BuildContext context) {
-    return HighlightRichText(
-      text,
+    return HighlightTextSpan(
+      List<WordState>(),
       leadingText: verse == null ? null : '$verse. ',
       style: DefaultTextStyle.of(context).style.copyWith(
         fontFamily: 'Buenard',

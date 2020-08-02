@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:xml/xml.dart' as XML;
-import 'package:seeds/services/study_resource.dart';
+import 'package:seeds/services/library/study_resource.dart';
 
 class Library extends ChangeNotifier {
   List<String> topics;

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
-import 'package:seeds/widgets/highlight_rich_text.dart';
-import 'package:seeds/services/library.dart';
+import 'package:seeds/widgets/highlight/span.dart';
+import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/scripture.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:provider/provider.dart';
@@ -17,26 +17,28 @@ class StudyActivity extends ActivityWidget {
 
 class _StudyActivityState extends State<StudyActivity> {
   List<Scripture> verses;
-  List<List<bool>> highlights;
+  List<List<WordState>> highlights;
 
-  void updateHighlight(List<bool> highlight, int verse) {
-    setState(() => highlights[verse] = highlight);
+  void updateHighlight(Map<int,bool> changes, int verse) {
+    setState(() {
+      changes.forEach((index, value) => highlights[verse][index].highlighted = value);
+    });
 
     // Determine if the activity is complete
     bool activityComplete = false;
     highlights.forEach((verse) {
       if (verse != null)
-        verse.forEach((word) => activityComplete = activityComplete || word);
+        verse.forEach((word) => activityComplete = activityComplete || word.highlighted);
     });
 
     // Eliminate verses that aren't highlighted
     List<Scripture> sparseVerses = new List<Scripture>.from(verses, growable: true);
-    List<List<bool>> sparseHighlights = new List<List<bool>>.from(highlights, growable: true);
+    List<List<WordState>> sparseHighlights = new List<List<WordState>>.from(highlights, growable: true);
 
     for(int i = 0; i < sparseVerses.length; i++) {
       bool deleteVerse = true;
       if (sparseHighlights[i] != null)
-        sparseHighlights[i].forEach((word) => deleteVerse = !word && deleteVerse);
+        sparseHighlights[i].forEach((word) => deleteVerse = !word.highlighted && deleteVerse);
 
       if (deleteVerse) {
         sparseVerses.removeAt(i);
@@ -47,7 +49,7 @@ class _StudyActivityState extends State<StudyActivity> {
 
     widget.onProgressChange(
         activityComplete,
-        '\u{201C}${Scripture.quoteBlockHighlight(sparseVerses, sparseHighlights)}\u{201D}\n- ${Scripture.blockReference(sparseVerses)}'
+        ''//'\u{201C}${Scripture.quoteBlockHighlight(sparseVerses, sparseHighlights)}\u{201D}\n- ${Scripture.blockReference(sparseVerses)}'
     );
   }
 
@@ -59,7 +61,7 @@ class _StudyActivityState extends State<StudyActivity> {
     int scriptureIndex = currentProgress % Library.topics[widget.topic].length;
     verses = Library.topics[widget.topic][scriptureIndex];
 
-    highlights = List<List<bool>>()..length = verses.length;
+    highlights = verses.map((verse) => buildWordList(verse.text)).toList();
   }
 
   @override
@@ -89,8 +91,8 @@ class _StudyActivityState extends State<StudyActivity> {
             ] + List<Widget>.generate(verses.length, (index) {
               return Padding(
                 padding: const EdgeInsets.only(top: 15),
-                child: HighlightRichText(
-                  '${verses[index].text}',
+                child: HighlightTextSpan(
+                  highlights[index],
                   leadingText: '${verses[index].verse}. ',
 
                   style: DefaultTextStyle.of(context).style.copyWith(
@@ -100,8 +102,8 @@ class _StudyActivityState extends State<StudyActivity> {
                   ),
 
                   // Save highlighted region when changed
-                  onChangeHighlight: (List<bool> highlight) =>
-                    updateHighlight(highlight, index),
+                  onChangeHighlight: (Map<int, bool> changes) =>
+                    updateHighlight(changes, index),
                 ),
               );
             }).toList()

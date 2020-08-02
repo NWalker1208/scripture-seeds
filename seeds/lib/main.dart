@@ -6,7 +6,7 @@ import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
 import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/services/library_xml.dart';
+import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/services/theme_preference.dart';
 import 'package:seeds/services/themes.dart';

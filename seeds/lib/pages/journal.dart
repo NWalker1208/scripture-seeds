@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/services/library.dart';
+import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/utility.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
