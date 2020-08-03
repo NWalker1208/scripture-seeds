@@ -14,23 +14,24 @@ class JournalPage extends StatefulWidget {
 class _JournalPageState extends State<JournalPage> {
   String filter;
   bool editMode;
-  List<bool> selected;
+  List<int> selected;
 
-  void toggleEditMode({int selectedIndex = -1}) {
+  void toggleEditMode({int selectedIndex}) {
     setState(() {
       editMode = !editMode;
-      selected = List<bool>();
+      selected = List<int>();
+
+      if (selectedIndex != null)
+        selected.add(selectedIndex);
     });
   }
 
   void deleteSelected() {
-    for(int i = 0; i < selected.length; i++) {
-      if (selected[i]) {
-        Provider.of<JournalData>(context, listen: false).deleteEntry(index: i);
-        selected.removeAt(i);
-        i--;
-      }
-    }
+    selected.sort();
+    selected = selected.reversed.toList();
+
+    for(int i = 0; i < selected.length; i++)
+      Provider.of<JournalData>(context, listen: false).deleteEntry(index: selected[i]);
 
     toggleEditMode();
   }
@@ -40,7 +41,7 @@ class _JournalPageState extends State<JournalPage> {
     super.initState();
     filter = "All";
     editMode = false;
-    selected = List<bool>();
+    selected = List<int>();
   }
 
   @override
@@ -86,9 +87,6 @@ class _JournalPageState extends State<JournalPage> {
 
       body: Consumer<JournalData>(
         builder: (context, journal, child) {
-          for (int i = selected.length; i < journal.entries.length; i++)
-            selected.add(false);
-
           return ListView(
             padding: EdgeInsets.only(bottom: 12.0),
             children: <Widget>[
@@ -100,8 +98,13 @@ class _JournalPageState extends State<JournalPage> {
                       alignment: Alignment.centerLeft,
                       children: <Widget>[
                         Checkbox(
-                          value: selected[index],
-                          onChanged: (value) => setState(() => selected[index] = value),
+                          value: selected.contains(index),
+                          onChanged: (value) => setState(() {
+                            if (value)
+                              selected.add(index);
+                            else
+                              selected.remove(index);
+                          }),
                         ),
                         TweenAnimationBuilder(
                             tween: Tween<double>(begin: 1, end: editMode ? 0.9 : 1),
@@ -114,7 +117,15 @@ class _JournalPageState extends State<JournalPage> {
                                     child: child
                                 ),
 
-                            child: JournalEntryView(journal.entries[index])
+                            child: GestureDetector(
+                              onLongPress: () {
+                                if (!editMode)
+                                  toggleEditMode(selectedIndex: index);
+                                else if (!selected.contains(index))
+                                  setState(() => selected.add(index));
+                              },
+                              child: JournalEntryView(journal.entries[index])
+                            )
                         )
                       ],
                     ),
