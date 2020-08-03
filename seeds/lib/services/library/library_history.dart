@@ -38,12 +38,11 @@ class LibraryHistory extends ChangeNotifier {
     if (!isLoaded)
       return;
 
-    if (date == null)
-      date = DateTime.now();
-
-    _history[resource.id] = date;
+    _history[resource.id] = date ?? DateTime.now();
     _saveData();
     notifyListeners();
+
+    print('Marked resource #${resource.id} as studied.');
   }
 
   // Deletes all history entries

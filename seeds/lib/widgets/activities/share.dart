@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
 class ShareActivity extends ActivityWidget {
   final JournalEntry journalEntry;
-  final FutureOr<void> Function(bool) onSaveToJournalChange;
 
   ShareActivity(String topic, this.journalEntry,
-      {this.onSaveToJournalChange, FutureOr<void> Function(bool, String) onProgressChange, Key key}) :
-      super(topic, onProgressChange: onProgressChange, key: key);
+      {FutureOr<void> Function(bool) onProgressChange, bool completed, Key key}) :
+      super(topic, onProgressChange: onProgressChange, activityCompleted: completed, key: key);
 
   @override
   _ShareActivityState createState() => _ShareActivityState();
@@ -41,7 +41,10 @@ class _ShareActivityState extends State<ShareActivity> {
 
           JournalEntryView(
             widget.journalEntry,
-            onShare: () => widget.onProgressChange?.call(true, ''),
+            onShare: () {
+              if (!widget.activityCompleted)
+                widget.onProgressChange?.call(true);
+            }
           ),
           SizedBox(height: 12),
 
@@ -53,8 +56,9 @@ class _ShareActivityState extends State<ShareActivity> {
                 value: saveToJournal,
                 onChanged: (save) => setState(() {
                   saveToJournal = save;
-                  widget.onProgressChange?.call(true, '');
-                  widget.onSaveToJournalChange?.call(save);
+                  if (!widget.activityCompleted)
+                    widget.onProgressChange?.call(true);
+                  ActivityPage.of(context)?.updateSaveToJournal(save);
                 })
               ),
               Text('Save to Journal')

@@ -11,6 +11,28 @@ class WordState {
 
 List<WordState> buildWordList(String text) => text.split(' ').map((t) => WordState(t)).toList();
 
+String buildSharableQuote(List<WordState> words) {
+  String quote = '';
+
+  bool continued = true;
+  words.forEach((word) {
+    if (word.highlighted) {
+      if (!continued)
+        quote += ' ';
+
+      quote += word.text;
+      continued = false;
+    } else {
+      if (!continued)
+        quote += '...';
+
+      continued = true;
+    }
+  });
+
+  return quote;
+}
+
 class HighlightTextSpan extends StatefulWidget {
   final String leadingText;
   final List<WordState> words;

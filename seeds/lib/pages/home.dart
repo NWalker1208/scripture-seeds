@@ -7,8 +7,6 @@ import 'package:seeds/widgets/plant_preview.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> topics = Provider.of<Library>(context, listen: false).topics.toList();
-
     return Scaffold(
       appBar: AppBar(
         title: Text('My Garden'),
@@ -25,14 +23,16 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                children: topics.map((topic) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: PlantPreview(topic),
-                  );
-                }).toList(),
+              child: Consumer<Library>(
+                builder: (context, library, child) => GridView.count(
+                  crossAxisCount: 2,
+                  children: library.topics?.map((topic) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: PlantPreview(topic),
+                    );
+                  })?.toList() ?? [],
+                ),
               ),
             ),
 

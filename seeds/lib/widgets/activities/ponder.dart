@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:seeds/pages/activity.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';
 
 class PonderActivity extends ActivityWidget {
-  PonderActivity(String topic, {FutureOr<void> Function(bool, String) onProgressChange, Key key}) :
-        super(topic, onProgressChange: onProgressChange, key: key);
+  PonderActivity(String topic, {FutureOr<void> Function(bool) onProgressChange, bool completed, Key key}) :
+        super(topic, onProgressChange: onProgressChange, activityCompleted: completed, key: key);
 
   @override
   _PonderActivityState createState() => _PonderActivityState();
@@ -19,7 +20,11 @@ class _PonderActivityState extends State<PonderActivity> {
   void updateCount(String text) {
     setState(() {
       wordCount = text.wordCount;
-      widget.onProgressChange(wordCount >= kMinWords, text);
+      bool completed = wordCount >= kMinWords;
+      if (completed != widget.activityCompleted)
+        widget.onProgressChange?.call(completed);
+
+      ActivityPage.of(context).updateCommentary(text);
     });
   }
 

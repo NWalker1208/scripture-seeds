@@ -20,9 +20,6 @@ class Library extends ChangeNotifier {
       resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
       _updateTopics();
       notifyListeners();
-
-      // Print study resources for debug
-      print('Processed resources: $resources');
     });
   }
 
@@ -35,12 +32,16 @@ class Library extends ChangeNotifier {
       if (topic == null || res.topics.contains(topic)) {
         DateTime lastStudied = history.dateLastStudied(res);
 
-        if (leastRecentDate == null || lastStudied.isBefore(leastRecentDate)) {
+        if (leastRecent == null || // No resource has been found yet, OR
+            (lastStudied == null && leastRecentDate != null) || // Current resource has never been studied but the current least recent has, OR
+            (lastStudied != null && leastRecentDate != null && lastStudied.isBefore(leastRecentDate))) { // Current resource was last studied before least recent resource.
           leastRecent = res;
           leastRecentDate = lastStudied;
         }
       }
     });
+
+    print('Resource #${leastRecent.id} was least recent for topic $topic.');
 
     return leastRecent;
   }

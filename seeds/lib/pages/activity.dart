@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/library/library_history.dart';
+import 'package:seeds/services/library/library_xml.dart';
+import 'package:seeds/services/library/study_resource.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/activities/study.dart';
@@ -15,20 +18,32 @@ class ActivityPage extends StatefulWidget {
   ActivityPage(this.topic, {Key key}) : super(key: key);
 
   @override
-  _ActivityPageState createState() => _ActivityPageState();
+  ActivityPageState createState() => ActivityPageState();
+
+  static ActivityPageState of(BuildContext context) =>
+    context.findAncestorStateOfType<ActivityPageState>();
 }
 
-class _ActivityPageState extends State<ActivityPage> {
+class ActivityPageState extends State<ActivityPage> {
   int _stage;
   List<bool> _completed;
-  List<String> _shareText;
+  String _quote;
+  String _commentary;
   bool _saveToJournal;
+  StudyResource _resource;
 
-  void onProgressChange(bool completed, String text) {
-    setState(() {
-      _completed[_stage] = completed;
-      _shareText[_stage] = text;
-    });
+  void onProgressChange(bool completed) => setState(() => _completed[_stage] = completed);
+  void updateQuote(String text) => setState(() => _quote = text);
+  void updateCommentary(String text) => setState(() => _commentary = text);
+  void updateSaveToJournal(bool save) => setState(() => _saveToJournal = save);
+
+  void _endActivity(JournalEntry journalEntry, BuildContext context) {
+    if (_saveToJournal)
+      Provider.of<JournalData>(context, listen: false).createEntry(journalEntry);
+
+    Provider.of<LibraryHistory>(context, listen: false).markAsStudied(_resource);
+    Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
+    Navigator.pop(context, true);
   }
 
   @override
@@ -36,15 +51,20 @@ class _ActivityPageState extends State<ActivityPage> {
     super.initState();
     _stage = 0;
     _completed = new List<bool>.filled(3, false);
-    _shareText = new List<String>.filled(3, '');
     _saveToJournal = false;
+
+    // Load resource
+    Library lib = Provider.of<Library>(context, listen: false);
+    LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
+    _resource = lib.leastRecent(history, topic: widget.topic);
   }
 
   @override
   Widget build(BuildContext context) {
+
     JournalEntry journalEntry = JournalEntry(
-      reference: _shareText[0],
-      commentary: _shareText[1],
+      reference: _quote ?? '',
+      commentary: _commentary ?? '',
       tags: [widget.topic]
     );
 
@@ -70,13 +90,9 @@ class _ActivityPageState extends State<ActivityPage> {
           duration: Duration(milliseconds: 150),
           index: _stage,
           children: <ActivityWidget>[
-            StudyActivity(widget.topic, onProgressChange: onProgressChange),
-            PonderActivity(widget.topic, onProgressChange: onProgressChange),
-            ShareActivity(widget.topic, journalEntry, onProgressChange: onProgressChange,
-              onSaveToJournalChange: (saveToJournal) {
-                _saveToJournal = saveToJournal;
-              },
-            )
+            StudyActivity(widget.topic, _resource, completed: _completed[0], onProgressChange: onProgressChange),
+            PonderActivity(widget.topic, completed: _completed[1], onProgressChange: onProgressChange),
+            ShareActivity(widget.topic, journalEntry, completed: _completed[2], onProgressChange: onProgressChange)
           ]
         ),
 
@@ -97,11 +113,7 @@ class _ActivityPageState extends State<ActivityPage> {
 
             onPressed: _completed[_stage] ? () {
               if (_stage == 2) {
-                if (_saveToJournal)
-                  Provider.of<JournalData>(context, listen: false).createEntry(journalEntry);
-
-                Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
-                Navigator.pop(context, true);
+                _endActivity(journalEntry, context);
               } else {
                 setState(() {
                   FocusScope.of(context).unfocus();

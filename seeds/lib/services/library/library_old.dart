@@ -1,6 +1,7 @@
 import 'dart:collection';
 import 'package:seeds/services/library/scripture.dart';
 
+@Deprecated('Use library_xml.dart instead')
 class Library {
 
   static final Map<String, Map<int, Map<int, String>>> scriptures = {

@@ -24,20 +24,25 @@ void main() {
 class SeedsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Library lib = Library(context);
+    // Begin loading resources for notifiers
+    ThemePreference themePref = ThemePreference();
+    ProgressData progress = ProgressData();
+    JournalData journal = JournalData();
+    Library library = Library(context);
+    LibraryHistory history = LibraryHistory();
 
     return MultiProvider(
       providers: [
         // ThemePreference notifier
-        ChangeNotifierProvider(create: (context) => ThemePreference()),
+        ChangeNotifierProvider.value(value: themePref),
         // ProgressData notifier
-        ChangeNotifierProvider(create: (context) => ProgressData()),
+        ChangeNotifierProvider.value(value: progress),
         // JournalData notifier
-        ChangeNotifierProvider(create: (context) => JournalData()),
+        ChangeNotifierProvider.value(value: journal),
         // Library notifier
-        ChangeNotifierProvider.value(value: lib),
+        ChangeNotifierProvider.value(value: library),
         // JournalData notifier
-        ChangeNotifierProvider(create: (context) => LibraryHistory()),
+        ChangeNotifierProvider.value(value: history),
       ],
 
       child: Consumer<ThemePreference>(
