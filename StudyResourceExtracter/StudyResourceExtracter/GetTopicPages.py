@@ -30,30 +30,24 @@ for i in range(len(topics)):
     topics[i] = topics[i].lower()
 
 # Load webpages
-topic_pages = {}
-
 if not path.exists(CACHE_DIR):
     print("Creating cache directory...")
     os.makedirs(CACHE_DIR)
 
 for topic in topics:
-    if (path.exists(CACHE_FILE.format(topic))):
-        # Load cached page
-        print(f"Found cache for {topic}")
-        cached_file = open(CACHE_FILE.format(topic), "r", encoding="utf8")
-        topic_pages[topic] = cached_file.read()
-        cached_file.close()
-    else:
+    if not path.exists(CACHE_FILE.format(topic)):
         # Download gospel topic from church website
         print(f"Downloading page for {topic}...")
         page = urllib.request.urlopen(SOURCE_URL.format(topic))
         bytes = page.read()
-        topic_pages[topic] = bytes.decode("utf8")
+        html_page = bytes.decode("utf8")
         page.close()
         # Cache file for next time
         cached_file = open(CACHE_FILE.format(topic), "w", encoding="utf8")
-        cached_file.write(topic_pages[topic])
+        cached_file.write(html_page)
         cached_file.close()
         # Sleep to prevent spamming server
         print("Waiting...")
         time.sleep(PAUSE_TIME)
+    else:
+        print(f"Found cache for {topic}")
