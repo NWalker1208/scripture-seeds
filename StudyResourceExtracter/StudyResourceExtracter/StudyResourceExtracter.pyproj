@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4c0d46e5-4742-4b79-87d1-eced1285c690</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>StudyResourceExtracter.py</StartupFile>
+    <StartupFile>GetTopicPages.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="StudyResourceExtracter.py" />
+    <Compile Include="GetTopicPages.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
