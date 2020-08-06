@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:seeds/services/utility.dart';
 
 class ProgressRecord {
@@ -7,21 +8,24 @@ class ProgressRecord {
   static const int kMaxInactiveDays = 3;
 
   String name;
-  int progress;
-  DateTime lastUpdate;
 
-  ProgressRecord(this.name, {this.progress = 0, this.lastUpdate});
+  DateTime _lastUpdate;
+  int _lastProgress;
+  final int maxProgress;
 
-  factory ProgressRecord.fromMap(Map<String, dynamic> data) => ProgressRecord(
-    data[kName],
-    progress: data[kProgress],
-    lastUpdate: DateTime.parse(data[kLastUpdate])
-  );
+  ProgressRecord(this.name, {DateTime lastUpdate, int progress = 0, this.maxProgress = 14}) :
+        _lastUpdate = lastUpdate,
+        _lastProgress = progress;
+
+  ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 14}) :
+        name = data[kName],
+        _lastProgress = data[kProgress],
+        _lastUpdate = DateTime.parse(data[kLastUpdate]);
 
   Map<String, dynamic> toMap() => {
     kName: name,
-    kProgress: progress,
-    kLastUpdate: lastUpdate.toString()
+    kProgress: _lastProgress,
+    kLastUpdate: _lastUpdate.toString()
   };
 
   @override
@@ -29,8 +33,9 @@ class ProgressRecord {
     return toMap().toString();
   }
 
-  int get daysSinceLastUpdate => lastUpdate.daysUntil(DateTime.now());
-  bool get canMakeProgressToday => lastUpdate == null || daysSinceLastUpdate > 0;
+  int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
+  bool get canMakeProgressToday => _lastUpdate == null || daysSinceLastUpdate > 0;
+
   // Returns null if the user will not lose progress. Returns 0 or greater if the
   // user is about to lose progress.
   int get progressLost {
@@ -47,13 +52,24 @@ class ProgressRecord {
       return lost;
   }
 
-  // Returns the stored progress minus progress lost from inactivity
-  int get totalProgress {
-    int total = progress - (progressLost ?? 0);
+  // Access progress adjusted for loss and limits
+  int get progress {
+    int total = _lastProgress - (progressLost ?? 0);
+    return max(0, min(maxProgress, total));
+  }
 
-    if (total < 0)
-      total = 0;
+  // Setting progress automatically updates lastUpdate
+  // Leaving progress null automatically increments it
+  void updateProgress({int progress}) {
+    if (progress == null) {
+      progress = this.progress;
 
-    return total;
+      // If progress has been lost (plant wilted), don't increment progress
+      if (daysSinceLastUpdate ?? 0 < kMaxInactiveDays)
+        progress++;
+    }
+
+    _lastProgress = progress;
+    _lastUpdate = DateTime.now();
   }
 }

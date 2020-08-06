@@ -15,7 +15,7 @@ class PlantView extends StatelessWidget {
     return Consumer<ProgressData>(
       builder: (context, progressData, child) {
         ProgressRecord record = progressData.getProgressRecord(plantName);
-        int progress = record.totalProgress;
+        num progress = record.progress / record.maxProgress;
         bool wilted = (record.progressLost != null);
 
         return ClipRect(

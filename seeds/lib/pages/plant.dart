@@ -140,10 +140,10 @@ class PlantPage extends StatelessWidget {
                 child: Consumer<ProgressData>(
                   builder: (context, progressData, child) {
                     ProgressRecord record = progressData.getProgressRecord(plantName);
-                    int progress = record.totalProgress;
+                    int progress = record.progress, maxProgress = record.maxProgress;
 
                     return TweenAnimationBuilder(
-                      tween: Tween<double>(begin: initialProgress/14.0, end: progress/14.0),
+                      tween: Tween<double>(begin: initialProgress/maxProgress, end: progress/maxProgress),
                       duration: Duration(milliseconds: 1000),
                       curve: Curves.easeInOutCubic,
 
@@ -153,7 +153,7 @@ class PlantPage extends StatelessWidget {
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         animation: false,
 
-                        leading: Text('${(progress/14.0 * 100).round()} %'),
+                        leading: Text('${(progress/maxProgress * 100).round()} %'),
                         trailing: Icon(Icons.flag),
 
                         percent: percent,
@@ -194,10 +194,13 @@ class PlantPage extends StatelessWidget {
                 onPressed: () => Navigator.pushNamed(context, '/journal'),
               ),
               Consumer<ProgressData>(
-                builder: (context, progressData, child) => IconButton(
-                  icon: Icon(Icons.share),
-                  onPressed: () => SocialShare.shareOptions('Day ${progressData.getProgressRecord(plantName).totalProgress} of 14 on $plantName!'),
-                ),
+                builder: (context, progressData, child) {
+                  ProgressRecord record = progressData.getProgressRecord(plantName);
+                  return IconButton(
+                    icon: Icon(Icons.share),
+                    onPressed: () => SocialShare.shareOptions('Day ${record.progress} of ${record.maxProgress} on $plantName!'),
+                  );
+                }
               )
             ],
           )

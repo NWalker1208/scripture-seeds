@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/highlight/span.dart';
 import 'package:seeds/widgets/highlight/study_block.dart';
 import 'package:xml/xml.dart' as XML;
 
@@ -62,7 +61,9 @@ class _TextElement extends StudyElement {
 abstract class StudyElement {
   Widget toWidget(BuildContext context);
 
-  static StudyElement fromXmlElement(XML.XmlElement element) {
+  StudyElement();
+
+  factory StudyElement.fromXmlElement(XML.XmlElement element) {
     String tag = element.name.local;
 
     if (tag == 'image')

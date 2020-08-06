@@ -55,8 +55,7 @@ class ProgressData extends ChangeNotifier {
       return false;
 
     if (force || progress.canMakeProgressToday) {
-      progress.progress = progress.totalProgress + 1;
-      progress.lastUpdate = DateTime.now();
+      progress.updateProgress();
       _records[name] = progress;
       // Save to database and notify listeners
       _saveData();

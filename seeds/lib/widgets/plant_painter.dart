@@ -15,7 +15,7 @@ class _ColorPair {
 }
 
 class PlantPainter extends CustomPainter {
-  final int length;
+  final num length;
   final bool wilted;
   final SkyColorMode skyColorMode;
 
