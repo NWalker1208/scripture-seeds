@@ -15,12 +15,12 @@ class _ColorPair {
 }
 
 class PlantPainter extends CustomPainter {
-  final num length;
+  final double growth;
   final bool wilted;
   final SkyColorMode skyColorMode;
 
   PlantPainter({
-    this.length = 0,
+    this.growth = 0,
     this.wilted = false,
     this.skyColorMode = SkyColorMode.time
   });
@@ -76,6 +76,8 @@ class PlantPainter extends CustomPainter {
 
   // Paints plant graphic
   void _paintForeground(Canvas canvas, Size size) {
+    int length = (growth * 20).floor();
+
     Paint plant = Paint()
       ..style = PaintingStyle.stroke
       ..color = (wilted ? Color(0xFFB98D51) : Colors.green)
@@ -104,7 +106,7 @@ class PlantPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(PlantPainter oldDelegate) =>
-    oldDelegate.length != length ||
+    oldDelegate.growth != growth ||
     oldDelegate.wilted != wilted ||
     oldDelegate.skyColorMode != skyColorMode;
 }

@@ -65,7 +65,7 @@ class ProgressRecord {
       progress = this.progress;
 
       // If progress has been lost (plant wilted), don't increment progress
-      if (daysSinceLastUpdate ?? 0 < kMaxInactiveDays)
+      if ((daysSinceLastUpdate ?? 0) < kMaxInactiveDays)
         progress++;
     }
 
