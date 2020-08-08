@@ -3,13 +3,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4c0d46e5-4742-4b79-87d1-eced1285c690</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>GetTopicPages.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>ProcessTopicPages.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>StudyResourceExtracter</Name>
+    <Name>StudyResourceExtractor</Name>
     <RootNamespace>StudyResourceExtracter</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
