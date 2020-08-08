@@ -54,13 +54,13 @@ class ScriptureParser:
             self.verse = int(self.verse)
 
 
-    def get_scripture(self):
-        return {"book": self.book, "chapter": self.chapter, "verse": self.verse}
+    def get_scripture(self, url):
+        return {"book": self.book, "chapter": self.chapter, "verse": self.verse, "url": url}
 
 class TopicParser(HTMLParser):
     def __init__(self, topic_set, convert_charrefs=True):
         self.onScripture = False
-        self.link = ''
+        self.url = ''
         self.topic_set = topic_set
         return super().__init__(convert_charrefs=convert_charrefs)
 
@@ -70,7 +70,7 @@ class TopicParser(HTMLParser):
                 if attr[0] == 'class' and attr[1] == 'scripture-ref':
                     self.onScripture = True
                 if attr[0] == 'href':
-                    self.link = attr[1]
+                    self.url = attr[1]
 
     def handle_endtag(self, tag):
         if tag == 'a':
@@ -80,15 +80,26 @@ class TopicParser(HTMLParser):
         if self.onScripture:
             parser = ScriptureParser(data)
             if parser.is_valid:
-                topic_set["resources"].append(parser.get_scripture())
+                topic_set["resources"].append(parser.get_scripture(self.url))
 
-def create_xml_from_topic(parent, topic_set):
+def create_xml_from_resource(parent, id, topic, resource):
     el = ET.SubElement(parent, "resource")
-    topic = ET.SubElement(el, "topic")
-    topic.text = topic_set["name"]
+    el.set("id", str(id))
+    # Topics
+    tp = ET.SubElement(el, "topic")
+    tp.text = topic
+    # Reference
+    ref = ET.SubElement(el, "reference")
+    ref.set("url", resource["url"])
+    ref.text = f"{resource['book']} {resource['chapter']}:{resource['verse']}"
+    # Body
     body = ET.SubElement(el, "body")
     title = ET.SubElement(body, "title")
-    title.text = "test"
+    title.text = f"{resource['book']} {resource['chapter']}"
+    highlight = ET.SubElement(body, "highlight")
+    highlight.set("verse", str(resource['verse']))
+    highlight.text = "This is a test"
+
     return el
 
 # Check if cache has been built
@@ -128,10 +139,13 @@ print("Done")
 # Create XML
 print("Creating XML document...")
 root = ET.Element("library")
-root.set("lang","eng")
+root.set("lang", "eng")
 
+id = 0
 for topic_set in topic_sets:
-    create_xml_from_topic(root, topic_set)
+    for resource in topic_set["resources"]:
+        create_xml_from_resource(root, id, topic_set["name"], resource)
+        id += 1
     
 tree = ET.ElementTree(root)
 tree.write(XML_FILENAME)
