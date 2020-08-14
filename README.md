@@ -15,7 +15,7 @@ These items are necessary for the app to serve it's purpose.
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.
 - [x] Revamp library system to be more extensible (1 week)
-  - [ ] Program web crawler for "True to the Faith" scriptures, gospel topics
+  - [ ] Program library.xml editor with web crawler for scripture text
 - [ ] Add more topics and scriptures (1 week)
 - [ ] Add more variety to activities (extra, pre-release)
   - Videos
