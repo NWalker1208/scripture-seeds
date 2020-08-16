@@ -16,7 +16,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   // Make status bar transparent
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent));
   // Start app
   runApp(SeedsApp());
 }

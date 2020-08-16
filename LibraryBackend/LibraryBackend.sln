@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "StudyResourceExtractor", "StudyResourceExtractor\StudyResourceExtractor.pyproj", "{4C0D46E5-4742-4B79-87D1-ECED1285C690}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryXMLEditor", "LibraryXMLEditor\LibraryXMLEditor.csproj", "{183DC884-428B-4DC6-8799-57FD127C335C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4C0D46E5-4742-4B79-87D1-ECED1285C690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C0D46E5-4742-4B79-87D1-ECED1285C690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183DC884-428B-4DC6-8799-57FD127C335C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183DC884-428B-4DC6-8799-57FD127C335C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183DC884-428B-4DC6-8799-57FD127C335C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183DC884-428B-4DC6-8799-57FD127C335C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
