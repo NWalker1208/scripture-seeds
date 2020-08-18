@@ -9,22 +9,24 @@ using System.Xml;
 
 namespace LibraryXMLEditor
 {
-    class StudyResource
+    public class StudyResource
     {
         static int nextId = 0;
 
-        int id;
-        List<String> topics;
+        int _id;
+        public int id { get => _id; private set => _id = value; }
+
         public String reference;
         public String referenceURL;
-        List<StudyElement> body;
+        public HashSet<String> topics;
+        public List<StudyElement> body;
 
         public StudyResource(String reference, String referenceURL, int id = -1)
         {
             InitID(id);
-            topics = new List<String>();
             this.reference = reference;
             this.referenceURL = referenceURL;
+            topics = new HashSet<String>();
             body = new List<StudyElement>();
         }
 
@@ -32,7 +34,7 @@ namespace LibraryXMLEditor
         {
             InitID(int.Parse(node.Attributes.GetNamedItem("id").Value));
 
-            topics = new List<String>();
+            topics = new HashSet<String>();
             body = new List<StudyElement>();
 
             foreach (XmlNode child in node.ChildNodes)
@@ -71,15 +73,9 @@ namespace LibraryXMLEditor
             this.id = id;
         }
 
-        public void AddTopic(String topic)
+        public override string ToString()
         {
-            if (!topics.Contains(topic))
-                topics.Add(topic);
-        }
-
-        public void AppendElement(StudyElement element)
-        {
-            body.Add(element);
+            return id.ToString() + ". " + reference + " (" + body.Count.ToString() + " elements)";
         }
 
         public XmlNode ToXml(XmlDocument document)

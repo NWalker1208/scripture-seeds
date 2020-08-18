@@ -7,10 +7,11 @@ using System.Xml;
 
 namespace LibraryXMLEditor
 {
-    class Library
+    public class Library
     {
         String language;
-        List<StudyResource> resources;
+        
+        public List<StudyResource> resources;
 
         public Library(String language = "eng")
         {
@@ -28,11 +29,6 @@ namespace LibraryXMLEditor
                 if (child.Name == "resource")
                     resources.Add(new StudyResource(child));
             }
-        }
-
-        public void AppendResource(StudyResource resource)
-        {
-            resources.Add(resource);
         }
 
         public XmlNode ToXml(XmlDocument document)

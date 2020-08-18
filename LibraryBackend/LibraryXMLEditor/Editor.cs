@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,34 +14,29 @@ namespace LibraryXMLEditor
 {
     public partial class Editor : Form
     {
+        String file;
         Library lib;
 
-        public Editor()
+        public Editor(String file)
         {
+            this.file = file;
+
             InitializeComponent();
-
-            lib = new Library();
-
-            StudyResource resource = new StudyResource("test", "test.com");
-
-            resource.AddTopic("truth");
-            resource.AppendElement(new MediaElement(MediaElement.Type.Image, "image.com"));
-            resource.AppendElement(new TitleElement("Chapter"));
-            resource.AppendElement(new TextElement("yay!", 5));
-
-            lib.AppendResource(resource);
+            LoadLibrary();
         }
 
         private void Editor_Load(object sender, EventArgs e)
         {
-            TreeNode root = libraryTreeView.Nodes.Add("test");
-            root.Nodes.Add("test2");
-            libraryTreeView.Nodes.Add("test3");
+            UpdateTreeView();
         }
 
         private void saveButton_Click(object sender, EventArgs e) => SaveLibrary();
 
-        private void loadButton_Click(object sender, EventArgs e) => LoadLibrary();
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            LoadLibrary();
+            UpdateTreeView();
+        }
 
         public void SaveLibrary()
         {
@@ -50,15 +46,36 @@ namespace LibraryXMLEditor
             doc.AppendChild(declaration);
 
             doc.AppendChild(lib.ToXml(doc));
-            doc.Save("test.xml");
+            doc.Save(file);
         }
 
         public void LoadLibrary()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("test.xml");
+            doc.Load(file);
 
             lib = new Library(doc.ChildNodes[1]);
+        }
+
+        public void UpdateTreeView()
+        {
+            libraryTreeView.Nodes.Clear();
+
+            foreach(StudyResource resource in lib.resources)
+            {
+                TreeNode resourceRoot = libraryTreeView.Nodes.Add(resource.id.ToString(), resource.ToString());
+
+                foreach(StudyElement element in resource.body)
+                {
+                    resourceRoot.Nodes.Add(element.ToString());
+                }
+            }
+        }
+
+        private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Parent == null)
+                resourceConfig.SetResource(lib.resources[e.Node.Index]);
         }
     }
 }

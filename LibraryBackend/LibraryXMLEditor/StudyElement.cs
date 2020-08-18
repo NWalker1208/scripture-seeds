@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace LibraryXMLEditor
 {
-    class MediaElement : StudyElement
+    public class MediaElement : StudyElement
     {
         public enum Type {Image, Video}
 
@@ -18,6 +18,14 @@ namespace LibraryXMLEditor
         {
             this.type = type;
             this.url = url;
+        }
+
+        public override string ToString()
+        {
+            if (type == Type.Image)
+                return "Media (image)";
+            else
+                return "Media (video)";
         }
 
         public override XmlNode ToXml(XmlDocument document)
@@ -37,13 +45,18 @@ namespace LibraryXMLEditor
         }
     }
 
-    class TitleElement : StudyElement
+    public class TitleElement : StudyElement
     {
         public String text;
 
         public TitleElement(String text)
         {
             this.text = text;
+        }
+
+        public override string ToString()
+        {
+            return "Title (len: " + text.Length.ToString() + ")";
         }
 
         public override XmlNode ToXml(XmlDocument document)
@@ -54,7 +67,7 @@ namespace LibraryXMLEditor
         }
     }
 
-    class TextElement : StudyElement
+    public class TextElement : StudyElement
     {
         public String text;
         public int verse;
@@ -63,6 +76,14 @@ namespace LibraryXMLEditor
         {
             this.text = text;
             this.verse = verse;
+        }
+
+        public override string ToString()
+        {
+            if (verse == -1)
+                return "Text (len: " + text.Length.ToString() + ")";
+            else
+                return "Text (verse " + verse.ToString() + ")";
         }
 
         public override XmlNode ToXml(XmlDocument document)
@@ -82,7 +103,7 @@ namespace LibraryXMLEditor
         }
     }
 
-    abstract class StudyElement
+    abstract public class StudyElement
     {
         public abstract XmlNode ToXml(XmlDocument document);
 
