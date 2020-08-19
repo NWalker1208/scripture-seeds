@@ -52,6 +52,12 @@
     <Compile Include="Editor.Designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>
+    <Compile Include="TextInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextInput.Designer.cs">
+      <DependentUpon>TextInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Library.cs" />
     <Compile Include="StudyElement.cs" />
     <Compile Include="StudyResource.cs" />
@@ -77,6 +83,9 @@
     </Compile>
     <EmbeddedResource Include="ResourceConfig.resx">
       <DependentUpon>ResourceConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextInput.resx">
+      <DependentUpon>TextInput.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

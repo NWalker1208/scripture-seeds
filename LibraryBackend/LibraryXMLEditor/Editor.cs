@@ -55,6 +55,7 @@ namespace LibraryXMLEditor
             doc.Load(file);
 
             lib = new Library(doc.ChildNodes[1]);
+            UpdateSettingsView();
         }
 
         public void UpdateTreeView()
@@ -75,7 +76,18 @@ namespace LibraryXMLEditor
         private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Parent == null)
-                resourceConfig.SetResource(lib.resources[e.Node.Index]);
+                UpdateSettingsView(lib.resources[e.Node.Index]);
+        }
+
+        public void UpdateSettingsView(StudyResource resource = null)
+        {
+            if (resource == null)
+                resourceConfig.Visible = false;
+            else
+            {
+                resourceConfig.Visible = true;
+                resourceConfig.SetResource(resource);
+            }
         }
     }
 }
