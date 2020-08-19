@@ -14,9 +14,10 @@ namespace LibraryXMLEditor
     {
         public String value;
 
-        public TextInput()
+        public TextInput(String title)
         {
             InitializeComponent();
+            Text = title;
             value = null;
         }
 

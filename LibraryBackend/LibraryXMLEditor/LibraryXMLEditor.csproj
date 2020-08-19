@@ -52,6 +52,12 @@
     <Compile Include="Editor.Designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ElementConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElementConfig.Designer.cs">
+      <DependentUpon>ElementConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </Compile>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElementConfig.resx">
+      <DependentUpon>ElementConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

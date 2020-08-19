@@ -62,31 +62,55 @@ namespace LibraryXMLEditor
         {
             libraryTreeView.Nodes.Clear();
 
-            foreach(StudyResource resource in lib.resources)
+            foreach(int id in lib.ResourceIDs)
             {
+                StudyResource resource = lib.GetResource(id);
                 TreeNode resourceRoot = libraryTreeView.Nodes.Add(resource.id.ToString(), resource.ToString());
 
-                foreach(StudyElement element in resource.body)
+                for (int i = 0; i < resource.body.Count; i++)
                 {
-                    resourceRoot.Nodes.Add(element.ToString());
+                    resourceRoot.Nodes.Add(i.ToString(), resource.body[i].ToString());
                 }
             }
         }
 
         private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Parent == null)
-                UpdateSettingsView(lib.resources[e.Node.Index]);
+            if (e.Node.Level == 0)
+                UpdateSettingsView(lib.GetResource(int.Parse(e.Node.Name)));
+            else if (e.Node.Level == 1)
+            {
+                StudyResource resource = lib.GetResource(int.Parse(e.Node.Parent.Name));
+                UpdateSettingsView(resource, resource.body[int.Parse(e.Node.Name)]);
+            }
         }
 
-        public void UpdateSettingsView(StudyResource resource = null)
+        public void UpdateSettingsView(StudyResource resource = null, StudyElement element = null)
         {
             if (resource == null)
+            {
                 resourceConfig.Visible = false;
+                resourceConfig.Enabled = false;
+                elementConfig.Visible = false;
+                elementConfig.Enabled = false;
+            }
+            else if (element == null)
+            {
+                elementConfig.Visible = false;
+                elementConfig.Enabled = false;
+                resourceConfig.Enabled = true;
+                resourceConfig.Visible = true;
+
+                resourceConfig.SetResource(resource);
+            }
             else
             {
-                resourceConfig.Visible = true;
-                resourceConfig.SetResource(resource);
+                resourceConfig.Visible = false;
+                resourceConfig.Enabled = false;
+                elementConfig.Enabled = true;
+                elementConfig.Visible = true;
+
+                elementConfig.SetElement(element);
             }
         }
     }

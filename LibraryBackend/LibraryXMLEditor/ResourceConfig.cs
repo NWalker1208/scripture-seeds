@@ -49,7 +49,7 @@ namespace LibraryXMLEditor
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            TextInput topicForm = new TextInput();
+            TextInput topicForm = new TextInput("Add Topic");
             topicForm.ShowDialog();
 
             if (topicForm.value != null)

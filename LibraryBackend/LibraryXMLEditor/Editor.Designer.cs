@@ -34,6 +34,7 @@
             this.loadButton = new System.Windows.Forms.Button();
             this.libraryLabel = new System.Windows.Forms.Label();
             this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
+            this.elementConfig = new LibraryXMLEditor.ElementConfig();
             this.SuspendLayout();
             // 
             // libraryTreeView
@@ -44,7 +45,7 @@
             this.libraryTreeView.Name = "libraryTreeView";
             this.libraryTreeView.PathSeparator = "/";
             this.libraryTreeView.Size = new System.Drawing.Size(205, 382);
-            this.libraryTreeView.TabIndex = 0;
+            this.libraryTreeView.TabIndex = 3;
             this.libraryTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.libraryTreeView_AfterSelect);
             // 
             // saveButton
@@ -64,7 +65,7 @@
             this.loadButton.Location = new System.Drawing.Point(589, 388);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(75, 23);
-            this.loadButton.TabIndex = 2;
+            this.loadButton.TabIndex = 0;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
             this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
@@ -83,10 +84,23 @@
             this.resourceConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.resourceConfig.BackColor = System.Drawing.SystemColors.Window;
+            this.resourceConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.resourceConfig.Location = new System.Drawing.Point(223, 29);
             this.resourceConfig.Name = "resourceConfig";
             this.resourceConfig.Size = new System.Drawing.Size(522, 353);
             this.resourceConfig.TabIndex = 4;
+            this.resourceConfig.Visible = false;
+            // 
+            // elementConfig
+            // 
+            this.elementConfig.BackColor = System.Drawing.SystemColors.Window;
+            this.elementConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.elementConfig.Location = new System.Drawing.Point(223, 29);
+            this.elementConfig.Name = "elementConfig";
+            this.elementConfig.Size = new System.Drawing.Size(522, 353);
+            this.elementConfig.TabIndex = 5;
+            this.elementConfig.Visible = false;
             // 
             // Editor
             // 
@@ -94,6 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(757, 423);
+            this.Controls.Add(this.elementConfig);
             this.Controls.Add(this.resourceConfig);
             this.Controls.Add(this.libraryLabel);
             this.Controls.Add(this.loadButton);
@@ -116,6 +131,7 @@
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Label libraryLabel;
         private ResourceConfig resourceConfig;
+        private ElementConfig elementConfig;
     }
 }
 

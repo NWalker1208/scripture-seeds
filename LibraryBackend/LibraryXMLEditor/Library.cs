@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace LibraryXMLEditor
@@ -11,24 +12,35 @@ namespace LibraryXMLEditor
     {
         String language;
         
-        public List<StudyResource> resources;
+        Dictionary<int, StudyResource> resources;
+        public List<int> ResourceIDs { get => resources.Keys.ToList(); }
 
         public Library(String language = "eng")
         {
             this.language = language;
-            resources = new List<StudyResource>();
+            resources = new Dictionary<int, StudyResource>();
         }
 
         public Library(XmlNode node)
         {
             language = node.Attributes.GetNamedItem("lang").Value;
 
-            resources = new List<StudyResource>();
+            resources = new Dictionary<int, StudyResource>();
             foreach (XmlNode child in node.ChildNodes)
             {
                 if (child.Name == "resource")
-                    resources.Add(new StudyResource(child));
+                    AddResource(new StudyResource(child));
             }
+        }
+
+        public void AddResource(StudyResource resource)
+        {
+            resources.Add(resource.id, resource);
+        }
+
+        public StudyResource GetResource(int id)
+        {
+            return resources[id];
         }
 
         public XmlNode ToXml(XmlDocument document)
@@ -41,9 +53,9 @@ namespace LibraryXMLEditor
             node.Attributes.Append(lang);
 
             // Create resource elements
-            foreach(StudyResource resource in resources)
+            foreach(KeyValuePair<int, StudyResource> resource in resources)
             {
-                XmlNode child = resource.ToXml(document);
+                XmlNode child = resource.Value.ToXml(document);
                 node.AppendChild(child);
             }
 

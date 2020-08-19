@@ -43,7 +43,7 @@
             this.doneButton.Location = new System.Drawing.Point(3, 31);
             this.doneButton.Name = "doneButton";
             this.doneButton.Size = new System.Drawing.Size(164, 23);
-            this.doneButton.TabIndex = 0;
+            this.doneButton.TabIndex = 1;
             this.doneButton.Text = "Done";
             this.doneButton.UseVisualStyleBackColor = true;
             this.doneButton.Click += new System.EventHandler(this.doneButton_Click);
@@ -55,7 +55,7 @@
             this.cancelButton.Location = new System.Drawing.Point(173, 31);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(164, 23);
-            this.cancelButton.TabIndex = 1;
+            this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -68,7 +68,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(332, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -107,7 +107,7 @@
             this.Name = "TextInput";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add Topic";
+            this.Text = "Text Input";
             this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

@@ -40,11 +40,11 @@
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.openLinkButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.urlEditTable = new System.Windows.Forms.TableLayoutPanel();
             this.autoLinkButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.urlEditTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // resourceLabel
@@ -71,7 +71,7 @@
             this.tableLayoutPanel1.Controls.Add(this.urlLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.topicListBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.urlEditTable, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -111,7 +111,7 @@
             this.referenceTextBox.Location = new System.Drawing.Point(66, 3);
             this.referenceTextBox.Name = "referenceTextBox";
             this.referenceTextBox.Size = new System.Drawing.Size(344, 20);
-            this.referenceTextBox.TabIndex = 1;
+            this.referenceTextBox.TabIndex = 0;
             this.referenceTextBox.TextChanged += new System.EventHandler(this.referenceTextBox_TextChanged);
             // 
             // urlLabel
@@ -131,7 +131,7 @@
             this.urlTextBox.Location = new System.Drawing.Point(33, 3);
             this.urlTextBox.Name = "urlTextBox";
             this.urlTextBox.Size = new System.Drawing.Size(287, 20);
-            this.urlTextBox.TabIndex = 3;
+            this.urlTextBox.TabIndex = 1;
             this.urlTextBox.TextChanged += new System.EventHandler(this.urlTextBox_TextChanged);
             // 
             // topicListBox
@@ -143,7 +143,7 @@
             this.topicListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.topicListBox.Size = new System.Drawing.Size(344, 95);
             this.topicListBox.Sorted = true;
-            this.topicListBox.TabIndex = 5;
+            this.topicListBox.TabIndex = 2;
             this.topicListBox.SelectedIndexChanged += new System.EventHandler(this.topicListBox_SelectedIndexChanged);
             // 
             // tableLayoutPanel2
@@ -169,7 +169,7 @@
             this.addButton.Location = new System.Drawing.Point(3, 3);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(169, 23);
-            this.addButton.TabIndex = 2;
+            this.addButton.TabIndex = 3;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -181,7 +181,7 @@
             this.removeButton.Location = new System.Drawing.Point(178, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(169, 23);
-            this.removeButton.TabIndex = 3;
+            this.removeButton.TabIndex = 4;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
@@ -194,30 +194,30 @@
             this.openLinkButton.Margin = new System.Windows.Forms.Padding(2);
             this.openLinkButton.Name = "openLinkButton";
             this.openLinkButton.Size = new System.Drawing.Size(23, 23);
-            this.openLinkButton.TabIndex = 7;
+            this.openLinkButton.TabIndex = 2;
             this.openLinkButton.Text = ">";
             this.openLinkButton.UseVisualStyleBackColor = true;
             this.openLinkButton.Click += new System.EventHandler(this.openLinkButton_Click);
             // 
-            // tableLayoutPanel3
+            // urlEditTable
             // 
-            this.tableLayoutPanel3.AutoSize = true;
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.Controls.Add(this.urlTextBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.openLinkButton, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.autoLinkButton, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(63, 26);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(350, 27);
-            this.tableLayoutPanel3.TabIndex = 8;
+            this.urlEditTable.AutoSize = true;
+            this.urlEditTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.urlEditTable.ColumnCount = 3;
+            this.urlEditTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.urlEditTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.urlEditTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.urlEditTable.Controls.Add(this.urlTextBox, 1, 0);
+            this.urlEditTable.Controls.Add(this.openLinkButton, 2, 0);
+            this.urlEditTable.Controls.Add(this.autoLinkButton, 0, 0);
+            this.urlEditTable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.urlEditTable.Location = new System.Drawing.Point(63, 26);
+            this.urlEditTable.Margin = new System.Windows.Forms.Padding(0);
+            this.urlEditTable.Name = "urlEditTable";
+            this.urlEditTable.RowCount = 1;
+            this.urlEditTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.urlEditTable.Size = new System.Drawing.Size(350, 27);
+            this.urlEditTable.TabIndex = 1;
             // 
             // autoLinkButton
             // 
@@ -227,7 +227,7 @@
             this.autoLinkButton.Margin = new System.Windows.Forms.Padding(2);
             this.autoLinkButton.Name = "autoLinkButton";
             this.autoLinkButton.Size = new System.Drawing.Size(26, 23);
-            this.autoLinkButton.TabIndex = 8;
+            this.autoLinkButton.TabIndex = 0;
             this.autoLinkButton.Text = "↻";
             this.autoLinkButton.UseVisualStyleBackColor = true;
             this.autoLinkButton.Click += new System.EventHandler(this.autoLinkButton_Click);
@@ -236,6 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.resourceLabel);
             this.Name = "ResourceConfig";
@@ -243,8 +244,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.urlEditTable.ResumeLayout(false);
+            this.urlEditTable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,7 +265,7 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button openLinkButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel urlEditTable;
         private System.Windows.Forms.Button autoLinkButton;
     }
 }
