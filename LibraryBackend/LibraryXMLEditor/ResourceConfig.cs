@@ -17,11 +17,6 @@ namespace LibraryXMLEditor
         [Description("Invoked when the resource is modified.")]
         public event EventHandler ResourceUpdate;
 
-        [Browsable(true)]
-        [Category("Action")]
-        [Description("Invoked when the resource is deleted.")]
-        public event EventHandler ResourceDelete;
-
         StudyResource resource;
 
         public ResourceConfig()
@@ -97,11 +92,6 @@ namespace LibraryXMLEditor
             urlTextBox.Text = GenerateURL(referenceTextBox.Text);
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            ResourceDelete?.Invoke(this, new EventArgs());
-        }
-
         private static String GenerateURL(String reference, String lang = "eng")
         {
             // Determine book, chapter, and verse
@@ -115,6 +105,9 @@ namespace LibraryXMLEditor
             int colonIndex = reference.IndexOf(':');
             int dashIndex = reference.IndexOf('-');
             int commaIndex = reference.IndexOf(',');
+
+            if (spaceIndex == -1 || colonIndex == -1)
+                return "Invalid Reference";
 
             book = reference.Substring(0, spaceIndex).ToLower();
             chapter = int.Parse(reference.Substring(spaceIndex + 1, colonIndex - spaceIndex - 1));

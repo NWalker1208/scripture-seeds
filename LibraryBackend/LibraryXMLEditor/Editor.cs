@@ -55,7 +55,7 @@ namespace LibraryXMLEditor
             doc.Load(file);
 
             lib = new Library(doc.ChildNodes[1]);
-            UpdateSettingsView();
+            UpdateTreeView();
         }
 
         public void UpdateTreeView()
@@ -65,23 +65,33 @@ namespace LibraryXMLEditor
             foreach(int id in lib.ResourceIDs)
             {
                 StudyResource resource = lib.GetResource(id);
-                TreeNode resourceRoot = libraryTreeView.Nodes.Add(resource.id.ToString(), resource.ToString());
+                TreeNode resourceRoot = libraryTreeView.Nodes.Add(resource.ToString());
+                resourceRoot.Tag = resource;
 
                 for (int i = 0; i < resource.body.Count; i++)
                 {
-                    resourceRoot.Nodes.Add(i.ToString(), resource.body[i].ToString());
+                    StudyElement element = resource.body[i];
+                    TreeNode node = resourceRoot.Nodes.Add(element.ToString());
+                    node.Tag = element;
                 }
             }
+
+            removeButton.Enabled = false;
+            UpdateSettingsView();
         }
 
         private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Level == 0)
-                UpdateSettingsView(lib.GetResource(int.Parse(e.Node.Name)));
-            else if (e.Node.Level == 1)
+            removeButton.Enabled = true;
+
+            if (e.Node.Tag is StudyResource resource)
             {
-                StudyResource resource = lib.GetResource(int.Parse(e.Node.Parent.Name));
-                UpdateSettingsView(resource, resource.body[int.Parse(e.Node.Name)]);
+                UpdateSettingsView(resource);
+            }
+            else if (e.Node.Tag is StudyElement element)
+            {
+                resource = e.Node.Parent.Tag as StudyResource;
+                UpdateSettingsView(resource, element);
             }
         }
 
@@ -116,46 +126,36 @@ namespace LibraryXMLEditor
 
         private void resourceConfig_ResourceUpdate(object sender, EventArgs e)
         {
-            if (sender is ResourceConfig)
-            {
-                TreeNode node = libraryTreeView.SelectedNode;
-                StudyResource resource = lib.GetResource(int.Parse(node.Name));
-                node.Text = resource.ToString();
-            }
+            TreeNode node = libraryTreeView.SelectedNode;
+            node.Text = node.Tag.ToString();
         }
 
         private void elementConfig_ElementUpdate(object sender, EventArgs e)
         {
-            if (sender is ElementConfig)
-            {
-                TreeNode node = libraryTreeView.SelectedNode;
-                StudyResource resource = lib.GetResource(int.Parse(node.Parent.Name));
-                node.Text = resource.body[int.Parse(node.Name)].ToString();
-            }
+            TreeNode node = libraryTreeView.SelectedNode;
+            node.Text = node.Tag.ToString();
         }
 
-        private void resourceConfig_ResourceDelete(object sender, EventArgs e)
+        private void addResourceButton_Click(object sender, EventArgs e)
         {
-            if (sender is ResourceConfig)
-            {
-                TreeNode node = libraryTreeView.SelectedNode;
-                lib.RemoveResource(int.Parse(node.Name));
-
-                UpdateTreeView();
-                UpdateSettingsView();
-            }
+            lib.AddResource(new StudyResource("Genesis 1:1", "https://example.com"));
+            UpdateTreeView();
         }
 
-        private void elementConfig_ElementDelete(object sender, EventArgs e)
+        private void removeButton_Click(object sender, EventArgs e)
         {
-            if (sender is ElementConfig)
-            {
-                TreeNode node = libraryTreeView.SelectedNode;
-                StudyResource resource = lib.GetResource(int.Parse(node.Parent.Name));
-                resource.body.RemoveAt(int.Parse(node.Name));
+            TreeNode node = libraryTreeView.SelectedNode;
 
+            if (node.Tag is StudyResource resource)
+            {
+                lib.RemoveResource(resource.id);
                 UpdateTreeView();
-                UpdateSettingsView();
+            }
+            else if (node.Tag is StudyElement element)
+            {
+                resource = node.Parent.Tag as StudyResource;
+                resource.body.Remove(element);
+                UpdateTreeView();
             }
         }
     }

@@ -42,7 +42,6 @@
             this.urlTextBox = new System.Windows.Forms.TextBox();
             this.openLinkButton = new System.Windows.Forms.Button();
             this.autoLinkButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.urlEditTable.SuspendLayout();
@@ -73,7 +72,6 @@
             this.tableLayoutPanel1.Controls.Add(this.topicListBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.urlEditTable, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.deleteButton, 0, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -234,18 +232,6 @@
             this.autoLinkButton.UseVisualStyleBackColor = true;
             this.autoLinkButton.Click += new System.EventHandler(this.autoLinkButton_Click);
             // 
-            // deleteButton
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.deleteButton, 2);
-            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deleteButton.Location = new System.Drawing.Point(3, 186);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(407, 23);
-            this.deleteButton.TabIndex = 7;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // ResourceConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +267,5 @@
         private System.Windows.Forms.Button openLinkButton;
         private System.Windows.Forms.TableLayoutPanel urlEditTable;
         private System.Windows.Forms.Button autoLinkButton;
-        private System.Windows.Forms.Button deleteButton;
     }
 }

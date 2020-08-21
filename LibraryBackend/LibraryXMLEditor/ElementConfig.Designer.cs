@@ -38,7 +38,6 @@
             this.optionsTable = new System.Windows.Forms.TableLayoutPanel();
             this.imageButton = new System.Windows.Forms.RadioButton();
             this.videoButton = new System.Windows.Forms.RadioButton();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericField)).BeginInit();
             this.optionsTable.SuspendLayout();
@@ -67,7 +66,6 @@
             this.tableLayoutPanel1.Controls.Add(this.numericFieldLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.optionsLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.optionsTable, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.deleteButton, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -183,18 +181,6 @@
             this.videoButton.UseVisualStyleBackColor = true;
             this.videoButton.CheckedChanged += new System.EventHandler(this.videoButton_CheckedChanged);
             // 
-            // deleteButton
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.deleteButton, 2);
-            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deleteButton.Location = new System.Drawing.Point(3, 119);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(332, 23);
-            this.deleteButton.TabIndex = 6;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // ElementConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +211,5 @@
         private System.Windows.Forms.TableLayoutPanel optionsTable;
         private System.Windows.Forms.RadioButton imageButton;
         private System.Windows.Forms.RadioButton videoButton;
-        private System.Windows.Forms.Button deleteButton;
     }
 }

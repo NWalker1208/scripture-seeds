@@ -17,11 +17,6 @@ namespace LibraryXMLEditor
         [Description("Invoked when the element is modified.")]
         public event EventHandler ElementUpdate;
 
-        [Browsable(true)]
-        [Category("Action")]
-        [Description("Invoked when the element is deleted.")]
-        public event EventHandler ElementDelete;
-
         StudyElement element;
 
         public ElementConfig()
@@ -110,11 +105,6 @@ namespace LibraryXMLEditor
                 media.type = MediaElement.Type.Video;
 
             ElementUpdate?.Invoke(this, new EventArgs());
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            ElementDelete?.Invoke(this, new EventArgs());
         }
     }
 }
