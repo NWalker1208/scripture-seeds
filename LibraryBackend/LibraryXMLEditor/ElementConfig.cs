@@ -12,6 +12,16 @@ namespace LibraryXMLEditor
 {
     public partial class ElementConfig : UserControl
     {
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when the element is modified.")]
+        public event EventHandler ElementUpdate;
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when the element is deleted.")]
+        public event EventHandler ElementDelete;
+
         StudyElement element;
 
         public ElementConfig()
@@ -27,12 +37,84 @@ namespace LibraryXMLEditor
 
         private void UpdateView()
         {
-            if (element is MediaElement)
-                mediaButton.Checked = true;
-            else if (element is TitleElement)
-                titleButton.Checked = true;
-            else
-                textButton.Checked = true;
+            if (element is MediaElement media)
+            {
+                if (media.type == MediaElement.Type.Image)
+                    imageButton.Checked = true;
+                else
+                    videoButton.Checked = true;
+
+                typeLabel.Text = "Type: Media";
+                textFieldLabel.Text = "URL";
+                textField.Text = media.url;
+                numericFieldLabel.Visible = false;
+                numericField.Visible = false;
+                optionsLabel.Visible = true;
+                optionsTable.Visible = true;
+            }
+            else if (element is TitleElement title)
+            {
+                typeLabel.Text = "Type: Title";
+                textFieldLabel.Text = "Text";
+                textField.Text = title.text;
+                numericFieldLabel.Visible = false;
+                numericField.Visible = false;
+                optionsLabel.Visible = false;
+                optionsTable.Visible = false;
+            }
+            else if (element is TextElement text)
+            {
+                typeLabel.Text = "Type: Text";
+                textFieldLabel.Text = "Text";
+                textField.Text = text.text;
+                numericFieldLabel.Text = "Verse";
+                numericFieldLabel.Visible = true;
+                numericField.Value = text.verse;
+                numericField.Visible = true;
+                optionsLabel.Visible = false;
+                optionsTable.Visible = false;
+            }
+        }
+
+        private void textField_TextChanged(object sender, EventArgs e)
+        {
+            if (element is MediaElement media)
+                media.url = textField.Text;
+            else if (element is TitleElement title)
+                title.text = textField.Text;
+            else if (element is TextElement text)
+                text.text = textField.Text;
+
+            ElementUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private void numericField_ValueChanged(object sender, EventArgs e)
+        {
+            if (element is TextElement text)
+                text.verse = (int)numericField.Value;
+
+            ElementUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private void imageButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (element is MediaElement media)
+                media.type = MediaElement.Type.Image;
+
+            ElementUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private void videoButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (element is MediaElement media)
+                media.type = MediaElement.Type.Video;
+
+            ElementUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            ElementDelete?.Invoke(this, new EventArgs());
         }
     }
 }

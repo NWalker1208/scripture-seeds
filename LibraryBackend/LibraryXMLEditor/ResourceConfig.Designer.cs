@@ -34,13 +34,13 @@
             this.referenceLabel = new System.Windows.Forms.Label();
             this.referenceTextBox = new System.Windows.Forms.TextBox();
             this.urlLabel = new System.Windows.Forms.Label();
-            this.urlTextBox = new System.Windows.Forms.TextBox();
             this.topicListBox = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
-            this.openLinkButton = new System.Windows.Forms.Button();
             this.urlEditTable = new System.Windows.Forms.TableLayoutPanel();
+            this.urlTextBox = new System.Windows.Forms.TextBox();
+            this.openLinkButton = new System.Windows.Forms.Button();
             this.autoLinkButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -86,18 +86,18 @@
             // topicsLabel
             // 
             this.topicsLabel.AutoSize = true;
-            this.topicsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.topicsLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.topicsLabel.Location = new System.Drawing.Point(3, 56);
             this.topicsLabel.Margin = new System.Windows.Forms.Padding(3);
             this.topicsLabel.Name = "topicsLabel";
-            this.topicsLabel.Size = new System.Drawing.Size(57, 95);
+            this.topicsLabel.Size = new System.Drawing.Size(39, 95);
             this.topicsLabel.TabIndex = 4;
             this.topicsLabel.Text = "Topics";
             // 
             // referenceLabel
             // 
             this.referenceLabel.AutoSize = true;
-            this.referenceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.referenceLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.referenceLabel.Location = new System.Drawing.Point(3, 0);
             this.referenceLabel.Name = "referenceLabel";
             this.referenceLabel.Size = new System.Drawing.Size(57, 26);
@@ -117,22 +117,13 @@
             // urlLabel
             // 
             this.urlLabel.AutoSize = true;
-            this.urlLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.urlLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.urlLabel.Location = new System.Drawing.Point(3, 26);
             this.urlLabel.Name = "urlLabel";
-            this.urlLabel.Size = new System.Drawing.Size(57, 27);
+            this.urlLabel.Size = new System.Drawing.Size(29, 27);
             this.urlLabel.TabIndex = 2;
             this.urlLabel.Text = "URL";
             this.urlLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // urlTextBox
-            // 
-            this.urlTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.urlTextBox.Location = new System.Drawing.Point(33, 3);
-            this.urlTextBox.Name = "urlTextBox";
-            this.urlTextBox.Size = new System.Drawing.Size(287, 20);
-            this.urlTextBox.TabIndex = 1;
-            this.urlTextBox.TextChanged += new System.EventHandler(this.urlTextBox_TextChanged);
             // 
             // topicListBox
             // 
@@ -186,19 +177,6 @@
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
-            // openLinkButton
-            // 
-            this.openLinkButton.AutoSize = true;
-            this.openLinkButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.openLinkButton.Location = new System.Drawing.Point(325, 2);
-            this.openLinkButton.Margin = new System.Windows.Forms.Padding(2);
-            this.openLinkButton.Name = "openLinkButton";
-            this.openLinkButton.Size = new System.Drawing.Size(23, 23);
-            this.openLinkButton.TabIndex = 2;
-            this.openLinkButton.Text = ">";
-            this.openLinkButton.UseVisualStyleBackColor = true;
-            this.openLinkButton.Click += new System.EventHandler(this.openLinkButton_Click);
-            // 
             // urlEditTable
             // 
             this.urlEditTable.AutoSize = true;
@@ -218,6 +196,28 @@
             this.urlEditTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.urlEditTable.Size = new System.Drawing.Size(350, 27);
             this.urlEditTable.TabIndex = 1;
+            // 
+            // urlTextBox
+            // 
+            this.urlTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.urlTextBox.Location = new System.Drawing.Point(33, 3);
+            this.urlTextBox.Name = "urlTextBox";
+            this.urlTextBox.Size = new System.Drawing.Size(287, 20);
+            this.urlTextBox.TabIndex = 1;
+            this.urlTextBox.TextChanged += new System.EventHandler(this.urlTextBox_TextChanged);
+            // 
+            // openLinkButton
+            // 
+            this.openLinkButton.AutoSize = true;
+            this.openLinkButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.openLinkButton.Location = new System.Drawing.Point(325, 2);
+            this.openLinkButton.Margin = new System.Windows.Forms.Padding(2);
+            this.openLinkButton.Name = "openLinkButton";
+            this.openLinkButton.Size = new System.Drawing.Size(23, 23);
+            this.openLinkButton.TabIndex = 2;
+            this.openLinkButton.Text = ">";
+            this.openLinkButton.UseVisualStyleBackColor = true;
+            this.openLinkButton.Click += new System.EventHandler(this.openLinkButton_Click);
             // 
             // autoLinkButton
             // 

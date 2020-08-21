@@ -33,8 +33,8 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
             this.libraryLabel = new System.Windows.Forms.Label();
-            this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
             this.elementConfig = new LibraryXMLEditor.ElementConfig();
+            this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
             this.SuspendLayout();
             // 
             // libraryTreeView
@@ -79,6 +79,21 @@
             this.libraryLabel.TabIndex = 3;
             this.libraryLabel.Text = "Library Resources";
             // 
+            // elementConfig
+            // 
+            this.elementConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.elementConfig.BackColor = System.Drawing.SystemColors.Window;
+            this.elementConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.elementConfig.Location = new System.Drawing.Point(223, 29);
+            this.elementConfig.Name = "elementConfig";
+            this.elementConfig.Size = new System.Drawing.Size(522, 353);
+            this.elementConfig.TabIndex = 5;
+            this.elementConfig.Visible = false;
+            this.elementConfig.ElementUpdate += new System.EventHandler(this.elementConfig_ElementUpdate);
+            this.elementConfig.ElementDelete += new System.EventHandler(this.elementConfig_ElementDelete);
+            // 
             // resourceConfig
             // 
             this.resourceConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -91,16 +106,6 @@
             this.resourceConfig.Size = new System.Drawing.Size(522, 353);
             this.resourceConfig.TabIndex = 4;
             this.resourceConfig.Visible = false;
-            // 
-            // elementConfig
-            // 
-            this.elementConfig.BackColor = System.Drawing.SystemColors.Window;
-            this.elementConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.elementConfig.Location = new System.Drawing.Point(223, 29);
-            this.elementConfig.Name = "elementConfig";
-            this.elementConfig.Size = new System.Drawing.Size(522, 353);
-            this.elementConfig.TabIndex = 5;
-            this.elementConfig.Visible = false;
             // 
             // Editor
             // 

@@ -12,6 +12,11 @@ namespace LibraryXMLEditor
 {
     public partial class ResourceConfig : UserControl
     {
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when the element is modified.")]
+        public event EventHandler ResourceUpdate;
+
         StudyResource resource;
 
         public ResourceConfig()
@@ -35,9 +40,17 @@ namespace LibraryXMLEditor
             removeButton.Enabled = false;
         }
 
-        private void referenceTextBox_TextChanged(object sender, EventArgs e) => resource.reference = referenceTextBox.Text;
+        private void referenceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            resource.reference = referenceTextBox.Text;
+            ResourceUpdate?.Invoke(this, new EventArgs());
+        }
 
-        private void urlTextBox_TextChanged(object sender, EventArgs e) => resource.referenceURL = urlTextBox.Text;
+        private void urlTextBox_TextChanged(object sender, EventArgs e)
+        {
+            resource.referenceURL = urlTextBox.Text;
+            ResourceUpdate?.Invoke(this, new EventArgs());
+        }
 
         private void topicListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -56,6 +69,7 @@ namespace LibraryXMLEditor
             {
                 resource.topics.Add(topicForm.value.ToLower());
                 UpdateView();
+                ResourceUpdate?.Invoke(this, new EventArgs());
             }
         }
 
@@ -65,6 +79,7 @@ namespace LibraryXMLEditor
                 resource.topics.Remove(topic);
 
             UpdateView();
+            ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
         private void openLinkButton_Click(object sender, EventArgs e)

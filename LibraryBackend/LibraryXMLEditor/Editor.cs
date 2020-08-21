@@ -113,5 +113,27 @@ namespace LibraryXMLEditor
                 elementConfig.SetElement(element);
             }
         }
+
+        private void elementConfig_ElementUpdate(object sender, EventArgs e)
+        {
+            if (sender is ElementConfig elementConfig)
+            {
+                TreeNode node = libraryTreeView.SelectedNode;
+                StudyResource resource = lib.GetResource(int.Parse(node.Parent.Name));
+                node.Text = resource.body[int.Parse(node.Name)].ToString();
+            }
+        }
+
+        private void elementConfig_ElementDelete(object sender, EventArgs e)
+        {
+            if (sender is ElementConfig elementConfig)
+            {
+                TreeNode node = libraryTreeView.SelectedNode;
+                StudyResource resource = lib.GetResource(int.Parse(node.Parent.Name));
+                resource.body.RemoveAt(int.Parse(node.Name));
+
+                UpdateTreeView();
+            }
+        }
     }
 }
