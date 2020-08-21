@@ -38,6 +38,11 @@ namespace LibraryXMLEditor
             resources.Add(resource.id, resource);
         }
 
+        public void RemoveResource(int id)
+        {
+            resources.Remove(id);
+        }
+
         public StudyResource GetResource(int id)
         {
             return resources[id];

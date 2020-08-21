@@ -106,6 +106,8 @@
             this.resourceConfig.Size = new System.Drawing.Size(522, 353);
             this.resourceConfig.TabIndex = 4;
             this.resourceConfig.Visible = false;
+            this.resourceConfig.ResourceUpdate += new System.EventHandler(this.resourceConfig_ResourceUpdate);
+            this.resourceConfig.ResourceDelete += new System.EventHandler(this.resourceConfig_ResourceDelete);
             // 
             // Editor
             // 

@@ -14,8 +14,13 @@ namespace LibraryXMLEditor
     {
         [Browsable(true)]
         [Category("Action")]
-        [Description("Invoked when the element is modified.")]
+        [Description("Invoked when the resource is modified.")]
         public event EventHandler ResourceUpdate;
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when the resource is deleted.")]
+        public event EventHandler ResourceDelete;
 
         StudyResource resource;
 
@@ -90,6 +95,11 @@ namespace LibraryXMLEditor
         private void autoLinkButton_Click(object sender, EventArgs e)
         {
             urlTextBox.Text = GenerateURL(referenceTextBox.Text);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            ResourceDelete?.Invoke(this, new EventArgs());
         }
 
         private static String GenerateURL(String reference, String lang = "eng")

@@ -114,9 +114,19 @@ namespace LibraryXMLEditor
             }
         }
 
+        private void resourceConfig_ResourceUpdate(object sender, EventArgs e)
+        {
+            if (sender is ResourceConfig)
+            {
+                TreeNode node = libraryTreeView.SelectedNode;
+                StudyResource resource = lib.GetResource(int.Parse(node.Name));
+                node.Text = resource.ToString();
+            }
+        }
+
         private void elementConfig_ElementUpdate(object sender, EventArgs e)
         {
-            if (sender is ElementConfig elementConfig)
+            if (sender is ElementConfig)
             {
                 TreeNode node = libraryTreeView.SelectedNode;
                 StudyResource resource = lib.GetResource(int.Parse(node.Parent.Name));
@@ -124,15 +134,28 @@ namespace LibraryXMLEditor
             }
         }
 
+        private void resourceConfig_ResourceDelete(object sender, EventArgs e)
+        {
+            if (sender is ResourceConfig)
+            {
+                TreeNode node = libraryTreeView.SelectedNode;
+                lib.RemoveResource(int.Parse(node.Name));
+
+                UpdateTreeView();
+                UpdateSettingsView();
+            }
+        }
+
         private void elementConfig_ElementDelete(object sender, EventArgs e)
         {
-            if (sender is ElementConfig elementConfig)
+            if (sender is ElementConfig)
             {
                 TreeNode node = libraryTreeView.SelectedNode;
                 StudyResource resource = lib.GetResource(int.Parse(node.Parent.Name));
                 resource.body.RemoveAt(int.Parse(node.Name));
 
                 UpdateTreeView();
+                UpdateSettingsView();
             }
         }
     }
