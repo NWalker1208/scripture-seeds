@@ -60,6 +60,7 @@ namespace LibraryXMLEditor
 
         public void UpdateTreeView()
         {
+            // TODO: Make this not clear the tree, only update necessary parts
             libraryTreeView.Nodes.Clear();
 
             foreach(int id in lib.ResourceIDs)
