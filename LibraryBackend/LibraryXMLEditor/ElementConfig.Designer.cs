@@ -86,6 +86,7 @@
             this.textFieldLabel.Size = new System.Drawing.Size(35, 61);
             this.textFieldLabel.TabIndex = 0;
             this.textFieldLabel.Text = "label1";
+            this.textFieldLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textField
             // 

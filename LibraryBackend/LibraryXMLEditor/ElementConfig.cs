@@ -42,6 +42,7 @@ namespace LibraryXMLEditor
                 typeLabel.Text = "Type: Media";
                 textFieldLabel.Text = "URL";
                 textField.Text = media.url;
+                textField.Multiline = false;
                 numericFieldLabel.Visible = false;
                 numericField.Visible = false;
                 optionsLabel.Visible = true;
@@ -52,6 +53,7 @@ namespace LibraryXMLEditor
                 typeLabel.Text = "Type: Title";
                 textFieldLabel.Text = "Text";
                 textField.Text = title.text;
+                textField.Multiline = false;
                 numericFieldLabel.Visible = false;
                 numericField.Visible = false;
                 optionsLabel.Visible = false;
@@ -62,6 +64,7 @@ namespace LibraryXMLEditor
                 typeLabel.Text = "Type: Text";
                 textFieldLabel.Text = "Text";
                 textField.Text = text.text;
+                textField.Multiline = true;
                 numericFieldLabel.Text = "Verse";
                 numericFieldLabel.Visible = true;
                 numericField.Value = text.verse;

@@ -82,6 +82,24 @@ namespace LibraryXMLEditor
             ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
+        private void mediaButton_Click(object sender, EventArgs e)
+        {
+            resource.body.Add(new MediaElement(MediaElement.Type.Image, ""));
+            ResourceUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private void titleButton_Click(object sender, EventArgs e)
+        {
+            resource.body.Add(new TitleElement(""));
+            ResourceUpdate?.Invoke(this, new EventArgs());
+        }
+
+        private void textButton_Click(object sender, EventArgs e)
+        {
+            resource.body.Add(new TextElement(""));
+            ResourceUpdate?.Invoke(this, new EventArgs());
+        }
+
         private void openLinkButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(urlTextBox.Text);

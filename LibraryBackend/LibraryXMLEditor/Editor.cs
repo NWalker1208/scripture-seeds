@@ -126,8 +126,10 @@ namespace LibraryXMLEditor
 
         private void resourceConfig_ResourceUpdate(object sender, EventArgs e)
         {
-            TreeNode node = libraryTreeView.SelectedNode;
-            node.Text = node.Tag.ToString();
+            UpdateTreeView();
+
+            //TreeNode node = libraryTreeView.SelectedNode;
+            //node.Text = node.Tag.ToString();
         }
 
         private void elementConfig_ElementUpdate(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace LibraryXMLEditor
             node.Text = node.Tag.ToString();
         }
 
-        private void addResourceButton_Click(object sender, EventArgs e)
+        private void addButton_Click(object sender, EventArgs e)
         {
             lib.AddResource(new StudyResource("Genesis 1:1", "https://example.com"));
             UpdateTreeView();

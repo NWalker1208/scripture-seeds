@@ -33,7 +33,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
             this.libraryLabel = new System.Windows.Forms.Label();
-            this.addResourceButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.elementConfig = new LibraryXMLEditor.ElementConfig();
             this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
@@ -81,19 +81,21 @@
             this.libraryLabel.TabIndex = 3;
             this.libraryLabel.Text = "Library Resources";
             // 
-            // addResourceButton
+            // addButton
             // 
-            this.addResourceButton.Location = new System.Drawing.Point(194, 359);
-            this.addResourceButton.Name = "addResourceButton";
-            this.addResourceButton.Size = new System.Drawing.Size(23, 23);
-            this.addResourceButton.TabIndex = 4;
-            this.addResourceButton.Text = "+";
-            this.addResourceButton.UseVisualStyleBackColor = true;
-            this.addResourceButton.Click += new System.EventHandler(this.addResourceButton_Click);
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addButton.Location = new System.Drawing.Point(12, 388);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(93, 23);
+            this.addButton.TabIndex = 4;
+            this.addButton.Text = "New Resource";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(12, 388);
+            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.removeButton.Location = new System.Drawing.Point(142, 388);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 7;
@@ -136,7 +138,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(757, 423);
             this.Controls.Add(this.removeButton);
-            this.Controls.Add(this.addResourceButton);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.elementConfig);
             this.Controls.Add(this.resourceConfig);
             this.Controls.Add(this.libraryLabel);
@@ -161,7 +163,7 @@
         private System.Windows.Forms.Label libraryLabel;
         private ResourceConfig resourceConfig;
         private ElementConfig elementConfig;
-        private System.Windows.Forms.Button addResourceButton;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
     }
 }
