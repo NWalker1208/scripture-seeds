@@ -102,6 +102,19 @@ namespace LibraryXMLEditor
             ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
+        private void webTextButton_Click(object sender, EventArgs e)
+        {
+            List<TextElement> webText = WebParser.GetWebText(resource.referenceURL);
+
+            if (webText != null)
+            {
+                resource.body.AddRange(webText);
+                ResourceUpdate?.Invoke(this, new EventArgs());
+            }
+            else
+                MessageBox.Show("Failed to obtain text from web.");
+        }
+
         private void openLinkButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(urlTextBox.Text);
@@ -109,7 +122,11 @@ namespace LibraryXMLEditor
 
         private void autoLinkButton_Click(object sender, EventArgs e)
         {
-            urlTextBox.Text = GenerateURL(referenceTextBox.Text);
+            String url = GenerateURL(referenceTextBox.Text);
+            if (url != null)
+                urlTextBox.Text = url;
+            else
+                MessageBox.Show("Invalid reference for scripture.");
         }
 
         private static String GenerateURL(String reference, String lang = "eng")
@@ -126,8 +143,8 @@ namespace LibraryXMLEditor
             int dashIndex = reference.IndexOf('-');
             int commaIndex = reference.IndexOf(',');
 
-            if (spaceIndex == -1 || colonIndex == -1)
-                return "Invalid Reference";
+            if (spaceIndex == -1 || colonIndex == -1 || colonIndex == reference.Length - 1)
+                return null;
 
             book = reference.Substring(0, spaceIndex).ToLower();
             chapter = int.Parse(reference.Substring(spaceIndex + 1, colonIndex - spaceIndex - 1));
@@ -157,7 +174,7 @@ namespace LibraryXMLEditor
             String url = "https://www.churchofjesuschrist.org/study/scriptures/";
 
             url += volume + "/" + book + "/" + chapter.ToString() + "." + allVerses;
-            url += "?lang=" + lang + "#" + startVerse.ToString();
+            url += "?lang=" + lang + "#p" + startVerse.ToString();
 
             return url;
         }

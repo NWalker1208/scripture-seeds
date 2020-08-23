@@ -55,10 +55,14 @@ namespace LibraryXMLEditor
             doc.Load(file);
 
             lib = new Library(doc.ChildNodes[1]);
-            UpdateTreeView();
+            UpdateTreeView(false);
+
+            libraryTreeView.SelectedNode = null;
+            removeButton.Enabled = false;
+            UpdateSettingsView();
         }
 
-        public void UpdateTreeView()
+        public void UpdateTreeView(bool selectNewNodes = true)
         {
             // Display resources in the order of their ID's
             List<int> ids = lib.ResourceIDs;
@@ -87,8 +91,12 @@ namespace LibraryXMLEditor
                     // If an existing node is not present, create one
                     node = libraryTreeView.Nodes.Insert(n, res.ToString());
                     node.Tag = res;
-                    libraryTreeView.SelectedNode = node;
-                    libraryTreeView.Focus();
+
+                    if (selectNewNodes)
+                    {
+                        libraryTreeView.SelectedNode = node;
+                        libraryTreeView.Focus();
+                    }
                 }
                 else
                 {
@@ -101,7 +109,7 @@ namespace LibraryXMLEditor
                     }
                 }
 
-                UpdateElementTree(node, res);
+                UpdateElementTree(node, res, selectNewNodes);
                 n++;
             }
 
@@ -110,7 +118,7 @@ namespace LibraryXMLEditor
                 libraryTreeView.Nodes.RemoveAt(n);
         }
 
-        private void UpdateElementTree(TreeNode resourceNode, StudyResource resource)
+        private void UpdateElementTree(TreeNode resourceNode, StudyResource resource, bool selectNewNodes = true)
         {
             int n = 0;
             foreach (StudyElement element in resource.body)
@@ -132,8 +140,12 @@ namespace LibraryXMLEditor
                     // If an existing node is not present, create one
                     TreeNode node = resourceNode.Nodes.Insert(n, element.ToString());
                     node.Tag = element;
-                    libraryTreeView.SelectedNode = node;
-                    libraryTreeView.Focus();
+
+                    if (selectNewNodes)
+                    {
+                        libraryTreeView.SelectedNode = node;
+                        libraryTreeView.Focus();
+                    }
                 }
                 else
                 {

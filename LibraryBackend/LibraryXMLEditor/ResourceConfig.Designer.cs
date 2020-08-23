@@ -47,6 +47,7 @@
             this.mediaButton = new System.Windows.Forms.Button();
             this.titleButton = new System.Windows.Forms.Button();
             this.textButton = new System.Windows.Forms.Button();
+            this.webTextButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.urlEditTable.SuspendLayout();
@@ -80,9 +81,11 @@
             this.tableLayoutPanel1.Controls.Add(this.urlEditTable, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.webTextButton, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -305,6 +308,17 @@
             this.textButton.UseVisualStyleBackColor = true;
             this.textButton.Click += new System.EventHandler(this.textButton_Click);
             // 
+            // webTextButton
+            // 
+            this.webTextButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.webTextButton.Location = new System.Drawing.Point(79, 215);
+            this.webTextButton.Name = "webTextButton";
+            this.webTextButton.Size = new System.Drawing.Size(331, 23);
+            this.webTextButton.TabIndex = 10;
+            this.webTextButton.Text = "Get Text from Web";
+            this.webTextButton.UseVisualStyleBackColor = true;
+            this.webTextButton.Click += new System.EventHandler(this.webTextButton_Click);
+            // 
             // ResourceConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,5 +360,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button titleButton;
         private System.Windows.Forms.Button textButton;
+        private System.Windows.Forms.Button webTextButton;
     }
 }
