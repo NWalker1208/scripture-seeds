@@ -76,38 +76,38 @@ namespace LibraryXMLEditor
 
         private void textField_TextChanged(object sender, EventArgs e)
         {
-            if (element is MediaElement media)
-                media.url = textField.Text;
-            else if (element is TitleElement title)
-                title.text = textField.Text;
-            else if (element is TextElement text)
-                text.text = textField.Text;
+            bool updated = false;
 
-            ElementUpdate?.Invoke(this, new EventArgs());
+            if (element is MediaElement media)
+                updated = Util.TrySet(ref media.url, textField.Text);
+            else if (element is TitleElement title)
+                updated = Util.TrySet(ref title.text, textField.Text);
+            else if (element is TextElement text)
+                updated = Util.TrySet(ref text.text, textField.Text);
+
+            if (updated)
+                ElementUpdate?.Invoke(this, new EventArgs());
         }
 
         private void numericField_ValueChanged(object sender, EventArgs e)
         {
             if (element is TextElement text)
-                text.verse = (int)numericField.Value;
-
-            ElementUpdate?.Invoke(this, new EventArgs());
+                if (Util.TrySet(ref text.verse, (int)numericField.Value))
+                    ElementUpdate?.Invoke(this, new EventArgs());
         }
 
         private void imageButton_CheckedChanged(object sender, EventArgs e)
         {
             if (element is MediaElement media)
-                media.type = MediaElement.Type.Image;
-
-            ElementUpdate?.Invoke(this, new EventArgs());
+                if (Util.TrySet(ref media.type, MediaElement.Type.Image))
+                    ElementUpdate?.Invoke(this, new EventArgs());
         }
 
         private void videoButton_CheckedChanged(object sender, EventArgs e)
         {
             if (element is MediaElement media)
-                media.type = MediaElement.Type.Video;
-
-            ElementUpdate?.Invoke(this, new EventArgs());
+                if (Util.TrySet(ref media.type, MediaElement.Type.Video))
+                    ElementUpdate?.Invoke(this, new EventArgs());
         }
     }
 }

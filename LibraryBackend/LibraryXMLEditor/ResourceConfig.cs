@@ -42,14 +42,14 @@ namespace LibraryXMLEditor
 
         private void referenceTextBox_TextChanged(object sender, EventArgs e)
         {
-            resource.reference = referenceTextBox.Text;
-            ResourceUpdate?.Invoke(this, new EventArgs());
+            if (Util.TrySet(ref resource.reference, referenceTextBox.Text))
+                ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
         private void urlTextBox_TextChanged(object sender, EventArgs e)
         {
-            resource.referenceURL = urlTextBox.Text;
-            ResourceUpdate?.Invoke(this, new EventArgs());
+            if (Util.TrySet(ref resource.referenceURL, urlTextBox.Text))
+                ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
         private void topicListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,8 +68,8 @@ namespace LibraryXMLEditor
             if (topicForm.value != null)
             {
                 resource.topics.Add(topicForm.value.ToLower());
-                UpdateView();
                 ResourceUpdate?.Invoke(this, new EventArgs());
+                UpdateView();
             }
         }
 
@@ -78,8 +78,10 @@ namespace LibraryXMLEditor
             foreach(String topic in topicListBox.SelectedItems)
                 resource.topics.Remove(topic);
 
+            if (topicListBox.SelectedItems.Count > 0)
+                ResourceUpdate?.Invoke(this, new EventArgs());
+
             UpdateView();
-            ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
         private void mediaButton_Click(object sender, EventArgs e)

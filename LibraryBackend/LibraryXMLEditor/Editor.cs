@@ -60,37 +60,115 @@ namespace LibraryXMLEditor
 
         public void UpdateTreeView()
         {
-            // TODO: Make this not clear the tree, only update necessary parts
-            libraryTreeView.Nodes.Clear();
+            // Display resources in the order of their ID's
+            List<int> ids = lib.ResourceIDs;
+            ids.Sort();
 
-            foreach(int id in lib.ResourceIDs)
+            // Iterate over resources and update tree view for changes
+            int n = 0;
+            foreach (int id in ids)
             {
-                StudyResource resource = lib.GetResource(id);
-                TreeNode resourceRoot = libraryTreeView.Nodes.Add(resource.ToString());
-                resourceRoot.Tag = resource;
+                StudyResource res = lib.GetResource(id);
 
-                for (int i = 0; i < resource.body.Count; i++)
+                // Look ahead in nodes to see if one already exists
+                TreeNode node = null;
+                int i;
+                for (i = n; i < libraryTreeView.Nodes.Count; i++)
                 {
-                    StudyElement element = resource.body[i];
-                    TreeNode node = resourceRoot.Nodes.Add(element.ToString());
-                    node.Tag = element;
+                    if (libraryTreeView.Nodes[i].Tag == res)
+                    {
+                        node = libraryTreeView.Nodes[i];
+                        break;
+                    }
+                }    
+
+                if (node == null)
+                {
+                    // If an existing node is not present, create one
+                    node = libraryTreeView.Nodes.Insert(n, res.ToString());
+                    node.Tag = res;
+                    libraryTreeView.SelectedNode = node;
+                    libraryTreeView.Focus();
                 }
+                else
+                {
+                    // If one does exist, remove any extra nodes present before it
+                    node.Text = res.ToString();
+                    while (n < i)
+                    {
+                        libraryTreeView.Nodes.RemoveAt(n);
+                        i--;
+                    }
+                }
+
+                UpdateElementTree(node, res);
+                n++;
             }
 
-            removeButton.Enabled = false;
-            UpdateSettingsView();
+            // Remove excess nodes
+            while (n < libraryTreeView.Nodes.Count)
+                libraryTreeView.Nodes.RemoveAt(n);
+        }
+
+        private void UpdateElementTree(TreeNode resourceNode, StudyResource resource)
+        {
+            int n = 0;
+            foreach (StudyElement element in resource.body)
+            {
+                // Look ahead in nodes to see if one already exists
+                bool createNew = true;
+                int i;
+                for (i = n; i < resourceNode.Nodes.Count; i++)
+                {
+                    if (resourceNode.Nodes[i].Tag == element)
+                    {
+                        createNew = false;
+                        break;
+                    }
+                }
+
+                if (createNew)
+                {
+                    // If an existing node is not present, create one
+                    TreeNode node = resourceNode.Nodes.Insert(n, element.ToString());
+                    node.Tag = element;
+                    libraryTreeView.SelectedNode = node;
+                    libraryTreeView.Focus();
+                }
+                else
+                {
+                    // If one does exist, remove any extra nodes present before it
+                    resourceNode.Nodes[i].Text = element.ToString();
+                    while (n < i)
+                    {
+                        resourceNode.Nodes.RemoveAt(n);
+                        i--;
+                    }
+                }
+
+                n++;
+            }
+
+            // Remove excess nodes
+            while (n < resourceNode.Nodes.Count)
+                resourceNode.Nodes.RemoveAt(n);
         }
 
         private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            removeButton.Enabled = true;
-
-            if (e.Node.Tag is StudyResource resource)
+            if (libraryTreeView.SelectedNode == null)
             {
+                removeButton.Enabled = false;
+                UpdateSettingsView();
+            }
+            else if (e.Node.Tag is StudyResource resource)
+            {
+                removeButton.Enabled = true;
                 UpdateSettingsView(resource);
             }
             else if (e.Node.Tag is StudyElement element)
             {
+                removeButton.Enabled = true;
                 resource = e.Node.Parent.Tag as StudyResource;
                 UpdateSettingsView(resource, element);
             }
@@ -160,6 +238,10 @@ namespace LibraryXMLEditor
                 resource.body.Remove(element);
                 UpdateTreeView();
             }
+
+            libraryTreeView.SelectedNode = null;
+            removeButton.Enabled = false;
+            UpdateSettingsView();
         }
     }
 }
