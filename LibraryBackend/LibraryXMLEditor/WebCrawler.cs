@@ -128,6 +128,8 @@ namespace LibraryXMLEditor
                             pText += child.ChildNodes[1].InnerText;
                         else if (child.HasClass("verse-number"))
                             verse = int.Parse(child.InnerText);
+                        else if (child.Name == "span")
+                            pText += child.InnerText;
                     }
 
                     text.Add(new TextElement(pText, verse));

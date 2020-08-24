@@ -116,6 +116,10 @@ namespace LibraryXMLEditor
 
             if (webText != null)
             {
+                // Add title for chapter
+                String title = resource.reference.Substring(0, resource.reference.IndexOf(':'));
+                resource.body.Add(new TitleElement(title));
+
                 resource.body.AddRange(webText);
                 ResourceUpdate?.Invoke(this, new EventArgs());
             }
