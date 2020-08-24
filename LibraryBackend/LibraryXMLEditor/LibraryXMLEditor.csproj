@@ -61,6 +61,7 @@
     <Compile Include="ElementConfig.Designer.cs">
       <DependentUpon>ElementConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScriptureConsts.cs" />
     <Compile Include="TextInput.cs">
       <SubType>Form</SubType>
     </Compile>

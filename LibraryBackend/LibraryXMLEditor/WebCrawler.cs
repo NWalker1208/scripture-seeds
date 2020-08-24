@@ -1,11 +1,8 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
-using HtmlAgilityPack;
-using System.Diagnostics;
+using System.Text;
 
 namespace LibraryXMLEditor
 {
@@ -54,7 +51,7 @@ namespace LibraryXMLEditor
         public static String GenerateURL(String reference, String lang = "eng")
         {
             // Determine book, chapter, and verse
-            String volume = "bofm";
+            String volume;
             String book;
             int chapter;
             int startVerse;
@@ -70,6 +67,11 @@ namespace LibraryXMLEditor
 
             book = reference.Substring(0, spaceIndex).ToLower();
             chapter = int.Parse(reference.Substring(spaceIndex + 1, colonIndex - spaceIndex - 1));
+
+            volume = ScriptureConsts.VolumeOf(book);
+
+            if (volume == null)
+                return null;
 
             if (dashIndex == -1 && commaIndex == -1)
             {
@@ -95,7 +97,7 @@ namespace LibraryXMLEditor
             // Generate url
             String url = "https://www.churchofjesuschrist.org/study/scriptures/";
 
-            url += volume + "/" + book + "/" + chapter.ToString() + "." + allVerses;
+            url += volume + "/" + ScriptureConsts.Abbreviations[book] + "/" + chapter.ToString() + "." + allVerses;
             url += "?lang=" + lang + "#p" + startVerse.ToString();
 
             return url;
