@@ -12,9 +12,9 @@ namespace LibraryXMLEditor
 {
     public partial class TextInput : Form
     {
-        public String value;
+        public string value;
 
-        public TextInput(String title)
+        public TextInput(string title)
         {
             InitializeComponent();
             Text = title;

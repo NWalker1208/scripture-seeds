@@ -16,17 +16,17 @@ namespace LibraryXMLEditor
         int _id;
         public int id { get => _id; private set => _id = value; }
 
-        public String reference;
-        public String referenceURL;
-        public HashSet<String> topics;
+        public string reference;
+        public string referenceURL;
+        public HashSet<string> topics;
         public List<StudyElement> body;
 
-        public StudyResource(String reference, String referenceURL, int id = -1)
+        public StudyResource(string reference, string referenceURL, int id = -1)
         {
             InitID(id);
             this.reference = reference;
             this.referenceURL = referenceURL;
-            topics = new HashSet<String>();
+            topics = new HashSet<string>();
             body = new List<StudyElement>();
         }
 
@@ -34,7 +34,7 @@ namespace LibraryXMLEditor
         {
             InitID(int.Parse(node.Attributes.GetNamedItem("id").Value));
 
-            topics = new HashSet<String>();
+            topics = new HashSet<string>();
             body = new List<StudyElement>();
 
             foreach (XmlNode child in node.ChildNodes)
@@ -88,7 +88,7 @@ namespace LibraryXMLEditor
             node.Attributes.Append(idAttr);
 
             // Create elements for topics
-            foreach(String topic in topics)
+            foreach(string topic in topics)
             {
                 XmlNode topicNode = document.CreateElement("topic");
                 topicNode.InnerText = topic;

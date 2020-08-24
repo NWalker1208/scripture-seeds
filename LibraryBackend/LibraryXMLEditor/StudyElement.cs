@@ -12,9 +12,9 @@ namespace LibraryXMLEditor
         public enum Type {Image, Video}
 
         public Type type;
-        public String url;
+        public string url;
 
-        public MediaElement(Type type, String url)
+        public MediaElement(Type type, string url)
         {
             this.type = type;
             this.url = url;
@@ -47,9 +47,9 @@ namespace LibraryXMLEditor
 
     public class TitleElement : StudyElement
     {
-        public String text;
+        public string text;
 
-        public TitleElement(String text)
+        public TitleElement(string text)
         {
             this.text = text;
         }
@@ -69,10 +69,10 @@ namespace LibraryXMLEditor
 
     public class TextElement : StudyElement
     {
-        public String text;
+        public string text;
         public int verse;
 
-        public TextElement(String text, int verse = -1)
+        public TextElement(string text, int verse = -1)
         {
             this.text = text;
             this.verse = verse;

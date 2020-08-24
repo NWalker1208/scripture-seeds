@@ -10,12 +10,12 @@ namespace LibraryXMLEditor
 {
     public class Library
     {
-        String language;
+        string language;
         
         Dictionary<int, StudyResource> resources;
         public List<int> ResourceIDs { get => resources.Keys.ToList(); }
 
-        public Library(String language = "eng")
+        public Library(string language = "eng")
         {
             this.language = language;
             resources = new Dictionary<int, StudyResource>();

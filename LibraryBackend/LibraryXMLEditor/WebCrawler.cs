@@ -10,7 +10,7 @@ namespace LibraryXMLEditor
     {
         // Generates a list of paragraph numbers from a given reference
         // Returns null if the reference is invalid.
-        public static List<int> VersesFromReference(String reference)
+        public static List<int> VersesFromReference(string reference)
         {
             int colonIndex = reference.IndexOf(':');
 
@@ -19,8 +19,8 @@ namespace LibraryXMLEditor
 
             List<int> paragraphs = new List<int>();
 
-            String verseStr = "";
-            String blockStr = null;
+            string verseStr = "";
+            string blockStr = null;
             for (int c = colonIndex + 1; c <= reference.Length; c++)
             {
                 if (c == reference.Length || reference[c] == ',')
@@ -48,14 +48,14 @@ namespace LibraryXMLEditor
 
         // Creates a URL to the Gospel Library page for the given scripture reference.
         // Returns null if the reference is invalid.
-        public static String GenerateURL(String reference, String lang = "eng")
+        public static string GenerateURL(string reference, string lang = "eng")
         {
             // Determine book, chapter, and verse
-            String volume;
-            String book;
+            string volume;
+            string book;
             int chapter;
             int startVerse;
-            String allVerses;
+            string allVerses;
 
             int spaceIndex = reference.IndexOf(' ');
             int colonIndex = reference.IndexOf(':');
@@ -95,7 +95,7 @@ namespace LibraryXMLEditor
             }
 
             // Generate url
-            String url = "https://www.churchofjesuschrist.org/study/scriptures/";
+            string url = "https://www.churchofjesuschrist.org/study/scriptures/";
 
             url += volume + "/" + ScriptureConsts.Abbreviations[book] + "/" + chapter.ToString() + "." + allVerses;
             url += "?lang=" + lang + "#p" + startVerse.ToString();
@@ -103,7 +103,7 @@ namespace LibraryXMLEditor
             return url;
         }
 
-        public static List<TextElement> GetWebText(String url, List<int> paragraphs)
+        public static List<TextElement> GetWebText(string url, List<int> paragraphs)
         {
             List<TextElement> text = new List<TextElement>();
 
@@ -117,7 +117,7 @@ namespace LibraryXMLEditor
                 {
                     HtmlNode paragraph = htmlDoc.GetElementbyId("p" + p.ToString());
 
-                    String pText = "";
+                    string pText = "";
                     int verse = -1;
 
                     foreach (HtmlNode child in paragraph.ChildNodes)

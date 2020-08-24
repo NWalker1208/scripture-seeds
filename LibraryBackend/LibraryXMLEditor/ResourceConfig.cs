@@ -35,7 +35,7 @@ namespace LibraryXMLEditor
             referenceTextBox.Text = resource.reference;
             urlTextBox.Text = resource.referenceURL;
             topicListBox.Items.Clear();
-            foreach (String topic in resource.topics)
+            foreach (string topic in resource.topics)
                 topicListBox.Items.Add(topic);
             removeButton.Enabled = false;
         }
@@ -75,7 +75,7 @@ namespace LibraryXMLEditor
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            foreach(String topic in topicListBox.SelectedItems)
+            foreach(string topic in topicListBox.SelectedItems)
                 resource.topics.Remove(topic);
 
             if (topicListBox.SelectedItems.Count > 0)
@@ -117,7 +117,7 @@ namespace LibraryXMLEditor
             if (webText != null)
             {
                 // Add title for chapter
-                String title = resource.reference.Substring(0, resource.reference.IndexOf(':'));
+                string title = resource.reference.Substring(0, resource.reference.IndexOf(':'));
                 resource.body.Add(new TitleElement(title));
 
                 resource.body.AddRange(webText);
@@ -134,7 +134,7 @@ namespace LibraryXMLEditor
 
         private void autoLinkButton_Click(object sender, EventArgs e)
         {
-            String url = WebCrawler.GenerateURL(referenceTextBox.Text);
+            string url = WebCrawler.GenerateURL(referenceTextBox.Text);
             if (url != null)
                 urlTextBox.Text = url;
             else

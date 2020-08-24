@@ -14,15 +14,37 @@ namespace LibraryXMLEditor
 {
     public partial class Editor : Form
     {
-        String file;
+        string file;
         Library lib;
 
-        public Editor(String file)
+        public string File
         {
-            this.file = file;
+            get => file;
+            set
+            {
+                file = value;
 
+                if (file == null)
+                    Text = "Editor";
+                else
+                    Text = "Editor (" + file.Substring(file.LastIndexOf('\\') + 1) + ")";
+            }
+        }
+
+        public Editor(string file = null)
+        {
             InitializeComponent();
-            LoadLibrary();
+
+            if (file != null)
+            {
+                File = file;
+                LoadLibrary();
+            }
+            else
+            {
+                File = null;
+                lib = new Library();
+            }
         }
 
         private void Editor_Load(object sender, EventArgs e)
@@ -30,29 +52,30 @@ namespace LibraryXMLEditor
             UpdateTreeView();
         }
 
-        private void saveButton_Click(object sender, EventArgs e) => SaveLibrary();
-
-        private void loadButton_Click(object sender, EventArgs e)
-        {
-            LoadLibrary();
-            UpdateTreeView();
-        }
-
         public void SaveLibrary()
         {
+            // Select file if not selected
+            if (File == null)
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    File = saveFileDialog.FileName;
+                else
+                    return;
+            }    
+
             XmlDocument doc = new XmlDocument();
 
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             doc.AppendChild(declaration);
 
             doc.AppendChild(lib.ToXml(doc));
-            doc.Save(file);
+            doc.Save(File);
         }
 
         public void LoadLibrary()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(file);
+            doc.Load(File);
 
             lib = new Library(doc.ChildNodes[1]);
             UpdateTreeView(false);
@@ -254,6 +277,40 @@ namespace LibraryXMLEditor
             libraryTreeView.SelectedNode = null;
             removeButton.Enabled = false;
             UpdateSettingsView();
+        }
+
+        // ToolStrip Items
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            File = null;
+            lib = new Library();
+            UpdateTreeView();
+
+            libraryTreeView.SelectedNode = null;
+            removeButton.Enabled = false;
+            UpdateSettingsView();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                File = openFileDialog.FileName;
+                LoadLibrary();
+            }
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e) => LoadLibrary();
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) => SaveLibrary();
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                File = saveFileDialog.FileName;
+                SaveLibrary();
+            }
         }
     }
 }

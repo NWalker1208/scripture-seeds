@@ -28,11 +28,15 @@ namespace LibraryXMLEditor
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Editor("test.xml"));
+
+            if (args.Length == 0)
+                Application.Run(new Editor());
+            else
+                Application.Run(new Editor(args[0]));
         }
     }
 }
