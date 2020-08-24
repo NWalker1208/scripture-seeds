@@ -62,11 +62,7 @@ class ProgressRecord {
   // Leaving progress null automatically increments it
   void updateProgress({int progress}) {
     if (progress == null) {
-      progress = this.progress;
-
-      // If progress has been lost (plant wilted), don't increment progress
-      if ((daysSinceLastUpdate ?? 0) < kMaxInactiveDays)
-        progress++;
+      progress = this.progress + 1;
     }
 
     _lastProgress = progress;

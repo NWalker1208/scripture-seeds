@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.libraryTreeView = new System.Windows.Forms.TreeView();
             this.libraryLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.elementConfig = new LibraryXMLEditor.ElementConfig();
             this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
             this.menuStrip.SuspendLayout();
@@ -51,17 +51,17 @@
             // 
             this.libraryTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.libraryTreeView.Location = new System.Drawing.Point(12, 45);
+            this.libraryTreeView.Location = new System.Drawing.Point(12, 56);
             this.libraryTreeView.Name = "libraryTreeView";
             this.libraryTreeView.PathSeparator = "/";
-            this.libraryTreeView.Size = new System.Drawing.Size(205, 325);
+            this.libraryTreeView.Size = new System.Drawing.Size(205, 314);
             this.libraryTreeView.TabIndex = 3;
             this.libraryTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.libraryTreeView_AfterSelect);
             // 
             // libraryLabel
             // 
             this.libraryLabel.AutoSize = true;
-            this.libraryLabel.Location = new System.Drawing.Point(13, 29);
+            this.libraryLabel.Location = new System.Drawing.Point(9, 32);
             this.libraryLabel.Name = "libraryLabel";
             this.libraryLabel.Size = new System.Drawing.Size(92, 13);
             this.libraryLabel.TabIndex = 3;
@@ -164,6 +164,18 @@
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
+            // filterComboBox
+            // 
+            this.filterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterComboBox.FormattingEnabled = true;
+            this.filterComboBox.Items.AddRange(new object[] {
+            "No Filter"});
+            this.filterComboBox.Location = new System.Drawing.Point(131, 29);
+            this.filterComboBox.Name = "filterComboBox";
+            this.filterComboBox.Size = new System.Drawing.Size(86, 21);
+            this.filterComboBox.TabIndex = 10;
+            this.filterComboBox.SelectedIndexChanged += new System.EventHandler(this.filterComboBox_SelectedIndexChanged);
+            // 
             // elementConfig
             // 
             this.elementConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -198,6 +210,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(784, 411);
+            this.Controls.Add(this.filterComboBox);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.elementConfig);
@@ -205,12 +218,11 @@
             this.Controls.Add(this.libraryLabel);
             this.Controls.Add(this.libraryTreeView);
             this.Controls.Add(this.menuStrip);
-            this.Icon = Properties.Resources.seeds_icon;
+            this.Icon = global::LibraryXMLEditor.Properties.Resources.seeds_icon;
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(450, 250);
             this.Name = "Editor";
             this.Text = "Editor";
-            this.Load += new System.EventHandler(this.Editor_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -235,6 +247,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ComboBox filterComboBox;
     }
 }
 

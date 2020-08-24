@@ -11,6 +11,7 @@ import 'package:seeds/widgets/activities/share.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/widgets/activity_progress.dart';
 import 'package:seeds/widgets/animated_indexed_stack.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ActivityPage extends StatefulWidget {
   final String topic;
@@ -45,6 +46,13 @@ class ActivityPageState extends State<ActivityPage> {
     Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
     Navigator.pop(context, true);
   }
+
+  void _openReference() async {
+    if (await canLaunch(_resource.referenceURL)) {
+      await launch(_resource.referenceURL);
+    }
+  }
+
 
   @override
   void initState() {
@@ -84,6 +92,14 @@ class ActivityPageState extends State<ActivityPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Daily Activity'),
+          actions: [
+            if (_stage == 0)
+              IconButton(
+                icon: Icon(Icons.open_in_new),
+                tooltip: "Open in Gospel Library",
+                onPressed: () => _openReference(),
+              ),
+          ],
         ),
 
         body: AnimatedIndexedStack(

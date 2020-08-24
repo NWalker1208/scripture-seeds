@@ -15,7 +15,7 @@ These items are necessary for the app to serve it's purpose.
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.
 - [x] Revamp library system to be more extensible (1 week)
-  - [ ] Program library.xml editor with web crawler for scripture text
+  - [x] Program library.xml editor with web crawler for scripture text
 - [ ] Add more topics and scriptures (1 week)
 - [ ] Add more variety to activities (extra, pre-release)
   - Videos
@@ -27,6 +27,7 @@ These items are unnecessary, but improve the user experience.
 - [ ] Fruit growth after reaching goal (1 week)
   - [ ] Store to buy more seeds with fruit
 - [ ] Define word in scripture (1 week)
+- [ ] Add tutorial dialogs
 - [ ] Share picture quote (1 week)
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time

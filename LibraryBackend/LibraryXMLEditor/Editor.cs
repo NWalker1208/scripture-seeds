@@ -16,6 +16,7 @@ namespace LibraryXMLEditor
     {
         string file;
         Library lib;
+        string filter;
 
         public string File
         {
@@ -44,12 +45,9 @@ namespace LibraryXMLEditor
             {
                 File = null;
                 lib = new Library();
+                filterComboBox.SelectedIndex = 0;
+                UpdateTreeView();
             }
-        }
-
-        private void Editor_Load(object sender, EventArgs e)
-        {
-            UpdateTreeView();
         }
 
         public void SaveLibrary()
@@ -74,6 +72,9 @@ namespace LibraryXMLEditor
 
         public void LoadLibrary()
         {
+            if (File == null)
+                return;
+
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -86,14 +87,57 @@ namespace LibraryXMLEditor
                 File = null;
             }
 
+            filterComboBox.SelectedIndex = 0;
             UpdateTreeView(false);
-            libraryTreeView.SelectedNode = null;
-            removeButton.Enabled = false;
-            UpdateSettingsView();
+        }
+
+        public void UpdateFilters()
+        {
+            // Get collection of topics
+            HashSet<string> topics = new HashSet<string>();
+
+            List<int> ids = lib.ResourceIDs;
+            foreach (int id in ids)
+            {
+                StudyResource res = lib.GetResource(id);
+                topics.UnionWith(res.topics);
+            }
+
+            // Update filter options
+            List<string> topicList = topics.ToList();
+            topicList.Sort();
+
+            int i = 1;
+            foreach (string topic in topicList)
+            {
+                if (i >= filterComboBox.Items.Count || filterComboBox.Items[i] as string != topic)
+                {
+                    int index = filterComboBox.Items.IndexOf(topic);
+
+                    if (index == -1)
+                        filterComboBox.Items.Insert(i, topic);
+                    else
+                        while (i < index)
+                        {
+                            filterComboBox.Items.RemoveAt(i);
+                            index--;
+                        }
+                }
+
+                i++;
+            }
+
+            while (filterComboBox.Items.Count > i)
+                filterComboBox.Items.RemoveAt(i);
+
+            if (filterComboBox.SelectedIndex == -1)
+                filterComboBox.SelectedIndex = 0;
         }
 
         public void UpdateTreeView(bool selectNewNodes = true)
         {
+            UpdateFilters();
+
             // Display resources in the order of their ID's
             List<int> ids = lib.ResourceIDs;
             ids.Sort();
@@ -103,6 +147,9 @@ namespace LibraryXMLEditor
             foreach (int id in ids)
             {
                 StudyResource res = lib.GetResource(id);
+
+                if (filter != null && !res.topics.Contains(filter))
+                    continue;
 
                 // Look ahead in nodes to see if one already exists
                 TreeNode node = null;
@@ -134,6 +181,9 @@ namespace LibraryXMLEditor
                     node.Text = res.ToString();
                     while (n < i)
                     {
+                        if (libraryTreeView.SelectedNode == libraryTreeView.Nodes[n])
+                            Deselect();
+
                         libraryTreeView.Nodes.RemoveAt(n);
                         i--;
                     }
@@ -145,7 +195,12 @@ namespace LibraryXMLEditor
 
             // Remove excess nodes
             while (n < libraryTreeView.Nodes.Count)
+            {
+                if (libraryTreeView.SelectedNode == libraryTreeView.Nodes[n])
+                    Deselect();
+
                 libraryTreeView.Nodes.RemoveAt(n);
+            }
         }
 
         private void UpdateElementTree(TreeNode resourceNode, StudyResource resource, bool selectNewNodes = true)
@@ -183,6 +238,9 @@ namespace LibraryXMLEditor
                     resourceNode.Nodes[i].Text = element.ToString();
                     while (n < i)
                     {
+                        if (libraryTreeView.SelectedNode == resourceNode.Nodes[n])
+                            Deselect();
+
                         resourceNode.Nodes.RemoveAt(n);
                         i--;
                     }
@@ -193,26 +251,11 @@ namespace LibraryXMLEditor
 
             // Remove excess nodes
             while (n < resourceNode.Nodes.Count)
-                resourceNode.Nodes.RemoveAt(n);
-        }
+            {
+                if (libraryTreeView.SelectedNode == resourceNode.Nodes[n])
+                    Deselect();
 
-        private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            if (libraryTreeView.SelectedNode == null)
-            {
-                removeButton.Enabled = false;
-                UpdateSettingsView();
-            }
-            else if (e.Node.Tag is StudyResource resource)
-            {
-                removeButton.Enabled = true;
-                UpdateSettingsView(resource);
-            }
-            else if (e.Node.Tag is StudyElement element)
-            {
-                removeButton.Enabled = true;
-                resource = e.Node.Parent.Tag as StudyResource;
-                UpdateSettingsView(resource, element);
+                resourceNode.Nodes.RemoveAt(n);
             }
         }
 
@@ -245,13 +288,34 @@ namespace LibraryXMLEditor
             }
         }
 
-        private void resourceConfig_ResourceUpdate(object sender, EventArgs e)
+        private void Deselect()
         {
-            UpdateTreeView();
-
-            //TreeNode node = libraryTreeView.SelectedNode;
-            //node.Text = node.Tag.ToString();
+            libraryTreeView.SelectedNode = null;
+            removeButton.Enabled = false;
+            UpdateSettingsView();
         }
+
+        private void libraryTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (libraryTreeView.SelectedNode == null)
+            {
+                removeButton.Enabled = false;
+                UpdateSettingsView();
+            }
+            else if (e.Node.Tag is StudyResource resource)
+            {
+                removeButton.Enabled = true;
+                UpdateSettingsView(resource);
+            }
+            else if (e.Node.Tag is StudyElement element)
+            {
+                removeButton.Enabled = true;
+                resource = e.Node.Parent.Tag as StudyResource;
+                UpdateSettingsView(resource, element);
+            }
+        }
+
+        private void resourceConfig_ResourceUpdate(object sender, EventArgs e) => UpdateTreeView();
 
         private void elementConfig_ElementUpdate(object sender, EventArgs e)
         {
@@ -261,7 +325,12 @@ namespace LibraryXMLEditor
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            lib.AddResource(new StudyResource("Genesis 1:1", "https://example.com"));
+            StudyResource newResource = new StudyResource("Genesis 1:1", "https://example.com");
+
+            if (filter != null)
+                newResource.topics.Add(filter);
+
+            lib.AddResource(newResource);
             UpdateTreeView();
         }
 
@@ -280,10 +349,20 @@ namespace LibraryXMLEditor
                 resource.body.Remove(element);
                 UpdateTreeView();
             }
+        }
 
-            libraryTreeView.SelectedNode = null;
-            removeButton.Enabled = false;
-            UpdateSettingsView();
+        private void filterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (filterComboBox.SelectedIndex == 0)
+            {
+                filter = null;
+                UpdateTreeView(false);
+            }
+            else
+            {
+                filter = filterComboBox.Text;
+                UpdateTreeView(false);
+            }
         }
 
         // ToolStrip Items
@@ -292,10 +371,6 @@ namespace LibraryXMLEditor
             File = null;
             lib = new Library();
             UpdateTreeView();
-
-            libraryTreeView.SelectedNode = null;
-            removeButton.Enabled = false;
-            UpdateSettingsView();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
