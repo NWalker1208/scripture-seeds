@@ -78,7 +78,7 @@
     <Compile Include="ResourceConfig.Designer.cs">
       <DependentUpon>ResourceConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="WebParser.cs" />
+    <Compile Include="WebCrawler.cs" />
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
     </EmbeddedResource>

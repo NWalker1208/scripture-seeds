@@ -104,7 +104,15 @@ namespace LibraryXMLEditor
 
         private void webTextButton_Click(object sender, EventArgs e)
         {
-            List<TextElement> webText = WebParser.GetWebText(resource.referenceURL);
+            List<int> paragraphs = WebCrawler.VersesFromReference(resource.reference);
+
+            if (paragraphs == null)
+            {
+                MessageBox.Show("Invalid reference.");
+                return;
+            }
+
+            List<TextElement> webText = WebCrawler.GetWebText(resource.referenceURL, paragraphs);
 
             if (webText != null)
             {
@@ -122,61 +130,11 @@ namespace LibraryXMLEditor
 
         private void autoLinkButton_Click(object sender, EventArgs e)
         {
-            String url = GenerateURL(referenceTextBox.Text);
+            String url = WebCrawler.GenerateURL(referenceTextBox.Text);
             if (url != null)
                 urlTextBox.Text = url;
             else
                 MessageBox.Show("Invalid reference for scripture.");
-        }
-
-        private static String GenerateURL(String reference, String lang = "eng")
-        {
-            // Determine book, chapter, and verse
-            String volume = "bofm";
-            String book;
-            int chapter;
-            int startVerse;
-            String allVerses;
-
-            int spaceIndex = reference.IndexOf(' ');
-            int colonIndex = reference.IndexOf(':');
-            int dashIndex = reference.IndexOf('-');
-            int commaIndex = reference.IndexOf(',');
-
-            if (spaceIndex == -1 || colonIndex == -1 || colonIndex == reference.Length - 1)
-                return null;
-
-            book = reference.Substring(0, spaceIndex).ToLower();
-            chapter = int.Parse(reference.Substring(spaceIndex + 1, colonIndex - spaceIndex - 1));
-
-            if (dashIndex == -1 && commaIndex == -1)
-            {
-                startVerse = int.Parse(reference.Substring(colonIndex + 1));
-                allVerses = reference.Substring(colonIndex + 1);
-            }
-            else
-            {
-                // Separate starting verse from list of all verses
-                int endStartVerseIndex;
-
-                if (dashIndex == -1 && commaIndex != -1)
-                    endStartVerseIndex = commaIndex;
-                else if (commaIndex == -1 && dashIndex != -1)
-                    endStartVerseIndex = dashIndex;
-                else
-                    endStartVerseIndex = Math.Min(dashIndex, commaIndex);
-
-                startVerse = int.Parse(reference.Substring(colonIndex + 1, endStartVerseIndex - colonIndex - 1));
-                allVerses = reference.Substring(colonIndex + 1);
-            }    
-
-            // Generate url
-            String url = "https://www.churchofjesuschrist.org/study/scriptures/";
-
-            url += volume + "/" + book + "/" + chapter.ToString() + "." + allVerses;
-            url += "?lang=" + lang + "#p" + startVerse.ToString();
-
-            return url;
         }
     }
 }
