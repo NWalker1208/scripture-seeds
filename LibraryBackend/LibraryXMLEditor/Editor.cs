@@ -74,12 +74,19 @@ namespace LibraryXMLEditor
 
         public void LoadLibrary()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(File);
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(File);
+                lib = new Library(doc.GetElementsByTagName("library")[0]);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error while opening XML file:\n" + e.ToString());
+                File = null;
+            }
 
-            lib = new Library(doc.ChildNodes[1]);
             UpdateTreeView(false);
-
             libraryTreeView.SelectedNode = null;
             removeButton.Enabled = false;
             UpdateSettingsView();

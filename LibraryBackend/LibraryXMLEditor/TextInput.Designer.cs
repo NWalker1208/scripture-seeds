@@ -101,7 +101,7 @@
             this.ClientSize = new System.Drawing.Size(350, 70);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = Properties.Resources.seeds_icon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TextInput";
