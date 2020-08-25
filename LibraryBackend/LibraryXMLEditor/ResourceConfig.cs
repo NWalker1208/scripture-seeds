@@ -42,6 +42,7 @@ namespace LibraryXMLEditor
 
         private void referenceTextBox_TextChanged(object sender, EventArgs e)
         {
+            referenceTextBox.Text = referenceTextBox.Text.Replace('–', '-');
             if (Util.TrySet(ref resource.reference, referenceTextBox.Text))
                 ResourceUpdate?.Invoke(this, new EventArgs());
         }

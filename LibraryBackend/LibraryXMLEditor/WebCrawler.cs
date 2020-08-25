@@ -57,7 +57,7 @@ namespace LibraryXMLEditor
             int startVerse;
             string allVerses;
 
-            int spaceIndex = reference.IndexOf(' ');
+            int spaceIndex = reference.IndexOf(' ', 2);
             int colonIndex = reference.IndexOf(':');
             int dashIndex = reference.IndexOf('-');
             int commaIndex = reference.IndexOf(',');
