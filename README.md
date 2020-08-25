@@ -18,14 +18,12 @@ These items are necessary, but can be built upon over time.
   - [x] Program library.xml editor with web crawler for scripture text
 - [ ] Add more topics and scriptures (1 week)
 - [ ] Add more variety to activities (extra, pre-release)
-  - Videos
-  - Games?
-  - Quests (Real-world challenges)
 
 ### 3) Features and Design (finish before release)
 These items are unnecessary, but improve the user experience.
 - [ ] Fruit growth after reaching goal (1 week)
   - [ ] Store to buy more seeds with fruit
+- [ ] Improve home screen (longer views, status, sliverview)
 - [ ] Define word in scripture (1 week)
 - [ ] Add tutorial dialogs
 - [ ] Share picture quote (1 week)
