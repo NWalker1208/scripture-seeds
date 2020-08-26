@@ -4,6 +4,7 @@ import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/services/utility.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/plant_status.dart';
 
 class PlantList extends StatelessWidget {
   final String currentlyOpen;
@@ -36,28 +37,13 @@ class PlantList extends StatelessWidget {
             Colors.green[800] :
             Colors.green[300];
 
-          // Determine if the icon should show that the user should complete the daily activity
           ProgressRecord progress = progressData.getProgressRecord(topic);
-          bool canMakeProgress = progress.canMakeProgressToday;
 
           return FlatButton(
             padding: EdgeInsets.all(8.0),
             disabledTextColor: selectedColor,
             onPressed: onPressed,
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right:16.0),
-                  child: Icon(
-                    canMakeProgress ? Icons.error : Icons.done,
-                    color: onPressed == null ? selectedColor : null,
-                  ),
-                ),
-                Expanded(
-                  child: Text('${topic.capitalize()}')
-                ),
-              ],
-            )
+            child: PlantStatus(progress)
           );
         }).toList()
       ),
