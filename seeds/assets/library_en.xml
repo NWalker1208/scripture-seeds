@@ -40,9 +40,15 @@
   </resource>
   <resource id="8">
     <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.45-48?lang=eng#p45">Moroni 7:45-48</reference>
+    <topic>hope</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.40-48?lang=eng#p40">Moroni 7:40-48</reference>
     <body>
       <title>Moroni 7</title>
+      <highlight verse="40">And again, my beloved brethren, I would speak unto you concerning hope. How is it that ye can attain unto faith, save ye shall have hope?</highlight>
+      <highlight verse="41">And what is it that ye shall hope for? Behold I say unto you that ye shall have hope through the atonement of Christ and the power of his resurrection, to be raised unto life eternal, and this because of your faith in him according to the promise.</highlight>
+      <highlight verse="42">Wherefore, if a man have faith he must needs have hope; for without faith there cannot be any hope.</highlight>
+      <highlight verse="43">And again, behold I say unto you that he cannot have faith and hope, save he shall be meek, and lowly of heart.</highlight>
+      <highlight verse="44">If so, his faith and hope is vain, for none is acceptable before God, save the meek and lowly in heart; and if a man be meek and lowly in heart, and confesses by the power of the Holy Ghost that Jesus is the Christ, he must needs have charity; for if he have not charity he is nothing; wherefore he must needs have charity.</highlight>
       <highlight verse="45">And charity suffereth long, and is kind, and envieth not, and is not puffed up, seeketh not her own, is not easily provoked, thinketh no evil, and rejoiceth not in iniquity but rejoiceth in the truth, beareth all things, believeth all things, hopeth all things, endureth all things.</highlight>
       <highlight verse="46">Wherefore, my beloved brethren, if ye have not charity, ye are nothing, for charity never faileth. Wherefore, cleave unto charity, which is the greatest of all, for all things must fail—</highlight>
       <highlight verse="47">But charity is the pure love of Christ, and it endureth forever; and whoso is found possessed of it at the last day, it shall be well with him.</highlight>
@@ -88,6 +94,50 @@
     <body>
       <title>Mosiah 2</title>
       <highlight verse="17">And behold, I tell you these things that ye may learn wisdom; that ye may learn that when ye are in the service of your fellow beings ye are only in the service of your God.</highlight>
+    </body>
+  </resource>
+  <resource id="11">
+    <topic>humility</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.28-29?lang=eng#p28">2 Nephi 9:28-29</reference>
+    <body>
+      <title>2 Nephi 9</title>
+      <highlight verse="28">O that cunning plan of the evil one! O the vainness, and the frailties, and the foolishness of men! When they are learned they think they are wise, and they hearken not unto the counsel of God, for they set it aside, supposing they know of themselves, wherefore, their wisdom is foolishness and it profiteth them not. And they shall perish.</highlight>
+      <highlight verse="29">But to be learned is good if they hearken unto the counsels of God.</highlight>
+    </body>
+  </resource>
+  <resource id="12">
+    <topic>humility</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.27?lang=eng#p27">Ether 12:27</reference>
+    <body>
+      <title>Ether 12</title>
+      <highlight verse="27">And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them.</highlight>
+    </body>
+  </resource>
+  <resource id="13">
+    <topic>humility</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/16.1-3?lang=eng#p1">1 Nephi 16:1-3</reference>
+    <body>
+      <title>1 Nephi 16</title>
+      <highlight verse="1">And now it came to pass that after I, Nephi, had made an end of speaking to my brethren, behold they said unto me: Thou hast declared unto us hard things, more than we are able to bear.</highlight>
+      <highlight verse="2">And it came to pass that I said unto them that I knew that I had spoken hard things against the wicked, according to the truth; and the righteous have I justified, and testified that they should be lifted up at the last day; wherefore, the guilty taketh the truth to be hard, for it cutteth them to the very center.</highlight>
+      <highlight verse="3">And now my brethren, if ye were righteous and were willing to hearken to the truth, and give heed unto it, that ye might walk uprightly before God, then ye would not murmur because of the truth, and say: Thou speakest hard things against us.</highlight>
+    </body>
+  </resource>
+  <resource id="14">
+    <topic>hope</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.20?lang=eng#p20">2 Nephi 31:20</reference>
+    <body>
+      <title>2 Nephi 31</title>
+      <highlight verse="20">Wherefore, ye must press forward with a steadfastness in Christ, having a perfect brightness of hope, and a love of God and of all men. Wherefore, if ye shall press forward, feasting upon the word of Christ, and endure to the end, behold, thus saith the Father: Ye shall have eternal life.</highlight>
+    </body>
+  </resource>
+  <resource id="16">
+    <topic>hope</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/8.24-25?lang=eng#p24">Romans 8:24-25</reference>
+    <body>
+      <title>Romans 8</title>
+      <highlight verse="24">For we are saved by hope: but hope that is seen is not hope: for what a man seeth, why doth he yet hope for?</highlight>
+      <highlight verse="25">But if we hope for that we see not, then do we with patience wait for it.</highlight>
     </body>
   </resource>
 </library>
