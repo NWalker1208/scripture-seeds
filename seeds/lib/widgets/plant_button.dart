@@ -16,6 +16,7 @@ class PlantButton extends StatelessWidget {
     return RaisedButton(
       padding: EdgeInsets.zero,
       clipBehavior: Clip.antiAlias,
+      textColor: Colors.white,
 
       onPressed: () => Navigator.of(context).pushNamed(
         '/plant',

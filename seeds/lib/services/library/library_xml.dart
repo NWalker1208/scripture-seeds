@@ -56,6 +56,8 @@ class Library extends ChangeNotifier {
           topics.add(lowercase);
       });
     });
+
+    topics.sort();
   }
 
   static List<StudyResource> _xmlToStudyResources(Iterable<XML.XmlElement> xmlResources) {
