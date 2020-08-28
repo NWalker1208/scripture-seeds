@@ -98,6 +98,7 @@
   </resource>
   <resource id="11">
     <topic>humility</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.28-29?lang=eng#p28">2 Nephi 9:28-29</reference>
     <body>
       <title>2 Nephi 9</title>
@@ -138,6 +139,36 @@
       <title>Romans 8</title>
       <highlight verse="24">For we are saved by hope: but hope that is seen is not hope: for what a man seeth, why doth he yet hope for?</highlight>
       <highlight verse="25">But if we hope for that we see not, then do we with patience wait for it.</highlight>
+    </body>
+  </resource>
+  <resource id="17">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.2-3?lang=eng#p2">Alma 17:2-3</reference>
+    <body>
+      <title>Alma 17</title>
+      <highlight verse="2">Now these sons of Mosiah were with Alma at the time the angel first appeared unto him; therefore Alma did rejoice exceedingly to see his brethren; and what added more to his joy, they were still his brethren in the Lord; yea, and they had waxed strong in the knowledge of the truth; for they were men of a sound understanding and they had searched the scriptures diligently, that they might know the word of God.</highlight>
+      <highlight verse="3">But this is not all; they had given themselves to much prayer, and fasting; therefore they had the spirit of prophecy, and the spirit of revelation, and when they taught, they taught with power and authority of God.</highlight>
+    </body>
+  </resource>
+  <resource id="18">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.3-5?lang=eng#p3">Moroni 10:3-5</reference>
+    <body>
+      <title>Moroni 10</title>
+      <highlight verse="3">Behold, I would exhort you that when ye shall read these things, if it be wisdom in God that ye should read them, that ye would remember how merciful the Lord hath been unto the children of men, from the creation of Adam even down until the time that ye shall receive these things, and ponder it in your hearts.</highlight>
+      <highlight verse="4">And when ye shall receive these things, I would exhort you that ye would ask God, the Eternal Father, in the name of Christ, if these things are not true; and if ye shall ask with a sincere heart, with real intent, having faith in Christ, he will manifest the truth of it unto you, by the power of the Holy Ghost.</highlight>
+      <highlight verse="5">And by the power of the Holy Ghost ye may know the truth of all things.</highlight>
+    </body>
+  </resource>
+  <resource id="19">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.23-26?lang=eng#p23">John 14:23-26</reference>
+    <body>
+      <title>John 14</title>
+      <highlight verse="23">Jesus answered and said unto him, If a man love me, he will keep my words: and my Father will love him, and we will come unto him, and make our abode with him.</highlight>
+      <highlight verse="24">He that loveth me not keepeth not my sayings: and the word which ye hear is not mine, but the Father’s which sent me.</highlight>
+      <highlight verse="25">These things have I spoken unto you, being yet present with you.</highlight>
+      <highlight verse="26">But the Comforter, which is the Holy Ghost, whom the Father will send in my name, he shall teach you all things, and bring all things to your remembrance, whatsoever I have said unto you.</highlight>
     </body>
   </resource>
 </library>

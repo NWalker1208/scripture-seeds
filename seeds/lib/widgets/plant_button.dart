@@ -8,8 +8,9 @@ import 'package:seeds/services/utility.dart';
 
 class PlantButton extends StatelessWidget {
   final String topic;
+  final double height;
 
-  PlantButton(this.topic, {Key key}) : super(key: key);
+  PlantButton(this.topic, {this.height = 0, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +29,10 @@ class PlantButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 100,),
+              SizedBox(height: height),
               Consumer<ProgressData>(
                 builder: (context, progressData, child) => PlantStatus(progressData.getProgressRecord(topic))
               ),

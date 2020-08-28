@@ -29,14 +29,16 @@ class HomePage extends StatelessWidget {
               ],
             ),
 
-            SliverList(
-              delegate: SliverChildListDelegate(
-                library.topics?.map((topic) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: PlantButton(topic),
-                  );
-                })?.toList() ?? []
+            SliverPadding(
+              padding: EdgeInsets.all(8),
+              sliver: SliverGrid.count(
+                crossAxisCount: 3,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                childAspectRatio: 0.5,
+                children: library.topics?.map(
+                  (topic) => PlantButton(topic)
+                )?.toList() ?? []
               ),
             )
           ]

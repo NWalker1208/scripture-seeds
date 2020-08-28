@@ -17,13 +17,27 @@ class _ColorPair {
 
 // Note: All scaling is relative to the height of the canvas
 class PlantPainter extends CustomPainter {
-  static const double kGroundHeight = 0.15;
-  static const double kMaxPlantHeight = 0.8;
-  static const double kPlantWidth = 0.02;
-  static const double kFruitSize = 0.05;
-  static const int kLeafCount = 10;
-  static const double kLeafSize = 0.04;
-  static const double kLeafCurvature = Math.pi * 0.5;
+  static final double kGroundHeight = 0.15;
+  static final double kMaxPlantHeight = 0.8;
+  static final double kPlantWidth = 0.02;
+  static final double kFruitSize = 0.05;
+  static final int kLeafCount = 15;
+  static final double kLeafSize = 0.05;
+  static final double kLeafCurvature = Math.pi * 0.5;
+
+  static final Path kLeafShape = Path()..addArc(
+    Rect.fromCircle(
+        center: Offset(0.5, -0.5/Math.tan(kLeafCurvature/2)),
+        radius: 0.5/Math.sin(kLeafCurvature/2)
+    ),
+    Math.pi * 0.5 - kLeafCurvature/2, kLeafCurvature
+  )..addArc(
+    Rect.fromCircle(
+        center: Offset(0.5, 0.5/Math.tan(kLeafCurvature/2)),
+        radius: 0.5/Math.sin(kLeafCurvature/2)
+    ),
+    Math.pi * 1.5 - kLeafCurvature/2, kLeafCurvature
+  );
 
   final double growth;
   final bool wilted;
@@ -72,9 +86,10 @@ class PlantPainter extends CustomPainter {
         colors: [sky.bottom, sky.top],
         stops: [0, 1]
     );
+
     Paint background = Paint()
       ..shader = gradient.createShader(rect);
-    canvas.drawRect(rect, background);
+    canvas.drawPaint(background);
   }
 
   // Paints fruit graphic
@@ -93,23 +108,14 @@ class PlantPainter extends CustomPainter {
 
     double radius = size.height * kLeafSize * leafScale;
 
-    Rect topHalf = Rect.fromLTWH(
-      location.dx - Math.sin(kLeafCurvature * 0.5) * radius + radius / 2,
-      location.dy + Math.cos(kLeafCurvature * 0.5) * radius + radius / 2,
-      radius * 2, radius * 2);
-    Rect bottomHalf = Rect.fromLTWH(
-      location.dx - Math.sin(kLeafCurvature * 0.5) * radius + radius / 2,
-      location.dy - Math.cos(kLeafCurvature * 0.5) * radius + radius / 2 - 0.5,
-      radius * 2, radius * 2);
-
-    canvas.drawArc(topHalf, Math.pi * 1.5 - kLeafCurvature * 0.5, kLeafCurvature, false, leaf);
-    canvas.drawArc(bottomHalf, Math.pi * 0.5 - kLeafCurvature * 0.5, kLeafCurvature, false, leaf);
+    Path path = Path.from(kLeafShape);
+    path = path.transform((Matrix4.identity()..scale(radius)).storage); // Scales leaf
+    path = path.shift(location);
+    canvas.drawPath(path, leaf);
   }
 
   // Paints plant graphic
   void _paintPlant(Canvas canvas, Size size) {
-    double growth = 1;
-
     double width = size.height * kPlantWidth;
 
     Paint stem = Paint()
@@ -132,12 +138,16 @@ class PlantPainter extends CustomPainter {
       if (leafHeight < height) {
         double leafSize = 1;
 
-        if (height - leafHeight < 0.1)
-          leafSize = (height - leafHeight) / 0.1;
+        // Scale leaves towards top
+        if (height - leafHeight < 0.02)
+          leafSize = (height - leafHeight) / 0.02;
 
-        _paintLeaf(canvas, size, stem.color, Offset(size.width / 2, size.height * (1 - leafHeight) + width), leafSize);
-      } else
-        break;
+        // Alternating leaf sides
+        if (i.isEven)
+          leafSize *= -1;
+
+        _paintLeaf(canvas, size, stem.color, Offset(size.width/2 + width/2 * leafSize.sign, size.height * (1 - leafHeight) + width), leafSize);
+      }
     }
 
     // Draw fruit
@@ -158,6 +168,8 @@ class PlantPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.clipRect(Offset(0, 0) & size);
+
     _paintBackground(canvas, size);
     _paintPlant(canvas, size);
     _paintGround(canvas, size);
