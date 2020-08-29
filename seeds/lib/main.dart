@@ -69,7 +69,10 @@ class SeedsApp extends StatelessWidget {
 
             '/plant/activity': (context) => ActivityPage(ModalRoute.of(context).settings.arguments),
 
-            '/journal': (context) => JournalPage(),
+            '/journal': (context) {
+              String plantName = ModalRoute.of(context).settings.arguments;
+              return JournalPage(defaultFilter: plantName);
+            },
 
             '/libtest': (context) => NewLibTest(),
           },

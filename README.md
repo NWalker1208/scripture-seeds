@@ -23,7 +23,7 @@ These items are necessary, but can be built upon over time.
 These items are unnecessary, but improve the user experience.
 - [ ] Fruit growth after reaching goal (1 week)
   - [ ] Store to buy more seeds with fruit
-- [ ] Improve home screen (longer views, status, sliverview)
+- [x] Improve home screen (longer views, status, sliverview)
 - [ ] Define word in scripture (1 week)
 - [ ] Add tutorial dialogs
 - [ ] Share picture quote (1 week)

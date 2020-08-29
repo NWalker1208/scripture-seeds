@@ -191,7 +191,7 @@ class PlantPage extends StatelessWidget {
             children: <Widget>[
               IconButton(
                 icon: Icon(Icons.book),
-                onPressed: () => Navigator.pushNamed(context, '/journal'),
+                onPressed: () => Navigator.pushNamed(context, '/journal', arguments: plantName),
               ),
               Consumer<ProgressData>(
                 builder: (context, progressData, child) {

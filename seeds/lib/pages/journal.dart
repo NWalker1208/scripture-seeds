@@ -7,6 +7,10 @@ import 'package:seeds/services/utility.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
 class JournalPage extends StatefulWidget {
+  final String defaultFilter;
+
+  JournalPage({this.defaultFilter, Key key}) : super(key: key);
+
   @override
   _JournalPageState createState() => _JournalPageState();
 }
@@ -39,105 +43,125 @@ class _JournalPageState extends State<JournalPage> {
   @override
   void initState() {
     super.initState();
-    filter = "All";
+    filter = widget.defaultFilter;
     editMode = false;
     selected = List<int>();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('My Journal'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(editMode ? Icons.cancel : Icons.edit),
-            onPressed: () => toggleEditMode(),
-          )
-        ],
+    return WillPopScope(
+      onWillPop: () async {
+        if (editMode) {
+          setState(() => editMode = false);
+          return false;
+        } else
+          return true;
+      },
 
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(50),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Topics'),
-                SizedBox(width: 12.0,),
-                DropdownButton<String>(
-                  value: filter,
-                  icon: Icon(Icons.arrow_drop_down),
-                  onChanged: (topic) => setState(() => filter = topic),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('My Journal'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(editMode ? Icons.cancel : Icons.edit),
+              onPressed: () => toggleEditMode(),
+            )
+          ],
 
-                  items: [DropdownMenuItem<String>(
-                    value: 'All',
-                    child: Text('All'),
-                  )] +
-                  Provider.of<Library>(context, listen: false).topics.map((topic) => DropdownMenuItem<String>(
-                    value: topic.capitalize(),
-                    child: Text(topic.capitalize()),
-                  )).toList()
-                ),
-              ],
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(50),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Topics'),
+                  SizedBox(width: 12.0,),
+                  DropdownButton<String>(
+                    value: filter,
+                    icon: Icon(Icons.arrow_drop_down),
+                    onChanged: (topic) => setState(() => filter = topic),
+
+                    items: [DropdownMenuItem<String>(
+                      value: null,
+                      child: Text('All'),
+                    )] +
+                    Provider.of<Library>(context, listen: false).topics.map((topic) => DropdownMenuItem<String>(
+                      value: topic,
+                      child: Text(topic.capitalize()),
+                    )).toList()
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
 
-      body: Consumer<JournalData>(
-        builder: (context, journal, child) {
-          return ListView(
-            padding: EdgeInsets.only(bottom: 12.0),
-            children: <Widget>[
-              for (int index = 0; index < journal.entries.length; index++)
-                if (filter == 'All' || journal.entries[index].tags.contains(filter.toLowerCase()))
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
-                    child: Stack(
-                      alignment: Alignment.centerLeft,
-                      children: <Widget>[
-                        Checkbox(
-                          value: selected.contains(index),
-                          onChanged: (value) => setState(() {
-                            if (value)
-                              selected.add(index);
-                            else
-                              selected.remove(index);
-                          }),
-                        ),
-                        TweenAnimationBuilder(
-                            tween: Tween<double>(begin: 1, end: editMode ? 0.9 : 1),
-                            duration: Duration(milliseconds: 200),
-                            curve: Curves.ease,
-                            builder: (context, scale, child) =>
-                                Transform.scale(
-                                    alignment: Alignment.centerRight,
-                                    scale: scale,
-                                    child: child
-                                ),
+        body: Consumer<JournalData>(
+          builder: (context, journal, child) {
+            return ListView(
+              padding: EdgeInsets.only(bottom: 12.0),
+              children: <Widget>[
+                for (int index = 0; index < journal.entries.length; index++)
+                  if (filter == null || journal.entries[index].tags.contains(filter))
+                    Padding(
+                      key: ValueKey(index),
+                      padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        children: <Widget>[
+                          Checkbox(
+                            value: selected.contains(index),
+                            onChanged: (value) => setState(() {
+                              if (value)
+                                selected.add(index);
+                              else
+                                selected.remove(index);
+                            }),
+                          ),
+                          TweenAnimationBuilder(
+                              tween: Tween<double>(begin: 1, end: editMode ? 0.9 : 1),
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.ease,
+                              builder: (context, scale, child) =>
+                                  Transform.scale(
+                                      alignment: Alignment.centerRight,
+                                      scale: scale,
+                                      child: child
+                                  ),
 
-                            child: GestureDetector(
-                              onLongPress: () {
-                                if (!editMode)
-                                  toggleEditMode(selectedIndex: index);
-                                else if (!selected.contains(index))
-                                  setState(() => selected.add(index));
-                              },
-                              child: JournalEntryView(journal.entries[index])
-                            )
-                        )
-                      ],
-                    ),
-                  )
-            ]
-          );
-        },
-      ),
+                              child: GestureDetector(
+                                onLongPress: () {
+                                  if (!editMode)
+                                    toggleEditMode(selectedIndex: index);
+                                  else if (!selected.contains(index))
+                                    setState(() => selected.add(index));
+                                },
+                                onTap: () {
+                                  if (editMode) {
+                                    if (selected.contains(index))
+                                      setState(() => selected.remove(index));
+                                    else
+                                      setState(() => selected.add(index));
+                                  }
+                                },
 
-      floatingActionButton: !editMode ? null : FloatingActionButton(
-        child: Icon(Icons.delete),
-        onPressed: deleteSelected,
+                                child: JournalEntryView(journal.entries[index])
+                              )
+                          )
+                        ],
+                      ),
+                    )
+              ]
+            );
+          },
+        ),
+
+        floatingActionButton: !editMode ? null : FloatingActionButton(
+          child: Icon(Icons.delete),
+          onPressed: deleteSelected,
+        ),
       ),
     );
   }
