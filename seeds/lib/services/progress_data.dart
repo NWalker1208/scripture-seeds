@@ -137,7 +137,10 @@ class ProgressData extends ChangeNotifier {
     final String databasePath = await getDatabasesPath();
     final String path = databasePath + kDatabaseFile;
 
-    return openDatabase(path, version: 1, onCreate: _createProgressTable);
+    return openDatabase(path, version: 2,
+        onCreate: _createProgressTable,
+        onUpgrade: _upgradeProgressTable
+    );
   }
 
   // Creates the table of progress records
@@ -146,10 +149,24 @@ class ProgressData extends ChangeNotifier {
     (
       ${ProgressRecord.kName} TEXT PRIMARY KEY,
       ${ProgressRecord.kProgress} INTEGER,
+      ${ProgressRecord.kReward} INTEGER,
       ${ProgressRecord.kLastUpdate} TEXT
     )''';
-
+    
     await db.execute(progressSql);
+    print('Created new database.');
+  }
+
+  // Upgrades old databases
+  static Future<void> _upgradeProgressTable(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      final String upgradeSql = '''ALTER TABLE $kProgressTable
+        ADD COLUMN ${ProgressRecord.kReward} INTEGER
+      ''';
+      await db.execute(upgradeSql);
+    }
+
+    print('Database upgraded from version $oldVersion to $newVersion.');
   }
 
   // Gets a list of all progress records
@@ -159,6 +176,7 @@ class ProgressData extends ChangeNotifier {
       columns: [
         ProgressRecord.kName,
         ProgressRecord.kProgress,
+        ProgressRecord.kReward,
         ProgressRecord.kLastUpdate
       ]
     );

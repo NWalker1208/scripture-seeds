@@ -42,7 +42,12 @@ class _PlantViewState extends State<PlantView> {
             curve: Curves.easeInOutCubic,
             child: child,
             builder: (context, progress, child) => CustomPaint(
-              painter: PlantPainter(growth: progress, wilted: wilted, skyColorMode: colorMode),
+              painter: PlantPainter(
+                growth: progress,
+                wilted: wilted,
+                fruit: record.rewardAvailable,
+                skyColorMode: colorMode
+              ),
               child: child,
             ),
           ),

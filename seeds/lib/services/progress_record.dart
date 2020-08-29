@@ -4,6 +4,7 @@ import 'package:seeds/services/utility.dart';
 class ProgressRecord {
   static const String kName = 'name';
   static const String kProgress = 'progress';
+  static const String kReward = 'rewardAvailable';
   static const String kLastUpdate = 'lastUpdate';
   static const int kMaxInactiveDays = 3;
 
@@ -11,20 +12,25 @@ class ProgressRecord {
 
   DateTime _lastUpdate;
   int _lastProgress;
+  bool _rewardAvailable;
   final int maxProgress;
 
-  ProgressRecord(this.name, {DateTime lastUpdate, int progress = 0, this.maxProgress = 14}) :
+  ProgressRecord(this.name, {DateTime lastUpdate, int progress = 0,
+                 bool rewardAvailable = false, this.maxProgress = 3}) :
         _lastUpdate = lastUpdate,
-        _lastProgress = progress;
+        _lastProgress = progress,
+        _rewardAvailable = rewardAvailable;
 
-  ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 14}) :
+  ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 3}) :
         name = data[kName],
-        _lastProgress = data[kProgress],
+        _lastProgress = data[kProgress] ?? 0,
+        _rewardAvailable = (data[kReward] ?? 0) == 1,
         _lastUpdate = DateTime.parse(data[kLastUpdate]);
 
   Map<String, dynamic> toMap() => {
     kName: name,
     kProgress: _lastProgress,
+    kReward: _rewardAvailable ? 1 : 0,
     kLastUpdate: _lastUpdate.toString()
   };
 
@@ -35,6 +41,7 @@ class ProgressRecord {
 
   int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
   bool get canMakeProgressToday => _lastUpdate == null || daysSinceLastUpdate > 0;
+  bool get rewardAvailable => _rewardAvailable;
 
   // Returns null if the user will not lose progress. Returns 0 or greater if the
   // user is about to lose progress.
@@ -65,7 +72,16 @@ class ProgressRecord {
       progress = this.progress + 1;
     }
 
-    _lastProgress = progress;
+    if (progress > maxProgress) {
+      _lastProgress = maxProgress;
+      _rewardAvailable = true;
+    } else
+      _lastProgress = progress;
+
     _lastUpdate = DateTime.now();
+  }
+
+  void takeReward() {
+    _rewardAvailable = false;
   }
 }
