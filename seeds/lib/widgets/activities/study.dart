@@ -21,7 +21,7 @@ class StudyActivity extends ActivityWidget {
     return showDialog<bool>(
       context: context,
       barrierDismissible: true,
-      builder: (context) => InstructionsDialog()
+      builder: (context) => InstructionsDialog('Study the following scripture and highlight the parts that are most important to you.')
     );
   }
 
@@ -69,11 +69,6 @@ class StudyActivityState extends State<StudyActivity> {
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
           child: Column(
             children: <Widget>[
-              // Instructions
-              Text('Study the following scripture and highlight the parts that are most important to you.',
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 8),
               StudyResourceDisplay(widget.resource),
             ],
           )

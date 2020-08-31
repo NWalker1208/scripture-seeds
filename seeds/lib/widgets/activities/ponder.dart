@@ -15,9 +15,9 @@ class PonderActivity extends ActivityWidget {
   @override
   Future<bool> openInstructions(BuildContext context) {
     return showDialog<bool>(
-        context: context,
-        barrierDismissible: true,
-        builder: (context) => InstructionsDialog()
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => InstructionsDialog('Write down your thoughts on the previous scripture and what it teaches you about $topic.')
     );
   }
 }
@@ -52,12 +52,6 @@ class _PonderActivityState extends State<PonderActivity> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          // Instructions
-          Text('Write down your thoughts on the previous scripture and what it teaches you about ${widget.topic}.',
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 30),
-
           // Ponder text
           TextField(
             textCapitalization: TextCapitalization.sentences,

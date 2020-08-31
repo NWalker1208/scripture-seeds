@@ -53,6 +53,10 @@ class ActivityPageState extends State<ActivityPage> {
     }
   }
 
+  void _showInstructions() async {
+
+  }
+
   @override
   void initState() {
     super.initState();
@@ -97,6 +101,12 @@ class ActivityPageState extends State<ActivityPage> {
                 tooltip: "Open in Gospel Library",
                 onPressed: () => _openReference(),
               ),
+
+            IconButton(
+              icon: Icon(Icons.help),
+              tooltip: "Instructions",
+              onPressed: () => _showInstructions(),
+            )
           ],
         ),
 

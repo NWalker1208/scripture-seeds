@@ -19,9 +19,9 @@ class ShareActivity extends ActivityWidget {
   @override
   Future<bool> openInstructions(BuildContext context) {
     return showDialog<bool>(
-        context: context,
-        barrierDismissible: true,
-        builder: (context) => InstructionsDialog()
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => InstructionsDialog('Share what you studied today.')
     );
   }
 }
@@ -43,12 +43,6 @@ class _ShareActivityState extends State<ShareActivity> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // Instructions
-          Text('Share what you studied today.',
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 30),
-
           JournalEntryView(
             widget.journalEntry,
             onShare: () {
