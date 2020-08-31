@@ -5,7 +5,6 @@ class ThemePreference extends ChangeNotifier {
   static const String kThemePref = 'theme';
 
   ThemeMode _mode;
-
   ThemeMode get mode => _mode;
 
   set mode(ThemeMode mode) {
@@ -32,7 +31,7 @@ class ThemePreference extends ChangeNotifier {
 
     // Get shared preferences
     SharedPreferences.getInstance().then((prefs) {
-      int savedMode = prefs.getInt(kThemePref) ?? 0;
+      int savedMode = prefs.getInt(kThemePref) ?? -1;
 
       if (savedMode == 0)
         _mode = ThemeMode.system;

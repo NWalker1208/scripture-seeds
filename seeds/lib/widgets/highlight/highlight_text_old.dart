@@ -24,6 +24,7 @@ enum HighlightAppearance {
   off, changing, on
 }
 
+@Deprecated('Use HighlightRichText instead')
 class _HighlightTextState extends State<HighlightText> {
 
   List<bool> _highlightedWords;

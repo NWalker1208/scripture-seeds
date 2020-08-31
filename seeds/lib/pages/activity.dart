@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/instructions_settings.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/services/library/library_history.dart';
 import 'package:seeds/services/library/library_xml.dart';
@@ -33,6 +34,10 @@ class ActivityPageState extends State<ActivityPage> {
   bool _saveToJournal;
   StudyResource _resource;
 
+  StudyActivity _studyActivity;
+  PonderActivity _ponderActivity;
+  ShareActivity _shareActivity;
+
   void onProgressChange(bool completed) => setState(() => _completed[_stage] = completed);
   void updateQuote(String text) => setState(() => _quote = text);
   void updateCommentary(String text) => setState(() => _commentary = text);
@@ -54,7 +59,12 @@ class ActivityPageState extends State<ActivityPage> {
   }
 
   void _showInstructions() async {
-
+    if (_stage == 0)
+      _studyActivity.openInstructions(context);
+    else if (_stage == 1)
+      _ponderActivity.openInstructions(context);
+    else if (_stage == 2)
+      _shareActivity.openInstructions(context);
   }
 
   @override
@@ -68,6 +78,14 @@ class ActivityPageState extends State<ActivityPage> {
     Library lib = Provider.of<Library>(context, listen: false);
     LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
     _resource = lib.leastRecent(history, topic: widget.topic);
+
+    // Open instructions automatically if necessary
+    InstructionsSettings instructions =
+      Provider.of<InstructionsSettings>(context, listen: false);
+    if (instructions.alwaysShow)
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        _showInstructions();
+      });
   }
 
   @override
@@ -77,6 +95,10 @@ class ActivityPageState extends State<ActivityPage> {
       commentary: _commentary ?? '',
       tags: [widget.topic]
     );
+
+    _studyActivity = StudyActivity(widget.topic, _resource, completed: _completed[0], onProgressChange: onProgressChange);
+    _ponderActivity = PonderActivity(widget.topic, completed: _completed[1], onProgressChange: onProgressChange);
+    _shareActivity = ShareActivity(widget.topic, journalEntry, completed: _completed[2], onProgressChange: onProgressChange);
 
     return WillPopScope(
       onWillPop: () async {
@@ -114,9 +136,7 @@ class ActivityPageState extends State<ActivityPage> {
           duration: Duration(milliseconds: 150),
           index: _stage,
           children: <ActivityWidget>[
-            StudyActivity(widget.topic, _resource, completed: _completed[0], onProgressChange: onProgressChange),
-            PonderActivity(widget.topic, completed: _completed[1], onProgressChange: onProgressChange),
-            ShareActivity(widget.topic, journalEntry, completed: _completed[2], onProgressChange: onProgressChange)
+            _studyActivity, _ponderActivity, _shareActivity
           ]
         ),
 
@@ -142,6 +162,12 @@ class ActivityPageState extends State<ActivityPage> {
                 setState(() {
                   FocusScope.of(context).unfocus();
                   _stage++;
+
+                  // Open instructions for new stage
+                  InstructionsSettings instructions =
+                    Provider.of<InstructionsSettings>(context, listen: false);
+                  if (!_completed[_stage] && instructions.alwaysShow)
+                    _showInstructions();
                 });
               }
             } : null,

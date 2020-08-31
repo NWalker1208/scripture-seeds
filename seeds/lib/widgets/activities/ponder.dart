@@ -13,7 +13,7 @@ class PonderActivity extends ActivityWidget {
   _PonderActivityState createState() => _PonderActivityState();
 
   @override
-  Future<bool> openInstructions(BuildContext context) {
+  Future<void> openInstructions(BuildContext context) {
     return showDialog<bool>(
       context: context,
       barrierDismissible: true,

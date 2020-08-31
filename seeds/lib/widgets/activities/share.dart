@@ -17,7 +17,7 @@ class ShareActivity extends ActivityWidget {
   _ShareActivityState createState() => _ShareActivityState();
 
   @override
-  Future<bool> openInstructions(BuildContext context) {
+  Future<void> openInstructions(BuildContext context) {
     return showDialog<bool>(
       context: context,
       barrierDismissible: true,

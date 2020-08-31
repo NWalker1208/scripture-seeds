@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
 import 'package:seeds/widgets/theme_mode_selector.dart';
-import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
 

@@ -17,11 +17,11 @@ class StudyActivity extends ActivityWidget {
   StudyActivityState createState() => StudyActivityState();
 
   @override
-  Future<bool> openInstructions(BuildContext context) {
+  Future<void> openInstructions(BuildContext context) {
     return showDialog<bool>(
       context: context,
       barrierDismissible: true,
-      builder: (context) => InstructionsDialog('Study the following scripture and highlight the parts that are most important to you.')
+      builder: (context) => InstructionsDialog('Study the scripture or quote and highlight the parts that are most important to you.')
     );
   }
 

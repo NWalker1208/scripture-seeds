@@ -8,5 +8,5 @@ abstract class ActivityWidget extends StatefulWidget {
 
   ActivityWidget(this.topic, {this.onProgressChange, this.activityCompleted = false, Key key}) : super(key: key);
 
-  Future<bool> openInstructions(BuildContext context);
+  Future<void> openInstructions(BuildContext context);
 }

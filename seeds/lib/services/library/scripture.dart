@@ -1,5 +1,6 @@
 import 'package:seeds/services/library/library_old.dart';
 
+@Deprecated('Use StudyResource instead.')
 class Scripture {
   String book;
   int chapter;
