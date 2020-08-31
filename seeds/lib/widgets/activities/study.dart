@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/library/study_resource.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
+import 'package:seeds/widgets/dialogs/instructions.dart';
 import 'package:seeds/widgets/highlight/span.dart';
 import 'package:seeds/widgets/study_resource_display.dart';
 
@@ -14,6 +15,15 @@ class StudyActivity extends ActivityWidget {
 
   @override
   StudyActivityState createState() => StudyActivityState();
+
+  @override
+  Future<bool> openInstructions(BuildContext context) {
+    return showDialog<bool>(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => InstructionsDialog()
+    );
+  }
 
   static StudyActivityState of(BuildContext context) =>
     context.findAncestorStateOfType<StudyActivityState>();

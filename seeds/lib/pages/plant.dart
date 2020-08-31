@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_record.dart';
+import 'package:seeds/widgets/dialogs/extra_study.dart';
 import 'package:seeds/widgets/plant_list.dart';
 import 'package:seeds/widgets/plant_view.dart';
 import 'package:social_share/social_share.dart';
@@ -16,31 +17,14 @@ class PlantPage extends StatelessWidget {
 
   // Opens a dialog for when today's activity has already been completed
   void openActivityDialog(BuildContext context) {
-    showDialog(
+    showDialog<bool>(
       context: context,
-
-      builder: (_) => AlertDialog(
-        title: Text('Daily Activity'),
-        content: Text('You can\'t water this plant again until tomorrow. Would you like to do an activity anyways?'),
-
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Yes'),
-            onPressed: () {
-              Navigator.of(context).pop();
-              openActivity(context);
-            }
-          ),
-
-          FlatButton(
-            child: Text('No'),
-            onPressed: () => Navigator.of(context).pop()
-          ),
-        ],
-      ),
-
       barrierDismissible: true,
-    );
+      builder: (_) => ExtraStudyDialog()
+    ).then((bool doActivity) {
+      if (doActivity ?? false)
+        openActivity(context);
+    });
   }
 
   void openActivity(BuildContext context) {

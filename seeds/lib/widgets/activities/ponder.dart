@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';
+import 'package:seeds/widgets/dialogs/instructions.dart';
 
 class PonderActivity extends ActivityWidget {
   PonderActivity(String topic, {FutureOr<void> Function(bool) onProgressChange, bool completed, Key key}) :
@@ -10,6 +11,15 @@ class PonderActivity extends ActivityWidget {
 
   @override
   _PonderActivityState createState() => _PonderActivityState();
+
+  @override
+  Future<bool> openInstructions(BuildContext context) {
+    return showDialog<bool>(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) => InstructionsDialog()
+    );
+  }
 }
 
 class _PonderActivityState extends State<PonderActivity> {

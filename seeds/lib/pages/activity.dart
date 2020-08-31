@@ -53,7 +53,6 @@ class ActivityPageState extends State<ActivityPage> {
     }
   }
 
-
   @override
   void initState() {
     super.initState();
@@ -69,7 +68,6 @@ class ActivityPageState extends State<ActivityPage> {
 
   @override
   Widget build(BuildContext context) {
-
     JournalEntry journalEntry = JournalEntry(
       reference: _quote ?? '',
       commentary: _commentary ?? '',
