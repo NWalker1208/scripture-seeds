@@ -6,7 +6,7 @@ import 'package:seeds/pages/settings.dart';
 import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
-import 'package:seeds/services/instructions_settings.dart';
+import 'package:seeds/services/help_settings.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/services/library/library_history.dart';
 import 'package:seeds/services/library/library_xml.dart';
@@ -27,7 +27,7 @@ class SeedsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Begin loading resources for notifiers
     ThemePreference themePref = ThemePreference();
-    InstructionsSettings instructions = InstructionsSettings();
+    HelpSettings helpSettings = HelpSettings();
     ProgressData progress = ProgressData();
     JournalData journal = JournalData();
     Library library = Library(context);
@@ -38,7 +38,7 @@ class SeedsApp extends StatelessWidget {
         // ThemePreference notifier
         ChangeNotifierProvider.value(value: themePref),
         // InstructionsSettings notifier
-        ChangeNotifierProvider.value(value: instructions),
+        ChangeNotifierProvider.value(value: helpSettings),
         // ProgressData notifier
         ChangeNotifierProvider.value(value: progress),
         // JournalData notifier

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
-import 'package:seeds/widgets/dialogs/instructions.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
 class ShareActivity extends ActivityWidget {
@@ -17,13 +16,7 @@ class ShareActivity extends ActivityWidget {
   _ShareActivityState createState() => _ShareActivityState();
 
   @override
-  Future<void> openInstructions(BuildContext context) {
-    return showDialog<bool>(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) => InstructionsDialog('Share what you studied today.')
-    );
-  }
+  String getHelpText() => 'Share what you studied today.';
 }
 
 class _ShareActivityState extends State<ShareActivity> {

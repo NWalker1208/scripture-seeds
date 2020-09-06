@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/services/utility.dart';
-import 'package:seeds/widgets/dialogs/instructions.dart';
 
 class PonderActivity extends ActivityWidget {
   PonderActivity(String topic, {FutureOr<void> Function(bool) onProgressChange, bool completed, Key key}) :
@@ -13,13 +12,7 @@ class PonderActivity extends ActivityWidget {
   _PonderActivityState createState() => _PonderActivityState();
 
   @override
-  Future<void> openInstructions(BuildContext context) {
-    return showDialog<bool>(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) => InstructionsDialog('Write down your thoughts on the previous scripture and what it teaches you about $topic.')
-    );
-  }
+  String getHelpText() => 'Write down your thoughts on the previous scripture and what it teaches you about $topic.';
 }
 
 class _PonderActivityState extends State<PonderActivity> {

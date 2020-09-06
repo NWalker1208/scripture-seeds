@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/library/study_resource.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
-import 'package:seeds/widgets/dialogs/instructions.dart';
 import 'package:seeds/widgets/highlight/span.dart';
 import 'package:seeds/widgets/study_resource_display.dart';
 
@@ -17,16 +16,11 @@ class StudyActivity extends ActivityWidget {
   StudyActivityState createState() => StudyActivityState();
 
   @override
-  Future<void> openInstructions(BuildContext context) {
-    return showDialog<bool>(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) => InstructionsDialog('Study the scripture or quote and highlight the parts that are most important to you.')
-    );
-  }
+  String getHelpText() => 'Study the scripture or quote and highlight the parts that are most important to you.';
 
   static StudyActivityState of(BuildContext context) =>
     context.findAncestorStateOfType<StudyActivityState>();
+
 }
 
 class StudyActivityState extends State<StudyActivity> {

@@ -1,41 +1,44 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/instructions_settings.dart';
+import 'package:seeds/services/help_settings.dart';
 
-class InstructionsDialog extends StatelessWidget {
-  final String instructions;
+class HelpDialog extends StatelessWidget {
+  final String text;
+  final String title;
+  final String page;
 
-  InstructionsDialog(this.instructions, {Key key}) : super(key: key);
+  HelpDialog(this.text, {String title, this.page = 'default', Key key}) :
+    this.title = title ?? 'Help',
+    super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("Instructions"),
+      title: Text(title),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(instructions),
+          Text(text),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Consumer<InstructionsSettings>(
+              Consumer<HelpSettings>(
                 builder: (context, settings, child) =>
                   Checkbox(
-                    value: settings.alwaysShow,
-                    onChanged: (bool alwaysShow) => settings.alwaysShow = alwaysShow,
+                    value: settings.getShowHelp(page),
+                    onChanged: (bool showHelp) => settings.setShowHelp(page, showHelp),
                   )
               ),
 
-              Text("Always show instructions")
+              Text('Always show')
             ],
           )
         ],
       ),
       actions: [
         FlatButton(
-          child: Text("Ok"),
+          child: Text('Ok'),
           onPressed: () => Navigator.of(context).pop()
         ),
       ],
