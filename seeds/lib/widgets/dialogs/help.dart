@@ -26,7 +26,7 @@ class HelpDialog extends StatelessWidget {
               Consumer<HelpSettings>(
                 builder: (context, settings, child) =>
                   Checkbox(
-                    value: settings.getShowHelp(page),
+                    value: settings.getShowHelp(page) ?? false,
                     onChanged: (bool showHelp) => settings.setShowHelp(page, showHelp),
                   )
               ),

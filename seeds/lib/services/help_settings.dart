@@ -7,7 +7,7 @@ class HelpSettings extends ChangeNotifier {
   bool get isLoaded => _showHelp != null;
   Map<String, bool> _showHelp;
 
-  bool getShowHelp(String page) => (_showHelp != null) ? (_showHelp[page] ?? true) : false;
+  bool getShowHelp(String page) => (_showHelp == null) ? null : (_showHelp[page] ?? true);
 
   void setShowHelp(String page, bool showHelp) {
     _showHelp[page] = showHelp;
@@ -31,6 +31,7 @@ class HelpSettings extends ChangeNotifier {
         _showHelp[key.substring(kHelp.length)] = prefs.getBool(key);
       });
 
+      print('Help settings loaded!');
       notifyListeners();
     });
   }

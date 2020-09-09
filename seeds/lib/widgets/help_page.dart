@@ -27,20 +27,49 @@ class HelpPage extends StatefulWidget {
 }
 
 class HelpPageState extends State<HelpPage> {
+  Set<String> helpPagesShown;
+  HelpSettings settings;
+
   void showHelpDialog({bool always = true}) {
-    // TODO: Handle times when settings are not yet loaded
-    if (always || Provider.of<HelpSettings>(context, listen: false).getShowHelp(widget.pageName))
-      WidgetsBinding.instance.addPostFrameCallback((_) async =>
-        showDialog<bool>(
-          context: context,
-          barrierDismissible: true,
-          builder: (context) => HelpDialog(widget.helpText, title: widget.title, page: widget.pageName)
-        ));
+    bool helpSetting = settings?.getShowHelp(widget.pageName) ?? false;
+
+    if (always || (helpSetting && !helpPagesShown.contains(widget.pageName))) {
+      // Mark page as shown
+      helpPagesShown.add(widget.pageName);
+
+      // Open dialog on next frame
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) async =>
+          showDialog<bool>(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) =>
+                HelpDialog(widget.helpText, title: widget.title,
+                    page: widget.pageName)
+          )
+      );
+    } else {
+      if (helpSetting)
+        print('Help dialog skipped, already shown.');
+      else
+        print('Help dialog skipped, user disabled or settings not loaded.');
+    }
   }
 
   @override
   void initState() {
     super.initState();
+
+    helpPagesShown = Set<String>();
+    settings = null;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    print('Changed dependencies, showing help...');
+    settings = Provider.of<HelpSettings>(context, listen: true);
     showHelpDialog(always: false);
   }
 
@@ -48,12 +77,13 @@ class HelpPageState extends State<HelpPage> {
   void didUpdateWidget(HelpPage oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (oldWidget.pageName != widget.pageName)
+    if (oldWidget.pageName != widget.pageName) {
+      print('Updated help page from ${oldWidget.pageName} to ${widget.pageName}, showing help...');
       showHelpDialog(always: false);
+    }
   }
 
   @override
-  Widget build(BuildContext context) {
-    return widget.pageBuilder?.call(context, this, widget.child) ?? widget.child;
-  }
+  Widget build(BuildContext context) =>
+    widget.pageBuilder?.call(context, this, widget.child) ?? widget.child;
 }
