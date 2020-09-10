@@ -27,7 +27,7 @@ These items are unnecessary, but improve the user experience.
 - [x] Improve home screen (longer views, status, sliverview)
 - [ ] Define word in scripture (1 week)
 - [x] Add tutorial dialogs
-  - [ ] Improve and expand tutorial system
+  - [x] Improve and expand tutorial system
 - [ ] Share picture quote (1 week)
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
