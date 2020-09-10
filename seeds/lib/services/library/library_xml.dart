@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:seeds/services/library/library_history.dart';
 import 'package:seeds/services/library/web_cache.dart';
 import 'package:xml/xml.dart' as XML;
@@ -14,25 +15,29 @@ class Library extends ChangeNotifier {
   List<String> get topics => (_topics?.toList() ?? [])..sort();
 
   Library(BuildContext context, {lang = 'en'}) {
-    LibraryWebCache.getLibraryFile(lang: lang).then((File libFile) {
-      XML.XmlDocument xmlDoc = XML.parse(libFile.readAsStringSync());
-      resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
-      _updateTopics();
+    refresh(lang: lang);
+  }
 
-      print('Library loaded!');
-      notifyListeners();
-    });
+  Future<void> refresh({lang = 'en'}) async {
+    File libFile = await LibraryWebCache.getLibraryFile(lang: lang);
+    XML.XmlDocument xmlDoc = XML.parse(await libFile.readAsString());
+    _loadResourcesFromXml(xmlDoc);
+  }
 
-    // Load library XML file
-    /*DefaultAssetBundle.of(context).loadStructuredData(
+  Future<void> refreshFromAssets(AssetBundle assets, {lang = 'en'}) async {
+    XML.XmlDocument xmlDoc = await assets.loadStructuredData(
       'assets/library_$lang.xml',
       (text) async => XML.parse(text)
-    ).then((XML.XmlDocument xmlDoc) {
-      // Process XML file after loading
-      resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
-      _updateTopics();
-      notifyListeners();
-    });*/
+    );
+    _loadResourcesFromXml(xmlDoc);
+  }
+
+  void _loadResourcesFromXml(XML.XmlDocument doc) {
+    resources = _xmlToStudyResources(doc.findAllElements('resource'));
+    _updateTopics();
+
+    print('Library loaded!');
+    notifyListeners();
   }
 
   // Finds the least recent study resource for the given topic

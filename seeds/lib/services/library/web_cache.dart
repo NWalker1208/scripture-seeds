@@ -9,5 +9,8 @@ class LibraryWebCache {
   static Future<File> getLibraryFile({String lang = 'en'}) =>
       DefaultCacheManager().getSingleFile(_getFileURL('library_$lang.xml'));
 
+  static Future<void> resetCachedLibrary({String lang = 'en'}) =>
+      DefaultCacheManager().removeFile(_getFileURL('library_$lang.xml'));
+
   static String _getFileURL(String filename) => '$_storageURL$filename?alt=media&token=$_token';
 }

@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:seeds/services/library/library_xml.dart';
+import 'package:seeds/services/library/web_cache.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
 import 'package:seeds/widgets/theme_mode_selector.dart';
 
 class SettingsPage extends StatelessWidget {
+
+  void resetLibraryCache(BuildContext context) {
+    LibraryWebCache.resetCachedLibrary().then(
+      (_) => Provider.of<Library>(context, listen: false).refresh().then(
+        (_) => Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text('Library sync complete.'),
+        ))
+      )
+    );
+  }
 
   void eraseJournal(BuildContext context) {
     showDialog<bool>(
@@ -56,13 +69,21 @@ class SettingsPage extends StatelessWidget {
               ),
               SizedBox(height: 12.0,),
 
+              RaisedButton(
+                child: Text('Sync Library'),
+                onPressed: () => resetLibraryCache(scaffoldContext),
+                textColor: Colors.white
+              ),
+              SizedBox(height: 12.0,),
+
               // Reset Progress Button
               Row(
                 children: <Widget>[
                   Expanded(
                     child: RaisedButton(
                       onPressed: () => eraseJournal(scaffoldContext),
-                      child: Text('Erase Journal', style: Theme.of(context).textTheme.button.copyWith(color: Colors.white)),
+                      child: Text('Erase Journal'),
+                      textColor: Colors.white,
                       color: Theme.of(context).errorColor
                     ),
                   ),
@@ -70,7 +91,8 @@ class SettingsPage extends StatelessWidget {
                   Expanded(
                     child: RaisedButton(
                       onPressed: () => resetProgress(scaffoldContext),
-                      child: Text('Reset Progress', style: Theme.of(context).textTheme.button.copyWith(color: Colors.white)),
+                      child: Text('Reset Progress'),
+                      textColor: Colors.white,
                       color: Theme.of(context).errorColor
                     ),
                   ),
