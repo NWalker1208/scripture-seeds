@@ -16,6 +16,15 @@ class _MediaElement extends StudyElement {
   Widget toWidget(BuildContext context) {
     if (type == _MediaType.Image)
       return Image.network(url);
+    /*FutureBuilder(
+        future: DefaultCacheManager().getSingleFile(url),
+        builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done)
+            return Image.file(snapshot.data);
+          else
+            return CircularProgressIndicator();
+        },
+      );*/
     else
       return Text('Video: $url');
   }
@@ -82,7 +91,7 @@ abstract class StudyElement {
 
 class StudyResource {
   int id;
-  List<String> topics;
+  Set<String> topics;
   String reference;
   String referenceURL;
 

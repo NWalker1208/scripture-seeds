@@ -12,7 +12,7 @@ class PlantList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> topics = Provider.of<Library>(context, listen: false).topics.toList();
+    List<String> topics = Provider.of<Library>(context, listen: true).topics.toList();
 
     return Consumer<ProgressData>(
       builder: (context, progressData, child) => Column(

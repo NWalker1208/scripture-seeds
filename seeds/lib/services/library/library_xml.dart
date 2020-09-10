@@ -1,18 +1,30 @@
 import 'dart:core';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:seeds/services/library/library_history.dart';
+import 'package:seeds/services/library/web_cache.dart';
 import 'package:xml/xml.dart' as XML;
 import 'package:seeds/services/library/study_resource.dart';
 
 class Library extends ChangeNotifier {
-  List<String> topics;
+  Set<String> _topics;
   List<StudyResource> resources;
 
-  bool get loaded => topics != null && resources != null;
+  bool get loaded => _topics != null && resources != null;
+  List<String> get topics => (_topics?.toList() ?? [])..sort();
 
   Library(BuildContext context, {lang = 'en'}) {
+    LibraryWebCache.getLibraryFile(lang: lang).then((File libFile) {
+      XML.XmlDocument xmlDoc = XML.parse(libFile.readAsStringSync());
+      resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
+      _updateTopics();
+
+      print('Library loaded!');
+      notifyListeners();
+    });
+
     // Load library XML file
-    DefaultAssetBundle.of(context).loadStructuredData(
+    /*DefaultAssetBundle.of(context).loadStructuredData(
       'assets/library_$lang.xml',
       (text) async => XML.parse(text)
     ).then((XML.XmlDocument xmlDoc) {
@@ -20,7 +32,7 @@ class Library extends ChangeNotifier {
       resources = _xmlToStudyResources(xmlDoc.findAllElements('resource'));
       _updateTopics();
       notifyListeners();
-    });
+    });*/
   }
 
   // Finds the least recent study resource for the given topic
@@ -47,17 +59,8 @@ class Library extends ChangeNotifier {
   }
 
   void _updateTopics() {
-    topics = List<String>();
-
-    resources.forEach((res) {
-      res.topics.forEach((topic) {
-        String lowercase = topic.toLowerCase();
-        if (!topics.contains(lowercase))
-          topics.add(lowercase);
-      });
-    });
-
-    topics.sort();
+    _topics = Set<String>();
+    resources.forEach((res) => _topics = _topics.union(res.topics));
   }
 
   static List<StudyResource> _xmlToStudyResources(Iterable<XML.XmlElement> xmlResources) {
@@ -73,7 +76,7 @@ class Library extends ChangeNotifier {
       // Convert XmlElements to StudyResource
       resources.add(StudyResource(
           int.parse(resource.getAttribute('id')),
-          topics.map((t) => t.text).toList(),
+          topics.map((t) => t.text).toSet(),
           reference.text,
           reference.getAttribute('url'),
           _xmlToStudyElements(bodyElements)

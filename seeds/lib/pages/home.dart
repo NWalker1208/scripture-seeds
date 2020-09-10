@@ -41,9 +41,9 @@ class HomePage extends StatelessWidget {
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   childAspectRatio: 0.5,
-                  children: library.topics?.map(
+                  children: library.topics.map(
                     (topic) => PlantButton(topic)
-                  )?.toList() ?? []
+                  ).toList()
                 ),
               )
             ]
