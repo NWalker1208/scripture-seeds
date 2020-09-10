@@ -20,6 +20,7 @@
   </resource>
   <resource id="2">
     <topic>faith</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/2.14-24?lang=eng#p14">James 2:14-24</reference>
     <body>
       <title>James 2</title>
@@ -181,6 +182,29 @@
       <highlight>This sin has many faces. It leads some to revel in their own perceived self-worth, accomplishments, talents, wealth, or position. They count these blessings as evidence of being “chosen,” “superior,” or “more righteous” than others. This is the sin of “Thank God I am more special than you.” At its core is the desire to be admired or envied. It is the sin of self-glorification.</highlight>
       <highlight>For others, pride turns to envy: they look bitterly at those who have better positions, more talents, or greater possessions than they do. They seek to hurt, diminish, and tear down others in a misguided and unworthy attempt at self-elevation. When those they envy stumble or suffer, they secretly cheer.</highlight>
       <highlight>In this, as in all things, Jesus Christ is our perfect example. Whereas Lucifer tried to change the Father’s plan of salvation and obtain honor for himself, the Savior said, “Father, thy will be done, and the glory be thine forever.” Despite His magnificent abilities and accomplishments, the Savior was always meek and humble.</highlight>
+    </body>
+  </resource>
+  <resource id="21">
+    <topic>obedience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3.7?lang=eng#p7">1 Nephi 3:7</reference>
+    <body>
+      <title>1 Nephi 3</title>
+      <highlight verse="7">And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.</highlight>
+    </body>
+  </resource>
+  <resource id="22">
+    <topic>obedience</topic>
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/15.4-10?lang=eng#p4">John 15:4-10</reference>
+    <body>
+      <title>John 15</title>
+      <highlight verse="4">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</highlight>
+      <highlight verse="5">I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing.</highlight>
+      <highlight verse="6">If a man abide not in me, he is cast forth as a branch, and is withered; and men gather them, and cast them into the fire, and they are burned.</highlight>
+      <highlight verse="7">If ye abide in me, and my words abide in you, ye shall ask what ye will, and it shall be done unto you.</highlight>
+      <highlight verse="8">Herein is my Father glorified, that ye bear much fruit; so shall ye be my disciples.</highlight>
+      <highlight verse="9">As the Father hath loved me, so have I loved you: continue ye in my love.</highlight>
+      <highlight verse="10">If ye keep my commandments, ye shall abide in my love; even as I have kept my Father’s commandments, and abide in his love.</highlight>
     </body>
   </resource>
 </library>
