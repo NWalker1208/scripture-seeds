@@ -58,6 +58,7 @@
   </resource>
   <resource id="5">
     <topic>faith</topic>
+    <topic>opposition</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.6?lang=eng#p6">Ether 12:6</reference>
     <body>
       <title>Ether 12</title>
@@ -205,6 +206,58 @@
       <highlight verse="8">Herein is my Father glorified, that ye bear much fruit; so shall ye be my disciples.</highlight>
       <highlight verse="9">As the Father hath loved me, so have I loved you: continue ye in my love.</highlight>
       <highlight verse="10">If ye keep my commandments, ye shall abide in my love; even as I have kept my Father’s commandments, and abide in his love.</highlight>
+    </body>
+  </resource>
+  <resource id="23">
+    <topic>hope</topic>
+    <topic>happiness</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/16.31-33?lang=eng#p31">John 16:31-33</reference>
+    <body>
+      <title>John 16</title>
+      <highlight verse="31">Jesus answered them, Do ye now believe?</highlight>
+      <highlight verse="32">Behold, the hour cometh, yea, is now come, that ye shall be scattered, every man to his own, and shall leave me alone: and yet I am not alone, because the Father is with me.</highlight>
+      <highlight verse="33">These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world.</highlight>
+    </body>
+  </resource>
+  <resource id="24">
+    <topic>happiness</topic>
+    <topic>opposition</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.11-13?lang=eng#p11">2 Nephi 2:11-13</reference>
+    <body>
+      <title>2 Nephi 2</title>
+      <highlight verse="11">For it must needs be, that there is an opposition in all things. If not so, my firstborn in the wilderness, righteousness could not be brought to pass, neither wickedness, neither holiness nor misery, neither good nor bad. Wherefore, all things must needs be a compound in one; wherefore, if it should be one body it must needs remain as dead, having no life neither death, nor corruption nor incorruption, happiness nor misery, neither sense nor insensibility.</highlight>
+      <highlight verse="12">Wherefore, it must needs have been created for a thing of naught; wherefore there would have been no purpose in the end of its creation. Wherefore, this thing must needs destroy the wisdom of God and his eternal purposes, and also the power, and the mercy, and the justice of God.</highlight>
+      <highlight verse="13">And if ye shall say there is no law, ye shall also say there is no sin. If ye shall say there is no sin, ye shall also say there is no righteousness. And if there be no righteousness there be no happiness. And if there be no righteousness nor happiness there be no punishment nor misery. And if these things are not there is no God. And if there is no God we are not, neither the earth; for there could have been no creation of things, neither to act nor to be acted upon; wherefore, all things must have vanished away.</highlight>
+    </body>
+  </resource>
+  <resource id="25">
+    <topic>happiness</topic>
+    <topic>obedience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2.40-41?lang=eng#p40">Mosiah 2:40-41</reference>
+    <body>
+      <title>Mosiah 2</title>
+      <highlight verse="40">O, all ye old men, and also ye young men, and you little children who can understand my words, for I have spoken plainly unto you that ye might understand, I pray that ye should awake to a remembrance of the awful situation of those that have fallen into transgression.</highlight>
+      <highlight verse="41">And moreover, I would desire that ye should consider on the blessed and happy state of those that keep the commandments of God. For behold, they are blessed in all things, both temporal and spiritual; and if they hold out faithful to the end they are received into heaven, that thereby they may dwell with God in a state of never-ending happiness. O remember, remember that these things are true; for the Lord God hath spoken it.</highlight>
+    </body>
+  </resource>
+  <resource id="26">
+    <topic>opposition</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/42.14-16?lang=eng#p14">Alma 42:14-16</reference>
+    <body>
+      <title>Alma 42</title>
+      <highlight verse="14">And thus we see that all mankind were fallen, and they were in the grasp of justice; yea, the justice of God, which consigned them forever to be cut off from his presence.</highlight>
+      <highlight verse="15">And now, the plan of mercy could not be brought about except an atonement should be made; therefore God himself atoneth for the sins of the world, to bring about the plan of mercy, to appease the demands of justice, that God might be a perfect, just God, and a merciful God also.</highlight>
+      <highlight verse="16">Now, repentance could not come unto men except there were a punishment, which also was eternal as the life of the soul should be, affixed opposite to the plan of happiness, which was as eternal also as the life of the soul.</highlight>
+    </body>
+  </resource>
+  <resource id="28">
+    <topic>opposition</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/1.2-4?lang=eng#p2">James 1:2-4</reference>
+    <body>
+      <title>James 1</title>
+      <highlight verse="2">My brethren, count it all joy when ye fall into divers temptations;</highlight>
+      <highlight verse="3">Knowing this, that the trying of your faith worketh patience.</highlight>
+      <highlight verse="4">But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.</highlight>
     </body>
   </resource>
 </library>
