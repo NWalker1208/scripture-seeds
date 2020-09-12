@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:seeds/services/library/library_xml.dart';
@@ -26,15 +27,19 @@ class LibraryFileManager {
 
   // Initialize library from cache, assets, and/or web.
   Future<void> initializeLibrary() async {
+    print('Initializing library...');
+
     // Load from cache or assets if necessary
     XmlDocument libDoc = await _loadFromCache() ?? await _loadFromAssets();
 
     if (libDoc != null)
       library.loadFromXml(libDoc);
 
-    // If not cache is present, or if cache is 48 hours old, download from web
-    if (await _shouldRefreshCache())
+    // If no cache is present, or if cache is 48 hours old, download from web
+    if (libDoc == null || await _shouldRefreshCache()) {
+      print('Automatically refreshing library...');
       await refreshLibrary();
+    }
   }
 
   // Attempt to refresh library from web.
@@ -67,15 +72,18 @@ class LibraryFileManager {
 
   // Loads library file from assets
   Future<XmlDocument> _loadFromAssets() async {
-    print('Loading library from assets...');
     if (assets != null) {
+      print('Loading library from assets...');
       try {
         return parse(await assets.loadString('assets/$_libFileName'));
-      }
-      on Exception {
-        print('Could not find library asset for $lang');
+      } on FlutterError {
+        print('Could not find library asset for language "$lang"');
+      } on XmlParserException catch (e) {
+        print('Parsing of library XML from assets failed: $e');
       }
     }
+    else
+      print('No assets provided to library file manager.');
 
     return null;
   }
@@ -85,33 +93,58 @@ class LibraryFileManager {
     File cache = await _getCacheFile();
     if (await cache.exists()) {
       print('Loading library from cache...');
-      return parse(await cache.readAsString());
+      try {
+        return parse(await cache.readAsString());
+      } on XmlParserException catch (e) {
+        print('Parsing of library XML from cache failed: $e');
+        print('Deleting library cache...');
+        cache.delete();
+      }
     }
+    else
+      print('No library cache exists.');
 
     return null;
   }
 
   // Loads library file from web and saves to cache
   Future<XmlDocument> _loadFromWeb() async {
-    Uri url = Uri.parse('$_webStorageURL$_libFileName?alt=media');
-    String xml = await _download(url);
-    if (xml != null) {
-      print('Loading library from web...');
-      File cache = await _getCacheFile();
-      cache.writeAsString(xml);
-      return parse(xml);
+    File libFile = await _downloadLibrary();
+
+    if (libFile != null) {
+      print('Loading library from web download...');
+
+      try {
+        return parse(await libFile.readAsString());
+      } on XmlParserException catch (e) {
+        print('Parsing of library XML from web failed: $e');
+      }
     }
+    else
+      print('Unable to download library from web.');
 
     return null;
   }
 
 
-  // Downloads the given file as a String
-  static Future<String> _download(Uri url) async {
-    Response response = await get(url);
-    if (response.statusCode == 200)
-      return response.body;
+  // Downloads the library and saves to the cache
+  Future<File> _downloadLibrary() async {
+    Uri url = Uri.parse('$_webStorageURL$_libFileName?alt=media');
 
+    print('Downloading library from "$url"...');
+    Response response = await get(url);
+    if (response.statusCode == 200) {
+      print('Saving library to cache...');
+
+      File cache = await _getCacheFile();
+      if (!await cache.exists())
+        cache.create(recursive: true);
+      cache.writeAsBytes(response.bodyBytes);
+
+      return cache;
+    }
+
+    print('Download failed with code ${response.statusCode}');
     return null;
   }
 }

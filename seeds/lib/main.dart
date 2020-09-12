@@ -8,7 +8,7 @@ import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
 import 'package:seeds/services/help_settings.dart';
 import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/services/library/library_file.dart';
+import 'package:seeds/services/library/file_manager.dart';
 import 'package:seeds/services/library/library_history.dart';
 import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/progress_data.dart';

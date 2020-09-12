@@ -64,11 +64,11 @@ class Library extends ChangeNotifier {
 
       // Convert XmlElements to StudyResource
       resources.add(StudyResource(
-          int.parse(resource.getAttribute('id')),
-          topics.map((t) => t.text).toSet(),
-          reference.text,
-          reference.getAttribute('url'),
-          _xmlToStudyElements(bodyElements)
+        int.parse(resource.getAttribute('id')),
+        topics.map((t) => t.text).toSet(),
+        reference.text,
+        reference.getAttribute('url'),
+        _xmlToStudyElements(bodyElements)
       ));
     });
 

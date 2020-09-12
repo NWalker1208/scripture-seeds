@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/library/library_file.dart';
+import 'package:seeds/services/library/file_manager.dart';
 import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
@@ -84,8 +84,8 @@ class SettingsPage extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: RaisedButton(
-                      onPressed: () => eraseJournal(scaffoldContext),
                       child: Text('Erase Journal'),
+                      onPressed: () => eraseJournal(scaffoldContext),
                       textColor: Colors.white,
                       color: Theme.of(context).errorColor
                     ),
@@ -93,8 +93,8 @@ class SettingsPage extends StatelessWidget {
                   SizedBox(width: 12.0),
                   Expanded(
                     child: RaisedButton(
-                      onPressed: () => resetProgress(scaffoldContext),
                       child: Text('Reset Progress'),
+                      onPressed: () => resetProgress(scaffoldContext),
                       textColor: Colors.white,
                       color: Theme.of(context).errorColor
                     ),
