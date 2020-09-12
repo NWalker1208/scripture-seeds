@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/library/library_file.dart';
 import 'package:seeds/services/library/library_xml.dart';
-import 'package:seeds/services/library/web_cache.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
 import 'package:seeds/widgets/theme_mode_selector.dart';
@@ -9,12 +9,15 @@ import 'package:seeds/widgets/theme_mode_selector.dart';
 class SettingsPage extends StatelessWidget {
 
   void resetLibraryCache(BuildContext context) {
-    LibraryWebCache.resetCachedLibrary().then(
-      (_) => Provider.of<Library>(context, listen: false).refresh().then(
-        (_) => Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Library sync complete.'),
-        ))
-      )
+    LibraryFileManager libManager = LibraryFileManager(
+      Provider.of<Library>(context, listen: false),
+      assets: DefaultAssetBundle.of(context)
+    );
+
+    libManager.refreshLibrary().then(
+      (_) => Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text('Library sync complete.'),
+      ))
     );
   }
 

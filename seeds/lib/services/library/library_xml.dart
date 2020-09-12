@@ -1,10 +1,7 @@
 import 'dart:core';
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:seeds/services/library/library_history.dart';
-import 'package:seeds/services/library/web_cache.dart';
-import 'package:xml/xml.dart' as XML;
+import 'package:xml/xml.dart';
 import 'package:seeds/services/library/study_resource.dart';
 
 class Library extends ChangeNotifier {
@@ -14,25 +11,12 @@ class Library extends ChangeNotifier {
   bool get loaded => _topics != null && resources != null;
   List<String> get topics => (_topics?.toList() ?? [])..sort();
 
-  Library(BuildContext context, {lang = 'en'}) {
-    refresh(lang: lang);
+  Library([XmlDocument xmlDoc]) {
+    if (xmlDoc != null)
+      loadFromXml(xmlDoc);
   }
 
-  Future<void> refresh({lang = 'en'}) async {
-    File libFile = await LibraryWebCache.getLibraryFile(lang: lang);
-    XML.XmlDocument xmlDoc = XML.parse(await libFile.readAsString());
-    _loadResourcesFromXml(xmlDoc);
-  }
-
-  Future<void> refreshFromAssets(AssetBundle assets, {lang = 'en'}) async {
-    XML.XmlDocument xmlDoc = await assets.loadStructuredData(
-      'assets/library_$lang.xml',
-      (text) async => XML.parse(text)
-    );
-    _loadResourcesFromXml(xmlDoc);
-  }
-
-  void _loadResourcesFromXml(XML.XmlDocument doc) {
+  void loadFromXml(XmlDocument doc) {
     resources = _xmlToStudyResources(doc.findAllElements('resource'));
     _updateTopics();
 
@@ -68,15 +52,15 @@ class Library extends ChangeNotifier {
     resources.forEach((res) => _topics = _topics.union(res.topics));
   }
 
-  static List<StudyResource> _xmlToStudyResources(Iterable<XML.XmlElement> xmlResources) {
+  static List<StudyResource> _xmlToStudyResources(Iterable<XmlElement> xmlResources) {
     List<StudyResource> resources = List<StudyResource>();
 
     // Iterate over every resource tag
     xmlResources.forEach((resource) {
       // Locate topics, reference, and body of study resource
-      Iterable<XML.XmlElement> topics = resource.findElements('topic');
-      XML.XmlElement reference = resource.findElements('reference').first;
-      Iterable<XML.XmlNode> bodyElements = resource.findElements('body').first.children;
+      Iterable<XmlElement> topics = resource.findElements('topic');
+      XmlElement reference = resource.findElements('reference').first;
+      Iterable<XmlNode> bodyElements = resource.findElements('body').first.children;
 
       // Convert XmlElements to StudyResource
       resources.add(StudyResource(
@@ -91,11 +75,11 @@ class Library extends ChangeNotifier {
     return resources;
   }
 
-  static List<StudyElement> _xmlToStudyElements(Iterable<XML.XmlNode> xmlNodes) {
+  static List<StudyElement> _xmlToStudyElements(Iterable<XmlNode> xmlNodes) {
     List<StudyElement> elements = List<StudyElement>();
 
     xmlNodes.forEach((node) {
-      if (node is XML.XmlElement) {
+      if (node is XmlElement) {
         StudyElement element = StudyElement.fromXmlElement(node);
 
         if (element != null)

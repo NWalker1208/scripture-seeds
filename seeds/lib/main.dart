@@ -8,6 +8,7 @@ import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
 import 'package:seeds/services/help_settings.dart';
 import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/library/library_file.dart';
 import 'package:seeds/services/library/library_history.dart';
 import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/progress_data.dart';
@@ -30,8 +31,11 @@ class SeedsApp extends StatelessWidget {
     HelpSettings helpSettings = HelpSettings();
     ProgressData progress = ProgressData();
     JournalData journal = JournalData();
-    Library library = Library(context);
+
+    Library library = Library();
     LibraryHistory history = LibraryHistory();
+
+    LibraryFileManager(library, assets: DefaultAssetBundle.of(context)).initializeLibrary();
 
     return MultiProvider(
       providers: [
