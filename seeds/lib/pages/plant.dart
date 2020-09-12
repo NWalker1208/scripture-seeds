@@ -50,8 +50,8 @@ class PlantPage extends StatelessWidget {
           ),
 
           drawer: Drawer(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            child: ListView(
+              padding: EdgeInsets.zero,
               children: <Widget>[
                 DrawerHeader(
                   margin: EdgeInsets.zero,
@@ -67,7 +67,7 @@ class PlantPage extends StatelessWidget {
                 Padding(padding: EdgeInsets.all(8.0), child: Column(children: <Widget>[
                   PlantList(plantName),
 
-                  Divider(thickness: 1, indent: 8, endIndent: 8,),
+                  Divider(),
 
                   FlatButton(
                     padding: EdgeInsets.all(8.0),

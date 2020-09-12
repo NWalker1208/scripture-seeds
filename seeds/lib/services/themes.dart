@@ -18,7 +18,9 @@ class AppThemes {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     dividerTheme: DividerThemeData(
-      thickness: 1
+      thickness: 1,
+      indent: 0,
+      endIndent: 0
     ),
 
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -41,11 +43,13 @@ class AppThemes {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     cardTheme: CardTheme(
-        color: Colors.green[800],
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+      color: Colors.green[800],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     dividerTheme: DividerThemeData(
-        thickness: 1
+      thickness: 1,
+      indent: 0,
+      endIndent: 0
     ),
 
     visualDensity: VisualDensity.adaptivePlatformDensity,

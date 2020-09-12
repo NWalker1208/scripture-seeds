@@ -71,14 +71,14 @@ class SettingsPage extends StatelessWidget {
                   ThemeModeSelector()
                 ],
               ),
-              SizedBox(height: 12.0,),
+
+              Divider(),
 
               RaisedButton(
                 child: Text('Sync Library'),
                 onPressed: () => resetLibraryCache(scaffoldContext),
                 textColor: Colors.white
               ),
-              SizedBox(height: 12.0,),
 
               // Reset Progress Button
               Row(
