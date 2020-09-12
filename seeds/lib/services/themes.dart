@@ -17,6 +17,9 @@ class AppThemes {
       color: Colors.green[100],
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
+    dividerTheme: DividerThemeData(
+      thickness: 1
+    ),
 
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
@@ -40,6 +43,9 @@ class AppThemes {
     cardTheme: CardTheme(
         color: Colors.green[800],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+    ),
+    dividerTheme: DividerThemeData(
+        thickness: 1
     ),
 
     visualDensity: VisualDensity.adaptivePlatformDensity,

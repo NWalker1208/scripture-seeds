@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/library/file_manager.dart';
 import 'package:seeds/services/library/library_xml.dart';
@@ -101,6 +102,21 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ],
               ),
+
+              Divider(),
+
+              FlatButton(
+                child: Text('About Scripture Seeds'),
+                onPressed: () => PackageInfo.fromPlatform().then((info) => showAboutDialog(
+                  context: context,
+                  applicationName: 'Scripture Seeds',
+                  applicationIcon: ImageIcon(AssetImage('assets/seeds_icon.ico'), size: 40),
+                  applicationVersion: info.version,
+                  children: [
+                    Text('App developed by Nathan Walker.')
+                  ]
+                ))
+              )
             ],
           ),
         ),
