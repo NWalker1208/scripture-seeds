@@ -18,7 +18,7 @@ These items are necessary, but can be built upon over time.
   - [x] Program library.xml editor with web crawler for scripture text
 - [x] Add more topics and scriptures (1 week)
 - [x] Create remote library system
-  - [ ] Improve caching and refreshing of library
+  - [x] Improve caching and refreshing of library
 - [ ] Add more variety to activities (extra, pre-release)
 
 ### 3) Features and Design (finish before release)
