@@ -28,7 +28,13 @@ class _HighlightStudyBlockState extends State<HighlightStudyBlock> {
   @override
   void initState() {
     super.initState();
-    highlight = buildWordList(widget.text);
+
+    highlight = StudyActivity.of(context).highlights[widget.id];
+
+    if (highlight == null) {
+      highlight = buildWordList(widget.text);
+      StudyActivity.of(context).highlights[widget.id] = highlight;
+    }
   }
 
   @override

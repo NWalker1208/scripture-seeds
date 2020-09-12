@@ -13,7 +13,7 @@ class _MediaElement extends StudyElement {
   String toString() => '{$type: $url}';
 
   @override
-  Widget toWidget(BuildContext context) {
+  Widget toWidget(BuildContext context, int index) {
     if (type == _MediaType.Image)
       return Image.network(url);
     /*FutureBuilder(
@@ -39,7 +39,7 @@ class _TitleElement extends StudyElement {
   String toString() => '{Title: "$text"}';
 
   @override
-  Widget toWidget(BuildContext context) {
+  Widget toWidget(BuildContext context, int index) {
     return Text(
       text,
       style: Theme.of(context).textTheme.headline4.copyWith(fontFamily: 'Buenard'),
@@ -58,17 +58,17 @@ class _TextElement extends StudyElement {
   String toString() => verse == null ? '{Text: "$text"}' : '{Text: $verse. "$text"}';
 
   @override
-  Widget toWidget(BuildContext context) {
+  Widget toWidget(BuildContext context, int index) {
     return HighlightStudyBlock(
       text,
-      id: verse ?? 0,
+      id: index,
       leadingText: verse == null ? null : '$verse. '
     );
   }
 }
 
 abstract class StudyElement {
-  Widget toWidget(BuildContext context);
+  Widget toWidget(BuildContext context, int index);
 
   StudyElement();
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:seeds/pages/home.dart';
-import 'package:seeds/pages/new_library_test.dart';
 import 'package:seeds/pages/settings.dart';
 import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
@@ -81,8 +80,6 @@ class SeedsApp extends StatelessWidget {
               String plantName = ModalRoute.of(context).settings.arguments;
               return JournalPage(defaultFilter: plantName);
             },
-
-            '/libtest': (context) => NewLibTest(),
           },
         )
       )

@@ -4,7 +4,6 @@ import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/library/study_resource.dart';
 import 'package:seeds/widgets/activities/activity_widget.dart';
 import 'package:seeds/widgets/highlight/span.dart';
-import 'package:seeds/widgets/study_resource_display.dart';
 
 class StudyActivity extends ActivityWidget {
   final StudyResource resource;
@@ -57,17 +56,12 @@ class StudyActivityState extends State<StudyActivity> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
-          child: Column(
-            children: <Widget>[
-              StudyResourceDisplay(widget.resource),
-            ],
-          )
-        ),
-      ],
+    return ListView.separated(
+      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
+      itemCount: widget.resource.body.length,
+      itemBuilder: (context, index) =>
+        widget.resource.body[index].toWidget(context, index),
+      separatorBuilder: (context, index) => SizedBox(height: 8.0),
     );
   }
 }
