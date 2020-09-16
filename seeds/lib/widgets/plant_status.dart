@@ -26,9 +26,7 @@ class PlantStatus extends StatelessWidget {
           padding: const EdgeInsets.only(right:16.0),
           child: Icon(icon),
         ),
-        Expanded(
-            child: Text('${progress.name.capitalize()}')
-        ),
+        Text('${progress.name.capitalize()}'),
       ],
     );
   }

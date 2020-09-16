@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:seeds/pages/home.dart';
+import 'package:seeds/pages/dashboard.dart';
 import 'package:seeds/pages/settings.dart';
 import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
@@ -63,7 +63,7 @@ class SeedsApp extends StatelessWidget {
 
           initialRoute: '/',
           routes: {
-            '/': (context) => HomePage(),
+            '/': (context) => DashboardPage(),
             '/settings': (context) => SettingsPage(),
 
             '/plant': (context) {
