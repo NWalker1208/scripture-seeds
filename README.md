@@ -25,17 +25,17 @@ These items are necessary, but can be built upon over time.
 These items are unnecessary, but improve the user experience.
 - [x] Fruit growth after reaching goal (1 week)
   - [ ] System to unlock new topics with fruit
-- [x] Improve home screen (longer views, status, sliverview)
-- [ ] Define word in scripture (1 week)
 - [ ] Search for topic
-- [ ] Improve journal page
-- [x] Add tutorial dialogs
-  - [x] Improve and expand tutorial system
-- [ ] Share picture quote (1 week)
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
+- [ ] Improve journal page
+- [ ] Define word in scripture (1 week)
+- [ ] Share picture quote (1 week)
 - [ ] Improve plant display (1 week)
   - [x] Make scaling relative to size
   - [x] Create actual plant graphic
   - [x] Improve animation
   - [ ] Sunrise/sunset
+- [x] Improve home screen (longer views, status, sliverview)
+- [x] Add tutorial dialogs
+  - [x] Improve and expand tutorial system
