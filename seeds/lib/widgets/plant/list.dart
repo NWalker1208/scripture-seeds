@@ -3,7 +3,7 @@ import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/widgets/plant_status.dart';
+import 'package:seeds/widgets/plant/status.dart';
 
 class PlantList extends StatelessWidget {
   final String currentlyOpen;

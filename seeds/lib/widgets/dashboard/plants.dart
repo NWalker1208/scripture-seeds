@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/widgets/dashboard/indicators/daily_progress.dart';
-import 'package:seeds/widgets/plant_button.dart';
+import 'package:seeds/widgets/plant/button.dart';
 
 class PlantsDashboard extends StatelessWidget {
   @override
