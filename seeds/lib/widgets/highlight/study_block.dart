@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/activities/study.dart';
+import 'package:seeds/widgets/activity/study.dart';
 import 'package:seeds/widgets/highlight/span.dart';
 
 class HighlightStudyBlock extends StatefulWidget {

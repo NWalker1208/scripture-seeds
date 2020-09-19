@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/widgets/activities/activity_widget.dart';
+import 'package:seeds/widgets/activity/activity_widget.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
 class ShareActivity extends ActivityWidget {

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/services/library/study_resource.dart';
-import 'package:seeds/widgets/activities/activity_widget.dart';
+import 'package:seeds/widgets/activity/activity_widget.dart';
 import 'package:seeds/widgets/highlight/span.dart';
 
 class StudyActivity extends ActivityWidget {
