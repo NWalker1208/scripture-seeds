@@ -65,6 +65,8 @@ class ProgressRecord {
     return max(0, min(maxProgress, total));
   }
 
+  double get progressPercent => progress / maxProgress;
+
   // Setting progress automatically updates lastUpdate
   // Leaving progress null automatically increments it
   void updateProgress({int progress}) {

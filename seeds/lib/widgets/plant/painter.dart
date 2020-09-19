@@ -2,19 +2,6 @@ import 'dart:ui';
 import 'dart:math' as Math;
 import 'package:flutter/material.dart';
 
-enum SkyColorMode {
-  time,
-  light,
-  dark
-}
-
-class _ColorPair {
-  Color bottom;
-  Color top;
-
-  _ColorPair({this.bottom = Colors.blue, this.top = Colors.blue});
-}
-
 // Note: All scaling is relative to the height of the canvas
 class PlantPainter extends CustomPainter {
   static final double kGroundHeight = 0.15;
@@ -42,55 +29,12 @@ class PlantPainter extends CustomPainter {
   final double growth;
   final bool wilted;
   final bool fruit;
-  final SkyColorMode skyColorMode;
 
   PlantPainter({
     this.growth = 0,
     this.wilted = false,
     this.fruit = false,
-    this.skyColorMode = SkyColorMode.time
   });
-
-  _ColorPair getSkyColors() {
-    _ColorPair colors;
-
-    if (skyColorMode == SkyColorMode.light)
-      colors = _ColorPair(
-        top: Colors.lightBlue[100],
-        bottom: Colors.lightBlue[200]
-      );
-
-    else if (skyColorMode == SkyColorMode.dark)
-      colors = _ColorPair(
-          top: Colors.indigo[800],
-          bottom: Colors.indigo[900]
-      );
-
-    else if (skyColorMode == SkyColorMode.time)
-      colors = _ColorPair(
-          top: Colors.lightBlue[100],
-          bottom: Colors.lightBlue[200]
-      );
-
-    return colors;
-  }
-
-  // Paints sky
-  void _paintBackground(Canvas canvas, Size size) {
-    _ColorPair sky = getSkyColors();
-
-    Rect rect = Offset.zero & size;
-    Gradient gradient = LinearGradient(
-        begin: Alignment.bottomCenter,
-        end: Alignment.topCenter,
-        colors: [sky.bottom, sky.top],
-        stops: [0, 1]
-    );
-
-    Paint background = Paint()
-      ..shader = gradient.createShader(rect);
-    canvas.drawPaint(background);
-  }
 
   // Paints fruit graphic
   void _paintFruit(Canvas canvas, Size size, Offset location) {
@@ -161,16 +105,13 @@ class PlantPainter extends CustomPainter {
       ..color = Colors.brown[800];
 
     canvas.drawRect(Rect.fromLTRB(
-      0, size.height * (1 - kGroundHeight),
+      0,          size.height * (1 - kGroundHeight),
       size.width, size.height
     ), ground);
   }
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.clipRect(Offset(0, 0) & size);
-
-    _paintBackground(canvas, size);
     _paintPlant(canvas, size);
     _paintGround(canvas, size);
   }
@@ -179,6 +120,5 @@ class PlantPainter extends CustomPainter {
   bool shouldRepaint(PlantPainter oldDelegate) =>
       oldDelegate.growth != growth ||
       oldDelegate.wilted != wilted ||
-      oldDelegate.fruit != fruit ||
-      oldDelegate.skyColorMode != skyColorMode;
+      oldDelegate.fruit != fruit;
 }

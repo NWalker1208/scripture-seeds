@@ -20,13 +20,18 @@ class PlantsDashboard extends StatelessWidget {
 
         // Plant list
         SizedBox(
-          height: 150,
+          height: 250,
           child: Consumer<Library>(
-            builder: (context, library, child) => ListView.builder(
+            builder: (context, library, child) => ListView.separated(
               padding: EdgeInsets.all(8),
               scrollDirection: Axis.horizontal,
               itemCount: library.topics.length,
-              itemBuilder: (context, index) => PlantButton(library.topics[index])
+
+              separatorBuilder: (context, index) => SizedBox(width: 8),
+              itemBuilder: (context, index) => AspectRatio(
+                aspectRatio: 3/5,
+                child: PlantButton(library.topics[index])
+              ),
             ),
           ),
         )

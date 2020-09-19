@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:provider/provider.dart';
-import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/widgets/plant/status.dart';
 import 'package:seeds/widgets/plant/view.dart';
 
@@ -24,11 +22,12 @@ class PlantButton extends StatelessWidget {
 
       child: PlantView(
         topic,
-        child: Padding(
+        builder: (context, progressRecord, child) => Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Consumer<ProgressData>(
-            builder: (context, progressData, child) => PlantStatus(progressData.getProgressRecord(topic))
-          ),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: PlantStatus(progressRecord),
+          )
         )
       )
     );

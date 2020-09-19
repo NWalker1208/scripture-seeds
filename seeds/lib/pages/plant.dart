@@ -4,17 +4,16 @@ import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/widgets/dialogs/extra_study.dart';
 import 'package:seeds/widgets/help_page.dart';
 import 'package:seeds/widgets/plant/list.dart';
+import 'package:seeds/widgets/plant/progress_indicator.dart';
 import 'package:seeds/widgets/plant/view.dart';
 import 'package:social_share/social_share.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:provider/provider.dart';
 
 class PlantPage extends StatelessWidget {
   final String plantName;
-  final int initialProgress;
 
-  PlantPage({this.plantName = 'faith', this.initialProgress = 0, Key key}) : super(key: key);
+  PlantPage({this.plantName = 'faith', Key key}) : super(key: key);
 
   // Opens a dialog for when today's activity has already been completed
   void openActivityDialog(BuildContext context) {
@@ -126,30 +125,7 @@ class PlantPage extends StatelessWidget {
                 // Progress bar
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
-                  child: Consumer<ProgressData>(
-                    builder: (context, progressData, child) {
-                      ProgressRecord record = progressData.getProgressRecord(plantName);
-                      int progress = record.progress, maxProgress = record.maxProgress;
-
-                      return TweenAnimationBuilder(
-                        tween: Tween<double>(begin: initialProgress/maxProgress, end: progress/maxProgress),
-                        duration: Duration(milliseconds: 1000),
-                        curve: Curves.easeInOutCubic,
-
-                        builder: (BuildContext context, double percent, Widget child) => LinearPercentIndicator(
-                          backgroundColor: Colors.green[700].withAlpha(80),
-                          progressColor: Colors.green,
-                          linearStrokeCap: LinearStrokeCap.roundAll,
-                          animation: false,
-
-                          leading: Text('${(progress/maxProgress * 100).round()} %'),
-                          trailing: Icon(Icons.flag),
-
-                          percent: percent,
-                        ),
-                      );
-                    }
-                  )
+                  child: PlantProgressIndicator(plantName),
                 )
               ],
             )

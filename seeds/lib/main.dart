@@ -66,20 +66,10 @@ class SeedsApp extends StatelessWidget {
             '/': (context) => DashboardPage(),
             '/settings': (context) => SettingsPage(),
 
-            '/plant': (context) {
-              String plantName = ModalRoute.of(context).settings.arguments;
-              return PlantPage(
-                  plantName: plantName,
-                  initialProgress: Provider.of<ProgressData>(context, listen: false).getProgressRecord(plantName).progress,
-              );
-            },
-
+            '/plant': (context) => PlantPage(plantName: ModalRoute.of(context).settings.arguments),
             '/plant/activity': (context) => ActivityPage(ModalRoute.of(context).settings.arguments),
 
-            '/journal': (context) {
-              String plantName = ModalRoute.of(context).settings.arguments;
-              return JournalPage(defaultFilter: plantName);
-            },
+            '/journal': (context) => JournalPage(defaultFilter: ModalRoute.of(context).settings.arguments),
           },
         )
       )
