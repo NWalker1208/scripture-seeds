@@ -10,13 +10,16 @@ class JournalDashboard extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Topics'),
+            Text('Journal'),
             StreakIndicator()
           ],
         ),
 
         // Plant list
-        Text('Smart journal')
+        RaisedButton(
+          child: Text('Open Journal'),
+          onPressed: () => Navigator.of(context).pushNamed('/journal'),
+        )
       ],
     );
   }
