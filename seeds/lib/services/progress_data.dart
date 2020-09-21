@@ -21,6 +21,9 @@ class ProgressData extends ChangeNotifier {
   // Check if the database has been loaded
   bool get isLoaded => _records != null;
 
+  // Get list of existing records
+  List<ProgressRecord> get records => _records?.values?.toList() ?? [];
+
   // Gets the progress for a specific item
   // Returns a record with 0 progress if the record does not exist or if the
   // records have not been loaded.

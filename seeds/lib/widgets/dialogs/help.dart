@@ -38,7 +38,7 @@ class HelpDialog extends StatelessWidget {
       ),
       actions: [
         FlatButton(
-          child: Text('Ok'),
+          child: Text('OK'),
           onPressed: () => Navigator.of(context).pop()
         ),
       ],

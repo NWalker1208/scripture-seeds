@@ -61,7 +61,7 @@ class _JournalPageState extends State<JournalPage> {
 
       child: Scaffold(
         appBar: AppBar(
-          title: Text('My Journal'),
+          title: Text('Journal'),
           actions: <Widget>[
             IconButton(
               icon: Icon(editMode ? Icons.cancel : Icons.edit),
@@ -76,20 +76,21 @@ class _JournalPageState extends State<JournalPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Topics'),
-                  SizedBox(width: 12.0,),
+                  Text('Topic', style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white)),
+                  SizedBox(width: 16.0),
                   DropdownButton<String>(
                     value: filter,
-                    icon: Icon(Icons.arrow_drop_down),
+                    dropdownColor: Theme.of(context).primaryColor,
+                    icon: Icon(Icons.arrow_drop_down, color: Colors.white),
                     onChanged: (topic) => setState(() => filter = topic),
 
                     items: [DropdownMenuItem<String>(
                       value: null,
-                      child: Text('All'),
+                      child: Text('All', style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white)),
                     )] +
                     Provider.of<Library>(context, listen: false).topics.map((topic) => DropdownMenuItem<String>(
                       value: topic,
-                      child: Text(topic.capitalize()),
+                      child: Text(topic.capitalize(), style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white)),
                     )).toList()
                   ),
                 ],

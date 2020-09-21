@@ -9,12 +9,12 @@ class ExtraStudyDialog extends StatelessWidget {
 
       actions: <Widget>[
         FlatButton(
-            child: Text('Yes'),
+            child: Text('CONTINUE'),
             onPressed: () => Navigator.of(context).pop(true)
         ),
 
         FlatButton(
-            child: Text('No'),
+            child: Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false)
         ),
       ],

@@ -11,7 +11,7 @@ class EraseJournalDialog extends StatelessWidget {
 
       actions: <Widget>[
         // Reset progress if user selects yes
-        new FlatButton(child: Text('Yes'), onPressed: () {
+        new FlatButton(child: Text('CONTINUE'), onPressed: () {
           Navigator.of(context).pop(true);
 
           JournalData progressData = Provider.of<JournalData>(context, listen: false);
@@ -19,7 +19,7 @@ class EraseJournalDialog extends StatelessWidget {
         }),
 
         // Close dialog if user selects no
-        new RaisedButton(child: Text('No'), onPressed: () => Navigator.of(context).pop(false))
+        new RaisedButton(child: Text('CANCEL'), onPressed: () => Navigator.of(context).pop(false))
       ],
     );
   }

@@ -56,69 +56,75 @@ class SettingsPage extends StatelessWidget {
       ),
 
       body: Builder(
-        builder: (scaffoldContext) => Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: ListView(
-            children: <Widget>[
-              // Theme Dropdown
-              Row(
+        builder: (scaffoldContext) => ListView(
+          children: <Widget>[
+            // Theme Dropdown
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Expanded(child: Padding(
-                    padding: const EdgeInsets.only(left: 12.0),
-                    child: Text('App Theme'),
-                  )),
-                  SizedBox(width: 12.0),
+                  Text('Theme', style: Theme.of(context).textTheme.subtitle1),
+                  SizedBox(width: 16),
                   ThemeModeSelector()
                 ],
               ),
+            ),
 
-              Divider(),
+            Divider(),
 
-              RaisedButton(
-                child: Text('Sync Library'),
-                onPressed: () => resetLibraryCache(scaffoldContext),
-                textColor: Colors.white
-              ),
-
-              // Reset Progress Button
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: RaisedButton(
-                      child: Text('Erase Journal'),
-                      onPressed: () => eraseJournal(scaffoldContext),
-                      textColor: Colors.white,
-                      color: Theme.of(context).errorColor
-                    ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  RaisedButton(
+                    child: Text('Sync Library'),
+                    onPressed: () => resetLibraryCache(scaffoldContext),
+                    textColor: Colors.white
                   ),
-                  SizedBox(width: 12.0),
-                  Expanded(
-                    child: RaisedButton(
-                      child: Text('Reset Progress'),
-                      onPressed: () => resetProgress(scaffoldContext),
-                      textColor: Colors.white,
-                      color: Theme.of(context).errorColor
-                    ),
+
+                  // Reset Progress Button
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: RaisedButton(
+                          child: Text('Erase Journal'),
+                          onPressed: () => eraseJournal(scaffoldContext),
+                          textColor: Colors.white,
+                          color: Theme.of(context).errorColor
+                        ),
+                      ),
+                      SizedBox(width: 12.0),
+                      Expanded(
+                        child: RaisedButton(
+                          child: Text('Reset Progress'),
+                          onPressed: () => resetProgress(scaffoldContext),
+                          textColor: Colors.white,
+                          color: Theme.of(context).errorColor
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
+            ),
 
-              Divider(),
+            Divider(),
 
-              FlatButton(
-                child: Text('About Scripture Seeds'),
-                onPressed: () => PackageInfo.fromPlatform().then((info) => showAboutDialog(
-                  context: context,
-                  applicationName: 'Scripture Seeds',
-                  applicationIcon: ImageIcon(AssetImage('assets/seeds_icon.ico'), size: 40),
-                  applicationVersion: info.version,
-                  children: [
-                    Text('App developed by Nathan Walker.')
-                  ]
-                ))
-              )
-            ],
-          ),
+            ListTile(
+              title: Text('About Scripture Seeds', textAlign: TextAlign.center),
+              onTap: () => PackageInfo.fromPlatform().then((info) => showAboutDialog(
+                context: context,
+                applicationName: 'Scripture Seeds',
+                applicationIcon: ImageIcon(AssetImage('assets/seeds_icon.ico'), size: 40),
+                applicationVersion: info.version,
+                children: [
+                  Text('App developed by Nathan Walker.')
+                ]
+              ))
+            )
+          ],
         ),
       )
     );
