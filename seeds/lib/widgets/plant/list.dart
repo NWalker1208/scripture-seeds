@@ -39,7 +39,6 @@ class PlantList extends StatelessWidget {
           ProgressRecord progress = progressData.getProgressRecord(topic);
 
           return FlatButton(
-            padding: EdgeInsets.all(8.0),
             disabledTextColor: selectedColor,
             onPressed: onPressed,
             child: PlantStatus(progress)

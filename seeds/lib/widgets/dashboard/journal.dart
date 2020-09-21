@@ -7,12 +7,15 @@ class JournalDashboard extends StatelessWidget {
     return Column(
       children: [
         // Dashboard item title
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Journal'),
-            StreakIndicator()
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Journal', style: Theme.of(context).textTheme.subtitle1),
+              StreakIndicator()
+            ],
+          ),
         ),
 
         // Plant list

@@ -11,12 +11,15 @@ class TopicsDashboard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Dashboard item title
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Topics'),
-            WalletIndicator()
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Topics', style: Theme.of(context).textTheme.subtitle1),
+              WalletIndicator()
+            ],
+          ),
         ),
 
         // Plant list

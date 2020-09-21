@@ -3,6 +3,7 @@ import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_record.dart';
 import 'package:seeds/widgets/dialogs/extra_study.dart';
 import 'package:seeds/widgets/help_page.dart';
+import 'package:seeds/widgets/plant/drawer.dart';
 import 'package:seeds/widgets/plant/list.dart';
 import 'package:seeds/widgets/plant/progress_indicator.dart';
 import 'package:seeds/widgets/plant/view.dart';
@@ -48,61 +49,7 @@ class PlantPage extends StatelessWidget {
             title: Text('My Plant')
           ),
 
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                DrawerHeader(
-                  margin: EdgeInsets.zero,
-                  decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-                  child: Center(
-                    child: Text(
-                      'My Garden',
-                      style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white)
-                    ),
-                  ),
-                ),
-
-                Padding(padding: EdgeInsets.all(8.0), child: Column(children: <Widget>[
-                  PlantList(plantName),
-
-                  Divider(),
-
-                  FlatButton(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(right:16.0),
-                          child: Icon(Icons.home),
-                        ),
-                        Expanded(child: Text('Home')),
-                      ],
-                    ),
-
-                    onPressed: () { Navigator.pop(context); Navigator.pop(context); },
-                  ),
-
-                  FlatButton(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(right:16.0),
-                          child: Icon(Icons.settings),
-                        ),
-                        Expanded(child: Text('Settings')),
-                      ],
-                    ),
-
-                    onPressed: () => Navigator.pushNamed(context, '/settings'),
-                  )
-                  ],
-
-                ),),
-              ],
-            )
-          ),
+          drawer: PlantSelectDrawer(plantName),
 
           backgroundColor: Colors.transparent,
           body: Align(

@@ -11,6 +11,7 @@ class AppThemes {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     buttonTheme: ButtonThemeData(
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     cardTheme: CardTheme(
@@ -40,6 +41,7 @@ class AppThemes {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     buttonTheme: ButtonThemeData(
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     ),
     cardTheme: CardTheme(
