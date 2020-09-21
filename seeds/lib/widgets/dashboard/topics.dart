@@ -43,6 +43,7 @@ class TopicsDashboard extends StatelessWidget {
                      padding: const EdgeInsets.symmetric(horizontal: 4),
                      child: RaisedButton(
                        child: Text(library.topics[index].capitalize()),
+                       textColor: Colors.white,
                        onPressed: () => purchaseAndOpen(context, library.topics[index]),
                      ),
                    )

@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:seeds/services/utility.dart';
 
-class ProgressRecord {
+class ProgressRecord implements Comparable<ProgressRecord> {
   static const String kName = 'name';
   static const String kProgress = 'progress';
   static const String kReward = 'rewardAvailable';
@@ -38,6 +38,19 @@ class ProgressRecord {
   String toString() {
     return toMap().toString();
   }
+
+  @override
+  int compareTo(ProgressRecord other) {
+    int comp = other._priority.compareTo(_priority);
+
+    if (comp == 0)
+      comp = name.compareTo(other.name);
+
+    return comp;
+  }
+
+  // Getter
+  int get _priority => (progressLost ?? 0) + (canMakeProgressToday ? 1 : 0);
 
   int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
   bool get canMakeProgressToday => _lastUpdate == null || daysSinceLastUpdate > 0;

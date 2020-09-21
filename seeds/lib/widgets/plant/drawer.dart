@@ -18,8 +18,8 @@ class PlantSelectDrawer extends StatelessWidget {
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
             child: Center(
               child: Text(
-                  'Scripture Seeds',
-                  style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.white)
+                'Scripture Seeds',
+                style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.white)
               ),
             ),
           ),

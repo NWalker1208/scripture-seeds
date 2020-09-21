@@ -81,7 +81,8 @@ class _JournalPageState extends State<JournalPage> {
                   DropdownButton<String>(
                     value: filter,
                     dropdownColor: Theme.of(context).primaryColor,
-                    icon: Icon(Icons.arrow_drop_down, color: Colors.white),
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconEnabledColor: Colors.white,
                     onChanged: (topic) => setState(() => filter = topic),
 
                     items: [DropdownMenuItem<String>(

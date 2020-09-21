@@ -32,17 +32,7 @@ class PlantsDashboard extends StatelessWidget {
               records.removeWhere((record) => !library.topics.contains(record.name));
 
               // Sort records so that incomplete ones go first
-              records.sort((a, b) {
-                bool _a = a.canMakeProgressToday;
-                bool _b = b.canMakeProgressToday;
-
-                if (_a && !_b)
-                  return -1;
-                else if (!_a && _b)
-                  return 1;
-                else
-                  return a.name.compareTo(b.name);
-              });
+              records.sort();
 
               return ListView.separated(
                 padding: EdgeInsets.all(8),

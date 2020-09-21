@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/services/progress_record.dart';
 
@@ -15,7 +16,13 @@ class DailyProgressIndicator extends StatelessWidget {
           if (!record.canMakeProgressToday) completed++;
         });
 
-        return Text('$completed / ${records.length}');
+        return Row(
+          children: [
+            Text('$completed / ${records.length}'),
+            SizedBox(width: 4),
+            Icon(CustomIcons.water_drop)
+          ],
+        );
       },
     );
   }
