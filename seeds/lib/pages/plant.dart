@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/progress_record.dart';
+import 'package:seeds/services/wallet.dart';
 import 'package:seeds/widgets/dialogs/extra_study.dart';
 import 'package:seeds/widgets/help_page.dart';
 import 'package:seeds/widgets/plant/drawer.dart';
@@ -34,6 +35,16 @@ class PlantPage extends StatelessWidget {
       '/plant/activity',
       arguments: plantName
     );
+  }
+
+  void collectReward(BuildContext context) {
+    ProgressData progress = Provider.of<ProgressData>(context, listen: false);
+    int reward = progress.collectReward(plantName);
+    Provider.of<WalletData>(context, listen: false).give(reward);
+
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text('You collected $reward seeds.')
+    ));
   }
 
   @override
@@ -81,13 +92,17 @@ class PlantPage extends StatelessWidget {
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Consumer<ProgressData>(
             builder: (context, progressData, child) {
-              bool canMakeProgress = progressData.getProgressRecord(plantName).canMakeProgressToday;
+              ProgressRecord record = progressData.getProgressRecord(plantName);
+              bool reward = record.rewardAvailable;
+              bool canMakeProgress = record.canMakeProgressToday;
 
               return FloatingActionButton(
-                child: Icon(CustomIcons.water_drop),
-                backgroundColor: canMakeProgress ? Theme.of(context).accentColor : Colors.grey[500],
+                child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
+                backgroundColor: (canMakeProgress || reward) ? Theme.of(context).accentColor : Colors.grey[500],
                 onPressed: () {
-                  if (!canMakeProgress)
+                  if (reward)
+                    collectReward(context);
+                  else if (!canMakeProgress)
                     openActivityDialog(context);
                   else
                     openActivity(context);

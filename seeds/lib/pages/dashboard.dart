@@ -15,11 +15,20 @@ class DashboardPage extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              title: Text('Scripture Seeds'),
+              expandedHeight: 150,
+              pinned: true,
+              stretch: true,
+
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: const EdgeInsets.all(16),
+                title:  Text('Scripture Seeds'),
+                stretchModes: [StretchMode.fadeTitle],
+              ),
+
               actions: [
-                IconButton(
+                /*IconButton(
                   icon: Icon(Icons.search),
-                ),
+                ),*/
                 IconButton(
                   icon: Icon(Icons.settings),
                   onPressed: () => Navigator.pushNamed(context, '/settings'),

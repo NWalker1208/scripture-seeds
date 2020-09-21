@@ -18,6 +18,8 @@ class WalletData extends ChangeNotifier {
   }
 
   void give(int funds) {
+    print('$funds added to wallet.');
+
     _funds += funds;
     notifyListeners();
     _saveWallet();
@@ -26,6 +28,8 @@ class WalletData extends ChangeNotifier {
   bool spend(int funds) {
     if (_funds < funds)
       return false;
+
+    print('$funds spent from wallet.');
 
     _funds -= funds;
     notifyListeners();

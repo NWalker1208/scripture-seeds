@@ -98,5 +98,6 @@ class ProgressRecord implements Comparable<ProgressRecord> {
 
   void takeReward() {
     _rewardAvailable = false;
+    _lastProgress = 0;
   }
 }

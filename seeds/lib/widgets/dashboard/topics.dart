@@ -45,17 +45,21 @@ class TopicsDashboard extends StatelessWidget {
               if (wallet.availableFunds == 0)
                 return Text('Collect seeds to start new topics.', textAlign: TextAlign.center,);
 
+              List<String> topics = library.topics;
+              List<String> topicsAlreadyPurchased = progress.recordNames;
+              topics.removeWhere((t) => topicsAlreadyPurchased.contains(t));
+
               return Text.rich(
                 TextSpan(
                   children: List.generate(
-                      library.topics.length,
+                      topics.length,
                         (index) => WidgetSpan(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: RaisedButton(
-                            child: Text(library.topics[index].capitalize()),
+                            child: Text(topics[index].capitalize()),
                             textColor: Colors.white,
-                            onPressed: () => purchaseAndOpen(context, library.topics[index]),
+                            onPressed: () => purchaseAndOpen(context, topics[index]),
                           ),
                         )
                       )

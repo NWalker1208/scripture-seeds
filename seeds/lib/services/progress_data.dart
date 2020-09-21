@@ -22,6 +22,7 @@ class ProgressData extends ChangeNotifier {
   bool get isLoaded => _records != null;
 
   // Get list of existing records
+  List<String> get recordNames => _records?.keys?.toList() ?? [];
   List<ProgressRecord> get records => _records?.values?.toList() ?? [];
 
   // Gets the progress for a specific item
@@ -64,6 +65,20 @@ class ProgressData extends ChangeNotifier {
       return true;
     } else
       return false;
+  }
+
+  // Collects the reward from the given plant if available.
+  // Returns the number of seeds granted.
+  int collectReward(String name) {
+    ProgressRecord progress = getProgressRecord(name);
+
+    if (!progress.rewardAvailable)
+      return 0;
+
+    progress.takeReward();
+    _saveData();
+    notifyListeners();
+    return 2; // TODO: Randomize
   }
 
   // Deletes all progress entries

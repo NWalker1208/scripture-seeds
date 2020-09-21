@@ -32,5 +32,6 @@ class CustomIcons {
   static const IconData facebook = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData instagram = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData twitter = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sickle = IconData(0xea9d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData water_drop = IconData(0xeae4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
