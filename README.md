@@ -11,6 +11,11 @@ These items are necessary for the app to serve it's purpose.
 - [x] Finish home page
 - [x] Study journal
   - [x] Share, delete, and filter journal items
+- [ ] Fix bugs and issues
+  - [ ] Fix journal page topic list
+  - [ ] Fix sorting of plants
+  - [ ] Make plants disappear once harvested
+  - [ ] Fix plant display to not cover plant
 
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.
@@ -19,17 +24,18 @@ These items are necessary, but can be built upon over time.
 - [x] Add more topics and scriptures (1 week)
 - [x] Create remote library system
   - [x] Improve caching and refreshing of library
-- [ ] Add more variety to activities (extra, pre-release)
 
 ### 3) Features and Design (finish before release)
 These items are unnecessary, but improve the user experience.
 - [x] Fruit growth after reaching goal (1 week)
-  - [ ] System to unlock new topics with fruit
+  - [x] System to unlock new topics with fruit
+  - [ ] Improve rendering of fruit
 - [ ] Search for topic
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
 - [ ] Improve journal page
 - [ ] Define word in scripture (1 week)
+- [ ] Implement video system in activities
 - [ ] Share picture quote (1 week)
 - [ ] Improve plant display (1 week)
   - [x] Make scaling relative to size
