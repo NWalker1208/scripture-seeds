@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/wallet.dart';
 
 class ResetProgressDialog extends StatelessWidget {
   @override
@@ -14,8 +15,11 @@ class ResetProgressDialog extends StatelessWidget {
         new FlatButton(child: Text('CONTINUE'), onPressed: () {
           Navigator.of(context).pop(true);
 
-          ProgressData progressData = Provider.of<ProgressData>(context, listen: false);
-          progressData.resetProgress();
+          ProgressData progress = Provider.of<ProgressData>(context, listen: false);
+          progress.resetProgress();
+
+          WalletData wallet = Provider.of<WalletData>(context, listen: false);
+          wallet.reset();
         }),
 
         // Close dialog if user selects no

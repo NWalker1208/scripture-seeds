@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class WalletData extends ChangeNotifier {
   static const String kWallet = 'wallet';
+  static const int kInitialBalance = 3;
 
   int _funds;
   int get availableFunds => _funds;
@@ -12,7 +13,7 @@ class WalletData extends ChangeNotifier {
 
     // Get shared preferences
     SharedPreferences.getInstance().then((prefs) {
-      _funds = prefs.getInt(kWallet) ?? 3;
+      _funds = prefs.getInt(kWallet) ?? kInitialBalance;
       notifyListeners();
     });
   }
@@ -35,6 +36,12 @@ class WalletData extends ChangeNotifier {
     notifyListeners();
     _saveWallet();
     return true;
+  }
+
+  void reset() {
+    _funds = kInitialBalance;
+    notifyListeners();
+    _saveWallet();
   }
 
   void _saveWallet() async {
