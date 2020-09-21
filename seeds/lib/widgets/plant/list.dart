@@ -12,39 +12,40 @@ class PlantList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> topics = Provider.of<Library>(context, listen: true).topics.toList();
+    return Consumer2<ProgressData, Library>(
+      builder: (context, progress, library, child) {
+        List<ProgressRecord> records = progress.records;
+        records.removeWhere((record) => !library.topics.contains(record.name));
 
-    return Consumer<ProgressData>(
-      builder: (context, progressData, child) => Column(
-        // This column will build the list of plants based on the progressData stream
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        return Column(
+          // This column will build the list of plants based on the progressData stream
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
 
-        // Children will be made from the list of topics
-        children: topics.map((topic) {
-          // Create an onPressed event if the topic is not currently open
-          var onPressed = () => Navigator.of(context).pushReplacementNamed(
-            '/plant',
-            arguments: topic
-          );
+          // Children will be made from the list of topics
+          children: records.map((record) {
+            // Create an onPressed event if the topic is not currently open
+            var onPressed = () => Navigator.of(context).pushReplacementNamed(
+              '/plant',
+              arguments: record.name
+            );
 
-          if (topic == currentlyOpen)
-            onPressed = null;
+            if (record.name == currentlyOpen)
+              onPressed = null;
 
-          // Choose a color based on the theme for the item that is currently open
-          Color selectedColor = Theme.of(context).brightness == Brightness.light ?
-            Colors.green[800] :
-            Colors.green[300];
+            // Choose a color based on the theme for the item that is currently open
+            Color selectedColor = Theme.of(context).brightness == Brightness.light ?
+              Colors.green[800] :
+              Colors.green[300];
 
-          ProgressRecord progress = progressData.getProgressRecord(topic);
-
-          return FlatButton(
-            disabledTextColor: selectedColor,
-            onPressed: onPressed,
-            child: PlantStatus(progress)
-          );
-        }).toList()
-      ),
+            return FlatButton(
+              disabledTextColor: selectedColor,
+              onPressed: onPressed,
+              child: PlantStatus(record)
+            );
+          }).toList()
+        );
+      }
     );
   }
 }
