@@ -31,6 +31,10 @@ class PlantsDashboard extends StatelessWidget {
               List<ProgressRecord> records = progress.records;
               records.removeWhere((record) => !library.topics.contains(record.name));
 
+              // If no plants are started, show a message
+              if (records.length == 0)
+                return Center(child: Text('Select a topic below to begin.'));
+
               // Sort records so that incomplete ones go first
               records.sort();
 

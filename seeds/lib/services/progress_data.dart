@@ -54,9 +54,6 @@ class ProgressData extends ChangeNotifier {
 
     ProgressRecord progress = getProgressRecord(name);
 
-    if (progress == null)
-      return false;
-
     if (force || progress.canMakeProgressToday) {
       progress.updateProgress();
       _records[name] = progress;

@@ -25,7 +25,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
         name = data[kName],
         _lastProgress = data[kProgress] ?? 0,
         _rewardAvailable = (data[kReward] ?? 0) == 1,
-        _lastUpdate = DateTime.parse(data[kLastUpdate]);
+        _lastUpdate = data[kLastUpdate] == 'null' ? null : DateTime.parse(data[kLastUpdate]);
 
   Map<String, dynamic> toMap() => {
     kName: name,

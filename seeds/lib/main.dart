@@ -14,6 +14,7 @@ import 'package:seeds/services/progress_data.dart';
 import 'package:seeds/services/theme_preference.dart';
 import 'package:seeds/services/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/wallet.dart';
 
 void main() {
   // Make status bar transparent
@@ -29,6 +30,7 @@ class SeedsApp extends StatelessWidget {
     ThemePreference themePref = ThemePreference();
     HelpSettings helpSettings = HelpSettings();
     ProgressData progress = ProgressData();
+    WalletData wallet = WalletData();
     JournalData journal = JournalData();
 
     Library library = Library();
@@ -44,6 +46,8 @@ class SeedsApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: helpSettings),
         // ProgressData notifier
         ChangeNotifierProvider.value(value: progress),
+        // WalletData notifier
+        ChangeNotifierProvider.value(value: wallet),
         // JournalData notifier
         ChangeNotifierProvider.value(value: journal),
         // Library notifier
