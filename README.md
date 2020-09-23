@@ -30,6 +30,8 @@ These items are unnecessary, but improve the user experience.
 - [x] Fruit growth after reaching goal (1 week)
   - [x] System to unlock new topics with fruit
   - [ ] Improve rendering of fruit
+- [ ] Finish basic journal dashboard widget
+  - [ ] Create smart journal widget
 - [ ] Search for topic
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
