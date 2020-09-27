@@ -9,7 +9,8 @@ class Library extends ChangeNotifier {
   List<StudyResource> resources;
 
   bool get loaded => _topics != null && resources != null;
-  List<String> get topics => (_topics?.toList() ?? [])..sort();
+  Set<String> get topics => _topics?.toSet() ?? Set<String>();
+  List<String> get topicsSorted => (_topics?.toList() ?? <String>[])..sort();
 
   Library([XmlDocument xmlDoc]) {
     if (xmlDoc != null)

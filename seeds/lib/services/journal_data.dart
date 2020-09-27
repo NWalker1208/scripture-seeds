@@ -60,7 +60,13 @@ class JournalData extends ChangeNotifier {
   }
 
   bool get isLoaded => _entries != null;
-  List<JournalEntry> get entries => _entries ?? List<JournalEntry>();
+  List<JournalEntry> get entries => _entries?.toList() ?? <JournalEntry>[];
+
+  Set<String> get topics {
+    Set<String> _topics = Set<String>();
+    entries.forEach((entry) => _topics.addAll(entry.tags));
+    return _topics;
+  }
 
   void createEntry(JournalEntry entry) {
     _entries.add(entry);
@@ -82,6 +88,15 @@ class JournalData extends ChangeNotifier {
 
       _deleteEntry(entry);
     }
+  }
+
+  void deleteEntrySet(Set<JournalEntry> entriesToDelete) {
+    entriesToDelete.forEach((entry) {
+      _entries.remove(entry);
+      _deleteEntry(entry);
+    });
+
+    notifyListeners();
   }
 
   void deleteAllEntries() {

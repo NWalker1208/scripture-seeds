@@ -28,15 +28,12 @@ class PlantsDashboard extends StatelessWidget {
           height: 250,
           child: Consumer2<ProgressData, Library>(
             builder: (context, progress, library, child) {
-              List<ProgressRecord> records = progress.records;
-              records.removeWhere((record) => !library.topics.contains(record.name));
+              // Sort records so that incomplete ones go first
+              List<ProgressRecord> records = progress.recordsWithTopics(library.topics)..sort();
 
               // If no plants are started, show a message
               if (records.length == 0)
                 return Center(child: Text('Select a topic below to begin.'));
-
-              // Sort records so that incomplete ones go first
-              records.sort();
 
               return ListView.separated(
                 padding: EdgeInsets.all(8),

@@ -22,8 +22,15 @@ class ProgressData extends ChangeNotifier {
   bool get isLoaded => _records != null;
 
   // Get list of existing records
-  List<String> get recordNames => _records?.keys?.toList() ?? [];
-  List<ProgressRecord> get records => _records?.values?.toList() ?? [];
+  List<String> get recordNames => _records?.keys?.toList() ?? <String>[];
+  List<ProgressRecord> get records => _records?.values?.toList() ?? <ProgressRecord>[];
+
+  // Returns all progress records with topics from the set given.
+  List<ProgressRecord> recordsWithTopics(Set<String> topics) {
+    List<ProgressRecord> recordList = records;
+    recordList.removeWhere((record) => !topics.contains(record.name));
+    return recordList;
+  }
 
   // Gets the progress for a specific item
   // Returns a record with 0 progress if the record does not exist or if the
@@ -67,6 +74,17 @@ class ProgressData extends ChangeNotifier {
       return false;
   }
 
+  // Deletes a record from progress data, such as when a plant is harvested.
+  bool removeProgressRecord(String name) {
+    if (isLoaded && _records.containsKey(name)) {
+      _records.remove(name);
+      _saveData();
+      notifyListeners();
+      return true;
+    } else
+      return false;
+  }
+
   // Collects the reward from the given plant if available.
   // Returns the number of seeds granted.
   int collectReward(String name) {
@@ -78,6 +96,7 @@ class ProgressData extends ChangeNotifier {
     progress.takeReward();
     _saveData();
     notifyListeners();
+
     return 2; // TODO: Randomize
   }
 
@@ -153,8 +172,8 @@ class ProgressData extends ChangeNotifier {
     final String path = databasePath + kDatabaseFile;
 
     return openDatabase(path, version: 2,
-        onCreate: _createProgressTable,
-        onUpgrade: _upgradeProgressTable
+      onCreate: _createProgressTable,
+      onUpgrade: _upgradeProgressTable
     );
   }
 

@@ -50,7 +50,9 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   }
 
   // Getter
-  int get _priority => (progressLost ?? 0) + (canMakeProgressToday ? 1 : 0);
+  int get _priority => (progressLost ?? -4) + 4 +
+                       (canMakeProgressToday ? 2 : 0) +
+                       (_lastProgress > 0 ? 1 : 0);
 
   int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
   bool get canMakeProgressToday => _lastUpdate == null || daysSinceLastUpdate > 0;
@@ -61,15 +63,19 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   int get progressLost {
     int lost = daysSinceLastUpdate;
 
-    if (lost == null)
+    // If no lastUpdate is recorded or progress is 0, no progress has been lost
+    if (lost == null || _lastProgress == 0)
       return null;
-    else
-      lost -= kMaxInactiveDays;
 
+    // Subtract the time until progress can be lost
+    lost -= kMaxInactiveDays;
+
+    // If progress will not be lost after today, return null
     if (lost < 0)
       return null;
-    else
-      return lost;
+
+    // Limit progress lost to the amount of progress made
+    return min(lost, _lastProgress);
   }
 
   // Access progress adjusted for loss and limits

@@ -5,7 +5,6 @@ import 'package:seeds/services/wallet.dart';
 import 'package:seeds/widgets/dialogs/extra_study.dart';
 import 'package:seeds/widgets/help_page.dart';
 import 'package:seeds/widgets/plant/drawer.dart';
-import 'package:seeds/widgets/plant/list.dart';
 import 'package:seeds/widgets/plant/progress_indicator.dart';
 import 'package:seeds/widgets/plant/view.dart';
 import 'package:social_share/social_share.dart';

@@ -4,6 +4,7 @@ import 'package:seeds/services/library/library_xml.dart';
 import 'package:seeds/widgets/help_page.dart';
 import 'package:seeds/widgets/plant/button.dart';
 
+@Deprecated('Use dashboard instead')
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

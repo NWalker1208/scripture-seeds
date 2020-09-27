@@ -20,7 +20,7 @@ class JournalDashboard extends StatelessWidget {
 
         // Plant list
         RaisedButton(
-          child: Text('Open Journal'),
+          child: Text('View All'),
           textColor: Colors.white,
           onPressed: () => Navigator.of(context).pushNamed('/journal'),
         )

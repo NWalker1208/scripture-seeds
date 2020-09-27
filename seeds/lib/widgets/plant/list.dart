@@ -14,8 +14,7 @@ class PlantList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer2<ProgressData, Library>(
       builder: (context, progress, library, child) {
-        List<ProgressRecord> records = progress.records;
-        records.removeWhere((record) => !library.topics.contains(record.name));
+        List<ProgressRecord> records = progress.recordsWithTopics(library.topics)..sort();
 
         return Column(
           // This column will build the list of plants based on the progressData stream

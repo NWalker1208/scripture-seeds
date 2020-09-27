@@ -12,9 +12,9 @@ These items are necessary for the app to serve it's purpose.
 - [x] Study journal
   - [x] Share, delete, and filter journal items
 - [ ] Fix bugs and issues
-  - [ ] Fix journal page topic list
-  - [ ] Fix sorting of plants
-  - [ ] Make plants disappear once harvested
+  - [x] Fix journal page topic list
+  - [x] Fix sorting of plants
+  - [x] Make plants disappear once harvested
   - [ ] Fix plant display to not cover plant
 
 ### 2) Content (finish before beta)
