@@ -15,6 +15,7 @@ These items are necessary for the app to serve it's purpose.
   - [x] Fix journal page topic list
   - [x] Fix sorting of plants
   - [x] Make plants disappear once harvested
+  - [ ] Confirm deletion of journal entries
   - [ ] Fix plant display to not cover plant
 
 ### 2) Content (finish before beta)
