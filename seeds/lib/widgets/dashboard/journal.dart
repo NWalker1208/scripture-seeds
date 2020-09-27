@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/widgets/dashboard/indicators/streak.dart';
+import 'package:seeds/widgets/journal_entry.dart';
 
 class JournalDashboard extends StatelessWidget {
   @override
@@ -18,8 +21,26 @@ class JournalDashboard extends StatelessWidget {
           ),
         ),
 
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Consumer<JournalData>(
+            builder: (context, journal, child) {
+              if (journal.entries.length == 0)
+                return Text('Your most recent journal entry will appear here.');
+
+              return Column(
+                children: [
+                  Text('Most recent entry', style: Theme.of(context).textTheme.caption),
+                  SizedBox(height: 8),
+                  JournalEntryView(journal.entries.last),
+                ],
+              );
+            }
+          ),
+        ),
+
         // Plant list
-        RaisedButton(
+        FlatButton(
           child: Text('View All'),
           textColor: Colors.white,
           onPressed: () => Navigator.of(context).pushNamed('/journal'),

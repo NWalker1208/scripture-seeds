@@ -58,7 +58,7 @@ class _ShareActivityState extends State<ShareActivity> {
                   ActivityPage.of(context)?.updateSaveToJournal(save);
                 })
               ),
-              Text('Save to Journal')
+              Text('Save to journal')
             ],
           ),
         ],

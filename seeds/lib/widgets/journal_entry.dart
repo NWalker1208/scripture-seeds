@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/services/social_share_system.dart';
+import 'package:intl/intl.dart';
 
 class JournalEntryView extends StatelessWidget {
   final JournalEntry entry;
@@ -23,7 +24,10 @@ class JournalEntryView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(entry.reference, style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),),
-                    Text(entry.commentary, style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),)
+                    SizedBox(height: 4),
+                    Text(entry.commentary, style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),),
+                    SizedBox(height: 8),
+                    Text(DateFormat('M/d/yyyy').format(entry.created), style: Theme.of(context).textTheme.caption,),
                   ]
               ),
             ),
