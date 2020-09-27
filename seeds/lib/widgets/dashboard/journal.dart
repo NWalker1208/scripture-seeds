@@ -42,7 +42,6 @@ class JournalDashboard extends StatelessWidget {
         // Plant list
         FlatButton(
           child: Text('View All'),
-          textColor: Colors.white,
           onPressed: () => Navigator.of(context).pushNamed('/journal'),
         )
       ],
