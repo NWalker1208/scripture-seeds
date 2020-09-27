@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/journal_data.dart';
 import 'package:seeds/services/utility.dart';
+import 'package:seeds/widgets/dialogs/erase_journal_entry.dart';
 import 'package:seeds/widgets/journal_entry.dart';
 
 class JournalPage extends StatefulWidget {
@@ -30,9 +31,16 @@ class _JournalPageState extends State<JournalPage> {
   }
 
   void deleteSelected() {
-    Provider.of<JournalData>(context, listen: false).deleteEntrySet(selected);
-    checkFilter();
-    toggleEditMode();
+    showDialog<bool>(
+      context: context,
+      barrierDismissible: true,
+      builder: (_) => EraseEntryDialog(selected)
+    ).then((deleted) {
+      if (deleted) {
+        checkFilter();
+        toggleEditMode();
+      }
+    });
   }
 
   void checkFilter() {
@@ -170,7 +178,8 @@ class _JournalPageState extends State<JournalPage> {
 
         floatingActionButton: !editMode ? null : FloatingActionButton(
           child: Icon(Icons.delete),
-          onPressed: deleteSelected,
+          backgroundColor: selected.length == 0 ? Colors.grey[500] : Theme.of(context).accentColor,
+          onPressed: selected.length == 0 ? null : deleteSelected,
         ),
       ),
     );

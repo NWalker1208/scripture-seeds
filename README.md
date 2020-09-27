@@ -15,7 +15,7 @@ These items are necessary for the app to serve it's purpose.
   - [x] Fix journal page topic list
   - [x] Fix sorting of plants
   - [x] Make plants disappear once harvested
-  - [ ] Confirm deletion of journal entries
+  - [x] Confirm deletion of journal entries
   - [ ] Fix plant display to not cover plant
 
 ### 2) Content (finish before beta)
@@ -31,7 +31,7 @@ These items are unnecessary, but improve the user experience.
 - [x] Fruit growth after reaching goal (1 week)
   - [x] System to unlock new topics with fruit
   - [ ] Improve rendering of fruit
-- [ ] Finish basic journal dashboard widget
+- [x] Finish basic journal dashboard widget
   - [ ] Create smart journal widget
 - [ ] Search for topic
 - [ ] Add reminder notifications (0.5 weeks)

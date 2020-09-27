@@ -12,7 +12,7 @@ class ResetProgressDialog extends StatelessWidget {
 
       actions: <Widget>[
         // Reset progress if user selects yes
-        new FlatButton(child: Text('CONTINUE'), onPressed: () {
+        FlatButton(child: Text('CONTINUE'), onPressed: () {
           Navigator.of(context).pop(true);
 
           ProgressData progress = Provider.of<ProgressData>(context, listen: false);
@@ -23,7 +23,7 @@ class ResetProgressDialog extends StatelessWidget {
         }),
 
         // Close dialog if user selects no
-        new RaisedButton(child: Text('CANCEL'), onPressed: () => Navigator.of(context).pop(false))
+        RaisedButton(child: Text('CANCEL'), onPressed: () => Navigator.of(context).pop(false))
       ],
     );
   }
