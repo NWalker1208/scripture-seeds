@@ -15,7 +15,7 @@ class SocialShareSystem {
     bool success = false;
 
     if (platform == SharePlatform.system) {
-      success = await SocialShare.shareOptions('${entry.reference}\n${entry.commentary}');
+      success = await SocialShare.shareOptions(entry.toString());
     } else {
       print('Error: Platform ${platform.toString()} not yet implemented.');
     }

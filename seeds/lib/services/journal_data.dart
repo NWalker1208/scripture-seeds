@@ -7,17 +7,22 @@ const String _kJournalFolder = '/study_journal/';
 const String _kEntryFileExtension = '.jrnent';
 
 const String _kFileCreated = 'created';
+const String _kFileQuote = 'quote';
 const String _kFileReference = 'reference';
+const String _kFileURL = 'url';
 const String _kFileCommentary = 'commentary';
 const String _kFileTags = 'tags';
 
 class JournalEntry implements Comparable<JournalEntry> {
   DateTime created;
+  String quote;
   String reference;
+  String url;
   String commentary;
   List<String> tags;
 
-  JournalEntry({DateTime created, this.reference = '', this.commentary = '', List<String> tags})
+  JournalEntry({DateTime created, this.quote = '', this.reference = '',
+                this.url = '', this.commentary = '', List<String> tags})
    : this.created = created ?? DateTime.now(),
      this.tags = tags ?? List<String>();
 
@@ -27,7 +32,9 @@ class JournalEntry implements Comparable<JournalEntry> {
     created = data.containsKey(_kFileCreated) ?
       DateTime.parse(data[_kFileCreated]) : null;
 
+    quote = data[_kFileQuote] ?? data[_kFileReference] ?? '';
     reference = data[_kFileReference] ?? '';
+    url = data[_kFileURL] ?? '';
     commentary = data[_kFileCommentary] ?? '';
 
     tags = data.containsKey(_kFileTags) ?
@@ -37,10 +44,20 @@ class JournalEntry implements Comparable<JournalEntry> {
   String toJSON() {
     Map<String, dynamic> data = Map<String, dynamic>();
     data[_kFileCreated] = created.toString();
+    data[_kFileQuote] = quote;
     data[_kFileReference] = reference;
+    data[_kFileURL] = url;
     data[_kFileCommentary] = commentary;
     data[_kFileTags] = tags;
     return jsonEncode(data);
+  }
+
+  @override
+  String toString() {
+    if (quote != reference)
+      return '$quote - $reference\n$commentary\n$url';
+    else
+      return '$quote\n$commentary';
   }
 
   String get fileName {

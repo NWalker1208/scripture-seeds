@@ -23,11 +23,34 @@ class JournalEntryView extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(entry.reference, style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),),
+                    RichText(
+                      text: TextSpan(
+                        text: entry.quote,
+                        style: DefaultTextStyle.of(context).style.copyWith(height: 1.5, fontStyle: FontStyle.italic),
+
+                        children: [
+                          if (entry.quote != entry.reference)
+                            WidgetSpan(
+                              child: Text(
+                                '  \u{2013} ${entry.reference}',
+                                style: DefaultTextStyle.of(context).style.copyWith(height: 1.5)
+                              ),
+                            )
+                        ]
+                      )
+                    ),
                     SizedBox(height: 4),
-                    Text(entry.commentary, style: DefaultTextStyle.of(context).style.copyWith(height: 1.5),),
+
+                    Text(
+                      entry.commentary,
+                      style: DefaultTextStyle.of(context).style.copyWith(height: 1.5)
+                    ),
                     SizedBox(height: 8),
-                    Text(DateFormat('M/d/yyyy').format(entry.created), style: Theme.of(context).textTheme.caption,),
+
+                    Text(DateFormat(
+                      'M/d/yyyy').format(entry.created),
+                      style: Theme.of(context).textTheme.caption
+                    ),
                   ]
               ),
             ),

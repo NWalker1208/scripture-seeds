@@ -45,7 +45,7 @@ class StudyActivityState extends State<StudyActivity> {
 
     // Update the share text
     String quote = buildSharableQuote(allWords);
-    ActivityPage.of(context)?.updateQuote('\u{201C}$quote\u{201D}\n- ${widget.resource.reference}');
+    ActivityPage.of(context)?.updateQuote('\u{201C}$quote\u{201D}');
   }
 
   @override
