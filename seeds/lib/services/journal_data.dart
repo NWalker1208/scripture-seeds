@@ -11,7 +11,7 @@ const String _kFileReference = 'reference';
 const String _kFileCommentary = 'commentary';
 const String _kFileTags = 'tags';
 
-class JournalEntry {
+class JournalEntry implements Comparable<JournalEntry> {
   DateTime created;
   String reference;
   String commentary;
@@ -47,6 +47,11 @@ class JournalEntry {
     return created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_') +
       _kEntryFileExtension;
   }
+
+  @override
+  int compareTo(JournalEntry other) {
+    return created.compareTo(other.created);
+  }
 }
 
 class JournalData extends ChangeNotifier {
@@ -55,6 +60,7 @@ class JournalData extends ChangeNotifier {
   JournalData() {
     _loadEntries().then((List<JournalEntry> entries) {
       _entries = entries;
+      _entries.sort();
       notifyListeners();
     });
   }
@@ -70,6 +76,7 @@ class JournalData extends ChangeNotifier {
 
   void createEntry(JournalEntry entry) {
     _entries.add(entry);
+    _entries.sort();
     notifyListeners();
 
     _saveNewEntry(entry);

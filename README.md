@@ -16,7 +16,7 @@ These items are necessary for the app to serve it's purpose.
   - [x] Fix sorting of plants
   - [x] Make plants disappear once harvested
   - [x] Confirm deletion of journal entries
-  - [ ] Fix plant display to not cover plant
+  - [x] Fix plant display to not cover plant
 
 ### 2) Content (finish before beta)
 These items are necessary, but can be built upon over time.

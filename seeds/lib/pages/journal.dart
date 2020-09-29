@@ -114,7 +114,7 @@ class _JournalPageState extends State<JournalPage> {
 
         body: Consumer<JournalData>(
           builder: (context, journal, child) {
-            List<JournalEntry> entries = journal.entries;
+            List<JournalEntry> entries = journal.entries.reversed.toList();
 
             if (filter != null)
               entries.removeWhere((entry) => !entry.tags.contains(filter));
