@@ -139,7 +139,7 @@ class LibraryFileManager {
       File cache = await _getCacheFile();
       if (!await cache.exists())
         cache.create(recursive: true);
-      cache.writeAsBytes(response.bodyBytes);
+      await cache.writeAsBytes(response.bodyBytes);
 
       return cache;
     }

@@ -7,8 +7,9 @@ import 'package:seeds/widgets/help_page.dart';
 import 'package:seeds/widgets/plant/drawer.dart';
 import 'package:seeds/widgets/plant/progress_indicator.dart';
 import 'package:seeds/widgets/plant/view.dart';
-import 'package:social_share/social_share.dart';
 import 'package:seeds/services/progress_data.dart';
+import 'package:seeds/services/utility.dart';
+import 'package:social_share/social_share.dart';
 import 'package:provider/provider.dart';
 
 class PlantPage extends StatelessWidget {
@@ -52,86 +53,71 @@ class PlantPage extends StatelessWidget {
       'plant',
       title: 'Plants',
       helpText: 'Water your plants each day by clicking the blue button below.',
-      child: PlantView(
-        plantName,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('My Plant')
-          ),
-
-          drawer: PlantSelectDrawer(plantName),
-
-          backgroundColor: Colors.transparent,
-          body: Align(
-            alignment: Alignment.bottomCenter,
-            // Plant Display Region
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                // Title (plantName)
-                Text(
-                  plantName,
-                  style: Theme.of(context).textTheme.headline3.copyWith(
-                    fontFamily: 'Scriptina',
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white
-                  )
-                ),
-
-                // Progress bar
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
-                  child: PlantProgressIndicator(plantName),
-                )
-              ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(plantName.capitalize()),
+          bottom: PreferredSize(
+            preferredSize: Size(0, 50),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: PlantProgressIndicator(plantName, textColor: Colors.white),
             )
           ),
+        ),
 
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: Consumer<ProgressData>(
-            builder: (context, progressData, child) {
-              ProgressRecord record = progressData.getProgressRecord(plantName);
-              bool reward = record.rewardAvailable;
-              bool canMakeProgress = record.canMakeProgressToday;
+        drawer: PlantSelectDrawer(plantName),
 
-              return FloatingActionButton(
-                child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
-                backgroundColor: (canMakeProgress || reward) ? Theme.of(context).accentColor : Colors.grey[500],
-                onPressed: () {
-                  if (reward)
-                    collectReward(context);
-                  else if (!canMakeProgress)
-                    openActivityDialog(context);
-                  else
-                    openActivity(context);
-                }
-              );
-            },
-          ),
+        backgroundColor: Colors.transparent,
+        body: PlantView(
+          plantName,
+          plantPadding: EdgeInsets.symmetric(vertical: 50)
+        ),
 
-          bottomNavigationBar: BottomAppBar(
-            shape: CircularNotchedRectangle(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.book),
-                  onPressed: () => Navigator.pushNamed(context, '/journal', arguments: plantName),
-                ),
-                Consumer<ProgressData>(
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.book),
+                onPressed: () => Navigator.pushNamed(context, '/journal', arguments: plantName),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Consumer<ProgressData>(
                   builder: (context, progressData, child) {
                     ProgressRecord record = progressData.getProgressRecord(plantName);
-                    return IconButton(
-                      icon: Icon(Icons.share),
-                      onPressed: () => SocialShare.shareOptions('Day ${record.progress} of ${record.maxProgress} on $plantName!'),
+                    bool reward = record.rewardAvailable;
+                    bool canMakeProgress = record.canMakeProgressToday;
+
+                    return FloatingActionButton(
+                        child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
+                        backgroundColor: (canMakeProgress || reward) ? Theme.of(context).accentColor : Colors.grey[500],
+                        onPressed: () {
+                          if (reward)
+                            collectReward(context);
+                          else if (!canMakeProgress)
+                            openActivityDialog(context);
+                          else
+                            openActivity(context);
+                        }
                     );
-                  }
-                )
-              ],
-            )
+                  },
+                ),
+              ),
+
+              Consumer<ProgressData>(
+                builder: (context, progressData, child) {
+                  ProgressRecord record = progressData.getProgressRecord(plantName);
+                  return IconButton(
+                    icon: Icon(Icons.share),
+                    onPressed: () => SocialShare.shareOptions('Day ${record.progress} of ${record.maxProgress} on $plantName!'),
+                  );
+                }
+              )
+            ],
           )
-        ),
+        )
       ),
     );
   }

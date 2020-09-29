@@ -82,9 +82,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-   - family: Scriptina
-     fonts:
-       - asset: fonts/Scriptina/scriptina.ttf
    - family: Buenard
      fonts:
        - asset: fonts/Buenard/Buenard-Regular.ttf

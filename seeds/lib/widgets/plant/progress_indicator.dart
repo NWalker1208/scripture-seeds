@@ -6,8 +6,9 @@ import 'package:seeds/services/progress_record.dart';
 
 class PlantProgressIndicator extends StatefulWidget {
   final String plantName;
+  final Color textColor;
 
-  PlantProgressIndicator(this.plantName, {Key key}) : super(key: key);
+  PlantProgressIndicator(this.plantName, {this.textColor, Key key}) : super(key: key);
 
   @override
   _PlantProgressIndicatorState createState() => _PlantProgressIndicatorState();
@@ -36,13 +37,13 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
           curve: Curves.easeInOutCubic,
 
           builder: (BuildContext context, double percent, Widget child) => LinearPercentIndicator(
-            backgroundColor: Colors.green[700].withAlpha(80),
-            progressColor: Colors.green,
+            backgroundColor: (Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.green).withAlpha(50),
+            progressColor: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.green,
             linearStrokeCap: LinearStrokeCap.roundAll,
             animation: false,
 
-            leading: Text('${(percent * 100).round()} %'),
-            trailing: Icon(Icons.flag),
+            leading: Text('${(percent * 100).round()} %', style: DefaultTextStyle.of(context).style.copyWith(color: widget.textColor)),
+            trailing: Icon(Icons.flag, color: widget.textColor),
 
             percent: percent,
           ),
