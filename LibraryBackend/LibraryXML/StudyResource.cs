@@ -4,10 +4,9 @@ using System.Linq;
 using System.Runtime.Remoting.Activation;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml;
 
-namespace LibraryXMLEditor
+namespace LibraryXML
 {
     public class StudyResource
     {

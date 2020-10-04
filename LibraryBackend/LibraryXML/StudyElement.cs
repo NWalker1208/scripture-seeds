@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace LibraryXMLEditor
+namespace LibraryXML
 {
     public class MediaElement : StudyElement
     {

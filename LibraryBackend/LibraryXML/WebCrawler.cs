@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace LibraryXMLEditor
+namespace LibraryXML
 {
-    static class WebCrawler
+    public static class WebCrawler
     {
         // Generates a list of paragraph numbers from a given reference
         // Returns null if the reference is invalid.
