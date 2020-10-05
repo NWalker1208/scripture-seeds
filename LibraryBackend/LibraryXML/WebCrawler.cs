@@ -1,6 +1,10 @@
-﻿using HtmlAgilityPack;
+﻿using Google.Apis.Customsearch.v1;
+using Google.Apis.Customsearch.v1.Data;
+using Google.Apis.Services;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Net;
 using System.Text;
 
@@ -103,40 +107,85 @@ namespace LibraryXML
             return url;
         }
 
+        // Gets the page at the given url and returns the HTML document
+        private static HtmlDocument GetWebpage(string url)
+        {
+            WebClient client = new WebClient();
+            byte[] htmlCode = client.DownloadData(url);
+            HtmlDocument htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(Encoding.UTF8.GetString(htmlCode));
+
+            return htmlDoc;
+        }
+
+        // Creates text elements based on the text from the specified paragraphs at
+        // the given URL.
         public static List<TextElement> GetWebText(string url, List<int> paragraphs)
         {
+            HtmlDocument htmlDoc = GetWebpage(url);
             List<TextElement> text = new List<TextElement>();
 
-            using (WebClient client = new WebClient())
+            foreach (int p in paragraphs)
             {
-                byte[] htmlCode = client.DownloadData(url);
-                HtmlDocument htmlDoc = new HtmlDocument();
-                htmlDoc.LoadHtml(Encoding.UTF8.GetString(htmlCode));
+                HtmlNode paragraph = htmlDoc.GetElementbyId("p" + p.ToString());
 
-                foreach (int p in paragraphs)
+                string pText = "";
+                int verse = -1;
+
+                foreach (HtmlNode child in paragraph.ChildNodes)
                 {
-                    HtmlNode paragraph = htmlDoc.GetElementbyId("p" + p.ToString());
-
-                    string pText = "";
-                    int verse = -1;
-
-                    foreach (HtmlNode child in paragraph.ChildNodes)
-                    {
-                        if (child.NodeType == HtmlNodeType.Text)
-                            pText += child.InnerText;
-                        else if (child.HasClass("study-note-ref"))
-                            pText += child.ChildNodes[1].InnerText;
-                        else if (child.HasClass("verse-number"))
-                            verse = int.Parse(child.InnerText);
-                        else if (child.Name == "span")
-                            pText += child.InnerText;
-                    }
-
-                    text.Add(new TextElement(pText, verse));
+                    if (child.NodeType == HtmlNodeType.Text)
+                        pText += child.InnerText;
+                    else if (child.HasClass("study-note-ref"))
+                        pText += child.ChildNodes[1].InnerText;
+                    else if (child.HasClass("verse-number"))
+                        verse = int.Parse(child.InnerText);
+                    else if (child.Name == "span")
+                        pText += child.InnerText;
                 }
+
+                text.Add(new TextElement(pText, verse));
             }
 
             return text;
+        }
+    
+        // Creates a list of URL's that may contain scripture references to the topic.
+        public static List<string> SearchWebByTopic(string topic)
+        {
+            string apiKey = ConfigurationManager.AppSettings["APIKey"];
+            string searchEngineId = ConfigurationManager.AppSettings["CustomSearchID"];
+
+            CustomsearchService customSearchService = new CustomsearchService(
+                new BaseClientService.Initializer { ApiKey = apiKey }
+            );
+
+            CseResource.ListRequest listRequest = customSearchService.Cse.List();
+            listRequest.Cx = searchEngineId;
+            listRequest.Q = topic;
+
+            Search search = listRequest.Execute();
+            List<string> urls = new List<string>();
+
+            foreach (Result result in search.Items)
+                urls.Add(result.Link);
+
+            return urls;
+        }
+
+        // Searches for scripture references at the given URL
+        public static List<string> SearchPageForScriptures(string url)
+        {
+            HtmlDocument htmlDoc = GetWebpage(url);
+            List<string> scriptures = new List<string>();
+
+            HtmlNodeCollection scriptureLinks = htmlDoc.DocumentNode.SelectNodes("//a[@class='scripture-ref']");
+
+            if (scriptureLinks != null)
+                foreach (HtmlNode link in scriptureLinks)
+                    scriptures.Add(link.InnerText);
+
+            return scriptures;
         }
     }
 }
