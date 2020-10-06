@@ -66,6 +66,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptureConsts.cs" />
+    <Compile Include="ScriptureReference.cs" />
     <Compile Include="StudyElement.cs" />
     <Compile Include="StudyResource.cs" />
     <Compile Include="WebCrawler.cs" />

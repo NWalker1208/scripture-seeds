@@ -14,14 +14,19 @@ namespace LibraryXML
             string topic = Console.ReadLine();
 
             List<string> pages = WebCrawler.SearchWebByTopic(topic);
-            List<string> scriptures = new List<string>();
+            List<string> secondaryPages = new List<string>();
+            List<ScriptureReference> scriptures = new List<ScriptureReference>();
 
-            Console.WriteLine("Found {0} pages referencing {1}", pages.Count, topic);
+            Console.WriteLine("Found {0} pages referencing '{1}'", pages.Count, topic);
 
             foreach (string page in pages)
             {
                 Console.WriteLine("Searching {0}...", page);
-                scriptures.AddRange(WebCrawler.SearchPageForScriptures(page));
+
+                List<string> newPages;
+                scriptures.AddRange(WebCrawler.SearchPageForScriptures(page, out newPages));
+                secondaryPages.AddRange(newPages);
+
                 System.Threading.Thread.Sleep(1000);
             }
 

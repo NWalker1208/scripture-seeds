@@ -174,16 +174,33 @@ namespace LibraryXML
         }
 
         // Searches for scripture references at the given URL
-        public static List<string> SearchPageForScriptures(string url)
+        public static List<ScriptureReference> SearchPageForScriptures(string url, out List<string> secondaryURLs)
         {
             HtmlDocument htmlDoc = GetWebpage(url);
-            List<string> scriptures = new List<string>();
+            List<ScriptureReference> scriptures = new List<ScriptureReference>();
+            secondaryURLs = new List<string>();
 
             HtmlNodeCollection scriptureLinks = htmlDoc.DocumentNode.SelectNodes("//a[@class='scripture-ref']");
 
+            string previousBook = null;
             if (scriptureLinks != null)
                 foreach (HtmlNode link in scriptureLinks)
-                    scriptures.Add(link.InnerText);
+                {
+                    ScriptureReference reference = ScriptureReference.Parse(link.InnerText, previousBook);
+
+                    if (reference != null)
+                    {
+                        previousBook = reference.book;
+                        scriptures.Add(reference);
+                    }
+                    else
+                    {
+                        string newURL = link.GetAttributeValue("href", "");
+
+                        if (newURL != "")
+                            secondaryURLs.Add("https://churchofjesuschrist.org" + newURL);
+                    }
+                }
 
             return scriptures;
         }
