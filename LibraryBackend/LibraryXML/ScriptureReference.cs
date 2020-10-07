@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -70,21 +71,71 @@ namespace LibraryXML
             return new ScriptureReference(book, chapter, verses);
         }
 
-        public override string ToString()
+        public string VersesToString()
         {
-            string str = book.ToString() + ' ' + chapter.ToString() + ':';
+            string str = "";
 
-            foreach (uint verse in verses)
+            if (verses.Count > 0)
             {
-                str += verse.ToString() + ' ';
-            }
+                uint prevVerse = verses.First();
+                bool range = false;
+                str += prevVerse.ToString();
 
-            // TODO: Finish this
+                foreach (uint verse in verses.Skip(1))
+                {
+                    if (verse == prevVerse + 1)
+                        range = true;
+                    else
+                    {
+                        if (range)
+                        {
+                            range = false;
+                            str += "-" + prevVerse.ToString();
+                        }
+
+                        str += "," + verse.ToString();
+                    }
+
+                    prevVerse = verse;
+                }
+
+                if (range)
+                    str += "-" + prevVerse.ToString();
+            }
 
             return str;
         }
 
-        // TODO: Generate link based on scripture reference
+        public override string ToString()
+        {
+            string bookTitleCase = new CultureInfo("en-US", false).TextInfo.ToTitleCase(book);
+            string str = bookTitleCase + ' ' + chapter.ToString();
+
+            if (verses.Count > 0)
+                str += ':' + VersesToString();
+
+            return str;
+        }
+
+
+        // Creates a URL to the Gospel Library page for the scripture reference.
+        public string GetURL(string lang = "eng")
+        {
+            string volume = ScriptureConsts.VolumeOf(book);
+
+            string url = "https://www.churchofjesuschrist.org/study/scriptures/";
+            url += volume + "/" + ScriptureConsts.Abbreviations[book] + "/" + chapter.ToString();
+
+            if (verses.Count > 0)
+                url += "." + VersesToString();
+
+            url += "?lang=" + lang;
+
+            if (verses.Count > 0)
+               url += "#p" + verses.First().ToString();
+
+            return url;
+        }
 
         private static bool ParseBook(string str, ref int i, out string book)
         {

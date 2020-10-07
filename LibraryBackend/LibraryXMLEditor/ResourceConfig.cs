@@ -106,15 +106,15 @@ namespace LibraryXMLEditor
 
         private void webTextButton_Click(object sender, EventArgs e)
         {
-            List<int> paragraphs = WebCrawler.VersesFromReference(resource.reference);
+            ScriptureReference scripture = ScriptureReference.Parse(resource.reference);
 
-            if (paragraphs == null)
+            if (scripture == null)
             {
                 MessageBox.Show("Invalid reference.");
                 return;
             }
 
-            List<TextElement> webText = WebCrawler.GetWebText(resource.referenceURL, paragraphs);
+            List<TextElement> webText = WebCrawler.GetWebText(resource.referenceURL, scripture.verses);
 
             if (webText != null)
             {
@@ -136,9 +136,9 @@ namespace LibraryXMLEditor
 
         private void autoLinkButton_Click(object sender, EventArgs e)
         {
-            string url = WebCrawler.GenerateURL(referenceTextBox.Text);
-            if (url != null)
-                urlTextBox.Text = url;
+            ScriptureReference scripture = ScriptureReference.Parse(resource.reference);
+            if (scripture != null)
+                urlTextBox.Text = scripture.GetURL();
             else
                 MessageBox.Show("Invalid reference for scripture.");
         }
