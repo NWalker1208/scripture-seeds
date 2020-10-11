@@ -1,74 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LibraryXML
 {
-    public class ScriptureReference
+    public class ScriptureReference : IComparable<ScriptureReference>
     {
         public string book;
         public uint chapter;
         public SortedSet<uint> verses;
 
-        public ScriptureReference(string book, uint chapter, SortedSet<uint> verses)
+        public int bookID
+        {
+            get => ScriptureConsts.AllBooks.IndexOf(book);
+        }
+
+        public bool isChapter
+        {
+            get => verses.Count == 0;
+        }
+
+        public ScriptureReference(string book, uint chapter, ISet<uint> verses = null)
         {
             this.book = book;
             this.chapter = chapter;
-            this.verses = new SortedSet<uint>(verses);
-        }
-
-        // Returns null if parsing fails.
-        public static ScriptureReference Parse(string str, string defaultBook = null)
-        {
-            string book;
-            uint chapter;
-            SortedSet<uint> verses;
-
-            // Clean up string
-            str = str.ToLower();
-            str = Regex.Replace(str, @"\s+", " ");
-            str = str.Replace('–', '-');
-
-            // Parse string
-            int i = 0;
-
-            // Book
-            if (ParseBook(str, ref i, out book))
-            {
-                // Space ( )
-                if (i >= str.Length || str[i++] != ' ') return null;
-            }
-            else 
-            {
-                // If no book is present, use default.
-                // If no default was given, parsing has failed.
-                if (defaultBook == null)
-                    return null;
-                else
-                    book = defaultBook;
-            }
-
-            // Chapter
-            if (!ParseChapter(str, ref i, out chapter)) return null;
-
-            // Optional verses
-            if (i < str.Length)
-            {
-                // Colon (:)
-                if (str[i++] != ':') return null;
-                // Verses
-                if (!ParseVerses(str, ref i, out verses)) return null;
-            }
-            else
-                verses = new SortedSet<uint>(); // Empty verse set
-
-            return new ScriptureReference(book, chapter, verses);
+            this.verses = verses == null ? new SortedSet<uint>() : new SortedSet<uint>(verses);
         }
 
         public string VersesToString()
@@ -117,7 +75,6 @@ namespace LibraryXML
             return str;
         }
 
-
         // Creates a URL to the Gospel Library page for the scripture reference.
         public string GetURL(string lang = "eng")
         {
@@ -135,6 +92,135 @@ namespace LibraryXML
                url += "#p" + verses.First().ToString();
 
             return url;
+        }
+        
+        // Gives a count of the number of verses in common between this reference
+        // and the one provided.
+        public int Overlap(ScriptureReference other)
+        {
+            if (book != other.book)
+                return 0;
+
+            if (chapter != other.chapter)
+                return 0;
+
+            if (verses.Count == 0 || other.verses.Count == 0)
+            {
+                if (verses.Count == 0 && other.verses.Count == 0)
+                    return 1;
+
+                return verses.Count + other.verses.Count;
+            }
+            
+            int overlap = 0;
+
+            foreach (uint verse in verses)
+                if (other.verses.Contains(verse))
+                    overlap++;
+
+            return overlap;
+        }
+
+        // Creates a new reference without any verses
+        public ScriptureReference ChapterOnly() => new ScriptureReference(book, chapter);
+
+        public override bool Equals(object obj)
+        {
+            if (obj is ScriptureReference other)
+            {
+                return (book == other.book &&
+                        chapter == other.chapter &&
+                        verses.SetEquals(other.verses));
+            }
+            else
+                return false;
+        }
+
+        public static bool operator ==(ScriptureReference a, ScriptureReference b)
+        {
+            if (ReferenceEquals(a, null))
+                return ReferenceEquals(b, null);
+            return a.Equals(b);
+        }
+        public static bool operator !=(ScriptureReference a, ScriptureReference b) => !(a == b);
+
+        public int CompareTo(ScriptureReference other)
+        {
+            // Compare order of books
+            int bookDif = bookID.CompareTo(other.bookID);
+
+            if (bookDif != 0)
+                return bookDif;
+
+            // Compare order of chapters
+            int chapterDif = chapter.CompareTo(other.chapter);
+
+            if (chapterDif != 0)
+                return chapterDif;
+
+            // Compare order of verses
+            foreach (Tuple<uint, uint> verse in verses.Zip(other.verses, Tuple.Create))
+            {
+                int verseCompare = verse.Item1.CompareTo(verse.Item2);
+
+                if (verseCompare != 0)
+                    return verseCompare;
+            }
+
+            // Compare length of verse sets
+            return verses.Count.CompareTo(other.verses.Count);
+        }
+
+        public override int GetHashCode() => book.GetHashCode() | chapter.GetHashCode();
+
+        // Parsing Functions
+
+        // Returns null if parsing fails.
+        public static ScriptureReference Parse(string str, string defaultBook = null)
+        {
+            string book;
+            uint chapter;
+            SortedSet<uint> verses;
+
+            // Clean up string
+            str = str.ToLower();
+            str = Regex.Replace(str, @"\s+", " ");
+            str = str.Replace('–', '-');
+
+            // Parse string
+            int i = 0;
+
+            // Book
+            if (ParseBook(str, ref i, out book))
+            {
+                // Space ( )
+                if (i >= str.Length || str[i++] != ' ') return null;
+            }
+            else
+            {
+                // If no book is present, use default.
+                // If no default was given, parsing has failed.
+                if (defaultBook == null)
+                    return null;
+                else
+                    book = defaultBook;
+            }
+
+            // Chapter
+            if (!ParseChapter(str, ref i, out chapter)) return null;
+
+            // Optional verses
+            if (i < str.Length)
+            {
+                // Colon (:)
+                if (str[i++] != ':') return null;
+                // Verses
+                if (!ParseVerses(str, ref i, out verses)) return null;
+            }
+            else
+                verses = new SortedSet<uint>(); // Empty verse set
+
+            return new ScriptureReference(book, chapter, verses);
         }
 
         private static bool ParseBook(string str, ref int i, out string book)
@@ -168,6 +254,10 @@ namespace LibraryXML
             // Advance past period if necessary
             if (i < str.Length && str[i] == '.')
                 i++;
+
+            // If book is some variant of Doctrine and Covenants, change to basic version
+            if (ScriptureConsts.DCTestament.Contains(book))
+                book = ScriptureConsts.DCTestament[0];
 
             return true;
         }

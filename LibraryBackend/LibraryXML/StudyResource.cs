@@ -12,12 +12,11 @@ namespace LibraryXML
     {
         static int nextId = 0;
 
-        int _id;
-        public int id { get => _id; private set => _id = value; }
+        public int id { get; private set; }
 
         public string reference;
         public string referenceURL;
-        public HashSet<string> topics;
+        public ISet<string> topics;
         public List<StudyElement> body;
 
         public StudyResource(string reference, string referenceURL, int id = -1)
@@ -25,7 +24,7 @@ namespace LibraryXML
             InitID(id);
             this.reference = reference;
             this.referenceURL = referenceURL;
-            topics = new HashSet<string>();
+            topics = new SortedSet<string>();
             body = new List<StudyElement>();
         }
 
@@ -33,7 +32,7 @@ namespace LibraryXML
         {
             InitID(int.Parse(node.Attributes.GetNamedItem("id").Value));
 
-            topics = new HashSet<string>();
+            topics = new SortedSet<string>();
             body = new List<StudyElement>();
 
             foreach (XmlNode child in node.ChildNodes)
