@@ -8,7 +8,7 @@ namespace LibraryXML
 {
     using ScriptureTopics = SortedDictionary<ScriptureReference, SortedSet<string>>;
 
-    class ScriptureSet
+    public class ScriptureSet
     {
         SortedDictionary<ScriptureReference, ScriptureTopics> chapterSets;
 
