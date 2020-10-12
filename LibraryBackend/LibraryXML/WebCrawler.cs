@@ -2,7 +2,7 @@
 using Google.Apis.Customsearch.v1.Data;
 using Google.Apis.Services;
 using HtmlAgilityPack;
-using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Net;
@@ -30,9 +30,16 @@ namespace LibraryXML
             HtmlDocument htmlDoc = GetWebpage(url);
             List<TextElement> text = new List<TextElement>();
 
+            // If no verses provided, attempt to include all
+            if (paragraphs.Count == 0)
+                paragraphs.UnionWith(Enumerable.Range(1, 250).Select(x => (uint) x));
+
             foreach (uint p in paragraphs)
             {
                 HtmlNode paragraph = htmlDoc.GetElementbyId("p" + p.ToString());
+
+                if (paragraph == null)
+                    break;
 
                 string pText = "";
                 int verse = -1;

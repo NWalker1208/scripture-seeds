@@ -29,6 +29,12 @@ namespace LibraryXML
             this.verses = verses == null ? new SortedSet<uint>() : new SortedSet<uint>(verses);
         }
 
+        public string ChapterToString()
+        {
+            string bookTitleCase = new CultureInfo("en-US", false).TextInfo.ToTitleCase(book);
+            return bookTitleCase + ' ' + chapter.ToString();
+        }
+
         public string VersesToString()
         {
             string str = "";
@@ -66,8 +72,7 @@ namespace LibraryXML
 
         public override string ToString()
         {
-            string bookTitleCase = new CultureInfo("en-US", false).TextInfo.ToTitleCase(book);
-            string str = bookTitleCase + ' ' + chapter.ToString();
+            string str = ChapterToString();
 
             if (verses.Count > 0)
                 str += ':' + VersesToString();
@@ -93,7 +98,21 @@ namespace LibraryXML
 
             return url;
         }
-        
+
+        // Obtains the text of the scripture from the web
+        public List<StudyElement> GetText(string lang = "eng")
+        {
+            List<StudyElement> body = new List<StudyElement>();
+            body.Add(new TitleElement(ChapterToString()));
+
+            List<TextElement> webText = WebCrawler.GetWebText(GetURL(lang), verses);
+            if (webText == null)
+                return null;
+
+            body.AddRange(webText);
+            return body;
+        }
+
         // Gives a count of the number of verses in common between this reference
         // and the one provided.
         public int Overlap(ScriptureReference other)

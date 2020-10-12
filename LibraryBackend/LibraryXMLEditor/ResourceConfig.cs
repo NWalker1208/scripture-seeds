@@ -114,19 +114,16 @@ namespace LibraryXMLEditor
                 return;
             }
 
-            List<TextElement> webText = WebCrawler.GetWebText(resource.referenceURL, scripture.verses);
+            List<StudyElement> text = scripture.GetText();
 
-            if (webText != null)
+            if (text == null)
             {
-                // Add title for chapter
-                string title = resource.reference.Substring(0, resource.reference.IndexOf(':'));
-                resource.body.Add(new TitleElement(title));
-
-                resource.body.AddRange(webText);
-                ResourceUpdate?.Invoke(this, new EventArgs());
-            }
-            else
                 MessageBox.Show("Failed to obtain text from web.");
+                return;
+            }
+
+            resource.body.AddRange(text);
+            ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
         private void openLinkButton_Click(object sender, EventArgs e)
