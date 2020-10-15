@@ -58,6 +58,15 @@ namespace LibraryXML
             }
         }
 
+        public StudyResource(ScriptureReference reference, ISet<string> topics, int id = -1)
+        {
+            InitID(id);
+            this.reference = reference.ToString();
+            referenceURL = reference.GetURL();
+            this.topics = new SortedSet<string>(topics);
+            body = reference.GetText();
+        }
+
         private void InitID(int id = -1)
         {
             if (id == -1)

@@ -41,9 +41,11 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.elementConfig = new LibraryXMLEditor.ElementConfig();
             this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
+            this.scriptureDownloader = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +105,8 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuItem});
+            this.fileMenuItem,
+            this.webToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(784, 24);
@@ -164,6 +167,13 @@
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
+            // webToolStripMenuItem
+            // 
+            this.webToolStripMenuItem.Name = "webToolStripMenuItem";
+            this.webToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.webToolStripMenuItem.Text = "Web Search";
+            this.webToolStripMenuItem.Click += new System.EventHandler(this.webToolStripMenuItem_Click);
+            // 
             // filterComboBox
             // 
             this.filterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -203,6 +213,14 @@
             this.resourceConfig.TabIndex = 5;
             this.resourceConfig.Visible = false;
             this.resourceConfig.ResourceUpdate += new System.EventHandler(this.resourceConfig_ResourceUpdate);
+            // 
+            // scriptureDownloader
+            // 
+            this.scriptureDownloader.WorkerReportsProgress = true;
+            this.scriptureDownloader.WorkerSupportsCancellation = true;
+            this.scriptureDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.scriptureDownloader_DoWork);
+            this.scriptureDownloader.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.scriptureDownloader_ProgressChanged);
+            this.scriptureDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.scriptureDownloader_RunWorkerCompleted);
             // 
             // Editor
             // 
@@ -248,6 +266,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ComboBox filterComboBox;
+        private System.Windows.Forms.ToolStripMenuItem webToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker scriptureDownloader;
     }
 }
 

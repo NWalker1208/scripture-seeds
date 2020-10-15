@@ -13,10 +13,11 @@ namespace LibraryWebCrawler
 {
     public partial class Search : Form
     {
-        ScriptureSet scriptures = new ScriptureSet();
+        ScriptureSet scriptures;
 
-        public Search()
+        public Search(ScriptureSet existing)
         {
+            scriptures = existing;
             InitializeComponent();
         }
 

@@ -33,8 +33,8 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.websitesListBox = new System.Windows.Forms.CheckedListBox();
             this.scriptureButton = new System.Windows.Forms.Button();
-            this.downloadWorker = new System.ComponentModel.BackgroundWorker();
             this.downloadProgress = new System.Windows.Forms.ProgressBar();
+            this.downloadWorker = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,13 +99,6 @@
             this.scriptureButton.UseVisualStyleBackColor = true;
             this.scriptureButton.Click += new System.EventHandler(this.scriptureButton_Click);
             // 
-            // downloadWorker
-            // 
-            this.downloadWorker.WorkerReportsProgress = true;
-            this.downloadWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.downloadWorker_DoWork);
-            this.downloadWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.downloadWorker_ProgressChanged);
-            this.downloadWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.downloadWorker_RunWorkerCompleted);
-            // 
             // downloadProgress
             // 
             this.downloadProgress.Dock = System.Windows.Forms.DockStyle.Top;
@@ -115,13 +108,23 @@
             this.downloadProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.downloadProgress.TabIndex = 4;
             // 
+            // downloadWorker
+            // 
+            this.downloadWorker.WorkerReportsProgress = true;
+            this.downloadWorker.WorkerSupportsCancellation = true;
+            this.downloadWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.downloadWorker_DoWork);
+            this.downloadWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.downloadWorker_ProgressChanged);
+            this.downloadWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.downloadWorker_RunWorkerCompleted);
+            // 
             // Search
             // 
             this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = global::LibraryXMLEditor.Properties.Resources.seeds_icon;
             this.Name = "Search";
             this.Text = "Search";
             this.tableLayoutPanel1.ResumeLayout(false);
