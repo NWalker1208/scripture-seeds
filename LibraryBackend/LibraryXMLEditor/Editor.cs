@@ -403,59 +403,8 @@ namespace LibraryXMLEditor
             Search searchForm = new Search(scriptures);
             searchForm.ShowDialog();
 
-            scriptureDownloader.RunWorkerAsync(scriptures);
-        }
-
-        private void scriptureDownloader_DoWork(object sender, DoWorkEventArgs e)
-        {
-            ScriptureSet scriptures = e.Argument as ScriptureSet;
-            List<StudyResource> newResources = new List<StudyResource>();
-
-            // Add new scriptures to library
-            int i = 0;
-            int total = scriptures.allReferences.Count();
-            foreach (ScriptureReference reference in scriptures.allReferences)
-            {
-                int exists = -1;
-                foreach (int id in lib.ResourceIDs)
-                {
-                    if (ScriptureReference.Parse(lib.GetResource(id).reference) == reference)
-                    {
-                        exists = id;
-                        break;
-                    }
-                }
-
-                if (exists != -1)
-                {
-                    StudyResource resource = lib.GetResource(exists);
-                    resource.topics.UnionWith(scriptures.Topics(reference));
-                }
-                else
-                {
-                    StudyResource newResource = new StudyResource(reference, scriptures.Topics(reference));
-                    if (newResource != null)
-                        newResources.Add(newResource);
-
-                    System.Threading.Thread.Sleep(500);
-                }
-
-                scriptureDownloader.ReportProgress((int)(100 * ((float)i / total)));
-            }
-
-            e.Result = newResources;
-        }
-
-        private void scriptureDownloader_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-
-        }
-
-        private void scriptureDownloader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            foreach (StudyResource resource in e.Result as List<StudyResource>)
-                lib.AddResource(resource);
-
+            DownloadDialog downloader =  new DownloadDialog(scriptures, lib);
+            downloader.ShowDialog();
             UpdateTreeView();
         }
     }

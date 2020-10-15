@@ -45,7 +45,6 @@
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.elementConfig = new LibraryXMLEditor.ElementConfig();
             this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
-            this.scriptureDownloader = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,14 +213,6 @@
             this.resourceConfig.Visible = false;
             this.resourceConfig.ResourceUpdate += new System.EventHandler(this.resourceConfig_ResourceUpdate);
             // 
-            // scriptureDownloader
-            // 
-            this.scriptureDownloader.WorkerReportsProgress = true;
-            this.scriptureDownloader.WorkerSupportsCancellation = true;
-            this.scriptureDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.scriptureDownloader_DoWork);
-            this.scriptureDownloader.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.scriptureDownloader_ProgressChanged);
-            this.scriptureDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.scriptureDownloader_RunWorkerCompleted);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,7 +258,6 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ComboBox filterComboBox;
         private System.Windows.Forms.ToolStripMenuItem webToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker scriptureDownloader;
     }
 }
 

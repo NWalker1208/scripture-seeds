@@ -44,16 +44,21 @@ namespace LibraryXML
                 string pText = "";
                 int verse = -1;
 
-                foreach (HtmlNode child in paragraph.ChildNodes)
+                List<HtmlNode> nodesToAdd = new List<HtmlNode>(paragraph.ChildNodes);
+
+                while (nodesToAdd.Count > 0)
                 {
-                    if (child.NodeType == HtmlNodeType.Text)
-                        pText += child.InnerText;
-                    else if (child.HasClass("study-note-ref"))
-                        pText += child.ChildNodes[1].InnerText;
-                    else if (child.HasClass("verse-number"))
-                        verse = int.Parse(child.InnerText);
-                    else if (child.Name == "span")
-                        pText += child.InnerText;
+                    HtmlNode node = nodesToAdd[0];
+
+                    if (node.NodeType == HtmlNodeType.Text)
+                        pText += node.InnerText;
+                    else if (node.HasClass("verse-number"))
+                        verse = int.Parse(node.InnerText);
+                    else if (!node.HasClass("marker") &&
+                             !node.HasClass("para-mark"))
+                        nodesToAdd.InsertRange(1, node.ChildNodes);
+
+                    nodesToAdd.RemoveAt(0);
                 }
 
                 text.Add(new TextElement(pText, verse));

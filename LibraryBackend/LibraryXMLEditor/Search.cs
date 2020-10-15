@@ -52,7 +52,7 @@ namespace LibraryWebCrawler
                 i++;
 
                 backgroundWorker.ReportProgress((int) (100 * ((float) i / sitesToSearch.Count)));
-                Thread.Sleep(1000);
+                Thread.Sleep(250);
             }
 
             e.Result = allReferences;

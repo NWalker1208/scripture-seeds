@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DownloadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownloadDialog.Designer.cs">
+      <DependentUpon>DownloadDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="ResourceConfig.Designer.cs">
       <DependentUpon>ResourceConfig.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DownloadDialog.resx">
+      <DependentUpon>DownloadDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
     </EmbeddedResource>
