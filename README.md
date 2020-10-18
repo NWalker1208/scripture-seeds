@@ -25,6 +25,11 @@ These items are necessary, but can be built upon over time.
 - [x] Add more topics and scriptures (1 week)
 - [x] Create remote library system
   - [x] Improve caching and refreshing of library
+- [ ] Finalize library
+  - [ ] Remove ID's
+  - [ ] Store book information
+  - [ ] Allow user to filter books
+  - [ ] Collect a large library
 
 ### 3) Features and Design (finish before release)
 These items are unnecessary, but improve the user experience.

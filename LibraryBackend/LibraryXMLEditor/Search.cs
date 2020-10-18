@@ -48,7 +48,12 @@ namespace LibraryWebCrawler
             int i = 0;
             foreach (string page in sitesToSearch)
             {
-                allReferences.UnionWith(WebCrawler.SearchPageForScriptures(page, out _));
+                List<ScriptureReference> found = WebCrawler.SearchPageForScriptures(page, out _);
+
+                // Remove references to whole chapters
+                found.RemoveAll(x => x.isChapter);
+
+                allReferences.UnionWith(found);
                 i++;
 
                 backgroundWorker.ReportProgress((int) (100 * ((float) i / sitesToSearch.Count)));

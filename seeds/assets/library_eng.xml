@@ -1,16 +1,238 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <library lang="eng">
-  <resource id="0">
-    <topic>faith</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.21?lang=eng#p21">Alma 32:21</reference>
+  <resource id="372">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/15.26?lang=eng#p26">Exodus 15:26</reference>
     <body>
-      <image url="https://www.lds.org/bc/content/shared/content/images/gospel-library/manual/09410/1032863.jpg" />
-      <video url="https://www.youtube.com/watch?v=dRvBgxKkbB0" />
-      <title>Alma 32</title>
-      <highlight verse="21">And now as I said concerning faith—faith is not to have a perfect knowledge of things; therefore if ye have faith ye hope for things which are not seen, which are true.</highlight>
+      <title>Exodus 15</title>
+      <highlight verse="26">And said, If thou wilt diligently hearken to the voice of the Lord thy God, and wilt do that which is right in his sight, and wilt give ear to his commandments, and keep all his statutes, I will put none of these diseases upon thee, which I have brought upon the Egyptians: for I am the Lord that healeth thee.</highlight>
     </body>
   </resource>
-  <resource id="1">
+  <resource id="373">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/deut/6.17?lang=eng#p17">Deuteronomy 6:17</reference>
+    <body>
+      <title>Deuteronomy 6</title>
+      <highlight verse="17">Ye shall diligently keep the commandments of the Lord your God, and his testimonies, and his statutes, which he hath commanded thee.</highlight>
+    </body>
+  </resource>
+  <resource id="374">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/josh/22.5?lang=eng#p5">Joshua 22:5</reference>
+    <body>
+      <title>Joshua 22</title>
+      <highlight verse="5">But take diligent heed to do the commandment and the law, which Moses the servant of the Lord charged you, to love the Lord your God, and to walk in all his ways, and to keep his commandments, and to cleave unto him, and to serve him with all your heart and with all your soul.</highlight>
+    </body>
+  </resource>
+  <resource id="375">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/1-sam/2.3?lang=eng#p3">1 Samuel 2:3</reference>
+    <body>
+      <title>1 Samuel 2</title>
+      <highlight verse="3">Talk no more so exceeding proudly; let not arrogancy come out of your mouth: for the Lord is a God of knowledge, and by him actions are weighed.</highlight>
+    </body>
+  </resource>
+  <resource id="376">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/37.16?lang=eng#p16">Job 37:16</reference>
+    <body>
+      <title>Job 37</title>
+      <highlight verse="16">Dost thou know the balancings of the clouds, the wondrous works of him which is perfect in knowledge?</highlight>
+    </body>
+  </resource>
+  <resource id="377">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/111.10?lang=eng#p10">Psalms 111:10</reference>
+    <body>
+      <title>Psalms 111</title>
+      <highlight verse="10">The fear of the Lord is the beginning of wisdom: a good understanding have all they that do his commandments: his praise endureth for ever.</highlight>
+    </body>
+  </resource>
+  <resource id="378">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/119.4?lang=eng#p4">Psalms 119:4</reference>
+    <body>
+      <title>Psalms 119</title>
+      <highlight verse="4">Thou hast commanded us to keep thy precepts diligently.</highlight>
+    </body>
+  </resource>
+  <resource id="379">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/119.105?lang=eng#p105">Psalms 119:105</reference>
+    <body>
+      <title>Psalms 119</title>
+      <highlight verse="105">Thy word is a lamp unto my feet, and a light unto my path.</highlight>
+    </body>
+  </resource>
+  <resource id="380">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/1.7?lang=eng#p7">Proverbs 1:7</reference>
+    <body>
+      <title>Proverbs 1</title>
+      <highlight verse="7">The fear of the Lord is the beginning of knowledge: but fools despise wisdom and instruction.</highlight>
+    </body>
+  </resource>
+  <resource id="381">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/3.5-6?lang=eng#p5">Proverbs 3:5-6</reference>
+    <body>
+      <title>Proverbs 3</title>
+      <highlight verse="5">Trust in the Lord with all thine heart; and lean not unto thine own understanding.</highlight>
+      <highlight verse="6">In all thy ways acknowledge him, and he shall direct thy paths.</highlight>
+    </body>
+  </resource>
+  <resource id="382">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/10.4?lang=eng#p4">Proverbs 10:4</reference>
+    <body>
+      <title>Proverbs 10</title>
+      <highlight verse="4">He becometh poor that dealeth with a slack hand: but the hand of the diligent maketh rich.</highlight>
+    </body>
+  </resource>
+  <resource id="383">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/12.24?lang=eng#p24">Proverbs 12:24</reference>
+    <body>
+      <title>Proverbs 12</title>
+      <highlight verse="24">The hand of the diligent shall bear rule: but the slothful shall be under tribute.</highlight>
+    </body>
+  </resource>
+  <resource id="384">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/12.27?lang=eng#p27">Proverbs 12:27</reference>
+    <body>
+      <title>Proverbs 12</title>
+      <highlight verse="27">The slothful man roasteth not that which he took in hunting: but the substance of a diligent man is precious.</highlight>
+    </body>
+  </resource>
+  <resource id="385">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/17.27?lang=eng#p27">Proverbs 17:27</reference>
+    <body>
+      <title>Proverbs 17</title>
+      <highlight verse="27">He that hath knowledge spareth his words: and a man of understanding is of an excellent spirit.</highlight>
+    </body>
+  </resource>
+  <resource id="386">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/22.29?lang=eng#p29">Proverbs 22:29</reference>
+    <body>
+      <title>Proverbs 22</title>
+      <highlight verse="29">Seest thou a man diligent in his business? he shall stand before kings; he shall not stand before mean men.</highlight>
+    </body>
+  </resource>
+  <resource id="387">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/5.20?lang=eng#p20">Isaiah 5:20</reference>
+    <body>
+      <title>Isaiah 5</title>
+      <highlight verse="20">Woe unto them that call evil good, and good evil; that put darkness for light, and light for darkness; that put bitter for sweet, and sweet for bitter!</highlight>
+    </body>
+  </resource>
+  <resource id="388">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/11.9?lang=eng#p9">Isaiah 11:9</reference>
+    <body>
+      <title>Isaiah 11</title>
+      <highlight verse="9">They shall not hurt nor destroy in all my holy mountain: for the earth shall be full of the knowledge of the Lord, as the waters cover the sea.</highlight>
+    </body>
+  </resource>
+  <resource id="389">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/29.14?lang=eng#p14">Isaiah 29:14</reference>
+    <body>
+      <title>Isaiah 29</title>
+      <highlight verse="14">Therefore, behold, I will proceed to do a marvellous work among this people, even a marvellous work and a wonder: for the wisdom of their wise men shall perish, and the understanding of their prudent men shall be hid.</highlight>
+    </body>
+  </resource>
+  <resource id="390">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/55.2?lang=eng#p2">Isaiah 55:2</reference>
+    <body>
+      <title>Isaiah 55</title>
+      <highlight verse="2">Wherefore do ye spend money for that which is not bread? and your labour for that which satisfieth not? hearken diligently unto me, and eat ye that which is good, and let your soul delight itself in fatness.</highlight>
+    </body>
+  </resource>
+  <resource id="391">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/jer/1.4-5?lang=eng#p4">Jeremiah 1:4-5</reference>
+    <body>
+      <title>Jeremiah 1</title>
+      <highlight verse="4">Then the word of the Lord came unto me, saying,</highlight>
+      <highlight verse="5">Before I formed thee in the belly I knew thee; and before thou camest forth out of the womb I sanctified thee, and I ordained thee a prophet unto the nations.</highlight>
+    </body>
+  </resource>
+  <resource id="392">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/amos/3.7?lang=eng#p7">Amos 3:7</reference>
+    <body>
+      <title>Amos 3</title>
+      <highlight verse="7">Surely the Lord God will do nothing, but he revealeth his secret unto his servants the prophets.</highlight>
+    </body>
+  </resource>
+  <resource id="393">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/hab/2.4?lang=eng#p4">Habakkuk 2:4</reference>
+    <body>
+      <title>Habakkuk 2</title>
+      <highlight verse="4">Behold, his soul which is lifted up is not upright in him: but the just shall live by his faith.</highlight>
+    </body>
+  </resource>
+  <resource id="394">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/5.14-16?lang=eng#p14">Matthew 5:14-16</reference>
+    <body>
+      <title>Matthew 5</title>
+      <highlight verse="14">Ye are the light of the world. A city that is set on an hill cannot be hid.</highlight>
+      <highlight verse="15">Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house.</highlight>
+      <highlight verse="16">Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.</highlight>
+    </body>
+  </resource>
+  <resource id="395">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/6.30?lang=eng#p30">Matthew 6:30</reference>
+    <body>
+      <title>Matthew 6</title>
+      <highlight verse="30">Wherefore, if God so clothe the grass of the field, which to day is, and to morrow is cast into the oven, shall he not much more clothe you, O ye of little faith?</highlight>
+    </body>
+  </resource>
+  <resource id="396">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/7.7?lang=eng#p7">Matthew 7:7</reference>
+    <body>
+      <title>Matthew 7</title>
+      <highlight verse="7">Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you:</highlight>
+    </body>
+  </resource>
+  <resource id="397">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/9.22?lang=eng#p22">Matthew 9:22</reference>
+    <body>
+      <title>Matthew 9</title>
+      <highlight verse="22">But Jesus turned him about, and when he saw her, he said, Daughter, be of good comfort; thy faith hath made thee whole. And the woman was made whole from that hour.</highlight>
+    </body>
+  </resource>
+  <resource id="398">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/9.29?lang=eng#p29">Matthew 9:29</reference>
+    <body>
+      <title>Matthew 9</title>
+      <highlight verse="29">Then touched he their eyes, saying, According to your faith be it unto you.</highlight>
+    </body>
+  </resource>
+  <resource id="399">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/16.15-19?lang=eng#p15">Matthew 16:15-19</reference>
+    <body>
+      <title>Matthew 16</title>
+      <highlight verse="15">He saith unto them, But whom say ye that I am?</highlight>
+      <highlight verse="16">And Simon Peter answered and said, Thou art the Christ, the Son of the living God.</highlight>
+      <highlight verse="17">And Jesus answered and said unto him, Blessed art thou, Simon Bar-jona: for flesh and blood hath not revealed it unto thee, but my Father which is in heaven.</highlight>
+      <highlight verse="18">And I say also unto thee, That thou art Peter, and upon this rock I will build my church; and the gates of hell shall not prevail against it.</highlight>
+      <highlight verse="19">And I will give unto thee the keys of the kingdom of heaven: and whatsoever thou shalt bind on earth shall be bound in heaven: and whatsoever thou shalt loose on earth shall be loosed in heaven.</highlight>
+    </body>
+  </resource>
+  <resource id="400">
     <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/17.20?lang=eng#p20">Matthew 17:20</reference>
     <body>
@@ -18,33 +240,1227 @@
       <highlight verse="20">And Jesus said unto them, Because of your unbelief: for verily I say unto you, If ye have faith as a grain of mustard seed, ye shall say unto this mountain, Remove hence to yonder place; and it shall remove; and nothing shall be impossible unto you.</highlight>
     </body>
   </resource>
-  <resource id="2">
+  <resource id="401">
     <topic>faith</topic>
-    <topic>obedience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/2.14-24?lang=eng#p14">James 2:14-24</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/5.34?lang=eng#p34">Mark 5:34</reference>
+    <body>
+      <title>Mark 5</title>
+      <highlight verse="34">And he said unto her, Daughter, thy faith hath made thee whole; go in peace, and be whole of thy plague.</highlight>
+    </body>
+  </resource>
+  <resource id="402">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.40?lang=eng#p40">Luke 2:40</reference>
+    <body>
+      <title>Luke 2</title>
+      <highlight verse="40">And the child grew, and waxed strong in spirit, filled with wisdom: and the grace of God was upon him.</highlight>
+    </body>
+  </resource>
+  <resource id="403">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/7.50?lang=eng#p50">Luke 7:50</reference>
+    <body>
+      <title>Luke 7</title>
+      <highlight verse="50">And he said to the woman, Thy faith hath saved thee; go in peace.</highlight>
+    </body>
+  </resource>
+  <resource id="404">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/11.52?lang=eng#p52">Luke 11:52</reference>
+    <body>
+      <title>Luke 11</title>
+      <highlight verse="52">Woe unto you, lawyers! for ye have taken away the key of knowledge: ye entered not in yourselves, and them that were entering in ye hindered.</highlight>
+    </body>
+  </resource>
+  <resource id="405">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/17.6?lang=eng#p6">Luke 17:6</reference>
+    <body>
+      <title>Luke 17</title>
+      <highlight verse="6">And the Lord said, If ye had faith as a grain of mustard seed, ye might say unto this sycamine tree, Be thou plucked up by the root, and be thou planted in the sea; and it should obey you.</highlight>
+    </body>
+  </resource>
+  <resource id="406">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22.32?lang=eng#p32">Luke 22:32</reference>
+    <body>
+      <title>Luke 22</title>
+      <highlight verse="32">But I have prayed for thee, that thy faith fail not: and when thou art converted, strengthen thy brethren.</highlight>
+    </body>
+  </resource>
+  <resource id="407">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22.42?lang=eng#p42">Luke 22:42</reference>
+    <body>
+      <title>Luke 22</title>
+      <highlight verse="42">Saying, Father, if thou be willing, remove this cup from me: nevertheless not my will, but thine, be done.</highlight>
+    </body>
+  </resource>
+  <resource id="408">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/5.44?lang=eng#p44">John 5:44</reference>
+    <body>
+      <title>John 5</title>
+      <highlight verse="44">How can ye believe, which receive honour one of another, and seek not the honour that cometh from God only?</highlight>
+    </body>
+  </resource>
+  <resource id="409">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/7.17?lang=eng#p17">John 7:17</reference>
+    <body>
+      <title>John 7</title>
+      <highlight verse="17">If any man will do his will, he shall know of the doctrine, whether it be of God, or whether I speak of myself.</highlight>
+    </body>
+  </resource>
+  <resource id="410">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/12.39-42?lang=eng#p39">John 12:39-42</reference>
+    <body>
+      <title>John 12</title>
+      <highlight verse="39">Therefore they could not believe, because that Esaias said again,</highlight>
+      <highlight verse="40">He hath blinded their eyes, and hardened their heart; that they should not see with their eyes, nor understand with their heart, and be converted, and I should heal them.</highlight>
+      <highlight verse="41">These things said Esaias, when he saw his glory, and spake of him.</highlight>
+      <highlight verse="42">Nevertheless among the chief rulers also many believed on him; but because of the Pharisees they did not confess him, lest they should be put out of the synagogue:</highlight>
+    </body>
+  </resource>
+  <resource id="411">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.12?lang=eng#p12">John 14:12</reference>
+    <body>
+      <title>John 14</title>
+      <highlight verse="12">Verily, verily, I say unto you, He that believeth on me, the works that I do shall he do also; and greater works than these shall he do; because I go unto my Father.</highlight>
+    </body>
+  </resource>
+  <resource id="412">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/15.16?lang=eng#p16">John 15:16</reference>
+    <body>
+      <title>John 15</title>
+      <highlight verse="16">Ye have not chosen me, but I have chosen you, and ordained you, that ye should go and bring forth fruit, and that your fruit should remain: that whatsoever ye shall ask of the Father in my name, he may give it you.</highlight>
+    </body>
+  </resource>
+  <resource id="413">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/16.33?lang=eng#p33">John 16:33</reference>
+    <body>
+      <title>John 16</title>
+      <highlight verse="33">These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world.</highlight>
+    </body>
+  </resource>
+  <resource id="414">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/17.3?lang=eng#p3">John 17:3</reference>
+    <body>
+      <title>John 17</title>
+      <highlight verse="3">And this is life eternal, that they might know thee the only true God, and Jesus Christ, whom thou hast sent.</highlight>
+    </body>
+  </resource>
+  <resource id="415">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/3.16?lang=eng#p16">Acts 3:16</reference>
+    <body>
+      <title>Acts 3</title>
+      <highlight verse="16">And his name through faith in his name hath made this man strong, whom ye see and know: yea, the faith which is by him hath given him this perfect soundness in the presence of you all.</highlight>
+    </body>
+  </resource>
+  <resource id="416">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/4.10-12?lang=eng#p10">Acts 4:10-12</reference>
+    <body>
+      <title>Acts 4</title>
+      <highlight verse="10">Be it known unto you all, and to all the people of Israel, that by the name of Jesus Christ of Nazareth, whom ye crucified, whom God raised from the dead, even by him doth this man stand here before you whole.</highlight>
+      <highlight verse="11">This is the stone which was set at nought of you builders, which is become the head of the corner.</highlight>
+      <highlight verse="12">Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.</highlight>
+    </body>
+  </resource>
+  <resource id="417">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/5.1?lang=eng#p1">Romans 5:1</reference>
+    <body>
+      <title>Romans 5</title>
+      <highlight verse="1">Therefore being justified by faith, we have peace with God through our Lord Jesus Christ:</highlight>
+    </body>
+  </resource>
+  <resource id="418">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/10.14-17?lang=eng#p14">Romans 10:14-17</reference>
+    <body>
+      <title>Romans 10</title>
+      <highlight verse="14">How then shall they call on him in whom they have not believed? and how shall they believe in him of whom they have not heard? and how shall they hear without a preacher?</highlight>
+      <highlight verse="15">And how shall they preach, except they be sent? as it is written, How beautiful are the feet of them that preach the gospel of peace, and bring glad tidings of good things!</highlight>
+      <highlight verse="16">But they have not all obeyed the gospel. For Esaias saith, Lord, who hath believed our report?</highlight>
+      <highlight verse="17">So then faith cometh by hearing, and hearing by the word of God.</highlight>
+    </body>
+  </resource>
+  <resource id="419">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/2.5,9-11,14?lang=eng#p5">1 Corinthians 2:5,9-11,14</reference>
+    <body>
+      <title>1 Corinthians 2</title>
+      <highlight verse="5">That your faith should not stand in the wisdom of men, but in the power of God.</highlight>
+      <highlight verse="9">But as it is written, Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him.</highlight>
+      <highlight verse="10">But God hath revealed them unto us by his Spirit: for the Spirit searcheth all things, yea, the deep things of God.</highlight>
+      <highlight verse="11">For what man knoweth the things of a man, save the spirit of man which is in him? even so the things of God knoweth no man, but the Spirit of God.</highlight>
+      <highlight verse="14">But the natural man receiveth not the things of the Spirit of God: for they are foolishness unto him: neither can he know them, because they are spiritually discerned.</highlight>
+    </body>
+  </resource>
+  <resource id="420">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.3?lang=eng#p3">1 Corinthians 12:3</reference>
+    <body>
+      <title>1 Corinthians 12</title>
+      <highlight verse="3">Wherefore I give you to understand, that no man speaking by the Spirit of God calleth Jesus accursed: and that no man can say that Jesus is the Lord, but by the Holy Ghost.</highlight>
+    </body>
+  </resource>
+  <resource id="421">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.14?lang=eng#p14">1 Corinthians 15:14</reference>
+    <body>
+      <title>1 Corinthians 15</title>
+      <highlight verse="14">And if Christ be not risen, then is our preaching vain, and your faith is also vain.</highlight>
+    </body>
+  </resource>
+  <resource id="422">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/5.7?lang=eng#p7">2 Corinthians 5:7</reference>
+    <body>
+      <title>2 Corinthians 5</title>
+      <highlight verse="7">(For we walk by faith, not by sight:)</highlight>
+    </body>
+  </resource>
+  <resource id="423">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/8.7?lang=eng#p7">2 Corinthians 8:7</reference>
+    <body>
+      <title>2 Corinthians 8</title>
+      <highlight verse="7">Therefore, as ye abound in every thing, in faith, and utterance, and knowledge, and in all diligence, and in your love to us, see that ye abound in this grace also.</highlight>
+    </body>
+  </resource>
+  <resource id="424">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/gal/5.6?lang=eng#p6">Galatians 5:6</reference>
+    <body>
+      <title>Galatians 5</title>
+      <highlight verse="6">For in Jesus Christ neither circumcision availeth any thing, nor uncircumcision; but faith which worketh by love.</highlight>
+    </body>
+  </resource>
+  <resource id="425">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/2.8-9?lang=eng#p8">Ephesians 2:8-9</reference>
+    <body>
+      <title>Ephesians 2</title>
+      <highlight verse="8">For by grace are ye saved through faith; and that not of yourselves: it is the gift of God:</highlight>
+      <highlight verse="9">Not of works, lest any man should boast.</highlight>
+    </body>
+  </resource>
+  <resource id="426">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/2.19-20?lang=eng#p19">Ephesians 2:19-20</reference>
+    <body>
+      <title>Ephesians 2</title>
+      <highlight verse="19">Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God;</highlight>
+      <highlight verse="20">And are built upon the foundation of the apostles and prophets, Jesus Christ himself being the chief corner stone;</highlight>
+    </body>
+  </resource>
+  <resource id="427">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/3.19?lang=eng#p19">Ephesians 3:19</reference>
+    <body>
+      <title>Ephesians 3</title>
+      <highlight verse="19">And to know the love of Christ, which passeth knowledge, that ye might be filled with all the fulness of God.</highlight>
+    </body>
+  </resource>
+  <resource id="428">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/4.11-14?lang=eng#p11">Ephesians 4:11-14</reference>
+    <body>
+      <title>Ephesians 4</title>
+      <highlight verse="11">And he gave some, apostles; and some, prophets; and some, evangelists; and some, pastors and teachers;</highlight>
+      <highlight verse="12">For the perfecting of the saints, for the work of the ministry, for the edifying of the body of Christ:</highlight>
+      <highlight verse="13">Till we all come in the unity of the faith, and of the knowledge of the Son of God, unto a perfect man, unto the measure of the stature of the fulness of Christ:</highlight>
+      <highlight verse="14">That we henceforth be no more children, tossed to and fro, and carried about with every wind of doctrine, by the sleight of men, and cunning craftiness, whereby they lie in wait to deceive;</highlight>
+    </body>
+  </resource>
+  <resource id="429">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/6.16?lang=eng#p16">Ephesians 6:16</reference>
+    <body>
+      <title>Ephesians 6</title>
+      <highlight verse="16">Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked.</highlight>
+    </body>
+  </resource>
+  <resource id="430">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/3.5?lang=eng#p5">2 Timothy 3:5</reference>
+    <body>
+      <title>2 Timothy 3</title>
+      <highlight verse="5">Having a form of godliness, but denying the power thereof: from such turn away.</highlight>
+    </body>
+  </resource>
+  <resource id="431">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/3.15-17?lang=eng#p15">2 Timothy 3:15-17</reference>
+    <body>
+      <title>2 Timothy 3</title>
+      <highlight verse="15">And that from a child thou hast known the holy scriptures, which are able to make thee wise unto salvation through faith which is in Christ Jesus.</highlight>
+      <highlight verse="16">All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness:</highlight>
+      <highlight verse="17">That the man of God may be perfect, throughly furnished unto all good works.</highlight>
+    </body>
+  </resource>
+  <resource id="432">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/4.7?lang=eng#p7">2 Timothy 4:7</reference>
+    <body>
+      <title>2 Timothy 4</title>
+      <highlight verse="7">I have fought a good fight, I have finished my course, I have kept the faith:</highlight>
+    </body>
+  </resource>
+  <resource id="433">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/6.11?lang=eng#p11">Hebrews 6:11</reference>
+    <body>
+      <title>Hebrews 6</title>
+      <highlight verse="11">And we desire that every one of you do shew the same diligence to the full assurance of hope unto the end:</highlight>
+    </body>
+  </resource>
+  <resource id="434">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/11.1?lang=eng#p1">Hebrews 11:1</reference>
+    <body>
+      <title>Hebrews 11</title>
+      <highlight verse="1">Now faith is the substance of things hoped for, the evidence of things not seen.</highlight>
+    </body>
+  </resource>
+  <resource id="435">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/11.4?lang=eng#p4">Hebrews 11:4</reference>
+    <body>
+      <title>Hebrews 11</title>
+      <highlight verse="4">By faith Abel offered unto God a more excellent sacrifice than Cain, by which he obtained witness that he was righteous, God testifying of his gifts: and by it he being dead yet speaketh.</highlight>
+    </body>
+  </resource>
+  <resource id="436">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/11.6?lang=eng#p6">Hebrews 11:6</reference>
+    <body>
+      <title>Hebrews 11</title>
+      <highlight verse="6">But without faith it is impossible to please him: for he that cometh to God must believe that he is, and that he is a rewarder of them that diligently seek him.</highlight>
+    </body>
+  </resource>
+  <resource id="437">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/1.5-8?lang=eng#p5">James 1:5-8</reference>
+    <body>
+      <title>James 1</title>
+      <highlight verse="5">If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.</highlight>
+      <highlight verse="6">But let him ask in faith, nothing wavering. For he that wavereth is like a wave of the sea driven with the wind and tossed.</highlight>
+      <highlight verse="7">For let not that man think that he shall receive any thing of the Lord.</highlight>
+      <highlight verse="8">A double minded man is unstable in all his ways.</highlight>
+    </body>
+  </resource>
+  <resource id="438">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/2.14-26?lang=eng#p14">James 2:14-26</reference>
     <body>
       <title>James 2</title>
       <highlight verse="14">What doth it profit, my brethren, though a man say he hath faith, and have not works? can faith save him?</highlight>
+      <highlight verse="15">If a brother or sister be naked, and destitute of daily food,</highlight>
+      <highlight verse="16">And one of you say unto them, Depart in peace, be ye warmed and filled; notwithstanding ye give them not those things which are needful to the body; what doth it profit?</highlight>
       <highlight verse="17">Even so faith, if it hath not works, is dead, being alone.</highlight>
       <highlight verse="18">Yea, a man may say, Thou hast faith, and I have works: shew me thy faith without thy works, and I will shew thee my faith by my works.</highlight>
       <highlight verse="19">Thou believest that there is one God; thou doest well: the devils also believe, and tremble.</highlight>
+      <highlight verse="20">But wilt thou know, O vain man, that faith without works is dead?</highlight>
+      <highlight verse="21">Was not Abraham our father justified by works, when he had offered Isaac his son upon the altar?</highlight>
+      <highlight verse="22">Seest thou how faith wrought with his works, and by works was faith made perfect?</highlight>
+      <highlight verse="23">And the scripture was fulfilled which saith, Abraham believed God, and it was imputed unto him for righteousness: and he was called the Friend of God.</highlight>
       <highlight verse="24">Ye see then how that by works a man is justified, and not by faith only.</highlight>
+      <highlight verse="25">Likewise also was not Rahab the harlot justified by works, when she had received the messengers, and had sent them out another way?</highlight>
+      <highlight verse="26">For as the body without the spirit is dead, so faith without works is dead also.</highlight>
     </body>
   </resource>
-  <resource id="3">
-    <topic>diligence</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/9.6?lang=eng#p6">Moroni 9:6</reference>
+  <resource id="439">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-pet/1.8-9?lang=eng#p8">1 Peter 1:8-9</reference>
     <body>
-      <title>Moroni 9</title>
-      <highlight verse="6">And now, my beloved son, notwithstanding their hardness, let us labor diligently; for if we should cease to labor, we should be brought under condemnation; for we have a labor to perform whilst in this tabernacle of clay, that we may conquer the enemy of all righteousness, and rest our souls in the kingdom of God.</highlight>
+      <title>1 Peter 1</title>
+      <highlight verse="8">Whom having not seen, ye love; in whom, though now ye see him not, yet believing, ye rejoice with joy unspeakable and full of glory:</highlight>
+      <highlight verse="9">Receiving the end of your faith, even the salvation of your souls.</highlight>
     </body>
   </resource>
-  <resource id="8">
-    <topic>charity</topic>
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.40-48?lang=eng#p40">Moroni 7:40-48</reference>
+  <resource id="440">
+    <topic>diligence</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/1.5?lang=eng#p5">2 Peter 1:5</reference>
+    <body>
+      <title>2 Peter 1</title>
+      <highlight verse="5">And beside this, giving all diligence, add to your faith virtue; and to virtue knowledge;</highlight>
+    </body>
+  </resource>
+  <resource id="441">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/3.14?lang=eng#p14">2 Peter 3:14</reference>
+    <body>
+      <title>2 Peter 3</title>
+      <highlight verse="14">Wherefore, beloved, seeing that ye look for such things, be diligent that ye may be found of him in peace, without spot, and blameless.</highlight>
+    </body>
+  </resource>
+  <resource id="442">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/1.1?lang=eng#p1">1 Nephi 1:1</reference>
+    <body>
+      <title>1 Nephi 1</title>
+      <highlight verse="1">I, Nephi, having been born of goodly parents, therefore I was taught somewhat in all the learning of my father; and having seen many afflictions in the course of my days, nevertheless, having been highly favored of the Lord in all my days; yea, having had a great knowledge of the goodness and the mysteries of God, therefore I make a record of my proceedings in my days.</highlight>
+    </body>
+  </resource>
+  <resource id="443">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3.7?lang=eng#p7">1 Nephi 3:7</reference>
+    <body>
+      <title>1 Nephi 3</title>
+      <highlight verse="7">And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.</highlight>
+    </body>
+  </resource>
+  <resource id="444">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/7.12?lang=eng#p12">1 Nephi 7:12</reference>
+    <body>
+      <title>1 Nephi 7</title>
+      <highlight verse="12">Yea, and how is it that ye have forgotten that the Lord is able to do all things according to his will, for the children of men, if it so be that they exercise faith in him? Wherefore, let us be faithful to him.</highlight>
+    </body>
+  </resource>
+  <resource id="445">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/10.17?lang=eng#p17">1 Nephi 10:17</reference>
+    <body>
+      <title>1 Nephi 10</title>
+      <highlight verse="17">And it came to pass after I, Nephi, having heard all the words of my father, concerning the things which he saw in a vision, and also the things which he spake by the power of the Holy Ghost, which power he received by faith on the Son of God—and the Son of God was the Messiah who should come—I, Nephi, was desirous also that I might see, and hear, and know of these things, by the power of the Holy Ghost, which is the gift of God unto all those who diligently seek him, as well in times of old as in the time that he should manifest himself unto the children of men.</highlight>
+    </body>
+  </resource>
+  <resource id="446">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/10.19?lang=eng#p19">1 Nephi 10:19</reference>
+    <body>
+      <title>1 Nephi 10</title>
+      <highlight verse="19">For he that diligently seeketh shall find; and the mysteries of God shall be unfolded unto them, by the power of the Holy Ghost, as well in these times as in times of old, and as well in times of old as in times to come; wherefore, the course of the Lord is one eternal round.</highlight>
+    </body>
+  </resource>
+  <resource id="447">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/12.10?lang=eng#p10">1 Nephi 12:10</reference>
+    <body>
+      <title>1 Nephi 12</title>
+      <highlight verse="10">And these twelve ministers whom thou beholdest shall judge thy seed. And, behold, they are righteous forever; for because of their faith in the Lamb of God their garments are made white in his blood.</highlight>
+    </body>
+  </resource>
+  <resource id="448">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/16.28-29?lang=eng#p28">1 Nephi 16:28-29</reference>
+    <body>
+      <title>1 Nephi 16</title>
+      <highlight verse="28">And it came to pass that I, Nephi, beheld the pointers which were in the ball, that they did work according to the faith and diligence and heed which we did give unto them.</highlight>
+      <highlight verse="29">And there was also written upon them a new writing, which was plain to be read, which did give us understanding concerning the ways of the Lord; and it was written and changed from time to time, according to the faith and diligence which we gave unto it. And thus we see that by small means the Lord can bring about great things.</highlight>
+    </body>
+  </resource>
+  <resource id="449">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/1.10?lang=eng#p10">2 Nephi 1:10</reference>
+    <body>
+      <title>2 Nephi 1</title>
+      <highlight verse="10">But behold, when the time cometh that they shall dwindle in unbelief, after they have received so great blessings from the hand of the Lord—having a knowledge of the creation of the earth, and all men, knowing the great and marvelous works of the Lord from the creation of the world; having power given them to do all things by faith; having all the commandments from the beginning, and having been brought by his infinite goodness into this precious land of promise—behold, I say, if the day shall come that they will reject the Holy One of Israel, the true Messiah, their Redeemer and their God, behold, the judgments of him that is just shall rest upon them.</highlight>
+    </body>
+  </resource>
+  <resource id="450">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.24?lang=eng#p24">2 Nephi 2:24</reference>
+    <body>
+      <title>2 Nephi 2</title>
+      <highlight verse="24">But behold, all things have been done in the wisdom of him who knoweth all things.</highlight>
+    </body>
+  </resource>
+  <resource id="451">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.27?lang=eng#p27">2 Nephi 2:27</reference>
+    <body>
+      <title>2 Nephi 2</title>
+      <highlight verse="27">Wherefore, men are free according to the flesh; and all things are given them which are expedient unto man. And they are free to choose liberty and eternal life, through the great Mediator of all men, or to choose captivity and death, according to the captivity and power of the devil; for he seeketh that all men might be miserable like unto himself.</highlight>
+    </body>
+  </resource>
+  <resource id="452">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/6.11?lang=eng#p11">2 Nephi 6:11</reference>
+    <body>
+      <title>2 Nephi 6</title>
+      <highlight verse="11">Wherefore, after they are driven to and fro, for thus saith the angel, many shall be afflicted in the flesh, and shall not be suffered to perish, because of the prayers of the faithful; they shall be scattered, and smitten, and hated; nevertheless, the Lord will be merciful unto them, that when they shall come to the knowledge of their Redeemer, they shall be gathered together again to the lands of their inheritance.</highlight>
+    </body>
+  </resource>
+  <resource id="453">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.14?lang=eng#p14">2 Nephi 9:14</reference>
+    <body>
+      <title>2 Nephi 9</title>
+      <highlight verse="14">Wherefore, we shall have a perfect knowledge of all our guilt, and our uncleanness, and our nakedness; and the righteous shall have a perfect knowledge of their enjoyment, and their righteousness, being clothed with purity, yea, even with the robe of righteousness.</highlight>
+    </body>
+  </resource>
+  <resource id="454">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.23?lang=eng#p23">2 Nephi 9:23</reference>
+    <body>
+      <title>2 Nephi 9</title>
+      <highlight verse="23">And he commandeth all men that they must repent, and be baptized in his name, having perfect faith in the Holy One of Israel, or they cannot be saved in the kingdom of God.</highlight>
+    </body>
+  </resource>
+  <resource id="455">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/10.14?lang=eng#p14">2 Nephi 10:14</reference>
+    <body>
+      <title>2 Nephi 10</title>
+      <highlight verse="14">For he that raiseth up a king against me shall perish, for I, the Lord, the king of heaven, will be their king, and I will be a light unto them forever, that hear my words.</highlight>
+    </body>
+  </resource>
+  <resource id="456">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/21.9?lang=eng#p9">2 Nephi 21:9</reference>
+    <body>
+      <title>2 Nephi 21</title>
+      <highlight verse="9">They shall not hurt nor destroy in all my holy mountain, for the earth shall be full of the knowledge of the Lord, as the waters cover the sea.</highlight>
+    </body>
+  </resource>
+  <resource id="457">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/25.23?lang=eng#p23">2 Nephi 25:23</reference>
+    <body>
+      <title>2 Nephi 25</title>
+      <highlight verse="23">For we labor diligently to write, to persuade our children, and also our brethren, to believe in Christ, and to be reconciled to God; for we know that it is by grace that we are saved, after all we can do.</highlight>
+    </body>
+  </resource>
+  <resource id="458">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/25.25?lang=eng#p25">2 Nephi 25:25</reference>
+    <body>
+      <title>2 Nephi 25</title>
+      <highlight verse="25">For, for this end was the law given; wherefore the law hath become dead unto us, and we are made alive in Christ because of our faith; yet we keep the law because of the commandments.</highlight>
+    </body>
+  </resource>
+  <resource id="459">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/26.13?lang=eng#p13">2 Nephi 26:13</reference>
+    <body>
+      <title>2 Nephi 26</title>
+      <highlight verse="13">And that he manifesteth himself unto all those who believe in him, by the power of the Holy Ghost; yea, unto every nation, kindred, tongue, and people, working mighty miracles, signs, and wonders, among the children of men according to their faith.</highlight>
+    </body>
+  </resource>
+  <resource id="460">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/27.23?lang=eng#p23">2 Nephi 27:23</reference>
+    <body>
+      <title>2 Nephi 27</title>
+      <highlight verse="23">For behold, I am God; and I am a God of miracles; and I will show unto the world that I am the same yesterday, today, and forever; and I work not among the children of men save it be according to their faith.</highlight>
+    </body>
+  </resource>
+  <resource id="461">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/27.26?lang=eng#p26">2 Nephi 27:26</reference>
+    <body>
+      <title>2 Nephi 27</title>
+      <highlight verse="26">Therefore, I will proceed to do a marvelous work among this people, yea, a marvelous work and a wonder, for the wisdom of their wise and learned shall perish, and the understanding of their prudent shall be hid.</highlight>
+    </body>
+  </resource>
+  <resource id="462">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/28.30?lang=eng#p30">2 Nephi 28:30</reference>
+    <body>
+      <title>2 Nephi 28</title>
+      <highlight verse="30">For behold, thus saith the Lord God: I will give unto the children of men line upon line, precept upon precept, here a little and there a little; and blessed are those who hearken unto my precepts, and lend an ear unto my counsel, for they shall learn wisdom; for unto him that receiveth I will give more; and from them that shall say, We have enough, from them shall be taken away even that which they have.</highlight>
+    </body>
+  </resource>
+  <resource id="463">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/30.15?lang=eng#p15">2 Nephi 30:15</reference>
+    <body>
+      <title>2 Nephi 30</title>
+      <highlight verse="15">They shall not hurt nor destroy in all my holy mountain; for the earth shall be full of the knowledge of the Lord as the waters cover the sea.</highlight>
+    </body>
+  </resource>
+  <resource id="464">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.19?lang=eng#p19">2 Nephi 31:19</reference>
+    <body>
+      <title>2 Nephi 31</title>
+      <highlight verse="19">And now, my beloved brethren, after ye have gotten into this strait and narrow path, I would ask if all is done? Behold, I say unto you, Nay; for ye have not come thus far save it were by the word of Christ with unshaken faith in him, relying wholly upon the merits of him who is mighty to save.</highlight>
+    </body>
+  </resource>
+  <resource id="465">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/32.3?lang=eng#p3">2 Nephi 32:3</reference>
+    <body>
+      <title>2 Nephi 32</title>
+      <highlight verse="3">Angels speak by the power of the Holy Ghost; wherefore, they speak the words of Christ. Wherefore, I said unto you, feast upon the words of Christ; for behold, the words of Christ will tell you all things what ye should do.</highlight>
+    </body>
+  </resource>
+  <resource id="466">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/32.8-9?lang=eng#p8">2 Nephi 32:8-9</reference>
+    <body>
+      <title>2 Nephi 32</title>
+      <highlight verse="8">And now, my beloved brethren, I perceive that ye ponder still in your hearts; and it grieveth me that I must speak concerning this thing. For if ye would hearken unto the Spirit which teacheth a man to pray, ye would know that ye must pray; for the evil spirit teacheth not a man to pray, but teacheth him that he must not pray.</highlight>
+      <highlight verse="9">But behold, I say unto you that ye must pray always, and not faint; that ye must not perform any thing unto the Lord save in the first place ye shall pray unto the Father in the name of Christ, that he will consecrate thy performance unto thee, that thy performance may be for the welfare of thy soul.</highlight>
+    </body>
+  </resource>
+  <resource id="467">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/1.19?lang=eng#p19">Jacob 1:19</reference>
+    <body>
+      <title>Jacob 1</title>
+      <highlight verse="19">And we did magnify our office unto the Lord, taking upon us the responsibility, answering the sins of the people upon our own heads if we did not teach them the word of God with all diligence; wherefore, by laboring with our might their blood might not come upon our garments; otherwise their blood would come upon our garments, and we would not be found spotless at the last day.</highlight>
+    </body>
+  </resource>
+  <resource id="468">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/4.4-7?lang=eng#p4">Jacob 4:4-7</reference>
+    <body>
+      <title>Jacob 4</title>
+      <highlight verse="4">For, for this intent have we written these things, that they may know that we knew of Christ, and we had a hope of his glory many hundred years before his coming; and not only we ourselves had a hope of his glory, but also all the holy prophets which were before us.</highlight>
+      <highlight verse="5">Behold, they believed in Christ and worshiped the Father in his name, and also we worship the Father in his name. And for this intent we keep the law of Moses, it pointing our souls to him; and for this cause it is sanctified unto us for righteousness, even as it was accounted unto Abraham in the wilderness to be obedient unto the commands of God in offering up his son Isaac, which is a similitude of God and his Only Begotten Son.</highlight>
+      <highlight verse="6">Wherefore, we search the prophets, and we have many revelations and the spirit of prophecy; and having all these witnesses we obtain a hope, and our faith becometh unshaken, insomuch that we truly can command in the name of Jesus and the very trees obey us, or the mountains, or the waves of the sea.</highlight>
+      <highlight verse="7">Nevertheless, the Lord God showeth us our weakness that we may know that it is by his grace, and his great condescensions unto the children of men, that we have power to do these things.</highlight>
+    </body>
+  </resource>
+  <resource id="469">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/enos/1.3-8?lang=eng#p3">Enos 1:3-8</reference>
+    <body>
+      <title>Enos 1</title>
+      <highlight verse="3">Behold, I went to hunt beasts in the forests; and the words which I had often heard my father speak concerning eternal life, and the joy of the saints, sunk deep into my heart.</highlight>
+      <highlight verse="4">And my soul hungered; and I kneeled down before my Maker, and I cried unto him in mighty prayer and supplication for mine own soul; and all the day long did I cry unto him; yea, and when the night came I did still raise my voice high that it reached the heavens.</highlight>
+      <highlight verse="5">And there came a voice unto me, saying: Enos, thy sins are forgiven thee, and thou shalt be blessed.</highlight>
+      <highlight verse="6">And I, Enos, knew that God could not lie; wherefore, my guilt was swept away.</highlight>
+      <highlight verse="7">And I said: Lord, how is it done?</highlight>
+      <highlight verse="8">And he said unto me: Because of thy faith in Christ, whom thou hast never before heard nor seen. And many years pass away before he shall manifest himself in the flesh; wherefore, go to, thy faith hath made thee whole.</highlight>
+    </body>
+  </resource>
+  <resource id="470">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jarom/1.4?lang=eng#p4">Jarom 1:4</reference>
+    <body>
+      <title>Jarom 1</title>
+      <highlight verse="4">And there are many among us who have many revelations, for they are not all stiffnecked. And as many as are not stiffnecked and have faith, have communion with the Holy Spirit, which maketh manifest unto the children of men, according to their faith.</highlight>
+    </body>
+  </resource>
+  <resource id="471">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/1.7?lang=eng#p7">Mosiah 1:7</reference>
+    <body>
+      <title>Mosiah 1</title>
+      <highlight verse="7">And now, my sons, I would that ye should remember to search them diligently, that ye may profit thereby; and I would that ye should keep the commandments of God, that ye may prosper in the land according to the promises which the Lord made unto our fathers.</highlight>
+    </body>
+  </resource>
+  <resource id="472">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/1.11?lang=eng#p11">Mosiah 1:11</reference>
+    <body>
+      <title>Mosiah 1</title>
+      <highlight verse="11">And moreover, I shall give this people a name, that thereby they may be distinguished above all the people which the Lord God hath brought out of the land of Jerusalem; and this I do because they have been a diligent people in keeping the commandments of the Lord.</highlight>
+    </body>
+  </resource>
+  <resource id="473">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/1.16?lang=eng#p16">Mosiah 1:16</reference>
+    <body>
+      <title>Mosiah 1</title>
+      <highlight verse="16">And moreover, he also gave him charge concerning the records which were engraven on the plates of brass; and also the plates of Nephi; and also, the sword of Laban, and the ball or director, which led our fathers through the wilderness, which was prepared by the hand of the Lord that thereby they might be led, every one according to the heed and diligence which they gave unto him.</highlight>
+    </body>
+  </resource>
+  <resource id="474">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.9,12?lang=eng#p9">Mosiah 3:9,12</reference>
+    <body>
+      <title>Mosiah 3</title>
+      <highlight verse="9">And lo, he cometh unto his own, that salvation might come unto the children of men even through faith on his name; and even after all this they shall consider him a man, and say that he hath a devil, and shall scourge him, and shall crucify him.</highlight>
+      <highlight verse="12">But wo, wo unto him who knoweth that he rebelleth against God! For salvation cometh to none such except it be through repentance and faith on the Lord Jesus Christ.</highlight>
+    </body>
+  </resource>
+  <resource id="475">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.17?lang=eng#p17">Mosiah 3:17</reference>
+    <body>
+      <title>Mosiah 3</title>
+      <highlight verse="17">And moreover, I say unto you, that there shall be no other name given nor any other way nor means whereby salvation can come unto the children of men, only in and through the name of Christ, the Lord Omnipotent.</highlight>
+    </body>
+  </resource>
+  <resource id="476">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.9?lang=eng#p9">Mosiah 4:9</reference>
+    <body>
+      <title>Mosiah 4</title>
+      <highlight verse="9">Believe in God; believe that he is, and that he created all things, both in heaven and in earth; believe that he has all wisdom, and all power, both in heaven and in earth; believe that man doth not comprehend all the things which the Lord can comprehend.</highlight>
+    </body>
+  </resource>
+  <resource id="477">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.27?lang=eng#p27">Mosiah 4:27</reference>
+    <body>
+      <title>Mosiah 4</title>
+      <highlight verse="27">And see that all these things are done in wisdom and order; for it is not requisite that a man should run faster than he has strength. And again, it is expedient that he should be diligent, that thereby he might win the prize; therefore, all things must be done in order.</highlight>
+    </body>
+  </resource>
+  <resource id="478">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/5.4?lang=eng#p4">Mosiah 5:4</reference>
+    <body>
+      <title>Mosiah 5</title>
+      <highlight verse="4">And it is the faith which we have had on the things which our king has spoken unto us that has brought us to this great knowledge, whereby we do rejoice with such exceedingly great joy.</highlight>
+    </body>
+  </resource>
+  <resource id="479">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/5.7?lang=eng#p7">Mosiah 5:7</reference>
+    <body>
+      <title>Mosiah 5</title>
+      <highlight verse="7">And now, because of the covenant which ye have made ye shall be called the children of Christ, his sons, and his daughters; for behold, this day he hath spiritually begotten you; for ye say that your hearts are changed through faith on his name; therefore, ye are born of him and have become his sons and his daughters.</highlight>
+    </body>
+  </resource>
+  <resource id="480">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/7.33?lang=eng#p33">Mosiah 7:33</reference>
+    <body>
+      <title>Mosiah 7</title>
+      <highlight verse="33">But if ye will turn to the Lord with full purpose of heart, and put your trust in him, and serve him with all diligence of mind, if ye do this, he will, according to his own will and pleasure, deliver you out of bondage.</highlight>
+    </body>
+  </resource>
+  <resource id="481">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18.8-10?lang=eng#p8">Mosiah 18:8-10</reference>
+    <body>
+      <title>Mosiah 18</title>
+      <highlight verse="8">And it came to pass that he said unto them: Behold, here are the waters of Mormon (for thus were they called) and now, as ye are desirous to come into the fold of God, and to be called his people, and are willing to bear one another’s burdens, that they may be light;</highlight>
+      <highlight verse="9">Yea, and are willing to mourn with those that mourn; yea, and comfort those that stand in need of comfort, and to stand as witnesses of God at all times and in all things, and in all places that ye may be in, even until death, that ye may be redeemed of God, and be numbered with those of the first resurrection, that ye may have eternal life—</highlight>
+      <highlight verse="10">Now I say unto you, if this be the desire of your hearts, what have you against being baptized in the name of the Lord, as a witness before him that ye have entered into a covenant with him, that ye will serve him and keep his commandments, that he may pour out his Spirit more abundantly upon you?</highlight>
+    </body>
+  </resource>
+  <resource id="482">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/21.30?lang=eng#p30">Mosiah 21:30</reference>
+    <body>
+      <title>Mosiah 21</title>
+      <highlight verse="30">And also that king Noah and his priests had caused the people to commit so many sins and iniquities against God; and they also did mourn for the death of Abinadi; and also for the departure of Alma and the people that went with him, who had formed a church of God through the strength and power of God, and faith on the words which had been spoken by Abinadi.</highlight>
+    </body>
+  </resource>
+  <resource id="483">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/25.15?lang=eng#p15">Mosiah 25:15</reference>
+    <body>
+      <title>Mosiah 25</title>
+      <highlight verse="15">And Alma did speak unto them, when they were assembled together in large bodies, and he went from one body to another, preaching unto the people repentance and faith on the Lord.</highlight>
+    </body>
+  </resource>
+  <resource id="484">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/26.15?lang=eng#p15">Mosiah 26:15</reference>
+    <body>
+      <title>Mosiah 26</title>
+      <highlight verse="15">Blessed art thou, Alma, and blessed are they who were baptized in the waters of Mormon. Thou art blessed because of thy exceeding faith in the words alone of my servant Abinadi.</highlight>
+    </body>
+  </resource>
+  <resource id="485">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.14?lang=eng#p14">Mosiah 27:14</reference>
+    <body>
+      <title>Mosiah 27</title>
+      <highlight verse="14">And again, the angel said: Behold, the Lord hath heard the prayers of his people, and also the prayers of his servant, Alma, who is thy father; for he has prayed with much faith concerning thee that thou mightest be brought to the knowledge of the truth; therefore, for this purpose have I come to convince thee of the power and authority of God, that the prayers of his servants might be answered according to their faith.</highlight>
+    </body>
+  </resource>
+  <resource id="486">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/1.24-25?lang=eng#p24">Alma 1:24-25</reference>
+    <body>
+      <title>Alma 1</title>
+      <highlight verse="24">For the hearts of many were hardened, and their names were blotted out, that they were remembered no more among the people of God. And also many withdrew themselves from among them.</highlight>
+      <highlight verse="25">Now this was a great trial to those that did stand fast in the faith; nevertheless, they were steadfast and immovable in keeping the commandments of God, and they bore with patience the persecution which was heaped upon them.</highlight>
+    </body>
+  </resource>
+  <resource id="487">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/2.30?lang=eng#p30">Alma 2:30</reference>
+    <body>
+      <title>Alma 2</title>
+      <highlight verse="30">And it came to pass that Alma, being a man of God, being exercised with much faith, cried, saying: O Lord, have mercy and spare my life, that I may be an instrument in thy hands to save and preserve this people.</highlight>
+    </body>
+  </resource>
+  <resource id="488">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/7.6?lang=eng#p6">Alma 7:6</reference>
+    <body>
+      <title>Alma 7</title>
+      <highlight verse="6">But behold, I trust that ye are not in a state of so much unbelief as were your brethren; I trust that ye are not lifted up in the pride of your hearts; yea, I trust that ye have not set your hearts upon riches and the vain things of the world; yea, I trust that you do not worship idols, but that ye do worship the true and the living God, and that ye look forward for the remission of your sins, with an everlasting faith, which is to come.</highlight>
+    </body>
+  </resource>
+  <resource id="489">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/7.11-12?lang=eng#p11">Alma 7:11-12</reference>
+    <body>
+      <title>Alma 7</title>
+      <highlight verse="11">And he shall go forth, suffering pains and afflictions and temptations of every kind; and this that the word might be fulfilled which saith he will take upon him the pains and the sicknesses of his people.</highlight>
+      <highlight verse="12">And he will take upon him death, that he may loose the bands of death which bind his people; and he will take upon him their infirmities, that his bowels may be filled with mercy, according to the flesh, that he may know according to the flesh how to succor his people according to their infirmities.</highlight>
+    </body>
+  </resource>
+  <resource id="490">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/7.23?lang=eng#p23">Alma 7:23</reference>
+    <body>
+      <title>Alma 7</title>
+      <highlight verse="23">And now I would that ye should be humble, and be submissive and gentle; easy to be entreated; full of patience and long-suffering; being temperate in all things; being diligent in keeping the commandments of God at all times; asking for whatsoever things ye stand in need, both spiritual and temporal; always returning thanks unto God for whatsoever things ye do receive.</highlight>
+    </body>
+  </resource>
+  <resource id="491">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.9?lang=eng#p9">Alma 12:9</reference>
+    <body>
+      <title>Alma 12</title>
+      <highlight verse="9">And now Alma began to expound these things unto him, saying: It is given unto many to know the mysteries of God; nevertheless they are laid under a strict command that they shall not impart only according to the portion of his word which he doth grant unto the children of men, according to the heed and diligence which they give unto him.</highlight>
+    </body>
+  </resource>
+  <resource id="492">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/14.26?lang=eng#p26">Alma 14:26</reference>
+    <body>
+      <title>Alma 14</title>
+      <highlight verse="26">And Alma cried, saying: How long shall we suffer these great afflictions, O Lord? O Lord, give us strength according to our faith which is in Christ, even unto deliverance. And they broke the cords with which they were bound; and when the people saw this, they began to flee, for the fear of destruction had come upon them.</highlight>
+    </body>
+  </resource>
+  <resource id="493">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/15.10?lang=eng#p10">Alma 15:10</reference>
+    <body>
+      <title>Alma 15</title>
+      <highlight verse="10">And then Alma cried unto the Lord, saying: O Lord our God, have mercy on this man, and heal him according to his faith which is in Christ.</highlight>
+    </body>
+  </resource>
+  <resource id="494">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.2?lang=eng#p2">Alma 17:2</reference>
+    <body>
+      <title>Alma 17</title>
+      <highlight verse="2">Now these sons of Mosiah were with Alma at the time the angel first appeared unto him; therefore Alma did rejoice exceedingly to see his brethren; and what added more to his joy, they were still his brethren in the Lord; yea, and they had waxed strong in the knowledge of the truth; for they were men of a sound understanding and they had searched the scriptures diligently, that they might know the word of God.</highlight>
+    </body>
+  </resource>
+  <resource id="495">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/18.35?lang=eng#p35">Alma 18:35</reference>
+    <body>
+      <title>Alma 18</title>
+      <highlight verse="35">And a portion of that Spirit dwelleth in me, which giveth me knowledge, and also power according to my faith and desires which are in God.</highlight>
+    </body>
+  </resource>
+  <resource id="496">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/22.16?lang=eng#p16">Alma 22:16</reference>
+    <body>
+      <title>Alma 22</title>
+      <highlight verse="16">But Aaron said unto him: If thou desirest this thing, if thou wilt bow down before God, yea, if thou wilt repent of all thy sins, and will bow down before God, and call on his name in faith, believing that ye shall receive, then shalt thou receive the hope which thou desirest.</highlight>
+    </body>
+  </resource>
+  <resource id="497">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.22?lang=eng#p22">Alma 26:22</reference>
+    <body>
+      <title>Alma 26</title>
+      <highlight verse="22">Yea, he that repenteth and exerciseth faith, and bringeth forth good works, and prayeth continually without ceasing—unto such it is given to know the mysteries of God; yea, unto such it shall be given to reveal things which never have been revealed; yea, and it shall be given unto such to bring thousands of souls to repentance, even as it has been given unto us to bring these our brethren to repentance.</highlight>
+    </body>
+  </resource>
+  <resource id="498">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.18?lang=eng#p18">Alma 32:18</reference>
+    <body>
+      <title>Alma 32</title>
+      <highlight verse="18">Now I ask, is this faith? Behold, I say unto you, Nay; for if a man knoweth a thing he hath no cause to believe, for he knoweth it.</highlight>
+    </body>
+  </resource>
+  <resource id="499">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.21?lang=eng#p21">Alma 32:21</reference>
+    <body>
+      <title>Alma 32</title>
+      <highlight verse="21">And now as I said concerning faith—faith is not to have a perfect knowledge of things; therefore if ye have faith ye hope for things which are not seen, which are true.</highlight>
+    </body>
+  </resource>
+  <resource id="500">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.26-43?lang=eng#p26">Alma 32:26-43</reference>
+    <body>
+      <title>Alma 32</title>
+      <highlight verse="26">Now, as I said concerning faith—that it was not a perfect knowledge—even so it is with my words. Ye cannot know of their surety at first, unto perfection, any more than faith is a perfect knowledge.</highlight>
+      <highlight verse="27">But behold, if ye will awake and arouse your faculties, even to an experiment upon my words, and exercise a particle of faith, yea, even if ye can no more than desire to believe, let this desire work in you, even until ye believe in a manner that ye can give place for a portion of my words.</highlight>
+      <highlight verse="28">Now, we will compare the word unto a seed. Now, if ye give place, that a seed may be planted in your heart, behold, if it be a true seed, or a good seed, if ye do not cast it out by your unbelief, that ye will resist the Spirit of the Lord, behold, it will begin to swell within your breasts; and when you feel these swelling motions, ye will begin to say within yourselves—It must needs be that this is a good seed, or that the word is good, for it beginneth to enlarge my soul; yea, it beginneth to enlighten my understanding, yea, it beginneth to be delicious to me.</highlight>
+      <highlight verse="29">Now behold, would not this increase your faith? I say unto you, Yea; nevertheless it hath not grown up to a perfect knowledge.</highlight>
+      <highlight verse="30">But behold, as the seed swelleth, and sprouteth, and beginneth to grow, then you must needs say that the seed is good; for behold it swelleth, and sprouteth, and beginneth to grow. And now, behold, will not this strengthen your faith? Yea, it will strengthen your faith: for ye will say I know that this is a good seed; for behold it sprouteth and beginneth to grow.</highlight>
+      <highlight verse="31">And now, behold, are ye sure that this is a good seed? I say unto you, Yea; for every seed bringeth forth unto its own likeness.</highlight>
+      <highlight verse="32">Therefore, if a seed groweth it is good, but if it groweth not, behold it is not good, therefore it is cast away.</highlight>
+      <highlight verse="33">And now, behold, because ye have tried the experiment, and planted the seed, and it swelleth and sprouteth, and beginneth to grow, ye must needs know that the seed is good.</highlight>
+      <highlight verse="34">And now, behold, is your knowledge perfect? Yea, your knowledge is perfect in that thing, and your faith is dormant; and this because you know, for ye know that the word hath swelled your souls, and ye also know that it hath sprouted up, that your understanding doth begin to be enlightened, and your mind doth begin to expand.</highlight>
+      <highlight verse="35">O then, is not this real? I say unto you, Yea, because it is light; and whatsoever is light, is good, because it is discernible, therefore ye must know that it is good; and now behold, after ye have tasted this light is your knowledge perfect?</highlight>
+      <highlight verse="36">Behold I say unto you, Nay; neither must ye lay aside your faith, for ye have only exercised your faith to plant the seed that ye might try the experiment to know if the seed was good.</highlight>
+      <highlight verse="37">And behold, as the tree beginneth to grow, ye will say: Let us nourish it with great care, that it may get root, that it may grow up, and bring forth fruit unto us. And now behold, if ye nourish it with much care it will get root, and grow up, and bring forth fruit.</highlight>
+      <highlight verse="38">But if ye neglect the tree, and take no thought for its nourishment, behold it will not get any root; and when the heat of the sun cometh and scorcheth it, because it hath no root it withers away, and ye pluck it up and cast it out.</highlight>
+      <highlight verse="39">Now, this is not because the seed was not good, neither is it because the fruit thereof would not be desirable; but it is because your ground is barren, and ye will not nourish the tree, therefore ye cannot have the fruit thereof.</highlight>
+      <highlight verse="40">And thus, if ye will not nourish the word, looking forward with an eye of faith to the fruit thereof, ye can never pluck of the fruit of the tree of life.</highlight>
+      <highlight verse="41">But if ye will nourish the word, yea, nourish the tree as it beginneth to grow, by your faith with great diligence, and with patience, looking forward to the fruit thereof, it shall take root; and behold it shall be a tree springing up unto everlasting life.</highlight>
+      <highlight verse="42">And because of your diligence and your faith and your patience with the word in nourishing it, that it may take root in you, behold, by and by ye shall pluck the fruit thereof, which is most precious, which is sweet above all that is sweet, and which is white above all that is white, yea, and pure above all that is pure; and ye shall feast upon this fruit even until ye are filled, that ye hunger not, neither shall ye thirst.</highlight>
+      <highlight verse="43">Then, my brethren, ye shall reap the rewards of your faith, and your diligence, and patience, and long-suffering, waiting for the tree to bring forth fruit unto you.</highlight>
+    </body>
+  </resource>
+  <resource id="501">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.11?lang=eng#p11">Alma 33:11</reference>
+    <body>
+      <title>Alma 33</title>
+      <highlight verse="11">And thou didst hear me because of mine afflictions and my sincerity; and it is because of thy Son that thou hast been thus merciful unto me, therefore I will cry unto thee in all mine afflictions, for in thee is my joy; for thou hast turned thy judgments away from me, because of thy Son.</highlight>
+    </body>
+  </resource>
+  <resource id="502">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.23?lang=eng#p23">Alma 33:23</reference>
+    <body>
+      <title>Alma 33</title>
+      <highlight verse="23">And now, my brethren, I desire that ye shall plant this word in your hearts, and as it beginneth to swell even so nourish it by your faith. And behold, it will become a tree, springing up in you unto everlasting life. And then may God grant unto you that your burdens may be light, through the joy of his Son. And even all this can ye do if ye will. Amen.</highlight>
+    </body>
+  </resource>
+  <resource id="503">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/34.4?lang=eng#p4">Alma 34:4</reference>
+    <body>
+      <title>Alma 34</title>
+      <highlight verse="4">Yea, even that ye would have so much faith as even to plant the word in your hearts, that ye may try the experiment of its goodness.</highlight>
+    </body>
+  </resource>
+  <resource id="504">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/34.17?lang=eng#p17">Alma 34:17</reference>
+    <body>
+      <title>Alma 34</title>
+      <highlight verse="17">Therefore may God grant unto you, my brethren, that ye may begin to exercise your faith unto repentance, that ye begin to call upon his holy name, that he would have mercy upon you;</highlight>
+    </body>
+  </resource>
+  <resource id="505">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/37.33?lang=eng#p33">Alma 37:33</reference>
+    <body>
+      <title>Alma 37</title>
+      <highlight verse="33">Preach unto them repentance, and faith on the Lord Jesus Christ; teach them to humble themselves and to be meek and lowly in heart; teach them to withstand every temptation of the devil, with their faith on the Lord Jesus Christ.</highlight>
+    </body>
+  </resource>
+  <resource id="506">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/38.10?lang=eng#p10">Alma 38:10</reference>
+    <body>
+      <title>Alma 38</title>
+      <highlight verse="10">And now, as ye have begun to teach the word even so I would that ye should continue to teach; and I would that ye would be diligent and temperate in all things.</highlight>
+    </body>
+  </resource>
+  <resource id="507">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/40.3?lang=eng#p3">Alma 40:3</reference>
+    <body>
+      <title>Alma 40</title>
+      <highlight verse="3">Behold, he bringeth to pass the resurrection of the dead. But behold, my son, the resurrection is not yet. Now, I unfold unto you a mystery; nevertheless, there are many mysteries which are kept, that no one knoweth them save God himself. But I show unto you one thing which I have inquired diligently of God that I might know—that is concerning the resurrection.</highlight>
+    </body>
+  </resource>
+  <resource id="508">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/44.5?lang=eng#p5">Alma 44:5</reference>
+    <body>
+      <title>Alma 44</title>
+      <highlight verse="5">And now, Zerahemnah, I command you, in the name of that all-powerful God, who has strengthened our arms that we have gained power over you, by our faith, by our religion, and by our rites of worship, and by our church, and by the sacred support which we owe to our wives and our children, by that liberty which binds us to our lands and our country; yea, and also by the maintenance of the sacred word of God, to which we owe all our happiness; and by all that is most dear unto us—</highlight>
+    </body>
+  </resource>
+  <resource id="509">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/48.13?lang=eng#p13">Alma 48:13</reference>
+    <body>
+      <title>Alma 48</title>
+      <highlight verse="13">Yea, and he was a man who was firm in the faith of Christ, and he had sworn with an oath to defend his people, his rights, and his country, and his religion, even to the loss of his blood.</highlight>
+    </body>
+  </resource>
+  <resource id="510">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/48.15-16?lang=eng#p15">Alma 48:15-16</reference>
+    <body>
+      <title>Alma 48</title>
+      <highlight verse="15">And this was their faith, that by so doing God would prosper them in the land, or in other words, if they were faithful in keeping the commandments of God that he would prosper them in the land; yea, warn them to flee, or to prepare for war, according to their danger;</highlight>
+      <highlight verse="16">And also, that God would make it known unto them whither they should go to defend themselves against their enemies, and by so doing, the Lord would deliver them; and this was the faith of Moroni, and his heart did glory in it; not in the shedding of blood but in doing good, in preserving his people, yea, in keeping the commandments of God, yea, and resisting iniquity.</highlight>
+    </body>
+  </resource>
+  <resource id="511">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/49.30?lang=eng#p30">Alma 49:30</reference>
+    <body>
+      <title>Alma 49</title>
+      <highlight verse="30">Yea, and there was continual peace among them, and exceedingly great prosperity in the church because of their heed and diligence which they gave unto the word of God, which was declared unto them by Helaman, and Shiblon, and Corianton, and Ammon and his brethren, yea, and by all those who had been ordained by the holy order of God, being baptized unto repentance, and sent forth to preach among the people.</highlight>
+    </body>
+  </resource>
+  <resource id="512">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/57.25-27?lang=eng#p25">Alma 57:25-27</reference>
+    <body>
+      <title>Alma 57</title>
+      <highlight verse="25">And it came to pass that there were two hundred, out of my two thousand and sixty, who had fainted because of the loss of blood; nevertheless, according to the goodness of God, and to our great astonishment, and also the joy of our whole army, there was not one soul of them who did perish; yea, and neither was there one soul among them who had not received many wounds.</highlight>
+      <highlight verse="26">And now, their preservation was astonishing to our whole army, yea, that they should be spared while there was a thousand of our brethren who were slain. And we do justly ascribe it to the miraculous power of God, because of their exceeding faith in that which they had been taught to believe—that there was a just God, and whosoever did not doubt, that they should be preserved by his marvelous power.</highlight>
+      <highlight verse="27">Now this was the faith of these of whom I have spoken; they are young, and their minds are firm, and they do put their trust in God continually.</highlight>
+    </body>
+  </resource>
+  <resource id="513">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/61.17?lang=eng#p17">Alma 61:17</reference>
+    <body>
+      <title>Alma 61</title>
+      <highlight verse="17">Gather together whatsoever force ye can upon your march hither, and we will go speedily against those dissenters, in the strength of our God according to the faith which is in us.</highlight>
+    </body>
+  </resource>
+  <resource id="514">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/5.47?lang=eng#p47">Helaman 5:47</reference>
+    <body>
+      <title>Helaman 5</title>
+      <highlight verse="47">Peace, peace be unto you, because of your faith in my Well Beloved, who was from the foundation of the world.</highlight>
+    </body>
+  </resource>
+  <resource id="515">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/8.15?lang=eng#p15">Helaman 8:15</reference>
+    <body>
+      <title>Helaman 8</title>
+      <highlight verse="15">And as many as should look upon that serpent should live, even so as many as should look upon the Son of God with faith, having a contrite spirit, might live, even unto that life which is eternal.</highlight>
+    </body>
+  </resource>
+  <resource id="516">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/13.6?lang=eng#p6">Helaman 13:6</reference>
+    <body>
+      <title>Helaman 13</title>
+      <highlight verse="6">Yea, heavy destruction awaiteth this people, and it surely cometh unto this people, and nothing can save this people save it be repentance and faith on the Lord Jesus Christ, who surely shall come into the world, and shall suffer many things and shall be slain for his people.</highlight>
+    </body>
+  </resource>
+  <resource id="517">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/15.13?lang=eng#p13">Helaman 15:13</reference>
+    <body>
+      <title>Helaman 15</title>
+      <highlight verse="13">And this is according to the prophecy, that they shall again be brought to the true knowledge, which is the knowledge of their Redeemer, and their great and true shepherd, and be numbered among his sheep.</highlight>
+    </body>
+  </resource>
+  <resource id="518">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/6.14?lang=eng#p14">3 Nephi 6:14</reference>
+    <body>
+      <title>3 Nephi 6</title>
+      <highlight verse="14">And thus there became a great inequality in all the land, insomuch that the church began to be broken up; yea, insomuch that in the thirtieth year the church was broken up in all the land save it were among a few of the Lamanites who were converted unto the true faith; and they would not depart from it, for they were firm, and steadfast, and immovable, willing with all diligence to keep the commandments of the Lord.</highlight>
+    </body>
+  </resource>
+  <resource id="519">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/7.18?lang=eng#p18">3 Nephi 7:18</reference>
+    <body>
+      <title>3 Nephi 7</title>
+      <highlight verse="18">And it came to pass that they were angry with him, even because he had greater power than they, for it were not possible that they could disbelieve his words, for so great was his faith on the Lord Jesus Christ that angels did minister unto him daily.</highlight>
+    </body>
+  </resource>
+  <resource id="520">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/9.13-14?lang=eng#p13">3 Nephi 9:13-14</reference>
+    <body>
+      <title>3 Nephi 9</title>
+      <highlight verse="13">O all ye that are spared because ye were more righteous than they, will ye not now return unto me, and repent of your sins, and be converted, that I may heal you?</highlight>
+      <highlight verse="14">Yea, verily I say unto you, if ye will come unto me ye shall have eternal life. Behold, mine arm of mercy is extended towards you, and whosoever will come, him will I receive; and blessed are those who come unto me.</highlight>
+    </body>
+  </resource>
+  <resource id="521">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/13.30?lang=eng#p30">3 Nephi 13:30</reference>
+    <body>
+      <title>3 Nephi 13</title>
+      <highlight verse="30">Wherefore, if God so clothe the grass of the field, which today is, and tomorrow is cast into the oven, even so will he clothe you, if ye are not of little faith.</highlight>
+    </body>
+  </resource>
+  <resource id="522">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17.8?lang=eng#p8">3 Nephi 17:8</reference>
+    <body>
+      <title>3 Nephi 17</title>
+      <highlight verse="8">For I perceive that ye desire that I should show unto you what I have done unto your brethren at Jerusalem, for I see that your faith is sufficient that I should heal you.</highlight>
+    </body>
+  </resource>
+  <resource id="523">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.15,20-21?lang=eng#p15">3 Nephi 18:15,20-21</reference>
+    <body>
+      <title>3 Nephi 18</title>
+      <highlight verse="15">Verily, verily, I say unto you, ye must watch and pray always, lest ye be tempted by the devil, and ye be led away captive by him.</highlight>
+      <highlight verse="20">And whatsoever ye shall ask the Father in my name, which is right, believing that ye shall receive, behold it shall be given unto you.</highlight>
+      <highlight verse="21">Pray in your families unto the Father, always in my name, that your wives and your children may be blessed.</highlight>
+    </body>
+  </resource>
+  <resource id="524">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.35?lang=eng#p35">3 Nephi 19:35</reference>
+    <body>
+      <title>3 Nephi 19</title>
+      <highlight verse="35">And it came to pass that when Jesus had made an end of praying he came again to the disciples, and said unto them: So great faith have I never seen among all the Jews; wherefore I could not show unto them so great miracles, because of their unbelief.</highlight>
+    </body>
+  </resource>
+  <resource id="525">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/23.1?lang=eng#p1">3 Nephi 23:1</reference>
+    <body>
+      <title>3 Nephi 23</title>
+      <highlight verse="1">And now, behold, I say unto you, that ye ought to search these things. Yea, a commandment I give unto you that ye search these things diligently; for great are the words of Isaiah.</highlight>
+    </body>
+  </resource>
+  <resource id="526">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/26.9?lang=eng#p9">3 Nephi 26:9</reference>
+    <body>
+      <title>3 Nephi 26</title>
+      <highlight verse="9">And when they shall have received this, which is expedient that they should have first, to try their faith, and if it shall so be that they shall believe these things then shall the greater things be made manifest unto them.</highlight>
+    </body>
+  </resource>
+  <resource id="527">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/26.11?lang=eng#p11">3 Nephi 26:11</reference>
+    <body>
+      <title>3 Nephi 26</title>
+      <highlight verse="11">Behold, I was about to write them, all which were engraven upon the plates of Nephi, but the Lord forbade it, saying: I will try the faith of my people.</highlight>
+    </body>
+  </resource>
+  <resource id="528">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.19?lang=eng#p19">3 Nephi 27:19</reference>
+    <body>
+      <title>3 Nephi 27</title>
+      <highlight verse="19">And no unclean thing can enter into his kingdom; therefore nothing entereth into his rest save it be those who have washed their garments in my blood, because of their faith, and the repentance of all their sins, and their faithfulness unto the end.</highlight>
+    </body>
+  </resource>
+  <resource id="529">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/9.37?lang=eng#p37">Mormon 9:37</reference>
+    <body>
+      <title>Mormon 9</title>
+      <highlight verse="37">And may the Lord Jesus Christ grant that their prayers may be answered according to their faith; and may God the Father remember the covenant which he hath made with the house of Israel; and may he bless them forever, through faith on the name of Jesus Christ. Amen.</highlight>
+    </body>
+  </resource>
+  <resource id="530">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/3.19?lang=eng#p19">Ether 3:19</reference>
+    <body>
+      <title>Ether 3</title>
+      <highlight verse="19">And because of the knowledge of this man he could not be kept from beholding within the veil; and he saw the finger of Jesus, which, when he saw, he fell with fear; for he knew that it was the finger of the Lord; and he had faith no longer, for he knew, nothing doubting.</highlight>
+    </body>
+  </resource>
+  <resource id="531">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/4.7?lang=eng#p7">Ether 4:7</reference>
+    <body>
+      <title>Ether 4</title>
+      <highlight verse="7">And in that day that they shall exercise faith in me, saith the Lord, even as the brother of Jared did, that they may become sanctified in me, then will I manifest unto them the things which the brother of Jared saw, even to the unfolding unto them all my revelations, saith Jesus Christ, the Son of God, the Father of the heavens and of the earth, and all things that in them are.</highlight>
+    </body>
+  </resource>
+  <resource id="532">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.4-28,37?lang=eng#p4">Ether 12:4-28,37</reference>
+    <body>
+      <title>Ether 12</title>
+      <highlight verse="4">Wherefore, whoso believeth in God might with surety hope for a better world, yea, even a place at the right hand of God, which hope cometh of faith, maketh an anchor to the souls of men, which would make them sure and steadfast, always abounding in good works, being led to glorify God.</highlight>
+      <highlight verse="5">And it came to pass that Ether did prophesy great and marvelous things unto the people, which they did not believe, because they saw them not.</highlight>
+      <highlight verse="6">And now, I, Moroni, would speak somewhat concerning these things; I would show unto the world that faith is things which are hoped for and not seen; wherefore, dispute not because ye see not, for ye receive no witness until after the trial of your faith.</highlight>
+      <highlight verse="7">For it was by faith that Christ showed himself unto our fathers, after he had risen from the dead; and he showed not himself unto them until after they had faith in him; wherefore, it must needs be that some had faith in him, for he showed himself not unto the world.</highlight>
+      <highlight verse="8">But because of the faith of men he has shown himself unto the world, and glorified the name of the Father, and prepared a way that thereby others might be partakers of the heavenly gift, that they might hope for those things which they have not seen.</highlight>
+      <highlight verse="9">Wherefore, ye may also have hope, and be partakers of the gift, if ye will but have faith.</highlight>
+      <highlight verse="10">Behold it was by faith that they of old were called after the holy order of God.</highlight>
+      <highlight verse="11">Wherefore, by faith was the law of Moses given. But in the gift of his Son hath God prepared a more excellent way; and it is by faith that it hath been fulfilled.</highlight>
+      <highlight verse="12">For if there be no faith among the children of men God can do no miracle among them; wherefore, he showed not himself until after their faith.</highlight>
+      <highlight verse="13">Behold, it was the faith of Alma and Amulek that caused the prison to tumble to the earth.</highlight>
+      <highlight verse="14">Behold, it was the faith of Nephi and Lehi that wrought the change upon the Lamanites, that they were baptized with fire and with the Holy Ghost.</highlight>
+      <highlight verse="15">Behold, it was the faith of Ammon and his brethren which wrought so great a miracle among the Lamanites.</highlight>
+      <highlight verse="16">Yea, and even all they who wrought miracles wrought them by faith, even those who were before Christ and also those who were after.</highlight>
+      <highlight verse="17">And it was by faith that the three disciples obtained a promise that they should not taste of death; and they obtained not the promise until after their faith.</highlight>
+      <highlight verse="18">And neither at any time hath any wrought miracles until after their faith; wherefore they first believed in the Son of God.</highlight>
+      <highlight verse="19">And there were many whose faith was so exceedingly strong, even before Christ came, who could not be kept from within the veil, but truly saw with their eyes the things which they had beheld with an eye of faith, and they were glad.</highlight>
+      <highlight verse="20">And behold, we have seen in this record that one of these was the brother of Jared; for so great was his faith in God, that when God put forth his finger he could not hide it from the sight of the brother of Jared, because of his word which he had spoken unto him, which word he had obtained by faith.</highlight>
+      <highlight verse="21">And after the brother of Jared had beheld the finger of the Lord, because of the promise which the brother of Jared had obtained by faith, the Lord could not withhold anything from his sight; wherefore he showed him all things, for he could no longer be kept without the veil.</highlight>
+      <highlight verse="22">And it is by faith that my fathers have obtained the promise that these things should come unto their brethren through the Gentiles; therefore the Lord hath commanded me, yea, even Jesus Christ.</highlight>
+      <highlight verse="23">And I said unto him: Lord, the Gentiles will mock at these things, because of our weakness in writing; for Lord thou hast made us mighty in word by faith, but thou hast not made us mighty in writing; for thou hast made all this people that they could speak much, because of the Holy Ghost which thou hast given them;</highlight>
+      <highlight verse="24">And thou hast made us that we could write but little, because of the awkwardness of our hands. Behold, thou hast not made us mighty in writing like unto the brother of Jared, for thou madest him that the things which he wrote were mighty even as thou art, unto the overpowering of man to read them.</highlight>
+      <highlight verse="25">Thou hast also made our words powerful and great, even that we cannot write them; wherefore, when we write we behold our weakness, and stumble because of the placing of our words; and I fear lest the Gentiles shall mock at our words.</highlight>
+      <highlight verse="26">And when I had said this, the Lord spake unto me, saying: Fools mock, but they shall mourn; and my grace is sufficient for the meek, that they shall take no advantage of your weakness;</highlight>
+      <highlight verse="27">And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them.</highlight>
+      <highlight verse="28">Behold, I will show unto the Gentiles their weakness, and I will show unto them that faith, hope and charity bringeth unto me—the fountain of all righteousness.</highlight>
+      <highlight verse="37">And it came to pass that the Lord said unto me: If they have not charity it mattereth not unto thee, thou hast been faithful; wherefore, thy garments shall be made clean. And because thou hast seen thy weakness thou shalt be made strong, even unto the sitting down in the place which I have prepared in the mansions of my Father.</highlight>
+    </body>
+  </resource>
+  <resource id="533">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.30?lang=eng#p30">Ether 12:30</reference>
+    <body>
+      <title>Ether 12</title>
+      <highlight verse="30">For the brother of Jared said unto the mountain Zerin, Remove—and it was removed. And if he had not had faith it would not have moved; wherefore thou workest after men have faith.</highlight>
+    </body>
+  </resource>
+  <resource id="534">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/3.3?lang=eng#p3">Moroni 3:3</reference>
+    <body>
+      <title>Moroni 3</title>
+      <highlight verse="3">In the name of Jesus Christ I ordain you to be a priest (or if he be a teacher, I ordain you to be a teacher) to preach repentance and remission of sins through Jesus Christ, by the endurance of faith on his name to the end. Amen.</highlight>
+    </body>
+  </resource>
+  <resource id="535">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/6.4?lang=eng#p4">Moroni 6:4</reference>
+    <body>
+      <title>Moroni 6</title>
+      <highlight verse="4">And after they had been received unto baptism, and were wrought upon and cleansed by the power of the Holy Ghost, they were numbered among the people of the church of Christ; and their names were taken, that they might be remembered and nourished by the good word of God, to keep them in the right way, to keep them continually watchful unto prayer, relying alone upon the merits of Christ, who was the author and the finisher of their faith.</highlight>
+    </body>
+  </resource>
+  <resource id="536">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.15-17?lang=eng#p15">Moroni 7:15-17</reference>
     <body>
       <title>Moroni 7</title>
+      <highlight verse="15">For behold, my brethren, it is given unto you to judge, that ye may know good from evil; and the way to judge is as plain, that ye may know with a perfect knowledge, as the daylight is from the dark night.</highlight>
+      <highlight verse="16">For behold, the Spirit of Christ is given to every man, that he may know good from evil; wherefore, I show unto you the way to judge; for every thing which inviteth to do good, and to persuade to believe in Christ, is sent forth by the power and gift of Christ; wherefore ye may know with a perfect knowledge it is of God.</highlight>
+      <highlight verse="17">But whatsoever thing persuadeth men to do evil, and believe not in Christ, and deny him, and serve not God, then ye may know with a perfect knowledge it is of the devil; for after this manner doth the devil work, for he persuadeth no man to do good, no, not one; neither do his angels; neither do they who subject themselves unto him.</highlight>
+    </body>
+  </resource>
+  <resource id="537">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.20-48?lang=eng#p20">Moroni 7:20-48</reference>
+    <body>
+      <title>Moroni 7</title>
+      <highlight verse="20">And now, my brethren, how is it possible that ye can lay hold upon every good thing?</highlight>
+      <highlight verse="21">And now I come to that faith, of which I said I would speak; and I will tell you the way whereby ye may lay hold on every good thing.</highlight>
+      <highlight verse="22">For behold, God knowing all things, being from everlasting to everlasting, behold, he sent angels to minister unto the children of men, to make manifest concerning the coming of Christ; and in Christ there should come every good thing.</highlight>
+      <highlight verse="23">And God also declared unto prophets, by his own mouth, that Christ should come.</highlight>
+      <highlight verse="24">And behold, there were divers ways that he did manifest things unto the children of men, which were good; and all things which are good cometh of Christ; otherwise men were fallen, and there could no good thing come unto them.</highlight>
+      <highlight verse="25">Wherefore, by the ministering of angels, and by every word which proceeded forth out of the mouth of God, men began to exercise faith in Christ; and thus by faith, they did lay hold upon every good thing; and thus it was until the coming of Christ.</highlight>
+      <highlight verse="26">And after that he came men also were saved by faith in his name; and by faith, they become the sons of God. And as surely as Christ liveth he spake these words unto our fathers, saying: Whatsoever thing ye shall ask the Father in my name, which is good, in faith believing that ye shall receive, behold, it shall be done unto you.</highlight>
+      <highlight verse="27">Wherefore, my beloved brethren, have miracles ceased because Christ hath ascended into heaven, and hath sat down on the right hand of God, to claim of the Father his rights of mercy which he hath upon the children of men?</highlight>
+      <highlight verse="28">For he hath answered the ends of the law, and he claimeth all those who have faith in him; and they who have faith in him will cleave unto every good thing; wherefore he advocateth the cause of the children of men; and he dwelleth eternally in the heavens.</highlight>
+      <highlight verse="29">And because he hath done this, my beloved brethren, have miracles ceased? Behold I say unto you, Nay; neither have angels ceased to minister unto the children of men.</highlight>
+      <highlight verse="30">For behold, they are subject unto him, to minister according to the word of his command, showing themselves unto them of strong faith and a firm mind in every form of godliness.</highlight>
+      <highlight verse="31">And the office of their ministry is to call men unto repentance, and to fulfil and to do the work of the covenants of the Father, which he hath made unto the children of men, to prepare the way among the children of men, by declaring the word of Christ unto the chosen vessels of the Lord, that they may bear testimony of him.</highlight>
+      <highlight verse="32">And by so doing, the Lord God prepareth the way that the residue of men may have faith in Christ, that the Holy Ghost may have place in their hearts, according to the power thereof; and after this manner bringeth to pass the Father, the covenants which he hath made unto the children of men.</highlight>
+      <highlight verse="33">And Christ hath said: If ye will have faith in me ye shall have power to do whatsoever thing is expedient in me.</highlight>
+      <highlight verse="34">And he hath said: Repent all ye ends of the earth, and come unto me, and be baptized in my name, and have faith in me, that ye may be saved.</highlight>
+      <highlight verse="35">And now, my beloved brethren, if this be the case that these things are true which I have spoken unto you, and God will show unto you, with power and great glory at the last day, that they are true, and if they are true has the day of miracles ceased?</highlight>
+      <highlight verse="36">Or have angels ceased to appear unto the children of men? Or has he withheld the power of the Holy Ghost from them? Or will he, so long as time shall last, or the earth shall stand, or there shall be one man upon the face thereof to be saved?</highlight>
+      <highlight verse="37">Behold I say unto you, Nay; for it is by faith that miracles are wrought; and it is by faith that angels appear and minister unto men; wherefore, if these things have ceased wo be unto the children of men, for it is because of unbelief, and all is vain.</highlight>
+      <highlight verse="38">For no man can be saved, according to the words of Christ, save they shall have faith in his name; wherefore, if these things have ceased, then has faith ceased also; and awful is the state of man, for they are as though there had been no redemption made.</highlight>
+      <highlight verse="39">But behold, my beloved brethren, I judge better things of you, for I judge that ye have faith in Christ because of your meekness; for if ye have not faith in him then ye are not fit to be numbered among the people of his church.</highlight>
       <highlight verse="40">And again, my beloved brethren, I would speak unto you concerning hope. How is it that ye can attain unto faith, save ye shall have hope?</highlight>
       <highlight verse="41">And what is it that ye shall hope for? Behold I say unto you that ye shall have hope through the atonement of Christ and the power of his resurrection, to be raised unto life eternal, and this because of your faith in him according to the promise.</highlight>
       <highlight verse="42">Wherefore, if a man have faith he must needs have hope; for without faith there cannot be any hope.</highlight>
@@ -56,277 +1472,886 @@
       <highlight verse="48">Wherefore, my beloved brethren, pray unto the Father with all the energy of heart, that ye may be filled with this love, which he hath bestowed upon all who are true followers of his Son, Jesus Christ; that ye may become the sons of God; that when he shall appear we shall be like him, for we shall see him as he is; that we may have this hope; that we may be purified even as he is pure. Amen.</highlight>
     </body>
   </resource>
-  <resource id="5">
+  <resource id="538">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/8.26?lang=eng#p26">Moroni 8:26</reference>
+    <body>
+      <title>Moroni 8</title>
+      <highlight verse="26">And the remission of sins bringeth meekness, and lowliness of heart; and because of meekness and lowliness of heart cometh the visitation of the Holy Ghost, which Comforter filleth with hope and perfect love, which love endureth by diligence unto prayer, until the end shall come, when all the saints shall dwell with God.</highlight>
+    </body>
+  </resource>
+  <resource id="539">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/9.6?lang=eng#p6">Moroni 9:6</reference>
+    <body>
+      <title>Moroni 9</title>
+      <highlight verse="6">And now, my beloved son, notwithstanding their hardness, let us labor diligently; for if we should cease to labor, we should be brought under condemnation; for we have a labor to perform whilst in this tabernacle of clay, that we may conquer the enemy of all righteousness, and rest our souls in the kingdom of God.</highlight>
+    </body>
+  </resource>
+  <resource id="540">
     <topic>faith</topic>
-    <topic>opposition</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.6?lang=eng#p6">Ether 12:6</reference>
-    <body>
-      <title>Ether 12</title>
-      <highlight verse="6">And now, I, Moroni, would speak somewhat concerning these things; I would show unto the world that faith is things which are hoped for and not seen; wherefore, dispute not because ye see not, for ye receive no witness until after the trial of your faith.</highlight>
-    </body>
-  </resource>
-  <resource id="6">
-    <topic>diligence</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.26-27?lang=eng#p26">Mosiah 4:26-27</reference>
-    <body>
-      <title>Mosiah 4</title>
-      <highlight verse="26">And now, for the sake of these things which I have spoken unto you—that is, for the sake of retaining a remission of your sins from day to day, that ye may walk guiltless before God—I would that ye should impart of your substance to the poor, every man according to that which he hath, such as feeding the hungry, clothing the naked, visiting the sick and administering to their relief, both spiritually and temporally, according to their wants.</highlight>
-      <highlight verse="27">And see that all these things are done in wisdom and order; for it is not requisite that a man should run faster than he has strength. And again, it is expedient that he should be diligent, that thereby he might win the prize; therefore, all things must be done in order.</highlight>
-    </body>
-  </resource>
-  <resource id="7">
-    <topic>diligence</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/127.4?lang=eng#p4">D&amp;C 127:4</reference>
-    <body>
-      <title>Doctrine and Covenants 127</title>
-      <highlight verse="4">And again, verily thus saith the Lord: Let the work of my temple, and all the works which I have appointed unto you, be continued on and not cease; and let your diligence, and your perseverance, and patience, and your works be redoubled, and you shall in nowise lose your reward, saith the Lord of Hosts. And if they persecute you, so persecuted they the prophets and righteous men that were before you. For all this there is a reward in heaven.</highlight>
-    </body>
-  </resource>
-  <resource id="9">
-    <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/19.9?lang=eng#p9">1 Nephi 19:9</reference>
-    <body>
-      <title>1 Nephi 19</title>
-      <highlight verse="9">And the world, because of their iniquity, shall judge him to be a thing of naught; wherefore they scourge him, and he suffereth it; and they smite him, and he suffereth it. Yea, they spit upon him, and he suffereth it, because of his loving kindness and his long-suffering towards the children of men.</highlight>
-    </body>
-  </resource>
-  <resource id="10">
-    <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2.17?lang=eng#p17">Mosiah 2:17</reference>
-    <body>
-      <title>Mosiah 2</title>
-      <highlight verse="17">And behold, I tell you these things that ye may learn wisdom; that ye may learn that when ye are in the service of your fellow beings ye are only in the service of your God.</highlight>
-    </body>
-  </resource>
-  <resource id="11">
-    <topic>humility</topic>
     <topic>knowledge</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.28-29?lang=eng#p28">2 Nephi 9:28-29</reference>
-    <body>
-      <title>2 Nephi 9</title>
-      <highlight verse="28">O that cunning plan of the evil one! O the vainness, and the frailties, and the foolishness of men! When they are learned they think they are wise, and they hearken not unto the counsel of God, for they set it aside, supposing they know of themselves, wherefore, their wisdom is foolishness and it profiteth them not. And they shall perish.</highlight>
-      <highlight verse="29">But to be learned is good if they hearken unto the counsels of God.</highlight>
-    </body>
-  </resource>
-  <resource id="12">
-    <topic>humility</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.27?lang=eng#p27">Ether 12:27</reference>
-    <body>
-      <title>Ether 12</title>
-      <highlight verse="27">And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them.</highlight>
-    </body>
-  </resource>
-  <resource id="13">
-    <topic>humility</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/16.1-3?lang=eng#p1">1 Nephi 16:1-3</reference>
-    <body>
-      <title>1 Nephi 16</title>
-      <highlight verse="1">And now it came to pass that after I, Nephi, had made an end of speaking to my brethren, behold they said unto me: Thou hast declared unto us hard things, more than we are able to bear.</highlight>
-      <highlight verse="2">And it came to pass that I said unto them that I knew that I had spoken hard things against the wicked, according to the truth; and the righteous have I justified, and testified that they should be lifted up at the last day; wherefore, the guilty taketh the truth to be hard, for it cutteth them to the very center.</highlight>
-      <highlight verse="3">And now my brethren, if ye were righteous and were willing to hearken to the truth, and give heed unto it, that ye might walk uprightly before God, then ye would not murmur because of the truth, and say: Thou speakest hard things against us.</highlight>
-    </body>
-  </resource>
-  <resource id="14">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.20?lang=eng#p20">2 Nephi 31:20</reference>
-    <body>
-      <title>2 Nephi 31</title>
-      <highlight verse="20">Wherefore, ye must press forward with a steadfastness in Christ, having a perfect brightness of hope, and a love of God and of all men. Wherefore, if ye shall press forward, feasting upon the word of Christ, and endure to the end, behold, thus saith the Father: Ye shall have eternal life.</highlight>
-    </body>
-  </resource>
-  <resource id="16">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/8.24-25?lang=eng#p24">Romans 8:24-25</reference>
-    <body>
-      <title>Romans 8</title>
-      <highlight verse="24">For we are saved by hope: but hope that is seen is not hope: for what a man seeth, why doth he yet hope for?</highlight>
-      <highlight verse="25">But if we hope for that we see not, then do we with patience wait for it.</highlight>
-    </body>
-  </resource>
-  <resource id="17">
-    <topic>knowledge</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.2-3?lang=eng#p2">Alma 17:2-3</reference>
-    <body>
-      <title>Alma 17</title>
-      <highlight verse="2">Now these sons of Mosiah were with Alma at the time the angel first appeared unto him; therefore Alma did rejoice exceedingly to see his brethren; and what added more to his joy, they were still his brethren in the Lord; yea, and they had waxed strong in the knowledge of the truth; for they were men of a sound understanding and they had searched the scriptures diligently, that they might know the word of God.</highlight>
-      <highlight verse="3">But this is not all; they had given themselves to much prayer, and fasting; therefore they had the spirit of prophecy, and the spirit of revelation, and when they taught, they taught with power and authority of God.</highlight>
-    </body>
-  </resource>
-  <resource id="18">
-    <topic>knowledge</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.3-5?lang=eng#p3">Moroni 10:3-5</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.4-5?lang=eng#p4">Moroni 10:4-5</reference>
     <body>
       <title>Moroni 10</title>
-      <highlight verse="3">Behold, I would exhort you that when ye shall read these things, if it be wisdom in God that ye should read them, that ye would remember how merciful the Lord hath been unto the children of men, from the creation of Adam even down until the time that ye shall receive these things, and ponder it in your hearts.</highlight>
       <highlight verse="4">And when ye shall receive these things, I would exhort you that ye would ask God, the Eternal Father, in the name of Christ, if these things are not true; and if ye shall ask with a sincere heart, with real intent, having faith in Christ, he will manifest the truth of it unto you, by the power of the Holy Ghost.</highlight>
       <highlight verse="5">And by the power of the Holy Ghost ye may know the truth of all things.</highlight>
     </body>
   </resource>
-  <resource id="19">
+  <resource id="541">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.11?lang=eng#p11">Moroni 10:11</reference>
+    <body>
+      <title>Moroni 10</title>
+      <highlight verse="11">And to another, exceedingly great faith; and to another, the gifts of healing by the same Spirit;</highlight>
+    </body>
+  </resource>
+  <resource id="542">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.22?lang=eng#p22">Moroni 10:22</reference>
+    <body>
+      <title>Moroni 10</title>
+      <highlight verse="22">And if ye have no hope ye must needs be in despair; and despair cometh because of iniquity.</highlight>
+    </body>
+  </resource>
+  <resource id="543">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.23?lang=eng#p23">Moroni 10:23</reference>
+    <body>
+      <title>Moroni 10</title>
+      <highlight verse="23">And Christ truly said unto our fathers: If ye have faith ye can do all things which are expedient unto me.</highlight>
+    </body>
+  </resource>
+  <resource id="544">
     <topic>knowledge</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.23-26?lang=eng#p23">John 14:23-26</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/1.15-16?lang=eng#p15">Doctrine And Covenants 1:15-16</reference>
     <body>
-      <title>John 14</title>
-      <highlight verse="23">Jesus answered and said unto him, If a man love me, he will keep my words: and my Father will love him, and we will come unto him, and make our abode with him.</highlight>
-      <highlight verse="24">He that loveth me not keepeth not my sayings: and the word which ye hear is not mine, but the Father’s which sent me.</highlight>
-      <highlight verse="25">These things have I spoken unto you, being yet present with you.</highlight>
-      <highlight verse="26">But the Comforter, which is the Holy Ghost, whom the Father will send in my name, he shall teach you all things, and bring all things to your remembrance, whatsoever I have said unto you.</highlight>
+      <title>Doctrine And Covenants 1</title>
+      <highlight verse="15">For they have strayed from mine ordinances, and have broken mine everlasting covenant;</highlight>
+      <highlight verse="16">They seek not the Lord to establish his righteousness, but every man walketh in his own way, and after the image of his own god, whose image is in the likeness of the world, and whose substance is that of an idol, which waxeth old and shall perish in Babylon, even Babylon the great, which shall fall.</highlight>
     </body>
   </resource>
-  <resource id="21">
-    <topic>obedience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3.7?lang=eng#p7">1 Nephi 3:7</reference>
+  <resource id="545">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/1.21?lang=eng#p21">Doctrine And Covenants 1:21</reference>
     <body>
-      <title>1 Nephi 3</title>
-      <highlight verse="7">And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.</highlight>
+      <title>Doctrine And Covenants 1</title>
+      <highlight verse="21">That faith also might increase in the earth;</highlight>
     </body>
   </resource>
-  <resource id="22">
-    <topic>obedience</topic>
+  <resource id="546">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/1.37-38?lang=eng#p37">Doctrine And Covenants 1:37-38</reference>
+    <body>
+      <title>Doctrine And Covenants 1</title>
+      <highlight verse="37">Search these commandments, for they are true and faithful, and the prophecies and promises which are in them shall all be fulfilled.</highlight>
+      <highlight verse="38">What I the Lord have spoken, I have spoken, and I excuse not myself; and though the heavens and the earth pass away, my word shall not pass away, but shall all be fulfilled, whether by mine own voice or by the voice of my servants, it is the same.</highlight>
+    </body>
+  </resource>
+  <resource id="547">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/3.20?lang=eng#p20">Doctrine And Covenants 3:20</reference>
+    <body>
+      <title>Doctrine And Covenants 3</title>
+      <highlight verse="20">And that the Lamanites might come to the knowledge of their fathers, and that they might know the promises of the Lord, and that they may believe the gospel and rely upon the merits of Jesus Christ, and be glorified through faith in his name, and that through their repentance they might be saved. Amen.</highlight>
+    </body>
+  </resource>
+  <resource id="548">
     <topic>diligence</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/15.4-10?lang=eng#p4">John 15:4-10</reference>
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/4.5-6?lang=eng#p5">Doctrine And Covenants 4:5-6</reference>
     <body>
-      <title>John 15</title>
-      <highlight verse="4">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</highlight>
-      <highlight verse="5">I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing.</highlight>
-      <highlight verse="6">If a man abide not in me, he is cast forth as a branch, and is withered; and men gather them, and cast them into the fire, and they are burned.</highlight>
-      <highlight verse="7">If ye abide in me, and my words abide in you, ye shall ask what ye will, and it shall be done unto you.</highlight>
-      <highlight verse="8">Herein is my Father glorified, that ye bear much fruit; so shall ye be my disciples.</highlight>
-      <highlight verse="9">As the Father hath loved me, so have I loved you: continue ye in my love.</highlight>
-      <highlight verse="10">If ye keep my commandments, ye shall abide in my love; even as I have kept my Father’s commandments, and abide in his love.</highlight>
+      <title>Doctrine And Covenants 4</title>
+      <highlight verse="5">And faith, hope, charity and love, with an eye single to the glory of God, qualify him for the work.</highlight>
+      <highlight verse="6">Remember faith, virtue, knowledge, temperance, patience, brotherly kindness, godliness, charity, humility, diligence.</highlight>
     </body>
   </resource>
-  <resource id="23">
-    <topic>hope</topic>
-    <topic>happiness</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/16.31-33?lang=eng#p31">John 16:31-33</reference>
+  <resource id="549">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/5.24,28?lang=eng#p24">Doctrine And Covenants 5:24,28</reference>
     <body>
-      <title>John 16</title>
-      <highlight verse="31">Jesus answered them, Do ye now believe?</highlight>
-      <highlight verse="32">Behold, the hour cometh, yea, is now come, that ye shall be scattered, every man to his own, and shall leave me alone: and yet I am not alone, because the Father is with me.</highlight>
-      <highlight verse="33">These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world.</highlight>
+      <title>Doctrine And Covenants 5</title>
+      <highlight verse="24">Behold, I say unto him, he exalts himself and does not humble himself sufficiently before me; but if he will bow down before me, and humble himself in mighty prayer and faith, in the sincerity of his heart, then will I grant unto him a view of the things which he desires to see.</highlight>
+      <highlight verse="28">And now, except he humble himself and acknowledge unto me the things that he has done which are wrong, and covenant with me that he will keep my commandments, and exercise faith in me, behold, I say unto him, he shall have no such views, for I will grant unto him no views of the things of which I have spoken.</highlight>
     </body>
   </resource>
-  <resource id="24">
-    <topic>happiness</topic>
-    <topic>opposition</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.11-13?lang=eng#p11">2 Nephi 2:11-13</reference>
+  <resource id="550">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.19?lang=eng#p19">Doctrine And Covenants 6:19</reference>
     <body>
-      <title>2 Nephi 2</title>
-      <highlight verse="11">For it must needs be, that there is an opposition in all things. If not so, my firstborn in the wilderness, righteousness could not be brought to pass, neither wickedness, neither holiness nor misery, neither good nor bad. Wherefore, all things must needs be a compound in one; wherefore, if it should be one body it must needs remain as dead, having no life neither death, nor corruption nor incorruption, happiness nor misery, neither sense nor insensibility.</highlight>
-      <highlight verse="12">Wherefore, it must needs have been created for a thing of naught; wherefore there would have been no purpose in the end of its creation. Wherefore, this thing must needs destroy the wisdom of God and his eternal purposes, and also the power, and the mercy, and the justice of God.</highlight>
-      <highlight verse="13">And if ye shall say there is no law, ye shall also say there is no sin. If ye shall say there is no sin, ye shall also say there is no righteousness. And if there be no righteousness there be no happiness. And if there be no righteousness nor happiness there be no punishment nor misery. And if these things are not there is no God. And if there is no God we are not, neither the earth; for there could have been no creation of things, neither to act nor to be acted upon; wherefore, all things must have vanished away.</highlight>
+      <title>Doctrine And Covenants 6</title>
+      <highlight verse="19">Admonish him in his faults, and also receive admonition of him. Be patient; be sober; be temperate; have patience, faith, hope and charity.</highlight>
     </body>
   </resource>
-  <resource id="25">
-    <topic>happiness</topic>
-    <topic>obedience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2.40-41?lang=eng#p40">Mosiah 2:40-41</reference>
+  <resource id="551">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.20?lang=eng#p20">Doctrine And Covenants 6:20</reference>
     <body>
-      <title>Mosiah 2</title>
-      <highlight verse="40">O, all ye old men, and also ye young men, and you little children who can understand my words, for I have spoken plainly unto you that ye might understand, I pray that ye should awake to a remembrance of the awful situation of those that have fallen into transgression.</highlight>
-      <highlight verse="41">And moreover, I would desire that ye should consider on the blessed and happy state of those that keep the commandments of God. For behold, they are blessed in all things, both temporal and spiritual; and if they hold out faithful to the end they are received into heaven, that thereby they may dwell with God in a state of never-ending happiness. O remember, remember that these things are true; for the Lord God hath spoken it.</highlight>
+      <title>Doctrine And Covenants 6</title>
+      <highlight verse="20">Behold, thou art Oliver, and I have spoken unto thee because of thy desires; therefore treasure up these words in thy heart. Be faithful and diligent in keeping the commandments of God, and I will encircle thee in the arms of my love.</highlight>
     </body>
   </resource>
-  <resource id="26">
-    <topic>opposition</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/42.14-16?lang=eng#p14">Alma 42:14-16</reference>
+  <resource id="552">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.36?lang=eng#p36">Doctrine And Covenants 6:36</reference>
     <body>
-      <title>Alma 42</title>
-      <highlight verse="14">And thus we see that all mankind were fallen, and they were in the grasp of justice; yea, the justice of God, which consigned them forever to be cut off from his presence.</highlight>
-      <highlight verse="15">And now, the plan of mercy could not be brought about except an atonement should be made; therefore God himself atoneth for the sins of the world, to bring about the plan of mercy, to appease the demands of justice, that God might be a perfect, just God, and a merciful God also.</highlight>
-      <highlight verse="16">Now, repentance could not come unto men except there were a punishment, which also was eternal as the life of the soul should be, affixed opposite to the plan of happiness, which was as eternal also as the life of the soul.</highlight>
+      <title>Doctrine And Covenants 6</title>
+      <highlight verse="36">Look unto me in every thought; doubt not, fear not.</highlight>
     </body>
   </resource>
-  <resource id="28">
-    <topic>opposition</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/1.2-4?lang=eng#p2">James 1:2-4</reference>
+  <resource id="553">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/8.1?lang=eng#p1">Doctrine And Covenants 8:1</reference>
     <body>
-      <title>James 1</title>
-      <highlight verse="2">My brethren, count it all joy when ye fall into divers temptations;</highlight>
-      <highlight verse="3">Knowing this, that the trying of your faith worketh patience.</highlight>
-      <highlight verse="4">But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.</highlight>
+      <title>Doctrine And Covenants 8</title>
+      <highlight verse="1">Oliver Cowdery, verily, verily, I say unto you, that assuredly as the Lord liveth, who is your God and your Redeemer, even so surely shall you receive a knowledge of whatsoever things you shall ask in faith, with an honest heart, believing that you shall receive a knowledge concerning the engravings of old records, which are ancient, which contain those parts of my scripture of which has been spoken by the manifestation of my Spirit.</highlight>
     </body>
   </resource>
-  <resource id="29">
-    <topic>hope</topic>
-    <topic>obedience</topic>
-    <topic>truth</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.15-18?lang=eng#p15">John 14:15-18</reference>
+  <resource id="554">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/8.2-3?lang=eng#p2">Doctrine And Covenants 8:2-3</reference>
     <body>
-      <title>John 14</title>
-      <highlight verse="15">If ye love me, keep my commandments.</highlight>
-      <highlight verse="16">And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever;</highlight>
-      <highlight verse="17">Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.</highlight>
-      <highlight verse="18">I will not leave you comfortless: I will come to you.</highlight>
+      <title>Doctrine And Covenants 8</title>
+      <highlight verse="2">Yea, behold, I will tell you in your mind and in your heart, by the Holy Ghost, which shall come upon you and which shall dwell in your heart.</highlight>
+      <highlight verse="3">Now, behold, this is the spirit of revelation; behold, this is the spirit by which Moses brought the children of Israel through the Red Sea on dry ground.</highlight>
     </body>
   </resource>
-  <resource id="30">
-    <topic>truth</topic>
-    <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/13.4-7?lang=eng#p4">1 Corinthians 13:4-7</reference>
+  <resource id="555">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/8.10?lang=eng#p10">Doctrine And Covenants 8:10</reference>
     <body>
-      <title>1 Corinthians 13</title>
-      <highlight verse="4">Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up,</highlight>
-      <highlight verse="5">Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil;</highlight>
-      <highlight verse="6">Rejoiceth not in iniquity, but rejoiceth in the truth;</highlight>
-      <highlight verse="7">Beareth all things, believeth all things, hopeth all things, endureth all things.</highlight>
+      <title>Doctrine And Covenants 8</title>
+      <highlight verse="10">Remember that without faith you can do nothing; therefore ask in faith. Trifle not with these things; do not ask for that which you ought not.</highlight>
     </body>
   </resource>
-  <resource id="31">
-    <topic>truth</topic>
-    <topic>obedience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/16.1-4?lang=eng#p1">1 Nephi 16:1-4</reference>
+  <resource id="556">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/8.11?lang=eng#p11">Doctrine And Covenants 8:11</reference>
     <body>
-      <title>1 Nephi 16</title>
-      <highlight verse="1">And now it came to pass that after I, Nephi, had made an end of speaking to my brethren, behold they said unto me: Thou hast declared unto us hard things, more than we are able to bear.</highlight>
-      <highlight verse="2">And it came to pass that I said unto them that I knew that I had spoken hard things against the wicked, according to the truth; and the righteous have I justified, and testified that they should be lifted up at the last day; wherefore, the guilty taketh the truth to be hard, for it cutteth them to the very center.</highlight>
-      <highlight verse="3">And now my brethren, if ye were righteous and were willing to hearken to the truth, and give heed unto it, that ye might walk uprightly before God, then ye would not murmur because of the truth, and say: Thou speakest hard things against us.</highlight>
-      <highlight verse="4">And it came to pass that I, Nephi, did exhort my brethren, with all diligence, to keep the commandments of the Lord.</highlight>
+      <title>Doctrine And Covenants 8</title>
+      <highlight verse="11">Ask that you may know the mysteries of God, and that you may translate and receive knowledge from all those ancient records which have been hid up, that are sacred; and according to your faith shall it be done unto you.</highlight>
     </body>
   </resource>
-  <resource id="32">
-    <topic>happiness</topic>
-    <topic>obedience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/41.10-14?lang=eng#p10">Alma 41:10-14</reference>
+  <resource id="557">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/10.4?lang=eng#p4">Doctrine And Covenants 10:4</reference>
     <body>
-      <title>Alma 41</title>
-      <highlight verse="10">Do not suppose, because it has been spoken concerning restoration, that ye shall be restored from sin to happiness. Behold, I say unto you, wickedness never was happiness.</highlight>
-      <highlight verse="11">And now, my son, all men that are in a state of nature, or I would say, in a carnal state, are in the gall of bitterness and in the bonds of iniquity; they are without God in the world, and they have gone contrary to the nature of God; therefore, they are in a state contrary to the nature of happiness.</highlight>
-      <highlight verse="12">And now behold, is the meaning of the word restoration to take a thing of a natural state and place it in an unnatural state, or to place it in a state opposite to its nature?</highlight>
-      <highlight verse="13">O, my son, this is not the case; but the meaning of the word restoration is to bring back again evil for evil, or carnal for carnal, or devilish for devilish—good for that which is good; righteous for that which is righteous; just for that which is just; merciful for that which is merciful.</highlight>
-      <highlight verse="14">Therefore, my son, see that you are merciful unto your brethren; deal justly, judge righteously, and do good continually; and if ye do all these things then shall ye receive your reward; yea, ye shall have mercy restored unto you again; ye shall have justice restored unto you again; ye shall have a righteous judgment restored unto you again; and ye shall have good rewarded unto you again.</highlight>
+      <title>Doctrine And Covenants 10</title>
+      <highlight verse="4">Do not run faster or labor more than you have strength and means provided to enable you to translate; but be diligent unto the end.</highlight>
     </body>
   </resource>
-  <resource id="33">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/3.13-17?lang=eng#p13">Matthew 3:13-17</reference>
+  <resource id="558">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/10.47,49,52?lang=eng#p47">Doctrine And Covenants 10:47,49,52</reference>
     <body>
-      <title>Matthew 3</title>
-      <highlight verse="13">Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him.</highlight>
-      <highlight verse="14">But John forbad him, saying, I have need to be baptized of thee, and comest thou to me?</highlight>
-      <highlight verse="15">And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him.</highlight>
-      <highlight verse="16">And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him:</highlight>
-      <highlight verse="17">And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.</highlight>
+      <title>Doctrine And Covenants 10</title>
+      <highlight verse="47">And I said unto them, that it should be granted unto them according to their faith in their prayers;</highlight>
+      <highlight verse="49">Now, this is not all—their faith in their prayers was that this gospel should be made known also, if it were possible that other nations should possess this land;</highlight>
+      <highlight verse="52">And now, behold, according to their faith in their prayers will I bring this part of my gospel to the knowledge of my people. Behold, I do not bring it to destroy that which they have received, but to build it up.</highlight>
     </body>
   </resource>
-  <resource id="34">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.22-23?lang=eng#p22">2 Nephi 9:22-23</reference>
+  <resource id="559">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/11.10-14,17?lang=eng#p10">Doctrine And Covenants 11:10-14,17</reference>
     <body>
-      <title>2 Nephi 9</title>
-      <highlight verse="22">And he suffereth this that the resurrection might pass upon all men, that all might stand before him at the great and judgment day.</highlight>
-      <highlight verse="23">And he commandeth all men that they must repent, and be baptized in his name, having perfect faith in the Holy One of Israel, or they cannot be saved in the kingdom of God.</highlight>
+      <title>Doctrine And Covenants 11</title>
+      <highlight verse="10">Behold, thou hast a gift, or thou shalt have a gift if thou wilt desire of me in faith, with an honest heart, believing in the power of Jesus Christ, or in my power which speaketh unto thee;</highlight>
+      <highlight verse="11">For, behold, it is I that speak; behold, I am the light which shineth in darkness, and by my power I give these words unto thee.</highlight>
+      <highlight verse="12">And now, verily, verily, I say unto thee, put your trust in that Spirit which leadeth to do good—yea, to do justly, to walk humbly, to judge righteously; and this is my Spirit.</highlight>
+      <highlight verse="13">Verily, verily, I say unto you, I will impart unto you of my Spirit, which shall enlighten your mind, which shall fill your soul with joy;</highlight>
+      <highlight verse="14">And then shall ye know, or by this shall you know, all things whatsoever you desire of me, which are pertaining unto things of righteousness, in faith believing in me that you shall receive.</highlight>
+      <highlight verse="17">And then, behold, according to your desires, yea, even according to your faith shall it be done unto you.</highlight>
     </body>
   </resource>
-  <resource id="35">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.3-5?lang=eng#p3">John 3:3-5</reference>
+  <resource id="560">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/11.21?lang=eng#p21">Doctrine And Covenants 11:21</reference>
     <body>
-      <title>John 3</title>
-      <highlight verse="3">Jesus answered and said unto him, Verily, verily, I say unto thee, Except a man be born again, he cannot see the kingdom of God.</highlight>
-      <highlight verse="4">Nicodemus saith unto him, How can a man be born when he is old? can he enter the second time into his mother’s womb, and be born?</highlight>
-      <highlight verse="5">Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot enter into the kingdom of God.</highlight>
+      <title>Doctrine And Covenants 11</title>
+      <highlight verse="21">Seek not to declare my word, but first seek to obtain my word, and then shall your tongue be loosed; then, if you desire, you shall have my Spirit and my word, yea, the power of God unto the convincing of men.</highlight>
+    </body>
+  </resource>
+  <resource id="561">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/12.8?lang=eng#p8">Doctrine And Covenants 12:8</reference>
+    <body>
+      <title>Doctrine And Covenants 12</title>
+      <highlight verse="8">And no one can assist in this work except he shall be humble and full of love, having faith, hope, and charity, being temperate in all things, whatsoever shall be entrusted to his care.</highlight>
+    </body>
+  </resource>
+  <resource id="562">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/14.8?lang=eng#p8">Doctrine And Covenants 14:8</reference>
+    <body>
+      <title>Doctrine And Covenants 14</title>
+      <highlight verse="8">And it shall come to pass, that if you shall ask the Father in my name, in faith believing, you shall receive the Holy Ghost, which giveth utterance, that you may stand as a witness of the things of which you shall both hear and see, and also that you may declare repentance unto this generation.</highlight>
+    </body>
+  </resource>
+  <resource id="563">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/17.2-3,5,7?lang=eng#p2">Doctrine And Covenants 17:2-3,5,7</reference>
+    <body>
+      <title>Doctrine And Covenants 17</title>
+      <highlight verse="2">And it is by your faith that you shall obtain a view of them, even by that faith which was had by the prophets of old.</highlight>
+      <highlight verse="3">And after that you have obtained faith, and have seen them with your eyes, you shall testify of them, by the power of God;</highlight>
+      <highlight verse="5">And ye shall testify that you have seen them, even as my servant Joseph Smith, Jun., has seen them; for it is by my power that he has seen them, and it is because he had faith.</highlight>
+      <highlight verse="7">Wherefore, you have received the same power, and the same faith, and the same gift like unto him;</highlight>
+    </body>
+  </resource>
+  <resource id="564">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.8?lang=eng#p8">Doctrine And Covenants 18:8</reference>
+    <body>
+      <title>Doctrine And Covenants 18</title>
+      <highlight verse="8">And now, marvel not that I have called him unto mine own purpose, which purpose is known in me; wherefore, if he shall be diligent in keeping my commandments he shall be blessed unto eternal life; and his name is Joseph.</highlight>
+    </body>
+  </resource>
+  <resource id="565">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.15-16?lang=eng#p15">Doctrine And Covenants 18:15-16</reference>
+    <body>
+      <title>Doctrine And Covenants 18</title>
+      <highlight verse="15">And if it so be that you should labor all your days in crying repentance unto this people, and bring, save it be one soul unto me, how great shall be your joy with him in the kingdom of my Father!</highlight>
+      <highlight verse="16">And now, if your joy will be great with one soul that you have brought unto me into the kingdom of my Father, how great will be your joy if you should bring many souls unto me!</highlight>
+    </body>
+  </resource>
+  <resource id="566">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.18?lang=eng#p18">Doctrine And Covenants 18:18</reference>
+    <body>
+      <title>Doctrine And Covenants 18</title>
+      <highlight verse="18">Ask the Father in my name in faith, believing that you shall receive, and you shall have the Holy Ghost, which manifesteth all things which are expedient unto the children of men.</highlight>
+    </body>
+  </resource>
+  <resource id="567">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.19?lang=eng#p19">Doctrine And Covenants 18:19</reference>
+    <body>
+      <title>Doctrine And Covenants 18</title>
+      <highlight verse="19">And if you have not faith, hope, and charity, you can do nothing.</highlight>
+    </body>
+  </resource>
+  <resource id="568">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.31?lang=eng#p31">Doctrine And Covenants 19:31</reference>
+    <body>
+      <title>Doctrine And Covenants 19</title>
+      <highlight verse="31">And of tenets thou shalt not talk, but thou shalt declare repentance and faith on the Savior, and remission of sins by baptism, and by fire, yea, even the Holy Ghost.</highlight>
+    </body>
+  </resource>
+  <resource id="569">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.25,29?lang=eng#p25">Doctrine And Covenants 20:25,29</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
+      <highlight verse="25">That as many as would believe and be baptized in his holy name, and endure in faith to the end, should be saved—</highlight>
+      <highlight verse="29">And we know that all men must repent and believe on the name of Jesus Christ, and worship the Father in his name, and endure in faith on his name to the end, or they cannot be saved in the kingdom of God.</highlight>
+    </body>
+  </resource>
+  <resource id="570">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/21.4-6?lang=eng#p4">Doctrine And Covenants 21:4-6</reference>
+    <body>
+      <title>Doctrine And Covenants 21</title>
+      <highlight verse="4">Wherefore, meaning the church, thou shalt give heed unto all his words and commandments which he shall give unto you as he receiveth them, walking in all holiness before me;</highlight>
+      <highlight verse="5">For his word ye shall receive, as if from mine own mouth, in all patience and faith.</highlight>
+      <highlight verse="6">For by doing these things the gates of hell shall not prevail against you; yea, and the Lord God will disperse the powers of darkness from before you, and cause the heavens to shake for your good, and his name’s glory.</highlight>
+    </body>
+  </resource>
+  <resource id="571">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/21.7?lang=eng#p7">Doctrine And Covenants 21:7</reference>
+    <body>
+      <title>Doctrine And Covenants 21</title>
+      <highlight verse="7">For thus saith the Lord God: Him have I inspired to move the cause of Zion in mighty power for good, and his diligence I know, and his prayers I have heard.</highlight>
+    </body>
+  </resource>
+  <resource id="572">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/26.2?lang=eng#p2">Doctrine And Covenants 26:2</reference>
+    <body>
+      <title>Doctrine And Covenants 26</title>
+      <highlight verse="2">And all things shall be done by common consent in the church, by much prayer and faith, for all things you shall receive by faith. Amen.</highlight>
+    </body>
+  </resource>
+  <resource id="573">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/27.17?lang=eng#p17">Doctrine And Covenants 27:17</reference>
+    <body>
+      <title>Doctrine And Covenants 27</title>
+      <highlight verse="17">Taking the shield of faith wherewith ye shall be able to quench all the fiery darts of the wicked;</highlight>
+    </body>
+  </resource>
+  <resource id="574">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.6?lang=eng#p6">Doctrine And Covenants 29:6</reference>
+    <body>
+      <title>Doctrine And Covenants 29</title>
+      <highlight verse="6">And, as it is written—Whatsoever ye shall ask in faith, being united in prayer according to my command, ye shall receive.</highlight>
+    </body>
+  </resource>
+  <resource id="575">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.42?lang=eng#p42">Doctrine And Covenants 29:42</reference>
+    <body>
+      <title>Doctrine And Covenants 29</title>
+      <highlight verse="42">But, behold, I say unto you that I, the Lord God, gave unto Adam and unto his seed, that they should not die as to the temporal death, until I, the Lord God, should send forth angels to declare unto them repentance and redemption, through faith on the name of mine Only Begotten Son.</highlight>
+    </body>
+  </resource>
+  <resource id="576">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/33.12?lang=eng#p12">Doctrine And Covenants 33:12</reference>
+    <body>
+      <title>Doctrine And Covenants 33</title>
+      <highlight verse="12">Behold, verily, verily, I say unto you, this is my gospel; and remember that they shall have faith in me or they can in nowise be saved;</highlight>
+    </body>
+  </resource>
+  <resource id="577">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/33.15?lang=eng#p15">Doctrine And Covenants 33:15</reference>
+    <body>
+      <title>Doctrine And Covenants 33</title>
+      <highlight verse="15">And whoso having faith you shall confirm in my church, by the laying on of the hands, and I will bestow the gift of the Holy Ghost upon them.</highlight>
+    </body>
+  </resource>
+  <resource id="578">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/35.9?lang=eng#p9">Doctrine And Covenants 35:9</reference>
+    <body>
+      <title>Doctrine And Covenants 35</title>
+      <highlight verse="9">And whoso shall ask it in my name in faith, they shall cast out devils; they shall heal the sick; they shall cause the blind to receive their sight, and the deaf to hear, and the dumb to speak, and the lame to walk.</highlight>
+    </body>
+  </resource>
+  <resource id="579">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/35.11?lang=eng#p11">Doctrine And Covenants 35:11</reference>
+    <body>
+      <title>Doctrine And Covenants 35</title>
+      <highlight verse="11">But without faith shall not anything be shown forth except desolations upon Babylon, the same which has made all nations drink of the wine of the wrath of her fornication.</highlight>
+    </body>
+  </resource>
+  <resource id="580">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/41.3?lang=eng#p3">Doctrine And Covenants 41:3</reference>
+    <body>
+      <title>Doctrine And Covenants 41</title>
+      <highlight verse="3">And by the prayer of your faith ye shall receive my law, that ye may know how to govern my church and have all things right before me.</highlight>
+    </body>
+  </resource>
+  <resource id="581">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/42.13-14?lang=eng#p13">Doctrine And Covenants 42:13-14</reference>
+    <body>
+      <title>Doctrine And Covenants 42</title>
+      <highlight verse="13">And they shall observe the covenants and church articles to do them, and these shall be their teachings, as they shall be directed by the Spirit.</highlight>
+      <highlight verse="14">And the Spirit shall be given unto you by the prayer of faith; and if ye receive not the Spirit ye shall not teach.</highlight>
+    </body>
+  </resource>
+  <resource id="582">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/42.23?lang=eng#p23">Doctrine And Covenants 42:23</reference>
+    <body>
+      <title>Doctrine And Covenants 42</title>
+      <highlight verse="23">And he that looketh upon a woman to lust after her shall deny the faith, and shall not have the Spirit; and if he repents not he shall be cast out.</highlight>
+    </body>
+  </resource>
+  <resource id="583">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/42.48-52?lang=eng#p48">Doctrine And Covenants 42:48-52</reference>
+    <body>
+      <title>Doctrine And Covenants 42</title>
+      <highlight verse="48">And again, it shall come to pass that he that hath faith in me to be healed, and is not appointed unto death, shall be healed.</highlight>
+      <highlight verse="49">He who hath faith to see shall see.</highlight>
+      <highlight verse="50">He who hath faith to hear shall hear.</highlight>
+      <highlight verse="51">The lame who hath faith to leap shall leap.</highlight>
+      <highlight verse="52">And they who have not faith to do these things, but believe in me, have power to become my sons; and inasmuch as they break not my laws thou shalt bear their infirmities.</highlight>
+    </body>
+  </resource>
+  <resource id="584">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/42.61?lang=eng#p61">Doctrine And Covenants 42:61</reference>
+    <body>
+      <title>Doctrine And Covenants 42</title>
+      <highlight verse="61">If thou shalt ask, thou shalt receive revelation upon revelation, knowledge upon knowledge, that thou mayest know the mysteries and peaceable things—that which bringeth joy, that which bringeth life eternal.</highlight>
+    </body>
+  </resource>
+  <resource id="585">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/44.2?lang=eng#p2">Doctrine And Covenants 44:2</reference>
+    <body>
+      <title>Doctrine And Covenants 44</title>
+      <highlight verse="2">And it shall come to pass, that inasmuch as they are faithful, and exercise faith in me, I will pour out my Spirit upon them in the day that they assemble themselves together.</highlight>
+    </body>
+  </resource>
+  <resource id="586">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/46.13-16?lang=eng#p13">Doctrine And Covenants 46:13-16</reference>
+    <body>
+      <title>Doctrine And Covenants 46</title>
+      <highlight verse="13">To some it is given by the Holy Ghost to know that Jesus Christ is the Son of God, and that he was crucified for the sins of the world.</highlight>
+      <highlight verse="14">To others it is given to believe on their words, that they also might have eternal life if they continue faithful.</highlight>
+      <highlight verse="15">And again, to some it is given by the Holy Ghost to know the differences of administration, as it will be pleasing unto the same Lord, according as the Lord will, suiting his mercies according to the conditions of the children of men.</highlight>
+      <highlight verse="16">And again, it is given by the Holy Ghost to some to know the diversities of operations, whether they be of God, that the manifestations of the Spirit may be given to every man to profit withal.</highlight>
+    </body>
+  </resource>
+  <resource id="587">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/46.18?lang=eng#p18">Doctrine And Covenants 46:18</reference>
+    <body>
+      <title>Doctrine And Covenants 46</title>
+      <highlight verse="18">To another is given the word of knowledge, that all may be taught to be wise and to have knowledge.</highlight>
+    </body>
+  </resource>
+  <resource id="588">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/46.19-20?lang=eng#p19">Doctrine And Covenants 46:19-20</reference>
+    <body>
+      <title>Doctrine And Covenants 46</title>
+      <highlight verse="19">And again, to some it is given to have faith to be healed;</highlight>
+      <highlight verse="20">And to others it is given to have faith to heal.</highlight>
+    </body>
+  </resource>
+  <resource id="589">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/50.17-22?lang=eng#p17">Doctrine And Covenants 50:17-22</reference>
+    <body>
+      <title>Doctrine And Covenants 50</title>
+      <highlight verse="17">Verily I say unto you, he that is ordained of me and sent forth to preach the word of truth by the Comforter, in the Spirit of truth, doth he preach it by the Spirit of truth or some other way?</highlight>
+      <highlight verse="18">And if it be by some other way it is not of God.</highlight>
+      <highlight verse="19">And again, he that receiveth the word of truth, doth he receive it by the Spirit of truth or some other way?</highlight>
+      <highlight verse="20">If it be some other way it is not of God.</highlight>
+      <highlight verse="21">Therefore, why is it that ye cannot understand and know, that he that receiveth the word by the Spirit of truth receiveth it as it is preached by the Spirit of truth?</highlight>
+      <highlight verse="22">Wherefore, he that preacheth and he that receiveth, understand one another, and both are edified and rejoice together.</highlight>
+    </body>
+  </resource>
+  <resource id="590">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/52.20?lang=eng#p20">Doctrine And Covenants 52:20</reference>
+    <body>
+      <title>Doctrine And Covenants 52</title>
+      <highlight verse="20">And the days have come; according to men’s faith it shall be done unto them.</highlight>
+    </body>
+  </resource>
+  <resource id="591">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/53.3?lang=eng#p3">Doctrine And Covenants 53:3</reference>
+    <body>
+      <title>Doctrine And Covenants 53</title>
+      <highlight verse="3">Take upon you mine ordination, even that of an elder, to preach faith and repentance and remission of sins, according to my word, and the reception of the Holy Spirit by the laying on of hands;</highlight>
+    </body>
+  </resource>
+  <resource id="592">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/58.27?lang=eng#p27">Doctrine And Covenants 58:27</reference>
+    <body>
+      <title>Doctrine And Covenants 58</title>
+      <highlight verse="27">Verily I say, men should be anxiously engaged in a good cause, and do many things of their own free will, and bring to pass much righteousness;</highlight>
+    </body>
+  </resource>
+  <resource id="593">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/59.4?lang=eng#p4">Doctrine And Covenants 59:4</reference>
+    <body>
+      <title>Doctrine And Covenants 59</title>
+      <highlight verse="4">And they shall also be crowned with blessings from above, yea, and with commandments not a few, and with revelations in their time—they that are faithful and diligent before me.</highlight>
+    </body>
+  </resource>
+  <resource id="594">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/61.9?lang=eng#p9">Doctrine And Covenants 61:9</reference>
+    <body>
+      <title>Doctrine And Covenants 61</title>
+      <highlight verse="9">But now, verily I say, it behooveth me that ye should part. Wherefore let my servants Sidney Gilbert and William W. Phelps take their former company, and let them take their journey in haste that they may fill their mission, and through faith they shall overcome;</highlight>
+    </body>
+  </resource>
+  <resource id="595">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/61.18?lang=eng#p18">Doctrine And Covenants 61:18</reference>
+    <body>
+      <title>Doctrine And Covenants 61</title>
+      <highlight verse="18">And now I give unto you a commandment that what I say unto one I say unto all, that you shall forewarn your brethren concerning these waters, that they come not in journeying upon them, lest their faith fail and they are caught in snares;</highlight>
+    </body>
+  </resource>
+  <resource id="596">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/63.7-12?lang=eng#p7">Doctrine And Covenants 63:7-12</reference>
+    <body>
+      <title>Doctrine And Covenants 63</title>
+      <highlight verse="7">And he that seeketh signs shall see signs, but not unto salvation.</highlight>
+      <highlight verse="8">Verily, I say unto you, there are those among you who seek signs, and there have been such even from the beginning;</highlight>
+      <highlight verse="9">But, behold, faith cometh not by signs, but signs follow those that believe.</highlight>
+      <highlight verse="10">Yea, signs come by faith, not by the will of men, nor as they please, but by the will of God.</highlight>
+      <highlight verse="11">Yea, signs come by faith, unto mighty works, for without faith no man pleaseth God; and with whom God is angry he is not well pleased; wherefore, unto such he showeth no signs, only in wrath unto their condemnation.</highlight>
+      <highlight verse="12">Wherefore, I, the Lord, am not pleased with those among you who have sought after signs and wonders for faith, and not for the good of men unto my glory.</highlight>
+    </body>
+  </resource>
+  <resource id="597">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/63.16?lang=eng#p16">Doctrine And Covenants 63:16</reference>
+    <body>
+      <title>Doctrine And Covenants 63</title>
+      <highlight verse="16">And verily I say unto you, as I have said before, he that looketh on a woman to lust after her, or if any shall commit adultery in their hearts, they shall not have the Spirit, but shall deny the faith and shall fear.</highlight>
+    </body>
+  </resource>
+  <resource id="598">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/63.20?lang=eng#p20">Doctrine And Covenants 63:20</reference>
+    <body>
+      <title>Doctrine And Covenants 63</title>
+      <highlight verse="20">Nevertheless, he that endureth in faith and doeth my will, the same shall overcome, and shall receive an inheritance upon the earth when the day of transfiguration shall come;</highlight>
+    </body>
+  </resource>
+  <resource id="599">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/68.25?lang=eng#p25">Doctrine And Covenants 68:25</reference>
+    <body>
+      <title>Doctrine And Covenants 68</title>
+      <highlight verse="25">And again, inasmuch as parents have children in Zion, or in any of her stakes which are organized, that teach them not to understand the doctrine of repentance, faith in Christ the Son of the living God, and of baptism and the gift of the Holy Ghost by the laying on of the hands, when eight years old, the sin be upon the heads of the parents.</highlight>
+    </body>
+  </resource>
+  <resource id="600">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/70.15?lang=eng#p15">Doctrine And Covenants 70:15</reference>
+    <body>
+      <title>Doctrine And Covenants 70</title>
+      <highlight verse="15">Now, this commandment I give unto my servants for their benefit while they remain, for a manifestation of my blessings upon their heads, and for a reward of their diligence and for their security;</highlight>
+    </body>
+  </resource>
+  <resource id="601">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/75.3?lang=eng#p3">Doctrine And Covenants 75:3</reference>
+    <body>
+      <title>Doctrine And Covenants 75</title>
+      <highlight verse="3">Behold, I say unto you that it is my will that you should go forth and not tarry, neither be idle but labor with your might—</highlight>
+    </body>
+  </resource>
+  <resource id="602">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/75.29?lang=eng#p29">Doctrine And Covenants 75:29</reference>
+    <body>
+      <title>Doctrine And Covenants 75</title>
+      <highlight verse="29">Let every man be diligent in all things. And the idler shall not have place in the church, except he repent and mend his ways.</highlight>
+    </body>
+  </resource>
+  <resource id="603">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/76.53?lang=eng#p53">Doctrine And Covenants 76:53</reference>
+    <body>
+      <title>Doctrine And Covenants 76</title>
+      <highlight verse="53">And who overcome by faith, and are sealed by the Holy Spirit of promise, which the Father sheds forth upon all those who are just and true.</highlight>
+    </body>
+  </resource>
+  <resource id="604">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/78.19?lang=eng#p19">Doctrine And Covenants 78:19</reference>
+    <body>
+      <title>Doctrine And Covenants 78</title>
+      <highlight verse="19">And he who receiveth all things with thankfulness shall be made glorious; and the things of this earth shall be added unto him, even an hundred fold, yea, more.</highlight>
+    </body>
+  </resource>
+  <resource id="605">
+    <topic>diligence</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.43-47?lang=eng#p43">Doctrine And Covenants 84:43-47</reference>
+    <body>
+      <title>Doctrine And Covenants 84</title>
+      <highlight verse="43">And I now give unto you a commandment to beware concerning yourselves, to give diligent heed to the words of eternal life.</highlight>
+      <highlight verse="44">For you shall live by every word that proceedeth forth from the mouth of God.</highlight>
+      <highlight verse="45">For the word of the Lord is truth, and whatsoever is truth is light, and whatsoever is light is Spirit, even the Spirit of Jesus Christ.</highlight>
+      <highlight verse="46">And the Spirit giveth light to every man that cometh into the world; and the Spirit enlighteneth every man through the world, that hearkeneth to the voice of the Spirit.</highlight>
+      <highlight verse="47">And every one that hearkeneth to the voice of the Spirit cometh unto God, even the Father.</highlight>
+    </body>
+  </resource>
+  <resource id="606">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/88.77-78?lang=eng#p77">Doctrine And Covenants 88:77-78</reference>
+    <body>
+      <title>Doctrine And Covenants 88</title>
+      <highlight verse="77">And I give unto you a commandment that you shall teach one another the doctrine of the kingdom.</highlight>
+      <highlight verse="78">Teach ye diligently and my grace shall attend you, that you may be instructed more perfectly in theory, in principle, in doctrine, in the law of the gospel, in all things that pertain unto the kingdom of God, that are expedient for you to understand;</highlight>
+    </body>
+  </resource>
+  <resource id="607">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/88.79?lang=eng#p79">Doctrine And Covenants 88:79</reference>
+    <body>
+      <title>Doctrine And Covenants 88</title>
+      <highlight verse="79">Of things both in heaven and in the earth, and under the earth; things which have been, things which are, things which must shortly come to pass; things which are at home, things which are abroad; the wars and the perplexities of the nations, and the judgments which are on the land; and a knowledge also of countries and of kingdoms—</highlight>
+    </body>
+  </resource>
+  <resource id="608">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/88.118?lang=eng#p118">Doctrine And Covenants 88:118</reference>
+    <body>
+      <title>Doctrine And Covenants 88</title>
+      <highlight verse="118">And as all have not faith, seek ye diligently and teach one another words of wisdom; yea, seek ye out of the best books words of wisdom; seek learning, even by study and also by faith.</highlight>
+    </body>
+  </resource>
+  <resource id="609">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/88.119?lang=eng#p119">Doctrine And Covenants 88:119</reference>
+    <body>
+      <title>Doctrine And Covenants 88</title>
+      <highlight verse="119">Organize yourselves; prepare every needful thing; and establish a house, even a house of prayer, a house of fasting, a house of faith, a house of learning, a house of glory, a house of order, a house of God;</highlight>
+    </body>
+  </resource>
+  <resource id="610">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/89.19?lang=eng#p19">Doctrine And Covenants 89:19</reference>
+    <body>
+      <title>Doctrine And Covenants 89</title>
+      <highlight verse="19">And shall find wisdom and great treasures of knowledge, even hidden treasures;</highlight>
+    </body>
+  </resource>
+  <resource id="611">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/90.15?lang=eng#p15">Doctrine And Covenants 90:15</reference>
+    <body>
+      <title>Doctrine And Covenants 90</title>
+      <highlight verse="15">And set in order the churches, and study and learn, and become acquainted with all good books, and with languages, tongues, and people.</highlight>
+    </body>
+  </resource>
+  <resource id="612">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/90.24?lang=eng#p24">Doctrine And Covenants 90:24</reference>
+    <body>
+      <title>Doctrine And Covenants 90</title>
+      <highlight verse="24">Search diligently, pray always, and be believing, and all things shall work together for your good, if ye walk uprightly and remember the covenant wherewith ye have covenanted one with another.</highlight>
+    </body>
+  </resource>
+  <resource id="613">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.12?lang=eng#p12">Doctrine And Covenants 93:12</reference>
+    <body>
+      <title>Doctrine And Covenants 93</title>
+      <highlight verse="12">And I, John, saw that he received not of the fulness at the first, but received grace for grace;</highlight>
+    </body>
+  </resource>
+  <resource id="614">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.50?lang=eng#p50">Doctrine And Covenants 93:50</reference>
+    <body>
+      <title>Doctrine And Covenants 93</title>
+      <highlight verse="50">My servant Newel K. Whitney also, a bishop of my church, hath need to be chastened, and set in order his family, and see that they are more diligent and concerned at home, and pray always, or they shall be removed out of their place.</highlight>
+    </body>
+  </resource>
+  <resource id="615">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.51?lang=eng#p51">Doctrine And Covenants 93:51</reference>
+    <body>
+      <title>Doctrine And Covenants 93</title>
+      <highlight verse="51">Now, I say unto you, my friends, let my servant Sidney Rigdon go on his journey, and make haste, and also proclaim the acceptable year of the Lord, and the gospel of salvation, as I shall give him utterance; and by your prayer of faith with one consent I will uphold him.</highlight>
+    </body>
+  </resource>
+  <resource id="616">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/98.10?lang=eng#p10">Doctrine And Covenants 98:10</reference>
+    <body>
+      <title>Doctrine And Covenants 98</title>
+      <highlight verse="10">Wherefore, honest men and wise men should be sought for diligently, and good men and wise men ye should observe to uphold; otherwise whatsoever is less than these cometh of evil.</highlight>
+    </body>
+  </resource>
+  <resource id="617">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/103.36?lang=eng#p36">Doctrine And Covenants 103:36</reference>
+    <body>
+      <title>Doctrine And Covenants 103</title>
+      <highlight verse="36">All victory and glory is brought to pass unto you through your diligence, faithfulness, and prayers of faith.</highlight>
+    </body>
+  </resource>
+  <resource id="618">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/104.79?lang=eng#p79">Doctrine And Covenants 104:79</reference>
+    <body>
+      <title>Doctrine And Covenants 104</title>
+      <highlight verse="79">And it is my will that you shall humble yourselves before me, and obtain this blessing by your diligence and humility and the prayer of faith.</highlight>
+    </body>
+  </resource>
+  <resource id="619">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/105.19?lang=eng#p19">Doctrine And Covenants 105:19</reference>
+    <body>
+      <title>Doctrine And Covenants 105</title>
+      <highlight verse="19">I have heard their prayers, and will accept their offering; and it is expedient in me that they should be brought thus far for a trial of their faith.</highlight>
+    </body>
+  </resource>
+  <resource id="620">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/105.24?lang=eng#p24">Doctrine And Covenants 105:24</reference>
+    <body>
+      <title>Doctrine And Covenants 105</title>
+      <highlight verse="24">Talk not of judgments, neither boast of faith nor of mighty works, but carefully gather together, as much in one region as can be, consistently with the feelings of the people;</highlight>
+    </body>
+  </resource>
+  <resource id="621">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.22?lang=eng#p22">Doctrine And Covenants 107:22</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="22">Of the Melchizedek Priesthood, three Presiding High Priests, chosen by the body, appointed and ordained to that office, and upheld by the confidence, faith, and prayer of the church, form a quorum of the Presidency of the Church.</highlight>
+    </body>
+  </resource>
+  <resource id="622">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.30?lang=eng#p30">Doctrine And Covenants 107:30</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="30">The decisions of these quorums, or either of them, are to be made in all righteousness, in holiness, and lowliness of heart, meekness and long-suffering, and in faith, and virtue, and knowledge, temperance, patience, godliness, brotherly kindness and charity;</highlight>
+    </body>
+  </resource>
+  <resource id="623">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.99?lang=eng#p99">Doctrine And Covenants 107:99</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="99">Wherefore, now let every man learn his duty, and to act in the office in which he is appointed, in all diligence.</highlight>
+    </body>
+  </resource>
+  <resource id="624">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/109.7?lang=eng#p7">Doctrine And Covenants 109:7</reference>
+    <body>
+      <title>Doctrine And Covenants 109</title>
+      <highlight verse="7">And as all have not faith, seek ye diligently and teach one another words of wisdom; yea, seek ye out of the best books words of wisdom, seek learning even by study and also by faith;</highlight>
+    </body>
+  </resource>
+  <resource id="625">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/109.8,16?lang=eng#p8">Doctrine And Covenants 109:8,16</reference>
+    <body>
+      <title>Doctrine And Covenants 109</title>
+      <highlight verse="8">Organize yourselves; prepare every needful thing, and establish a house, even a house of prayer, a house of fasting, a house of faith, a house of learning, a house of glory, a house of order, a house of God;</highlight>
+      <highlight verse="16">And that this house may be a house of prayer, a house of fasting, a house of faith, a house of glory and of God, even thy house;</highlight>
+    </body>
+  </resource>
+  <resource id="626">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/109.14?lang=eng#p14">Doctrine And Covenants 109:14</reference>
+    <body>
+      <title>Doctrine And Covenants 109</title>
+      <highlight verse="14">And do thou grant, Holy Father, that all those who shall worship in this house may be taught words of wisdom out of the best books, and that they may seek learning even by study, and also by faith, as thou hast said;</highlight>
+    </body>
+  </resource>
+  <resource id="627">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121.42?lang=eng#p42">Doctrine And Covenants 121:42</reference>
+    <body>
+      <title>Doctrine And Covenants 121</title>
+      <highlight verse="42">By kindness, and pure knowledge, which shall greatly enlarge the soul without hypocrisy, and without guile—</highlight>
+    </body>
+  </resource>
+  <resource id="628">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/122.8?lang=eng#p8">Doctrine And Covenants 122:8</reference>
+    <body>
+      <title>Doctrine And Covenants 122</title>
+      <highlight verse="8">The Son of Man hath descended below them all. Art thou greater than he?</highlight>
+    </body>
+  </resource>
+  <resource id="629">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/124.49?lang=eng#p49">Doctrine And Covenants 124:49</reference>
+    <body>
+      <title>Doctrine And Covenants 124</title>
+      <highlight verse="49">Verily, verily, I say unto you, that when I give a commandment to any of the sons of men to do a work unto my name, and those sons of men go with all their might and with all they have to perform that work, and cease not their diligence, and their enemies come upon them and hinder them from performing that work, behold, it behooveth me to require that work no more at the hands of those sons of men, but to accept of their offerings.</highlight>
+    </body>
+  </resource>
+  <resource id="630">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/127.4?lang=eng#p4">Doctrine And Covenants 127:4</reference>
+    <body>
+      <title>Doctrine And Covenants 127</title>
+      <highlight verse="4">And again, verily thus saith the Lord: Let the work of my temple, and all the works which I have appointed unto you, be continued on and not cease; and let your diligence, and your perseverance, and patience, and your works be redoubled, and you shall in nowise lose your reward, saith the Lord of Hosts. And if they persecute you, so persecuted they the prophets and righteous men that were before you. For all this there is a reward in heaven.</highlight>
+    </body>
+  </resource>
+  <resource id="631">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/128.11?lang=eng#p11">Doctrine And Covenants 128:11</reference>
+    <body>
+      <title>Doctrine And Covenants 128</title>
+      <highlight verse="11">Now the great and grand secret of the whole matter, and the summum bonum of the whole subject that is lying before us, consists in obtaining the powers of the Holy Priesthood. For him to whom these keys are given there is no difficulty in obtaining a knowledge of facts in relation to the salvation of the children of men, both as well for the dead as for the living.</highlight>
+    </body>
+  </resource>
+  <resource id="632">
+    <topic>diligence</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/130.19?lang=eng#p19">Doctrine And Covenants 130:19</reference>
+    <body>
+      <title>Doctrine And Covenants 130</title>
+      <highlight verse="19">And if a person gains more knowledge and intelligence in this life through his diligence and obedience than another, he will have so much the advantage in the world to come.</highlight>
+    </body>
+  </resource>
+  <resource id="633">
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/131.6?lang=eng#p6">Doctrine And Covenants 131:6</reference>
+    <body>
+      <title>Doctrine And Covenants 131</title>
+      <highlight verse="6">It is impossible for a man to be saved in ignorance.</highlight>
+    </body>
+  </resource>
+  <resource id="634">
+    <topic>diligence</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/136.27?lang=eng#p27">Doctrine And Covenants 136:27</reference>
+    <body>
+      <title>Doctrine And Covenants 136</title>
+      <highlight verse="27">Thou shalt be diligent in preserving what thou hast, that thou mayest be a wise steward; for it is the free gift of the Lord thy God, and thou art his steward.</highlight>
+    </body>
+  </resource>
+  <resource id="635">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/136.42?lang=eng#p42">Doctrine And Covenants 136:42</reference>
+    <body>
+      <title>Doctrine And Covenants 136</title>
+      <highlight verse="42">Be diligent in keeping all my commandments, lest judgments come upon you, and your faith fail you, and your enemies triumph over you. So no more at present. Amen and Amen.</highlight>
+    </body>
+  </resource>
+  <resource id="636">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138.32-33?lang=eng#p32">Doctrine And Covenants 138:32-33</reference>
+    <body>
+      <title>Doctrine And Covenants 138</title>
+      <highlight verse="32">Thus was the gospel preached to those who had died in their sins, without a knowledge of the truth, or in transgression, having rejected the prophets.</highlight>
+      <highlight verse="33">These were taught faith in God, repentance from sin, vicarious baptism for the remission of sins, the gift of the Holy Ghost by the laying on of hands,</highlight>
+    </body>
+  </resource>
+  <resource id="637">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/6.23?lang=eng#p23">Moses 6:23</reference>
+    <body>
+      <title>Moses 6</title>
+      <highlight verse="23">And they were preachers of righteousness, and spake and prophesied, and called upon all men, everywhere, to repent; and faith was taught unto the children of men.</highlight>
+    </body>
+  </resource>
+  <resource id="638">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/7.13?lang=eng#p13">Moses 7:13</reference>
+    <body>
+      <title>Moses 7</title>
+      <highlight verse="13">And so great was the faith of Enoch that he led the people of God, and their enemies came to battle against them; and he spake the word of the Lord, and the earth trembled, and the mountains fled, even according to his command; and the rivers of water were turned out of their course; and the roar of the lions was heard out of the wilderness; and all nations feared greatly, so powerful was the word of Enoch, and so great was the power of the language which God had given him.</highlight>
+    </body>
+  </resource>
+  <resource id="639">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/7.47?lang=eng#p47">Moses 7:47</reference>
+    <body>
+      <title>Moses 7</title>
+      <highlight verse="47">And behold, Enoch saw the day of the coming of the Son of Man, even in the flesh; and his soul rejoiced, saying: The Righteous is lifted up, and the Lamb is slain from the foundation of the world; and through faith I am in the bosom of the Father, and behold, Zion is with me.</highlight>
+    </body>
+  </resource>
+  <resource id="640">
+    <topic>faith</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/a-of-f/1.4?lang=eng#p4">Articles Of Faith 1:4</reference>
+    <body>
+      <title>Articles Of Faith 1</title>
+      <highlight verse="4">We believe that the first principles and ordinances of the Gospel are: first, Faith in the Lord Jesus Christ; second, Repentance; third, Baptism by immersion for the remission of sins; fourth, Laying on of hands for the gift of the Holy Ghost.</highlight>
     </body>
   </resource>
 </library>

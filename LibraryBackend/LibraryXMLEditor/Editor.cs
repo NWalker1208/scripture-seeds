@@ -400,12 +400,36 @@ namespace LibraryXMLEditor
         private void webToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ScriptureSet scriptures = new ScriptureSet();
-            Search searchForm = new Search(scriptures);
-            searchForm.ShowDialog();
 
+            // Initialize scriptureSet based on existing resources
+            List<StudyResource> toKeep = new List<StudyResource>();
+            foreach (int resourceID in lib.ResourceIDs)
+            {
+                StudyResource resource = lib.GetResource(resourceID);
+                ScriptureReference reference = ScriptureReference.Parse(resource.reference);
+
+                if (reference != null)
+                    scriptures.Add(reference, resource.topics);
+                else
+                    toKeep.Add(resource);
+            }
+
+            // Open search dialog
+            Search searchDialog = new Search(scriptures);
+            searchDialog.ShowDialog();
+
+            // Reset library
+            lib = new Library();
+
+            foreach (StudyResource resource in toKeep)
+                lib.AddResource(resource);
+
+            // Download all scripture resources
             DownloadDialog downloader =  new DownloadDialog(scriptures, lib);
             downloader.ShowDialog();
-            UpdateTreeView();
+
+            // Refresh view
+            UpdateTreeView(false);
         }
     }
 }

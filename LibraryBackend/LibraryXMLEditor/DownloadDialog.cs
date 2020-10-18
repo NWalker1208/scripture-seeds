@@ -38,29 +38,25 @@ namespace LibraryXMLEditor
             int total = scriptures.allReferences.Count();
             foreach (ScriptureReference reference in scriptures.allReferences)
             {
+                /* Checks for existing scriptures that match.
+                 * Library now is reset to empty, so this is unnecessary.
                 int exists = -1;
                 foreach (int id in library.ResourceIDs)
                 {
-                    if (ScriptureReference.Parse(library.GetResource(id).reference) == reference)
+                    ScriptureReference existing = ScriptureReference.Parse(library.GetResource(id).reference);
+
+                    if (existing != null && existing.Overlap(reference) > 1)
                     {
                         exists = id;
                         break;
                     }
-                }
+                }*/
 
-                if (exists != -1)
-                {
-                    StudyResource resource = library.GetResource(exists);
-                    resource.topics.UnionWith(scriptures.Topics(reference));
-                }
-                else
-                {
-                    StudyResource newResource = new StudyResource(reference, scriptures.Topics(reference));
-                    if (newResource != null)
-                        library.AddResource(newResource);
+                StudyResource newResource = new StudyResource(reference, scriptures.Topics(reference));
+                if (newResource != null)
+                    library.AddResource(newResource);
 
-                    System.Threading.Thread.Sleep(250);
-                }
+                System.Threading.Thread.Sleep(250);
 
                 i++;
                 downloadWorker.ReportProgress((int)(100 * ((float)i / total)));

@@ -55,7 +55,8 @@ namespace LibraryXML
                     else if (node.HasClass("verse-number"))
                         verse = int.Parse(node.InnerText);
                     else if (!node.HasClass("marker") &&
-                             !node.HasClass("para-mark"))
+                             !node.HasClass("para-mark") &&
+                             !node.Attributes.Contains("data-pointer-type"))
                         nodesToAdd.InsertRange(1, node.ChildNodes);
 
                     nodesToAdd.RemoveAt(0);
