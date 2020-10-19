@@ -98,12 +98,8 @@ namespace LibraryXMLEditor
             // Get collection of topics
             HashSet<string> topics = new HashSet<string>();
 
-            List<int> ids = lib.ResourceIDs;
-            foreach (int id in ids)
-            {
-                StudyResource res = lib.GetResource(id);
-                topics.UnionWith(res.topics);
-            }
+            foreach (StudyResource resource in lib.resources)
+                topics.UnionWith(resource.topics);
 
             // Update filter options
             List<string> topicList = topics.ToList();
@@ -140,17 +136,11 @@ namespace LibraryXMLEditor
         {
             UpdateFilters();
 
-            // Display resources in the order of their ID's
-            List<int> ids = lib.ResourceIDs;
-            ids.Sort();
-
             // Iterate over resources and update tree view for changes
             int n = 0;
-            foreach (int id in ids)
+            foreach (StudyResource resource in lib.resources)
             {
-                StudyResource res = lib.GetResource(id);
-
-                if (filter != null && !res.topics.Contains(filter))
+                if (filter != null && !resource.topics.Contains(filter))
                     continue;
 
                 // Look ahead in nodes to see if one already exists
@@ -158,7 +148,7 @@ namespace LibraryXMLEditor
                 int i;
                 for (i = n; i < libraryTreeView.Nodes.Count; i++)
                 {
-                    if (libraryTreeView.Nodes[i].Tag == res)
+                    if (libraryTreeView.Nodes[i].Tag == resource)
                     {
                         node = libraryTreeView.Nodes[i];
                         break;
@@ -168,8 +158,8 @@ namespace LibraryXMLEditor
                 if (node == null)
                 {
                     // If an existing node is not present, create one
-                    node = libraryTreeView.Nodes.Insert(n, res.ToString());
-                    node.Tag = res;
+                    node = libraryTreeView.Nodes.Insert(n, resource.ToString());
+                    node.Tag = resource;
 
                     if (selectNewNodes)
                     {
@@ -180,7 +170,7 @@ namespace LibraryXMLEditor
                 else
                 {
                     // If one does exist, remove any extra nodes present before it
-                    node.Text = res.ToString();
+                    node.Text = resource.ToString();
                     while (n < i)
                     {
                         if (libraryTreeView.SelectedNode == libraryTreeView.Nodes[n])
@@ -191,7 +181,7 @@ namespace LibraryXMLEditor
                     }
                 }
 
-                UpdateElementTree(node, res, selectNewNodes);
+                UpdateElementTree(node, resource, selectNewNodes);
                 n++;
             }
 
@@ -327,12 +317,12 @@ namespace LibraryXMLEditor
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            StudyResource newResource = new StudyResource("Genesis 1:1", "https://example.com");
+            StudyResource newResource = new StudyResource(StudyResource.Category.OldTestament, "Genesis 1:1", "https://example.com");
 
             if (filter != null)
                 newResource.topics.Add(filter);
 
-            lib.AddResource(newResource);
+            lib.resources.Add(newResource);
             UpdateTreeView();
         }
 
@@ -342,7 +332,7 @@ namespace LibraryXMLEditor
 
             if (node.Tag is StudyResource resource)
             {
-                lib.RemoveResource(resource.id);
+                lib.resources.Remove(resource);
                 UpdateTreeView();
             }
             else if (node.Tag is StudyElement element)
@@ -403,9 +393,8 @@ namespace LibraryXMLEditor
 
             // Initialize scriptureSet based on existing resources
             List<StudyResource> toKeep = new List<StudyResource>();
-            foreach (int resourceID in lib.ResourceIDs)
+            foreach (StudyResource resource in lib.resources)
             {
-                StudyResource resource = lib.GetResource(resourceID);
                 ScriptureReference reference = ScriptureReference.Parse(resource.reference);
 
                 if (reference != null)
@@ -422,7 +411,7 @@ namespace LibraryXMLEditor
             lib = new Library();
 
             foreach (StudyResource resource in toKeep)
-                lib.AddResource(resource);
+                lib.resources.Add(resource);
 
             // Download all scripture resources
             DownloadDialog downloader =  new DownloadDialog(scriptures, lib);

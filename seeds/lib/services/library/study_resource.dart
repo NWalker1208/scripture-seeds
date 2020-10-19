@@ -89,18 +89,59 @@ abstract class StudyElement {
   }
 }
 
+// Enum expressed as class
+class Category {
+  final String _value;
+
+  const Category._(this._value);
+
+  @override
+  String toString() => _value;
+
+  static Category parse(String value) {
+    switch (value?.toLowerCase()) {
+      case 'oldtestament':
+        return OldTestament;
+      case 'newtestament':
+        return NewTestament;
+      case 'bookofmormon':
+        return BookOfMormon;
+      case 'doctrineandcovenants':
+        return DoctrineAndCovenants;
+      case 'pearlofgreatprice':
+        return PearlOfGreatPrice;
+      case 'generalconference':
+        return GeneralConference;
+      case 'other':
+        return Other;
+      default:
+        print('Failed to parse category $value');
+        return null;
+    }
+  }
+
+  // Enum values
+  static const Category OldTestament = Category._('OldTestament');
+  static const Category NewTestament = Category._('NewTestament');
+  static const Category BookOfMormon = Category._('BookOfMormon');
+  static const Category DoctrineAndCovenants = Category._('DoctrineAndCovenants');
+  static const Category PearlOfGreatPrice = Category._('PearlOfGreatPrice');
+  static const Category GeneralConference = Category._('GeneralConference');
+  static const Category Other = Category._('Other');
+}
+
 class StudyResource {
-  int id;
+  Category category;
   Set<String> topics;
   String reference;
   String referenceURL;
 
   List<StudyElement> body;
 
-  StudyResource(this.id, this.topics, this.reference, this.referenceURL, this.body);
+  StudyResource(this.category, this.topics, this.reference, this.referenceURL, this.body);
 
   @override
   String toString() {
-    return 'StudyResource #$id {$topics, $reference, $referenceURL}: $body';
+    return 'StudyResource [$category] {$topics, $reference, $referenceURL}: $body';
   }
 }

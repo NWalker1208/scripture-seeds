@@ -9,42 +9,26 @@ namespace LibraryXML
 {
     public class Library
     {
-        string language;
-        
-        Dictionary<int, StudyResource> resources;
-        public List<int> ResourceIDs { get => resources.Keys.ToList(); }
+        public string language;
+        public List<StudyResource> resources;
 
         public Library(string language = "eng")
         {
             this.language = language;
-            resources = new Dictionary<int, StudyResource>();
+            resources = new List<StudyResource>();
         }
 
         public Library(XmlNode node)
         {
             language = node.Attributes.GetNamedItem("lang").Value;
 
-            resources = new Dictionary<int, StudyResource>();
+            resources = new List<StudyResource>();
+
             foreach (XmlNode child in node.ChildNodes)
             {
                 if (child.Name == "resource")
-                    AddResource(new StudyResource(child));
+                    resources.Add(new StudyResource(child));
             }
-        }
-
-        public void AddResource(StudyResource resource)
-        {
-            resources.Add(resource.id, resource);
-        }
-
-        public void RemoveResource(int id)
-        {
-            resources.Remove(id);
-        }
-
-        public StudyResource GetResource(int id)
-        {
-            return resources[id];
         }
 
         public XmlNode ToXml(XmlDocument document)
@@ -57,9 +41,9 @@ namespace LibraryXML
             node.Attributes.Append(lang);
 
             // Create resource elements
-            foreach(KeyValuePair<int, StudyResource> resource in resources)
+            foreach(StudyResource resource in resources)
             {
-                XmlNode child = resource.Value.ToXml(document);
+                XmlNode child = resource.ToXml(document);
                 node.AppendChild(child);
             }
 

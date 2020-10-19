@@ -33,12 +33,20 @@ namespace LibraryXMLEditor
 
         private void UpdateView()
         {
+            categoryComboBox.SelectedIndex = (int)resource.category;
             referenceTextBox.Text = resource.reference;
             urlTextBox.Text = resource.referenceURL;
             topicListBox.Items.Clear();
             foreach (string topic in resource.topics)
                 topicListBox.Items.Add(topic);
             removeButton.Enabled = false;
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var category = (StudyResource.Category) Enum.Parse(typeof(StudyResource.Category), categoryComboBox.SelectedItem as string);
+            if (Util.TrySet(ref resource.category, category))
+                ResourceUpdate?.Invoke(this, new EventArgs());
         }
 
         private void referenceTextBox_TextChanged(object sender, EventArgs e)

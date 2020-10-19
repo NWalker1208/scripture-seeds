@@ -12,6 +12,11 @@ namespace LibraryXML
         public uint chapter;
         public SortedSet<uint> verses;
 
+        public ScriptureConsts.Volume volume
+        {
+            get => ScriptureConsts.VolumeOf(book);
+        }
+
         public int bookID
         {
             get => ScriptureConsts.AllBooks.IndexOf(book);
@@ -83,10 +88,10 @@ namespace LibraryXML
         // Creates a URL to the Gospel Library page for the scripture reference.
         public string GetURL(string lang = "eng")
         {
-            string volume = ScriptureConsts.VolumeOf(book);
+            ScriptureConsts.Volume volume = ScriptureConsts.VolumeOf(book);
 
             string url = "https://www.churchofjesuschrist.org/study/scriptures/";
-            url += volume + "/" + ScriptureConsts.Abbreviations[book] + "/" + chapter.ToString();
+            url += ScriptureConsts.VolumeURLs[volume] + "/" + ScriptureConsts.Abbreviations[book] + "/" + chapter.ToString();
 
             if (verses.Count > 0)
                 url += "." + VersesToString();

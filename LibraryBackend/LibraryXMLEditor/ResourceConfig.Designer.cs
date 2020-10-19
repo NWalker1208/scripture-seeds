@@ -48,6 +48,7 @@
             this.titleButton = new System.Windows.Forms.Button();
             this.textButton = new System.Windows.Forms.Button();
             this.webTextButton = new System.Windows.Forms.Button();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.urlEditTable.SuspendLayout();
@@ -319,11 +320,31 @@
             this.webTextButton.UseVisualStyleBackColor = true;
             this.webTextButton.Click += new System.EventHandler(this.webTextButton_Click);
             // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Items.AddRange(new object[] {
+            "OldTestament",
+            "NewTestament",
+            "BookOfMormon",
+            "DoctrineAndCovenants",
+            "PearlOfGreatPrice",
+            "GeneralConference",
+            "Other"});
+            this.categoryComboBox.Location = new System.Drawing.Point(268, 1);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(142, 21);
+            this.categoryComboBox.TabIndex = 2;
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
+            // 
             // ResourceConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.resourceLabel);
             this.Name = "ResourceConfig";
@@ -361,5 +382,6 @@
         private System.Windows.Forms.Button titleButton;
         private System.Windows.Forms.Button textButton;
         private System.Windows.Forms.Button webTextButton;
+        private System.Windows.Forms.ComboBox categoryComboBox;
     }
 }

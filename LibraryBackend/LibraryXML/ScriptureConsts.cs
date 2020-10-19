@@ -8,18 +8,30 @@ namespace LibraryXML
 {
     public static class ScriptureConsts
     {
+        // Volumes
+        public enum Volume
+        {
+            OldTestament = 0, NewTestament = 1,
+            BookOfMormon = 2, DoctrineAndCovenants = 3,
+            PearlOfGreatPrice = 4
+        }
+
+        public static readonly Dictionary<Volume, string> VolumeURLs = new Dictionary<Volume, string>
+            { {Volume.OldTestament, "ot"}, {Volume.NewTestament, "nt"}, {Volume.BookOfMormon, "bofm"},
+              {Volume.DoctrineAndCovenants, "dc-testament"}, {Volume.PearlOfGreatPrice, "pgp"} };
+
+        // Books
         public static readonly List<string> OldTestament = new List<string> { "genesis", "exodus", "leviticus", "numbers", "deuteronomy", "joshua", "judges", "ruth", "1 samuel", "2 samuel", "1 kings", "2 kings", "1 chronicles", "2 chronicles", "ezra", "nehemiah", "esther", "job", "psalms", "proverbs", "ecclesiastes", "the song of solomon", "isaiah", "jeremiah", "lamentations", "ezekiel", "daniel", "hosea", "joel", "amos", "obadiah", "jonah", "micah", "nahum", "habakkuk", "zephaniah", "haggai", "zechariah", "malachi" };
         public static readonly List<string> NewTestament = new List<string> { "matthew", "mark", "luke", "john", "acts", "romans", "1 corinthians", "2 corinthians", "galatians", "ephesians", "philippians", "colossians", "1 thessalonians", "2 thessalonians", "1 timothy", "2 timothy", "titus", "philemon", "hebrews", "james", "1 peter", "2 peter", "1 john", "2 john", "3 john", "jude", "revelation" };
         public static readonly List<string> BookOfMormon = new List<string> { "1 nephi", "2 nephi", "jacob", "enos", "jarom", "omni", "words of mormon", "mosiah", "alma", "helaman", "3 nephi", "4 nephi", "mormon", "ether", "moroni" };
         public static readonly List<string> DCTestament = new List<string> { "doctrine and covenants", "doctrine & covenants", "d&c" };
         public static readonly List<string> PearlOfGP = new List<string> { "moses", "abraham", "joseph smith–matthew", "joseph smith–history", "articles of faith" };
-        public static readonly List<string> AllBooks = new List<List<string>> { OldTestament, NewTestament, BookOfMormon, DCTestament, PearlOfGP }.SelectMany(x => x).ToList();
+        
+        public static readonly Dictionary<Volume, List<string>> BooksByVolume = new Dictionary<Volume, List<string>>
+            { {Volume.OldTestament, OldTestament}, {Volume.NewTestament, NewTestament}, {Volume.BookOfMormon, BookOfMormon},
+              {Volume.DoctrineAndCovenants, DCTestament}, {Volume.PearlOfGreatPrice, PearlOfGP} };
 
-        public static readonly string OldTestamentURL = "ot";
-        public static readonly string NewTestamentURL = "nt";
-        public static readonly string BookOfMormonURL = "bofm";
-        public static readonly string DCTestamentURL = "dc-testament";
-        public static readonly string PearlOfGPURL = "pgp";
+        public static readonly List<string> AllBooks = BooksByVolume.SelectMany(x => x.Value).ToList();
 
         public static readonly Dictionary<string, string> Abbreviations = new Dictionary<string, string>
             { {"genesis", "gen"}, { "exodus", "ex" }, { "leviticus", "lev" }, { "numbers", "num" }, {"deuteronomy", "deut"}, {"joshua", "josh"}, {"judges", "judg"}, {"ruth", "ruth"}, {"1 samuel", "1-sam"}, {"2 samuel", "2-sam"}, {"1 kings", "1-kgs"}, {"2 kings", "2-kgs"}, {"1 chronicles", "1-chr"}, {"2 chronicles", "2-chr"}, {"ezra", "ezra"}, {"nehemiah", "neh"}, {"esther", "esth"}, {"job", "job"}, {"psalms", "ps"}, {"proverbs", "prov"}, {"ecclesiastes", "eccl"}, {"the song of solomon", "song"}, {"isaiah", "isa"}, {"jeremiah", "jer"}, {"lamentations", "lam"}, {"ezekiel", "ezek"}, {"daniel", "dan"}, {"hosea", "hosea"}, {"joel", "joel"}, {"amos", "amos"}, {"obadiah", "obad"}, {"jonah", "jonah"}, {"micah", "micah"}, {"nahum", "nahum"}, {"habakkuk", "hab"}, {"zephaniah", "zeph"}, {"haggai", "hag"}, {"zechariah", "zech"}, {"malachi", "mal"},
@@ -28,20 +40,21 @@ namespace LibraryXML
               {"doctrine and covenants", "dc"}, {"doctrine & covenants", "dc"}, {"d&c", "dc"},
               {"moses", "moses"}, {"abraham", "abr"}, {"joseph smith–matthew", "js-m"}, {"joseph smith–history", "js-h"}, {"articles of faith", "a-of-f"} };
 
-        public static string VolumeOf(string book)
+        // Functions
+        public static Volume VolumeOf(string book)
         {
             if (OldTestament.Contains(book))
-                return OldTestamentURL;
+                return Volume.OldTestament;
             if (NewTestament.Contains(book))
-                return NewTestamentURL;
+                return Volume.NewTestament;
             if (BookOfMormon.Contains(book))
-                return BookOfMormonURL;
+                return Volume.BookOfMormon;
             if (DCTestament.Contains(book))
-                return DCTestamentURL;
+                return Volume.DoctrineAndCovenants;
             if (PearlOfGP.Contains(book))
-                return PearlOfGPURL;
+                return Volume.PearlOfGreatPrice;
 
-            return null;
+            throw new Exception("Could not find volume of " + book);
         }
     }
 }

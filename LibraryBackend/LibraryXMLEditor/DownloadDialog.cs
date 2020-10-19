@@ -54,7 +54,7 @@ namespace LibraryXMLEditor
 
                 StudyResource newResource = new StudyResource(reference, scriptures.Topics(reference));
                 if (newResource != null)
-                    library.AddResource(newResource);
+                    library.resources.Add(newResource);
 
                 System.Threading.Thread.Sleep(250);
 

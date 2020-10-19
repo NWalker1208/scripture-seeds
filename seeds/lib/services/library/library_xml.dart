@@ -43,7 +43,7 @@ class Library extends ChangeNotifier {
       }
     });
 
-    print('Resource #${leastRecent.id} was least recent for topic $topic.');
+    print('${leastRecent.reference} was least recent for topic $topic.');
 
     return leastRecent;
   }
@@ -65,7 +65,7 @@ class Library extends ChangeNotifier {
 
       // Convert XmlElements to StudyResource
       resources.add(StudyResource(
-        int.parse(resource.getAttribute('id')),
+        Category.parse(resource.getAttribute('category')) ?? Category.Other,
         topics.map((t) => t.text).toSet(),
         reference.text,
         reference.getAttribute('url'),

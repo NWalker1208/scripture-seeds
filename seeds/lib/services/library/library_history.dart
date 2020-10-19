@@ -7,10 +7,10 @@ import 'dart:io';
 class LibraryHistory extends ChangeNotifier {
   static const String kDatabaseFile = 'lib_history.db';
   static const String kHistoryTable = 'history';
-  static const String kIdName = 'id';
+  static const String kReferenceName = 'ref';
   static const String kLastStudiedName = 'last_studied';
 
-  Map<int, DateTime> _history;
+  Map<String, DateTime> _history;
 
   /// Front-End
   LibraryHistory() {
@@ -26,10 +26,10 @@ class LibraryHistory extends ChangeNotifier {
   // Gets the date last studied for a library resource.
   // Returns null if never studied or if history is not loaded.
   DateTime dateLastStudied(StudyResource resource) {
-    if (!isLoaded || !_history.containsKey(resource.id))
+    if (!isLoaded || !_history.containsKey(resource.reference))
       return null;
 
-    return _history[resource.id];
+    return _history[resource.reference];
   }
 
   // Updates the history of a library resource to show studied on date
@@ -38,11 +38,11 @@ class LibraryHistory extends ChangeNotifier {
     if (!isLoaded)
       return;
 
-    _history[resource.id] = date ?? DateTime.now();
+    _history[resource.reference] = date ?? DateTime.now();
     _saveData();
     notifyListeners();
 
-    print('Marked resource #${resource.id} as studied.');
+    print('Marked ${resource.reference} as studied.');
   }
 
   // Deletes all history entries
@@ -116,33 +116,47 @@ class LibraryHistory extends ChangeNotifier {
     final String databasePath = await getDatabasesPath();
     final String path = databasePath + kDatabaseFile;
 
-    return openDatabase(path, version: 1, onCreate: _createHistoryTable);
+    return openDatabase(path, version: 2,
+      onCreate: _createHistoryTable,
+      onUpgrade: _upgradeHistoryTable
+    );
   }
 
   // Creates the table of progress records
   static Future<void> _createHistoryTable(Database db, int version) async {
     final String progressSql = '''CREATE TABLE $kHistoryTable
     (
-      $kIdName INTEGER PRIMARY KEY,
+      $kReferenceName TEXT PRIMARY KEY,
       $kLastStudiedName TEXT
     )''';
 
     await db.execute(progressSql);
   }
 
+  // Upgrades old databases
+  static Future<void> _upgradeHistoryTable(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Delete old history, not useful anymore
+      await db.execute('DROP TABLE $kHistoryTable');
+      await _createHistoryTable(db, newVersion);
+    }
+
+    print('Database upgraded from version $oldVersion to $newVersion.');
+  }
+
   // Gets a list of all study history
-  static Future<Map<int, DateTime>> _queryHistory(Database db) async {
+  static Future<Map<String, DateTime>> _queryHistory(Database db) async {
     List<Map<String, dynamic>> historyMaps = await db.query(
         kHistoryTable,
         columns: [
-          kIdName,
+          kReferenceName,
           kLastStudiedName,
         ]
     );
 
-    Map<int, DateTime> history = Map.fromIterable(
+    Map<String, DateTime> history = Map.fromIterable(
       historyMaps,
-      key: (e) => e[kIdName],
+      key: (e) => e[kReferenceName],
       value: (e) => DateTime.parse(e[kLastStudiedName])
     );
 
@@ -150,31 +164,31 @@ class LibraryHistory extends ChangeNotifier {
   }
 
   // Updates the records in the database with the history cached here
-  static Future<void> _updateHistory(Database db, Map<int, DateTime> history) async {
-    Map<int, DateTime> oldHistory = await _queryHistory(db);
+  static Future<void> _updateHistory(Database db, Map<String, DateTime> history) async {
+    Map<String, DateTime> oldHistory = await _queryHistory(db);
 
     // Save all actions to a batch
     Batch batch = db.batch();
 
     // Delete oldHistory that don't exist any more
-    oldHistory.forEach((id, lastStudied) {
-      if (!history.containsKey(id))
-        batch.delete(kHistoryTable, where: '$kIdName = ?', whereArgs: [id]);
+    oldHistory.forEach((reference, lastStudied) {
+      if (!history.containsKey(reference))
+        batch.delete(kHistoryTable, where: '$kReferenceName = ?', whereArgs: [reference]);
     });
 
     // Update or create records
-    history.forEach((id, lastStudied) {
+    history.forEach((reference, lastStudied) {
       Map<String, dynamic> sqlEntry = {
-        kIdName: id,
+        kReferenceName: reference,
         kLastStudiedName: lastStudied.toString()
       };
 
-      if (oldHistory.containsKey(id)) {
+      if (oldHistory.containsKey(reference)) {
         batch.update(
           kHistoryTable,
           sqlEntry,
-          where: '$kIdName = ?',
-          whereArgs: [id]
+          where: '$kReferenceName = ?',
+          whereArgs: [reference]
         );
       } else {
         batch.insert(kHistoryTable, sqlEntry);

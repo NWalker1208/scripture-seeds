@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/services/library/library_history.dart';
 import 'package:seeds/services/progress_data.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/wallet.dart';
@@ -17,6 +18,9 @@ class ResetProgressDialog extends StatelessWidget {
 
           ProgressData progress = Provider.of<ProgressData>(context, listen: false);
           progress.resetProgress();
+
+          LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
+          history.resetHistory();
 
           WalletData wallet = Provider.of<WalletData>(context, listen: false);
           wallet.reset();

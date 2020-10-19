@@ -10,18 +10,25 @@ namespace LibraryXML
 {
     public class StudyResource
     {
-        static int nextId = 0;
+        public enum Category
+        {
+            OldTestament = ScriptureConsts.Volume.OldTestament,
+            NewTestament = ScriptureConsts.Volume.NewTestament,
+            BookOfMormon = ScriptureConsts.Volume.BookOfMormon,
+            DoctrineAndCovenants = ScriptureConsts.Volume.DoctrineAndCovenants,
+            PearlOfGreatPrice = ScriptureConsts.Volume.PearlOfGreatPrice,
+            GeneralConference, Other
+        }
 
-        public int id { get; private set; }
-
+        public Category category;
         public string reference;
         public string referenceURL;
         public ISet<string> topics;
         public List<StudyElement> body;
 
-        public StudyResource(string reference, string referenceURL, int id = -1)
+        public StudyResource(Category category, string reference, string referenceURL, int id = -1)
         {
-            InitID(id);
+            this.category = category;
             this.reference = reference;
             this.referenceURL = referenceURL;
             topics = new SortedSet<string>();
@@ -30,8 +37,13 @@ namespace LibraryXML
 
         public StudyResource(XmlNode node)
         {
-            InitID(int.Parse(node.Attributes.GetNamedItem("id").Value));
+            // Get category attribute
+            XmlNode catAttr = node.Attributes.GetNamedItem("category");
 
+            if (catAttr != null)
+                category = (Category)Enum.Parse(typeof(Category), catAttr.Value);
+
+            // Parse topics and body
             topics = new SortedSet<string>();
             body = new List<StudyElement>();
 
@@ -56,43 +68,34 @@ namespace LibraryXML
                     }
                 }
             }
+
+            // If no category was given, attempt to guess
+            if (catAttr == null && ScriptureReference.Parse(reference) is ScriptureReference parsed)
+                category = (Category)parsed.volume;
         }
 
-        public StudyResource(ScriptureReference reference, ISet<string> topics, int id = -1)
+        public StudyResource(ScriptureReference reference, ISet<string> topics)
         {
-            InitID(id);
+            category = (Category) reference.volume;
             this.reference = reference.ToString();
             referenceURL = reference.GetURL();
             this.topics = new SortedSet<string>(topics);
             body = reference.GetText();
         }
 
-        private void InitID(int id = -1)
-        {
-            if (id == -1)
-            {
-                id = nextId;
-                nextId++;
-            }
-            else if (id >= nextId)
-                nextId = id + 1;
-
-            this.id = id;
-        }
-
         public override string ToString()
         {
-            return id.ToString() + ". " + reference + " (" + body.Count.ToString() + " elements)";
+            return "[" + category.ToString()[0] + "] " + reference + " (" + body.Count.ToString() + " elements)";
         }
 
         public XmlNode ToXml(XmlDocument document)
         {
             XmlNode node = document.CreateElement("resource");
 
-            // Add id attribute
-            XmlAttribute idAttr = document.CreateAttribute("id");
-            idAttr.Value = id.ToString();
-            node.Attributes.Append(idAttr);
+            // Add category attribute
+            XmlAttribute catAttr = document.CreateAttribute("category");
+            catAttr.Value = category.ToString();
+            node.Attributes.Append(catAttr);
 
             // Create elements for topics
             foreach(string topic in topics)
