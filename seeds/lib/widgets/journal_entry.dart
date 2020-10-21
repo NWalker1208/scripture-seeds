@@ -32,7 +32,7 @@ class JournalEntryView extends StatelessWidget {
                           if (entry.quote != entry.reference)
                             WidgetSpan(
                               child: Text(
-                                '  \u{2013} ${entry.reference}',
+                                ' \u{2013} ${entry.reference}',
                                 style: DefaultTextStyle.of(context).style.copyWith(height: 1.5)
                               ),
                             )

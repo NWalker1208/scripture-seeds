@@ -2,11 +2,13 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:seeds/services/library/study_resource.dart';
 
 const String _kJournalFolder = '/study_journal/';
 const String _kEntryFileExtension = '.jrnent';
 
 const String _kFileCreated = 'created';
+const String _kFileCategory = 'category';
 const String _kFileQuote = 'quote';
 const String _kFileReference = 'reference';
 const String _kFileURL = 'url';
@@ -15,13 +17,15 @@ const String _kFileTags = 'tags';
 
 class JournalEntry implements Comparable<JournalEntry> {
   DateTime created;
+  Category category;
   String quote;
   String reference;
   String url;
   String commentary;
   List<String> tags;
 
-  JournalEntry({DateTime created, this.quote = '', this.reference = '',
+  JournalEntry({DateTime created, this.category = Category.Other,
+                this.quote = '', this.reference = '',
                 this.url = '', this.commentary = '', List<String> tags})
    : this.created = created ?? DateTime.now(),
      this.tags = tags ?? List<String>();
@@ -32,6 +36,7 @@ class JournalEntry implements Comparable<JournalEntry> {
     created = data.containsKey(_kFileCreated) ?
       DateTime.parse(data[_kFileCreated]) : null;
 
+    category = Category.parse(data[_kFileCategory]);
     quote = data[_kFileQuote] ?? data[_kFileReference] ?? '';
     reference = data[_kFileReference] ?? '';
     url = data[_kFileURL] ?? '';
@@ -44,6 +49,7 @@ class JournalEntry implements Comparable<JournalEntry> {
   String toJSON() {
     Map<String, dynamic> data = Map<String, dynamic>();
     data[_kFileCreated] = created.toString();
+    data[_kFileCategory] = category.toString();
     data[_kFileQuote] = quote;
     data[_kFileReference] = reference;
     data[_kFileURL] = url;

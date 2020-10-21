@@ -140,6 +140,31 @@ class StudyResource {
 
   StudyResource(this.category, this.topics, this.reference, this.referenceURL, this.body);
 
+  StudyResource.fromXmlElement(XML.XmlElement element) {
+    // Locate topics, reference, and body of study resource
+    Iterable<XML.XmlElement> topicElements = element.findElements('topic');
+    XML.XmlElement referenceElement = element.findElements('reference').first;
+    Iterable<XML.XmlNode> bodyElements = element.findElements('body').first.children;
+
+    // Initialize properties
+    category = Category.parse(element.getAttribute('category')) ?? Category.Other;
+    topics = topicElements.map((t) => t.text).toSet();
+    reference = referenceElement.text;
+    referenceURL = referenceElement.getAttribute('url');
+
+    // Initialize body
+    body = List<StudyElement>();
+
+    bodyElements.forEach((node) {
+      if (node is XML.XmlElement) {
+        StudyElement element = StudyElement.fromXmlElement(node);
+
+        if (element != null)
+          body.add(element);
+      }
+    });
+  }
+
   @override
   String toString() {
     return 'StudyResource [$category] {$topics, $reference, $referenceURL}: $body';

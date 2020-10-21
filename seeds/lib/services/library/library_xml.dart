@@ -18,7 +18,7 @@ class Library extends ChangeNotifier {
   }
 
   void loadFromXml(XmlDocument doc) {
-    resources = _xmlToStudyResources(doc.findAllElements('resource'));
+    resources = doc.findAllElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
     _updateTopics();
 
     print('Library loaded!');
@@ -51,43 +51,5 @@ class Library extends ChangeNotifier {
   void _updateTopics() {
     _topics = Set<String>();
     resources.forEach((res) => _topics = _topics.union(res.topics));
-  }
-
-  static List<StudyResource> _xmlToStudyResources(Iterable<XmlElement> xmlResources) {
-    List<StudyResource> resources = List<StudyResource>();
-
-    // Iterate over every resource tag
-    xmlResources.forEach((resource) {
-      // Locate topics, reference, and body of study resource
-      Iterable<XmlElement> topics = resource.findElements('topic');
-      XmlElement reference = resource.findElements('reference').first;
-      Iterable<XmlNode> bodyElements = resource.findElements('body').first.children;
-
-      // Convert XmlElements to StudyResource
-      resources.add(StudyResource(
-        Category.parse(resource.getAttribute('category')) ?? Category.Other,
-        topics.map((t) => t.text).toSet(),
-        reference.text,
-        reference.getAttribute('url'),
-        _xmlToStudyElements(bodyElements)
-      ));
-    });
-
-    return resources;
-  }
-
-  static List<StudyElement> _xmlToStudyElements(Iterable<XmlNode> xmlNodes) {
-    List<StudyElement> elements = List<StudyElement>();
-
-    xmlNodes.forEach((node) {
-      if (node is XmlElement) {
-        StudyElement element = StudyElement.fromXmlElement(node);
-
-        if (element != null)
-          elements.add(element);
-      }
-    });
-
-    return elements;
   }
 }

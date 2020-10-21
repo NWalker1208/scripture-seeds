@@ -87,6 +87,7 @@ class ActivityPageState extends State<ActivityPage> {
   @override
   Widget build(BuildContext context) {
     _journalEntry = JournalEntry(
+      category: _resource.category,
       quote: _quote ?? '',
       reference: _resource.reference ?? '',
       url: _resource.referenceURL ?? '',
