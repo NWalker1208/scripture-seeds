@@ -56,7 +56,6 @@ namespace LibraryXMLEditor
                 if (newResource != null)
                     library.resources.Add(newResource);
 
-                System.Threading.Thread.Sleep(250);
 
                 i++;
                 downloadWorker.ReportProgress((int)(100 * ((float)i / total)));

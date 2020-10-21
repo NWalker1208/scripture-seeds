@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -395,12 +396,15 @@ namespace LibraryXMLEditor
             List<StudyResource> toKeep = new List<StudyResource>();
             foreach (StudyResource resource in lib.resources)
             {
-                ScriptureReference reference = ScriptureReference.Parse(resource.reference);
-
-                if (reference != null)
-                    scriptures.Add(reference, resource.topics);
-                else
+                if (resource.category == StudyResource.Category.GeneralConference ||
+                    resource.category == StudyResource.Category.Other)
                     toKeep.Add(resource);
+                else
+                {
+                    ScriptureReference reference = ScriptureReference.Parse(resource.reference);
+                    scriptures.Add(reference, resource.topics);
+                    WebCrawler.CacheScripture(reference, resource);
+                }
             }
 
             // Open search dialog
