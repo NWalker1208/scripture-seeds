@@ -17,12 +17,23 @@ class Library extends ChangeNotifier {
       loadFromXml(xmlDoc);
   }
 
-  void loadFromXml(XmlDocument doc) {
-    resources = doc.findAllElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
+  bool loadFromXml(XmlDocument doc) {
+    List<StudyResource> newResources;
+
+    // Attempt to parse document. Return false if fails.
+    try {
+      newResources = doc.findAllElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
+    } catch (e) {
+      print('Unable to load library from XML document: $e');
+      return false;
+    }
+
+    resources = newResources;
     _updateTopics();
 
     print('Library loaded!');
     notifyListeners();
+    return true;
   }
 
   // Finds the least recent study resource for the given topic

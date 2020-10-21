@@ -42,18 +42,23 @@ class TopicsDashboard extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Consumer3<Library, ProgressData, WalletData>(
             builder: (context, library, progress, wallet, child) {
-              if (wallet.availableFunds == 0)
-                return Text('Collect seeds to start new topics.', textAlign: TextAlign.center,);
-
               List<String> topics = library.topicsSorted;
               List<String> topicsAlreadyPurchased = progress.recordNames;
               topics.removeWhere((t) => topicsAlreadyPurchased.contains(t));
+
+              // Show message if all topics are purchased
+              if (topics.length == 0)
+                return Text('You\'ve collected every topic!', textAlign: TextAlign.center);
+
+              // Show message if unable to purchase topics
+              if (wallet.availableFunds == 0)
+                return Text('Collect seeds to start new topics.', textAlign: TextAlign.center);
 
               return Text.rich(
                 TextSpan(
                   children: List.generate(
                     topics.length,
-                      (index) => WidgetSpan(
+                    (index) => WidgetSpan(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: RaisedButton(
@@ -65,6 +70,7 @@ class TopicsDashboard extends StatelessWidget {
                     )
                   )
                 ),
+                textAlign: TextAlign.center,
               );
             },
           ),

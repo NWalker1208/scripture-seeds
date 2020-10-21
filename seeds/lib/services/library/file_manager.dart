@@ -22,7 +22,7 @@ class LibraryFileManager {
       this.daysBetweenRefresh = 2,
       this.lang = 'eng'
     }
-   ) : _libFileName = 'library_$lang.xml';
+   ) : _libFileName = 'library_$lang';
 
 
   // Initialize library from cache, assets, and/or web.
@@ -32,11 +32,12 @@ class LibraryFileManager {
     // Load from cache or assets if necessary
     XmlDocument libDoc = await _loadFromCache() ?? await _loadFromAssets();
 
+    bool successful;
     if (libDoc != null)
-      library.loadFromXml(libDoc);
+      successful = library.loadFromXml(libDoc);
 
     // If no cache is present, or if cache is 48 hours old, download from web
-    if (libDoc == null || await _shouldRefreshCache()) {
+    if (!successful || libDoc == null || await _shouldRefreshCache()) {
       print('Automatically refreshing library...');
       await refreshLibrary();
     }
@@ -46,15 +47,33 @@ class LibraryFileManager {
   Future<void> refreshLibrary() async {
     XmlDocument libDoc = await _loadFromWeb();
 
-    if (libDoc != null)
-      library.loadFromXml(libDoc);
+    if (libDoc != null) {
+      if (library.loadFromXml(libDoc))
+        _updateCacheFromDownload();
+    }
   }
 
-
+  /// Cache Management Functions
   // Gets cache file
-  Future<File> _getCacheFile() async {
+  Future<File> _getCacheFile({bool newDownload = false}) async {
     Directory tempDirectory = await getTemporaryDirectory();
-    return File(tempDirectory.path + '/lib_cache/$_libFileName');
+    return File(tempDirectory.path + '/lib_cache/$_libFileName' +
+                (newDownload ? '_new' : '') + '.xml');
+  }
+
+  // Swaps new cache file for old cache file
+  Future<void> _updateCacheFromDownload() async {
+    File newCache = await _getCacheFile(newDownload: true);
+    File oldCache = await _getCacheFile();
+
+    if (await newCache.exists()) {
+      print('Saving library to cache...');
+
+      if (await oldCache.exists())
+        await oldCache.delete();
+
+      await newCache.rename(oldCache.path);
+    }
   }
 
   // Returns true if no cache is present or if cache is over daysBetweenRefresh days old
@@ -69,13 +88,13 @@ class LibraryFileManager {
     return true;
   }
 
-
+  /// XML Loading Functions
   // Loads library file from assets
   Future<XmlDocument> _loadFromAssets() async {
     if (assets != null) {
       print('Loading library from assets...');
       try {
-        return parse(await assets.loadString('assets/$_libFileName'));
+        return parse(await assets.loadString('assets/$_libFileName.xml'));
       } on FlutterError {
         print('Could not find library asset for language "$lang"');
       } on XmlParserException catch (e) {
@@ -126,19 +145,17 @@ class LibraryFileManager {
     return null;
   }
 
-
+  /// Download Function
   // Downloads the library and saves to the cache
   Future<File> _downloadLibrary() async {
-    Uri url = Uri.parse('$_webStorageURL$_libFileName?alt=media');
+    Uri url = Uri.parse('$_webStorageURL$_libFileName.xml?alt=media');
 
     print('Downloading library from "$url"...');
     Response response = await get(url);
     if (response.statusCode == 200) {
-      print('Saving library to cache...');
-
-      File cache = await _getCacheFile();
+      File cache = await _getCacheFile(newDownload: true);
       if (!await cache.exists())
-        cache.create(recursive: true);
+        await cache.create(recursive: true);
       await cache.writeAsBytes(response.bodyBytes);
 
       return cache;
