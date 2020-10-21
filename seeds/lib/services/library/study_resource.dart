@@ -128,6 +128,10 @@ class Category {
   static const Category PearlOfGreatPrice = Category._('PearlOfGreatPrice');
   static const Category GeneralConference = Category._('GeneralConference');
   static const Category Other = Category._('Other');
+
+  static const List<Category> Values = [OldTestament, NewTestament, BookOfMormon,
+                                        DoctrineAndCovenants, PearlOfGreatPrice,
+                                        GeneralConference, Other];
 }
 
 class StudyResource {

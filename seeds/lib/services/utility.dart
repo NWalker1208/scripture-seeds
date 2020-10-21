@@ -70,6 +70,8 @@ extension StringExtension on String {
 
     return words.length;
   }
+
+  bool get isCapital => this == this.toUpperCase();
 }
 
 int hitTestList(Offset position, List<GlobalKey> widgets) {

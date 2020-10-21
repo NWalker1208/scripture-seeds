@@ -26,8 +26,8 @@ These items are necessary, but can be built upon over time.
 - [x] Create remote library system
   - [x] Improve caching and refreshing of library
 - [ ] Finalize library
-  - [ ] Remove ID's
-  - [ ] Store book information
+  - [x] Remove ID's
+  - [x] Store book information
   - [ ] Allow user to filter books
   - [ ] Collect a large library
 
