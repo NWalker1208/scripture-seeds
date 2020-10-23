@@ -28,7 +28,7 @@ These items are necessary, but can be built upon over time.
 - [ ] Finalize library
   - [x] Remove ID's
   - [x] Store book information
-  - [ ] Allow user to filter books
+  - [x] Allow user to filter books
   - [ ] Collect a large library
 
 ### 3) Features and Design (finish before release)
@@ -36,9 +36,11 @@ These items are unnecessary, but improve the user experience.
 - [x] Fruit growth after reaching goal (1 week)
   - [x] System to unlock new topics with fruit
   - [ ] Improve rendering of fruit
+  - [ ] Delete plant after harvest
 - [x] Finish basic journal dashboard widget
   - [ ] Create smart journal widget
 - [ ] Search for topic
+- [ ] Intro page to configure default filter
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
 - [ ] Improve journal page
