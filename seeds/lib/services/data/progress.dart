@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/progress_record.dart';
+import 'package:seeds/services/data/progress_record.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mutex/mutex.dart';
 import 'dart:io';

@@ -5,16 +5,16 @@ import 'package:seeds/pages/settings.dart';
 import 'package:seeds/pages/plant.dart';
 import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
-import 'package:seeds/services/help_settings.dart';
-import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/settings/help.dart';
+import 'package:seeds/services/data/journal.dart';
 import 'package:seeds/services/library/file_manager.dart';
-import 'package:seeds/services/library/library_history.dart';
-import 'package:seeds/services/library/library_xml.dart';
-import 'package:seeds/services/progress_data.dart';
-import 'package:seeds/services/theme_preference.dart';
+import 'package:seeds/services/library/history.dart';
+import 'package:seeds/services/library/library.dart';
+import 'package:seeds/services/data/progress.dart';
+import 'package:seeds/services/settings/theme.dart';
 import 'package:seeds/services/themes.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/wallet.dart';
+import 'package:seeds/services/data/wallet.dart';
 
 void main() {
   // Make status bar transparent

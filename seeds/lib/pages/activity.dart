@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/journal_data.dart';
-import 'package:seeds/services/library/library_history.dart';
-import 'package:seeds/services/library/library_xml.dart';
+import 'package:seeds/services/data/journal.dart';
+import 'package:seeds/services/library/history.dart';
+import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/library/study_resource.dart';
-import 'package:seeds/services/progress_data.dart';
+import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/widgets/activity/activity_widget.dart';
 import 'package:seeds/widgets/activity/study.dart';
 import 'package:seeds/widgets/activity/ponder.dart';

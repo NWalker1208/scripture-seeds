@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:seeds/services/library/library_xml.dart';
+import 'package:seeds/services/library/library.dart';
 import 'package:xml/xml.dart';
 import 'package:http/http.dart';
 
@@ -94,7 +94,7 @@ class LibraryFileManager {
     if (assets != null) {
       print('Loading library from assets...');
       try {
-        return parse(await assets.loadString('assets/$_libFileName.xml'));
+        return XmlDocument.parse(await assets.loadString('assets/$_libFileName.xml'));
       } on FlutterError {
         print('Could not find library asset for language "$lang"');
       } on XmlParserException catch (e) {
@@ -113,7 +113,7 @@ class LibraryFileManager {
     if (await cache.exists()) {
       print('Loading library from cache...');
       try {
-        return parse(await cache.readAsString());
+        return XmlDocument.parse(await cache.readAsString());
       } on XmlParserException catch (e) {
         print('Parsing of library XML from cache failed: $e');
         print('Deleting library cache...');
@@ -134,7 +134,7 @@ class LibraryFileManager {
       print('Loading library from web download...');
 
       try {
-        return parse(await libFile.readAsString());
+        return XmlDocument.parse(await libFile.readAsString());
       } on XmlParserException catch (e) {
         print('Parsing of library XML from web failed: $e');
       }

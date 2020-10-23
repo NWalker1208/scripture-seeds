@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/library/file_manager.dart';
-import 'package:seeds/services/library/library_xml.dart';
+import 'package:seeds/services/library/library.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
 

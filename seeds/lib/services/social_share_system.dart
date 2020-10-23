@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/data/journal.dart';
 import 'package:social_share/social_share.dart';
 
 enum SharePlatform {

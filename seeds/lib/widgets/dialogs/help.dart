@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/help_settings.dart';
+import 'package:seeds/services/settings/help.dart';
 
 class HelpDialog extends StatelessWidget {
   final String text;

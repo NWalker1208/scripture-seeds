@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/progress_data.dart';
-import 'package:seeds/services/progress_record.dart';
+import 'package:seeds/services/data/progress.dart';
+import 'package:seeds/services/data/progress_record.dart';
 
 class PlantProgressIndicator extends StatefulWidget {
   final String plantName;

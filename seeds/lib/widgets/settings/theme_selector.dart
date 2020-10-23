@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/theme_preference.dart';
+import 'package:seeds/services/settings/theme.dart';
 
 class ThemeSelector extends StatelessWidget {
   @override

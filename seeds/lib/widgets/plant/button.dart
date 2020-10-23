@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/progress_data.dart';
+import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/widgets/plant/status.dart';
 import 'package:seeds/widgets/plant/view.dart';
 

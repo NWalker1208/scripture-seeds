@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/data/journal.dart';
 import 'package:seeds/services/utility.dart';
 import 'package:seeds/widgets/dialogs/erase_journal_entry.dart';
 import 'package:seeds/widgets/journal_entry.dart';

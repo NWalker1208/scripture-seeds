@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/data/journal.dart';
 
 class EraseEntryDialog extends StatelessWidget {
   final Set<JournalEntry> entriesToDelete;

@@ -1,6 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:seeds/services/library/library_history.dart';
+import 'package:seeds/services/library/history.dart';
 import 'package:xml/xml.dart';
 import 'package:seeds/services/library/study_resource.dart';
 

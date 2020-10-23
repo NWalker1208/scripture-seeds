@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:seeds/services/journal_data.dart';
+import 'package:seeds/services/data/journal.dart';
 import 'package:seeds/services/social_share_system.dart';
 import 'package:intl/intl.dart';
 

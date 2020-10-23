@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/custom_icons.dart';
-import 'package:seeds/services/progress_record.dart';
-import 'package:seeds/services/wallet.dart';
+import 'package:seeds/services/data/progress_record.dart';
+import 'package:seeds/services/data/wallet.dart';
 import 'package:seeds/widgets/dialogs/extra_study.dart';
 import 'package:seeds/widgets/help_page.dart';
 import 'package:seeds/widgets/plant/drawer.dart';
 import 'package:seeds/widgets/plant/progress_indicator.dart';
 import 'package:seeds/widgets/plant/view.dart';
-import 'package:seeds/services/progress_data.dart';
+import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/utility.dart';
 import 'package:social_share/social_share.dart';
 import 'package:provider/provider.dart';
