@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:seeds/services/library/history.dart';
+import 'package:seeds/services/settings/library_filter.dart';
 import 'package:xml/xml.dart';
 import 'package:seeds/services/library/study_resource.dart';
 
@@ -36,26 +37,30 @@ class Library extends ChangeNotifier {
     return true;
   }
 
-  // Finds the least recent study resource for the given topic
-  StudyResource leastRecent(LibraryHistory history, {String topic}) {
-    StudyResource leastRecent;
+  // Finds the least recent study resources for the given topic
+  List<StudyResource> leastRecent(LibraryHistory history, {LibraryFilter filter, String topic}) {
+    List<StudyResource> leastRecent = List<StudyResource>();
     DateTime leastRecentDate;
 
     resources.forEach((res) {
-      if (topic == null || res.topics.contains(topic)) {
+      if ((filter == null || filter[res.category]) &&
+          (topic == null || res.topics.contains(topic))) {
         DateTime lastStudied = history.dateLastStudied(res);
 
-        if (leastRecent == null || // No resource has been found yet, OR
-            (lastStudied == null && leastRecentDate != null) || // Current resource has never been studied but the current least recent has, OR
-            (lastStudied != null && leastRecentDate != null && lastStudied.isBefore(leastRecentDate))) { // Current resource was last studied before least recent resource.
-          leastRecent = res;
-          leastRecentDate = lastStudied;
+        if (leastRecent.length == 0 ||
+            lastStudied == null ||
+            (leastRecentDate != null && lastStudied.isBefore(leastRecentDate))) {
+          if (lastStudied != leastRecentDate) {
+            leastRecentDate = lastStudied;
+            leastRecent.clear();
+          }
+
+          leastRecent.add(res);
         }
       }
     });
 
-    print('${leastRecent.reference} was least recent for topic $topic.');
-
+    print('Found ${leastRecent.length} resources that were last studied ${leastRecentDate ?? 'never'}.');
     return leastRecent;
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:seeds/services/library/study_resource.dart' as StudyResource;
+import 'package:seeds/services/settings/library_filter.dart';
 import 'package:seeds/services/utility.dart';
 
 class LibraryFilterSettings extends StatelessWidget {
@@ -17,17 +19,24 @@ class LibraryFilterSettings extends StatelessWidget {
     return Column(
       children: <Widget>[
         Text('Study Sources', style: Theme.of(context).textTheme.subtitle1),
-      ] + StudyResource.Category.Values.map(
-        (category) => Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(addSpaces(category.toString())),
-            Switch(
-              value: true,
-            )
-          ],
+
+        Consumer<LibraryFilter>(
+          builder: (context, filter, child) => Column(
+            children: StudyResource.Category.values.map(
+              (category) => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(addSpaces(category.toString())),
+                  Switch(
+                    value: filter[category],
+                    onChanged: (value) => filter[category] = value
+                  )
+                ],
+              )
+            ).toList(),
+          ),
         )
-      ).toList()
+      ]
     );
   }
 }

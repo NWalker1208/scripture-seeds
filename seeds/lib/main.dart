@@ -11,6 +11,7 @@ import 'package:seeds/services/library/file_manager.dart';
 import 'package:seeds/services/library/history.dart';
 import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/data/progress.dart';
+import 'package:seeds/services/settings/library_filter.dart';
 import 'package:seeds/services/settings/theme.dart';
 import 'package:seeds/services/themes.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +35,7 @@ class SeedsApp extends StatelessWidget {
     JournalData journal = JournalData();
 
     Library library = Library();
+    LibraryFilter libraryFilter = LibraryFilter();
     LibraryHistory history = LibraryHistory();
 
     LibraryFileManager(library, assets: DefaultAssetBundle.of(context)).initializeLibrary();
@@ -52,6 +54,8 @@ class SeedsApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: journal),
         // Library notifier
         ChangeNotifierProvider.value(value: library),
+        // LibraryFilter notifier
+        ChangeNotifierProvider.value(value: libraryFilter),
         // JournalData notifier
         ChangeNotifierProvider.value(value: history),
       ],

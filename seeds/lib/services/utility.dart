@@ -1,4 +1,5 @@
 // The home of miscellaneous functions
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -72,6 +73,13 @@ extension StringExtension on String {
   }
 
   bool get isCapital => this == this.toUpperCase();
+}
+
+extension ListExtension<T> on List<T> {
+  static final Random _random = new Random();
+
+  // Returns a random item from the list
+  T randomItem() => length > 0 ? this[_random.nextInt(length)] : null;
 }
 
 int hitTestList(Offset position, List<GlobalKey> widgets) {

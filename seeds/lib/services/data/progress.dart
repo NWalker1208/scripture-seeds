@@ -97,7 +97,7 @@ class ProgressData extends ChangeNotifier {
     _saveData();
     notifyListeners();
 
-    return 2; // TODO: Randomize
+    return 2; // TODO: Randomize, kill plant
   }
 
   // Deletes all progress entries

@@ -4,6 +4,8 @@ import 'package:seeds/services/library/history.dart';
 import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/library/study_resource.dart';
 import 'package:seeds/services/data/progress.dart';
+import 'package:seeds/services/settings/library_filter.dart';
+import 'package:seeds/services/utility.dart';
 import 'package:seeds/widgets/activity/activity_widget.dart';
 import 'package:seeds/widgets/activity/study.dart';
 import 'package:seeds/widgets/activity/ponder.dart';
@@ -80,12 +82,44 @@ class ActivityPageState extends State<ActivityPage> {
 
     // Load resource
     Library lib = Provider.of<Library>(context, listen: false);
+    LibraryFilter filter = Provider.of<LibraryFilter>(context, listen: false);
     LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
-    _resource = lib.leastRecent(history, topic: widget.topic);
+    _resource = lib.leastRecent(history, filter: filter, topic: widget.topic).randomItem();
   }
 
   @override
   Widget build(BuildContext context) {
+    // Error page
+    if (_resource == null)
+      return Scaffold(
+        appBar: AppBar(title: Text('Daily Activity')),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'We couldn\'t find anything to study!\nTry enabling more study sources in settings.',
+                  style: Theme.of(context).textTheme.subtitle1,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 8),
+                RaisedButton.icon(
+                  icon: Icon(Icons.settings),
+                  label: Text('Settings'),
+                  textColor: Colors.white,
+                  onPressed: () {
+                    Navigator.of(context).popAndPushNamed('/settings');
+                  }
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+
+    // Activity
     _journalEntry = JournalEntry(
       category: _resource.category,
       quote: _quote ?? '',
