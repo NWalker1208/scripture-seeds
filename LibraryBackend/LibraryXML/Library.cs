@@ -9,12 +9,16 @@ namespace LibraryXML
 {
     public class Library
     {
+        public const uint SCHEMA_VERSION = 1;
+
+        public uint version;
         public string language;
         public List<StudyResource> resources;
         public Dictionary<string, uint> topicPrices;
 
         public Library(string language = "eng")
         {
+            version = 1;
             this.language = language;
             resources = new List<StudyResource>();
             topicPrices = new Dictionary<string, uint>();
@@ -22,6 +26,11 @@ namespace LibraryXML
 
         public Library(XmlNode node)
         {
+            if (node.Attributes.GetNamedItem("version") is XmlNode versionAttr)
+                version = uint.Parse(versionAttr.Value);
+            else
+                version = 1;
+
             language = node.Attributes.GetNamedItem("lang").Value;
 
             resources = new List<StudyResource>();
@@ -45,6 +54,16 @@ namespace LibraryXML
         public XmlNode ToXml(XmlDocument document)
         {
             XmlNode node = document.CreateElement("library");
+
+            // Set schema attribute
+            XmlAttribute schema = document.CreateAttribute("schema");
+            schema.Value = SCHEMA_VERSION.ToString();
+            node.Attributes.Append(schema);
+
+            // Set version attribute
+            XmlAttribute versionAttr = document.CreateAttribute("version");
+            versionAttr.Value = version.ToString();
+            node.Attributes.Append(versionAttr);
 
             // Set language attribute
             XmlAttribute lang = document.CreateAttribute("lang");
