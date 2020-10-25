@@ -91,6 +91,12 @@
     <Compile Include="ResourceConfig.Designer.cs">
       <DependentUpon>ResourceConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="TopicConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopicConfig.Designer.cs">
+      <DependentUpon>TopicConfig.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DownloadDialog.resx">
       <DependentUpon>DownloadDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TextInput.resx">
       <DependentUpon>TextInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopicConfig.resx">
+      <DependentUpon>TopicConfig.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

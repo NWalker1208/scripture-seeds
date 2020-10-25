@@ -45,6 +45,7 @@
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.elementConfig = new LibraryXMLEditor.ElementConfig();
             this.resourceConfig = new LibraryXMLEditor.ResourceConfig();
+            this.topicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +106,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
+            this.topicToolStripMenuItem,
             this.webToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -213,6 +215,13 @@
             this.resourceConfig.Visible = false;
             this.resourceConfig.ResourceUpdate += new System.EventHandler(this.resourceConfig_ResourceUpdate);
             // 
+            // topicToolStripMenuItem
+            // 
+            this.topicToolStripMenuItem.Name = "topicToolStripMenuItem";
+            this.topicToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.topicToolStripMenuItem.Text = "Topics";
+            this.topicToolStripMenuItem.Click += new System.EventHandler(this.topicToolStripMenuItem_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +267,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ComboBox filterComboBox;
         private System.Windows.Forms.ToolStripMenuItem webToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topicToolStripMenuItem;
     }
 }
 

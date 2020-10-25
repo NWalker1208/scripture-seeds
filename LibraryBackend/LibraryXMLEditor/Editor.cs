@@ -424,5 +424,11 @@ namespace LibraryXMLEditor
             // Refresh view
             UpdateTreeView(false);
         }
+
+        private void topicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TopicConfig topicConfig = new TopicConfig(lib.topicPrices);
+            topicConfig.ShowDialog();
+        }
     }
 }
