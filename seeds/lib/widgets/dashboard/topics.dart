@@ -8,16 +8,12 @@ import 'package:seeds/widgets/dashboard/indicators/wallet.dart';
 import 'package:seeds/services/utility.dart';
 
 class TopicsDashboard extends StatelessWidget {
-  void purchaseAndOpen(BuildContext context, String topic) {
-    Provider.of<WalletData>(context, listen: false).spend(1);
-    Provider.of<ProgressData>(context, listen: false).createProgressRecord(
-      ProgressRecord(topic)
-    );
-
-    /*Navigator.of(context).pushNamed(
-      '/plant',
-      arguments: topic
-    );*/
+  void purchase(WalletData wallet, ProgressData progress, String topic, int price) {
+    if (wallet.spend(price)) {
+      progress.createProgressRecord(ProgressRecord(topic));
+    } else {
+      print('Not enough funds to purchase "$topic"');
+    }
   }
 
   @override
@@ -58,16 +54,30 @@ class TopicsDashboard extends StatelessWidget {
                 TextSpan(
                   children: List.generate(
                     topics.length,
-                    (index) => WidgetSpan(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: RaisedButton(
-                          child: Text(topics[index].capitalize()),
-                          textColor: Colors.white,
-                          onPressed: () => purchaseAndOpen(context, topics[index]),
-                        ),
-                      )
-                    )
+                    (index) {
+                      int price = library.priceOfTopic(topics[index]);
+
+                      return WidgetSpan(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: RaisedButton(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('$price '),
+                                ImageIcon(AssetImage('assets/seeds_icon.ico')),
+                                Text(' ${topics[index].capitalize()}')
+                              ],
+                            ),
+
+                            textColor: Colors.white,
+                            onPressed: wallet.canAfford(price) ?
+                              () => purchase(wallet, progress, topics[index], price) : null,
+                          ),
+                        )
+                      );
+                    }
                   )
                 ),
                 textAlign: TextAlign.center,

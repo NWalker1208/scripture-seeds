@@ -26,6 +26,8 @@ class WalletData extends ChangeNotifier {
     _saveWallet();
   }
 
+  bool canAfford(int price) => _funds >= price;
+
   bool spend(int funds) {
     if (_funds < funds)
       return false;

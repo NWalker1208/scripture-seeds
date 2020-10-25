@@ -6,12 +6,12 @@ import 'package:xml/xml.dart';
 import 'package:seeds/services/library/study_resource.dart';
 
 class Library extends ChangeNotifier {
-  Set<String> _topics;
+  Map<String, int> _topics;
   List<StudyResource> resources;
 
   bool get loaded => _topics != null && resources != null;
-  Set<String> get topics => _topics?.toSet() ?? Set<String>();
-  List<String> get topicsSorted => (_topics?.toList() ?? <String>[])..sort();
+  Set<String> get topics => _topics?.keys?.toSet() ?? Set<String>();
+  List<String> get topicsSorted => (_topics?.keys?.toList() ?? <String>[])..sort();
 
   Library([XmlDocument xmlDoc]) {
     if (xmlDoc != null)
@@ -20,22 +20,46 @@ class Library extends ChangeNotifier {
 
   bool loadFromXml(XmlDocument doc) {
     List<StudyResource> newResources;
+    Map<String, int> newTopics;
 
     // Attempt to parse document. Return false if fails.
     try {
-      newResources = doc.findAllElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
+      XmlElement libraryNode = doc.findElements('library').first;
+
+      // Load topics
+      Iterable<XmlElement> summaryNodes = libraryNode.findElements('summary');
+
+      if (summaryNodes.isNotEmpty) {
+        newTopics = Map<String, int>.fromIterable(
+          summaryNodes.first.findElements('topic'),
+
+          key: (topicNode) =>
+            (topicNode as XmlElement).innerText,
+          value: (topicNode) =>
+            int.parse((topicNode as XmlElement).getAttribute('price') ?? '1')
+        );
+      }
+
+      // Load resources
+      newResources = libraryNode.findElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
     } catch (e) {
       print('Unable to load library from XML document: $e');
       return false;
     }
 
     resources = newResources;
-    _updateTopics();
+
+    if (newTopics == null)
+      _updateTopics();
+    else
+      _topics = newTopics;
 
     print('Library loaded!');
     notifyListeners();
     return true;
   }
+
+  int priceOfTopic(String topic) => _topics[topic];
 
   // Finds the least recent study resources for the given topic
   List<StudyResource> leastRecent(LibraryHistory history, {LibraryFilter filter, String topic}) {
@@ -65,7 +89,11 @@ class Library extends ChangeNotifier {
   }
 
   void _updateTopics() {
-    _topics = Set<String>();
-    resources.forEach((res) => _topics = _topics.union(res.topics));
+    _topics = Map<String, int>();
+    resources.forEach((res) =>
+      res.topics.forEach((topic) =>
+        _topics[topic] = 1
+      )
+    );
   }
 }
