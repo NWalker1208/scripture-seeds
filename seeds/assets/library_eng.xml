@@ -22,7 +22,7 @@
     <topic price="1">leadership</topic>
     <topic price="1">life</topic>
     <topic price="1">marriage</topic>
-    <topic price="1">missionay</topic>
+    <topic price="1">missionary</topic>
     <topic price="1">obedience</topic>
     <topic price="1">patience</topic>
     <topic price="1">prayer</topic>
@@ -69,7 +69,6 @@
   <resource category="OldTestament">
     <topic>chastity</topic>
     <topic>creation</topic>
-    <topic>knowledge</topic>
     <topic>marriage</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/1.26-28?lang=eng#p26">Genesis 1:26-28</reference>
@@ -106,10 +105,11 @@
   </resource>
   <resource category="OldTestament">
     <topic>agency</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/2.16?lang=eng#p16">Genesis 2:16</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/2.16-17?lang=eng#p16">Genesis 2:16-17</reference>
     <body>
       <title>Genesis 2</title>
       <highlight verse="16">And the Lord God commanded the man, saying, Of every tree of the garden thou mayest freely eat:</highlight>
+      <highlight verse="17">But of the tree of the knowledge of good and evil, thou shalt not eat of it: for in the day that thou eatest thereof thou shalt surely die.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -215,37 +215,11 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/16.1-11?lang=eng#p1">Genesis 16:1-11</reference>
-    <body>
-      <title>Genesis 16</title>
-      <highlight verse="1">Now Sarai Abram’s wife bare him no children: and she had an handmaid, an Egyptian, whose name was Hagar.</highlight>
-      <highlight verse="2">And Sarai said unto Abram, Behold now, the Lord hath restrained me from bearing: I pray thee, go in unto my maid; it may be that I may obtain children by her. And Abram hearkened to the voice of Sarai.</highlight>
-      <highlight verse="3">And Sarai Abram’s wife took Hagar her maid the Egyptian, after Abram had dwelt ten years in the land of Canaan, and gave her to her husband Abram to be his wife.</highlight>
-      <highlight verse="4">And he went in unto Hagar, and she conceived: and when she saw that she had conceived, her mistress was despised in her eyes.</highlight>
-      <highlight verse="5">And Sarai said unto Abram, My wrong be upon thee: I have given my maid into thy bosom; and when she saw that she had conceived, I was despised in her eyes: the Lord judge between me and thee.</highlight>
-      <highlight verse="6">But Abram said unto Sarai, Behold, thy maid is in thy hand; do to her as it pleaseth thee. And when Sarai dealt hardly with her, she fled from her face.</highlight>
-      <highlight verse="7">And the angel of the Lord found her by a fountain of water in the wilderness, by the fountain in the way to Shur.</highlight>
-      <highlight verse="8">And he said, Hagar, Sarai’s maid, whence camest thou? and whither wilt thou go? And she said, I flee from the face of my mistress Sarai.</highlight>
-      <highlight verse="9">And the angel of the Lord said unto her, Return to thy mistress, and submit thyself under her hands.</highlight>
-      <highlight verse="10">And the angel of the Lord said unto her, I will multiply thy seed exceedingly, that it shall not be numbered for multitude.</highlight>
-      <highlight verse="11">And the angel of the Lord said unto her, Behold, thou art with child, and shalt bear a son, and shalt call his name Ishmael; because the Lord hath heard thy affliction.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/17.1?lang=eng#p1">Genesis 17:1</reference>
     <body>
       <title>Genesis 17</title>
       <highlight verse="1">And when Abram was ninety years old and nine, the Lord appeared to Abram, and said unto him, I am the Almighty God; walk before me, and be thou perfect.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/18.1?lang=eng#p1">Genesis 18:1</reference>
-    <body>
-      <title>Genesis 18</title>
-      <highlight verse="1">And the Lord appeared unto him in the plains of Mamre: and he sat in the tent door in the heat of the day;</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -287,6 +261,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>obedience</topic>
+    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/22.15-18?lang=eng#p15">Genesis 22:15-18</reference>
     <body>
       <title>Genesis 22</title>
@@ -306,7 +281,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/24.10-19?lang=eng#p10">Genesis 24:10-19</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/24.10-19,26?lang=eng#p10">Genesis 24:10-19,26</reference>
     <body>
       <title>Genesis 24</title>
       <highlight verse="10">And the servant took ten camels of the camels of his master, and departed; for all the goods of his master were in his hand: and he arose, and went to Mesopotamia, unto the city of Nahor.</highlight>
@@ -319,13 +294,6 @@
       <highlight verse="17">And the servant ran to meet her, and said, Let me, I pray thee, drink a little water of thy pitcher.</highlight>
       <highlight verse="18">And she said, Drink, my lord: and she hasted, and let down her pitcher upon her hand, and gave him drink.</highlight>
       <highlight verse="19">And when she had done giving him drink, she said, I will draw water for thy camels also, until they have done drinking.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/24.26?lang=eng#p26">Genesis 24:26</reference>
-    <body>
-      <title>Genesis 24</title>
       <highlight verse="26">And the man bowed down his head, and worshipped the Lord.</highlight>
     </body>
   </resource>
@@ -352,39 +320,6 @@
       <title>Genesis 28</title>
       <highlight verse="1">And Isaac called Jacob, and blessed him, and charged him, and said unto him, Thou shalt not take a wife of the daughters of Canaan.</highlight>
       <highlight verse="2">Arise, go to Padan-aram, to the house of Bethuel thy mother’s father; and take thee a wife from thence of the daughters of Laban thy mother’s brother.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/28.17?lang=eng#p17">Genesis 28:17</reference>
-    <body>
-      <title>Genesis 28</title>
-      <highlight verse="17">And he was afraid, and said, How dreadful is this place! this is none other but the house of God, and this is the gate of heaven.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/29.21-28?lang=eng#p21">Genesis 29:21-28</reference>
-    <body>
-      <title>Genesis 29</title>
-      <highlight verse="21">And Jacob said unto Laban, Give me my wife, for my days are fulfilled, that I may go in unto her.</highlight>
-      <highlight verse="22">And Laban gathered together all the men of the place, and made a feast.</highlight>
-      <highlight verse="23">And it came to pass in the evening, that he took Leah his daughter, and brought her to him; and he went in unto her.</highlight>
-      <highlight verse="24">And Laban gave unto his daughter Leah Zilpah his maid for an handmaid.</highlight>
-      <highlight verse="25">And it came to pass, that in the morning, behold, it was Leah: and he said to Laban, What is this thou hast done unto me? did not I serve with thee for Rachel? wherefore then hast thou beguiled me?</highlight>
-      <highlight verse="26">And Laban said, It must not be so done in our country, to give the younger before the firstborn.</highlight>
-      <highlight verse="27">Fulfil her week, and we will give thee this also for the service which thou shalt serve with me yet seven other years.</highlight>
-      <highlight verse="28">And Jacob did so, and fulfilled her week: and he gave him Rachel his daughter to wife also.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/30.4,9,26?lang=eng#p4">Genesis 30:4,9,26</reference>
-    <body>
-      <title>Genesis 30</title>
-      <highlight verse="4">And she gave him Bilhah her handmaid to wife: and Jacob went in unto her.</highlight>
-      <highlight verse="9">When Leah saw that she had left bearing, she took Zilpah her maid, and gave her Jacob to wife.</highlight>
-      <highlight verse="26">Give me my wives and my children, for whom I have served thee, and let me go: for thou knowest my service which I have done thee.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -432,17 +367,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/11.1,5?lang=eng#p1">Exodus 11:1,5</reference>
-    <body>
-      <title>Exodus 11</title>
-      <highlight verse="1">And the Lord said unto Moses, Yet will I bring one plague more upon Pharaoh, and upon Egypt; afterwards he will let you go hence: when he shall let you go, he shall surely thrust you out hence altogether.</highlight>
-      <highlight verse="5">And all the firstborn in the land of Egypt shall die, from the firstborn of Pharaoh that sitteth upon his throne, even unto the firstborn of the maidservant that is behind the mill; and all the firstborn of beasts.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>jesus christ</topic>
-    <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/12.3,5,21,46?lang=eng#p3">Exodus 12:3,5,21,46</reference>
     <body>
       <title>Exodus 12</title>
@@ -450,26 +375,6 @@
       <highlight verse="5">Your lamb shall be without blemish, a male of the first year: ye shall take it out from the sheep, or from the goats:</highlight>
       <highlight verse="21">Then Moses called for all the elders of Israel, and said unto them, Draw out and take you a lamb according to your families, and kill the passover.</highlight>
       <highlight verse="46">In one house shall it be eaten; thou shalt not carry forth ought of the flesh abroad out of the house; neither shall ye break a bone thereof.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/12.7,12-14?lang=eng#p7">Exodus 12:7,12-14</reference>
-    <body>
-      <title>Exodus 12</title>
-      <highlight verse="7">And they shall take of the blood, and strike it on the two side posts and on the upper door post of the houses, wherein they shall eat it.</highlight>
-      <highlight verse="12">For I will pass through the land of Egypt this night, and will smite all the firstborn in the land of Egypt, both man and beast; and against all the gods of Egypt I will execute judgment: I am the Lord.</highlight>
-      <highlight verse="13">And the blood shall be to you for a token upon the houses where ye are: and when I see the blood, I will pass over you, and the plague shall not be upon you to destroy you, when I smite the land of Egypt.</highlight>
-      <highlight verse="14">And this day shall be unto you for a memorial; and ye shall keep it a feast to the Lord throughout your generations; ye shall keep it a feast by an ordinance for ever.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/12.26-27?lang=eng#p26">Exodus 12:26-27</reference>
-    <body>
-      <title>Exodus 12</title>
-      <highlight verse="26">And it shall come to pass, when your children shall say unto you, What mean ye by this service?</highlight>
-      <highlight verse="27">That ye shall say, It is the sacrifice of the Lord’s passover, who passed over the houses of the children of Israel in Egypt, when he smote the Egyptians, and delivered our houses. And the people bowed the head and worshipped.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -514,14 +419,6 @@
       <highlight verse="28">And the Lord said unto Moses, How long refuse ye to keep my commandments and my laws?</highlight>
       <highlight verse="29">See, for that the Lord hath given you the sabbath, therefore he giveth you on the sixth day the bread of two days; abide ye every man in his place, let no man go out of his place on the seventh day.</highlight>
       <highlight verse="30">So the people rested on the seventh day.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/17.6?lang=eng#p6">Exodus 17:6</reference>
-    <body>
-      <title>Exodus 17</title>
-      <highlight verse="6">Behold, I will stand before thee there upon the rock in Horeb; and thou shalt smite the rock, and there shall come water out of it, that the people may drink. And Moses did so in the sight of the elders of Israel.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -586,14 +483,6 @@
     <body>
       <title>Exodus 21</title>
       <highlight verse="10">If he take him another wife; her food, her raiment, and her duty of marriage, shall he not diminish.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>genealogy</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/22.16?lang=eng#p16">Exodus 22:16</reference>
-    <body>
-      <title>Exodus 22</title>
-      <highlight verse="16">And if a man entice a maid that is not betrothed, and lie with her, he shall surely endow her to be his wife.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -715,14 +604,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>fasting</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/lev/16.15?lang=eng#p15">Leviticus 16:15</reference>
-    <body>
-      <title>Leviticus 16</title>
-      <highlight verse="15">Then shall he kill the goat of the sin offering, that is for the people, and bring his blood within the veil, and do with that blood as he did with the blood of the bullock, and sprinkle it upon the mercy seat, and before the mercy seat:</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>jesus christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/lev/16.20-22?lang=eng#p20">Leviticus 16:20-22</reference>
@@ -774,22 +655,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/9.12?lang=eng#p12">Numbers 9:12</reference>
-    <body>
-      <title>Numbers 9</title>
-      <highlight verse="12">They shall leave none of it unto the morning, nor break any bone of it: according to all the ordinances of the passover they shall keep it.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/10.31?lang=eng#p31">Numbers 10:31</reference>
-    <body>
-      <title>Numbers 10</title>
-      <highlight verse="31">And he said, Leave us not, I pray thee; forasmuch as thou knowest how we are to encamp in the wilderness, and thou mayest be to us instead of eyes.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/11.29?lang=eng#p29">Numbers 11:29</reference>
     <body>
@@ -803,33 +668,6 @@
     <body>
       <title>Numbers 12</title>
       <highlight verse="6">And he said, Hear now my words: If there be a prophet among you, I the Lord will make myself known unto him in a vision, and will speak unto him in a dream.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/13.15-22?lang=eng#p15">Numbers 13:15-22</reference>
-    <body>
-      <title>Numbers 13</title>
-      <highlight verse="15">Of the tribe of Gad, Geuel the son of Machi.</highlight>
-      <highlight verse="16">These are the names of the men which Moses sent to spy out the land. And Moses called Oshea the son of Nun Jehoshua.</highlight>
-      <highlight verse="17">And Moses sent them to spy out the land of Canaan, and said unto them, Get you up this way southward, and go up into the mountain:</highlight>
-      <highlight verse="18">And see the land, what it is; and the people that dwelleth therein, whether they be strong or weak, few or many;</highlight>
-      <highlight verse="19">And what the land is that they dwell in, whether it be good or bad; and what cities they be that they dwell in, whether in tents, or in strong holds;</highlight>
-      <highlight verse="20">And what the land is, whether it be fat or lean, whether there be wood therein, or not. And be ye of good courage, and bring of the fruit of the land. Now the time was the time of the firstripe grapes.</highlight>
-      <highlight verse="21">So they went up, and searched the land from the wilderness of Zin unto Rehob, as men come to Hamath.</highlight>
-      <highlight verse="22">And they ascended by the south, and came unto Hebron; where Ahiman, Sheshai, and Talmai, the children of Anak, were. (Now Hebron was built seven years before Zoan in Egypt.)</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/15.32-36?lang=eng#p32">Numbers 15:32-36</reference>
-    <body>
-      <title>Numbers 15</title>
-      <highlight verse="32">And while the children of Israel were in the wilderness, they found a man that gathered sticks upon the sabbath day.</highlight>
-      <highlight verse="33">And they that found him gathering sticks brought him unto Moses and Aaron, and unto all the congregation.</highlight>
-      <highlight verse="34">And they put him in ward, because it was not declared what should be done to him.</highlight>
-      <highlight verse="35">And the Lord said unto Moses, The man shall be surely put to death: all the congregation shall stone him with stones without the camp.</highlight>
-      <highlight verse="36">And all the congregation brought him without the camp, and stoned him with stones, and he died; as the Lord commanded Moses.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -851,6 +689,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>priesthood</topic>
+    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/25.13?lang=eng#p13">Numbers 25:13</reference>
     <body>
       <title>Numbers 25</title>
@@ -880,7 +719,7 @@
   <resource category="OldTestament">
     <topic>obedience</topic>
     <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/deut/4.1-40?lang=eng#p1">Deuteronomy 4:1-40</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/deut/4.1-6?lang=eng#p1">Deuteronomy 4:1-6</reference>
     <body>
       <title>Deuteronomy 4</title>
       <highlight verse="1">Now therefore hearken, O Israel, unto the statutes and unto the judgments, which I teach you, for to do them, that ye may live, and go in and possess the land which the Lord God of your fathers giveth you.</highlight>
@@ -889,40 +728,6 @@
       <highlight verse="4">But ye that did cleave unto the Lord your God are alive every one of you this day.</highlight>
       <highlight verse="5">Behold, I have taught you statutes and judgments, even as the Lord my God commanded me, that ye should do so in the land whither ye go to possess it.</highlight>
       <highlight verse="6">Keep therefore and do them; for this is your wisdom and your understanding in the sight of the nations, which shall hear all these statutes, and say, Surely this great nation is a wise and understanding people.</highlight>
-      <highlight verse="7">For what nation is there so great, who hath God so nigh unto them, as the Lord our God is in all things that we call upon him for?</highlight>
-      <highlight verse="8">And what nation is there so great, that hath statutes and judgments so righteous as all this law, which I set before you this day?</highlight>
-      <highlight verse="9">Only take heed to thyself, and keep thy soul diligently, lest thou forget the things which thine eyes have seen, and lest they depart from thy heart all the days of thy life: but teach them thy sons, and thy sons’ sons;</highlight>
-      <highlight verse="10">Specially the day that thou stoodest before the Lord thy God in Horeb, when the Lord said unto me, Gather me the people together, and I will make them hear my words, that they may learn to fear me all the days that they shall live upon the earth, and that they may teach their children.</highlight>
-      <highlight verse="11">And ye came near and stood under the mountain; and the mountain burned with fire unto the midst of heaven, with darkness, clouds, and thick darkness.</highlight>
-      <highlight verse="12">And the Lord spake unto you out of the midst of the fire: ye heard the voice of the words, but saw no similitude; only ye heard a voice.</highlight>
-      <highlight verse="13">And he declared unto you his covenant, which he commanded you to perform, even ten commandments; and he wrote them upon two tables of stone.</highlight>
-      <highlight verse="14">And the Lord commanded me at that time to teach you statutes and judgments, that ye might do them in the land whither ye go over to possess it.</highlight>
-      <highlight verse="15">Take ye therefore good heed unto yourselves; for ye saw no manner of similitude on the day that the Lord spake unto you in Horeb out of the midst of the fire:</highlight>
-      <highlight verse="16">Lest ye corrupt yourselves, and make you a graven image, the similitude of any figure, the likeness of male or female,</highlight>
-      <highlight verse="17">The likeness of any beast that is on the earth, the likeness of any winged fowl that flieth in the air,</highlight>
-      <highlight verse="18">The likeness of any thing that creepeth on the ground, the likeness of any fish that is in the waters beneath the earth:</highlight>
-      <highlight verse="19">And lest thou lift up thine eyes unto heaven, and when thou seest the sun, and the moon, and the stars, even all the host of heaven, shouldest be driven to worship them, and serve them, which the Lord thy God hath divided unto all nations under the whole heaven.</highlight>
-      <highlight verse="20">But the Lord hath taken you, and brought you forth out of the iron furnace, even out of Egypt, to be unto him a people of inheritance, as ye are this day.</highlight>
-      <highlight verse="21">Furthermore the Lord was angry with me for your sakes, and sware that I should not go over Jordan, and that I should not go in unto that good land, which the Lord thy God giveth thee for an inheritance:</highlight>
-      <highlight verse="22">But I must die in this land, I must not go over Jordan: but ye shall go over, and possess that good land.</highlight>
-      <highlight verse="23">Take heed unto yourselves, lest ye forget the covenant of the Lord your God, which he made with you, and make you a graven image, or the likeness of any thing, which the Lord thy God hath forbidden thee.</highlight>
-      <highlight verse="24">For the Lord thy God is a consuming fire, even a jealous God.</highlight>
-      <highlight verse="25">When thou shalt beget children, and children’s children, and ye shall have remained long in the land, and shall corrupt yourselves, and make a graven image, or the likeness of any thing, and shall do evil in the sight of the Lord thy God, to provoke him to anger:</highlight>
-      <highlight verse="26">I call heaven and earth to witness against you this day, that ye shall soon utterly perish from off the land whereunto ye go over Jordan to possess it; ye shall not prolong your days upon it, but shall utterly be destroyed.</highlight>
-      <highlight verse="27">And the Lord shall scatter you among the nations, and ye shall be left few in number among the heathen, whither the Lord shall lead you.</highlight>
-      <highlight verse="28">And there ye shall serve gods, the work of men’s hands, wood and stone, which neither see, nor hear, nor eat, nor smell.</highlight>
-      <highlight verse="29">But if from thence thou shalt seek the Lord thy God, thou shalt find him, if thou seek him with all thy heart and with all thy soul.</highlight>
-      <highlight verse="30">When thou art in tribulation, and all these things are come upon thee, even in the latter days, if thou turn to the Lord thy God, and shalt be obedient unto his voice;</highlight>
-      <highlight verse="31">(For the Lord thy God is a merciful God;) he will not forsake thee, neither destroy thee, nor forget the covenant of thy fathers which he sware unto them.</highlight>
-      <highlight verse="32">For ask now of the days that are past, which were before thee, since the day that God created man upon the earth, and ask from the one side of heaven unto the other, whether there hath been any such thing as this great thing is, or hath been heard like it?</highlight>
-      <highlight verse="33">Did ever people hear the voice of God speaking out of the midst of the fire, as thou hast heard, and live?</highlight>
-      <highlight verse="34">Or hath God assayed to go and take him a nation from the midst of another nation, by temptations, by signs, and by wonders, and by war, and by a mighty hand, and by a stretched out arm, and by great terrors, according to all that the Lord your God did for you in Egypt before your eyes?</highlight>
-      <highlight verse="35">Unto thee it was shewed, that thou mightest know that the Lord he is God; there is none else beside him.</highlight>
-      <highlight verse="36">Out of heaven he made thee to hear his voice, that he might instruct thee: and upon earth he shewed thee his great fire; and thou heardest his words out of the midst of the fire.</highlight>
-      <highlight verse="37">And because he loved thy fathers, therefore he chose their seed after them, and brought thee out in his sight with his mighty power out of Egypt;</highlight>
-      <highlight verse="38">To drive out nations from before thee greater and mightier than thou art, to bring thee in, to give thee their land for an inheritance, as it is this day.</highlight>
-      <highlight verse="39">Know therefore this day, and consider it in thine heart, that the Lord he is God in heaven above, and upon the earth beneath: there is none else.</highlight>
-      <highlight verse="40">Thou shalt keep therefore his statutes, and his commandments, which I command thee this day, that it may go well with thee, and with thy children after thee, and that thou mayest prolong thy days upon the earth, which the Lord thy God giveth thee, for ever.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -1008,7 +813,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>apostles</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/deut/18.15-19?lang=eng#p15">Deuteronomy 18:15-19</reference>
     <body>
       <title>Deuteronomy 18</title>
@@ -1273,6 +1078,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>marriage</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/2-sam/2.1-2?lang=eng#p1">2 Samuel 2:1-2</reference>
     <body>
       <title>2 Samuel 2</title>
@@ -1291,6 +1097,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
+    <topic>death</topic>
     <topic>fasting</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/2-sam/12.15-23?lang=eng#p15">2 Samuel 12:15-23</reference>
     <body>
@@ -1510,14 +1317,6 @@
       <title>Ezra 3</title>
       <highlight verse="12">But many of the priests and Levites and chief of the fathers, who were ancient men, that had seen the first house, when the foundation of this house was laid before their eyes, wept with a loud voice; and many shouted aloud for joy:</highlight>
       <highlight verse="13">So that the people could not discern the noise of the shout of joy from the noise of the weeping of the people: for the people shouted with a loud shout, and the noise was heard afar off.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezra/4.1?lang=eng#p1">Ezra 4:1</reference>
-    <body>
-      <title>Ezra 4</title>
-      <highlight verse="1">Now when the adversaries of Judah and Benjamin heard that the children of the captivity builded the temple unto the Lord God of Israel;</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -3550,7 +3349,7 @@
     <topic>humility</topic>
     <topic>knowledge</topic>
     <topic>leadership</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/5.13-16?lang=eng#p13">Matthew 5:13-16</reference>
     <body>
       <title>Matthew 5</title>
@@ -3744,7 +3543,7 @@
     <topic>apostles</topic>
     <topic>jesus christ</topic>
     <topic>leadership</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/10.1-15?lang=eng#p1">Matthew 10:1-15</reference>
     <body>
       <title>Matthew 10</title>
@@ -4186,7 +3985,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/24.14?lang=eng#p14">Matthew 24:14</reference>
     <body>
       <title>Matthew 24</title>
@@ -4369,7 +4168,7 @@
     <topic>apostles</topic>
     <topic>baptism</topic>
     <topic>jesus christ</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/28.9-20?lang=eng#p9">Matthew 28:9-20</reference>
     <body>
@@ -4865,7 +4664,7 @@
     <topic>baptism</topic>
     <topic>hope</topic>
     <topic>jesus christ</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>resurrection</topic>
     <topic>sabbath</topic>
     <topic>salvation</topic>
@@ -5892,7 +5691,7 @@
   <resource category="NewTestament">
     <topic>baptism</topic>
     <topic>jesus christ</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/1.25-33,35-51?lang=eng#p25">John 1:25-33,35-51</reference>
     <body>
@@ -6802,7 +6601,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/5.38-42?lang=eng#p38">Acts 5:38-42</reference>
     <body>
       <title>Acts 5</title>
@@ -7223,7 +7022,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/23.10-12?lang=eng#p10">Acts 23:10-12</reference>
     <body>
       <title>Acts 23</title>
@@ -9424,7 +9223,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>hope</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-pet/3.15?lang=eng#p15">1 Peter 3:15</reference>
     <body>
       <title>1 Peter 3</title>
@@ -9918,7 +9717,7 @@
     <topic>agency</topic>
     <topic>commandments</topic>
     <topic>faith</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>obedience</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3.7?lang=eng#p7">1 Nephi 3:7</reference>
@@ -11679,7 +11478,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>humility</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/28.1-3?lang=eng#p1">Mosiah 28:1-3</reference>
     <body>
       <title>Mosiah 28</title>
@@ -12195,7 +11994,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.1-16?lang=eng#p1">Alma 26:1-16</reference>
     <body>
       <title>Alma 26</title>
@@ -14009,7 +13808,7 @@
     <topic>faith</topic>
     <topic>fasting</topic>
     <topic>jesus christ</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/6.1-5?lang=eng#p1">Moroni 6:1-5</reference>
     <body>
@@ -14290,7 +14089,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/1.17-23?lang=eng#p17">Doctrine And Covenants 1:17-23</reference>
     <body>
@@ -14399,7 +14198,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/4.4?lang=eng#p4">Doctrine And Covenants 4:4</reference>
     <body>
       <title>Doctrine And Covenants 4</title>
@@ -14735,7 +14534,7 @@
     <topic>jesus christ</topic>
     <topic>knowledge</topic>
     <topic>leadership</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.9-25?lang=eng#p9">Doctrine And Covenants 18:9-25</reference>
     <body>
@@ -15018,7 +14817,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/24.12?lang=eng#p12">Doctrine And Covenants 24:12</reference>
     <body>
       <title>Doctrine And Covenants 24</title>
@@ -15217,7 +15016,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>leadership</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/31.5?lang=eng#p5">Doctrine And Covenants 31:5</reference>
     <body>
       <title>Doctrine And Covenants 31</title>
@@ -15274,7 +15073,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/34.4-6?lang=eng#p4">Doctrine And Covenants 34:4-6</reference>
     <body>
       <title>Doctrine And Covenants 34</title>
@@ -15389,7 +15188,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/38.41?lang=eng#p41">Doctrine And Covenants 38:41</reference>
     <body>
       <title>Doctrine And Covenants 38</title>
@@ -15564,7 +15363,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/43.28?lang=eng#p28">Doctrine And Covenants 43:28</reference>
     <body>
       <title>Doctrine And Covenants 43</title>
@@ -15941,7 +15740,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/58.64?lang=eng#p64">Doctrine And Covenants 58:64</reference>
     <body>
       <title>Doctrine And Covenants 58</title>
@@ -16011,7 +15810,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/60.1-2?lang=eng#p1">Doctrine And Covenants 60:1-2</reference>
     <body>
       <title>Doctrine And Covenants 60</title>
@@ -16044,7 +15843,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/62.3?lang=eng#p3">Doctrine And Covenants 62:3</reference>
     <body>
       <title>Doctrine And Covenants 62</title>
@@ -16171,7 +15970,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/66.5,7?lang=eng#p5">Doctrine And Covenants 66:5,7</reference>
     <body>
       <title>Doctrine And Covenants 66</title>
@@ -16273,7 +16072,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>diligence</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/75.2-5?lang=eng#p2">Doctrine And Covenants 75:2-5</reference>
     <body>
       <title>Doctrine And Covenants 75</title>
@@ -16578,7 +16377,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.61?lang=eng#p61">Doctrine And Covenants 84:61</reference>
     <body>
       <title>Doctrine And Covenants 84</title>
@@ -16610,7 +16409,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.88?lang=eng#p88">Doctrine And Covenants 84:88</reference>
     <body>
       <title>Doctrine And Covenants 84</title>
@@ -16771,7 +16570,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/88.81-82?lang=eng#p81">Doctrine And Covenants 88:81-82</reference>
     <body>
       <title>Doctrine And Covenants 88</title>
@@ -17785,7 +17584,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/123.12?lang=eng#p12">Doctrine And Covenants 123:12</reference>
     <body>
@@ -18106,7 +17905,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/133.37?lang=eng#p37">Doctrine And Covenants 133:37</reference>
     <body>
       <title>Doctrine And Covenants 133</title>
@@ -18545,7 +18344,7 @@
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/5.58?lang=eng#p58">Moses 5:58</reference>
     <body>
       <title>Moses 5</title>
@@ -18579,7 +18378,7 @@
   </resource>
   <resource category="PearlOfGreatPrice">
     <topic>faith</topic>
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/6.23?lang=eng#p23">Moses 6:23</reference>
     <body>
       <title>Moses 6</title>
@@ -18749,7 +18548,7 @@
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
-    <topic>missionay</topic>
+    <topic>missionary</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/2.9-11?lang=eng#p9">Abraham 2:9-11</reference>
     <body>
