@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/data/progress_record.dart';
+import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/widgets/dashboard/indicators/daily_progress.dart';
 import 'package:seeds/widgets/plant/button.dart';
 
@@ -26,8 +27,11 @@ class PlantsDashboard extends StatelessWidget {
         // Plant list
         SizedBox(
           height: 250,
-          child: Consumer2<ProgressData, Library>(
-            builder: (context, progress, library, child) {
+          child: Consumer2<ProgressData, LibraryManager>(
+            builder: (context, progress, libManager, child) {
+              Library library = libManager.library;
+              if (library == null) return Text('Loading...');
+
               // Sort records so that incomplete ones go first
               List<ProgressRecord> records = progress.recordsWithTopics(library.topics)..sort();
 

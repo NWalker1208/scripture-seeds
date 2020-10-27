@@ -7,9 +7,8 @@ import 'package:seeds/pages/activity.dart';
 import 'package:seeds/pages/journal.dart';
 import 'package:seeds/services/settings/help.dart';
 import 'package:seeds/services/data/journal.dart';
-import 'package:seeds/services/library/file_manager.dart';
+import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/services/library/history.dart';
-import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/settings/library_filter.dart';
 import 'package:seeds/services/settings/theme.dart';
@@ -34,11 +33,9 @@ class SeedsApp extends StatelessWidget {
     WalletData wallet = WalletData();
     JournalData journal = JournalData();
 
-    Library library = Library();
+    LibraryManager library = LibraryManager(assets: DefaultAssetBundle.of(context));
     LibraryFilter libraryFilter = LibraryFilter();
     LibraryHistory history = LibraryHistory();
-
-    LibraryFileManager(library, assets: DefaultAssetBundle.of(context)).initializeLibrary();
 
     return MultiProvider(
       providers: [

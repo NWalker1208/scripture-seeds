@@ -3,6 +3,7 @@ import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/data/progress_record.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/widgets/plant/status.dart';
 
 class PlantList extends StatelessWidget {
@@ -12,9 +13,9 @@ class PlantList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer2<ProgressData, Library>(
-      builder: (context, progress, library, child) {
-        List<ProgressRecord> records = progress.recordsWithTopics(library.topics)..sort();
+    return Consumer2<ProgressData, LibraryManager>(
+      builder: (context, progress, libManager, child) {
+        List<ProgressRecord> records = progress.recordsWithTopics(libManager.library.topics)..sort();
 
         return Column(
           // This column will build the list of plants based on the progressData stream

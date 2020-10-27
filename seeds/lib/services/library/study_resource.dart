@@ -99,7 +99,8 @@ class Category {
   String toString() => _value;
 
   static Category parse(String value) {
-    switch (value?.toLowerCase()) {
+    if (value == null) return null;
+    switch (value.toLowerCase()) {
       case 'oldtestament':
         return OldTestament;
       case 'newtestament':

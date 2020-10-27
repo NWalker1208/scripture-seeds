@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seeds/services/data/journal.dart';
 import 'package:seeds/services/library/history.dart';
 import 'package:seeds/services/library/library.dart';
+import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/services/library/study_resource.dart';
 import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/settings/library_filter.dart';
@@ -81,7 +82,7 @@ class ActivityPageState extends State<ActivityPage> {
     _saveToJournal = false;
 
     // Load resource
-    Library lib = Provider.of<Library>(context, listen: false);
+    Library lib = Provider.of<LibraryManager>(context, listen: false).library;
     LibraryFilter filter = Provider.of<LibraryFilter>(context, listen: false);
     LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
     _resource = lib.leastRecent(history, filter: filter, topic: widget.topic).randomItem();

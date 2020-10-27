@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/library/file_manager.dart';
-import 'package:seeds/services/library/library.dart';
+import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
 
@@ -13,10 +12,7 @@ class DataManagementSettings extends StatelessWidget {
       )
     );
 
-    LibraryFileManager libManager = LibraryFileManager(
-        Provider.of<Library>(context, listen: false),
-        assets: DefaultAssetBundle.of(context)
-    );
+    LibraryManager libManager = Provider.of<LibraryManager>(context, listen: false);
 
     libManager.refreshLibrary().then((_) => Scaffold.of(context).showSnackBar(
       SnackBar(

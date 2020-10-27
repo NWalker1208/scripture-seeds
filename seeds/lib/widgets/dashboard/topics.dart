@@ -4,6 +4,7 @@ import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/data/progress_record.dart';
 import 'package:seeds/services/data/wallet.dart';
+import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/widgets/dashboard/indicators/wallet.dart';
 import 'package:seeds/services/utility.dart';
 
@@ -36,8 +37,11 @@ class TopicsDashboard extends StatelessWidget {
         // Plant list
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Consumer3<Library, ProgressData, WalletData>(
-            builder: (context, library, progress, wallet, child) {
+          child: Consumer3<LibraryManager, ProgressData, WalletData>(
+            builder: (context, libManager, progress, wallet, child) {
+              Library library = libManager.library;
+              if (library == null) return Text('Loading...');
+
               List<String> topics = library.topicsSorted;
               List<String> topicsAlreadyPurchased = progress.recordNames;
               topics.removeWhere((t) => topicsAlreadyPurchased.contains(t));
@@ -55,7 +59,7 @@ class TopicsDashboard extends StatelessWidget {
                   children: List.generate(
                     topics.length,
                     (index) {
-                      int price = library.priceOfTopic(topics[index]);
+                      int price = library.topicPrices[topics[index]];
 
                       return WidgetSpan(
                         child: Padding(

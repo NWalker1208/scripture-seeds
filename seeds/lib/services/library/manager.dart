@@ -6,7 +6,7 @@ import 'package:seeds/services/library/library.dart';
 import 'package:xml/xml.dart';
 import 'package:http/http.dart';
 
-class LibraryFileManager {
+class LibraryManager extends ChangeNotifier {
   static final String _webStorageURL = 'https://firebasestorage.googleapis.com/v0/b/scripture-seeds.appspot.com/o/';
 
   final String lang;
@@ -16,54 +16,37 @@ class LibraryFileManager {
 
   Library library;
 
-  LibraryFileManager(
-    this.library, {
-      this.assets,
-      this.daysBetweenRefresh = 2,
-      this.lang = 'eng'
-    }
-   ) : _libFileName = 'library_$lang';
-
-
-  // Initialize library from cache, assets, and/or web.
-  Future<void> initializeLibrary() async {
-    print('Initializing library...');
-    bool successful = false;
-
-    // Load from cache and assets
-    XmlElement cacheLibrary = (await _loadFromCache())?.rootElement;
-    XmlElement assetLibrary = (await _loadFromAssets())?.rootElement;
-
-    // Use whichever library is newer
-    if (Library.versionOfXml(assetLibrary) > Library.versionOfXml(cacheLibrary)) {
-      // Delete cache if old
-      if (cacheLibrary != null) {
-        print('Deleting old cache.');
-        (await _getCacheFile()).delete();
+  LibraryManager({
+    this.assets,
+    this.daysBetweenRefresh = 2,
+    this.lang = 'eng'
+  }) : _libFileName = 'library_$lang' {
+    _loadLibrary().then((library) async {
+      // Update library and notify listeners
+      if (library != null) {
+        this.library = library;
+        notifyListeners();
       }
 
-      successful = library.loadFromXml(assetLibrary);
-    }
-
-    if (!successful && cacheLibrary != null) {
-      successful = library.loadFromXml(cacheLibrary);
-    }
-
-    // If no cache is present, or if cache is over 48 hours old, download from web
-    if (!successful || await _shouldRefreshCache()) {
-      print('Automatically refreshing library...');
-      await refreshLibrary();
-    }
+      // If library was unable to load, or if cache is over 48 hours old, download from web
+      if (library == null || await _shouldRefreshCache())
+        refreshLibrary();
+    });
   }
 
   // Attempt to refresh library from web.
   Future<void> refreshLibrary() async {
-    XmlDocument libDoc = await _loadFromWeb();
+    print('Refreshing library...');
+    Library newLibrary = Library.fromXmlElement((await _loadFromWeb())?.rootElement);
 
-    if (libDoc != null) {
-      if (library.loadFromXml(libDoc.rootElement))
-        _updateCacheFromDownload();
-    }
+    if (newLibrary == null) return;
+
+    if (newLibrary.version > (library?.version ?? -1)) {
+      library = newLibrary;
+      notifyListeners();
+      _updateCacheFromDownload();
+    } else
+      print('Web library is outdated.');
   }
 
   /// Cache Management Functions
@@ -102,6 +85,40 @@ class LibraryFileManager {
   }
 
   /// XML Loading Functions
+  // Initialize library from cache and assets
+  Future<Library> _loadLibrary() async {
+    print('Loading local library...');
+
+    // Load from cache and assets
+    List<Library> libs = await Future.wait([
+      _loadFromCache().then(
+              (libDoc) => Library.fromXmlElement(libDoc?.rootElement)
+      ),
+      _loadFromAssets().then(
+              (libDoc) => Library.fromXmlElement(libDoc?.rootElement)
+      )
+    ]);
+
+    Library cacheLibrary = libs[0];
+    Library assetsLibrary = libs[1];
+
+    // If cache is older than asset, return asset
+    if ((assetsLibrary?.version ?? -1) > (cacheLibrary?.version ?? -1)) {
+      // Delete cache
+      _getCacheFile().then((cache) {
+        if (cache.existsSync()){
+          print('Cache is outdated. Deleting old cache...');
+          cache.delete();
+        }
+      });
+
+      return assetsLibrary;
+    }
+
+    // Otherwise, cache is newer, so use cache
+    return cacheLibrary;
+  }
+
   // Loads library file from assets
   Future<XmlDocument> _loadFromAssets() async {
     if (assets != null) {
@@ -123,20 +140,21 @@ class LibraryFileManager {
   // Loads library file from cache
   Future<XmlDocument> _loadFromCache() async {
     File cache = await _getCacheFile();
+
     if (await cache.exists()) {
       print('Loading library from cache...');
-      try {
-        return XmlDocument.parse(await cache.readAsString());
-      } on XmlParserException catch (e) {
-        print('Parsing of library XML from cache failed: $e');
-        print('Deleting library cache...');
-        cache.delete();
-      }
-    }
-    else
+      return _loadFromFile(cache).then((libDoc) {
+        // Delete cache if XML parsing failed
+        if (libDoc == null) {
+          print('Deleting library cache...');
+          cache.delete();
+        }
+        return libDoc;
+      });
+    } else {
       print('No library cache exists.');
-
-    return null;
+      return null;
+    }
   }
 
   // Loads library file from web and saves to cache
@@ -145,17 +163,21 @@ class LibraryFileManager {
 
     if (libFile != null) {
       print('Loading library from web download...');
-
-      try {
-        return XmlDocument.parse(await libFile.readAsString());
-      } on XmlParserException catch (e) {
-        print('Parsing of library XML from web failed: $e');
-      }
-    }
-    else
+      return _loadFromFile(libFile);
+    } else {
       print('Unable to download library from web.');
+      return null;
+    }
+  }
 
-    return null;
+  // Parses library from XML file
+  Future<XmlDocument> _loadFromFile(File file) async {
+    try {
+      return XmlDocument.parse(await file.readAsString());
+    } on XmlParserException catch (e) {
+      print('Exception while parsing library XML: $e');
+      return null;
+    }
   }
 
   /// Download Function
