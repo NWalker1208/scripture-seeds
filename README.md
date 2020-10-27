@@ -23,8 +23,8 @@ These items are necessary, but can be built upon over time.
   - [x] Remove ID's
   - [x] Store book information
   - [x] Allow user to filter books
-  - [ ] Add topic summary and version number to library header (1 day)
-  - [ ] Collect a large library (3 days)
+  - [x] Add topic summary and version number to library header (1 day)
+  - [x] Collect a large library (3 days)
   - [ ] Submit library for approval!!!
 - [ ] Create topics page (1 day)
 
