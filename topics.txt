@@ -19,7 +19,7 @@ temples
 
 Plan Of Salvation
 -----------------
-spirits
+spirit
 creation
 agency
 life
@@ -44,7 +44,6 @@ chastity
 wisdom
 tithing
 fasting
-law
 
 Laws and Ordinances
 -------------------
