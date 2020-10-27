@@ -6,6 +6,9 @@ import 'package:xml/xml.dart';
 import 'package:seeds/services/library/study_resource.dart';
 
 class Library extends ChangeNotifier {
+  static const int _kMaxSchema = 1;
+
+  int _version = -1;
   Map<String, int> _topics;
   List<StudyResource> resources;
 
@@ -13,21 +16,37 @@ class Library extends ChangeNotifier {
   Set<String> get topics => _topics?.keys?.toSet() ?? Set<String>();
   List<String> get topicsSorted => (_topics?.keys?.toList() ?? <String>[])..sort();
 
-  Library([XmlDocument xmlDoc]) {
-    if (xmlDoc != null)
-      loadFromXml(xmlDoc);
+  Library([XmlElement xmlLibrary]) {
+    if (xmlLibrary != null)
+      loadFromXml(xmlLibrary);
   }
 
-  bool loadFromXml(XmlDocument doc) {
+  static int schemaOfXml(XmlElement library) => int.parse(library?.getAttribute('schema') ?? '0');
+  static int versionOfXml(XmlElement library) => int.parse(library?.getAttribute('version') ?? '0');
+
+  bool loadFromXml(XmlElement library) {
+    int newVersion;
     List<StudyResource> newResources;
     Map<String, int> newTopics;
 
     // Attempt to parse document. Return false if fails.
     try {
-      XmlElement libraryNode = doc.findElements('library').first;
+      // Check schema
+      int schema = schemaOfXml(library);
+      if (schema > _kMaxSchema) {
+        print('XML library schema is too new ($schema > $_kMaxSchema)');
+        return false;
+      }
+
+      // Check version
+      newVersion = versionOfXml(library);
+      if (newVersion < _version) {
+        print('XML library is older than existing ($newVersion < $_version)');
+        return false;
+      }
 
       // Load topics
-      Iterable<XmlElement> summaryNodes = libraryNode.findElements('summary');
+      Iterable<XmlElement> summaryNodes = library.findElements('summary');
 
       if (summaryNodes.isNotEmpty) {
         newTopics = Map<String, int>.fromIterable(
@@ -41,20 +60,23 @@ class Library extends ChangeNotifier {
       }
 
       // Load resources
-      newResources = libraryNode.findElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
+      newResources = library.findElements('resource').map((e) => StudyResource.fromXmlElement(e)).toList();
     } catch (e) {
       print('Unable to load library from XML document: $e');
       return false;
     }
 
+    // Save parsed data
+    _version = newVersion;
     resources = newResources;
 
+    // If no topic summary was provided, update topics from resources
     if (newTopics == null)
       _updateTopics();
     else
       _topics = newTopics;
 
-    print('Library loaded!');
+    print('Library version $newVersion loaded successfully!');
     notifyListeners();
     return true;
   }

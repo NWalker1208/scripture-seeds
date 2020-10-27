@@ -28,16 +28,29 @@ class LibraryFileManager {
   // Initialize library from cache, assets, and/or web.
   Future<void> initializeLibrary() async {
     print('Initializing library...');
+    bool successful = false;
 
-    // Load from cache or assets if necessary
-    XmlDocument libDoc = await _loadFromCache() ?? await _loadFromAssets();
+    // Load from cache and assets
+    XmlElement cacheLibrary = (await _loadFromCache())?.rootElement;
+    XmlElement assetLibrary = (await _loadFromAssets())?.rootElement;
 
-    bool successful;
-    if (libDoc != null)
-      successful = library.loadFromXml(libDoc);
+    // Use whichever library is newer
+    if (Library.versionOfXml(assetLibrary) > Library.versionOfXml(cacheLibrary)) {
+      // Delete cache if old
+      if (cacheLibrary != null) {
+        print('Deleting old cache.');
+        (await _getCacheFile()).delete();
+      }
 
-    // If no cache is present, or if cache is 48 hours old, download from web
-    if (!successful || libDoc == null || await _shouldRefreshCache()) {
+      successful = library.loadFromXml(assetLibrary);
+    }
+
+    if (!successful && cacheLibrary != null) {
+      successful = library.loadFromXml(cacheLibrary);
+    }
+
+    // If no cache is present, or if cache is over 48 hours old, download from web
+    if (!successful || await _shouldRefreshCache()) {
       print('Automatically refreshing library...');
       await refreshLibrary();
     }
@@ -48,7 +61,7 @@ class LibraryFileManager {
     XmlDocument libDoc = await _loadFromWeb();
 
     if (libDoc != null) {
-      if (library.loadFromXml(libDoc))
+      if (library.loadFromXml(libDoc.rootElement))
         _updateCacheFromDownload();
     }
   }
