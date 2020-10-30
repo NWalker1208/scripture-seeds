@@ -1397,14 +1397,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/neh/10.30?lang=eng#p30">Nehemiah 10:30</reference>
-    <body>
-      <title>Nehemiah 10</title>
-      <highlight verse="30">And that we would not give our daughters unto the people of the land, nor take their daughters for our sons:</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/neh/13.15-22?lang=eng#p15">Nehemiah 13:15-22</reference>
     <body>
@@ -1478,17 +1470,10 @@
   </resource>
   <resource category="OldTestament">
     <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/28.12?lang=eng#p12">Job 28:12</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/28.12,28?lang=eng#p12">Job 28:12,28</reference>
     <body>
       <title>Job 28</title>
       <highlight verse="12">But where shall wisdom be found? and where is the place of understanding?</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/28.28?lang=eng#p28">Job 28:28</reference>
-    <body>
-      <title>Job 28</title>
       <highlight verse="28">And unto man he said, Behold, the fear of the Lord, that is wisdom; and to depart from evil is understanding.</highlight>
     </body>
   </resource>
@@ -1518,17 +1503,12 @@
   </resource>
   <resource category="OldTestament">
     <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/38.4?lang=eng#p4">Job 38:4</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/38.4-7?lang=eng#p4">Job 38:4-7</reference>
     <body>
       <title>Job 38</title>
       <highlight verse="4">Where wast thou when I laid the foundations of the earth? declare, if thou hast understanding.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/job/38.7?lang=eng#p7">Job 38:7</reference>
-    <body>
-      <title>Job 38</title>
+      <highlight verse="5">Who hath laid the measures thereof, if thou knowest? or who hath stretched the line upon it?</highlight>
+      <highlight verse="6">Whereupon are the foundations thereof fastened? or who laid the corner stone thereof;</highlight>
       <highlight verse="7">When the morning stars sang together, and all the sons of God shouted for joy?</highlight>
     </body>
   </resource>
@@ -1757,7 +1737,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>genealogy</topic>
+    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/122.1?lang=eng#p1">Psalms 122:1</reference>
     <body>
       <title>Psalms 122</title>
@@ -1765,26 +1745,12 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>salvation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/127.3?lang=eng#p3">Psalms 127:3</reference>
-    <body>
-      <title>Psalms 127</title>
-      <highlight verse="3">Lo, children are an heritage of the Lord: and the fruit of the womb is his reward.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
+    <topic>creation</topic>
     <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/136.5?lang=eng#p5">Psalms 136:5</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/136.5-6?lang=eng#p5">Psalms 136:5-6</reference>
     <body>
       <title>Psalms 136</title>
       <highlight verse="5">To him that by wisdom made the heavens: for his mercy endureth for ever.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/136.6?lang=eng#p6">Psalms 136:6</reference>
-    <body>
-      <title>Psalms 136</title>
       <highlight verse="6">To him that stretched out the earth above the waters: for his mercy endureth for ever.</highlight>
     </body>
   </resource>
@@ -1968,6 +1934,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>hope</topic>
+    <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/13.12?lang=eng#p12">Proverbs 13:12</reference>
     <body>
       <title>Proverbs 13</title>
@@ -1991,6 +1958,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
+    <topic>death</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/14.32?lang=eng#p32">Proverbs 14:32</reference>
     <body>
@@ -2045,22 +2013,6 @@
     <body>
       <title>Proverbs 19</title>
       <highlight verse="8">He that getteth wisdom loveth his own soul: he that keepeth understanding shall find good.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/19.18?lang=eng#p18">Proverbs 19:18</reference>
-    <body>
-      <title>Proverbs 19</title>
-      <highlight verse="18">Chasten thy son while there is hope, and let not thy soul spare for his crying.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/prov/22.6?lang=eng#p6">Proverbs 22:6</reference>
-    <body>
-      <title>Proverbs 22</title>
-      <highlight verse="6">Train up a child in the way he should go: and when he is old, he will not depart from it.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -2123,6 +2075,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>jesus christ</topic>
+    <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/eccl/3.17?lang=eng#p17">Ecclesiastes 3:17</reference>
     <body>
       <title>Ecclesiastes 3</title>
@@ -2195,18 +2148,12 @@
     </body>
   </resource>
   <resource category="OldTestament">
+    <topic>prayer</topic>
     <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/1.13?lang=eng#p13">Isaiah 1:13</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/1.13,15?lang=eng#p13">Isaiah 1:13,15</reference>
     <body>
       <title>Isaiah 1</title>
       <highlight verse="13">Bring no more vain oblations; incense is an abomination unto me; the new moons and sabbaths, the calling of assemblies, I cannot away with; it is iniquity, even the solemn meeting.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/1.15?lang=eng#p15">Isaiah 1:15</reference>
-    <body>
-      <title>Isaiah 1</title>
       <highlight verse="15">And when ye spread forth your hands, I will hide mine eyes from you: yea, when ye make many prayers, I will not hear: your hands are full of blood.</highlight>
     </body>
   </resource>
@@ -2215,7 +2162,6 @@
     <topic>baptism</topic>
     <topic>chastity</topic>
     <topic>repentance</topic>
-    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/1.16-20?lang=eng#p16">Isaiah 1:16-20</reference>
     <body>
       <title>Isaiah 1</title>
@@ -2267,14 +2213,6 @@
     <body>
       <title>Isaiah 7</title>
       <highlight verse="14">Therefore the Lord himself shall give you a sign; Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/8.1?lang=eng#p1">Isaiah 8:1</reference>
-    <body>
-      <title>Isaiah 8</title>
-      <highlight verse="1">Moreover the Lord said unto me, Take thee a great roll, and write in it with a man’s pen concerning Maher-shalal-hash-baz.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -2361,22 +2299,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/38.9?lang=eng#p9">Isaiah 38:9</reference>
-    <body>
-      <title>Isaiah 38</title>
-      <highlight verse="9">The writing of Hezekiah king of Judah, when he had been sick, and was recovered of his sickness:</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/38.18?lang=eng#p18">Isaiah 38:18</reference>
-    <body>
-      <title>Isaiah 38</title>
-      <highlight verse="18">For the grave cannot praise thee, death can not celebrate thee: they that go down into the pit cannot hope for thy truth.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/40.5?lang=eng#p5">Isaiah 40:5</reference>
     <body>
@@ -2398,14 +2320,6 @@
     <body>
       <title>Isaiah 42</title>
       <highlight verse="5">Thus saith God the Lord, he that created the heavens, and stretched them out; he that spread forth the earth, and that which cometh out of it; he that giveth breath unto the people upon it, and spirit to them that walk therein:</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>genealogy</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/42.7?lang=eng#p7">Isaiah 42:7</reference>
-    <body>
-      <title>Isaiah 42</title>
-      <highlight verse="7">To open the blind eyes, to bring out the prisoners from the prison, and them that sit in darkness out of the prison house.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -2443,7 +2357,6 @@
   <resource category="OldTestament">
     <topic>atonement</topic>
     <topic>jesus christ</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/53.3-12?lang=eng#p3">Isaiah 53:3-12</reference>
     <body>
       <title>Isaiah 53</title>
@@ -2564,14 +2477,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/66.6?lang=eng#p6">Isaiah 66:6</reference>
-    <body>
-      <title>Isaiah 66</title>
-      <highlight verse="6">A voice of noise from the city, a voice from the temple, a voice of the Lord that rendereth recompence to his enemies.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>knowledge</topic>
     <topic>life</topic>
     <topic>prophets</topic>
@@ -2582,14 +2487,6 @@
       <highlight verse="5">Before I formed thee in the belly I knew thee; and before thou camest forth out of the womb I sanctified thee, and I ordained thee a prophet unto the nations.</highlight>
       <highlight verse="6">Then said I, Ah, Lord God! behold, I cannot speak: for I am a child.</highlight>
       <highlight verse="7">But the Lord said unto me, Say not, I am a child: for thou shalt go to all that I shall send thee, and whatsoever I command thee thou shalt speak.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/jer/7.4?lang=eng#p4">Jeremiah 7:4</reference>
-    <body>
-      <title>Jeremiah 7</title>
-      <highlight verse="4">Trust ye not in lying words, saying, The temple of the Lord, The temple of the Lord, The temple of the Lord, are these.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -2656,14 +2553,6 @@
       <title>Jeremiah 29</title>
       <highlight verse="12">Then shall ye call upon me, and ye shall go and pray unto me, and I will hearken unto you.</highlight>
       <highlight verse="13">And ye shall seek me, and find me, when ye shall search for me with all your heart.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/jer/31.22?lang=eng#p22">Jeremiah 31:22</reference>
-    <body>
-      <title>Jeremiah 31</title>
-      <highlight verse="22">How long wilt thou go about, O thou backsliding daughter? for the Lord hath created a new thing in the earth, A woman shall compass a man.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
