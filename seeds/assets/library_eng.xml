@@ -2582,14 +2582,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/3.18?lang=eng#p18">Ezekiel 3:18</reference>
-    <body>
-      <title>Ezekiel 3</title>
-      <highlight verse="18">When I say unto the wicked, Thou shalt surely die; and thou givest him not warning, nor speakest to warn the wicked from his wicked way, to save his life; the same wicked man shall die in his iniquity; but his blood will I require at thine hand.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>chastity</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/18.19-31?lang=eng#p19">Ezekiel 18:19-31</reference>
@@ -2658,14 +2650,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/37.11?lang=eng#p11">Ezekiel 37:11</reference>
-    <body>
-      <title>Ezekiel 37</title>
-      <highlight verse="11">Then he said unto me, Son of man, these bones are the whole house of Israel: behold, they say, Our bones are dried, and our hope is lost: we are cut off for our parts.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/37.12?lang=eng#p12">Ezekiel 37:12</reference>
     <body>
@@ -2711,7 +2695,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>genealogy</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/43.11?lang=eng#p11">Ezekiel 43:11</reference>
     <body>
@@ -2728,18 +2711,13 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/47.1?lang=eng#p1">Ezekiel 47:1</reference>
-    <body>
-      <title>Ezekiel 47</title>
-      <highlight verse="1">Afterward he brought me again unto the door of the house; and, behold, waters issued out from under the threshold of the house eastward: for the forefront of the house stood toward the east, and the waters came down from under from the right side of the house, at the south side of the altar.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/dan/1.20?lang=eng#p20">Daniel 1:20</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/dan/1.17-20?lang=eng#p17">Daniel 1:17-20</reference>
     <body>
       <title>Daniel 1</title>
+      <highlight verse="17">As for these four children, God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams.</highlight>
+      <highlight verse="18">Now at the end of the days that the king had said he should bring them in, then the prince of the eunuchs brought them in before Nebuchadnezzar.</highlight>
+      <highlight verse="19">And the king communed with them; and among them all was found none like Daniel, Hananiah, Mishael, and Azariah: therefore stood they before the king.</highlight>
       <highlight verse="20">And in all matters of wisdom and understanding, that the king inquired of them, he found them ten times better than all the magicians and astrologers that were in all his realm.</highlight>
     </body>
   </resource>
@@ -2851,14 +2829,6 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/amos/9.1?lang=eng#p1">Amos 9:1</reference>
-    <body>
-      <title>Amos 9</title>
-      <highlight verse="1">I saw the Lord standing upon the altar: and he said, Smite the lintel of the door, that the posts may shake: and cut them in the head, all of them; and I will slay the last of them with the sword: he that fleeth of them shall not flee away, and he that escapeth of them shall not be delivered.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>genealogy</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/obad/1.21?lang=eng#p21">Obadiah 1:21</reference>
     <body>
@@ -2868,6 +2838,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>jesus christ</topic>
+    <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/jonah/1.17?lang=eng#p17">Jonah 1:17</reference>
     <body>
       <title>Jonah 1</title>
@@ -2930,14 +2901,6 @@
   </resource>
   <resource category="OldTestament">
     <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/hag/2.18?lang=eng#p18">Haggai 2:18</reference>
-    <body>
-      <title>Haggai 2</title>
-      <highlight verse="18">Consider now from this day and upward, from the four and twentieth day of the ninth month, even from the day that the foundation of the Lord’s temple was laid, consider it.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/zech/1.16?lang=eng#p16">Zechariah 1:16</reference>
     <body>
       <title>Zechariah 1</title>
@@ -2974,15 +2937,8 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>fasting</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/zech/8.19?lang=eng#p19">Zechariah 8:19</reference>
-    <body>
-      <title>Zechariah 8</title>
-      <highlight verse="19">Thus saith the Lord of hosts; The fast of the fourth month, and the fast of the fifth, and the fast of the seventh, and the fast of the tenth, shall be to the house of Judah joy and gladness, and cheerful feasts; therefore love the truth and peace.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
     <topic>humility</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/zech/9.9?lang=eng#p9">Zechariah 9:9</reference>
     <body>
       <title>Zechariah 9</title>
@@ -3042,14 +2998,6 @@
       <highlight verse="10">Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the Lord of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it.</highlight>
       <highlight verse="11">And I will rebuke the devourer for your sakes, and he shall not destroy the fruits of your ground; neither shall your vine cast her fruit before the time in the field, saith the Lord of hosts.</highlight>
       <highlight verse="12">And all nations shall call you blessed: for ye shall be a delightsome land, saith the Lord of hosts.</highlight>
-    </body>
-  </resource>
-  <resource category="OldTestament">
-    <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/mal/3.18?lang=eng#p18">Malachi 3:18</reference>
-    <body>
-      <title>Malachi 3</title>
-      <highlight verse="18">Then shall ye return, and discern between the righteous and the wicked, between him that serveth God and him that serveth him not.</highlight>
     </body>
   </resource>
   <resource category="OldTestament">
@@ -3156,9 +3104,10 @@
   </resource>
   <resource category="NewTestament">
     <topic>repentance</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/3.2?lang=eng#p2">Matthew 3:2</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/3.1-2?lang=eng#p1">Matthew 3:1-2</reference>
     <body>
       <title>Matthew 3</title>
+      <highlight verse="1">In those days came John the Baptist, preaching in the wilderness of Judæa,</highlight>
       <highlight verse="2">And saying, Repent ye: for the kingdom of heaven is at hand.</highlight>
     </body>
   </resource>
@@ -3295,6 +3244,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
+    <topic>humility</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/6.1-4,16-18?lang=eng#p1">Matthew 6:1-4,16-18</reference>
     <body>
       <title>Matthew 6</title>
@@ -3308,7 +3258,9 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>patience</topic>
     <topic>prayer</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/6.5-15?lang=eng#p5">Matthew 6:5-15</reference>
     <body>
       <title>Matthew 6</title>
@@ -3343,6 +3295,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>knowledge</topic>
     <topic>prayer</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/7.7-11?lang=eng#p7">Matthew 7:7-11</reference>
@@ -3368,6 +3321,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/7.28-29?lang=eng#p28">Matthew 7:28-29</reference>
     <body>
       <title>Matthew 7</title>
@@ -3471,8 +3425,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>creation</topic>
     <topic>patience</topic>
+    <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/11.28?lang=eng#p28">Matthew 11:28</reference>
     <body>
       <title>Matthew 11</title>
@@ -3552,14 +3506,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>apostles</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/15.24?lang=eng#p24">Matthew 15:24</reference>
-    <body>
-      <title>Matthew 15</title>
-      <highlight verse="24">But he answered and said, I am not sent but unto the lost sheep of the house of Israel.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/15.36?lang=eng#p36">Matthew 15:36</reference>
     <body>
@@ -3587,7 +3533,6 @@
   <resource category="NewTestament">
     <topic>atonement</topic>
     <topic>jesus christ</topic>
-    <topic>marriage</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/16.21-26?lang=eng#p21">Matthew 16:21-26</reference>
     <body>
       <title>Matthew 16</title>
@@ -3713,7 +3658,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>baptism</topic>
+    <topic>humility</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/19.14?lang=eng#p14">Matthew 19:14</reference>
     <body>
       <title>Matthew 19</title>
@@ -3722,19 +3667,24 @@
   </resource>
   <resource category="NewTestament">
     <topic>commandments</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/19.18-19?lang=eng#p18">Matthew 19:18-19</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/19.16-22?lang=eng#p16">Matthew 19:16-22</reference>
     <body>
       <title>Matthew 19</title>
+      <highlight verse="16">And, behold, one came and said unto him, Good Master, what good thing shall I do, that I may have eternal life?</highlight>
+      <highlight verse="17">And he said unto him, Why callest thou me good? there is none good but one, that is, God: but if thou wilt enter into life, keep the commandments.</highlight>
       <highlight verse="18">He saith unto him, Which? Jesus said, Thou shalt do no murder, Thou shalt not commit adultery, Thou shalt not steal, Thou shalt not bear false witness,</highlight>
       <highlight verse="19">Honour thy father and thy mother: and, Thou shalt love thy neighbour as thyself.</highlight>
+      <highlight verse="20">The young man saith unto him, All these things have I kept from my youth up: what lack I yet?</highlight>
+      <highlight verse="21">Jesus said unto him, If thou wilt be perfect, go and sell that thou hast, and give to the poor, and thou shalt have treasure in heaven: and come and follow me.</highlight>
+      <highlight verse="22">But when the young man heard that saying, he went away sorrowful: for he had great possessions.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>baptism</topic>
     <topic>humility</topic>
     <topic>jesus christ</topic>
     <topic>leadership</topic>
     <topic>service</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/20.17-28?lang=eng#p17">Matthew 20:17-28</reference>
     <body>
       <title>Matthew 20</title>
@@ -3784,26 +3734,19 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>marriage</topic>
     <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/22.23?lang=eng#p23">Matthew 22:23</reference>
+    <topic>scriptures</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/22.23-30?lang=eng#p23">Matthew 22:23-30</reference>
     <body>
       <title>Matthew 22</title>
       <highlight verse="23">The same day came to him the Sadducees, which say that there is no resurrection, and asked him,</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>scriptures</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/22.29?lang=eng#p29">Matthew 22:29</reference>
-    <body>
-      <title>Matthew 22</title>
+      <highlight verse="24">Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother.</highlight>
+      <highlight verse="25">Now there were with us seven brethren: and the first, when he had married a wife, deceased, and, having no issue, left his wife unto his brother:</highlight>
+      <highlight verse="26">Likewise the second also, and the third, unto the seventh.</highlight>
+      <highlight verse="27">And last of all the woman died also.</highlight>
+      <highlight verse="28">Therefore in the resurrection whose wife shall she be of the seven? for they all had her.</highlight>
       <highlight verse="29">Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/22.30?lang=eng#p30">Matthew 22:30</reference>
-    <body>
-      <title>Matthew 22</title>
       <highlight verse="30">For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.</highlight>
     </body>
   </resource>
@@ -3842,7 +3785,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/23.37?lang=eng#p37">Matthew 23:37</reference>
     <body>
       <title>Matthew 23</title>
@@ -3850,15 +3793,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/24.1?lang=eng#p1">Matthew 24:1</reference>
-    <body>
-      <title>Matthew 24</title>
-      <highlight verse="1">And Jesus went out, and departed from the temple: and his disciples came to him for to shew him the buildings of the temple.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>hope</topic>
+    <topic>charity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/24.12?lang=eng#p12">Matthew 24:12</reference>
     <body>
       <title>Matthew 24</title>
@@ -3866,7 +3801,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>obedience</topic>
+    <topic>endure</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/24.13?lang=eng#p13">Matthew 24:13</reference>
     <body>
       <title>Matthew 24</title>
@@ -3942,7 +3877,6 @@
   </resource>
   <resource category="NewTestament">
     <topic>agency</topic>
-    <topic>baptism</topic>
     <topic>humility</topic>
     <topic>jesus christ</topic>
     <topic>obedience</topic>
@@ -3984,6 +3918,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>resurrection</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/26.61?lang=eng#p61">Matthew 26:61</reference>
     <body>
