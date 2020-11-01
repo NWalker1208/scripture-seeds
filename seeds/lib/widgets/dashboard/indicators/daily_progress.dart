@@ -5,6 +5,10 @@ import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/data/progress_record.dart';
 
 class DailyProgressIndicator extends StatelessWidget {
+  const DailyProgressIndicator({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ProgressData>(
@@ -19,8 +23,8 @@ class DailyProgressIndicator extends StatelessWidget {
         return Row(
           children: [
             Text('$completed / ${records.length}'),
-            SizedBox(width: 4),
-            Icon(CustomIcons.water_drop)
+            const SizedBox(width: 4),
+            const Icon(CustomIcons.water_drop)
           ],
         );
       },

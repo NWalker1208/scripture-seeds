@@ -93,7 +93,7 @@ class ActivityPageState extends State<ActivityPage> {
     // Error page
     if (_resource == null)
       return Scaffold(
-        appBar: AppBar(title: Text('Daily Activity')),
+        appBar: AppBar(title: const Text('Daily Activity')),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Center(
@@ -159,13 +159,13 @@ class ActivityPageState extends State<ActivityPage> {
             actions: [
               if (_stage == 0)
                 IconButton(
-                  icon: Icon(Icons.open_in_new),
+                  icon: const Icon(Icons.open_in_new),
                   tooltip: 'Open in Gospel Library',
                   onPressed: () => _openReference(),
                 ),
 
               IconButton(
-                icon: Icon(Icons.help),
+                icon: const Icon(Icons.help),
                 tooltip: 'Help',
                 onPressed: () => helpPage.showHelpDialog(),
               )
@@ -182,7 +182,7 @@ class ActivityPageState extends State<ActivityPage> {
                   (Theme.of(context).accentColor) :
                   Colors.grey[500]
             ),
-            duration: Duration(milliseconds: 150),
+            duration: const Duration(milliseconds: 150),
 
             builder: (BuildContext context, Color color, Widget child) => FloatingActionButton(
               child: child,
@@ -191,7 +191,7 @@ class ActivityPageState extends State<ActivityPage> {
 
               onPressed: _completed[_stage] ? nextStage : null,
             ),
-            child: Icon(Icons.check),
+            child: const Icon(Icons.check),
           ),
 
           // Bottom app bar shows progress through the day's activity

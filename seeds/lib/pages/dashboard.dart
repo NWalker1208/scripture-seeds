@@ -5,6 +5,10 @@ import 'package:seeds/widgets/dashboard/journal.dart';
 import 'package:seeds/widgets/help_page.dart';
 
 class DashboardPage extends StatelessWidget {
+  const DashboardPage({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return HelpPage(
@@ -19,9 +23,9 @@ class DashboardPage extends StatelessWidget {
               pinned: true,
               stretch: true,
 
-              flexibleSpace: FlexibleSpaceBar(
-                titlePadding: const EdgeInsets.all(16),
-                title:  Text('Scripture Seeds'),
+              flexibleSpace: const FlexibleSpaceBar(
+                titlePadding: EdgeInsets.all(16),
+                title: Text('Scripture Seeds'),
                 stretchModes: [StretchMode.fadeTitle],
               ),
 
@@ -30,7 +34,7 @@ class DashboardPage extends StatelessWidget {
                   icon: Icon(Icons.search),
                 ),*/
                 IconButton(
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   onPressed: () => Navigator.pushNamed(context, '/settings'),
                 )
               ],
@@ -38,7 +42,7 @@ class DashboardPage extends StatelessWidget {
 
             // Dashboard items
             SliverList(
-              delegate: SliverChildListDelegate([
+              delegate: SliverChildListDelegate(const [
                 PlantsDashboard(),
                 Divider(),
                 TopicsDashboard(),

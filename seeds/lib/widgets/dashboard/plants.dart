@@ -8,6 +8,10 @@ import 'package:seeds/widgets/dashboard/indicators/daily_progress.dart';
 import 'package:seeds/widgets/plant/button.dart';
 
 class PlantsDashboard extends StatelessWidget {
+  const PlantsDashboard({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +23,7 @@ class PlantsDashboard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Plants', style: Theme.of(context).textTheme.subtitle1),
-              DailyProgressIndicator()
+              const DailyProgressIndicator(),
             ],
           ),
         ),
@@ -30,14 +34,16 @@ class PlantsDashboard extends StatelessWidget {
           child: Consumer2<ProgressData, LibraryManager>(
             builder: (context, progress, libManager, child) {
               Library library = libManager.library;
-              if (library == null) return Text('Loading...');
+              // Check if library is still loading
+              if (library == null)
+                return const Center(child: Text('Loading...'));
 
               // Sort records so that incomplete ones go first
               List<ProgressRecord> records = progress.recordsWithTopics(library.topics)..sort();
 
               // If no plants are started, show a message
               if (records.length == 0)
-                return Center(child: Text('Select a topic below to begin.'));
+                return const Center(child: Text('Select a topic below to begin.'));
 
               return ListView.separated(
                 padding: EdgeInsets.all(8),
@@ -45,7 +51,7 @@ class PlantsDashboard extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: records.length,
 
-                separatorBuilder: (context, index) => SizedBox(width: 8),
+                separatorBuilder: (context, index) => const SizedBox(width: 8),
                 itemBuilder: (context, index) => AspectRatio(
                   aspectRatio: 3/5,
                   child: PlantButton(records[index].name)

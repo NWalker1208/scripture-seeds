@@ -22,7 +22,7 @@ class PlantPage extends StatelessWidget {
     showDialog<bool>(
       context: context,
       barrierDismissible: true,
-      builder: (_) => ExtraStudyDialog()
+      builder: (_) => const ExtraStudyDialog()
     ).then((bool doActivity) {
       if (doActivity ?? false)
         openActivity(context);
@@ -42,9 +42,11 @@ class PlantPage extends StatelessWidget {
     int reward = progress.collectReward(plantName);
     Provider.of<WalletData>(context, listen: false).give(reward);
 
-    Scaffold.of(context).showSnackBar(SnackBar(
-      content: Text('You collected $reward seeds.')
-    ));
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text('You collected $reward seeds.')
+      )
+    );
   }
 
   @override
@@ -57,7 +59,7 @@ class PlantPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(plantName.capitalize()),
           bottom: PreferredSize(
-            preferredSize: Size(0, 50),
+            preferredSize: const Size(0, 50),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: PlantProgressIndicator(plantName, textColor: Colors.white),
@@ -78,7 +80,7 @@ class PlantPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.book),
+                icon: const Icon(Icons.book),
                 onPressed: () => Navigator.pushNamed(context, '/journal', arguments: plantName),
               ),
 
@@ -110,7 +112,7 @@ class PlantPage extends StatelessWidget {
                 builder: (context, progressData, child) {
                   ProgressRecord record = progressData.getProgressRecord(plantName);
                   return IconButton(
-                    icon: Icon(Icons.share),
+                    icon: const Icon(Icons.share),
                     onPressed: () => SocialShare.shareOptions('Day ${record.progress} of ${record.maxProgress} on $plantName!'),
                   );
                 }

@@ -71,7 +71,7 @@ class _JournalPageState extends State<JournalPage> {
 
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Journal'),
+          title: const Text('Journal'),
           actions: <Widget>[
             IconButton(
               icon: Icon(editMode ? Icons.cancel : Icons.edit),
@@ -83,30 +83,36 @@ class _JournalPageState extends State<JournalPage> {
             preferredSize: const Size.fromHeight(50),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Topic', style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white)),
-                  SizedBox(width: 16.0),
-                  Consumer<JournalData>(
-                    builder: (context, journal, child) => DropdownButton<String>(
-                      value: filter,
-                      dropdownColor: Theme.of(context).primaryColor,
-                      iconEnabledColor: Colors.white,
-                      onChanged: (topic) => setState(() => filter = topic),
+              child: DefaultTextStyle(
+                style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text('Topic'),
+                    const SizedBox(width: 16.0),
+                    Consumer<JournalData>(
+                      builder: (context, journal, child) => DropdownButton<String>(
+                        value: filter,
+                        style: DefaultTextStyle.of(context).style,
+                        dropdownColor: Theme.of(context).primaryColor,
+                        iconEnabledColor: Colors.white,
+                        onChanged: (topic) => setState(() => filter = topic),
 
-                      items: [DropdownMenuItem<String>(
-                        value: null,
-                        child: Text('All', style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white)),
-                      )] + journal.topics.map(
-                        (topic) => DropdownMenuItem<String>(
-                          value: topic,
-                          child: Text(topic.capitalize(), style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white)),
-                        )
-                      ).toList()
+                        items: [
+                          const DropdownMenuItem<String>(
+                            value: null,
+                            child: Text('All'),
+                          )
+                        ] + journal.topics.map(
+                          (topic) => DropdownMenuItem<String>(
+                            value: topic,
+                            child: Text(topic.capitalize()),
+                          )
+                        ).toList()
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -123,7 +129,7 @@ class _JournalPageState extends State<JournalPage> {
               return Center(child: Text('Journal is empty.'),);
 
             return ListView.builder(
-              padding: EdgeInsets.only(bottom: 12.0),
+              padding: const EdgeInsets.only(bottom: 12.0),
               itemCount: entries.length,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
@@ -141,14 +147,13 @@ class _JournalPageState extends State<JournalPage> {
                     ),
                     TweenAnimationBuilder(
                       tween: Tween<double>(begin: 1, end: editMode ? 0.9 : 1),
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.ease,
-                      builder: (context, scale, child) =>
-                          Transform.scale(
-                              alignment: Alignment.centerRight,
-                              scale: scale,
-                              child: child
-                          ),
+                      builder: (context, scale, child) => Transform.scale(
+                        alignment: Alignment.centerRight,
+                        scale: scale,
+                        child: child,
+                      ),
 
                       child: GestureDetector(
                         onLongPress: () {
@@ -177,7 +182,7 @@ class _JournalPageState extends State<JournalPage> {
         ),
 
         floatingActionButton: !editMode ? null : FloatingActionButton(
-          child: Icon(Icons.delete),
+          child: const Icon(Icons.delete),
           backgroundColor: selected.length == 0 ? Colors.grey[500] : Theme.of(context).accentColor,
           onPressed: selected.length == 0 ? null : deleteSelected,
         ),

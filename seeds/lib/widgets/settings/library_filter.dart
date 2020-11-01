@@ -5,6 +5,10 @@ import 'package:seeds/services/settings/library_filter.dart';
 import 'package:seeds/services/utility.dart';
 
 class LibraryFilterSettings extends StatelessWidget {
+  const LibraryFilterSettings({
+    Key key,
+  }) : super(key: key);
+
   String addSpaces(String str) {
     String newStr = str[0];
 

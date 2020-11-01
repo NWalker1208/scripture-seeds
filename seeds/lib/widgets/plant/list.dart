@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/services/data/progress.dart';
-import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/data/progress_record.dart';
 import 'package:provider/provider.dart';
 import 'package:seeds/services/library/manager.dart';

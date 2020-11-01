@@ -5,9 +5,13 @@ import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
 
 class DataManagementSettings extends StatelessWidget {
-  void resetLibraryCache(BuildContext context) {
+  const DataManagementSettings({
+    Key key,
+  }) : super(key: key);
+
+  void _resetLibraryCache(BuildContext context) {
     Scaffold.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Refreshing study library...'),
       )
     );
@@ -15,35 +19,39 @@ class DataManagementSettings extends StatelessWidget {
     LibraryManager libManager = Provider.of<LibraryManager>(context, listen: false);
 
     libManager.refreshLibrary().then((_) => Scaffold.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Library sync complete.'),
       )
     ));
   }
 
-  void eraseJournal(BuildContext context) {
+  void _eraseJournal(BuildContext context) {
     showDialog<bool>(
-        context: context,
-        barrierDismissible: true,
-        builder: (_) => EraseJournalDialog()
+      context: context,
+      barrierDismissible: true,
+      builder: (_) => const EraseJournalDialog()
     ).then((bool erased) {
       if (erased ?? false)
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Your journal has been erased.'),
-        ));
+        Scaffold.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Your journal has been erased.'),
+          )
+        );
     });
   }
 
-  void resetProgress(BuildContext context) {
+  void _resetProgress(BuildContext context) {
     showDialog<bool>(
-        context: context,
-        barrierDismissible: true,
-        builder: (_) => ResetProgressDialog()
+      context: context,
+      barrierDismissible: true,
+      builder: (_) => const ResetProgressDialog()
     ).then((bool didReset) {
       if (didReset ?? false)
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Your progress has been reset.'),
-        ));
+        Scaffold.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Your progress has been reset.'),
+          )
+        );
     });
   }
 
@@ -53,8 +61,8 @@ class DataManagementSettings extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         RaisedButton(
-            child: Text('Sync Library'),
-            onPressed: () => resetLibraryCache(context),
+            child: const Text('Sync Library'),
+            onPressed: () => _resetLibraryCache(context),
             textColor: Colors.white
         ),
 
@@ -63,8 +71,8 @@ class DataManagementSettings extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: RaisedButton(
-                  child: Text('Erase Journal'),
-                  onPressed: () => eraseJournal(context),
+                  child: const Text('Erase Journal'),
+                  onPressed: () => _eraseJournal(context),
                   textColor: Colors.white,
                   color: Theme.of(context).errorColor
               ),
@@ -72,8 +80,8 @@ class DataManagementSettings extends StatelessWidget {
             SizedBox(width: 12.0),
             Expanded(
               child: RaisedButton(
-                  child: Text('Reset Progress'),
-                  onPressed: () => resetProgress(context),
+                  child: const Text('Reset Progress'),
+                  onPressed: () => _resetProgress(context),
                   textColor: Colors.white,
                   color: Theme.of(context).errorColor
               ),
