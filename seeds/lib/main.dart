@@ -1,43 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:seeds/pages/dashboard.dart';
-import 'package:seeds/pages/settings.dart';
-import 'package:seeds/pages/plant.dart';
-import 'package:seeds/pages/activity.dart';
-import 'package:seeds/pages/journal.dart';
+import 'package:provider/provider.dart';
 import 'package:seeds/services/settings/help.dart';
 import 'package:seeds/services/data/journal.dart';
+import 'package:seeds/services/data/progress.dart';
+import 'package:seeds/services/settings/theme.dart';
+import 'package:seeds/services/data/wallet.dart';
 import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/services/library/history.dart';
-import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/settings/library_filter.dart';
-import 'package:seeds/services/settings/theme.dart';
-import 'package:seeds/services/themes.dart';
-import 'package:provider/provider.dart';
-import 'package:seeds/services/data/wallet.dart';
+import 'package:seeds/app.dart';
 
 void main() {
+  // Needed to prevent errors while loading data
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Make status bar transparent
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent));
+
+  // Load data
+  ThemePreference themePref = ThemePreference();
+  HelpSettings helpSettings = HelpSettings();
+  ProgressData progress = ProgressData();
+  WalletData wallet = WalletData();
+  JournalData journal = JournalData();
+
+  // Load library
+  LibraryManager library = LibraryManager(assets: rootBundle);
+  LibraryFilter libraryFilter = LibraryFilter();
+  LibraryHistory history = LibraryHistory();
+
   // Start app
-  runApp(SeedsApp());
-}
-
-class SeedsApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // Begin loading resources for notifiers
-    ThemePreference themePref = ThemePreference();
-    HelpSettings helpSettings = HelpSettings();
-    ProgressData progress = ProgressData();
-    WalletData wallet = WalletData();
-    JournalData journal = JournalData();
-
-    LibraryManager library = LibraryManager(assets: DefaultAssetBundle.of(context));
-    LibraryFilter libraryFilter = LibraryFilter();
-    LibraryHistory history = LibraryHistory();
-
-    return MultiProvider(
+  runApp(
+    MultiProvider(
       providers: [
         // ThemePreference notifier
         ChangeNotifierProvider.value(value: themePref),
@@ -49,6 +44,7 @@ class SeedsApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: wallet),
         // JournalData notifier
         ChangeNotifierProvider.value(value: journal),
+
         // Library notifier
         ChangeNotifierProvider.value(value: library),
         // LibraryFilter notifier
@@ -57,27 +53,7 @@ class SeedsApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: history),
       ],
 
-      child: Consumer<ThemePreference>(
-        builder: (context, setting, child) => MaterialApp(
-          title: 'Seeds',
-
-          theme: AppThemes.lightTheme,
-          darkTheme: AppThemes.darkTheme,
-
-          themeMode: setting.mode,
-
-          initialRoute: '/',
-          routes: {
-            '/': (context) => DashboardPage(),
-            '/settings': (context) => SettingsPage(),
-
-            '/plant': (context) => PlantPage(plantName: ModalRoute.of(context).settings.arguments),
-            '/plant/activity': (context) => ActivityPage(ModalRoute.of(context).settings.arguments),
-
-            '/journal': (context) => JournalPage(defaultFilter: ModalRoute.of(context).settings.arguments),
-          },
-        )
-      )
-    );
-  }
+      child: const SeedsApp(),
+    )
+  );
 }
