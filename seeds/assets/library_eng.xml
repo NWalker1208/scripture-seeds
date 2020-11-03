@@ -4063,6 +4063,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.22?lang=eng#p22">Mark 1:22</reference>
     <body>
       <title>Mark 1</title>
@@ -4071,6 +4072,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>priesthood</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.27,34,39?lang=eng#p27">Mark 1:27,34,39</reference>
     <body>
@@ -4166,6 +4168,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/4.35-41?lang=eng#p35">Mark 4:35-41</reference>
     <body>
       <title>Mark 4</title>
@@ -4246,15 +4249,9 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/6.6?lang=eng#p6">Mark 6:6</reference>
-    <body>
-      <title>Mark 6</title>
-      <highlight verse="6">And he marvelled because of their unbelief. And he went round about the villages, teaching.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>apostles</topic>
+    <topic>missionary</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/6.7-13?lang=eng#p7">Mark 6:7-13</reference>
     <body>
       <title>Mark 6</title>
@@ -4268,6 +4265,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>diligence</topic>
     <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/8.31-37?lang=eng#p31">Mark 8:31-37</reference>
     <body>
@@ -4297,6 +4295,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
+    <topic>fasting</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/9.25-29?lang=eng#p25">Mark 9:25-29</reference>
     <body>
       <title>Mark 9</title>
@@ -4309,6 +4308,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/9.30-32?lang=eng#p30">Mark 9:30-32</reference>
     <body>
       <title>Mark 9</title>
@@ -4327,13 +4327,10 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/10.32-45?lang=eng#p32">Mark 10:32-45</reference>
+    <topic>leadership</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/10.35-45?lang=eng#p35">Mark 10:35-45</reference>
     <body>
       <title>Mark 10</title>
-      <highlight verse="32">And they were in the way going up to Jerusalem; and Jesus went before them: and they were amazed; and as they followed, they were afraid. And he took again the twelve, and began to tell them what things should happen unto him,</highlight>
-      <highlight verse="33">Saying, Behold, we go up to Jerusalem; and the Son of man shall be delivered unto the chief priests, and unto the scribes; and they shall condemn him to death, and shall deliver him to the Gentiles:</highlight>
-      <highlight verse="34">And they shall mock him, and shall scourge him, and shall spit upon him, and shall kill him: and the third day he shall rise again.</highlight>
       <highlight verse="35">And James and John, the sons of Zebedee, come unto him, saying, Master, we would that thou shouldest do for us whatsoever we shall desire.</highlight>
       <highlight verse="36">And he said unto them, What would ye that I should do for you?</highlight>
       <highlight verse="37">They said unto him, Grant unto us that we may sit, one on thy right hand, and the other on thy left hand, in thy glory.</highlight>
@@ -4375,18 +4372,11 @@
   </resource>
   <resource category="NewTestament">
     <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/12.18?lang=eng#p18">Mark 12:18</reference>
-    <body>
-      <title>Mark 12</title>
-      <highlight verse="18">Then come unto him the Sadducees, which say there is no resurrection; and they asked him, saying,</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/12.26?lang=eng#p26">Mark 12:26</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/12.26-27?lang=eng#p26">Mark 12:26-27</reference>
     <body>
       <title>Mark 12</title>
       <highlight verse="26">And as touching the dead, that they rise: have ye not read in the book of Moses, how in the bush God spake unto him, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob?</highlight>
+      <highlight verse="27">He is not the God of the dead, but the God of the living: ye therefore do greatly err.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -4409,6 +4399,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>atonement</topic>
     <topic>jesus christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/14.32-42?lang=eng#p32">Mark 14:32-42</reference>
@@ -4446,6 +4437,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>resurrection</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/14.58?lang=eng#p58">Mark 14:58</reference>
     <body>
@@ -4454,6 +4446,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>atonement</topic>
     <topic>jesus christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/15.20-41?lang=eng#p20">Mark 15:20-41</reference>
@@ -4492,7 +4485,6 @@
     <topic>resurrection</topic>
     <topic>sabbath</topic>
     <topic>salvation</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/16.1-18?lang=eng#p1">Mark 16:1-18</reference>
     <body>
       <title>Mark 16</title>
@@ -4518,6 +4510,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/16.19-20?lang=eng#p19">Mark 16:19-20</reference>
     <body>
       <title>Mark 16</title>
@@ -4526,19 +4519,12 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>genealogy</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/1.17?lang=eng#p17">Luke 1:17</reference>
     <body>
       <title>Luke 1</title>
       <highlight verse="17">And he shall go before him in the spirit and power of Elias, to turn the hearts of the fathers to the children, and the disobedient to the wisdom of the just; to make ready a people prepared for the Lord.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/1.22?lang=eng#p22">Luke 1:22</reference>
-    <body>
-      <title>Luke 1</title>
-      <highlight verse="22">And when he came out, he could not speak unto them: and they perceived that he had seen a vision in the temple: for he beckoned unto them, and remained speechless.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -4563,10 +4549,13 @@
   </resource>
   <resource category="NewTestament">
     <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/1.70?lang=eng#p70">Luke 1:70</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/1.70-73?lang=eng#p70">Luke 1:70-73</reference>
     <body>
       <title>Luke 1</title>
       <highlight verse="70">As he spake by the mouth of his holy prophets, which have been since the world began:</highlight>
+      <highlight verse="71">That we should be saved from our enemies, and from the hand of all that hate us;</highlight>
+      <highlight verse="72">To perform the mercy promised to our fathers, and to remember his holy covenant;</highlight>
+      <highlight verse="73">The oath which he sware to our father Abraham,</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -4633,14 +4622,6 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.39?lang=eng#p39">Luke 2:39</reference>
-    <body>
-      <title>Luke 2</title>
-      <highlight verse="39">And when they had performed all things according to the law of the Lord, they returned into Galilee, to their own city Nazareth.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>priesthood</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.40,52?lang=eng#p40">Luke 2:40,52</reference>
     <body>
@@ -4687,29 +4668,13 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>genealogy</topic>
+    <topic>baptism</topic>
     <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/3.21-38?lang=eng#p21">Luke 3:21-38</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/3.21-22?lang=eng#p21">Luke 3:21-22</reference>
     <body>
       <title>Luke 3</title>
       <highlight verse="21">Now when all the people were baptized, it came to pass, that Jesus also being baptized, and praying, the heaven was opened,</highlight>
       <highlight verse="22">And the Holy Ghost descended in a bodily shape like a dove upon him, and a voice came from heaven, which said, Thou art my beloved Son; in thee I am well pleased.</highlight>
-      <highlight verse="23">And Jesus himself began to be about thirty years of age, being (as was supposed) the son of Joseph, which was the son of Heli,</highlight>
-      <highlight verse="24">Which was the son of Matthat, which was the son of Levi, which was the son of Melchi, which was the son of Janna, which was the son of Joseph,</highlight>
-      <highlight verse="25">Which was the son of Mattathias, which was the son of Amos, which was the son of Naum, which was the son of Esli, which was the son of Nagge,</highlight>
-      <highlight verse="26">Which was the son of Maath, which was the son of Mattathias, which was the son of Semei, which was the son of Joseph, which was the son of Juda,</highlight>
-      <highlight verse="27">Which was the son of Joanna, which was the son of Rhesa, which was the son of Zorobabel, which was the son of Salathiel, which was the son of Neri,</highlight>
-      <highlight verse="28">Which was the son of Melchi, which was the son of Addi, which was the son of Cosam, which was the son of Elmodam, which was the son of Er,</highlight>
-      <highlight verse="29">Which was the son of Jose, which was the son of Eliezer, which was the son of Jorim, which was the son of Matthat, which was the son of Levi,</highlight>
-      <highlight verse="30">Which was the son of Simeon, which was the son of Juda, which was the son of Joseph, which was the son of Jonan, which was the son of Eliakim,</highlight>
-      <highlight verse="31">Which was the son of Melea, which was the son of Menan, which was the son of Mattatha, which was the son of Nathan, which was the son of David,</highlight>
-      <highlight verse="32">Which was the son of Jesse, which was the son of Obed, which was the son of Booz, which was the son of Salmon, which was the son of Naasson,</highlight>
-      <highlight verse="33">Which was the son of Aminadab, which was the son of Aram, which was the son of Esrom, which was the son of Phares, which was the son of Juda,</highlight>
-      <highlight verse="34">Which was the son of Jacob, which was the son of Isaac, which was the son of Abraham, which was the son of Thara, which was the son of Nachor,</highlight>
-      <highlight verse="35">Which was the son of Saruch, which was the son of Ragau, which was the son of Phalec, which was the son of Heber, which was the son of Sala,</highlight>
-      <highlight verse="36">Which was the son of Cainan, which was the son of Arphaxad, which was the son of Sem, which was the son of Noe, which was the son of Lamech,</highlight>
-      <highlight verse="37">Which was the son of Mathusala, which was the son of Enoch, which was the son of Jared, which was the son of Maleleel, which was the son of Cainan,</highlight>
-      <highlight verse="38">Which was the son of Enos, which was the son of Seth, which was the son of Adam, which was the son of God.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -4744,6 +4709,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/4.32?lang=eng#p32">Luke 4:32</reference>
     <body>
       <title>Luke 4</title>
@@ -4752,6 +4718,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/4.33-36?lang=eng#p33">Luke 4:33-36</reference>
     <body>
       <title>Luke 4</title>
@@ -4783,10 +4750,12 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/5.33?lang=eng#p33">Luke 5:33</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/5.33-35?lang=eng#p33">Luke 5:33-35</reference>
     <body>
       <title>Luke 5</title>
       <highlight verse="33">And they said unto him, Why do the disciples of John fast often, and make prayers, and likewise the disciples of the Pharisees; but thine eat and drink?</highlight>
+      <highlight verse="34">And he said unto them, Can ye make the children of the bridechamber fast, while the bridegroom is with them?</highlight>
+      <highlight verse="35">But the days will come, when the bridegroom shall be taken away from them, and then shall they fast in those days.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -4862,9 +4831,11 @@
   </resource>
   <resource category="NewTestament">
     <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/7.35?lang=eng#p35">Luke 7:35</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/7.33-35?lang=eng#p33">Luke 7:33-35</reference>
     <body>
       <title>Luke 7</title>
+      <highlight verse="33">For John the Baptist came neither eating bread nor drinking wine; and ye say, He hath a devil.</highlight>
+      <highlight verse="34">The Son of man is come eating and drinking; and ye say, Behold a gluttonous man, and a winebibber, a friend of publicans and sinners!</highlight>
       <highlight verse="35">But wisdom is justified of all her children.</highlight>
     </body>
   </resource>
@@ -4878,14 +4849,18 @@
   </resource>
   <resource category="NewTestament">
     <topic>virtue</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/8.46?lang=eng#p46">Luke 8:46</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/8.46-48?lang=eng#p46">Luke 8:46-48</reference>
     <body>
       <title>Luke 8</title>
       <highlight verse="46">And Jesus said, Somebody hath touched me: for I perceive that virtue is gone out of me.</highlight>
+      <highlight verse="47">And when the woman saw that she was not hid, she came trembling, and falling down before him, she declared unto him before all the people for what cause she had touched him, and how she was healed immediately.</highlight>
+      <highlight verse="48">And he said unto her, Daughter, be of good comfort: thy faith hath made thee whole; go in peace.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>apostles</topic>
+    <topic>missionary</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/9.1-6?lang=eng#p1">Luke 9:1-6</reference>
     <body>
       <title>Luke 9</title>
@@ -4898,6 +4873,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>diligence</topic>
     <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/9.22-25?lang=eng#p22">Luke 9:22-25</reference>
     <body>
@@ -4937,6 +4913,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
+    <topic>charity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/9.51-56?lang=eng#p51">Luke 9:51-56</reference>
     <body>
       <title>Luke 9</title>
@@ -4957,11 +4934,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>apostles</topic>
-    <topic>jesus christ</topic>
-    <topic>leadership</topic>
-    <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/10.1-24?lang=eng#p1">Luke 10:1-24</reference>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/10.1-9?lang=eng#p1">Luke 10:1-9</reference>
     <body>
       <title>Luke 10</title>
       <highlight verse="1">After these things the Lord appointed other seventy also, and sent them two and two before his face into every city and place, whither he himself would come.</highlight>
@@ -4973,13 +4947,16 @@
       <highlight verse="7">And in the same house remain, eating and drinking such things as they give: for the labourer is worthy of his hire. Go not from house to house.</highlight>
       <highlight verse="8">And into whatsoever city ye enter, and they receive you, eat such things as are set before you:</highlight>
       <highlight verse="9">And heal the sick that are therein, and say unto them, The kingdom of God is come nigh unto you.</highlight>
-      <highlight verse="10">But into whatsoever city ye enter, and they receive you not, go your ways out into the streets of the same, and say,</highlight>
-      <highlight verse="11">Even the very dust of your city, which cleaveth on us, we do wipe off against you: notwithstanding be ye sure of this, that the kingdom of God is come nigh unto you.</highlight>
-      <highlight verse="12">But I say unto you, that it shall be more tolerable in that day for Sodom, than for that city.</highlight>
-      <highlight verse="13">Woe unto thee, Chorazin! woe unto thee, Bethsaida! for if the mighty works had been done in Tyre and Sidon, which have been done in you, they had a great while ago repented, sitting in sackcloth and ashes.</highlight>
-      <highlight verse="14">But it shall be more tolerable for Tyre and Sidon at the judgment, than for you.</highlight>
-      <highlight verse="15">And thou, Capernaum, which art exalted to heaven, shalt be thrust down to hell.</highlight>
-      <highlight verse="16">He that heareth you heareth me; and he that despiseth you despiseth me; and he that despiseth me despiseth him that sent me.</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>jesus christ</topic>
+    <topic>leadership</topic>
+    <topic>priesthood</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/10.17-24?lang=eng#p1">Luke 10:17-24</reference>
+    <body>
+      <title>Luke 10</title>
       <highlight verse="17">And the seventy returned again with joy, saying, Lord, even the devils are subject unto us through thy name.</highlight>
       <highlight verse="18">And he said unto them, I beheld Satan as lightning fall from heaven.</highlight>
       <highlight verse="19">Behold, I give unto you power to tread on serpents and scorpions, and over all the power of the enemy: and nothing shall by any means hurt you.</highlight>
@@ -5009,14 +4986,6 @@
       <highlight verse="35">And on the morrow when he departed, he took out two pence, and gave them to the host, and said unto him, Take care of him; and whatsoever thou spendest more, when I come again, I will repay thee.</highlight>
       <highlight verse="36">Which now of these three, thinkest thou, was neighbour unto him that fell among the thieves?</highlight>
       <highlight verse="37">And he said, He that shewed mercy on him. Then said Jesus unto him, Go, and do thou likewise.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/10.42?lang=eng#p42">Luke 10:42</reference>
-    <body>
-      <title>Luke 10</title>
-      <highlight verse="42">But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -5151,7 +5120,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>spirit</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/16.19-31?lang=eng#p19">Luke 16:19-31</reference>
     <body>
       <title>Luke 16</title>
@@ -5201,6 +5170,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>humility</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/18.11,13?lang=eng#p11">Luke 18:11,13</reference>
     <body>
@@ -5211,6 +5181,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
+    <topic>tithing</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/18.12?lang=eng#p12">Luke 18:12</reference>
     <body>
       <title>Luke 18</title>
@@ -5226,7 +5197,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>leadership</topic>
+    <topic>diligence</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/18.22?lang=eng#p22">Luke 18:22</reference>
     <body>
       <title>Luke 18</title>
@@ -5278,7 +5249,7 @@
   <resource category="NewTestament">
     <topic>marriage</topic>
     <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/20.27-36?lang=eng#p27">Luke 20:27-36</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/20.27-36,38?lang=eng#p27">Luke 20:27-36,38</reference>
     <body>
       <title>Luke 20</title>
       <highlight verse="27">Then came to him certain of the Sadducees, which deny that there is any resurrection; and they asked him,</highlight>
@@ -5291,13 +5262,6 @@
       <highlight verse="34">And Jesus answering said unto them, The children of this world marry, and are given in marriage:</highlight>
       <highlight verse="35">But they which shall be accounted worthy to obtain that world, and the resurrection from the dead, neither marry, nor are given in marriage:</highlight>
       <highlight verse="36">Neither can they die any more: for they are equal unto the angels; and are the children of God, being the children of the resurrection.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/20.38?lang=eng#p38">Luke 20:38</reference>
-    <body>
-      <title>Luke 20</title>
       <highlight verse="38">For he is not a God of the dead, but of the living: for all live unto him.</highlight>
     </body>
   </resource>
@@ -5357,10 +5321,8 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>baptism</topic>
     <topic>humility</topic>
     <topic>jesus christ</topic>
-    <topic>knowledge</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22.39-46?lang=eng#p39">Luke 22:39-46</reference>
     <body>
@@ -5395,7 +5357,6 @@
     <topic>humility</topic>
     <topic>jesus christ</topic>
     <topic>patience</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/23.26-49?lang=eng#p26">Luke 23:26-49</reference>
     <body>
       <title>Luke 23</title>
@@ -5426,48 +5387,11 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>apostles</topic>
-    <topic>hope</topic>
     <topic>jesus christ</topic>
     <topic>resurrection</topic>
-    <topic>scriptures</topic>
-    <topic>spirit</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/24.1-53?lang=eng#p1">Luke 24:1-53</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/24.34-43?lang=eng#p34">Luke 24:34-43</reference>
     <body>
       <title>Luke 24</title>
-      <highlight verse="1">Now upon the first day of the week, very early in the morning, they came unto the sepulchre, bringing the spices which they had prepared, and certain others with them.</highlight>
-      <highlight verse="2">And they found the stone rolled away from the sepulchre.</highlight>
-      <highlight verse="3">And they entered in, and found not the body of the Lord Jesus.</highlight>
-      <highlight verse="4">And it came to pass, as they were much perplexed thereabout, behold, two men stood by them in shining garments:</highlight>
-      <highlight verse="5">And as they were afraid, and bowed down their faces to the earth, they said unto them, Why seek ye the living among the dead?</highlight>
-      <highlight verse="6">He is not here, but is risen: remember how he spake unto you when he was yet in Galilee,</highlight>
-      <highlight verse="7">Saying, The Son of man must be delivered into the hands of sinful men, and be crucified, and the third day rise again.</highlight>
-      <highlight verse="8">And they remembered his words,</highlight>
-      <highlight verse="9">And returned from the sepulchre, and told all these things unto the eleven, and to all the rest.</highlight>
-      <highlight verse="10">It was Mary Magdalene, and Joanna, and Mary the mother of James, and other women that were with them, which told these things unto the apostles.</highlight>
-      <highlight verse="11">And their words seemed to them as idle tales, and they believed them not.</highlight>
-      <highlight verse="12">Then arose Peter, and ran unto the sepulchre; and stooping down, he beheld the linen clothes laid by themselves, and departed, wondering in himself at that which was come to pass.</highlight>
-      <highlight verse="13">And, behold, two of them went that same day to a village called Emmaus, which was from Jerusalem about threescore furlongs.</highlight>
-      <highlight verse="14">And they talked together of all these things which had happened.</highlight>
-      <highlight verse="15">And it came to pass, that, while they communed together and reasoned, Jesus himself drew near, and went with them.</highlight>
-      <highlight verse="16">But their eyes were holden that they should not know him.</highlight>
-      <highlight verse="17">And he said unto them, What manner of communications are these that ye have one to another, as ye walk, and are sad?</highlight>
-      <highlight verse="18">And the one of them, whose name was Cleopas, answering said unto him, Art thou only a stranger in Jerusalem, and hast not known the things which are come to pass there in these days?</highlight>
-      <highlight verse="19">And he said unto them, What things? And they said unto him, Concerning Jesus of Nazareth, which was a prophet mighty in deed and word before God and all the people:</highlight>
-      <highlight verse="20">And how the chief priests and our rulers delivered him to be condemned to death, and have crucified him.</highlight>
-      <highlight verse="21">But we trusted that it had been he which should have redeemed Israel: and beside all this, to day is the third day since these things were done.</highlight>
-      <highlight verse="22">Yea, and certain women also of our company made us astonished, which were early at the sepulchre;</highlight>
-      <highlight verse="23">And when they found not his body, they came, saying, that they had also seen a vision of angels, which said that he was alive.</highlight>
-      <highlight verse="24">And certain of them which were with us went to the sepulchre, and found it even so as the women had said: but him they saw not.</highlight>
-      <highlight verse="25">Then he said unto them, O fools, and slow of heart to believe all that the prophets have spoken:</highlight>
-      <highlight verse="26">Ought not Christ to have suffered these things, and to enter into his glory?</highlight>
-      <highlight verse="27">And beginning at Moses and all the prophets, he expounded unto them in all the scriptures the things concerning himself.</highlight>
-      <highlight verse="28">And they drew nigh unto the village, whither they went: and he made as though he would have gone further.</highlight>
-      <highlight verse="29">But they constrained him, saying, Abide with us: for it is toward evening, and the day is far spent. And he went in to tarry with them.</highlight>
-      <highlight verse="30">And it came to pass, as he sat at meat with them, he took bread, and blessed it, and brake, and gave to them.</highlight>
-      <highlight verse="31">And their eyes were opened, and they knew him; and he vanished out of their sight.</highlight>
-      <highlight verse="32">And they said one to another, Did not our heart burn within us, while he talked with us by the way, and while he opened to us the scriptures?</highlight>
-      <highlight verse="33">And they rose up the same hour, and returned to Jerusalem, and found the eleven gathered together, and them that were with them,</highlight>
       <highlight verse="34">Saying, The Lord is risen indeed, and hath appeared to Simon.</highlight>
       <highlight verse="35">And they told what things were done in the way, and how he was known of them in breaking of bread.</highlight>
       <highlight verse="36">And as they thus spake, Jesus himself stood in the midst of them, and saith unto them, Peace be unto you.</highlight>
@@ -5478,11 +5402,28 @@
       <highlight verse="41">And while they yet believed not for joy, and wondered, he said unto them, Have ye here any meat?</highlight>
       <highlight verse="42">And they gave him a piece of a broiled fish, and of an honeycomb.</highlight>
       <highlight verse="43">And he took it, and did eat before them.</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>jesus christ</topic>
+    <topic>missionary</topic>
+    <topic>resurrection</topic>
+    <topic>scriptures</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/24.44-48?lang=eng#p44">Luke 24:44-48</reference>
+    <body>
+      <title>Luke 24</title>
       <highlight verse="44">And he said unto them, These are the words which I spake unto you, while I was yet with you, that all things must be fulfilled, which were written in the law of Moses, and in the prophets, and in the psalms, concerning me.</highlight>
       <highlight verse="45">Then opened he their understanding, that they might understand the scriptures,</highlight>
       <highlight verse="46">And said unto them, Thus it is written, and thus it behoved Christ to suffer, and to rise from the dead the third day:</highlight>
       <highlight verse="47">And that repentance and remission of sins should be preached in his name among all nations, beginning at Jerusalem.</highlight>
       <highlight verse="48">And ye are witnesses of these things.</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>temples</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/24.49-53?lang=eng#p49">Luke 24:49-53</reference>
+    <body>
+      <title>Luke 24</title>
       <highlight verse="49">And, behold, I send the promise of my Father upon you: but tarry ye in the city of Jerusalem, until ye be endued with power from on high.</highlight>
       <highlight verse="50">And he led them out as far as to Bethany, and he lifted up his hands, and blessed them.</highlight>
       <highlight verse="51">And it came to pass, while he blessed them, he was parted from them, and carried up into heaven.</highlight>
