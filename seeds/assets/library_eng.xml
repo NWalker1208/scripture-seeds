@@ -5456,9 +5456,7 @@
   <resource category="NewTestament">
     <topic>baptism</topic>
     <topic>jesus christ</topic>
-    <topic>missionary</topic>
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/1.25-33,35-51?lang=eng#p25">John 1:25-33,35-51</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/1.25-33?lang=eng#p25">John 1:25-33</reference>
     <body>
       <title>John 1</title>
       <highlight verse="25">And they asked him, and said unto him, Why baptizest thou then, if thou be not that Christ, nor Elias, neither that prophet?</highlight>
@@ -5470,28 +5468,11 @@
       <highlight verse="31">And I knew him not: but that he should be made manifest to Israel, therefore am I come baptizing with water.</highlight>
       <highlight verse="32">And John bare record, saying, I saw the Spirit descending from heaven like a dove, and it abode upon him.</highlight>
       <highlight verse="33">And I knew him not: but he that sent me to baptize with water, the same said unto me, Upon whom thou shalt see the Spirit descending, and remaining on him, the same is he which baptizeth with the Holy Ghost.</highlight>
-      <highlight verse="35">Again the next day after John stood, and two of his disciples;</highlight>
-      <highlight verse="36">And looking upon Jesus as he walked, he saith, Behold the Lamb of God!</highlight>
-      <highlight verse="37">And the two disciples heard him speak, and they followed Jesus.</highlight>
-      <highlight verse="38">Then Jesus turned, and saw them following, and saith unto them, What seek ye? They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou?</highlight>
-      <highlight verse="39">He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour.</highlight>
-      <highlight verse="40">One of the two which heard John speak, and followed him, was Andrew, Simon Peter’s brother.</highlight>
-      <highlight verse="41">He first findeth his own brother Simon, and saith unto him, We have found the Messias, which is, being interpreted, the Christ.</highlight>
-      <highlight verse="42">And he brought him to Jesus. And when Jesus beheld him, he said, Thou art Simon the son of Jona: thou shalt be called Cephas, which is by interpretation, A stone.</highlight>
-      <highlight verse="43">The day following Jesus would go forth into Galilee, and findeth Philip, and saith unto him, Follow me.</highlight>
-      <highlight verse="44">Now Philip was of Bethsaida, the city of Andrew and Peter.</highlight>
-      <highlight verse="45">Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph.</highlight>
-      <highlight verse="46">And Nathanael said unto him, Can there any good thing come out of Nazareth? Philip saith unto him, Come and see.</highlight>
-      <highlight verse="47">Jesus saw Nathanael coming to him, and saith of him, Behold an Israelite indeed, in whom is no guile!</highlight>
-      <highlight verse="48">Nathanael saith unto him, Whence knowest thou me? Jesus answered and said unto him, Before that Philip called thee, when thou wast under the fig tree, I saw thee.</highlight>
-      <highlight verse="49">Nathanael answered and saith unto him, Rabbi, thou art the Son of God; thou art the King of Israel.</highlight>
-      <highlight verse="50">Jesus answered and said unto him, Because I said unto thee, I saw thee under the fig tree, believest thou? thou shalt see greater things than these.</highlight>
-      <highlight verse="51">And he saith unto him, Verily, verily, I say unto you, Hereafter ye shall see heaven open, and the angels of God ascending and descending upon the Son of man.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
     <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.14?lang=eng#p14">John 2:14</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.14?lang=eng#p14">John 2:13-16</reference>
     <body>
       <title>John 2</title>
       <highlight verse="14">And found in the temple those that sold oxen and sheep and doves, and the changers of money sitting:</highlight>
@@ -5499,17 +5480,11 @@
   </resource>
   <resource category="NewTestament">
     <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.19?lang=eng#p19">John 2:19</reference>
+    <topic>resurrection</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.19-21?lang=eng#p19">John 2:19-21</reference>
     <body>
       <title>John 2</title>
       <highlight verse="19">Jesus answered and said unto them, Destroy this temple, and in three days I will raise it up.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.20?lang=eng#p20">John 2:20</reference>
-    <body>
-      <title>John 2</title>
       <highlight verse="20">Then said the Jews, Forty and six years was this temple in building, and wilt thou rear it up in three days?</highlight>
     </body>
   </resource>
@@ -5517,7 +5492,6 @@
     <topic>baptism</topic>
     <topic>salvation</topic>
     <topic>spirit</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.3-7?lang=eng#p3">John 3:3-7</reference>
     <body>
       <title>John 3</title>
@@ -5530,6 +5504,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.14-15?lang=eng#p14">John 3:14-15</reference>
     <body>
       <title>John 3</title>
@@ -5541,7 +5516,6 @@
     <topic>atonement</topic>
     <topic>jesus christ</topic>
     <topic>life</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.16-17?lang=eng#p16">John 3:16-17</reference>
     <body>
       <title>John 3</title>
@@ -5559,6 +5533,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
+    <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.35-36?lang=eng#p35">John 3:35-36</reference>
     <body>
       <title>John 3</title>
@@ -5567,7 +5542,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
+    <topic>baptism</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/4.1-2?lang=eng#p1">John 4:1-2</reference>
     <body>
       <title>John 4</title>
@@ -5711,6 +5687,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>resurrection</topic>
+    <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/6.54?lang=eng#p54">John 6:54</reference>
     <body>
       <title>John 6</title>
@@ -5718,15 +5695,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/6.62?lang=eng#p62">John 6:62</reference>
-    <body>
-      <title>John 6</title>
-      <highlight verse="62">What and if ye shall see the Son of man ascend up where he was before?</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>apostles</topic>
+    <topic>agency</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/6.70?lang=eng#p70">John 6:70</reference>
     <body>
       <title>John 6</title>
@@ -5771,6 +5741,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>obedience</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/8.29-32?lang=eng#p29">John 8:29-32</reference>
     <body>
       <title>John 8</title>
@@ -5806,6 +5777,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/10.17-18?lang=eng#p17">John 10:17-18</reference>
     <body>
       <title>John 10</title>
@@ -5815,55 +5787,15 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
+    <topic>faith</topic>
     <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/11.1-45?lang=eng#p1">John 11:1-45</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/11.23-26?lang=eng#p23">John 11:23-26</reference>
     <body>
       <title>John 11</title>
-      <highlight verse="1">Now a certain man was sick, named Lazarus, of Bethany, the town of Mary and her sister Martha.</highlight>
-      <highlight verse="2">(It was that Mary which anointed the Lord with ointment, and wiped his feet with her hair, whose brother Lazarus was sick.)</highlight>
-      <highlight verse="3">Therefore his sisters sent unto him, saying, Lord, behold, he whom thou lovest is sick.</highlight>
-      <highlight verse="4">When Jesus heard that, he said, This sickness is not unto death, but for the glory of God, that the Son of God might be glorified thereby.</highlight>
-      <highlight verse="5">Now Jesus loved Martha, and her sister, and Lazarus.</highlight>
-      <highlight verse="6">When he had heard therefore that he was sick, he abode two days still in the same place where he was.</highlight>
-      <highlight verse="7">Then after that saith he to his disciples, Let us go into Judæa again.</highlight>
-      <highlight verse="8">His disciples say unto him, Master, the Jews of late sought to stone thee; and goest thou thither again?</highlight>
-      <highlight verse="9">Jesus answered, Are there not twelve hours in the day? If any man walk in the day, he stumbleth not, because he seeth the light of this world.</highlight>
-      <highlight verse="10">But if a man walk in the night, he stumbleth, because there is no light in him.</highlight>
-      <highlight verse="11">These things said he: and after that he saith unto them, Our friend Lazarus sleepeth; but I go, that I may awake him out of sleep.</highlight>
-      <highlight verse="12">Then said his disciples, Lord, if he sleep, he shall do well.</highlight>
-      <highlight verse="13">Howbeit Jesus spake of his death: but they thought that he had spoken of taking of rest in sleep.</highlight>
-      <highlight verse="14">Then said Jesus unto them plainly, Lazarus is dead.</highlight>
-      <highlight verse="15">And I am glad for your sakes that I was not there, to the intent ye may believe; nevertheless let us go unto him.</highlight>
-      <highlight verse="16">Then said Thomas, which is called Didymus, unto his fellowdisciples, Let us also go, that we may die with him.</highlight>
-      <highlight verse="17">Then when Jesus came, he found that he had lain in the grave four days already.</highlight>
-      <highlight verse="18">Now Bethany was nigh unto Jerusalem, about fifteen furlongs off:</highlight>
-      <highlight verse="19">And many of the Jews came to Martha and Mary, to comfort them concerning their brother.</highlight>
-      <highlight verse="20">Then Martha, as soon as she heard that Jesus was coming, went and met him: but Mary sat still in the house.</highlight>
-      <highlight verse="21">Then said Martha unto Jesus, Lord, if thou hadst been here, my brother had not died.</highlight>
-      <highlight verse="22">But I know, that even now, whatsoever thou wilt ask of God, God will give it thee.</highlight>
       <highlight verse="23">Jesus saith unto her, Thy brother shall rise again.</highlight>
       <highlight verse="24">Martha saith unto him, I know that he shall rise again in the resurrection at the last day.</highlight>
       <highlight verse="25">Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live:</highlight>
       <highlight verse="26">And whosoever liveth and believeth in me shall never die. Believest thou this?</highlight>
-      <highlight verse="27">She saith unto him, Yea, Lord: I believe that thou art the Christ, the Son of God, which should come into the world.</highlight>
-      <highlight verse="28">And when she had so said, she went her way, and called Mary her sister secretly, saying, The Master is come, and calleth for thee.</highlight>
-      <highlight verse="29">As soon as she heard that, she arose quickly, and came unto him.</highlight>
-      <highlight verse="30">Now Jesus was not yet come into the town, but was in that place where Martha met him.</highlight>
-      <highlight verse="31">The Jews then which were with her in the house, and comforted her, when they saw Mary, that she rose up hastily and went out, followed her, saying, She goeth unto the grave to weep there.</highlight>
-      <highlight verse="32">Then when Mary was come where Jesus was, and saw him, she fell down at his feet, saying unto him, Lord, if thou hadst been here, my brother had not died.</highlight>
-      <highlight verse="33">When Jesus therefore saw her weeping, and the Jews also weeping which came with her, he groaned in the spirit, and was troubled,</highlight>
-      <highlight verse="34">And said, Where have ye laid him? They said unto him, Lord, come and see.</highlight>
-      <highlight verse="35">Jesus wept.</highlight>
-      <highlight verse="36">Then said the Jews, Behold how he loved him!</highlight>
-      <highlight verse="37">And some of them said, Could not this man, which opened the eyes of the blind, have caused that even this man should not have died?</highlight>
-      <highlight verse="38">Jesus therefore again groaning in himself cometh to the grave. It was a cave, and a stone lay upon it.</highlight>
-      <highlight verse="39">Jesus said, Take ye away the stone. Martha, the sister of him that was dead, saith unto him, Lord, by this time he stinketh: for he hath been dead four days.</highlight>
-      <highlight verse="40">Jesus saith unto her, Said I not unto thee, that, if thou wouldest believe, thou shouldest see the glory of God?</highlight>
-      <highlight verse="41">Then they took away the stone from the place where the dead was laid. And Jesus lifted up his eyes, and said, Father, I thank thee that thou hast heard me.</highlight>
-      <highlight verse="42">And I knew that thou hearest me always: but because of the people which stand by I said it, that they may believe that thou hast sent me.</highlight>
-      <highlight verse="43">And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.</highlight>
-      <highlight verse="44">And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go.</highlight>
-      <highlight verse="45">Then many of the Jews which came to Mary, and had seen the things which Jesus did, believed on him.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -5971,7 +5903,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>spirit</topic>
-    <topic>wisdom</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.26?lang=eng#p26">John 14:26</reference>
     <body>
       <title>John 14</title>
@@ -6063,7 +5995,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>baptism</topic>
+    <topic>jesus christ</topic>
     <topic>leadership</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/17.6-11,14-17,20-23?lang=eng#p6">John 17:6-11,14-17,20-23</reference>
