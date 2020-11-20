@@ -7123,14 +7123,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/2.2?lang=eng#p2">1 Corinthians 2:2</reference>
-    <body>
-      <title>1 Corinthians 2</title>
-      <highlight verse="2">For I determined not to know any thing among you, save Jesus Christ, and him crucified.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>knowledge</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/2.5,9-11,13-14?lang=eng#p5">1 Corinthians 2:5,9-11,13-14</reference>
@@ -7154,7 +7146,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>virtue</topic>
-    <topic>wisdom</topic>
+    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/3.16-17?lang=eng#p16">1 Corinthians 3:16-17</reference>
     <body>
       <title>1 Corinthians 3</title>
@@ -7180,14 +7172,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>scriptures</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/5.9?lang=eng#p9">1 Corinthians 5:9</reference>
-    <body>
-      <title>1 Corinthians 5</title>
-      <highlight verse="9">I wrote unto you in an epistle not to company with fornicators:</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>baptism</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/6.11?lang=eng#p11">1 Corinthians 6:11</reference>
     <body>
@@ -7206,7 +7190,7 @@
   <resource category="NewTestament">
     <topic>chastity</topic>
     <topic>spirit</topic>
-    <topic>wisdom</topic>
+    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/6.18-20?lang=eng#p18">1 Corinthians 6:18-20</reference>
     <body>
       <title>1 Corinthians 6</title>
@@ -7266,17 +7250,11 @@
   </resource>
   <resource category="NewTestament">
     <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/11.9?lang=eng#p9">1 Corinthians 11:9</reference>
+    <topic>marriage</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/11.9,11?lang=eng#p9">1 Corinthians 11:9,11</reference>
     <body>
       <title>1 Corinthians 11</title>
       <highlight verse="9">Neither was the man created for the woman; but the woman for the man.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/11.11?lang=eng#p11">1 Corinthians 11:11</reference>
-    <body>
-      <title>1 Corinthians 11</title>
       <highlight verse="11">Nevertheless neither is the man without the woman, neither the woman without the man, in the Lord.</highlight>
     </body>
   </resource>
@@ -7302,6 +7280,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>spirit</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.8?lang=eng#p8">1 Corinthians 12:8</reference>
     <body>
@@ -7311,6 +7290,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>charity</topic>
+    <topic>leadership</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.13,29?lang=eng#p13">1 Corinthians 12:13,29</reference>
     <body>
       <title>1 Corinthians 12</title>
@@ -7321,15 +7301,7 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.27?lang=eng#p27">1 Corinthians 12:27</reference>
-    <body>
-      <title>1 Corinthians 12</title>
-      <highlight verse="27">Now ye are the body of Christ, and members in particular.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>apostles</topic>
-    <topic>prophets</topic>
+    <topic>leadership</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.28?lang=eng#p28">1 Corinthians 12:28</reference>
     <body>
       <title>1 Corinthians 12</title>
@@ -7378,30 +7350,50 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>atonement</topic>
-    <topic>death</topic>
-    <topic>faith</topic>
-    <topic>hope</topic>
     <topic>jesus christ</topic>
     <topic>resurrection</topic>
     <topic>salvation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.1-23?lang=eng#p1">1 Corinthians 15:1-23</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.1-4?lang=eng#p1">1 Corinthians 15:1-4</reference>
     <body>
       <title>1 Corinthians 15</title>
       <highlight verse="1">Moreover, brethren, I declare unto you the gospel which I preached unto you, which also ye have received, and wherein ye stand;</highlight>
       <highlight verse="2">By which also ye are saved, if ye keep in memory what I preached unto you, unless ye have believed in vain.</highlight>
       <highlight verse="3">For I delivered unto you first of all that which I also received, how that Christ died for our sins according to the scriptures;</highlight>
       <highlight verse="4">And that he was buried, and that he rose again the third day according to the scriptures:</highlight>
-      <highlight verse="5">And that he was seen of Cephas, then of the twelve:</highlight>
-      <highlight verse="6">After that, he was seen of above five hundred brethren at once; of whom the greater part remain unto this present, but some are fallen asleep.</highlight>
-      <highlight verse="7">After that, he was seen of James; then of all the apostles.</highlight>
-      <highlight verse="8">And last of all he was seen of me also, as of one born out of due time.</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>apostles</topic>
+    <topic>humility</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.9-11?lang=eng#p9">1 Corinthians 15:9-11</reference>
+    <body>
+      <title>1 Corinthians 15</title>
       <highlight verse="9">For I am the least of the apostles, that am not meet to be called an apostle, because I persecuted the church of God.</highlight>
       <highlight verse="10">But by the grace of God I am what I am: and his grace which was bestowed upon me was not in vain; but I laboured more abundantly than they all: yet not I, but the grace of God which was with me.</highlight>
       <highlight verse="11">Therefore whether it were I or they, so we preach, and so ye believed.</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>jesus christ</topic>
+    <topic>resurrection</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.12-15?lang=eng#p12">1 Corinthians 15:12-15</reference>
+    <body>
+      <title>1 Corinthians 15</title>
       <highlight verse="12">Now if Christ be preached that he rose from the dead, how say some among you that there is no resurrection of the dead?</highlight>
       <highlight verse="13">But if there be no resurrection of the dead, then is Christ not risen:</highlight>
       <highlight verse="14">And if Christ be not risen, then is our preaching vain, and your faith is also vain.</highlight>
       <highlight verse="15">Yea, and we are found false witnesses of God; because we have testified of God that he raised up Christ: whom he raised not up, if so be that the dead rise not.</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>death</topic>
+    <topic>faith</topic>
+    <topic>hope</topic>
+    <topic>jesus christ</topic>
+    <topic>resurrection</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.16-23?lang=eng#p16">1 Corinthians 15:16-23</reference>
+    <body>
+      <title>1 Corinthians 15</title>
       <highlight verse="16">For if the dead rise not, then is not Christ raised:</highlight>
       <highlight verse="17">And if Christ be not raised, your faith is vain; ye are yet in your sins.</highlight>
       <highlight verse="18">Then they also which are fallen asleep in Christ are perished.</highlight>
@@ -7431,14 +7423,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.32?lang=eng#p32">1 Corinthians 15:32</reference>
-    <body>
-      <title>1 Corinthians 15</title>
-      <highlight verse="32">If after the manner of men I have fought with beasts at Ephesus, what advantageth it me, if the dead rise not? let us eat and drink; for to morrow we die.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>atonement</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.39-44?lang=eng#p39">1 Corinthians 15:39-44</reference>
@@ -7453,15 +7437,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>agency</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.45?lang=eng#p45">1 Corinthians 15:45</reference>
-    <body>
-      <title>1 Corinthians 15</title>
-      <highlight verse="45">And so it is written, The first man Adam was made a living soul; the last Adam was made a quickening spirit.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>death</topic>
+    <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.51-58?lang=eng#p51">1 Corinthians 15:51-58</reference>
     <body>
       <title>1 Corinthians 15</title>
