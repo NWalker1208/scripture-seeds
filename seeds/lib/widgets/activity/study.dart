@@ -19,7 +19,6 @@ class StudyActivity extends ActivityWidget {
 
   static StudyActivityState of(BuildContext context) =>
     context.findAncestorStateOfType<StudyActivityState>();
-
 }
 
 class StudyActivityState extends State<StudyActivity> {
@@ -48,6 +47,14 @@ class StudyActivityState extends State<StudyActivity> {
     ActivityPage.of(context)?.updateQuote('\u{201C}$quote\u{201D}');
   }
 
+  void _switchTopic(String topic) {
+    Navigator.of(context).pop();
+    Navigator.of(context).pushReplacementNamed(
+      '/plant',
+      arguments: topic
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -56,12 +63,44 @@ class StudyActivityState extends State<StudyActivity> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
-      itemCount: widget.resource.body.length,
-      itemBuilder: (context, index) =>
-        widget.resource.body[index].toWidget(context, index),
-      separatorBuilder: (context, index) => SizedBox(height: 8.0),
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0),
+          sliver: SliverList(delegate: SliverChildBuilderDelegate(
+            (context, index) =>
+              (index.isEven) ?
+              widget.resource.body[index ~/ 2].toWidget(context, index ~/ 2) :
+              SizedBox(height: 8.0),
+
+            semanticIndexCallback: (Widget widget, int localIndex) =>
+              (localIndex.isEven) ? localIndex ~/ 2 : null,
+            childCount: widget.resource.body.length * 2 - 1,
+          )),
+        ),
+
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
+          sliver: SliverToBoxAdapter(
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: widget.resource.topics.map(
+                (topic) => Chip(
+                  label: Text(topic),
+                  backgroundColor: Colors.transparent,
+                  shape: StadiumBorder(
+                    side: BorderSide(
+                      color: DefaultTextStyle.of(context).style.color
+                    )
+                  ),
+                  //onPressed: () => _switchTopic(topic),
+                )
+              ).toList(),
+            ),
+          )
+        ),
+      ],
     );
   }
 }
