@@ -7477,14 +7477,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/1.22?lang=eng#p22">2 Corinthians 1:22</reference>
-    <body>
-      <title>2 Corinthians 1</title>
-      <highlight verse="22">Who hath also sealed us, and given the earnest of the Spirit in our hearts.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/4.8-10,14,16-17?lang=eng#p8">2 Corinthians 4:8-10,14,16-17</reference>
     <body>
@@ -7515,6 +7507,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>chastity</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/5.17?lang=eng#p17">2 Corinthians 5:17</reference>
     <body>
       <title>2 Corinthians 5</title>
@@ -7530,18 +7523,12 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>fasting</topic>
     <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/6.4?lang=eng#p4">2 Corinthians 6:4</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/6.4-5?lang=eng#p4">2 Corinthians 6:4-5</reference>
     <body>
       <title>2 Corinthians 6</title>
       <highlight verse="4">But in all things approving ourselves as the ministers of God, in much patience, in afflictions, in necessities, in distresses,</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>fasting</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/6.5?lang=eng#p5">2 Corinthians 6:5</reference>
-    <body>
-      <title>2 Corinthians 6</title>
       <highlight verse="5">In stripes, in imprisonments, in tumults, in labours, in watchings, in fastings;</highlight>
     </body>
   </resource>
@@ -7571,6 +7558,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>charity</topic>
     <topic>fasting</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/9.6-7?lang=eng#p6">2 Corinthians 9:6-7</reference>
     <body>
@@ -7609,14 +7597,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/gal/4.10?lang=eng#p10">Galatians 4:10</reference>
-    <body>
-      <title>Galatians 4</title>
-      <highlight verse="10">Ye observe days, and months, and times, and years.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/gal/5.5?lang=eng#p5">Galatians 5:5</reference>
     <body>
@@ -7633,6 +7613,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>agency</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/gal/5.13-14?lang=eng#p13">Galatians 5:13-14</reference>
     <body>
@@ -7666,7 +7647,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/1.13?lang=eng#p13">Ephesians 1:13</reference>
     <body>
       <title>Ephesians 1</title>
@@ -7775,7 +7756,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/4.30?lang=eng#p30">Ephesians 4:30</reference>
     <body>
       <title>Ephesians 4</title>
@@ -7925,14 +7906,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/col/2.3?lang=eng#p3">Colossians 2:3</reference>
-    <body>
-      <title>Colossians 2</title>
-      <highlight verse="3">In whom are hid all the treasures of wisdom and knowledge.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>baptism</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/col/2.12?lang=eng#p12">Colossians 2:12</reference>
     <body>
@@ -7942,6 +7915,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>resurrection</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/col/2.13?lang=eng#p13">Colossians 2:13</reference>
     <body>
       <title>Colossians 2</title>
@@ -7998,14 +7972,6 @@
     <body>
       <title>Colossians 4</title>
       <highlight verse="2">Continue in prayer, and watch in the same with thanksgiving;</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/col/4.5?lang=eng#p5">Colossians 4:5</reference>
-    <body>
-      <title>Colossians 4</title>
-      <highlight verse="5">Walk in wisdom toward them that are without, redeeming the time.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -8098,7 +8064,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>genealogy</topic>
+    <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-tim/1.4?lang=eng#p4">1 Timothy 1:4</reference>
     <body>
       <title>1 Timothy 1</title>
@@ -8191,14 +8157,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-tim/6.13?lang=eng#p13">1 Timothy 6:13</reference>
-    <body>
-      <title>1 Timothy 6</title>
-      <highlight verse="13">I give thee charge in the sight of God, who quickeneth all things, and before Christ Jesus, who before Pontius Pilate witnessed a good confession;</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/2.8?lang=eng#p8">2 Timothy 2:8</reference>
     <body>
@@ -8224,6 +8182,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>patience</topic>
+    <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/2.24?lang=eng#p24">2 Timothy 2:24</reference>
     <body>
       <title>2 Timothy 2</title>
