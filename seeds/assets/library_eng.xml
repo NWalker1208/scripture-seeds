@@ -8267,6 +8267,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>creation</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/1.1-3?lang=eng#p1">Hebrews 1:1-3</reference>
     <body>
       <title>Hebrews 1</title>
@@ -8301,6 +8302,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
+    <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/4.1-2?lang=eng#p1">Hebrews 4:1-2</reference>
     <body>
       <title>Hebrews 4</title>
@@ -8410,33 +8412,28 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>fasting</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/9.6-28?lang=eng#p6">Hebrews 9:6-28</reference>
+    <topic>atonement</topic>
+    <topic>jesus christ</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/9.11-14?lang=eng#p11">Hebrews 9:11-14</reference>
     <body>
       <title>Hebrews 9</title>
-      <highlight verse="6">Now when these things were thus ordained, the priests went always into the first tabernacle, accomplishing the service of God.</highlight>
-      <highlight verse="7">But into the second went the high priest alone once every year, not without blood, which he offered for himself, and for the errors of the people:</highlight>
-      <highlight verse="8">The Holy Ghost this signifying, that the way into the holiest of all was not yet made manifest, while as the first tabernacle was yet standing:</highlight>
-      <highlight verse="9">Which was a figure for the time then present, in which were offered both gifts and sacrifices, that could not make him that did the service perfect, as pertaining to the conscience;</highlight>
-      <highlight verse="10">Which stood only in meats and drinks, and divers washings, and carnal ordinances, imposed on them until the time of reformation.</highlight>
       <highlight verse="11">But Christ being come an high priest of good things to come, by a greater and more perfect tabernacle, not made with hands, that is to say, not of this building;</highlight>
       <highlight verse="12">Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us.</highlight>
       <highlight verse="13">For if the blood of bulls and of goats, and the ashes of an heifer sprinkling the unclean, sanctifieth to the purifying of the flesh:</highlight>
       <highlight verse="14">How much more shall the blood of Christ, who through the eternal Spirit offered himself without spot to God, purge your conscience from dead works to serve the living God?</highlight>
+    </body>
+  </resource>
+  <resource category="NewTestament">
+    <topic>atonement</topic>
+    <topic>jesus christ</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/9.15-18?lang=eng#p15">Hebrews 9:15-18</reference>
+    <body>
+      <title>Hebrews 9</title>
       <highlight verse="15">And for this cause he is the mediator of the new testament, that by means of death, for the redemption of the transgressions that were under the first testament, they which are called might receive the promise of eternal inheritance.</highlight>
       <highlight verse="16">For where a testament is, there must also of necessity be the death of the testator.</highlight>
       <highlight verse="17">For a testament is of force after men are dead: otherwise it is of no strength at all while the testator liveth.</highlight>
       <highlight verse="18">Whereupon neither the first testament was dedicated without blood.</highlight>
-      <highlight verse="19">For when Moses had spoken every precept to all the people according to the law, he took the blood of calves and of goats, with water, and scarlet wool, and hyssop, and sprinkled both the book, and all the people,</highlight>
-      <highlight verse="20">Saying, This is the blood of the testament which God hath enjoined unto you.</highlight>
-      <highlight verse="21">Moreover he sprinkled with blood both the tabernacle, and all the vessels of the ministry.</highlight>
-      <highlight verse="22">And almost all things are by the law purged with blood; and without shedding of blood is no remission.</highlight>
-      <highlight verse="23">It was therefore necessary that the patterns of things in the heavens should be purified with these; but the heavenly things themselves with better sacrifices than these.</highlight>
-      <highlight verse="24">For Christ is not entered into the holy places made with hands, which are the figures of the true; but into heaven itself, now to appear in the presence of God for us:</highlight>
-      <highlight verse="25">Nor yet that he should offer himself often, as the high priest entereth into the holy place every year with blood of others;</highlight>
-      <highlight verse="26">For then must he often have suffered since the foundation of the world: but now once in the end of the world hath he appeared to put away sin by the sacrifice of himself.</highlight>
-      <highlight verse="27">And as it is appointed unto men once to die, but after this the judgment:</highlight>
-      <highlight verse="28">So Christ was once offered to bear the sins of many; and unto them that look for him shall he appear the second time without sin unto salvation.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -8516,15 +8513,6 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>genealogy</topic>
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/11.40?lang=eng#p40">Hebrews 11:40</reference>
-    <body>
-      <title>Hebrews 11</title>
-      <highlight verse="40">God having provided some better thing for us, that they without us should not be made perfect.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/12.1?lang=eng#p1">Hebrews 12:1</reference>
     <body>
@@ -8542,6 +8530,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>life</topic>
+    <topic>obedience</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/12.9?lang=eng#p9">Hebrews 12:9</reference>
     <body>
@@ -8558,7 +8547,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>commandments</topic>
+    <topic>charity</topic>
+    <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/12.12?lang=eng#p12">Hebrews 12:12</reference>
     <body>
       <title>Hebrews 12</title>
@@ -8566,8 +8556,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>chastity</topic>
     <topic>marriage</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/13.4?lang=eng#p4">Hebrews 13:4</reference>
     <body>
       <title>Hebrews 13</title>
@@ -8616,6 +8606,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>charity</topic>
     <topic>chastity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/1.27?lang=eng#p27">James 1:27</reference>
     <body>
@@ -8673,7 +8664,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>repentance</topic>
+    <topic>knowledge</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/4.17?lang=eng#p17">James 4:17</reference>
     <body>
       <title>James 4</title>
@@ -8719,6 +8711,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>humility</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/james/5.16?lang=eng#p16">James 5:16</reference>
     <body>
@@ -8826,7 +8819,6 @@
     <topic>atonement</topic>
     <topic>genealogy</topic>
     <topic>spirit</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-pet/3.18-20?lang=eng#p18">1 Peter 3:18-20</reference>
     <body>
       <title>1 Peter 3</title>
@@ -8845,9 +8837,9 @@
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>death</topic>
     <topic>genealogy</topic>
     <topic>spirit</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-pet/4.6?lang=eng#p6">1 Peter 4:6</reference>
     <body>
       <title>1 Peter 4</title>
@@ -8899,7 +8891,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>resurrection</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/1.16-17?lang=eng#p16">2 Peter 1:16-17</reference>
     <body>
       <title>2 Peter 1</title>
@@ -8919,21 +8911,16 @@
   </resource>
   <resource category="NewTestament">
     <topic>life</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/2.4?lang=eng#p4">2 Peter 2:4</reference>
+    <topic>obedience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/2.4-9?lang=eng#p4">2 Peter 2:4-9</reference>
     <body>
       <title>2 Peter 2</title>
       <highlight verse="4">For if God spared not the angels that sinned, but cast them down to hell, and delivered them into chains of darkness, to be reserved unto judgment;</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/2.5?lang=eng#p5">2 Peter 2:5</reference>
-    <body>
-      <title>2 Peter 2</title>
       <highlight verse="5">And spared not the old world, but saved Noah the eighth person, a preacher of righteousness, bringing in the flood upon the world of the ungodly;</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
+    <topic>knowledge</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-pet/2.20-22?lang=eng#p20">2 Peter 2:20-22</reference>
     <body>
@@ -9043,7 +9030,8 @@
   </resource>
   <resource category="NewTestament">
     <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/1.10?lang=eng#p10">Revelation 1:10</reference>
+    <topic>scriptures</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/1.10-11?lang=eng#p10">Revelation 1:10-11</reference>
     <body>
       <title>Revelation 1</title>
       <highlight verse="10">I was in the Spirit on the Lord’s day, and heard behind me a great voice, as of a trumpet,</highlight>
@@ -9086,7 +9074,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/3.14?lang=eng#p14">Revelation 3:14</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/3.14-19?lang=eng#p14">Revelation 3:14-19</reference>
     <body>
       <title>Revelation 3</title>
       <highlight verse="14">And unto the angel of the church of the Laodiceans write; These things saith the Amen, the faithful and true witness, the beginning of the creation of God;</highlight>
@@ -9117,16 +9105,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/5.9-10?lang=eng#p9">Revelation 5:9-10</reference>
-    <body>
-      <title>Revelation 5</title>
-      <highlight verse="9">And they sung a new song, saying, Thou art worthy to take the book, and to open the seals thereof: for thou wast slain, and hast redeemed us to God by thy blood out of every kindred, and tongue, and people, and nation;</highlight>
-      <highlight verse="10">And hast made us unto our God kings and priests: and we shall reign on the earth.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>wisdom</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/5.12?lang=eng#p12">Revelation 5:12</reference>
     <body>
       <title>Revelation 5</title>
@@ -9159,17 +9138,10 @@
   </resource>
   <resource category="NewTestament">
     <topic>life</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/12.7?lang=eng#p7">Revelation 12:7</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/12.7-9?lang=eng#p7">Revelation 12:7-9</reference>
     <body>
       <title>Revelation 12</title>
       <highlight verse="7">And there was war in heaven: Michael and his angels fought against the dragon; and the dragon fought and his angels,</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>life</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/12.8-9?lang=eng#p8">Revelation 12:8-9</reference>
-    <body>
-      <title>Revelation 12</title>
       <highlight verse="8">And prevailed not; neither was their place found any more in heaven.</highlight>
       <highlight verse="9">And the great dragon was cast out, that old serpent, called the Devil, and Satan, which deceiveth the whole world: he was cast out into the earth, and his angels were cast out with him.</highlight>
     </body>
@@ -9220,18 +9192,11 @@
   </resource>
   <resource category="NewTestament">
     <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/20.4?lang=eng#p4">Revelation 20:4</reference>
+    <topic>resurrection</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/20.4-13?lang=eng#p4">Revelation 20:4-13</reference>
     <body>
       <title>Revelation 20</title>
       <highlight verse="4">And I saw thrones, and they sat upon them, and judgment was given unto them: and I saw the souls of them that were beheaded for the witness of Jesus, and for the word of God, and which had not worshipped the beast, neither his image, neither had received his mark upon their foreheads, or in their hands; and they lived and reigned with Christ a thousand years.</highlight>
-    </body>
-  </resource>
-  <resource category="NewTestament">
-    <topic>resurrection</topic>
-    <topic>tithing</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/20.5-13?lang=eng#p5">Revelation 20:5-13</reference>
-    <body>
-      <title>Revelation 20</title>
       <highlight verse="5">But the rest of the dead lived not again until the thousand years were finished. This is the first resurrection.</highlight>
       <highlight verse="6">Blessed and holy is he that hath part in the first resurrection: on such the second death hath no power, but they shall be priests of God and of Christ, and shall reign with him a thousand years.</highlight>
       <highlight verse="7">And when the thousand years are expired, Satan shall be loosed out of his prison,</highlight>
@@ -9267,6 +9232,7 @@
       <highlight verse="12">And, behold, I come quickly; and my reward is with me, to give every man according as his work shall be.</highlight>
     </body>
   </resource>
+  
   <resource category="BookOfMormon">
     <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/1.1?lang=eng#p1">1 Nephi 1:1</reference>
