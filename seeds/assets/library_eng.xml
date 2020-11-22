@@ -5472,20 +5472,24 @@
   </resource>
   <resource category="NewTestament">
     <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.14?lang=eng#p14">John 2:13-16</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.13-16?lang=eng#p13">John 2:13-16</reference>
     <body>
       <title>John 2</title>
+      <highlight verse="13">And the Jews’ passover was at hand, and Jesus went up to Jerusalem,</highlight>
       <highlight verse="14">And found in the temple those that sold oxen and sheep and doves, and the changers of money sitting:</highlight>
+      <highlight verse="15">And when he had made a scourge of small cords, he drove them all out of the temple, and the sheep, and the oxen; and poured out the changers’ money, and overthrew the tables;</highlight>
+      <highlight verse="16">And said unto them that sold doves, Take these things hence; make not my Father’s house an house of merchandise.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>temples</topic>
     <topic>resurrection</topic>
+    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/2.19-21?lang=eng#p19">John 2:19-21</reference>
     <body>
       <title>John 2</title>
       <highlight verse="19">Jesus answered and said unto them, Destroy this temple, and in three days I will raise it up.</highlight>
       <highlight verse="20">Then said the Jews, Forty and six years was this temple in building, and wilt thou rear it up in three days?</highlight>
+      <highlight verse="21">But he spake of the temple of his body.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -5503,8 +5507,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
     <topic>faith</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.14-15?lang=eng#p14">John 3:14-15</reference>
     <body>
       <title>John 3</title>
@@ -5695,8 +5699,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>apostles</topic>
     <topic>agency</topic>
+    <topic>apostles</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/6.70?lang=eng#p70">John 6:70</reference>
     <body>
       <title>John 6</title>
@@ -5740,8 +5744,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>obedience</topic>
     <topic>knowledge</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/8.29-32?lang=eng#p29">John 8:29-32</reference>
     <body>
       <title>John 8</title>
@@ -5902,8 +5906,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>spirit</topic>
     <topic>knowledge</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.26?lang=eng#p26">John 14:26</reference>
     <body>
       <title>John 14</title>
@@ -6109,8 +6113,8 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
     <topic>diligence</topic>
+    <topic>jesus christ</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/21.8-17?lang=eng#p8">John 21:8-17</reference>
     <body>
@@ -7145,8 +7149,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>virtue</topic>
     <topic>temples</topic>
+    <topic>virtue</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/3.16-17?lang=eng#p16">1 Corinthians 3:16-17</reference>
     <body>
       <title>1 Corinthians 3</title>
@@ -7300,8 +7304,8 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>prophets</topic>
     <topic>leadership</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.28?lang=eng#p28">1 Corinthians 12:28</reference>
     <body>
       <title>1 Corinthians 12</title>
@@ -7914,8 +7918,8 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>resurrection</topic>
     <topic>repentance</topic>
+    <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/col/2.13?lang=eng#p13">Colossians 2:13</reference>
     <body>
       <title>Colossians 2</title>
@@ -8917,6 +8921,10 @@
       <title>2 Peter 2</title>
       <highlight verse="4">For if God spared not the angels that sinned, but cast them down to hell, and delivered them into chains of darkness, to be reserved unto judgment;</highlight>
       <highlight verse="5">And spared not the old world, but saved Noah the eighth person, a preacher of righteousness, bringing in the flood upon the world of the ungodly;</highlight>
+      <highlight verse="6">And turning the cities of Sodom and Gomorrha into ashes condemned them with an overthrow, making them an ensample unto those that after should live ungodly;</highlight>
+      <highlight verse="7">And delivered just Lot, vexed with the filthy conversation of the wicked:</highlight>
+      <highlight verse="8">(For that righteous man dwelling among them, in seeing and hearing, vexed his righteous soul from day to day with their unlawful deeds;)</highlight>
+      <highlight verse="9">The Lord knoweth how to deliver the godly out of temptations, and to reserve the unjust unto the day of judgment to be punished:</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -9035,6 +9043,7 @@
     <body>
       <title>Revelation 1</title>
       <highlight verse="10">I was in the Spirit on the Lord’s day, and heard behind me a great voice, as of a trumpet,</highlight>
+      <highlight verse="11">Saying, I am Alpha and Omega, the first and the last: and, What thou seest, write in a book, and send it unto the seven churches which are in Asia; unto Ephesus, and unto Smyrna, and unto Pergamos, and unto Thyatira, and unto Sardis, and unto Philadelphia, and unto Laodicea.</highlight>
     </body>
   </resource>
   <resource category="NewTestament">
@@ -9232,7 +9241,6 @@
       <highlight verse="12">And, behold, I come quickly; and my reward is with me, to give every man according as his work shall be.</highlight>
     </body>
   </resource>
-  
   <resource category="BookOfMormon">
     <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/1.1?lang=eng#p1">1 Nephi 1:1</reference>
