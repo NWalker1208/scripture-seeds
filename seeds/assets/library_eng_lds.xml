@@ -9283,7 +9283,6 @@
     <topic>agency</topic>
     <topic>commandments</topic>
     <topic>faith</topic>
-    <topic>missionary</topic>
     <topic>obedience</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3.7?lang=eng#p7">1 Nephi 3:7</reference>
@@ -9319,6 +9318,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>obedience</topic>
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/4.1?lang=eng#p1">1 Nephi 4:1</reference>
     <body>
@@ -9396,7 +9396,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>chastity</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/9.6?lang=eng#p6">1 Nephi 9:6</reference>
     <body>
       <title>1 Nephi 9</title>
@@ -9433,37 +9433,57 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>spirit</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.11?lang=eng#p11">1 Nephi 11:11</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.10-11?lang=eng#p10">1 Nephi 11:10-11</reference>
     <body>
       <title>1 Nephi 11</title>
       <highlight verse="11">And I said unto him: To know the interpretation thereof—for I spake unto him as a man speaketh; for I beheld that he was in the form of a man; yet nevertheless, I knew that it was the Spirit of the Lord; and he spake unto me as a man speaketh with another.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>atonement</topic>
-    <topic>charity</topic>
-    <topic>jesus christ</topic>
-    <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.13-33?lang=eng#p13">1 Nephi 11:13-33</reference>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.16-17?lang=eng#p16">1 Nephi 11:16-17</reference>
     <body>
       <title>1 Nephi 11</title>
-      <highlight verse="13">And it came to pass that I looked and beheld the great city of Jerusalem, and also other cities. And I beheld the city of Nazareth; and in the city of Nazareth I beheld a virgin, and she was exceedingly fair and white.</highlight>
-      <highlight verse="14">And it came to pass that I saw the heavens open; and an angel came down and stood before me; and he said unto me: Nephi, what beholdest thou?</highlight>
-      <highlight verse="15">And I said unto him: A virgin, most beautiful and fair above all other virgins.</highlight>
       <highlight verse="16">And he said unto me: Knowest thou the condescension of God?</highlight>
       <highlight verse="17">And I said unto him: I know that he loveth his children; nevertheless, I do not know the meaning of all things.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>jesus christ</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.18-23?lang=eng#p18">1 Nephi 11:18-23</reference>
+    <body>
+      <title>1 Nephi 11</title>
       <highlight verse="18">And he said unto me: Behold, the virgin whom thou seest is the mother of the Son of God, after the manner of the flesh.</highlight>
       <highlight verse="19">And it came to pass that I beheld that she was carried away in the Spirit; and after she had been carried away in the Spirit for the space of a time the angel spake unto me, saying: Look!</highlight>
       <highlight verse="20">And I looked and beheld the virgin again, bearing a child in her arms.</highlight>
       <highlight verse="21">And the angel said unto me: Behold the Lamb of God, yea, even the Son of the Eternal Father! Knowest thou the meaning of the tree which thy father saw?</highlight>
       <highlight verse="22">And I answered him, saying: Yea, it is the love of God, which sheddeth itself abroad in the hearts of the children of men; wherefore, it is the most desirable above all things.</highlight>
       <highlight verse="23">And he spake unto me, saying: Yea, and the most joyous to the soul.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>apostles</topic>
+    <topic>baptism</topic>
+    <topic>jesus christ</topic>
+    <topic>obedience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.24-29?lang=eng#p24">1 Nephi 11:24-29</reference>
+    <body>
+      <title>1 Nephi 11</title>
       <highlight verse="24">And after he had said these words, he said unto me: Look! And I looked, and I beheld the Son of God going forth among the children of men; and I saw many fall down at his feet and worship him.</highlight>
       <highlight verse="25">And it came to pass that I beheld that the rod of iron, which my father had seen, was the word of God, which led to the fountain of living waters, or to the tree of life; which waters are a representation of the love of God; and I also beheld that the tree of life was a representation of the love of God.</highlight>
       <highlight verse="26">And the angel said unto me again: Look and behold the condescension of God!</highlight>
       <highlight verse="27">And I looked and beheld the Redeemer of the world, of whom my father had spoken; and I also beheld the prophet who should prepare the way before him. And the Lamb of God went forth and was baptized of him; and after he was baptized, I beheld the heavens open, and the Holy Ghost come down out of heaven and abide upon him in the form of a dove.</highlight>
       <highlight verse="28">And I beheld that he went forth ministering unto the people, in power and great glory; and the multitudes were gathered together to hear him; and I beheld that they cast him out from among them.</highlight>
       <highlight verse="29">And I also beheld twelve others following him. And it came to pass that they were carried away in the Spirit from before my face, and I saw them not.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>atonement</topic>
+    <topic>charity</topic>
+    <topic>jesus christ</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.30-33?lang=eng#p30">1 Nephi 11:30-33</reference>
+    <body>
+      <title>1 Nephi 11</title>
       <highlight verse="30">And it came to pass that the angel spake unto me again, saying: Look! And I looked, and I beheld the heavens open again, and I saw angels descending upon the children of men; and they did minister unto them.</highlight>
       <highlight verse="31">And he spake unto me again, saying: Look! And I looked, and I beheld the Lamb of God going forth among the children of men. And I beheld multitudes of people who were sick, and who were afflicted with all manner of diseases, and with devils and unclean spirits; and the angel spake and showed all these things unto me. And they were healed by the power of the Lamb of God; and the devils and the unclean spirits were cast out.</highlight>
       <highlight verse="32">And it came to pass that the angel spake unto me again, saying: Look! And I looked and beheld the Lamb of God, that he was taken by the people; yea, the Son of the everlasting God was judged of the world; and I saw and bear record.</highlight>
@@ -9534,6 +9554,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>obedience</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/15.28-30?lang=eng#p28">1 Nephi 15:28-30</reference>
     <body>
@@ -9607,6 +9628,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>jesus christ</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/19.10?lang=eng#p10">1 Nephi 19:10</reference>
     <body>
@@ -9627,22 +9649,15 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/20.1?lang=eng#p1">1 Nephi 20:1</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/20.1-2?lang=eng#p1">1 Nephi 20:1-2</reference>
     <body>
       <title>1 Nephi 20</title>
       <highlight verse="1">Hearken and hear this, O house of Jacob, who are called by the name of Israel, and are come forth out of the waters of Judah, or out of the waters of baptism, who swear by the name of the Lord, and make mention of the God of Israel, yet they swear not in truth nor in righteousness.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/21.26?lang=eng#p26">1 Nephi 21:26</reference>
-    <body>
-      <title>1 Nephi 21</title>
-      <highlight verse="26">And I will feed them that oppress thee with their own flesh; they shall be drunken with their own blood as with sweet wine; and all flesh shall know that I, the Lord, am thy Savior and thy Redeemer, the Mighty One of Jacob.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
     <topic>prophets</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.1-2?lang=eng#p1">1 Nephi 22:1-2</reference>
     <body>
       <title>1 Nephi 22</title>
@@ -9652,6 +9667,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>jesus christ</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.12?lang=eng#p12">1 Nephi 22:12</reference>
     <body>
       <title>1 Nephi 22</title>
@@ -9659,7 +9675,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>apostles</topic>
+    <topic>jesus christ</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.20-22?lang=eng#p20">1 Nephi 22:20-22</reference>
     <body>
       <title>1 Nephi 22</title>
