@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/pages/topics.dart';
 import 'package:seeds/services/settings/theme.dart';
 import 'package:seeds/services/themes.dart';
 import 'package:seeds/pages/dashboard.dart';
@@ -28,6 +29,7 @@ class SeedsApp extends StatelessWidget {
         routes: {
           '/': (context) => const DashboardPage(),
           '/settings': (context) => const SettingsPage(),
+          '/topics': (context) => const TopicsPage(),
 
           '/plant': (context) => PlantPage(plantName: ModalRoute.of(context).settings.arguments),
           '/plant/activity': (context) => ActivityPage(ModalRoute.of(context).settings.arguments),
