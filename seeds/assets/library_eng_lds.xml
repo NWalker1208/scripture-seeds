@@ -10382,7 +10382,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>hope</topic>
+    <topic>charity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/2.19?lang=eng#p19">Jacob 2:19</reference>
     <body>
       <title>Jacob 2</title>
@@ -10391,14 +10391,15 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/2.21?lang=eng#p21">Jacob 2:21</reference>
+    <topic>commandments</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/2.20-21?lang=eng#p20">Jacob 2:20-21</reference>
     <body>
       <title>Jacob 2</title>
       <highlight verse="21">Do ye not suppose that such things are abominable unto him who created all flesh? And the one being is as precious in his sight as the other. And all flesh is of the dust; and for the selfsame end hath he created them, that they should keep his commandments and glorify him forever.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>knowledge</topic>
+    <topic>commandments</topic>
     <topic>marriage</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/2.27-30?lang=eng#p27">Jacob 2:27-30</reference>
     <body>
@@ -10418,6 +10419,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>charity</topic>
+    <topic>commandments</topic>
     <topic>marriage</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/3.5-7?lang=eng#p5">Jacob 3:5-7</reference>
     <body>
@@ -10430,7 +10433,9 @@
   <resource category="BookOfMormon">
     <topic>faith</topic>
     <topic>hope</topic>
+    <topic>scriptures</topic>
     <topic>jesus christ</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/4.4-7?lang=eng#p4">Jacob 4:4-7</reference>
     <body>
       <title>Jacob 4</title>
@@ -10466,8 +10471,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>chastity</topic>
-    <topic>wisdom</topic>
+    <topic>prophets</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/4.13?lang=eng#p13">Jacob 4:13</reference>
     <body>
       <title>Jacob 4</title>
@@ -10484,6 +10489,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>jesus christ</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/7.11,19?lang=eng#p11">Jacob 7:11,19</reference>
     <body>
       <title>Jacob 7</title>
