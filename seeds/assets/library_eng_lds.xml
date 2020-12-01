@@ -10652,7 +10652,6 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>commandments</topic>
     <topic>humility</topic>
     <topic>service</topic>
     <topic>wisdom</topic>
@@ -10666,7 +10665,6 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>chastity</topic>
     <topic>commandments</topic>
     <topic>creation</topic>
     <topic>obedience</topic>
@@ -10688,7 +10686,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>chastity</topic>
+    <topic>knowledge</topic>
     <topic>obedience</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2.32-33,36-37?lang=eng#p32">Mosiah 2:32-33,36-37</reference>
@@ -10703,27 +10701,40 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>creation</topic>
-    <topic>faith</topic>
-    <topic>fasting</topic>
     <topic>humility</topic>
     <topic>jesus christ</topic>
-    <topic>patience</topic>
-    <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.1-19?lang=eng#p1">Mosiah 3:1-19</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.5-10?lang=eng#p5">Mosiah 3:5-10</reference>
     <body>
       <title>Mosiah 3</title>
-      <highlight verse="1">And again my brethren, I would call your attention, for I have somewhat more to speak unto you; for behold, I have things to tell you concerning that which is to come.</highlight>
-      <highlight verse="2">And the things which I shall tell you are made known unto me by an angel from God. And he said unto me: Awake; and I awoke, and behold he stood before me.</highlight>
-      <highlight verse="3">And he said unto me: Awake, and hear the words which I shall tell thee; for behold, I am come to declare unto you the glad tidings of great joy.</highlight>
-      <highlight verse="4">For the Lord hath heard thy prayers, and hath judged of thy righteousness, and hath sent me to declare unto thee that thou mayest rejoice; and that thou mayest declare unto thy people, that they may also be filled with joy.</highlight>
       <highlight verse="5">For behold, the time cometh, and is not far distant, that with power, the Lord Omnipotent who reigneth, who was, and is from all eternity to all eternity, shall come down from heaven among the children of men, and shall dwell in a tabernacle of clay, and shall go forth amongst men, working mighty miracles, such as healing the sick, raising the dead, causing the lame to walk, the blind to receive their sight, and the deaf to hear, and curing all manner of diseases.</highlight>
       <highlight verse="6">And he shall cast out devils, or the evil spirits which dwell in the hearts of the children of men.</highlight>
       <highlight verse="7">And lo, he shall suffer temptations, and pain of body, hunger, thirst, and fatigue, even more than man can suffer, except it be unto death; for behold, blood cometh from every pore, so great shall be his anguish for the wickedness and the abominations of his people.</highlight>
       <highlight verse="8">And he shall be called Jesus Christ, the Son of God, the Father of heaven and earth, the Creator of all things from the beginning; and his mother shall be called Mary.</highlight>
       <highlight verse="9">And lo, he cometh unto his own, that salvation might come unto the children of men even through faith on his name; and even after all this they shall consider him a man, and say that he hath a devil, and shall scourge him, and shall crucify him.</highlight>
       <highlight verse="10">And he shall rise the third day from the dead; and behold, he standeth to judge the world; and behold, all these things are done that a righteous judgment might come upon the children of men.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>atonement</topic>
+    <topic>knowledge</topic>
+    <topic>faith</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.11-12?lang=eng#p11">Mosiah 3:11-12</reference>
+    <body>
+      <title>Mosiah 3</title>
       <highlight verse="11">For behold, and also his blood atoneth for the sins of those who have fallen by the transgression of Adam, who have died not knowing the will of God concerning them, or who have ignorantly sinned.</highlight>
       <highlight verse="12">But wo, wo unto him who knoweth that he rebelleth against God! For salvation cometh to none such except it be through repentance and faith on the Lord Jesus Christ.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>atonement</topic>
+    <topic>humility</topic>
+    <topic>jesus christ</topic>
+    <topic>prophets</topic>
+    <topic>salvation</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.13-19?lang=eng#p13">Mosiah 3:13-19</reference>
+    <body>
+      <title>Mosiah 3</title>
       <highlight verse="13">And the Lord God hath sent his holy prophets among all the children of men, to declare these things to every kindred, nation, and tongue, that thereby whosoever should believe that Christ should come, the same might receive remission of their sins, and rejoice with exceedingly great joy, even as though he had already come among them.</highlight>
       <highlight verse="14">Yet the Lord God saw that his people were a stiffnecked people, and he appointed unto them a law, even the law of Moses.</highlight>
       <highlight verse="15">And many signs, and wonders, and types, and shadows showed he unto them, concerning his coming; and also holy prophets spake unto them concerning his coming; and yet they hardened their hearts, and understood not that the law of Moses availeth nothing except it were through the atonement of his blood.</highlight>
@@ -10734,22 +10745,37 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>atonement</topic>
-    <topic>baptism</topic>
-    <topic>fasting</topic>
     <topic>humility</topic>
     <topic>prayer</topic>
     <topic>repentance</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.1-3,10-13,26?lang=eng#p1">Mosiah 4:1-3,10-13,26</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.1-3?lang=eng#p1">Mosiah 4:1-3</reference>
     <body>
       <title>Mosiah 4</title>
       <highlight verse="1">And now, it came to pass that when king Benjamin had made an end of speaking the words which had been delivered unto him by the angel of the Lord, that he cast his eyes round about on the multitude, and behold they had fallen to the earth, for the fear of the Lord had come upon them.</highlight>
       <highlight verse="2">And they had viewed themselves in their own carnal state, even less than the dust of the earth. And they all cried aloud with one voice, saying: O have mercy, and apply the atoning blood of Christ that we may receive forgiveness of our sins, and our hearts may be purified; for we believe in Jesus Christ, the Son of God, who created heaven and earth, and all things; who shall come down among the children of men.</highlight>
       <highlight verse="3">And it came to pass that after they had spoken these words the Spirit of the Lord came upon them, and they were filled with joy, having received a remission of their sins, and having peace of conscience, because of the exceeding faith which they had in Jesus Christ who should come, according to the words which king Benjamin had spoken unto them.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>knowledge</topic>
+    <topic>humility</topic>
+    <topic>prayer</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.10-13?lang=eng#p10">Mosiah 4:10-13</reference>
+    <body>
+      <title>Mosiah 4</title>
       <highlight verse="10">And again, believe that ye must repent of your sins and forsake them, and humble yourselves before God; and ask in sincerity of heart that he would forgive you; and now, if you believe all these things see that ye do them.</highlight>
       <highlight verse="11">And again I say unto you as I have said before, that as ye have come to the knowledge of the glory of God, or if ye have known of his goodness and have tasted of his love, and have received a remission of your sins, which causeth such exceedingly great joy in your souls, even so I would that ye should remember, and always retain in remembrance, the greatness of God, and your own nothingness, and his goodness and long-suffering towards you, unworthy creatures, and humble yourselves even in the depths of humility, calling on the name of the Lord daily, and standing steadfastly in the faith of that which is to come, which was spoken by the mouth of the angel.</highlight>
       <highlight verse="12">And behold, I say unto you that if ye do this ye shall always rejoice, and be filled with the love of God, and always retain a remission of your sins; and ye shall grow in the knowledge of the glory of him that created you, or in the knowledge of that which is just and true.</highlight>
       <highlight verse="13">And ye will not have a mind to injure one another, but to live peaceably, and to render to every man according to that which is his due.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>repentance</topic>
+    <topic>charity</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.26?lang=eng#p26">Mosiah 4:26</reference>
+    <body>
+      <title>Mosiah 4</title>
       <highlight verse="26">And now, for the sake of these things which I have spoken unto you—that is, for the sake of retaining a remission of your sins from day to day, that ye may walk guiltless before God—I would that ye should impart of your substance to the poor, every man according to that which he hath, such as feeding the hungry, clothing the naked, visiting the sick and administering to their relief, both spiritually and temporally, according to their wants.</highlight>
     </body>
   </resource>
@@ -10775,18 +10801,36 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>charity</topic>
-    <topic>salvation</topic>
+    <topic>marriage</topic>
     <topic>service</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.14-24?lang=eng#p14">Mosiah 4:14-24</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.14-15?lang=eng#p14">Mosiah 4:14-15</reference>
     <body>
       <title>Mosiah 4</title>
       <highlight verse="14">And ye will not suffer your children that they go hungry, or naked; neither will ye suffer that they transgress the laws of God, and fight and quarrel one with another, and serve the devil, who is the master of sin, or who is the evil spirit which hath been spoken of by our fathers, he being an enemy to all righteousness.</highlight>
       <highlight verse="15">But ye will teach them to walk in the ways of truth and soberness; ye will teach them to love one another, and to serve one another.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>charity</topic>
+    <topic>salvation</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.16-20?lang=eng#p16">Mosiah 4:16-20</reference>
+    <body>
+      <title>Mosiah 4</title>
       <highlight verse="16">And also, ye yourselves will succor those that stand in need of your succor; ye will administer of your substance unto him that standeth in need; and ye will not suffer that the beggar putteth up his petition to you in vain, and turn him out to perish.</highlight>
       <highlight verse="17">Perhaps thou shalt say: The man has brought upon himself his misery; therefore I will stay my hand, and will not give unto him of my food, nor impart unto him of my substance that he may not suffer, for his punishments are just—</highlight>
       <highlight verse="18">But I say unto you, O man, whosoever doeth this the same hath great cause to repent; and except he repenteth of that which he hath done he perisheth forever, and hath no interest in the kingdom of God.</highlight>
       <highlight verse="19">For behold, are we not all beggars? Do we not all depend upon the same Being, even God, for all the substance which we have, for both food and raiment, and for gold, and for silver, and for all the riches which we have of every kind?</highlight>
       <highlight verse="20">And behold, even at this time, ye have been calling on his name, and begging for a remission of your sins. And has he suffered that ye have begged in vain? Nay; he has poured out his Spirit upon you, and has caused that your hearts should be filled with joy, and has caused that your mouths should be stopped that ye could not find utterance, so exceedingly great was your joy.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>charity</topic>
+    <topic>repentance</topic>
+    <topic>humility</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.21-24?lang=eng#p21">Mosiah 4:21-24</reference>
+    <body>
+      <title>Mosiah 4</title>
       <highlight verse="21">And now, if God, who has created you, on whom you are dependent for your lives and for all that ye have and are, doth grant unto you whatsoever ye ask that is right, in faith, believing that ye shall receive, O then, how ye ought to impart of the substance that ye have one to another.</highlight>
       <highlight verse="22">And if ye judge the man who putteth up his petition to you for your substance that he perish not, and condemn him, how much more just will be your condemnation for withholding your substance, which doth not belong to you but to God, to whom also your life belongeth; and yet ye put up no petition, nor repent of the thing which thou hast done.</highlight>
       <highlight verse="23">I say unto you, wo be unto that man, for his substance shall perish with him; and now, I say these things unto those who are rich as pertaining to the things of this world.</highlight>
@@ -10816,6 +10860,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/5.4?lang=eng#p4">Mosiah 5:4</reference>
     <body>
       <title>Mosiah 5</title>
