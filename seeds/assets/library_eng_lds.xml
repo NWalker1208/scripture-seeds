@@ -11045,7 +11045,6 @@
     <topic>baptism</topic>
     <topic>commandments</topic>
     <topic>humility</topic>
-    <topic>knowledge</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18.7-17?lang=eng#p7">Mosiah 18:7-17</reference>
     <body>
@@ -11105,6 +11104,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>baptism</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/21.33?lang=eng#p33">Mosiah 21:33</reference>
     <body>
       <title>Mosiah 21</title>
@@ -11120,9 +11120,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>apostles</topic>
     <topic>patience</topic>
-    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/23.21-22?lang=eng#p21">Mosiah 23:21-22</reference>
     <body>
       <title>Mosiah 23</title>
@@ -11167,6 +11165,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>jesus christ</topic>
+    <topic>baptism</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/26.22?lang=eng#p22">Mosiah 26:22</reference>
     <body>
       <title>Mosiah 26</title>
@@ -11189,12 +11188,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>fasting</topic>
-    <topic>jesus christ</topic>
     <topic>prayer</topic>
-    <topic>repentance</topic>
-    <topic>salvation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.8-32?lang=eng#p8">Mosiah 27:8-32</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.8-17?lang=eng#p8">Mosiah 27:8-17</reference>
     <body>
       <title>Mosiah 27</title>
       <highlight verse="8">Now the sons of Mosiah were numbered among the unbelievers; and also one of the sons of Alma was numbered among them, he being called Alma, after his father; nevertheless, he became a very wicked and an idolatrous man. And he was a man of many words, and did speak much flattery to the people; therefore he led many of the people to do after the manner of his iniquities.</highlight>
@@ -11207,6 +11202,16 @@
       <highlight verse="15">And now behold, can ye dispute the power of God? For behold, doth not my voice shake the earth? And can ye not also behold me before you? And I am sent from God.</highlight>
       <highlight verse="16">Now I say unto thee: Go, and remember the captivity of thy fathers in the land of Helam, and in the land of Nephi; and remember how great things he has done for them; for they were in bondage, and he has delivered them. And now I say unto thee, Alma, go thy way, and seek to destroy the church no more, that their prayers may be answered, and this even if thou wilt of thyself be cast off.</highlight>
       <highlight verse="17">And now it came to pass that these were the last words which the angel spake unto Alma, and he departed.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>faith</topic>
+    <topic>fasting</topic>
+    <topic>prayer</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.18-24?lang=eng#p18">Mosiah 27:18-24</reference>
+    <body>
+      <title>Mosiah 27</title>
       <highlight verse="18">And now Alma and those that were with him fell again to the earth, for great was their astonishment; for with their own eyes they had beheld an angel of the Lord; and his voice was as thunder, which shook the earth; and they knew that there was nothing save the power of God that could shake the earth and cause it to tremble as though it would part asunder.</highlight>
       <highlight verse="19">And now the astonishment of Alma was so great that he became dumb, that he could not open his mouth; yea, and he became weak, even that he could not move his hands; therefore he was taken by those that were with him, and carried helpless, even until he was laid before his father.</highlight>
       <highlight verse="20">And they rehearsed unto his father all that had happened unto them; and his father rejoiced, for he knew that it was the power of God.</highlight>
@@ -11214,10 +11219,28 @@
       <highlight verse="22">And he caused that the priests should assemble themselves together; and they began to fast, and to pray to the Lord their God that he would open the mouth of Alma, that he might speak, and also that his limbs might receive their strength—that the eyes of the people might be opened to see and know of the goodness and glory of God.</highlight>
       <highlight verse="23">And it came to pass after they had fasted and prayed for the space of two days and two nights, the limbs of Alma received their strength, and he stood up and began to speak unto them, bidding them to be of good comfort:</highlight>
       <highlight verse="24">For, said he, I have repented of my sins, and have been redeemed of the Lord; behold I am born of the Spirit.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>repentance</topic>
+    <topic>salvation</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.25-28?lang=eng#p25">Mosiah 27:25-28</reference>
+    <body>
+      <title>Mosiah 27</title>
       <highlight verse="25">And the Lord said unto me: Marvel not that all mankind, yea, men and women, all nations, kindreds, tongues and people, must be born again; yea, born of God, changed from their carnal and fallen state, to a state of righteousness, being redeemed of God, becoming his sons and daughters;</highlight>
       <highlight verse="26">And thus they become new creatures; and unless they do this, they can in nowise inherit the kingdom of God.</highlight>
       <highlight verse="27">I say unto you, unless this be the case, they must be cast off; and this I know, because I was like to be cast off.</highlight>
       <highlight verse="28">Nevertheless, after wading through much tribulation, repenting nigh unto death, the Lord in mercy hath seen fit to snatch me out of an everlasting burning, and I am born of God.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>jesus christ</topic>
+    <topic>repentance</topic>
+    <topic>salvation</topic>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.29-32?lang=eng#p29">Mosiah 27:29-32</reference>
+    <body>
+      <title>Mosiah 27</title>
       <highlight verse="29">My soul hath been redeemed from the gall of bitterness and bonds of iniquity. I was in the darkest abyss; but now I behold the marvelous light of God. My soul was racked with eternal torment; but I am snatched, and my soul is pained no more.</highlight>
       <highlight verse="30">I rejected my Redeemer, and denied that which had been spoken of by our fathers; but now that they may foresee that he will come, and that he remembereth every creature of his creating, he will make himself manifest unto all.</highlight>
       <highlight verse="31">Yea, every knee shall bow, and every tongue confess before him. Yea, even at the last day, when all men shall stand to be judged of him, then shall they confess that he is God; then shall they confess, who live without God in the world, that the judgment of an everlasting punishment is just upon them; and they shall quake, and tremble, and shrink beneath the glance of his all-searching eye.</highlight>
@@ -11245,6 +11268,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>creation</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/28.17?lang=eng#p17">Mosiah 28:17</reference>
     <body>
       <title>Mosiah 28</title>
@@ -11252,26 +11276,12 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>hope</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/29.26-27?lang=eng#p26">Mosiah 29:26-27</reference>
     <body>
       <title>Mosiah 29</title>
       <highlight verse="26">Now it is not common that the voice of the people desireth anything contrary to that which is right; but it is common for the lesser part of the people to desire that which is not right; therefore this shall ye observe and make it your law—to do your business by the voice of the people.</highlight>
       <highlight verse="27">And if the time comes that the voice of the people doth choose iniquity, then is the time that the judgments of God will come upon you; yea, then is the time he will visit you with great destruction even as he has hitherto visited this land.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/0.3?lang=eng#p3">Alma 0:3</reference>
-    <body>
-      <title>Alma 0</title>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>death</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/0.26?lang=eng#p26">Alma 0:26</reference>
-    <body>
-      <title>Alma 0</title>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -11303,19 +11313,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/3.6-10?lang=eng#p6">Alma 3:6-10</reference>
-    <body>
-      <title>Alma 3</title>
-      <highlight verse="6">And the skins of the Lamanites were dark, according to the mark which was set upon their fathers, which was a curse upon them because of their transgression and their rebellion against their brethren, who consisted of Nephi, Jacob, and Joseph, and Sam, who were just and holy men.</highlight>
-      <highlight verse="7">And their brethren sought to destroy them, therefore they were cursed; and the Lord God set a mark upon them, yea, upon Laman and Lemuel, and also the sons of Ishmael, and Ishmaelitish women.</highlight>
-      <highlight verse="8">And this was done that their seed might be distinguished from the seed of their brethren, that thereby the Lord God might preserve his people, that they might not mix and believe in incorrect traditions which would prove their destruction.</highlight>
-      <highlight verse="9">And it came to pass that whosoever did mingle his seed with that of the Lamanites did bring the same curse upon his seed.</highlight>
-      <highlight verse="10">Therefore, whosoever suffered himself to be led away by the Lamanites was called under that head, and there was a mark set upon him.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
     <topic>agency</topic>
+    <topic>death</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/3.26-27?lang=eng#p26">Alma 3:26-27</reference>
     <body>
@@ -11338,14 +11337,6 @@
     <body>
       <title>Alma 4</title>
       <highlight verse="19">And this he did that he himself might go forth among his people, or among the people of Nephi, that he might preach the word of God unto them, to stir them up in remembrance of their duty, and that he might pull down, by the word of God, all the pride and craftiness and all the contentions which were among his people, seeing no way that he might reclaim them save it were in bearing down in pure testimony against them.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>fasting</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/5.1?lang=eng#p1">Alma 5:1</reference>
-    <body>
-      <title>Alma 5</title>
-      <highlight verse="1">Now it came to pass that Alma began to deliver the word of God unto the people, first in the land of Zarahemla, and from thence throughout all the land.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
