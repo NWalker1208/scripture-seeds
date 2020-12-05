@@ -11420,7 +11420,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>atonement</topic>
-    <topic>faith</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/7.10-13?lang=eng#p10">Alma 7:10-13</reference>
     <body>
       <title>Alma 7</title>
@@ -11450,7 +11450,9 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>diligence</topic>
+    <topic>humility</topic>
     <topic>patience</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/7.23?lang=eng#p23">Alma 7:23</reference>
     <body>
       <title>Alma 7</title>
@@ -11468,6 +11470,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>baptism</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/8.10?lang=eng#p10">Alma 8:10</reference>
     <body>
       <title>Alma 8</title>
@@ -11527,21 +11530,16 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>chastity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.14?lang=eng#p14">Alma 12:14</reference>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.14-15?lang=eng#p14">Alma 12:14-15</reference>
     <body>
       <title>Alma 12</title>
       <highlight verse="14">For our words will condemn us, yea, all our works will condemn us; we shall not be found spotless; and our thoughts will also condemn us; and in this awful state we shall not dare to look up to our God; and we would fain be glad if we could command the rocks and the mountains to fall upon us to hide us from his presence.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.15?lang=eng#p15">Alma 12:15</reference>
-    <body>
-      <title>Alma 12</title>
       <highlight verse="15">But this cannot be; we must come forth and stand before him in his glory, and in his power, and in his might, majesty, and dominion, and acknowledge to our everlasting shame that all his judgments are just; that he is just in all his works, and that he is merciful unto the children of men, and that he has all power to save every man that believeth on his name and bringeth forth fruit meet for repentance.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>commandments</topic>
     <topic>death</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.16-18,32?lang=eng#p16">Alma 12:16-18,32</reference>
@@ -11555,6 +11553,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>death</topic>
+    <topic>life</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.24?lang=eng#p24">Alma 12:24</reference>
     <body>
       <title>Alma 12</title>
@@ -11571,17 +11571,37 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>life</topic>
+    <topic>faith</topic>
+    <topic>creation</topic>
     <topic>priesthood</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.1-12?lang=eng#p1">Alma 13:1-12</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.1-3?lang=eng#p1">Alma 13:1-3</reference>
     <body>
       <title>Alma 13</title>
       <highlight verse="1">And again, my brethren, I would cite your minds forward to the time when the Lord God gave these commandments unto his children; and I would that ye should remember that the Lord God ordained priests, after his holy order, which was after the order of his Son, to teach these things unto the people.</highlight>
       <highlight verse="2">And those priests were ordained after the order of his Son, in a manner that thereby the people might know in what manner to look forward to his Son for redemption.</highlight>
       <highlight verse="3">And this is the manner after which they were ordained—being called and prepared from the foundation of the world according to the foreknowledge of God, on account of their exceeding faith and good works; in the first place being left to choose good or evil; therefore they having chosen good, and exercising exceedingly great faith, are called with a holy calling, yea, with that holy calling which was prepared with, and according to, a preparatory redemption for such.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>atonement</topic>
+    <topic>missionary</topic>
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.4-6?lang=eng#p4">Alma 13:4-6</reference>
+    <body>
+      <title>Alma 13</title>
       <highlight verse="4">And thus they have been called to this holy calling on account of their faith, while others would reject the Spirit of God on account of the hardness of their hearts and blindness of their minds, while, if it had not been for this they might have had as great privilege as their brethren.</highlight>
       <highlight verse="5">Or in fine, in the first place they were on the same standing with their brethren; thus this holy calling being prepared from the foundation of the world for such as would not harden their hearts, being in and through the atonement of the Only Begotten Son, who was prepared—</highlight>
       <highlight verse="6">And thus being called by this holy calling, and ordained unto the high priesthood of the holy order of God, to teach his commandments unto the children of men, that they also might enter into his rest—</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>agency</topic>
+    <topic>faith</topic>
+    <topic>repentance</topic>
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.7-12?lang=eng#p7">Alma 13:7-12</reference>
+    <body>
+      <title>Alma 13</title>
       <highlight verse="7">This high priesthood being after the order of his Son, which order was from the foundation of the world; or in other words, being without beginning of days or end of years, being prepared from eternity to all eternity, according to his foreknowledge of all things—</highlight>
       <highlight verse="8">Now they were ordained after this manner—being called with a holy calling, and ordained with a holy ordinance, and taking upon them the high priesthood of the holy order, which calling, and ordinance, and high priesthood, is without beginning or end—</highlight>
       <highlight verse="9">Thus they become high priests forever, after the order of the Son, the Only Begotten of the Father, who is without beginning of days or end of years, who is full of grace, equity, and truth. And thus it is. Amen.</highlight>
@@ -11599,7 +11619,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>genealogy</topic>
+    <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.16?lang=eng#p16">Alma 13:16</reference>
     <body>
       <title>Alma 13</title>
@@ -11615,7 +11635,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>chastity</topic>
+    <topic>repentance</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.27-29?lang=eng#p27">Alma 13:27-29</reference>
     <body>
@@ -11654,16 +11674,27 @@
     <topic>diligence</topic>
     <topic>fasting</topic>
     <topic>leadership</topic>
-    <topic>patience</topic>
     <topic>prayer</topic>
     <topic>scriptures</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.1-11?lang=eng#p1">Alma 17:1-11</reference>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.1-4?lang=eng#p1">Alma 17:1-4</reference>
     <body>
       <title>Alma 17</title>
       <highlight verse="1">And now it came to pass that as Alma was journeying from the land of Gideon southward, away to the land of Manti, behold, to his astonishment, he met with the sons of Mosiah journeying towards the land of Zarahemla.</highlight>
       <highlight verse="2">Now these sons of Mosiah were with Alma at the time the angel first appeared unto him; therefore Alma did rejoice exceedingly to see his brethren; and what added more to his joy, they were still his brethren in the Lord; yea, and they had waxed strong in the knowledge of the truth; for they were men of a sound understanding and they had searched the scriptures diligently, that they might know the word of God.</highlight>
       <highlight verse="3">But this is not all; they had given themselves to much prayer, and fasting; therefore they had the spirit of prophecy, and the spirit of revelation, and when they taught, they taught with power and authority of God.</highlight>
       <highlight verse="4">And they had been teaching the word of God for the space of fourteen years among the Lamanites, having had much success in bringing many to the knowledge of the truth; yea, by the power of their words many were brought before the altar of God, to call on his name and confess their sins before him.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>fasting</topic>
+    <topic>patience</topic>
+    <topic>prayer</topic>
+    <topic>scriptures</topic>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.5-11?lang=eng#p5">Alma 17:5-11</reference>
+    <body>
+      <title>Alma 17</title>
       <highlight verse="5">Now these are the circumstances which attended them in their journeyings, for they had many afflictions; they did suffer much, both in body and in mind, such as hunger, thirst and fatigue, and also much labor in the spirit.</highlight>
       <highlight verse="6">Now these were their journeyings: Having taken leave of their father, Mosiah, in the first year of the judges; having refused the kingdom which their father was desirous to confer upon them, and also this was the minds of the people;</highlight>
       <highlight verse="7">Nevertheless they departed out of the land of Zarahemla, and took their swords, and their spears, and their bows, and their arrows, and their slings; and this they did that they might provide food for themselves while in the wilderness.</highlight>
@@ -11734,7 +11765,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>missionary</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.1-16?lang=eng#p1">Alma 26:1-16</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.1-7?lang=eng#p1">Alma 26:1-7</reference>
     <body>
       <title>Alma 26</title>
       <highlight verse="1">And now, these are the words of Ammon to his brethren, which say thus: My brothers and my brethren, behold I say unto you, how great reason have we to rejoice; for could we have supposed when we started from the land of Zarahemla that God would have granted unto us such great blessings?</highlight>
@@ -11744,11 +11775,26 @@
       <highlight verse="5">Behold, the field was ripe, and blessed are ye, for ye did thrust in the sickle, and did reap with your might, yea, all the day long did ye labor; and behold the number of your sheaves! And they shall be gathered into the garners, that they are not wasted.</highlight>
       <highlight verse="6">Yea, they shall not be beaten down by the storm at the last day; yea, neither shall they be harrowed up by the whirlwinds; but when the storm cometh they shall be gathered together in their place, that the storm cannot penetrate to them; yea, neither shall they be driven with fierce winds whithersoever the enemy listeth to carry them.</highlight>
       <highlight verse="7">But behold, they are in the hands of the Lord of the harvest, and they are his; and he will raise them up at the last day.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>humility</topic>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.8-12?lang=eng#p8">Alma 26:8-12</reference>
+    <body>
+      <title>Alma 26</title>
       <highlight verse="8">Blessed be the name of our God; let us sing to his praise, yea, let us give thanks to his holy name, for he doth work righteousness forever.</highlight>
       <highlight verse="9">For if we had not come up out of the land of Zarahemla, these our dearly beloved brethren, who have so dearly beloved us, would still have been racked with hatred against us, yea, and they would also have been strangers to God.</highlight>
       <highlight verse="10">And it came to pass that when Ammon had said these words, his brother Aaron rebuked him, saying: Ammon, I fear that thy joy doth carry thee away unto boasting.</highlight>
       <highlight verse="11">But Ammon said unto him: I do not boast in my own strength, nor in my own wisdom; but behold, my joy is full, yea, my heart is brim with joy, and I will rejoice in my God.</highlight>
       <highlight verse="12">Yea, I know that I am nothing; as to my strength I am weak; therefore I will not boast of myself, but I will boast of my God, for in his strength I can do all things; yea, behold, many mighty miracles we have wrought in this land, for which we will praise his name forever.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.13-16?lang=eng#p13">Alma 26:13-16</reference>
+    <body>
+      <title>Alma 26</title>
       <highlight verse="13">Behold, how many thousands of our brethren has he loosed from the pains of hell; and they are brought to sing redeeming love, and this because of the power of his word which is in us, therefore have we not great reason to rejoice?</highlight>
       <highlight verse="14">Yea, we have reason to praise him forever, for he is the Most High God, and has loosed our brethren from the chains of hell.</highlight>
       <highlight verse="15">Yea, they were encircled about with everlasting darkness and destruction; but behold, he has brought them into his everlasting light, yea, into everlasting salvation; and they are encircled about with the matchless bounty of his love; yea, and we have been instruments in his hands of doing this great and marvelous work.</highlight>
@@ -11758,6 +11804,7 @@
   <resource category="BookOfMormon">
     <topic>faith</topic>
     <topic>prayer</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.22?lang=eng#p22">Alma 26:22</reference>
     <body>
       <title>Alma 26</title>
@@ -11782,7 +11829,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>patience</topic>
+    <topic>humility</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/27.17-18?lang=eng#p17">Alma 27:17-18</reference>
     <body>
       <title>Alma 27</title>
@@ -11844,6 +11891,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>virtue</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/29.9?lang=eng#p9">Alma 29:9</reference>
     <body>
       <title>Alma 29</title>
@@ -11868,23 +11916,16 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>jesus christ</topic>
     <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/30.13?lang=eng#p13">Alma 30:13</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/30.13?lang=eng#p13">Alma 30:12-14,18</reference>
     <body>
       <title>Alma 30</title>
       <highlight verse="13">O ye that are bound down under a foolish and a vain hope, why do ye yoke yourselves with such foolish things? Why do ye look for a Christ? For no man can know of anything which is to come.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/30.18?lang=eng#p18">Alma 30:18</reference>
-    <body>
-      <title>Alma 30</title>
       <highlight verse="18">And thus he did preach unto them, leading away the hearts of many, causing them to lift up their heads in their wickedness, yea, leading away many women, and also men, to commit whoredoms—telling them that when a man was dead, that was the end thereof.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>humility</topic>
     <topic>leadership</topic>
     <topic>scriptures</topic>
     <topic>virtue</topic>
@@ -11940,11 +11981,10 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>diligence</topic>
     <topic>faith</topic>
     <topic>knowledge</topic>
     <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.26-43?lang=eng#p26">Alma 32:26-43</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.26-30?lang=eng#p26">Alma 32:26-30</reference>
     <body>
       <title>Alma 32</title>
       <highlight verse="26">Now, as I said concerning faith—that it was not a perfect knowledge—even so it is with my words. Ye cannot know of their surety at first, unto perfection, any more than faith is a perfect knowledge.</highlight>
@@ -11952,9 +11992,26 @@
       <highlight verse="28">Now, we will compare the word unto a seed. Now, if ye give place, that a seed may be planted in your heart, behold, if it be a true seed, or a good seed, if ye do not cast it out by your unbelief, that ye will resist the Spirit of the Lord, behold, it will begin to swell within your breasts; and when you feel these swelling motions, ye will begin to say within yourselves—It must needs be that this is a good seed, or that the word is good, for it beginneth to enlarge my soul; yea, it beginneth to enlighten my understanding, yea, it beginneth to be delicious to me.</highlight>
       <highlight verse="29">Now behold, would not this increase your faith? I say unto you, Yea; nevertheless it hath not grown up to a perfect knowledge.</highlight>
       <highlight verse="30">But behold, as the seed swelleth, and sprouteth, and beginneth to grow, then you must needs say that the seed is good; for behold it swelleth, and sprouteth, and beginneth to grow. And now, behold, will not this strengthen your faith? Yea, it will strengthen your faith: for ye will say I know that this is a good seed; for behold it sprouteth and beginneth to grow.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.31-33?lang=eng#p31">Alma 32:31-33</reference>
+    <body>
+      <title>Alma 32</title>
       <highlight verse="31">And now, behold, are ye sure that this is a good seed? I say unto you, Yea; for every seed bringeth forth unto its own likeness.</highlight>
       <highlight verse="32">Therefore, if a seed groweth it is good, but if it groweth not, behold it is not good, therefore it is cast away.</highlight>
       <highlight verse="33">And now, behold, because ye have tried the experiment, and planted the seed, and it swelleth and sprouteth, and beginneth to grow, ye must needs know that the seed is good.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <topic>knowledge</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.34-40?lang=eng#p34">Alma 32:34-40</reference>
+    <body>
+      <title>Alma 32</title>
       <highlight verse="34">And now, behold, is your knowledge perfect? Yea, your knowledge is perfect in that thing, and your faith is dormant; and this because you know, for ye know that the word hath swelled your souls, and ye also know that it hath sprouted up, that your understanding doth begin to be enlightened, and your mind doth begin to expand.</highlight>
       <highlight verse="35">O then, is not this real? I say unto you, Yea, because it is light; and whatsoever is light, is good, because it is discernible, therefore ye must know that it is good; and now behold, after ye have tasted this light is your knowledge perfect?</highlight>
       <highlight verse="36">Behold I say unto you, Nay; neither must ye lay aside your faith, for ye have only exercised your faith to plant the seed that ye might try the experiment to know if the seed was good.</highlight>
@@ -11962,6 +12019,15 @@
       <highlight verse="38">But if ye neglect the tree, and take no thought for its nourishment, behold it will not get any root; and when the heat of the sun cometh and scorcheth it, because it hath no root it withers away, and ye pluck it up and cast it out.</highlight>
       <highlight verse="39">Now, this is not because the seed was not good, neither is it because the fruit thereof would not be desirable; but it is because your ground is barren, and ye will not nourish the tree, therefore ye cannot have the fruit thereof.</highlight>
       <highlight verse="40">And thus, if ye will not nourish the word, looking forward with an eye of faith to the fruit thereof, ye can never pluck of the fruit of the tree of life.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>diligence</topic>
+    <topic>faith</topic>
+    <topic>patience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32.41-43?lang=eng#p41">Alma 32:41-43</reference>
+    <body>
+      <title>Alma 32</title>
       <highlight verse="41">But if ye will nourish the word, yea, nourish the tree as it beginneth to grow, by your faith with great diligence, and with patience, looking forward to the fruit thereof, it shall take root; and behold it shall be a tree springing up unto everlasting life.</highlight>
       <highlight verse="42">And because of your diligence and your faith and your patience with the word in nourishing it, that it may take root in you, behold, by and by ye shall pluck the fruit thereof, which is most precious, which is sweet above all that is sweet, and which is white above all that is white, yea, and pure above all that is pure; and ye shall feast upon this fruit even until ye are filled, that ye hunger not, neither shall ye thirst.</highlight>
       <highlight verse="43">Then, my brethren, ye shall reap the rewards of your faith, and your diligence, and patience, and long-suffering, waiting for the tree to bring forth fruit unto you.</highlight>
@@ -11969,14 +12035,14 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.3?lang=eng#p3">Alma 33:3</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.3-4,8?lang=eng#p3">Alma 33:3-4,8</reference>
     <body>
       <title>Alma 33</title>
       <highlight verse="3">Do ye remember to have read what Zenos, the prophet of old, has said concerning prayer or worship?</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>faith</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.11?lang=eng#p11">Alma 33:11</reference>
     <body>
       <title>Alma 33</title>
@@ -12018,7 +12084,6 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>atonement</topic>
-    <topic>chastity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/34.8-16?lang=eng#p8">Alma 34:8-16</reference>
     <body>
       <title>Alma 34</title>
@@ -12036,7 +12101,6 @@
   <resource category="BookOfMormon">
     <topic>charity</topic>
     <topic>faith</topic>
-    <topic>fasting</topic>
     <topic>prayer</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/34.17-29?lang=eng#p17">Alma 34:17-29</reference>
@@ -12058,6 +12122,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>life</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/34.32-33?lang=eng#p32">Alma 34:32-33</reference>
     <body>
@@ -12067,6 +12132,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>death</topic>
+    <topic>repentance</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/34.34?lang=eng#p34">Alma 34:34</reference>
     <body>
