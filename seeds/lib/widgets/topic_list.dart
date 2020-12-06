@@ -16,11 +16,13 @@ class TopicList extends StatelessWidget {
     Key key
   }) : super(key: key);
 
-  void purchase(WalletData wallet, ProgressData progress, String topic, int price) {
+  bool purchase(WalletData wallet, ProgressData progress, String topic, int price) {
     if (wallet.spend(price)) {
       progress.createProgressRecord(ProgressRecord(topic));
+      return true;
     } else {
       print('Not enough funds to purchase "$topic"');
+      return false;
     }
   }
 
@@ -46,39 +48,47 @@ class TopicList extends StatelessWidget {
         if (wallet.availableFunds == 0)
           return const Text('Collect seeds to start new topics.', textAlign: TextAlign.center);*/
 
-        return Text.rich(
-          TextSpan(
-              children: List.generate(
-                maxToShow == 0 ? topics.length : min(maxToShow, topics.length),
-                (index) {
-                  int price = library.topicPrices[topics[index]];
+        if (maxToShow != 0)
+          topics = topics.sublist(0, maxToShow);
 
-                  return WidgetSpan(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: RaisedButton(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text('$price '),
-                            const ImageIcon(AssetImage('assets/seeds_icon.ico')),
-                            Text(' ${topics[index].capitalize()}')
-                          ],
-                        ),
 
-                        textColor: Colors.white,
-                        disabledColor: Theme.of(context).scaffoldBackgroundColor,
 
-                        onPressed: wallet.canAfford(price) ?
-                          () => purchase(wallet, progress, topics[index], price) : null,
-                      ),
-                    )
-                  );
-                }
-              )
-          ),
-          textAlign: TextAlign.center,
+        return Wrap(
+          spacing: 8.0,
+          alignment: WrapAlignment.center,
+          children: [
+            ...topics.map(
+              (topic) =>
+                ActionChip(
+                  label: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('${library.topicPrices[topic]}'),
+                      const SizedBox(width: 4),
+                      const ImageIcon(AssetImage('assets/seeds_icon.ico')),
+                      const SizedBox(width: 4),
+                      Text(topic),
+                    ],
+                  ),
+
+                  /*backgroundColor: Colors.transparent,
+                  shape: StadiumBorder(
+                    side: BorderSide(
+                      color: DefaultTextStyle.of(context).style.color,
+                    ),
+                  ),*/
+
+                  onPressed: () {
+                    if (!purchase(wallet, progress, topic, library.topicPrices[topic]))
+                      Scaffold.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Collect seeds to buy more topics.')
+                        )
+                      );
+                  },
+                )
+            )
+          ],
         );
       },
     );
