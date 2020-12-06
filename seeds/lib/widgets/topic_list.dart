@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/data/progress.dart';
 import 'package:seeds/services/data/progress_record.dart';
 import 'package:seeds/services/data/wallet.dart';
@@ -54,7 +55,7 @@ class TopicList extends StatelessWidget {
 
 
         return Wrap(
-          spacing: 8.0,
+          spacing: 12.0,
           alignment: WrapAlignment.center,
           children: [
             ...topics.map(
@@ -65,8 +66,8 @@ class TopicList extends StatelessWidget {
                     children: [
                       Text('${library.topicPrices[topic]}'),
                       const SizedBox(width: 4),
-                      const ImageIcon(AssetImage('assets/seeds_icon.ico')),
-                      const SizedBox(width: 4),
+                      const Icon(CustomIcons.seeds) ,
+                      const SizedBox(width: 8),
                       Text(topic),
                     ],
                   ),

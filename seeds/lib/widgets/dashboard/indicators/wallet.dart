@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/custom_icons.dart';
 import 'package:seeds/services/data/wallet.dart';
 
 class WalletIndicator extends StatelessWidget {
@@ -13,7 +14,7 @@ class WalletIndicator extends StatelessWidget {
       children: [
         Consumer<WalletData>(builder: (context, wallet, child) => Text('${wallet.availableFunds}')),
         const SizedBox(width: 4),
-        const ImageIcon(AssetImage('assets/seeds_icon.ico')) // TODO: Replace with seed
+        const Icon(CustomIcons.seeds),
       ],
     );
   }
