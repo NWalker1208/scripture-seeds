@@ -15,6 +15,8 @@ class LibraryManager extends ChangeNotifier {
   final String _libFileName;
 
   Library library;
+  DateTime _lastRefresh;
+  DateTime get lastRefresh => _lastRefresh;
 
   LibraryManager({
     this.assets,
@@ -43,10 +45,13 @@ class LibraryManager extends ChangeNotifier {
 
     if (newLibrary.version > (library?.version ?? -1)) {
       library = newLibrary;
-      notifyListeners();
-      _updateCacheFromDownload();
     } else
       print('Web library is outdated.');
+
+    _lastRefresh = DateTime.now();
+    notifyListeners();
+
+    _updateCacheFromDownload();
   }
 
   /// Cache Management Functions
@@ -92,10 +97,10 @@ class LibraryManager extends ChangeNotifier {
     // Load from cache and assets
     List<Library> libs = await Future.wait([
       _loadFromCache().then(
-              (libDoc) => Library.fromXmlElement(libDoc?.rootElement)
+        (libDoc) => Library.fromXmlElement(libDoc?.rootElement)
       ),
       _loadFromAssets().then(
-              (libDoc) => Library.fromXmlElement(libDoc?.rootElement)
+        (libDoc) => Library.fromXmlElement(libDoc?.rootElement)
       )
     ]);
 
@@ -105,12 +110,13 @@ class LibraryManager extends ChangeNotifier {
     // If cache is older than asset, return asset
     if ((assetsLibrary?.version ?? -1) > (cacheLibrary?.version ?? -1)) {
       // Delete cache
-      _getCacheFile().then((cache) {
+      // Commented out so cache is not deleted as frequently
+      /*_getCacheFile().then((cache) {
         if (cache.existsSync()){
           print('Cache is outdated. Deleting old cache...');
           cache.delete();
         }
-      });
+      });*/
 
       return assetsLibrary;
     }
@@ -142,6 +148,7 @@ class LibraryManager extends ChangeNotifier {
     File cache = await _getCacheFile();
 
     if (await cache.exists()) {
+      _lastRefresh = await cache.lastModified();
       print('Loading library from cache...');
       return _loadFromFile(cache).then((libDoc) {
         // Delete cache if XML parsing failed

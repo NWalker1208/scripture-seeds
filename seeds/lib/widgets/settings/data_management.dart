@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/widgets/dialogs/erase_journal.dart';
 import 'package:seeds/widgets/dialogs/reset_progress.dart';
@@ -58,32 +59,40 @@ class DataManagementSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        RaisedButton(
-            child: const Text('Sync Library'),
-            onPressed: () => _resetLibraryCache(context),
-            textColor: Colors.white
+        ListTile(
+          leading: const Icon(Icons.refresh),
+          title: const Text('Refresh Library'),
+          subtitle: Consumer<LibraryManager>(
+            builder: (context, libManager, child) {
+              if (libManager.lastRefresh == null)
+                return Text('Last refresh: Never');
+              else
+                return Text(
+                  'Last refresh: ${DateFormat('h:mm a, M/d/yyyy').format(libManager.lastRefresh)}'
+                );
+            }
+          ),
+          onTap: () => _resetLibraryCache(context),
         ),
 
-        // Reset Progress Button
         Row(
-          children: <Widget>[
+          children: [
             Expanded(
-              child: RaisedButton(
-                  child: const Text('Erase Journal'),
-                  onPressed: () => _eraseJournal(context),
-                  textColor: Colors.white,
-                  color: Theme.of(context).errorColor
+              child: ListTile(
+                leading: const Icon(Icons.delete_forever),
+                title: const Text('Erase Journal'),
+                tileColor: Theme.of(context).errorColor.withOpacity(0.8),
+                onTap: () => _eraseJournal(context),
               ),
             ),
-            SizedBox(width: 12.0),
+
             Expanded(
-              child: RaisedButton(
-                  child: const Text('Reset Progress'),
-                  onPressed: () => _resetProgress(context),
-                  textColor: Colors.white,
-                  color: Theme.of(context).errorColor
+              child: ListTile(
+                leading: const Icon(Icons.undo_rounded),
+                title: const Text('Reset Progress'),
+                tileColor: Theme.of(context).errorColor.withOpacity(0.8),
+                onTap: () => _resetProgress(context),
               ),
             ),
           ],

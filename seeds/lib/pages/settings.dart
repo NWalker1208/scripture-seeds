@@ -30,27 +30,12 @@ class SettingsPage extends StatelessWidget {
 
       body: ListView(
         children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: ThemeSelector()
-          ),
-
+          const ThemeSelector(),
           const Divider(),
-
-          const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: LibraryFilterSettings()
-          ),
-
+          const LibraryFilterSettings(),
           const Divider(),
-
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: DataManagementSettings()
-          ),
-
+          const DataManagementSettings(),
           const Divider(),
-
           ListTile(
             title: const Text('About Scripture Seeds', textAlign: TextAlign.center),
             onTap: () => _aboutHandler(context),
