@@ -8,16 +8,19 @@ import 'package:seeds/services/data/wallet.dart';
 import 'package:seeds/services/library/library.dart';
 import 'package:seeds/services/library/manager.dart';
 import 'package:seeds/services/utility.dart';
+import 'package:seeds/widgets/animated_list.dart';
 
 class TopicList extends StatelessWidget {
   final int maxToShow;
 
-  const TopicList({
-    this.maxToShow = 0,
-    Key key
-  }) : super(key: key);
+  const TopicList({this.maxToShow = 0, Key key}) : super(key: key);
 
-  bool purchase(WalletData wallet, ProgressData progress, String topic, int price) {
+  bool purchase(
+    WalletData wallet,
+    ProgressData progress,
+    String topic,
+    int price,
+  ) {
     if (wallet.spend(price)) {
       progress.createProgressRecord(ProgressRecord(topic));
       return true;
@@ -49,50 +52,43 @@ class TopicList extends StatelessWidget {
         if (wallet.availableFunds == 0)
           return const Text('Collect seeds to start new topics.', textAlign: TextAlign.center);*/
 
-        if (maxToShow != 0)
-          topics = topics.sublist(0, maxToShow);
+        if (maxToShow != 0) topics = topics.sublist(0, maxToShow);
 
-
-
-        return Wrap(
-          spacing: 12.0,
-          alignment: WrapAlignment.center,
-          children: [
-            ...topics.map(
-              (topic) =>
-                ActionChip(
-                  label: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('${library.topicPrices[topic]}'),
-                      const SizedBox(width: 4),
-                      const Icon(CustomIcons.seeds) ,
-                      const SizedBox(width: 8),
-                      Text(topic),
-                    ],
-                  ),
-
-                  /*backgroundColor: Colors.transparent,
-                  shape: StadiumBorder(
-                    side: BorderSide(
-                      color: DefaultTextStyle.of(context).style.color,
-                    ),
-                  ),*/
-
-                  onPressed: () {
-                    if (!purchase(wallet, progress, topic, library.topicPrices[topic]))
-                      Scaffold.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Collect seeds to buy more topics.')
-                        )
-                      );
-                  },
-                )
-            )
-          ],
+        return AnimatedListBuilder(
+          items: topics,
+          duration: Duration(milliseconds: 400),
+          childBuilder: (context, topic, animation) => FadeTransition(
+            opacity: animation,
+            child: SizeTransition(
+              axis: Axis.horizontal,
+              sizeFactor: CurvedAnimation(parent: animation, curve: Curves.easeOut),
+              child: ActionChip(
+                label: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('${library.topicPrices[topic]}'),
+                    const SizedBox(width: 4),
+                    const Icon(CustomIcons.seeds),
+                    const SizedBox(width: 8),
+                    Text(topic),
+                  ],
+                ),
+                onPressed: () {
+                  if (!purchase(wallet, progress, topic, library.topicPrices[topic]))
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text('Collect seeds to buy more topics.'),
+                    ));
+                },
+              ),
+            ),
+          ),
+          viewBuilder: (context, children) => Wrap(
+            spacing: 12.0,
+            alignment: WrapAlignment.center,
+            children: children,
+          ),
         );
       },
     );
   }
 }
-

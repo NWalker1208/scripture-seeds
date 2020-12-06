@@ -23,10 +23,16 @@ class PlantStatus extends StatelessWidget {
     return Row(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(right:16.0),
+          padding: const EdgeInsets.only(right: 16.0),
           child: Icon(icon),
         ),
-        Text('${progress.name.capitalize()}'),
+        Expanded(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Text('${progress.name.capitalize()}'),
+          ),
+        ),
       ],
     );
   }
