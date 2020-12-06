@@ -25,7 +25,7 @@ class TopicsDashboard extends StatelessWidget {
           const SizedBox(height: 8.0),
 
           // Plant list
-          const TopicList(maxToShow: 5),
+          const TopicList(maxToShow: 8),
           const SizedBox(height: 8.0),
 
           FlatButton(

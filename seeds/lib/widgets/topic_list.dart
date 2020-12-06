@@ -56,7 +56,8 @@ class TopicList extends StatelessWidget {
 
         return AnimatedListBuilder(
           items: topics,
-          duration: Duration(milliseconds: 400),
+          duration: Duration(milliseconds: 250),
+
           childBuilder: (context, topic, animation) => FadeTransition(
             opacity: animation,
             child: SizeTransition(
@@ -82,6 +83,7 @@ class TopicList extends StatelessWidget {
               ),
             ),
           ),
+
           viewBuilder: (context, children) => Wrap(
             spacing: 12.0,
             alignment: WrapAlignment.center,

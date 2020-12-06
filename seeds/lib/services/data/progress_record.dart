@@ -41,12 +41,15 @@ class ProgressRecord implements Comparable<ProgressRecord> {
 
   @override
   int compareTo(ProgressRecord other) {
-    int comp = other._priority.compareTo(_priority);
+    // Sorting by priority messes up animations
+    return name.compareTo(other.name);
+
+    /*int comp = other._priority.compareTo(_priority);
 
     if (comp == 0)
       comp = name.compareTo(other.name);
 
-    return comp;
+    return comp;*/
   }
 
   // Getter
