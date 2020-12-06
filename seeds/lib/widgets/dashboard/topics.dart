@@ -9,31 +9,26 @@ class TopicsDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Dashboard item title
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Topics', style: Theme.of(context).textTheme.subtitle1),
-              const WalletIndicator(),
-            ],
-          ),
-          const SizedBox(height: 8.0),
+    return Column(
+      //crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Dashboard item title
+        const ListTile(
+          title: const Text('Topics'),
+          trailing: WalletIndicator(),
+        ),
 
-          // Plant list
-          const TopicList(maxToShow: 8),
-          const SizedBox(height: 8.0),
+        // Plant list
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: TopicList(maxToShow: 8),
+        ),
 
-          FlatButton(
-            child: Text('View All'),
-            onPressed: () => Navigator.of(context).pushNamed('/topics'),
-          ),
-        ],
-      ),
+        ListTile(
+          title: const Text('View All', textAlign: TextAlign.center),
+          onTap: () => Navigator.of(context).pushNamed('/topics'),
+        ),
+      ],
     );
   }
 }

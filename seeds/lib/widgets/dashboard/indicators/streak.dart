@@ -11,6 +11,7 @@ class StreakIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<JournalData>(
       builder: (context, journal, child) => Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text('${journal.entries.length}'),
           const SizedBox(width: 4),

@@ -11,6 +11,7 @@ class WalletIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Consumer<WalletData>(builder: (context, wallet, child) => Text('${wallet.availableFunds}')),
         const SizedBox(width: 4),

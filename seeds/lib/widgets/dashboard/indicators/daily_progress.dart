@@ -21,6 +21,7 @@ class DailyProgressIndicator extends StatelessWidget {
         });
 
         return Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text('$completed / ${records.length}'),
             const SizedBox(width: 4),

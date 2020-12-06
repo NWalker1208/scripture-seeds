@@ -18,15 +18,9 @@ class PlantsDashboard extends StatelessWidget {
     return Column(
       children: [
         // Dashboard item title
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Plants', style: Theme.of(context).textTheme.subtitle1),
-              const DailyProgressIndicator(),
-            ],
-          ),
+        const ListTile(
+          title: Text('Plants'),
+          trailing: DailyProgressIndicator(),
         ),
 
         // Plant list

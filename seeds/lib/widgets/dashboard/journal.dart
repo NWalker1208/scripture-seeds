@@ -14,40 +14,34 @@ class JournalDashboard extends StatelessWidget {
     return Column(
       children: [
         // Dashboard item title
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Journal', style: Theme.of(context).textTheme.subtitle1),
-              const StreakIndicator()
-            ],
-          ),
+        const ListTile(
+          title: Text('Journal'),
+          trailing: StreakIndicator(),
         ),
 
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Consumer<JournalData>(
-            builder: (context, journal, child) {
-              if (journal.entries.length == 0)
-                return const Text('Your most recent journal entry will appear here.');
+          padding: EdgeInsets.all(8.0),
+          child: Consumer<JournalData>(builder: (context, journal, child) {
+            if (journal.entries.length == 0)
+              return const Text(
+                  'Your most recent journal entry will appear here.');
 
-              return Column(
-                children: [
-                  Text('Most recent entry', style: Theme.of(context).textTheme.caption),
-                  const SizedBox(height: 8),
-                  JournalEntryView(journal.entries.last),
-                ],
-              );
-            }
-          ),
+            return Column(
+              children: [
+                Text('Most recent entry',
+                    style: Theme.of(context).textTheme.caption),
+                const SizedBox(height: 8),
+                JournalEntryView(journal.entries.last),
+              ],
+            );
+          }),
         ),
 
         // Plant list
-        FlatButton(
-          child: const Text('View All'),
-          onPressed: () => Navigator.of(context).pushNamed('/journal'),
-        )
+        ListTile(
+          title: const Text('View All', textAlign: TextAlign.center),
+          onTap: () => Navigator.of(context).pushNamed('/journal'),
+        ),
       ],
     );
   }
