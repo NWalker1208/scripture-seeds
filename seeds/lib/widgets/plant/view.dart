@@ -9,14 +9,19 @@ class PlantView extends StatefulWidget {
   final EdgeInsetsGeometry plantPadding;
   final Widget child;
 
-  PlantView(this.plantName, {this.plantPadding = const EdgeInsets.all(20), this.child, Key key}) : super(key: key);
+  PlantView(
+    this.plantName, {
+    this.plantPadding = const EdgeInsets.all(20),
+    this.child,
+    Key key,
+  }) : super(key: key);
 
   @override
   _PlantViewState createState() => _PlantViewState();
 }
 
 class _PlantViewState extends State<PlantView> {
-  double initialProgress;
+  ProgressRecord _record;
 
   static final Color kDayColor = Colors.lightBlue[200];
   static final Color kNightColor = Colors.indigo[900];
@@ -26,11 +31,10 @@ class _PlantViewState extends State<PlantView> {
   }
 
   @override
-  void initState() {
-    ProgressData progressData = Provider.of<ProgressData>(context, listen: false);
-    ProgressRecord record = progressData.getProgressRecord(widget.plantName);
-    initialProgress = record.progressPercent;
-    super.initState();
+  void didChangeDependencies() {
+    ProgressData progressData = Provider.of<ProgressData>(context);
+    _record = progressData.getProgressRecord(widget.plantName);
+    super.didChangeDependencies();
   }
 
   @override
@@ -52,38 +56,32 @@ class _PlantViewState extends State<PlantView> {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [Color.lerp(skyColor, Colors.white, 0.2), skyColor],
-                stops: const [0, 1]
-              )
+                stops: const [0, 1],
+              ),
             ),
-
             child: Stack(
               children: [
                 // Plant Renderer
-                Consumer<ProgressData>(
-                  child: widget.child,
-                  builder: (context, progressData, child) {
-                    ProgressRecord record = progressData.getProgressRecord(widget.plantName);
-
-                    return Padding(
-                      padding: widget.plantPadding,
-                      child: LayoutBuilder(
-                        builder: (context, constraints) => TweenAnimationBuilder(
-                          tween: Tween<double>(begin: initialProgress, end: record.progressPercent),
-                          duration: Duration(milliseconds: 1000),
-                          curve: Curves.easeInOutCubic,
-
-                          builder: (context, progress, child) => CustomPaint(
-                            size: Size(constraints.maxWidth, constraints.maxHeight),
-                            painter: PlantPainter(
-                              growth: progress,
-                              wilted: record.progressLost != null,
-                              fruit: record.rewardAvailable,
-                            ),
-                          ),
+                Padding(
+                  padding: widget.plantPadding,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) => TweenAnimationBuilder(
+                      tween: Tween<double>(
+                        begin: _record.progressPercent + _record.lostPercent,
+                        end: _record.progressPercent,
+                      ),
+                      duration: Duration(milliseconds: 1000),
+                      curve: Curves.easeInOutCubic,
+                      builder: (context, progress, child) => CustomPaint(
+                        size: Size(constraints.maxWidth, constraints.maxHeight),
+                        painter: PlantPainter(
+                          growth: progress,
+                          wilted: _record.progressLost != null,
+                          fruit: _record.rewardAvailable,
                         ),
                       ),
-                    );
-                  }
+                    ),
+                  ),
                 ),
 
                 // Dirt Box
@@ -91,8 +89,12 @@ class _PlantViewState extends State<PlantView> {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  height: widget.plantPadding.resolve(Directionality.of(context)).bottom,
-                  child: Container(decoration: BoxDecoration(color: Colors.brown[800])),
+                  height: widget.plantPadding
+                      .resolve(Directionality.of(context))
+                      .bottom,
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.brown[800]),
+                  ),
                 ),
               ],
             ),
@@ -100,8 +102,7 @@ class _PlantViewState extends State<PlantView> {
         ),
 
         // Child
-        if (widget.child != null)
-          widget.child
+        if (widget.child != null) widget.child
       ],
     );
   }

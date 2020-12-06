@@ -88,6 +88,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   }
 
   double get progressPercent => progress / maxProgress;
+  double get lostPercent => (progressLost ?? 0) / maxProgress;
 
   // Setting progress automatically updates lastUpdate
   // Leaving progress null automatically increments it
