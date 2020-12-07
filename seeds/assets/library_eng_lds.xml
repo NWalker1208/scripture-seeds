@@ -12883,21 +12883,12 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>jesus christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/8.5-23?lang=eng#p5">3 Nephi 8:5-23</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/8.5-7,17-23?lang=eng#p5">3 Nephi 8:5-7,17-23</reference>
     <body>
       <title>3 Nephi 8</title>
       <highlight verse="5">And it came to pass in the thirty and fourth year, in the first month, on the fourth day of the month, there arose a great storm, such an one as never had been known in all the land.</highlight>
       <highlight verse="6">And there was also a great and terrible tempest; and there was terrible thunder, insomuch that it did shake the whole earth as if it was about to divide asunder.</highlight>
       <highlight verse="7">And there were exceedingly sharp lightnings, such as never had been known in all the land.</highlight>
-      <highlight verse="8">And the city of Zarahemla did take fire.</highlight>
-      <highlight verse="9">And the city of Moroni did sink into the depths of the sea, and the inhabitants thereof were drowned.</highlight>
-      <highlight verse="10">And the earth was carried up upon the city of Moronihah, that in the place of the city there became a great mountain.</highlight>
-      <highlight verse="11">And there was a great and terrible destruction in the land southward.</highlight>
-      <highlight verse="12">But behold, there was a more great and terrible destruction in the land northward; for behold, the whole face of the land was changed, because of the tempest and the whirlwinds, and the thunderings and the lightnings, and the exceedingly great quaking of the whole earth;</highlight>
-      <highlight verse="13">And the highways were broken up, and the level roads were spoiled, and many smooth places became rough.</highlight>
-      <highlight verse="14">And many great and notable cities were sunk, and many were burned, and many were shaken till the buildings thereof had fallen to the earth, and the inhabitants thereof were slain, and the places were left desolate.</highlight>
-      <highlight verse="15">And there were some cities which remained; but the damage thereof was exceedingly great, and there were many in them who were slain.</highlight>
-      <highlight verse="16">And there were some who were carried away in the whirlwind; and whither they went no man knoweth, save they know that they were carried away.</highlight>
       <highlight verse="17">And thus the face of the whole earth became deformed, because of the tempests, and the thunderings, and the lightnings, and the quaking of the earth.</highlight>
       <highlight verse="18">And behold, the rocks were rent in twain; they were broken up upon the face of the whole earth, insomuch that they were found in broken fragments, and in seams and in cracks, upon all the face of the land.</highlight>
       <highlight verse="19">And it came to pass that when the thunderings, and the lightnings, and the storm, and the tempest, and the quakings of the earth did cease—for behold, they did last for about the space of three hours; and it was said by some that the time was greater; nevertheless, all these great and terrible things were done in about the space of three hours—and then behold, there was darkness upon the face of the land.</highlight>
@@ -12908,7 +12899,6 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>faith</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/9.13-14?lang=eng#p13">3 Nephi 9:13-14</reference>
     <body>
@@ -12948,12 +12938,9 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>atonement</topic>
-    <topic>humility</topic>
     <topic>jesus christ</topic>
-    <topic>resurrection</topic>
     <topic>temples</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.1-17?lang=eng#p1">3 Nephi 11:1-17</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.1-7?lang=eng#p1">3 Nephi 11:1-7</reference>
     <body>
       <title>3 Nephi 11</title>
       <highlight verse="1">And now it came to pass that there were a great multitude gathered together, of the people of Nephi, round about the temple which was in the land Bountiful; and they were marveling and wondering one with another, and were showing one to another the great and marvelous change which had taken place.</highlight>
@@ -12963,11 +12950,30 @@
       <highlight verse="5">And again the third time they did hear the voice, and did open their ears to hear it; and their eyes were towards the sound thereof; and they did look steadfastly towards heaven, from whence the sound came.</highlight>
       <highlight verse="6">And behold, the third time they did understand the voice which they heard; and it said unto them:</highlight>
       <highlight verse="7">Behold my Beloved Son, in whom I am well pleased, in whom I have glorified my name—hear ye him.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>atonement</topic>
+    <topic>humility</topic>
+    <topic>jesus christ</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.8-12?lang=eng#p8">3 Nephi 11:8-12</reference>
+    <body>
+      <title>3 Nephi 11</title>
       <highlight verse="8">And it came to pass, as they understood they cast their eyes up again towards heaven; and behold, they saw a Man descending out of heaven; and he was clothed in a white robe; and he came down and stood in the midst of them; and the eyes of the whole multitude were turned upon him, and they durst not open their mouths, even one to another, and wist not what it meant, for they thought it was an angel that had appeared unto them.</highlight>
       <highlight verse="9">And it came to pass that he stretched forth his hand and spake unto the people, saying:</highlight>
       <highlight verse="10">Behold, I am Jesus Christ, whom the prophets testified shall come into the world.</highlight>
       <highlight verse="11">And behold, I am the light and the life of the world; and I have drunk out of that bitter cup which the Father hath given me, and have glorified the Father in taking upon me the sins of the world, in the which I have suffered the will of the Father in all things from the beginning.</highlight>
       <highlight verse="12">And it came to pass that when Jesus had spoken these words the whole multitude fell to the earth; for they remembered that it had been prophesied among them that Christ should show himself unto them after his ascension into heaven.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>atonement</topic>
+    <topic>jesus christ</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.13-17?lang=eng#p13">3 Nephi 11:13-17</reference>
+    <body>
+      <title>3 Nephi 11</title>
       <highlight verse="13">And it came to pass that the Lord spake unto them saying:</highlight>
       <highlight verse="14">Arise and come forth unto me, that ye may thrust your hands into my side, and also that ye may feel the prints of the nails in my hands and in my feet, that ye may know that I am the God of Israel, and the God of the whole earth, and have been slain for the sins of the world.</highlight>
       <highlight verse="15">And it came to pass that the multitude went forth, and thrust their hands into his side, and did feel the prints of the nails in his hands and in his feet; and this they did do, going forth one by one until they had all gone forth, and did see with their eyes and did feel with their hands, and did know of a surety and did bear record, that it was he, of whom it was written by the prophets, that should come.</highlight>
@@ -12980,8 +12986,7 @@
     <topic>leadership</topic>
     <topic>priesthood</topic>
     <topic>repentance</topic>
-    <topic>spirit</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.18-41?lang=eng#p18">3 Nephi 11:18-41</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.18-27?lang=eng#p18">3 Nephi 11:18-27</reference>
     <body>
       <title>3 Nephi 11</title>
       <highlight verse="18">And it came to pass that he spake unto Nephi (for Nephi was among the multitude) and he commanded him that he should come forth.</highlight>
@@ -12994,16 +12999,53 @@
       <highlight verse="25">Having authority given me of Jesus Christ, I baptize you in the name of the Father, and of the Son, and of the Holy Ghost. Amen.</highlight>
       <highlight verse="26">And then shall ye immerse them in the water, and come forth again out of the water.</highlight>
       <highlight verse="27">And after this manner shall ye baptize in my name; for behold, verily I say unto you, that the Father, and the Son, and the Holy Ghost are one; and I am in the Father, and the Father in me, and the Father and I are one.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>baptism</topic>
+    <topic>leadership</topic>
+    <topic>patience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.28-30?lang=eng#p28">3 Nephi 11:28-30</reference>
+    <body>
+      <title>3 Nephi 11</title>
       <highlight verse="28">And according as I have commanded you thus shall ye baptize. And there shall be no disputations among you, as there have hitherto been; neither shall there be disputations among you concerning the points of my doctrine, as there have hitherto been.</highlight>
       <highlight verse="29">For verily, verily I say unto you, he that hath the spirit of contention is not of me, but is of the devil, who is the father of contention, and he stirreth up the hearts of men to contend with anger, one with another.</highlight>
       <highlight verse="30">Behold, this is not my doctrine, to stir up the hearts of men with anger, one against another; but this is my doctrine, that such things should be done away.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>baptism</topic>
+    <topic>salvation</topic>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.31-34?lang=eng#p31">3 Nephi 11:31-34</reference>
+    <body>
+      <title>3 Nephi 11</title>
       <highlight verse="31">Behold, verily, verily, I say unto you, I will declare unto you my doctrine.</highlight>
       <highlight verse="32">And this is my doctrine, and it is the doctrine which the Father hath given unto me; and I bear record of the Father, and the Father beareth record of me, and the Holy Ghost beareth record of the Father and me; and I bear record that the Father commandeth all men, everywhere, to repent and believe in me.</highlight>
       <highlight verse="33">And whoso believeth in me, and is baptized, the same shall be saved; and they are they who shall inherit the kingdom of God.</highlight>
       <highlight verse="34">And whoso believeth not in me, and is not baptized, shall be damned.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>baptism</topic>
+    <topic>repentance</topic>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.35-37?lang=eng#p35">3 Nephi 11:35-37</reference>
+    <body>
+      <title>3 Nephi 11</title>
       <highlight verse="35">Verily, verily, I say unto you, that this is my doctrine, and I bear record of it from the Father; and whoso believeth in me believeth in the Father also; and unto him will the Father bear record of me, for he will visit him with fire and with the Holy Ghost.</highlight>
       <highlight verse="36">And thus will the Father bear record of me, and the Holy Ghost will bear record unto him of the Father and me; for the Father, and I, and the Holy Ghost are one.</highlight>
       <highlight verse="37">And again I say unto you, ye must repent, and become as a little child, and be baptized in my name, or ye can in nowise receive these things.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>baptism</topic>
+    <topic>leadership</topic>
+    <topic>repentance</topic>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.38-41?lang=eng#p38">3 Nephi 11:38-41</reference>
+    <body>
+      <title>3 Nephi 11</title>
       <highlight verse="38">And again I say unto you, ye must repent, and be baptized in my name, and become as a little child, or ye can in nowise inherit the kingdom of God.</highlight>
       <highlight verse="39">Verily, verily, I say unto you, that this is my doctrine, and whoso buildeth upon this buildeth upon my rock, and the gates of hell shall not prevail against them.</highlight>
       <highlight verse="40">And whoso shall declare more or less than this, and establish it for my doctrine, the same cometh of evil, and is not built upon my rock; but he buildeth upon a sandy foundation, and the gates of hell stand open to receive such when the floods come and the winds beat upon them.</highlight>
@@ -13014,6 +13056,7 @@
     <topic>apostles</topic>
     <topic>baptism</topic>
     <topic>humility</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/12.1-2?lang=eng#p1">3 Nephi 12:1-2</reference>
     <body>
       <title>3 Nephi 12</title>
@@ -13033,7 +13076,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>patience</topic>
+    <topic>charity</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/12.44?lang=eng#p44">3 Nephi 12:44</reference>
     <body>
@@ -13052,6 +13095,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>prayer</topic>
+    <topic>humility</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/13.5-9?lang=eng#p5">3 Nephi 13:5-9</reference>
     <body>
       <title>3 Nephi 13</title>
@@ -13063,6 +13107,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>charity</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/13.14-15?lang=eng#p14">3 Nephi 13:14-15</reference>
     <body>
@@ -13073,6 +13118,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>fasting</topic>
+    <topic>humility</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/13.16-18?lang=eng#p16">3 Nephi 13:16-18</reference>
     <body>
       <title>3 Nephi 13</title>
@@ -13141,14 +13187,23 @@
   <resource category="BookOfMormon">
     <topic>jesus christ</topic>
     <topic>prayer</topic>
-    <topic>salvation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17.15-25?lang=eng#p15">3 Nephi 17:15-25</reference>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17.15-18?lang=eng#p15">3 Nephi 17:15-18</reference>
     <body>
       <title>3 Nephi 17</title>
       <highlight verse="15">And when he had said these words, he himself also knelt upon the earth; and behold he prayed unto the Father, and the things which he prayed cannot be written, and the multitude did bear record who heard him.</highlight>
       <highlight verse="16">And after this manner do they bear record: The eye hath never seen, neither hath the ear heard, before, so great and marvelous things as we saw and heard Jesus speak unto the Father;</highlight>
       <highlight verse="17">And no tongue can speak, neither can there be written by any man, neither can the hearts of men conceive so great and marvelous things as we both saw and heard Jesus speak; and no one can conceive of the joy which filled our souls at the time we heard him pray for us unto the Father.</highlight>
       <highlight verse="18">And it came to pass that when Jesus had made an end of praying unto the Father, he arose; but so great was the joy of the multitude that they were overcome.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>faith</topic>
+    <topic>jesus christ</topic>
+    <topic>prayer</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17.19-25?lang=eng#p19">3 Nephi 17:19-25</reference>
+    <body>
+      <title>3 Nephi 17</title>
       <highlight verse="19">And it came to pass that Jesus spake unto them, and bade them arise.</highlight>
       <highlight verse="20">And they arose from the earth, and he said unto them: Blessed are ye because of your faith. And now behold, my joy is full.</highlight>
       <highlight verse="21">And when he had said these words, he wept, and the multitude bare record of it, and he took their little children, one by one, and blessed them, and prayed unto the Father for them.</highlight>
@@ -13159,13 +13214,13 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>obedience</topic>
+    <topic>baptism</topic>
     <topic>jesus christ</topic>
     <topic>sabbath</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.1-12?lang=eng#p1">3 Nephi 18:1-12</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.3-12?lang=eng#p3">3 Nephi 18:3-12</reference>
     <body>
       <title>3 Nephi 18</title>
-      <highlight verse="1">And it came to pass that Jesus commanded his disciples that they should bring forth some bread and wine unto him.</highlight>
-      <highlight verse="2">And while they were gone for bread and wine, he commanded the multitude that they should sit themselves down upon the earth.</highlight>
       <highlight verse="3">And when the disciples had come with bread and wine, he took of the bread and brake and blessed it; and he gave unto the disciples and commanded that they should eat.</highlight>
       <highlight verse="4">And when they had eaten and were filled, he commanded that they should give unto the multitude.</highlight>
       <highlight verse="5">And when the multitude had eaten and were filled, he said unto the disciples: Behold there shall one be ordained among you, and to him will I give power that he shall break bread and bless it and give it unto the people of my church, unto all those who shall believe and be baptized in my name.</highlight>
@@ -13179,24 +13234,56 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>commandments</topic>
-    <topic>humility</topic>
     <topic>jesus christ</topic>
-    <topic>knowledge</topic>
     <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.15-21,23-30?lang=eng#p15">3 Nephi 18:15-21,23-30</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.15-16?lang=eng#p15">3 Nephi 18:15-16</reference>
     <body>
       <title>3 Nephi 18</title>
       <highlight verse="15">Verily, verily, I say unto you, ye must watch and pray always, lest ye be tempted by the devil, and ye be led away captive by him.</highlight>
       <highlight verse="16">And as I have prayed among you even so shall ye pray in my church, among my people who do repent and are baptized in my name. Behold I am the light; I have set an example for you.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>faith</topic>
+    <topic>prayer</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.17-21?lang=eng#p17">3 Nephi 18:17-21</reference>
+    <body>
+      <title>3 Nephi 18</title>
       <highlight verse="17">And it came to pass that when Jesus had spoken these words unto his disciples, he turned again unto the multitude and said unto them:</highlight>
       <highlight verse="18">Behold, verily, verily, I say unto you, ye must watch and pray always lest ye enter into temptation; for Satan desireth to have you, that he may sift you as wheat.</highlight>
       <highlight verse="19">Therefore ye must always pray unto the Father in my name;</highlight>
       <highlight verse="20">And whatsoever ye shall ask the Father in my name, which is right, believing that ye shall receive, behold it shall be given unto you.</highlight>
       <highlight verse="21">Pray in your families unto the Father, always in my name, that your wives and your children may be blessed.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>charity</topic>
+    <topic>sabbath</topic>
+    <topic>prayer</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.22-23?lang=eng#p22">3 Nephi 18:22-23</reference>
+    <body>
+      <title>3 Nephi 18</title>
       <highlight verse="23">But ye shall pray for them, and shall not cast them out; and if it so be that they come unto you oft ye shall pray for them unto the Father, in my name.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>jesus christ</topic>
+    <topic>missionary</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.24-25?lang=eng#p24">3 Nephi 18:24-25</reference>
+    <body>
+      <title>3 Nephi 18</title>
       <highlight verse="24">Therefore, hold up your light that it may shine unto the world. Behold I am the light which ye shall hold up—that which ye have seen me do. Behold ye see that I have prayed unto the Father, and ye all have witnessed.</highlight>
       <highlight verse="25">And ye see that I have commanded that none of you should go away, but rather have commanded that ye should come unto me, that ye might feel and see; even so shall ye do unto the world; and whosoever breaketh this commandment suffereth himself to be led into temptation.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>commandments</topic>
+    <topic>obedience</topic>
+    <topic>repentance</topic>
+    <topic>charity</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.26-30?lang=eng#p26">3 Nephi 18:26-30</reference>
+    <body>
+      <title>3 Nephi 18</title>
       <highlight verse="26">And now it came to pass that when Jesus had spoken these words, he turned his eyes again upon the disciples whom he had chosen, and said unto them:</highlight>
       <highlight verse="27">Behold verily, verily, I say unto you, I give unto you another commandment, and then I must go unto my Father that I may fulfil other commandments which he hath given me.</highlight>
       <highlight verse="28">And now behold, this is the commandment which I give unto you, that ye shall not suffer any one knowingly to partake of my flesh and blood unworthily, when ye shall minister it;</highlight>
@@ -13206,10 +13293,21 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>prayer</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.9,17-34?lang=eng#p9">3 Nephi 19:9,17-34</reference>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.9?lang=eng#p9">3 Nephi 19:9</reference>
     <body>
       <title>3 Nephi 19</title>
       <highlight verse="9">And they did pray for that which they most desired; and they desired that the Holy Ghost should be given unto them.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>faith</topic>
+    <topic>jesus christ</topic>
+    <topic>prayer</topic>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.17-24?lang=eng#p17">3 Nephi 19:17-24</reference>
+    <body>
+      <title>3 Nephi 19</title>
       <highlight verse="17">And it came to pass that when they had all knelt down upon the earth, he commanded his disciples that they should pray.</highlight>
       <highlight verse="18">And behold, they began to pray; and they did pray unto Jesus, calling him their Lord and their God.</highlight>
       <highlight verse="19">And it came to pass that Jesus departed out of the midst of them, and went a little way off from them and bowed himself to the earth, and he said:</highlight>
@@ -13218,8 +13316,15 @@
       <highlight verse="22">Father, thou hast given them the Holy Ghost because they believe in me; and thou seest that they believe in me because thou hearest them, and they pray unto me; and they pray unto me because I am with them.</highlight>
       <highlight verse="23">And now Father, I pray unto thee for them, and also for all those who shall believe on their words, that they may believe in me, that I may be in them as thou, Father, art in me, that we may be one.</highlight>
       <highlight verse="24">And it came to pass that when Jesus had thus prayed unto the Father, he came unto his disciples, and behold, they did still continue, without ceasing, to pray unto him; and they did not multiply many words, for it was given unto them what they should pray, and they were filled with desire.</highlight>
-      <highlight verse="25">And it came to pass that Jesus blessed them as they did pray unto him; and his countenance did smile upon them, and the light of his countenance did shine upon them, and behold they were as white as the countenance and also the garments of Jesus; and behold the whiteness thereof did exceed all the whiteness, yea, even there could be nothing upon earth so white as the whiteness thereof.</highlight>
-      <highlight verse="26">And Jesus said unto them: Pray on; nevertheless they did not cease to pray.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>faith</topic>
+    <topic>jesus christ</topic>
+    <topic>prayer</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.27-34?lang=eng#p27">3 Nephi 19:27-34</reference>
+    <body>
+      <title>3 Nephi 19</title>
       <highlight verse="27">And he turned from them again, and went a little way off and bowed himself to the earth; and he prayed again unto the Father, saying:</highlight>
       <highlight verse="28">Father, I thank thee that thou hast purified those whom I have chosen, because of their faith, and I pray for them, and also for them who shall believe on their words, that they may be purified in me, through faith on their words, even as they are purified in me.</highlight>
       <highlight verse="29">Father, I pray not for the world, but for those whom thou hast given me out of the world, because of their faith, that they may be purified in me, that I may be in them as thou, Father, art in me, that we may be one, that I may be glorified in them.</highlight>
@@ -13255,6 +13360,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>missionary</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/21.27?lang=eng#p27">3 Nephi 21:27</reference>
     <body>
@@ -13304,7 +13410,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>tithing</topic>
+    <topic>humility</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/25.1-2?lang=eng#p1">3 Nephi 25:1-2</reference>
     <body>
       <title>3 Nephi 25</title>
@@ -13329,7 +13436,9 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>agency</topic>
     <topic>jesus christ</topic>
+    <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/26.5?lang=eng#p5">3 Nephi 26:5</reference>
     <body>
       <title>3 Nephi 26</title>
@@ -13346,6 +13455,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/26.11?lang=eng#p11">3 Nephi 26:11</reference>
     <body>
       <title>3 Nephi 26</title>
@@ -13376,14 +13486,12 @@
     <topic>agency</topic>
     <topic>atonement</topic>
     <topic>baptism</topic>
+    <topic>endure</topic>
     <topic>faith</topic>
-    <topic>humility</topic>
+    <topic>obedience</topic>
     <topic>jesus christ</topic>
-    <topic>patience</topic>
-    <topic>prayer</topic>
     <topic>repentance</topic>
-    <topic>spirit</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.13-22,27?lang=eng#p13">3 Nephi 27:13-22,27</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.13-19?lang=eng#p13">3 Nephi 27:13-19</reference>
     <body>
       <title>3 Nephi 27</title>
       <highlight verse="13">Behold I have given unto you my gospel, and this is the gospel which I have given unto you—that I came into the world to do the will of my Father, because my Father sent me.</highlight>
@@ -13393,14 +13501,33 @@
       <highlight verse="17">And he that endureth not unto the end, the same is he that is also hewn down and cast into the fire, from whence they can no more return, because of the justice of the Father.</highlight>
       <highlight verse="18">And this is the word which he hath given unto the children of men. And for this cause he fulfilleth the words which he hath given, and he lieth not, but fulfilleth all his words.</highlight>
       <highlight verse="19">And no unclean thing can enter into his kingdom; therefore nothing entereth into his rest save it be those who have washed their garments in my blood, because of their faith, and the repentance of all their sins, and their faithfulness unto the end.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>baptism</topic>
+    <topic>commandments</topic>
+    <topic>jesus christ</topic>
+    <topic>repentance</topic>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.20-22?lang=eng#p20">3 Nephi 27:20-22</reference>
+    <body>
+      <title>3 Nephi 27</title>
       <highlight verse="20">Now this is the commandment: Repent, all ye ends of the earth, and come unto me and be baptized in my name, that ye may be sanctified by the reception of the Holy Ghost, that ye may stand spotless before me at the last day.</highlight>
       <highlight verse="21">Verily, verily, I say unto you, this is my gospel; and ye know the things that ye must do in my church; for the works which ye have seen me do that shall ye also do; for that which ye have seen me do even that shall ye do;</highlight>
       <highlight verse="22">Therefore, if ye do these things blessed are ye, for ye shall be lifted up at the last day.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>leadership</topic>
+    <topic>jesus christ</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.27?lang=eng#p27">3 Nephi 27:27</reference>
+    <body>
+      <title>3 Nephi 27</title>
       <highlight verse="27">And know ye that ye shall be judges of this people, according to the judgment which I shall give unto you, which shall be just. Therefore, what manner of men ought ye to be? Verily I say unto you, even as I am.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>tithing</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.26?lang=eng#p26">3 Nephi 27:26</reference>
     <body>
       <title>3 Nephi 27</title>
@@ -13417,6 +13544,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>baptism</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/30.2?lang=eng#p2">3 Nephi 30:2</reference>
     <body>
       <title>3 Nephi 30</title>
@@ -13432,7 +13560,9 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>commandments</topic>
     <topic>fasting</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/4-ne/1.12?lang=eng#p12">4 Nephi 1:12</reference>
     <body>
       <title>4 Nephi 1</title>
@@ -13448,6 +13578,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>humility</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/2.10-14?lang=eng#p10">Mormon 2:10-14</reference>
     <body>
@@ -13476,6 +13607,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>agency</topic>
     <topic>jesus christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/3.20?lang=eng#p20">Mormon 3:20</reference>
     <body>
@@ -13493,6 +13625,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>baptism</topic>
+    <topic>repentance</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/7.8-9?lang=eng#p8">Mormon 7:8-9</reference>
     <body>
@@ -13519,6 +13653,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>agency</topic>
     <topic>atonement</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/9.12-14?lang=eng#p12">Mormon 9:12-14</reference>
@@ -13531,7 +13666,9 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>baptism</topic>
+    <topic>endure</topic>
     <topic>prayer</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/9.28-29?lang=eng#p28">Mormon 9:28-29</reference>
     <body>
       <title>Mormon 9</title>
@@ -13541,6 +13678,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/9.37?lang=eng#p37">Mormon 9:37</reference>
     <body>
       <title>Mormon 9</title>
