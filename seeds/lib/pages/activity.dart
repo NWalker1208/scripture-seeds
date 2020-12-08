@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/data/journal.dart';
-import 'package:seeds/services/library/history.dart';
-import 'package:seeds/services/library/library.dart';
-import 'package:seeds/services/library/manager.dart';
-import 'package:seeds/services/library/study_resource.dart';
-import 'package:seeds/services/data/progress.dart';
-import 'package:seeds/services/settings/library_filter.dart';
-import 'package:seeds/services/utility.dart';
-import 'package:seeds/widgets/activity/activity_widget.dart';
-import 'package:seeds/widgets/activity/study.dart';
-import 'package:seeds/widgets/activity/ponder.dart';
-import 'package:seeds/widgets/activity/share.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/widgets/activity/progress.dart';
-import 'package:seeds/widgets/animated_indexed_stack.dart';
-import 'package:seeds/widgets/help_page.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../services/data/journal.dart';
+import '../services/data/progress.dart';
+import '../services/library/history.dart';
+import '../services/library/manager.dart';
+import '../services/library/study_resource.dart';
+import '../services/settings/library_filter.dart';
+import '../services/utility.dart';
+import '../widgets/activity/activity_widget.dart';
+import '../widgets/activity/ponder.dart';
+import '../widgets/activity/progress.dart';
+import '../widgets/activity/share.dart';
+import '../widgets/activity/study.dart';
+import '../widgets/animated_indexed_stack.dart';
+import '../widgets/help_page.dart';
 
 class ActivityPage extends StatefulWidget {
   final String topic;
@@ -26,7 +26,7 @@ class ActivityPage extends StatefulWidget {
   ActivityPageState createState() => ActivityPageState();
 
   static ActivityPageState of(BuildContext context) =>
-    context.findAncestorStateOfType<ActivityPageState>();
+      context.findAncestorStateOfType<ActivityPageState>();
 }
 
 class ActivityPageState extends State<ActivityPage> {
@@ -43,7 +43,8 @@ class ActivityPageState extends State<ActivityPage> {
   PonderActivity _ponderActivity;
   ShareActivity _shareActivity;
 
-  void onProgressChange(bool completed) => setState(() => _completed[_stage] = completed);
+  void onProgressChange(bool completed) =>
+      setState(() => _completed[_stage] = completed);
   void updateQuote(String text) => setState(() => _quote = text);
   void updateCommentary(String text) => setState(() => _commentary = text);
   void updateSaveToJournal(bool save) => setState(() => _saveToJournal = save);
@@ -60,10 +61,13 @@ class ActivityPageState extends State<ActivityPage> {
   }
 
   void _endActivity(JournalEntry journalEntry, BuildContext context) {
-    if (_saveToJournal)
-      Provider.of<JournalData>(context, listen: false).createEntry(journalEntry);
+    if (_saveToJournal) {
+      Provider.of<JournalData>(context, listen: false)
+          .createEntry(journalEntry);
+    }
 
-    Provider.of<LibraryHistory>(context, listen: false).markAsStudied(_resource);
+    Provider.of<LibraryHistory>(context, listen: false)
+        .markAsStudied(_resource);
     Provider.of<ProgressData>(context, listen: false).addProgress(widget.topic);
     Navigator.pop(context, true);
   }
@@ -78,20 +82,22 @@ class ActivityPageState extends State<ActivityPage> {
   void initState() {
     super.initState();
     _stage = 0;
-    _completed = new List<bool>.filled(3, false);
+    _completed = List<bool>.filled(3, false);
     _saveToJournal = false;
 
     // Load resource
-    Library lib = Provider.of<LibraryManager>(context, listen: false).library;
-    LibraryFilter filter = Provider.of<LibraryFilter>(context, listen: false);
-    LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
-    _resource = lib.leastRecent(history, filter: filter, topic: widget.topic).randomItem();
+    var lib = Provider.of<LibraryManager>(context, listen: false).library;
+    var filter = Provider.of<LibraryFilter>(context, listen: false);
+    var history = Provider.of<LibraryHistory>(context, listen: false);
+    _resource = lib
+        .leastRecent(history, filter: filter, topic: widget.topic)
+        .randomItem();
   }
 
   @override
   Widget build(BuildContext context) {
     // Error page
-    if (_resource == null)
+    if (_resource == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Daily Activity')),
         body: Padding(
@@ -107,40 +113,46 @@ class ActivityPageState extends State<ActivityPage> {
                 ),
                 SizedBox(height: 8),
                 RaisedButton.icon(
-                  icon: Icon(Icons.settings),
-                  label: Text('Settings'),
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).popAndPushNamed('/settings');
-                  }
-                )
+                    icon: Icon(Icons.settings),
+                    label: Text('Settings'),
+                    textColor: Colors.white,
+                    onPressed: () {
+                      Navigator.of(context).popAndPushNamed('/settings');
+                    })
               ],
             ),
           ),
         ),
       );
+    }
 
     // Activity
     _journalEntry = JournalEntry(
-      category: _resource.category,
-      quote: _quote ?? '',
-      reference: _resource.reference ?? '',
-      url: _resource.referenceURL ?? '',
-      commentary: _commentary ?? '',
-      tags: [widget.topic]
-    );
+        category: _resource.category,
+        quote: _quote ?? '',
+        reference: _resource.reference ?? '',
+        url: _resource.referenceURL ?? '',
+        commentary: _commentary ?? '',
+        tags: [widget.topic]);
 
-    _studyActivity = StudyActivity(widget.topic, _resource, completed: _completed[0], onProgressChange: onProgressChange);
-    _ponderActivity = PonderActivity(widget.topic, completed: _completed[1], onProgressChange: onProgressChange);
-    _shareActivity = ShareActivity(widget.topic, _journalEntry, completed: _completed[2], onProgressChange: onProgressChange);
+    _studyActivity = StudyActivity(widget.topic, _resource,
+        completed: _completed[0], onProgressChange: onProgressChange);
+    _ponderActivity = PonderActivity(widget.topic,
+        completed: _completed[1], onProgressChange: onProgressChange);
+    _shareActivity = ShareActivity(widget.topic, _journalEntry,
+        completed: _completed[2], onProgressChange: onProgressChange);
 
-    List<ActivityWidget> activities = [_studyActivity, _ponderActivity, _shareActivity];
+    var activities = <ActivityWidget>[
+      _studyActivity,
+      _ponderActivity,
+      _shareActivity
+    ];
 
     return WillPopScope(
       onWillPop: () async {
-        if (_stage == 0)
+        if (_stage == 0) {
           return true;
-        else {
+        } else {
           setState(() {
             FocusScope.of(context).unfocus();
             _stage--;
@@ -148,11 +160,9 @@ class ActivityPageState extends State<ActivityPage> {
           return false;
         }
       },
-
       child: HelpPage(
         activities[_stage].runtimeType.toString().toLowerCase(),
         helpText: activities[_stage].getHelpText(),
-
         pageBuilder: (context, helpPage, child) => Scaffold(
           appBar: AppBar(
             title: Text('Daily Activity'),
@@ -161,9 +171,8 @@ class ActivityPageState extends State<ActivityPage> {
                 IconButton(
                   icon: const Icon(Icons.open_in_new),
                   tooltip: 'Open in Gospel Library',
-                  onPressed: () => _openReference(),
+                  onPressed: _openReference,
                 ),
-
               IconButton(
                 icon: const Icon(Icons.help),
                 tooltip: 'Help',
@@ -175,20 +184,17 @@ class ActivityPageState extends State<ActivityPage> {
           body: child,
 
           floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-          floatingActionButton: TweenAnimationBuilder(
+          floatingActionButton: TweenAnimationBuilder<Color>(
             tween: ColorTween(
                 begin: Colors.grey[500],
-                end: _completed[_stage] ?
-                  (Theme.of(context).accentColor) :
-                  Colors.grey[500]
-            ),
+                end: _completed[_stage]
+                    ? (Theme.of(context).accentColor)
+                    : Colors.grey[500]),
             duration: const Duration(milliseconds: 150),
-
-            builder: (BuildContext context, Color color, Widget child) => FloatingActionButton(
+            builder: (context, color, child) => FloatingActionButton(
               child: child,
               backgroundColor: color,
               disabledElevation: 1,
-
               onPressed: _completed[_stage] ? nextStage : null,
             ),
             child: const Icon(Icons.check),
@@ -198,15 +204,15 @@ class ActivityPageState extends State<ActivityPage> {
           bottomNavigationBar: BottomAppBar(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-              child: ActivityProgressMap(_stage)
-            )
+              child: ActivityProgressMap(_stage),
+            ),
           ),
         ),
 
         child: AnimatedIndexedStack(
           duration: Duration(milliseconds: 150),
           index: _stage,
-          children: activities
+          children: activities,
         ),
       ),
     );

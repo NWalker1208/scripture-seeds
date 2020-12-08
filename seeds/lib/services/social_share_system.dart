@@ -1,6 +1,8 @@
 import 'dart:async';
-import 'package:seeds/services/data/journal.dart';
+
 import 'package:social_share/social_share.dart';
+
+import 'data/journal.dart';
 
 enum SharePlatform {
   system, // Only one implemented
@@ -10,9 +12,12 @@ enum SharePlatform {
 }
 
 class SocialShareSystem {
-  static Future<void> shareJournalEntry({SharePlatform platform = SharePlatform.system,
-      JournalEntry entry, FutureOr<void> Function(bool) onReturn}) async {
-    bool success = false;
+  static Future<void> shareJournalEntry({
+    SharePlatform platform = SharePlatform.system,
+    JournalEntry entry,
+    FutureOr<void> Function(bool) onReturn,
+  }) async {
+    var success = false;
 
     if (platform == SharePlatform.system) {
       success = await SocialShare.shareOptions(entry.toString());
@@ -20,7 +25,7 @@ class SocialShareSystem {
       print('Error: Platform ${platform.toString()} not yet implemented.');
     }
 
-    print("Shared to $platform, got $success");
+    print('Shared to $platform, got $success');
     onReturn(success);
   }
 }

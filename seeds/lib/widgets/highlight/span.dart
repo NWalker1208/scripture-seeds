@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/utility.dart';
-import 'package:seeds/widgets/highlight/word.dart';
+
+import '../../services/utility.dart';
+import 'word.dart';
 
 class WordState {
   String text;
   bool highlighted;
 
-  WordState(this.text, [this.highlighted = false]);
+  WordState(this.text, {this.highlighted = false});
 }
 
-List<WordState> buildWordList(String text) => text.split(' ').map((t) => WordState(t)).toList();
+List<WordState> buildWordList(String text) =>
+    text.split(' ').map((t) => WordState(t)).toList();
 
 String buildSharableQuote(List<WordState> words) {
-  String quote = '';
+  var quote = '';
 
-  bool continued = true;
-  words.forEach((word) {
+  var continued = true;
+  for (var word in words) {
     if (word.highlighted) {
-      if (!continued)
-        quote += ' ';
+      if (!continued) quote += ' ';
 
       quote += word.text;
       continued = false;
     } else {
-      if (!continued)
-        quote += '...';
+      if (!continued) quote += '...';
 
       continued = true;
     }
-  });
+  }
 
   return quote;
 }
@@ -43,24 +43,20 @@ class HighlightTextSpan extends StatefulWidget {
   final void Function(Map<int, bool>) onChangeHighlight;
 
   HighlightTextSpan(
-    this.words,
-    {
-      this.leadingText = '',
-      this.style,
-      this.backgroundColor,
-      this.highlightColor,
-      this.onChangeHighlight,
-      Key key
-    }
-  ) : super(key: key);
+    this.words, {
+    this.leadingText = '',
+    this.style,
+    this.backgroundColor,
+    this.highlightColor,
+    this.onChangeHighlight,
+    Key key,
+  }) : super(key: key);
 
   @override
   HighlightTextSpanState createState() => HighlightTextSpanState();
 }
 
-enum _HighlightAppearance {
-  off, selected, on
-}
+enum _HighlightAppearance { off, selected, on }
 
 class HighlightTextSpanState extends State<HighlightTextSpan> {
   List<GlobalKey> _wordKeys;
@@ -72,25 +68,27 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
   HighlightTextSpanState();
 
   _HighlightAppearance _wordState(int index) {
-    if (index < 0 || index > widget.words.length - 1)
+    if (index < 0 || index > widget.words.length - 1) {
       return _HighlightAppearance.off;
+    }
 
-    if (selectionStart != null && selectionEnd != null &&
+    if (selectionStart != null &&
+        selectionEnd != null &&
         ((index >= selectionStart && index <= selectionEnd) ||
-        (index <= selectionStart && index >= selectionEnd)) &&
-        widget.words[index].highlighted != selectionAction)
+            (index <= selectionStart && index >= selectionEnd)) &&
+        widget.words[index].highlighted != selectionAction) {
       return _HighlightAppearance.selected;
-    else if (widget.words[index].highlighted)
+    } else if (widget.words[index].highlighted) {
       return _HighlightAppearance.on;
-    else
+    } else {
       return _HighlightAppearance.off;
+    }
   }
 
   /// Gesture handlers
   void _updateSelection(Offset position) {
-    int word = hitTestList(position, _wordKeys);
-    if (word != null)
-      setState(() => selectionEnd = word);
+    var word = hitTestList(position, _wordKeys);
+    if (word != null) setState(() => selectionEnd = word);
   }
 
   /// Selection management functions
@@ -111,7 +109,7 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
   }
 
   void _applySelection() {
-    if (selectionStart != null && selectionEnd != null)
+    if (selectionStart != null && selectionEnd != null) {
       setState(() {
         int start, end;
         if (selectionEnd >= selectionStart) {
@@ -122,10 +120,12 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
           end = selectionStart;
         }
 
-        Map<int, bool> changes = Map<int, bool>();
-        for (int i = start; i <= end; i++)
-          if (selectionAction != widget.words[i].highlighted)
+        var changes = <int, bool>{};
+        for (var i = start; i <= end; i++) {
+          if (selectionAction != widget.words[i].highlighted) {
             changes[i] = selectionAction;
+          }
+        }
 
         selectionAction = null;
         selectionStart = null;
@@ -133,12 +133,13 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
 
         widget.onChangeHighlight?.call(changes);
       });
+    }
   }
 
   void _quickSelect(int index) {
     setState(() {
       _clearSelection();
-      Map<int, bool> change = {index: !widget.words[index].highlighted};
+      var change = <int, bool>{index: !widget.words[index].highlighted};
       widget.onChangeHighlight?.call(change);
     });
   }
@@ -147,24 +148,31 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
   @override
   void initState() {
     super.initState();
-    _wordKeys = List<GlobalKey>.generate(widget.words.length, (index) => GlobalKey(debugLabel: widget.words[index].text));
+    _wordKeys = List<GlobalKey>.generate(widget.words.length,
+        (index) => GlobalKey(debugLabel: widget.words[index].text));
   }
 
   @override
   void didUpdateWidget(HighlightTextSpan oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (oldWidget.words.length != widget.words.length)
+    if (oldWidget.words.length != widget.words.length) {
       setState(() {
-        _wordKeys = List<GlobalKey>.generate(widget.words.length, (index) => GlobalKey(debugLabel: widget.words[index].text));
+        _wordKeys = List<GlobalKey>.generate(
+          widget.words.length,
+          (index) => GlobalKey(debugLabel: widget.words[index].text),
+        );
       });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    Color backgroundColor = widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
-    Color highlightColor = widget.highlightColor ?? Theme.of(context).textSelectionColor;
-    TextStyle style = widget.style ?? DefaultTextStyle.of(context).style;
+    var backgroundColor =
+        widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
+    var highlightColor = widget.highlightColor ??
+        Theme.of(context).textSelectionTheme.selectionColor;
+    var style = widget.style ?? DefaultTextStyle.of(context).style;
 
     return RichText(
       textAlign: TextAlign.left,
@@ -172,8 +180,9 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
         text: widget.leadingText,
         style: style,
         // Generate a list of textSpans for the words
-        children: List<InlineSpan>.generate(widget.words.length, (index) =>
-          WidgetSpan(
+        children: List<InlineSpan>.generate(
+          widget.words.length,
+          (index) => WidgetSpan(
             child: HighlightTextWord(
               widget.words[index].text,
               highlighted: _wordState(index) == _HighlightAppearance.on,
@@ -183,17 +192,15 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
               backgroundColor: backgroundColor,
               highlightColor: highlightColor,
               style: style,
-
               onTap: () => _quickSelect(index),
               onSelectionStart: () => _startSelection(index),
               onSelectionUpdate: _updateSelection,
               onSelectionEnd: _applySelection,
-
               key: _wordKeys[index],
-            )
-          )
-        )
-      )
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

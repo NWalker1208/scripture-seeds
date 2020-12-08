@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/data/progress.dart';
-import 'package:seeds/services/data/progress_record.dart';
-import 'package:seeds/widgets/plant/painter.dart';
+
+import '../../services/data/progress.dart';
+import '../../services/data/progress_record.dart';
+import 'painter.dart';
 
 class PlantView extends StatefulWidget {
   final String plantName;
@@ -26,13 +27,11 @@ class _PlantViewState extends State<PlantView> {
   static final Color kDayColor = Colors.lightBlue[200];
   static final Color kNightColor = Colors.indigo[900];
 
-  Color _getSkyColor(double light) {
-    return Color.lerp(kNightColor, kDayColor, light);
-  }
+  Color _getSkyColor(double light) => Color.lerp(kNightColor, kDayColor, light);
 
   @override
   void didChangeDependencies() {
-    ProgressData progressData = Provider.of<ProgressData>(context);
+    var progressData = Provider.of<ProgressData>(context);
     _record = progressData.getProgressRecord(widget.plantName);
     super.didChangeDependencies();
   }
@@ -41,10 +40,11 @@ class _PlantViewState extends State<PlantView> {
   Widget build(BuildContext context) {
     Color skyColor;
 
-    if (Theme.of(context).brightness == Brightness.light)
+    if (Theme.of(context).brightness == Brightness.light) {
       skyColor = _getSkyColor(1);
-    else if (Theme.of(context).brightness == Brightness.dark)
+    } else if (Theme.of(context).brightness == Brightness.dark) {
       skyColor = _getSkyColor(0);
+    }
 
     return Stack(
       children: [
@@ -65,7 +65,8 @@ class _PlantViewState extends State<PlantView> {
                 Padding(
                   padding: widget.plantPadding,
                   child: LayoutBuilder(
-                    builder: (context, constraints) => TweenAnimationBuilder(
+                    builder: (context, constraints) =>
+                        TweenAnimationBuilder<double>(
                       tween: Tween<double>(
                         begin: _record.progressPercent + _record.lostPercent,
                         end: _record.progressPercent,

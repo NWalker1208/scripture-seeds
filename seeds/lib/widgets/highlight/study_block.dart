@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/activity/study.dart';
-import 'package:seeds/widgets/highlight/span.dart';
+
+import '../activity/study.dart';
+import 'span.dart';
 
 class HighlightStudyBlock extends StatefulWidget {
   final String leadingText;
   final String text;
   final int id;
 
-  HighlightStudyBlock(this.text, {this.leadingText, @required this.id, Key key}) : super(key: key) {
+  HighlightStudyBlock(
+    this.text, {
+    this.leadingText,
+    @required this.id,
+    Key key,
+  }) : super(key: key) {
     assert(id != null);
   }
 
@@ -18,7 +24,7 @@ class HighlightStudyBlock extends StatefulWidget {
 class _HighlightStudyBlockState extends State<HighlightStudyBlock> {
   List<WordState> highlight;
 
-  void updateHighlight(Map<int,bool> changes) {
+  void updateHighlight(Map<int, bool> changes) {
     setState(() {
       changes.forEach((index, value) => highlight[index].highlighted = value);
       StudyActivity.of(context).updateHighlight(widget.id, highlight);
@@ -40,21 +46,16 @@ class _HighlightStudyBlockState extends State<HighlightStudyBlock> {
   @override
   void didUpdateWidget(HighlightStudyBlock oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.text != widget.text)
-      highlight = buildWordList(widget.text);
+    if (oldWidget.text != widget.text) highlight = buildWordList(widget.text);
   }
 
   @override
-  Widget build(BuildContext context) {
-    return HighlightTextSpan(
-      highlight,
-      leadingText: widget.leadingText,
-      style: DefaultTextStyle.of(context).style.copyWith(
-        fontFamily: 'Buenard',
-        fontSize: 20,
-        height: 1.5
-      ),
-      onChangeHighlight: updateHighlight,
-    );
-  }
+  Widget build(BuildContext context) => HighlightTextSpan(
+        highlight,
+        leadingText: widget.leadingText,
+        style: DefaultTextStyle.of(context)
+            .style
+            .copyWith(fontFamily: 'Buenard', fontSize: 20, height: 1.5),
+        onChangeHighlight: updateHighlight,
+      );
 }

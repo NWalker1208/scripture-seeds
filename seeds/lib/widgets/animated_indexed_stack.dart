@@ -61,22 +61,18 @@ class _AnimatedIndexedStackState extends State<AnimatedIndexedStack>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _animation,
-      builder: (context, child) {
-        return Opacity(
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _animation,
+        builder: (context, child) => Opacity(
           opacity: _controller.value,
           //child: Transform.scale(
           //  scale: 1.015 - (_controller.value * 0.015),
-            child: child,
+          child: child,
           //),
-        );
-      },
-      child: IndexedStack(
-        index: _index,
-        children: widget.children,
-      ),
-    );
-  }
+        ),
+        child: IndexedStack(
+          index: _index,
+          children: widget.children,
+        ),
+      );
 }

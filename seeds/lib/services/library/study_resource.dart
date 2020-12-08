@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/highlight/study_block.dart';
-import 'package:xml/xml.dart' as XML;
+import 'package:xml/xml.dart' as xml;
 
-enum _MediaType {Image, Video}
+import '../../widgets/highlight/study_block.dart';
+import '../utility.dart';
+
+enum _MediaType { image, video }
+
 class _MediaElement extends StudyElement {
   _MediaType type;
   String url;
@@ -14,19 +17,11 @@ class _MediaElement extends StudyElement {
 
   @override
   Widget toWidget(BuildContext context, int index) {
-    if (type == _MediaType.Image)
+    if (type == _MediaType.image) {
       return Image.network(url);
-    /*FutureBuilder(
-        future: DefaultCacheManager().getSingleFile(url),
-        builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done)
-            return Image.file(snapshot.data);
-          else
-            return CircularProgressIndicator();
-        },
-      );*/
-    else
+    } else {
       return Text('Video: $url');
+    }
   }
 }
 
@@ -39,13 +34,14 @@ class _TitleElement extends StudyElement {
   String toString() => '{Title: "$text"}';
 
   @override
-  Widget toWidget(BuildContext context, int index) {
-    return Text(
-      text,
-      style: Theme.of(context).textTheme.headline4.copyWith(fontFamily: 'Buenard'),
-      textAlign: TextAlign.center,
-    );
-  }
+  Widget toWidget(BuildContext context, int index) => Text(
+        text,
+        style: Theme.of(context)
+            .textTheme
+            .headline4
+            .copyWith(fontFamily: 'Buenard'),
+        textAlign: TextAlign.center,
+      );
 }
 
 class _TextElement extends StudyElement {
@@ -55,16 +51,12 @@ class _TextElement extends StudyElement {
   _TextElement(this.text, {this.verse});
 
   @override
-  String toString() => verse == null ? '{Text: "$text"}' : '{Text: $verse. "$text"}';
+  String toString() =>
+      verse == null ? '{Text: "$text"}' : '{Text: $verse. "$text"}';
 
   @override
-  Widget toWidget(BuildContext context, int index) {
-    return HighlightStudyBlock(
-      text,
-      id: index,
-      leadingText: verse == null ? null : '$verse. '
-    );
-  }
+  Widget toWidget(BuildContext context, int index) => HighlightStudyBlock(text,
+      id: index, leadingText: verse == null ? null : '$verse. ');
 }
 
 abstract class StudyElement {
@@ -72,67 +64,32 @@ abstract class StudyElement {
 
   StudyElement();
 
-  factory StudyElement.fromXmlElement(XML.XmlElement element) {
-    String tag = element.name.local;
+  factory StudyElement.fromXmlElement(xml.XmlElement element) {
+    var tag = element.name.local;
 
-    if (tag == 'image')
-      return _MediaElement(_MediaType.Image, element.getAttribute('url'));
-    else if (tag == 'video')
-      return _MediaElement(_MediaType.Video, element.getAttribute('url'));
-    else if (tag == 'title')
+    if (tag == 'image') {
+      return _MediaElement(_MediaType.image, element.getAttribute('url'));
+    } else if (tag == 'video') {
+      return _MediaElement(_MediaType.video, element.getAttribute('url'));
+    } else if (tag == 'title') {
       return _TitleElement(element.text);
-    else if (tag == 'highlight')
-      // Use try parse to apply null as verse if element did not contain that attribute
-      return _TextElement(element.text, verse: int.tryParse(element.getAttribute('verse') ?? ''));
-    else
+    } else if (tag == 'highlight') {
+      return _TextElement(element.text,
+          verse: int.tryParse(element.getAttribute('verse') ?? ''));
+    } else {
       return null;
+    }
   }
 }
 
-// Enum expressed as class
-class Category {
-  final String _value;
-
-  const Category._(this._value);
-
-  @override
-  String toString() => _value;
-
-  static Category parse(String value) {
-    if (value == null) return null;
-    switch (value.toLowerCase()) {
-      case 'oldtestament':
-        return OldTestament;
-      case 'newtestament':
-        return NewTestament;
-      case 'bookofmormon':
-        return BookOfMormon;
-      case 'doctrineandcovenants':
-        return DoctrineAndCovenants;
-      case 'pearlofgreatprice':
-        return PearlOfGreatPrice;
-      case 'generalconference':
-        return GeneralConference;
-      case 'other':
-        return Other;
-      default:
-        print('Failed to parse category $value');
-        return null;
-    }
-  }
-
-  // Enum values
-  static const Category OldTestament = Category._('OldTestament');
-  static const Category NewTestament = Category._('NewTestament');
-  static const Category BookOfMormon = Category._('BookOfMormon');
-  static const Category DoctrineAndCovenants = Category._('DoctrineAndCovenants');
-  static const Category PearlOfGreatPrice = Category._('PearlOfGreatPrice');
-  static const Category GeneralConference = Category._('GeneralConference');
-  static const Category Other = Category._('Other');
-
-  static const List<Category> values = [OldTestament, NewTestament, BookOfMormon,
-                                        DoctrineAndCovenants, PearlOfGreatPrice,
-                                        GeneralConference, Other];
+enum Category {
+  oldTestament,
+  newTestament,
+  bookOfMormon,
+  doctrineAndCovenants,
+  pearlOfGreatPrice,
+  generalConference,
+  other
 }
 
 class StudyResource {
@@ -143,35 +100,37 @@ class StudyResource {
 
   List<StudyElement> body;
 
-  StudyResource(this.category, this.topics, this.reference, this.referenceURL, this.body);
+  StudyResource(
+      this.category, this.topics, this.reference, this.referenceURL, this.body);
 
-  StudyResource.fromXmlElement(XML.XmlElement element) {
+  StudyResource.fromXmlElement(xml.XmlElement element) {
     // Locate topics, reference, and body of study resource
-    Iterable<XML.XmlElement> topicElements = element.findElements('topic');
-    XML.XmlElement referenceElement = element.findElements('reference').first;
-    Iterable<XML.XmlNode> bodyElements = element.findElements('body').first.children;
+    var topicElements = element.findElements('topic');
+    var referenceElement = element.findElements('reference').first;
+    Iterable<xml.XmlNode> bodyElements =
+        element.findElements('body').first.children;
 
     // Initialize properties
-    category = Category.parse(element.getAttribute('category')) ?? Category.Other;
+    category =
+        stringToEnum(Category.values, element.getAttribute('category')) ??
+            Category.other;
     topics = topicElements.map((t) => t.text).toSet();
     reference = referenceElement.text;
     referenceURL = referenceElement.getAttribute('url');
 
     // Initialize body
-    body = List<StudyElement>();
+    body = <StudyElement>[];
 
-    bodyElements.forEach((node) {
-      if (node is XML.XmlElement) {
-        StudyElement element = StudyElement.fromXmlElement(node);
+    for (var node in bodyElements) {
+      if (node is xml.XmlElement) {
+        var element = StudyElement.fromXmlElement(node);
 
-        if (element != null)
-          body.add(element);
+        if (element != null) body.add(element);
       }
-    });
+    }
   }
 
   @override
-  String toString() {
-    return 'StudyResource [$category] {$topics, $reference, $referenceURL}: $body';
-  }
+  String toString() =>
+      'StudyResource [$category] {$topics, $reference, $referenceURL}: $body';
 }

@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:seeds/services/data/progress_record.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:mutex/mutex.dart';
 import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:mutex/mutex.dart';
+import 'package:sqflite/sqflite.dart';
+
+import 'progress_record.dart';
 
 class ProgressData extends ChangeNotifier {
   static const String kDatabaseFile = 'progress.db';
@@ -13,8 +15,7 @@ class ProgressData extends ChangeNotifier {
   /// Front-End
   ProgressData() {
     _loadData().then((success) {
-      if (success)
-        notifyListeners();
+      if (success) notifyListeners();
     });
   }
 
@@ -23,11 +24,12 @@ class ProgressData extends ChangeNotifier {
 
   // Get list of existing records
   List<String> get recordNames => _records?.keys?.toList() ?? <String>[];
-  List<ProgressRecord> get records => _records?.values?.toList() ?? <ProgressRecord>[];
+  List<ProgressRecord> get records =>
+      _records?.values?.toList() ?? <ProgressRecord>[];
 
   // Returns all progress records with topics from the set given.
   List<ProgressRecord> recordsWithTopics(Set<String> topics) {
-    List<ProgressRecord> recordList = records;
+    var recordList = records;
     recordList.removeWhere((record) => !topics.contains(record.name));
     return recordList;
   }
@@ -36,16 +38,14 @@ class ProgressData extends ChangeNotifier {
   // Returns a record with 0 progress if the record does not exist or if the
   // records have not been loaded.
   ProgressRecord getProgressRecord(String name) {
-    if (!isLoaded || !_records.containsKey(name))
-      return ProgressRecord(name);
+    if (!isLoaded || !_records.containsKey(name)) return ProgressRecord(name);
 
     return _records[name];
   }
 
   // Creates a progress record
   bool createProgressRecord(ProgressRecord record) {
-    if (!isLoaded)
-      return false;
+    if (!isLoaded) return false;
 
     _records[record.name] = record;
     // Save to database and notify listeners
@@ -55,12 +55,11 @@ class ProgressData extends ChangeNotifier {
     return true;
   }
 
-  // Updates the progress for specific item by incrementing by 1 and setting the date
+  // Increments progress by 1 and sets the date
   bool addProgress(String name, {bool force = false}) {
-    if (!isLoaded)
-      return false;
+    if (!isLoaded) return false;
 
-    ProgressRecord progress = getProgressRecord(name);
+    var progress = getProgressRecord(name);
 
     if (force || progress.canMakeProgressToday) {
       progress.updateProgress();
@@ -70,8 +69,9 @@ class ProgressData extends ChangeNotifier {
       notifyListeners();
 
       return true;
-    } else
+    } else {
       return false;
+    }
   }
 
   // Deletes a record from progress data, such as when a plant is harvested.
@@ -81,17 +81,17 @@ class ProgressData extends ChangeNotifier {
       _saveData();
       notifyListeners();
       return true;
-    } else
+    } else {
       return false;
+    }
   }
 
   // Collects the reward from the given plant if available.
   // Returns the number of seeds granted.
   int collectReward(String name) {
-    ProgressRecord progress = getProgressRecord(name);
+    var progress = getProgressRecord(name);
 
-    if (!progress.rewardAvailable)
-      return 0;
+    if (!progress.rewardAvailable) return 0;
 
     progress.takeReward();
     _saveData();
@@ -107,26 +107,26 @@ class ProgressData extends ChangeNotifier {
       _saveData();
       notifyListeners();
       return true;
-    } else
+    } else {
       return false;
+    }
   }
 
   // Deletes the database file
   static Future<bool> deleteDatabase() async {
-    final String databasePath = await getDatabasesPath();
-    final String path = databasePath + kDatabaseFile;
+    final databasePath = await getDatabasesPath();
+    final path = databasePath + kDatabaseFile;
 
-    File file = File(path);
+    var file = File(path);
 
-    if (!file.existsSync())
-      return false;
+    if (!file.existsSync()) return false;
 
     file.deleteSync();
     return true;
   }
 
   /// SQFLite operations
-  static Mutex _databaseMutex = Mutex();
+  static final Mutex _databaseMutex = Mutex();
 
   // Loads in data from the database file.
   // This should only need to be called when the program starts.
@@ -134,7 +134,7 @@ class ProgressData extends ChangeNotifier {
     try {
       print('Loading database...');
       await _databaseMutex.acquire();
-      Database db = await _openDatabase();
+      var db = await _openDatabase();
 
       _records = await _queryRecords(db);
 
@@ -152,7 +152,7 @@ class ProgressData extends ChangeNotifier {
     try {
       print('Saving database...');
       await _databaseMutex.acquire();
-      Database db = await _openDatabase();
+      var db = await _openDatabase();
 
       await _updateRecords(db, _records);
 
@@ -168,33 +168,34 @@ class ProgressData extends ChangeNotifier {
 
   // Opens the database file
   static Future<Database> _openDatabase() async {
-    final String databasePath = await getDatabasesPath();
-    final String path = databasePath + kDatabaseFile;
+    final databasePath = await getDatabasesPath();
+    final path = databasePath + kDatabaseFile;
 
-    return openDatabase(path, version: 2,
-      onCreate: _createProgressTable,
-      onUpgrade: _upgradeProgressTable
-    );
+    return openDatabase(path,
+        version: 2,
+        onCreate: _createProgressTable,
+        onUpgrade: _upgradeProgressTable);
   }
 
   // Creates the table of progress records
   static Future<void> _createProgressTable(Database db, int version) async {
-    final String progressSql = '''CREATE TABLE $kProgressTable
+    final progressSql = '''CREATE TABLE $kProgressTable
     (
       ${ProgressRecord.kName} TEXT PRIMARY KEY,
       ${ProgressRecord.kProgress} INTEGER,
       ${ProgressRecord.kReward} INTEGER,
       ${ProgressRecord.kLastUpdate} TEXT
     )''';
-    
+
     await db.execute(progressSql);
     print('Created new database.');
   }
 
   // Upgrades old databases
-  static Future<void> _upgradeProgressTable(Database db, int oldVersion, int newVersion) async {
+  static Future<void> _upgradeProgressTable(
+      Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 2) {
-      final String upgradeSql = '''ALTER TABLE $kProgressTable
+      final upgradeSql = '''ALTER TABLE $kProgressTable
         ADD COLUMN ${ProgressRecord.kReward} INTEGER
       ''';
       await db.execute(upgradeSql);
@@ -205,50 +206,42 @@ class ProgressData extends ChangeNotifier {
 
   // Gets a list of all progress records
   static Future<Map<String, ProgressRecord>> _queryRecords(Database db) async {
-    List<Map<String, dynamic>> recordMaps = await db.query(
-      kProgressTable,
-      columns: [
-        ProgressRecord.kName,
-        ProgressRecord.kProgress,
-        ProgressRecord.kReward,
-        ProgressRecord.kLastUpdate
-      ]
-    );
+    var recordMaps = await db.query(kProgressTable, columns: [
+      ProgressRecord.kName,
+      ProgressRecord.kProgress,
+      ProgressRecord.kReward,
+      ProgressRecord.kLastUpdate
+    ]);
 
-    List<ProgressRecord> recordList = recordMaps.map((map) =>
-      ProgressRecord.fromMap(map)).toList();
+    var recordList =
+        recordMaps.map((map) => ProgressRecord.fromMap(map)).toList();
 
-    Map<String, ProgressRecord> records = Map.fromIterable(
-      recordList,
-      key: (e) => e.name,
-      value: (e) => e,
-    );
+    var records = {for (var e in recordList) e.name: e};
 
     return records;
   }
 
   // Updates the records in the database with the records cached here
-  static Future<void> _updateRecords(Database db, Map<String, ProgressRecord> records) async {
-    Map<String, ProgressRecord> oldRecords = await _queryRecords(db);
+  static Future<void> _updateRecords(
+      Database db, Map<String, ProgressRecord> records) async {
+    var oldRecords = await _queryRecords(db);
 
     // Save all actions to a batch
-    Batch batch = db.batch();
+    var batch = db.batch();
 
     // Delete oldRecords that don't exist any more
     oldRecords.forEach((name, progress) {
-      if (!records.containsKey(name))
-        batch.delete(kProgressTable, where: '${ProgressRecord.kName} = ?', whereArgs: [name]);
+      if (!records.containsKey(name)) {
+        batch.delete(kProgressTable,
+            where: '${ProgressRecord.kName} = ?', whereArgs: <String>[name]);
+      }
     });
 
     // Update or create records
     records.forEach((name, progress) {
       if (oldRecords.containsKey(name)) {
-        batch.update(
-          kProgressTable,
-          progress.toMap(),
-          where: '${ProgressRecord.kName} = ?',
-          whereArgs: [name]
-        );
+        batch.update(kProgressTable, progress.toMap(),
+            where: '${ProgressRecord.kName} = ?', whereArgs: <String>[name]);
       } else {
         batch.insert(kProgressTable, progress.toMap());
       }

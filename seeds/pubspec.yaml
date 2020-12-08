@@ -44,6 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  pedantic: ^1.9.0
   flutter_launcher_icons: ^0.8.1
 
 # Run 'flutter pub run flutter_launcher_icons:main' to update icons

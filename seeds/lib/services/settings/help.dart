@@ -7,9 +7,10 @@ class HelpSettings extends ChangeNotifier {
   bool get isLoaded => _showHelp != null;
   Map<String, bool> _showHelp;
 
-  bool getShowHelp(String page) => (_showHelp == null) ? null : (_showHelp[page] ?? true);
+  bool getShowHelp(String page) =>
+      (_showHelp == null) ? null : (_showHelp[page] ?? true);
 
-  void setShowHelp(String page, bool showHelp) {
+  void setShowHelp(String page, {bool showHelp}) {
     _showHelp[page] = showHelp;
     notifyListeners();
 
@@ -24,8 +25,8 @@ class HelpSettings extends ChangeNotifier {
 
     // Get shared preferences
     SharedPreferences.getInstance().then((prefs) {
-      _showHelp = Map<String, bool>();
-      Set<String> keys = prefs.getKeys();
+      _showHelp = <String, bool>{};
+      var keys = prefs.getKeys();
 
       keys.where((key) => key.contains(kHelp)).forEach((key) {
         _showHelp[key.substring(kHelp.length)] = prefs.getBool(key);

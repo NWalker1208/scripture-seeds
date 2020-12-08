@@ -1,8 +1,11 @@
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:seeds/services/library/study_resource.dart';
+
+import '../library/study_resource.dart';
+import '../utility.dart';
 
 const String _kJournalFolder = '/study_journal/';
 const String _kEntryFileExtension = '.jrnent';
@@ -24,30 +27,37 @@ class JournalEntry implements Comparable<JournalEntry> {
   String commentary;
   List<String> tags;
 
-  JournalEntry({DateTime created, this.category = Category.Other,
-                this.quote = '', this.reference = '',
-                this.url = '', this.commentary = '', List<String> tags})
-   : this.created = created ?? DateTime.now(),
-     this.tags = tags ?? List<String>();
+  JournalEntry({
+    DateTime created,
+    this.category = Category.other,
+    this.quote = '',
+    this.reference = '',
+    this.url = '',
+    this.commentary = '',
+    List<String> tags,
+  })  : created = created ?? DateTime.now(),
+        tags = tags ?? <String>[];
 
   JournalEntry.fromJSON(String json) {
-    Map<String, dynamic> data = jsonDecode(json);
+    var data = jsonDecode(json) as Map<String, dynamic>;
 
-    created = data.containsKey(_kFileCreated) ?
-      DateTime.parse(data[_kFileCreated]) : null;
+    created = data.containsKey(_kFileCreated)
+        ? DateTime.parse(data[_kFileCreated] as String)
+        : null;
 
-    category = Category.parse(data[_kFileCategory]);
-    quote = data[_kFileQuote] ?? data[_kFileReference] ?? '';
-    reference = data[_kFileReference] ?? '';
-    url = data[_kFileURL] ?? '';
-    commentary = data[_kFileCommentary] ?? '';
+    category = stringToEnum(Category.values, data[_kFileCategory] as String);
+    quote = (data[_kFileQuote] ?? data[_kFileReference]) as String ?? '';
+    reference = data[_kFileReference] as String ?? '';
+    url = data[_kFileURL] as String ?? '';
+    commentary = data[_kFileCommentary] as String ?? '';
 
-    tags = data.containsKey(_kFileTags) ?
-      List<String>.from(data[_kFileTags]) : List<String>();
+    tags = data.containsKey(_kFileTags)
+        ? data[_kFileTags] as List<String>
+        : <String>[];
   }
 
   String toJSON() {
-    Map<String, dynamic> data = Map<String, dynamic>();
+    var data = <String, dynamic>{};
     data[_kFileCreated] = created.toString();
     data[_kFileCategory] = category.toString();
     data[_kFileQuote] = quote;
@@ -60,28 +70,26 @@ class JournalEntry implements Comparable<JournalEntry> {
 
   @override
   String toString() {
-    if (quote != reference)
+    if (quote != reference) {
       return '$quote - $reference\n$commentary\n$url';
-    else
+    } else {
       return '$quote\n$commentary';
+    }
   }
 
-  String get fileName {
-    return created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_') +
+  String get fileName =>
+      created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_') +
       _kEntryFileExtension;
-  }
 
   @override
-  int compareTo(JournalEntry other) {
-    return created.compareTo(other.created);
-  }
+  int compareTo(JournalEntry other) => created.compareTo(other.created);
 }
 
 class JournalData extends ChangeNotifier {
   List<JournalEntry> _entries;
 
   JournalData() {
-    _loadEntries().then((List<JournalEntry> entries) {
+    _loadEntries().then((entries) {
       _entries = entries;
       _entries.sort();
       notifyListeners();
@@ -92,8 +100,10 @@ class JournalData extends ChangeNotifier {
   List<JournalEntry> get entries => _entries?.toList() ?? <JournalEntry>[];
 
   Set<String> get topics {
-    Set<String> _topics = Set<String>();
-    entries.forEach((entry) => _topics.addAll(entry.tags));
+    var _topics = <String>{};
+    for (var entry in entries) {
+      _topics.addAll(entry.tags);
+    }
     return _topics;
   }
 
@@ -121,10 +131,10 @@ class JournalData extends ChangeNotifier {
   }
 
   void deleteEntrySet(Set<JournalEntry> entriesToDelete) {
-    entriesToDelete.forEach((entry) {
+    for (var entry in entriesToDelete) {
       _entries.remove(entry);
       _deleteEntry(entry);
-    });
+    }
 
     notifyListeners();
   }
@@ -142,24 +152,26 @@ class JournalData extends ChangeNotifier {
     print('Loading journal entries...');
 
     try {
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      Directory journalFolder = Directory(appDocDir.path + _kJournalFolder)
+      var appDocDir = await getApplicationDocumentsDirectory();
+      var journalFolder = Directory(appDocDir.path + _kJournalFolder)
         ..createSync(recursive: true);
 
-      List<FileSystemEntity> entryFiles = journalFolder.listSync();
+      var entryFiles = journalFolder.listSync();
 
-      List<JournalEntry> entries = List<JournalEntry>();
-      entryFiles.forEach((entity) {
+      var entries = <JournalEntry>[];
+      for (var entity in entryFiles) {
         if (entity is File) {
           try {
-            JournalEntry entry = JournalEntry.fromJSON(entity.readAsStringSync());
+            var entry = JournalEntry.fromJSON(entity.readAsStringSync());
             entries.add(entry);
           } on FormatException {
-            print('Encountered invalid journal entry at ${entity.path}, deleting...');
-            entity.delete();
+            print(
+              'Encountered invalid journal entry at ${entity.path}, deleting...',
+            );
+            await entity.delete();
           }
         }
-      });
+      }
 
       print('Journal entries loaded!');
       return entries;
@@ -173,8 +185,8 @@ class JournalData extends ChangeNotifier {
     print('Saving new entry to journal...');
 
     try {
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      File entryFile = File(appDocDir.path + _kJournalFolder + entry.fileName);
+      var appDocDir = await getApplicationDocumentsDirectory();
+      var entryFile = File(appDocDir.path + _kJournalFolder + entry.fileName);
       entryFile.writeAsStringSync(entry.toJSON());
 
       print('Entry saved.');
@@ -189,8 +201,8 @@ class JournalData extends ChangeNotifier {
     print('Deleting entry from journal...');
 
     try {
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      File entryFile = File(appDocDir.path + _kJournalFolder + entry.fileName);
+      var appDocDir = await getApplicationDocumentsDirectory();
+      var entryFile = File(appDocDir.path + _kJournalFolder + entry.fileName);
       entryFile.deleteSync();
 
       print('Entry deleted.');
@@ -205,8 +217,8 @@ class JournalData extends ChangeNotifier {
     print('Erasing all journal entries...');
 
     try {
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      Directory journalFolder = Directory(appDocDir.path + _kJournalFolder);
+      var appDocDir = await getApplicationDocumentsDirectory();
+      var journalFolder = Directory(appDocDir.path + _kJournalFolder);
       journalFolder.deleteSync(recursive: true);
 
       print('Journal erased.');

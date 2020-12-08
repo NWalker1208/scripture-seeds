@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/services/library/history.dart';
-import 'package:seeds/services/data/progress.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/data/wallet.dart';
+
+import '../../services/data/progress.dart';
+import '../../services/data/wallet.dart';
+import '../../services/library/history.dart';
 
 class ResetProgressDialog extends StatelessWidget {
   const ResetProgressDialog({
@@ -10,35 +11,33 @@ class ResetProgressDialog extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Reset Progress'),
-      content: const Text('Are you sure you want to reset your progress? This cannot be undone.'),
+  Widget build(BuildContext context) => AlertDialog(
+        title: const Text('Reset Progress'),
+        content: const Text(
+            'Are you sure you want to reset your progress? This cannot be undone.'),
+        actions: <Widget>[
+          // Reset progress if user selects yes
+          FlatButton(
+            child: const Text('CONTINUE'),
+            onPressed: () {
+              Navigator.of(context).pop(true);
 
-      actions: <Widget>[
-        // Reset progress if user selects yes
-        FlatButton(
-          child: const Text('CONTINUE'),
-          onPressed: () {
-            Navigator.of(context).pop(true);
+              var progress = Provider.of<ProgressData>(context, listen: false);
+              progress.resetProgress();
 
-            ProgressData progress = Provider.of<ProgressData>(context, listen: false);
-            progress.resetProgress();
+              var history = Provider.of<LibraryHistory>(context, listen: false);
+              history.resetHistory();
 
-            LibraryHistory history = Provider.of<LibraryHistory>(context, listen: false);
-            history.resetHistory();
+              var wallet = Provider.of<WalletData>(context, listen: false);
+              wallet.reset();
+            },
+          ),
 
-            WalletData wallet = Provider.of<WalletData>(context, listen: false);
-            wallet.reset();
-          }
-        ),
-
-        // Close dialog if user selects no
-        RaisedButton(
-          child: const Text('CANCEL'),
-          onPressed: () => Navigator.of(context).pop(false)
-        )
-      ],
-    );
-  }
+          // Close dialog if user selects no
+          RaisedButton(
+            child: const Text('CANCEL'),
+            onPressed: () => Navigator.of(context).pop(false),
+          )
+        ],
+      );
 }

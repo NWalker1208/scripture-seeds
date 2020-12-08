@@ -29,8 +29,7 @@ class WalletData extends ChangeNotifier {
   bool canAfford(int price) => _funds >= price;
 
   bool spend(int funds) {
-    if (_funds < funds)
-      return false;
+    if (_funds < funds) return false;
 
     print('$funds spent from wallet.');
 
@@ -47,7 +46,7 @@ class WalletData extends ChangeNotifier {
   }
 
   void _saveWallet() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt(kWallet, _funds);
+    var prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(kWallet, _funds);
   }
 }

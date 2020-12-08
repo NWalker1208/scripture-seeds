@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/custom_icons.dart';
-import 'package:seeds/services/data/wallet.dart';
+
+import '../../../services/custom_icons.dart';
+import '../../../services/data/wallet.dart';
 
 class WalletIndicator extends StatelessWidget {
   const WalletIndicator({
@@ -9,14 +10,15 @@ class WalletIndicator extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Consumer<WalletData>(builder: (context, wallet, child) => Text('${wallet.availableFunds}')),
-        const SizedBox(width: 4),
-        const Icon(CustomIcons.seeds),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Consumer<WalletData>(
+            builder: (context, wallet, child) =>
+                Text('${wallet.availableFunds}'),
+          ),
+          const SizedBox(width: 4),
+          const Icon(CustomIcons.seeds),
+        ],
+      );
 }

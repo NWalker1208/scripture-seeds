@@ -6,7 +6,12 @@ abstract class ActivityWidget extends StatefulWidget {
   final FutureOr<void> Function(bool) onProgressChange;
   final bool activityCompleted;
 
-  ActivityWidget(this.topic, {this.onProgressChange, this.activityCompleted = false, Key key}) : super(key: key);
+  ActivityWidget(
+    this.topic, {
+    this.onProgressChange,
+    this.activityCompleted = false,
+    Key key,
+  }) : super(key: key);
 
   String getHelpText();
 }

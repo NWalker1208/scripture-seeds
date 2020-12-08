@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/settings/help.dart';
-import 'package:seeds/widgets/dialogs/help.dart';
+
+import '../services/settings/help.dart';
+import 'dialogs/help.dart';
 
 class HelpPage extends StatefulWidget {
   final String pageName;
@@ -11,16 +12,13 @@ class HelpPage extends StatefulWidget {
   final Widget child;
 
   HelpPage(
-    this.pageName,
-    {
-      @required
-      this.helpText,
-      this.title,
-      this.pageBuilder,
-      this.child,
-      Key key
-    }
-  ) : super(key: key);
+    this.pageName, {
+    @required this.helpText,
+    this.title,
+    this.pageBuilder,
+    this.child,
+    Key key,
+  }) : super(key: key);
 
   @override
   HelpPageState createState() => HelpPageState();
@@ -31,7 +29,7 @@ class HelpPageState extends State<HelpPage> {
   HelpSettings settings;
 
   void showHelpDialog({bool always = true}) {
-    bool helpSetting = settings?.getShowHelp(widget.pageName) ?? false;
+    var helpSetting = settings?.getShowHelp(widget.pageName) ?? false;
 
     if (always || (helpSetting && !helpPagesShown.contains(widget.pageName))) {
       // Mark page as shown
@@ -39,20 +37,22 @@ class HelpPageState extends State<HelpPage> {
 
       // Open dialog on next frame
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) async =>
-          showDialog<bool>(
-            context: context,
-            barrierDismissible: false,
-            builder: (context) =>
-                HelpDialog(widget.helpText, title: widget.title,
-                    page: widget.pageName)
-          )
+        (_) async => showDialog<bool>(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => HelpDialog(
+            widget.helpText,
+            title: widget.title,
+            page: widget.pageName,
+          ),
+        ),
       );
     } else {
-      if (helpSetting)
+      if (helpSetting) {
         print('Help dialog skipped, already shown.');
-      else
+      } else {
         print('Help dialog skipped, user disabled or settings not loaded.');
+      }
     }
   }
 
@@ -60,7 +60,7 @@ class HelpPageState extends State<HelpPage> {
   void initState() {
     super.initState();
 
-    helpPagesShown = Set<String>();
+    helpPagesShown = <String>{};
     settings = null;
   }
 
@@ -78,12 +78,13 @@ class HelpPageState extends State<HelpPage> {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.pageName != widget.pageName) {
-      print('Updated help page from ${oldWidget.pageName} to ${widget.pageName}, showing help...');
+      print(
+          'Updated page from ${oldWidget.pageName} to ${widget.pageName}, showing help...');
       showHelpDialog(always: false);
     }
   }
 
   @override
   Widget build(BuildContext context) =>
-    widget.pageBuilder?.call(context, this, widget.child) ?? widget.child;
+      widget.pageBuilder?.call(context, this, widget.child) ?? widget.child;
 }

@@ -15,12 +15,11 @@ class ThemePreference extends ChangeNotifier {
     SharedPreferences.getInstance().then((prefs) {
       int savedMode;
 
-      if (_mode == ThemeMode.system)
+      if (_mode == ThemeMode.system) {
         savedMode = 0;
-      else if (_mode == ThemeMode.light)
+      } else if (_mode == ThemeMode.light) {
         savedMode = 1;
-      else if (_mode == ThemeMode.dark)
-        savedMode = 2;
+      } else if (_mode == ThemeMode.dark) savedMode = 2;
 
       prefs.setInt(kThemePref, savedMode);
     });
@@ -31,14 +30,13 @@ class ThemePreference extends ChangeNotifier {
 
     // Get shared preferences
     SharedPreferences.getInstance().then((prefs) {
-      int savedMode = prefs.getInt(kThemePref) ?? -1;
+      var savedMode = prefs.getInt(kThemePref) ?? -1;
 
-      if (savedMode == 0)
+      if (savedMode == 0) {
         _mode = ThemeMode.system;
-      else if (savedMode == 1)
+      } else if (savedMode == 1) {
         _mode = ThemeMode.light;
-      else if (savedMode == 2)
-        _mode = ThemeMode.dark;
+      } else if (savedMode == 2) _mode = ThemeMode.dark;
 
       notifyListeners();
     });
