@@ -28,11 +28,8 @@ class ProgressData extends ChangeNotifier {
       _records?.values?.toList() ?? <ProgressRecord>[];
 
   // Returns all progress records with topics from the set given.
-  List<ProgressRecord> recordsWithTopics(Set<String> topics) {
-    var recordList = records;
-    recordList.removeWhere((record) => !topics.contains(record.name));
-    return recordList;
-  }
+  List<ProgressRecord> recordsWithTopics(Set<String> topics) =>
+      records.toList()..removeWhere((record) => !topics.contains(record.name));
 
   // Gets the progress for a specific item
   // Returns a record with 0 progress if the record does not exist or if the
@@ -172,7 +169,7 @@ class ProgressData extends ChangeNotifier {
     final path = databasePath + kDatabaseFile;
 
     return openDatabase(path,
-        version: 2,
+        version: 3,
         onCreate: _createProgressTable,
         onUpgrade: _upgradeProgressTable);
   }
@@ -197,6 +194,13 @@ class ProgressData extends ChangeNotifier {
     if (oldVersion < 2) {
       final upgradeSql = '''ALTER TABLE $kProgressTable
         ADD COLUMN ${ProgressRecord.kReward} INTEGER
+      ''';
+      await db.execute(upgradeSql);
+    }
+    if (oldVersion < 3) {
+      final upgradeSql = '''UPDATE $kProgressTable
+        SET ${ProgressRecord.kName} = "Jesus Christ"
+        WHERE ${ProgressRecord.kName} = "jesus christ"
       ''';
       await db.execute(upgradeSql);
     }

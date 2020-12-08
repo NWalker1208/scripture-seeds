@@ -21,7 +21,6 @@ class PlantsDashboard extends StatelessWidget {
             title: Text('Plants'),
             trailing: DailyProgressIndicator(),
           ),
-
           // Plant list
           SizedBox(
             height: 250,

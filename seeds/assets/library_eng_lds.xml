@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<library schema="1" version="1" lang="eng">
+<library schema="1" version="4" lang="eng">
   <summary>
     <topic price="1">agency</topic>
     <topic price="1">apostles</topic>
@@ -17,7 +17,7 @@
     <topic price="1">genealogy</topic>
     <topic price="1">hope</topic>
     <topic price="1">humility</topic>
-    <topic price="1">jesus christ</topic>
+    <topic price="1">Jesus Christ</topic>
     <topic price="1">knowledge</topic>
     <topic price="1">leadership</topic>
     <topic price="1">life</topic>
@@ -130,7 +130,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/4.4?lang=eng#p4">Genesis 4:4</reference>
     <body>
       <title>Genesis 4</title>
@@ -180,7 +180,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/12.7?lang=eng#p7">Genesis 12:7</reference>
     <body>
       <title>Genesis 12</title>
@@ -215,7 +215,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/17.1?lang=eng#p1">Genesis 17:1</reference>
     <body>
       <title>Genesis 17</title>
@@ -239,7 +239,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/22.1-13?lang=eng#p1">Genesis 22:1-13</reference>
     <body>
@@ -367,7 +367,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/12.3,5,21,46?lang=eng#p3">Exodus 12:3,5,21,46</reference>
     <body>
       <title>Exodus 12</title>
@@ -386,7 +386,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/16.2-15?lang=eng#p2">Exodus 16:2-15</reference>
     <body>
       <title>Exodus 16</title>
@@ -548,7 +548,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/33.11?lang=eng#p11">Exodus 33:11</reference>
     <body>
       <title>Exodus 33</title>
@@ -592,7 +592,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ex/40.34-38?lang=eng#p34">Exodus 40:34-38</reference>
     <body>
       <title>Exodus 40</title>
@@ -604,7 +604,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/lev/16.20-22?lang=eng#p20">Leviticus 16:20-22</reference>
     <body>
@@ -671,7 +671,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/num/21.8-9?lang=eng#p8">Numbers 21:8-9</reference>
     <body>
       <title>Numbers 21</title>
@@ -883,7 +883,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/deut/34.10?lang=eng#p10">Deuteronomy 34:10</reference>
     <body>
       <title>Deuteronomy 34</title>
@@ -1529,7 +1529,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/9.8?lang=eng#p8">Psalms 9:8</reference>
     <body>
       <title>Psalms 9</title>
@@ -1680,7 +1680,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/96.13?lang=eng#p13">Psalms 96:13</reference>
     <body>
       <title>Psalms 96</title>
@@ -2074,7 +2074,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/eccl/3.17?lang=eng#p17">Ecclesiastes 3:17</reference>
     <body>
@@ -2184,7 +2184,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/2.4?lang=eng#p4">Isaiah 2:4</reference>
     <body>
       <title>Isaiah 2</title>
@@ -2200,7 +2200,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/6.3?lang=eng#p3">Isaiah 6:3</reference>
     <body>
       <title>Isaiah 6</title>
@@ -2208,7 +2208,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/7.14?lang=eng#p14">Isaiah 7:14</reference>
     <body>
       <title>Isaiah 7</title>
@@ -2216,7 +2216,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/9.6-7?lang=eng#p6">Isaiah 9:6-7</reference>
     <body>
       <title>Isaiah 9</title>
@@ -2225,7 +2225,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/11.2-4?lang=eng#p2">Isaiah 11:2-4</reference>
     <body>
@@ -2283,7 +2283,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/32.1?lang=eng#p1">Isaiah 32:1</reference>
     <body>
       <title>Isaiah 32</title>
@@ -2299,7 +2299,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/40.5?lang=eng#p5">Isaiah 40:5</reference>
     <body>
       <title>Isaiah 40</title>
@@ -2339,7 +2339,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/49.26?lang=eng#p26">Isaiah 49:26</reference>
     <body>
       <title>Isaiah 49</title>
@@ -2356,7 +2356,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/53.3-12?lang=eng#p3">Isaiah 53:3-12</reference>
     <body>
       <title>Isaiah 53</title>
@@ -2452,7 +2452,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/60.1-2?lang=eng#p1">Isaiah 60:1-2</reference>
     <body>
       <title>Isaiah 60</title>
@@ -2837,7 +2837,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/jonah/1.17?lang=eng#p17">Jonah 1:17</reference>
     <body>
@@ -2868,7 +2868,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/micah/4.3?lang=eng#p3">Micah 4:3</reference>
     <body>
       <title>Micah 4</title>
@@ -2876,7 +2876,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/micah/5.2?lang=eng#p2">Micah 5:2</reference>
     <body>
       <title>Micah 5</title>
@@ -2908,7 +2908,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/zech/2.10-12?lang=eng#p10">Zechariah 2:10-12</reference>
     <body>
       <title>Zechariah 2</title>
@@ -2938,7 +2938,7 @@
   </resource>
   <resource category="OldTestament">
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/zech/9.9?lang=eng#p9">Zechariah 9:9</reference>
     <body>
       <title>Zechariah 9</title>
@@ -2970,7 +2970,7 @@
     </body>
   </resource>
   <resource category="OldTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/ot/zech/14.9?lang=eng#p9">Zechariah 14:9</reference>
     <body>
       <title>Zechariah 14</title>
@@ -3044,7 +3044,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/1.18-25?lang=eng#p18">Matthew 1:18-25</reference>
     <body>
       <title>Matthew 1</title>
@@ -3059,7 +3059,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/2.1-12?lang=eng#p1">Matthew 2:1-12</reference>
     <body>
       <title>Matthew 2</title>
@@ -3078,7 +3078,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/2.13-18?lang=eng#p13">Matthew 2:13-18</reference>
     <body>
       <title>Matthew 2</title>
@@ -3091,7 +3091,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/2.19-23?lang=eng#p19">Matthew 2:19-23</reference>
     <body>
       <title>Matthew 2</title>
@@ -3121,7 +3121,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/3.13-17?lang=eng#p13">Matthew 3:13-17</reference>
     <body>
@@ -3135,7 +3135,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/4.1-11?lang=eng#p1">Matthew 4:1-11</reference>
     <body>
@@ -3154,7 +3154,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/4.18-22?lang=eng#p18">Matthew 4:18-22</reference>
     <body>
@@ -3320,7 +3320,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/7.28-29?lang=eng#p28">Matthew 7:28-29</reference>
     <body>
@@ -3330,7 +3330,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/9.6?lang=eng#p6">Matthew 9:6</reference>
     <body>
       <title>Matthew 9</title>
@@ -3338,7 +3338,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/9.9?lang=eng#p9">Matthew 9:9</reference>
     <body>
       <title>Matthew 9</title>
@@ -3346,7 +3346,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/9.10-13,35?lang=eng#p10">Matthew 9:10-13,35</reference>
     <body>
@@ -3384,7 +3384,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/10.1-15?lang=eng#p1">Matthew 10:1-15</reference>
@@ -3464,7 +3464,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/12.40?lang=eng#p40">Matthew 12:40</reference>
     <body>
       <title>Matthew 12</title>
@@ -3488,7 +3488,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/13.55-56?lang=eng#p55">Matthew 13:55-56</reference>
     <body>
       <title>Matthew 13</title>
@@ -3532,7 +3532,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/16.21-26?lang=eng#p21">Matthew 16:21-26</reference>
     <body>
       <title>Matthew 16</title>
@@ -3545,7 +3545,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/16.27?lang=eng#p27">Matthew 16:27</reference>
     <body>
       <title>Matthew 16</title>
@@ -3554,7 +3554,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/17.1-9?lang=eng#p1">Matthew 17:1-9</reference>
     <body>
       <title>Matthew 17</title>
@@ -3586,7 +3586,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/17.22-23?lang=eng#p22">Matthew 17:22-23</reference>
     <body>
       <title>Matthew 17</title>
@@ -3682,7 +3682,7 @@
   <resource category="NewTestament">
     <topic>baptism</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/20.17-28?lang=eng#p17">Matthew 20:17-28</reference>
@@ -3703,7 +3703,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/21.1-11?lang=eng#p1">Matthew 21:1-11</reference>
     <body>
       <title>Matthew 21</title>
@@ -3864,7 +3864,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/26.26-29?lang=eng#p26">Matthew 26:26-29</reference>
     <body>
@@ -3878,7 +3878,7 @@
   <resource category="NewTestament">
     <topic>agency</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <topic>patience</topic>
     <topic>prayer</topic>
@@ -3900,7 +3900,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/26.47-57?lang=eng#p47">Matthew 26:47-57</reference>
     <body>
       <title>Matthew 26</title>
@@ -3937,7 +3937,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/27.31-56?lang=eng#p31">Matthew 27:31-56</reference>
@@ -3973,7 +3973,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/28.1-8?lang=eng#p1">Matthew 28:1-8</reference>
     <body>
@@ -3991,7 +3991,7 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/28.9-20?lang=eng#p9">Matthew 28:9-20</reference>
@@ -4031,7 +4031,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.9-11?lang=eng#p9">Mark 1:9-11</reference>
     <body>
       <title>Mark 1</title>
@@ -4041,7 +4041,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.12-13?lang=eng#p12">Mark 1:12-13</reference>
     <body>
       <title>Mark 1</title>
@@ -4050,7 +4050,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.16-20?lang=eng#p16">Mark 1:16-20</reference>
     <body>
       <title>Mark 1</title>
@@ -4062,7 +4062,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.22?lang=eng#p22">Mark 1:22</reference>
     <body>
@@ -4071,7 +4071,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>priesthood</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/1.27,34,39?lang=eng#p27">Mark 1:27,34,39</reference>
@@ -4091,7 +4091,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/2.13-14?lang=eng#p13">Mark 2:13-14</reference>
     <body>
       <title>Mark 2</title>
@@ -4134,7 +4134,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>priesthood</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/3.13-19?lang=eng#p13">Mark 3:13-19</reference>
@@ -4168,7 +4168,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/4.35-41?lang=eng#p35">Mark 4:35-41</reference>
     <body>
       <title>Mark 4</title>
@@ -4241,7 +4241,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/6.3?lang=eng#p3">Mark 6:3</reference>
     <body>
       <title>Mark 6</title>
@@ -4266,7 +4266,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>diligence</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/8.31-37?lang=eng#p31">Mark 8:31-37</reference>
     <body>
       <title>Mark 8</title>
@@ -4280,7 +4280,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/9.2-8?lang=eng#p2">Mark 9:2-8</reference>
     <body>
       <title>Mark 9</title>
@@ -4307,7 +4307,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/9.30-32?lang=eng#p30">Mark 9:30-32</reference>
     <body>
@@ -4345,7 +4345,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/11.1-11?lang=eng#p1">Mark 11:1-11</reference>
     <body>
       <title>Mark 11</title>
@@ -4388,7 +4388,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/14.22-25?lang=eng#p22">Mark 14:22-25</reference>
     <body>
       <title>Mark 14</title>
@@ -4400,7 +4400,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/14.32-42?lang=eng#p32">Mark 14:32-42</reference>
     <body>
@@ -4419,7 +4419,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/14.43-53?lang=eng#p43">Mark 14:43-53</reference>
     <body>
       <title>Mark 14</title>
@@ -4447,7 +4447,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/15.20-41?lang=eng#p20">Mark 15:20-41</reference>
     <body>
@@ -4480,7 +4480,7 @@
     <topic>apostles</topic>
     <topic>baptism</topic>
     <topic>hope</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <topic>resurrection</topic>
     <topic>sabbath</topic>
@@ -4509,7 +4509,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/16.19-20?lang=eng#p19">Mark 16:19-20</reference>
     <body>
@@ -4528,7 +4528,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/1.26-38?lang=eng#p26">Luke 1:26-38</reference>
     <body>
       <title>Luke 1</title>
@@ -4560,7 +4560,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.1-20?lang=eng#p1">Luke 2:1-20</reference>
     <body>
       <title>Luke 2</title>
@@ -4587,7 +4587,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.21?lang=eng#p21">Luke 2:21</reference>
     <body>
       <title>Luke 2</title>
@@ -4596,7 +4596,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.22-38?lang=eng#p22">Luke 2:22-38</reference>
     <body>
@@ -4621,7 +4621,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.40,52?lang=eng#p40">Luke 2:40,52</reference>
     <body>
@@ -4631,7 +4631,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2.41-50?lang=eng#p41">Luke 2:41-50</reference>
     <body>
@@ -4669,7 +4669,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/3.21-22?lang=eng#p21">Luke 3:21-22</reference>
     <body>
       <title>Luke 3</title>
@@ -4679,7 +4679,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/4.1-13?lang=eng#p1">Luke 4:1-13</reference>
     <body>
@@ -4708,7 +4708,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/4.32?lang=eng#p32">Luke 4:32</reference>
     <body>
@@ -4717,7 +4717,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/4.33-36?lang=eng#p33">Luke 4:33-36</reference>
     <body>
@@ -4729,7 +4729,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/5.1-11,27-28?lang=eng#p1">Luke 5:1-11,27-28</reference>
     <body>
       <title>Luke 5</title>
@@ -4778,7 +4778,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/6.12-17?lang=eng#p12">Luke 6:12-17</reference>
     <body>
@@ -4874,7 +4874,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>diligence</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/9.22-25?lang=eng#p22">Luke 9:22-25</reference>
     <body>
       <title>Luke 9</title>
@@ -4885,7 +4885,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/9.28-36?lang=eng#p28">Luke 9:28-36</reference>
     <body>
@@ -4902,7 +4902,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/9.43-45?lang=eng#p43">Luke 9:43-45</reference>
     <body>
       <title>Luke 9</title>
@@ -4950,7 +4950,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>priesthood</topic>
     <topic>prophets</topic>
@@ -5205,7 +5205,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/18.31-34?lang=eng#p31">Luke 18:31-34</reference>
     <body>
       <title>Luke 18</title>
@@ -5216,7 +5216,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/19.29-44?lang=eng#p29">Luke 19:29-44</reference>
     <body>
       <title>Luke 19</title>
@@ -5290,7 +5290,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22.17-20?lang=eng#p17">Luke 22:17-20</reference>
     <body>
@@ -5322,7 +5322,7 @@
   <resource category="NewTestament">
     <topic>atonement</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22.39-46?lang=eng#p39">Luke 22:39-46</reference>
     <body>
@@ -5338,7 +5338,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22.47-54?lang=eng#p47">Luke 22:47-54</reference>
     <body>
       <title>Luke 22</title>
@@ -5355,7 +5355,7 @@
   <resource category="NewTestament">
     <topic>charity</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/23.26-49?lang=eng#p26">Luke 23:26-49</reference>
     <body>
@@ -5387,7 +5387,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/24.34-43?lang=eng#p34">Luke 24:34-43</reference>
     <body>
@@ -5405,7 +5405,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <topic>resurrection</topic>
     <topic>scriptures</topic>
@@ -5434,7 +5434,7 @@
   <resource category="NewTestament">
     <topic>creation</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/1.1,3,10,14,18?lang=eng#p1">John 1:1,3,10,14,18</reference>
     <body>
       <title>John 1</title>
@@ -5455,7 +5455,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/1.25-33?lang=eng#p25">John 1:25-33</reference>
     <body>
       <title>John 1</title>
@@ -5508,7 +5508,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.14-15?lang=eng#p14">John 3:14-15</reference>
     <body>
       <title>John 3</title>
@@ -5518,7 +5518,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>life</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.16-17?lang=eng#p16">John 3:16-17</reference>
     <body>
@@ -5536,7 +5536,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/3.35-36?lang=eng#p35">John 3:35-36</reference>
     <body>
@@ -5556,7 +5556,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/4.6-14?lang=eng#p6">John 4:6-14</reference>
     <body>
       <title>John 4</title>
@@ -5607,7 +5607,7 @@
   <resource category="NewTestament">
     <topic>atonement</topic>
     <topic>genealogy</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/5.22,25-29?lang=eng#p22">John 5:22,25-29</reference>
     <body>
@@ -5682,7 +5682,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/6.51?lang=eng#p51">John 6:51</reference>
     <body>
       <title>John 6</title>
@@ -5736,7 +5736,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/8.16?lang=eng#p16">John 8:16</reference>
     <body>
       <title>John 8</title>
@@ -5756,7 +5756,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/8.58?lang=eng#p58">John 8:58</reference>
     <body>
       <title>John 8</title>
@@ -5772,7 +5772,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/10.16?lang=eng#p16">John 10:16</reference>
     <body>
       <title>John 10</title>
@@ -5781,7 +5781,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/10.17-18?lang=eng#p17">John 10:17-18</reference>
     <body>
       <title>John 10</title>
@@ -5804,7 +5804,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/12.12-19?lang=eng#p12">John 12:12-19</reference>
     <body>
       <title>John 12</title>
@@ -5832,7 +5832,7 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/13.2-17?lang=eng#p2">John 13:2-17</reference>
@@ -5869,7 +5869,7 @@
   <resource category="NewTestament">
     <topic>atonement</topic>
     <topic>creation</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/14.6?lang=eng#p6">John 14:6</reference>
     <body>
       <title>John 14</title>
@@ -5991,7 +5991,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/17.5?lang=eng#p5">John 17:5</reference>
     <body>
       <title>John 17</title>
@@ -5999,7 +5999,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/17.6-11,14-17,20-23?lang=eng#p6">John 17:6-11,14-17,20-23</reference>
@@ -6022,7 +6022,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/18.2-13?lang=eng#p2">John 18:2-13</reference>
     <body>
       <title>John 18</title>
@@ -6049,7 +6049,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/19.16-30?lang=eng#p16">John 19:16-30</reference>
     <body>
       <title>John 19</title>
@@ -6083,7 +6083,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/20.24-31?lang=eng#p24">John 20:24-31</reference>
@@ -6101,7 +6101,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>apostles</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/21.5-7?lang=eng#p5">John 21:5-7</reference>
     <body>
@@ -6114,7 +6114,7 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>diligence</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/john/21.8-17?lang=eng#p8">John 21:8-17</reference>
     <body>
@@ -6148,7 +6148,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/1.9-12?lang=eng#p9">Acts 1:9-12</reference>
     <body>
       <title>Acts 1</title>
@@ -6258,7 +6258,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/4.10-12?lang=eng#p10">Acts 4:10-12</reference>
     <body>
@@ -6293,7 +6293,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/5.38-42?lang=eng#p38">Acts 5:38-42</reference>
     <body>
@@ -6330,7 +6330,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/7.55-56?lang=eng#p55">Acts 7:55-56</reference>
     <body>
       <title>Acts 7</title>
@@ -6405,7 +6405,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/9.1-9?lang=eng#p1">Acts 9:1-9</reference>
     <body>
       <title>Acts 9</title>
@@ -6466,7 +6466,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>charity</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/10.38?lang=eng#p38">Acts 10:38</reference>
     <body>
       <title>Acts 10</title>
@@ -6484,7 +6484,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/10.42?lang=eng#p42">Acts 10:42</reference>
     <body>
@@ -6539,7 +6539,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/13.23?lang=eng#p23">Acts 13:23</reference>
     <body>
       <title>Acts 13</title>
@@ -6638,7 +6638,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/19.15?lang=eng#p15">Acts 19:15</reference>
     <body>
@@ -6671,7 +6671,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/22.8?lang=eng#p8">Acts 22:8</reference>
     <body>
       <title>Acts 22</title>
@@ -6731,7 +6731,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/acts/26.9-17?lang=eng#p9">Acts 26:9-17</reference>
     <body>
@@ -6875,7 +6875,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/6.1-6?lang=eng#p1">Romans 6:1-6</reference>
     <body>
@@ -7069,7 +7069,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/14.10?lang=eng#p10">Romans 14:10</reference>
     <body>
       <title>Romans 14</title>
@@ -7233,7 +7233,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/10.1-4?lang=eng#p1">1 Corinthians 10:1-4</reference>
     <body>
       <title>1 Corinthians 10</title>
@@ -7263,7 +7263,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/11.23-26?lang=eng#p23">1 Corinthians 11:23-26</reference>
     <body>
       <title>1 Corinthians 11</title>
@@ -7274,7 +7274,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>knowledge</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12.3?lang=eng#p3">1 Corinthians 12:3</reference>
@@ -7354,7 +7354,7 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.1-4?lang=eng#p1">1 Corinthians 15:1-4</reference>
@@ -7378,7 +7378,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.12-15?lang=eng#p12">1 Corinthians 15:12-15</reference>
     <body>
@@ -7393,7 +7393,7 @@
     <topic>death</topic>
     <topic>faith</topic>
     <topic>hope</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.16-23?lang=eng#p16">1 Corinthians 15:16-23</reference>
     <body>
@@ -7409,7 +7409,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15.25?lang=eng#p25">1 Corinthians 15:25</reference>
     <body>
       <title>1 Corinthians 15</title>
@@ -7502,7 +7502,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/5.10?lang=eng#p10">2 Corinthians 5:10</reference>
     <body>
       <title>2 Corinthians 5</title>
@@ -7643,7 +7643,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/1.10?lang=eng#p10">Ephesians 1:10</reference>
     <body>
       <title>Ephesians 1</title>
@@ -7667,7 +7667,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/1.22?lang=eng#p22">Ephesians 1:22</reference>
     <body>
       <title>Ephesians 1</title>
@@ -7696,7 +7696,7 @@
   <resource category="NewTestament">
     <topic>apostles</topic>
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>knowledge</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/2.19-20?lang=eng#p19">Ephesians 2:19-20</reference>
@@ -7768,7 +7768,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/eph/5.23?lang=eng#p23">Ephesians 5:23</reference>
     <body>
       <title>Ephesians 5</title>
@@ -7835,7 +7835,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/philip/2.10-11?lang=eng#p10">Philippians 2:10-11</reference>
     <body>
       <title>Philippians 2</title>
@@ -7893,7 +7893,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/col/1.18?lang=eng#p18">Colossians 1:18</reference>
     <body>
@@ -8094,7 +8094,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-tim/2.5?lang=eng#p5">1 Timothy 2:5</reference>
     <body>
@@ -8161,7 +8161,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/2.8?lang=eng#p8">2 Timothy 2:8</reference>
     <body>
       <title>2 Timothy 2</title>
@@ -8222,7 +8222,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/2-tim/4.1?lang=eng#p1">2 Timothy 4:1</reference>
     <body>
       <title>2 Timothy 4</title>
@@ -8281,7 +8281,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/1.6?lang=eng#p6">Hebrews 1:6</reference>
     <body>
       <title>Hebrews 1</title>
@@ -8289,7 +8289,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/2.9?lang=eng#p9">Hebrews 2:9</reference>
     <body>
       <title>Hebrews 2</title>
@@ -8316,7 +8316,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/4.14-16?lang=eng#p14">Hebrews 4:14-16</reference>
     <body>
@@ -8417,7 +8417,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/9.11-14?lang=eng#p11">Hebrews 9:11-14</reference>
     <body>
       <title>Hebrews 9</title>
@@ -8429,7 +8429,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/9.15-18?lang=eng#p15">Hebrews 9:15-18</reference>
     <body>
@@ -8525,7 +8525,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/12.2?lang=eng#p2">Hebrews 12:2</reference>
     <body>
       <title>Hebrews 12</title>
@@ -8569,7 +8569,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/13.8?lang=eng#p8">Hebrews 13:8</reference>
     <body>
       <title>Hebrews 13</title>
@@ -8743,7 +8743,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>life</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-pet/1.18-20?lang=eng#p18">1 Peter 1:18-20</reference>
     <body>
@@ -8787,7 +8787,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/1-pet/2.21?lang=eng#p21">1 Peter 2:21</reference>
     <body>
       <title>1 Peter 2</title>
@@ -9048,7 +9048,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/1.18?lang=eng#p18">Revelation 1:18</reference>
     <body>
       <title>Revelation 1</title>
@@ -9106,7 +9106,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/5.6?lang=eng#p6">Revelation 5:6</reference>
     <body>
       <title>Revelation 5</title>
@@ -9114,7 +9114,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/5.12?lang=eng#p12">Revelation 5:12</reference>
     <body>
       <title>Revelation 5</title>
@@ -9138,7 +9138,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/11.15?lang=eng#p15">Revelation 11:15</reference>
     <body>
       <title>Revelation 11</title>
@@ -9190,7 +9190,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/20.1-3?lang=eng#p1">Revelation 20:1-3</reference>
     <body>
       <title>Revelation 20</title>
@@ -9200,7 +9200,7 @@
     </body>
   </resource>
   <resource category="NewTestament">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/20.4-13?lang=eng#p4">Revelation 20:4-13</reference>
     <body>
@@ -9449,7 +9449,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.18-23?lang=eng#p18">1 Nephi 11:18-23</reference>
     <body>
       <title>1 Nephi 11</title>
@@ -9464,7 +9464,7 @@
   <resource category="BookOfMormon">
     <topic>apostles</topic>
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.24-29?lang=eng#p24">1 Nephi 11:24-29</reference>
     <body>
@@ -9480,7 +9480,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>charity</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.30-33?lang=eng#p30">1 Nephi 11:30-33</reference>
     <body>
       <title>1 Nephi 11</title>
@@ -9628,7 +9628,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/19.10?lang=eng#p10">1 Nephi 19:10</reference>
     <body>
@@ -9666,7 +9666,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.12?lang=eng#p12">1 Nephi 22:12</reference>
     <body>
@@ -9675,7 +9675,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.20-22?lang=eng#p20">1 Nephi 22:20-22</reference>
     <body>
@@ -9686,7 +9686,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.24?lang=eng#p24">1 Nephi 22:24</reference>
     <body>
       <title>1 Nephi 22</title>
@@ -9694,7 +9694,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/22.26?lang=eng#p26">1 Nephi 22:26</reference>
     <body>
       <title>1 Nephi 22</title>
@@ -9739,7 +9739,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.9-10?lang=eng#p9">2 Nephi 2:9-10</reference>
     <body>
@@ -9764,7 +9764,7 @@
     <topic>atonement</topic>
     <topic>creation</topic>
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>knowledge</topic>
     <topic>life</topic>
     <topic>resurrection</topic>
@@ -9787,7 +9787,7 @@
     <topic>commandments</topic>
     <topic>life</topic>
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.27-29?lang=eng#p27">2 Nephi 2:27-29</reference>
     <body>
       <title>2 Nephi 2</title>
@@ -9882,7 +9882,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.8-12?lang=eng#p8">2 Nephi 9:8-12</reference>
@@ -9897,7 +9897,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>knowledge</topic>
     <topic>resurrection</topic>
     <topic>spirit</topic>
@@ -9927,7 +9927,7 @@
     <topic>baptism</topic>
     <topic>death</topic>
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>knowledge</topic>
     <topic>repentance</topic>
     <topic>resurrection</topic>
@@ -9979,7 +9979,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/10.14?lang=eng#p14">2 Nephi 10:14</reference>
     <body>
       <title>2 Nephi 10</title>
@@ -10029,7 +10029,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/12.4?lang=eng#p4">2 Nephi 12:4</reference>
     <body>
       <title>2 Nephi 12</title>
@@ -10037,7 +10037,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/16.3?lang=eng#p3">2 Nephi 16:3</reference>
     <body>
       <title>2 Nephi 16</title>
@@ -10045,7 +10045,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/19.6?lang=eng#p6">2 Nephi 19:6</reference>
     <body>
       <title>2 Nephi 19</title>
@@ -10069,7 +10069,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/25.12?lang=eng#p12">2 Nephi 25:12</reference>
     <body>
       <title>2 Nephi 25</title>
@@ -10077,7 +10077,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/25.19?lang=eng#p19">2 Nephi 25:19</reference>
     <body>
       <title>2 Nephi 25</title>
@@ -10087,7 +10087,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>salvation</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/25.23-26?lang=eng#p23">2 Nephi 25:23-26</reference>
@@ -10227,7 +10227,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.4-14?lang=eng#p4">2 Nephi 31:4-14</reference>
     <body>
@@ -10246,7 +10246,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>endure</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.16?lang=eng#p16">2 Nephi 31:16</reference>
     <body>
@@ -10279,7 +10279,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.21?lang=eng#p21">2 Nephi 31:21</reference>
     <body>
       <title>2 Nephi 31</title>
@@ -10434,7 +10434,7 @@
     <topic>faith</topic>
     <topic>hope</topic>
     <topic>scriptures</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/4.4-7?lang=eng#p4">Jacob 4:4-7</reference>
     <body>
@@ -10488,7 +10488,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/7.11,19?lang=eng#p11">Jacob 7:11,19</reference>
     <body>
@@ -10636,7 +10636,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>diligence</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/1.11?lang=eng#p11">Mosiah 1:11</reference>
     <body>
       <title>Mosiah 1</title>
@@ -10702,7 +10702,7 @@
     <topic>atonement</topic>
     <topic>creation</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.5-10?lang=eng#p5">Mosiah 3:5-10</reference>
     <body>
       <title>Mosiah 3</title>
@@ -10729,7 +10729,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.13-19?lang=eng#p13">Mosiah 3:13-19</reference>
@@ -10871,7 +10871,7 @@
     <topic>agency</topic>
     <topic>baptism</topic>
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/5.6-15?lang=eng#p6">Mosiah 5:6-15</reference>
@@ -10990,7 +10990,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/14.11?lang=eng#p11">Mosiah 14:11</reference>
     <body>
       <title>Mosiah 14</title>
@@ -10999,7 +10999,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/15.6-9?lang=eng#p6">Mosiah 15:6-9</reference>
     <body>
       <title>Mosiah 15</title>
@@ -11148,7 +11148,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/25.23?lang=eng#p23">Mosiah 25:23</reference>
     <body>
       <title>Mosiah 25</title>
@@ -11164,7 +11164,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>baptism</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/26.22?lang=eng#p22">Mosiah 26:22</reference>
     <body>
@@ -11234,7 +11234,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <topic>salvation</topic>
     <topic>missionary</topic>
@@ -11349,7 +11349,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>hope</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/5.15?lang=eng#p15">Alma 5:15</reference>
     <body>
       <title>Alma 5</title>
@@ -11378,7 +11378,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/5.48?lang=eng#p48">Alma 5:48</reference>
     <body>
       <title>Alma 5</title>
@@ -11386,7 +11386,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/5.50?lang=eng#p50">Alma 5:50</reference>
     <body>
       <title>Alma 5</title>
@@ -11420,7 +11420,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/7.10-13?lang=eng#p10">Alma 7:10-13</reference>
     <body>
       <title>Alma 7</title>
@@ -11498,7 +11498,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>death</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/11.40-45?lang=eng#p40">Alma 11:40-45</reference>
@@ -11521,7 +11521,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/12.12?lang=eng#p12">Alma 12:12</reference>
     <body>
       <title>Alma 12</title>
@@ -11619,7 +11619,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.16?lang=eng#p16">Alma 13:16</reference>
     <body>
       <title>Alma 13</title>
@@ -11916,7 +11916,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/30.13?lang=eng#p13">Alma 30:12-14,18</reference>
     <body>
@@ -12050,7 +12050,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.19?lang=eng#p19">Alma 33:19</reference>
     <body>
       <title>Alma 33</title>
@@ -12058,7 +12058,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/33.22?lang=eng#p22">Alma 33:22</reference>
     <body>
@@ -12189,7 +12189,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/36.16-21?lang=eng#p16">Alma 36:16-21</reference>
     <body>
@@ -12571,7 +12571,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/46.15?lang=eng#p15">Alma 46:15</reference>
     <body>
       <title>Alma 46</title>
@@ -12639,7 +12639,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/3.28?lang=eng#p28">Helaman 3:28</reference>
     <body>
       <title>Helaman 3</title>
@@ -12695,7 +12695,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/8.14-15?lang=eng#p14">Helaman 8:14-15</reference>
     <body>
       <title>Helaman 8</title>
@@ -12745,7 +12745,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/14.2-6?lang=eng#p2">Helaman 14:2-6</reference>
     <body>
       <title>Helaman 14</title>
@@ -12758,7 +12758,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>creation</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/14.12?lang=eng#p12">Helaman 14:12</reference>
     <body>
       <title>Helaman 14</title>
@@ -12781,7 +12781,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/14.20-27?lang=eng#p20">Helaman 14:20-27</reference>
     <body>
       <title>Helaman 14</title>
@@ -12823,7 +12823,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/1.12-14?lang=eng#p12">3 Nephi 1:12-14</reference>
     <body>
@@ -12834,7 +12834,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/1.15-21?lang=eng#p15">3 Nephi 1:15-21</reference>
     <body>
       <title>3 Nephi 1</title>
@@ -12882,7 +12882,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/8.5-7,17-23?lang=eng#p5">3 Nephi 8:5-7,17-23</reference>
     <body>
       <title>3 Nephi 8</title>
@@ -12909,7 +12909,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>creation</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/9.15?lang=eng#p15">3 Nephi 9:15</reference>
     <body>
       <title>3 Nephi 9</title>
@@ -12938,7 +12938,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.1-7?lang=eng#p1">3 Nephi 11:1-7</reference>
     <body>
@@ -12955,7 +12955,7 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.8-12?lang=eng#p8">3 Nephi 11:8-12</reference>
     <body>
@@ -12969,7 +12969,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.13-17?lang=eng#p13">3 Nephi 11:13-17</reference>
     <body>
@@ -13085,7 +13085,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/12.48?lang=eng#p48">3 Nephi 12:48</reference>
     <body>
@@ -13185,7 +13185,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17.15-18?lang=eng#p15">3 Nephi 17:15-18</reference>
@@ -13199,7 +13199,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17.19-25?lang=eng#p19">3 Nephi 17:19-25</reference>
     <body>
@@ -13216,7 +13216,7 @@
   <resource category="BookOfMormon">
     <topic>obedience</topic>
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.3-12?lang=eng#p3">3 Nephi 18:3-12</reference>
     <body>
@@ -13234,7 +13234,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.15-16?lang=eng#p15">3 Nephi 18:15-16</reference>
     <body>
@@ -13267,7 +13267,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.24-25?lang=eng#p24">3 Nephi 18:24-25</reference>
     <body>
@@ -13302,7 +13302,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.17-24?lang=eng#p17">3 Nephi 19:17-24</reference>
@@ -13320,7 +13320,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/19.27-34?lang=eng#p27">3 Nephi 19:27-34</reference>
     <body>
@@ -13428,7 +13428,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/26.3?lang=eng#p3">3 Nephi 26:3</reference>
     <body>
       <title>3 Nephi 26</title>
@@ -13437,7 +13437,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/26.5?lang=eng#p5">3 Nephi 26:5</reference>
     <body>
@@ -13465,7 +13465,7 @@
   <resource category="BookOfMormon">
     <topic>endure</topic>
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.1-9,28?lang=eng#p1">3 Nephi 27:1-9,28</reference>
     <body>
@@ -13489,7 +13489,7 @@
     <topic>endure</topic>
     <topic>faith</topic>
     <topic>obedience</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.13-19?lang=eng#p13">3 Nephi 27:13-19</reference>
     <body>
@@ -13506,7 +13506,7 @@
   <resource category="BookOfMormon">
     <topic>baptism</topic>
     <topic>commandments</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.20-22?lang=eng#p20">3 Nephi 27:20-22</reference>
@@ -13519,7 +13519,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>leadership</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.27?lang=eng#p27">3 Nephi 27:27</reference>
     <body>
       <title>3 Nephi 27</title>
@@ -13570,7 +13570,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/1.15?lang=eng#p15">Mormon 1:15</reference>
     <body>
       <title>Mormon 1</title>
@@ -13608,7 +13608,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/3.20?lang=eng#p20">Mormon 3:20</reference>
     <body>
       <title>Mormon 3</title>
@@ -13616,7 +13616,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/7.6?lang=eng#p6">Mormon 7:6</reference>
     <body>
@@ -13686,7 +13686,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>service</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/2.8-12?lang=eng#p8">Ether 2:8-12</reference>
     <body>
@@ -13718,7 +13718,7 @@
     <topic>atonement</topic>
     <topic>creation</topic>
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>life</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/3.6-20?lang=eng#p6">Ether 3:6-20</reference>
@@ -13759,7 +13759,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/4.19?lang=eng#p19">Ether 4:19</reference>
     <body>
       <title>Ether 4</title>
@@ -13836,7 +13836,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.38?lang=eng#p38">Ether 12:38</reference>
     <body>
       <title>Ether 12</title>
@@ -13844,7 +13844,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.41?lang=eng#p41">Ether 12:41</reference>
     <body>
@@ -13869,7 +13869,7 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/4.3?lang=eng#p3">Moroni 4:3</reference>
     <body>
       <title>Moroni 4</title>
@@ -13879,7 +13879,7 @@
   <resource category="BookOfMormon">
     <topic>faith</topic>
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>missionary</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/6.1-5?lang=eng#p1">Moroni 6:1-5</reference>
@@ -13956,7 +13956,7 @@
     <topic>commandments</topic>
     <topic>faith</topic>
     <topic>hope</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>life</topic>
     <topic>patience</topic>
@@ -14603,7 +14603,7 @@
     <topic>commandments</topic>
     <topic>faith</topic>
     <topic>hope</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>knowledge</topic>
     <topic>leadership</topic>
     <topic>missionary</topic>
@@ -14671,7 +14671,7 @@
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
     <topic>chastity</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <topic>repentance</topic>
     <topic>spirit</topic>
@@ -14787,7 +14787,7 @@
   <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
     <topic>humility</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.38-67,71-79?lang=eng#p38">Doctrine And Covenants 20:38-67,71-79</reference>
@@ -14982,7 +14982,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.11?lang=eng#p11">Doctrine And Covenants 29:11</reference>
     <body>
       <title>Doctrine And Covenants 29</title>
@@ -14990,7 +14990,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.12?lang=eng#p12">Doctrine And Covenants 29:12</reference>
     <body>
       <title>Doctrine And Covenants 29</title>
@@ -15113,7 +15113,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/33.5?lang=eng#p5">Doctrine And Covenants 33:5</reference>
     <body>
       <title>Doctrine And Covenants 33</title>
@@ -15443,7 +15443,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/43.29-30?lang=eng#p29">Doctrine And Covenants 43:29-30</reference>
     <body>
       <title>Doctrine And Covenants 43</title>
@@ -15477,7 +15477,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/45.3-5?lang=eng#p3">Doctrine And Covenants 45:3-5</reference>
     <body>
       <title>Doctrine And Covenants 45</title>
@@ -15504,7 +15504,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/45.44?lang=eng#p44">Doctrine And Covenants 45:44</reference>
     <body>
       <title>Doctrine And Covenants 45</title>
@@ -15761,7 +15761,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/58.21-22?lang=eng#p21">Doctrine And Covenants 58:21-22</reference>
     <body>
@@ -15835,7 +15835,7 @@
     <topic>commandments</topic>
     <topic>creation</topic>
     <topic>fasting</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>prayer</topic>
     <topic>sabbath</topic>
     <topic>service</topic>
@@ -16034,7 +16034,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/66.1?lang=eng#p1">Doctrine And Covenants 66:1</reference>
     <body>
       <title>Doctrine And Covenants 66</title>
@@ -16188,7 +16188,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>creation</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>life</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/76.19-24?lang=eng#p19">Doctrine And Covenants 76:19-24</reference>
     <body>
@@ -16231,7 +16231,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/76.40-45?lang=eng#p40">Doctrine And Covenants 76:40-45</reference>
     <body>
@@ -16247,7 +16247,7 @@
   <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
     <topic>faith</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/76.50-53,62?lang=eng#p50">Doctrine And Covenants 76:50-53,62</reference>
     <body>
@@ -16260,7 +16260,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/76.63?lang=eng#p63">Doctrine And Covenants 76:63</reference>
     <body>
       <title>Doctrine And Covenants 76</title>
@@ -16278,7 +16278,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/76.68?lang=eng#p68">Doctrine And Covenants 76:68</reference>
     <body>
       <title>Doctrine And Covenants 76</title>
@@ -16828,7 +16828,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.3-4,16-17?lang=eng#p3">Doctrine And Covenants 93:3-4,16-17</reference>
     <body>
       <title>Doctrine And Covenants 93</title>
@@ -16839,7 +16839,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.6?lang=eng#p6">Doctrine And Covenants 93:6</reference>
     <body>
       <title>Doctrine And Covenants 93</title>
@@ -16855,7 +16855,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.11?lang=eng#p11">Doctrine And Covenants 93:11</reference>
     <body>
       <title>Doctrine And Covenants 93</title>
@@ -16863,7 +16863,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/93.21?lang=eng#p21">Doctrine And Covenants 93:21</reference>
     <body>
       <title>Doctrine And Covenants 93</title>
@@ -17307,7 +17307,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.48-49?lang=eng#p48">Doctrine And Covenants 107:48-49</reference>
     <body>
       <title>Doctrine And Covenants 107</title>
@@ -17415,7 +17415,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/110.1-4?lang=eng#p1">Doctrine And Covenants 110:1-4</reference>
     <body>
       <title>Doctrine And Covenants 110</title>
@@ -17933,7 +17933,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.21-24?lang=eng#p21">Doctrine And Covenants 132:21-24</reference>
     <body>
@@ -18020,7 +18020,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/135.5?lang=eng#p5">Doctrine And Covenants 135:5</reference>
     <body>
       <title>Doctrine And Covenants 135</title>
@@ -18173,7 +18173,7 @@
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/1.1-11?lang=eng#p1">Moses 1:1-11</reference>
     <body>
       <title>Moses 1</title>
@@ -18201,7 +18201,7 @@
   <resource category="PearlOfGreatPrice">
     <topic>apostles</topic>
     <topic>creation</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>leadership</topic>
     <topic>life</topic>
     <topic>patience</topic>
@@ -18344,7 +18344,7 @@
   <resource category="PearlOfGreatPrice">
     <topic>agency</topic>
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>life</topic>
     <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/4.1-3?lang=eng#p1">Moses 4:1-3</reference>
@@ -18382,7 +18382,7 @@
   <resource category="PearlOfGreatPrice">
     <topic>agency</topic>
     <topic>atonement</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>obedience</topic>
     <topic>prayer</topic>
     <topic>resurrection</topic>
@@ -18408,7 +18408,7 @@
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/5.20?lang=eng#p20">Moses 5:20</reference>
     <body>
       <title>Moses 5</title>
@@ -18493,7 +18493,7 @@
   <resource category="PearlOfGreatPrice">
     <topic>agency</topic>
     <topic>baptism</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>repentance</topic>
     <topic>salvation</topic>
     <topic>spirit</topic>
@@ -18610,7 +18610,7 @@
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/2.6-8?lang=eng#p6">Abraham 2:6-8</reference>
     <body>
       <title>Abraham 2</title>
@@ -18650,7 +18650,7 @@
     <topic>agency</topic>
     <topic>atonement</topic>
     <topic>creation</topic>
-    <topic>jesus christ</topic>
+    <topic>Jesus Christ</topic>
     <topic>life</topic>
     <topic>obedience</topic>
     <topic>sabbath</topic>

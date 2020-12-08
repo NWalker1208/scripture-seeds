@@ -8,7 +8,6 @@ import '../services/data/wallet.dart';
 import '../services/utility.dart';
 import '../widgets/dialogs/extra_study.dart';
 import '../widgets/help_page.dart';
-import '../widgets/plant/drawer.dart';
 import '../widgets/plant/progress_indicator.dart';
 import '../widgets/plant/view.dart';
 
@@ -61,7 +60,7 @@ class PlantPage extends StatelessWidget {
               ),
             ),
           ),
-          drawer: PlantSelectDrawer(plantName),
+          //drawer: PlantSelectDrawer(plantName),
           backgroundColor: Colors.transparent,
           body: PlantView(
             plantName,

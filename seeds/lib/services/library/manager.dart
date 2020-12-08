@@ -39,12 +39,12 @@ class LibraryManager extends ChangeNotifier {
   }
 
   // Attempt to refresh library from web.
-  Future<void> refreshLibrary() async {
+  Future<bool> refreshLibrary() async {
     print('Refreshing library...');
     var newLibrary =
         Library.fromXmlElement((await _loadFromWeb())?.rootElement);
 
-    if (newLibrary == null) return;
+    if (newLibrary == null) return false;
 
     if (newLibrary.version > (library?.version ?? -1)) {
       library = newLibrary;
@@ -56,6 +56,7 @@ class LibraryManager extends ChangeNotifier {
     notifyListeners();
 
     await _updateCacheFromDownload();
+    return true;
   }
 
   /// Cache Management Functions
@@ -198,16 +199,21 @@ class LibraryManager extends ChangeNotifier {
     var url = Uri.parse('$_webStorageURL$_libFileName.xml?alt=media');
 
     print('Downloading library from "$url"...');
-    var response = await get(url);
-    if (response.statusCode == 200) {
-      var cache = await _getCacheFile(newDownload: true);
-      if (!await cache.exists()) await cache.create(recursive: true);
-      await cache.writeAsBytes(response.bodyBytes);
+    try {
+      var response = await get(url);
+      if (response.statusCode == 200) {
+        var cache = await _getCacheFile(newDownload: true);
+        if (!await cache.exists()) await cache.create(recursive: true);
+        await cache.writeAsBytes(response.bodyBytes);
 
-      return cache;
+        return cache;
+      }
+
+      print('Download failed with code ${response.statusCode}');
+    } on Exception catch(e) {
+      print('Download failed with exception $e');
     }
 
-    print('Download failed with code ${response.statusCode}');
     return null;
   }
 }

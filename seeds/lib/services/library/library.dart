@@ -14,7 +14,6 @@ class Library {
   List<StudyResource> resources;
 
   Set<String> get topics => topicPrices.keys.toSet();
-  List<String> get topicsSorted => topicPrices.keys.toList()..sort();
 
   Library._({this.version = -1, this.topicPrices, this.resources});
 

@@ -4,6 +4,7 @@ import 'package:package_info/package_info.dart';
 import '../services/custom_icons.dart';
 import '../widgets/settings/data_management.dart';
 import '../widgets/settings/library_filter.dart';
+import '../widgets/settings/library_refresh.dart';
 import '../widgets/settings/theme_selector.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -30,6 +31,7 @@ class SettingsPage extends StatelessWidget {
             const Divider(),
             const LibraryFilterSettings(),
             const Divider(),
+            const LibraryRefreshTile(),
             const DataManagementSettings(),
             const Divider(),
             ListTile(

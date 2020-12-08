@@ -42,7 +42,9 @@ class TopicList extends StatelessWidget {
             return const Text('Loading...', textAlign: TextAlign.center);
           }
 
-          var topics = library.topicsSorted;
+          var topics = library.topics.toList();
+          topics.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
+
           var topicsAlreadyPurchased = progress.recordNames;
           topics.removeWhere((t) => topicsAlreadyPurchased.contains(t));
 
