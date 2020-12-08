@@ -43,7 +43,7 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
             curve: Curves.easeInOutCubic,
             builder: (context, percent, child) => LinearPercentIndicator(
               backgroundColor: Theme.of(context).brightness == Brightness.light
-                  ? Colors.black
+                  ? Colors.black.withAlpha(50)
                   : Colors.green.withAlpha(50),
               progressColor: Theme.of(context).brightness == Brightness.light
                   ? Colors.white
