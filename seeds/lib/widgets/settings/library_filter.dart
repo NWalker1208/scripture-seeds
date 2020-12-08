@@ -11,14 +11,14 @@ class LibraryFilterSettings extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  String addSpaces(String str) {
-    var newStr = str[0];
-
-    for (var i = 1; i < str.length; i++) {
-      newStr += (str[i].isCapital ? ' ' : '') + str[i];
-    }
-
-    return newStr;
+  String categoryToReadable(study_resource.Category category) {
+    var string = enumToString(category);
+    return string[0].capitalize() +
+        string
+            .substring(1)
+            .characters
+            .map((c) => c.isCapital ? ' $c' : c)
+            .join();
   }
 
   @override
@@ -38,7 +38,7 @@ class LibraryFilterSettings extends StatelessWidget {
               ),
               ...categories.map(
                 (category) => SwitchListTile(
-                  title: Text(addSpaces(category.toString())),
+                  title: Text(categoryToReadable(category)),
                   value: filter[category],
                   onChanged: (value) => filter[category] = value,
                 ),

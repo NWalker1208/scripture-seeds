@@ -4,9 +4,7 @@ import 'package:flutter/rendering.dart';
 
 // The home of miscellaneous functions
 
-// Converts a string to an enum value
-T stringToEnum<T>(List<T> values, String string) => values
-    .firstWhere((val) => val.toString().contains(string), orElse: () => null);
+String enumToString<T>(T value) => value.toString().split('.').last;
 
 extension DateTimeExtension on DateTime {
   // Return true if present is on a future date from past
@@ -61,6 +59,13 @@ extension StringExtension on String {
       return '';
     }
   }
+
+  // Converts a string to an enum value
+  T toEnum<T>(List<T> values) => values.firstWhere(
+        (val) =>
+    val.toString().split('.').last.toLowerCase() == toLowerCase(),
+    orElse: () => null,
+  );
 
   int get wordCount {
     final containsLetter = RegExp(r'.*[a-zA-Z].*');

@@ -45,14 +45,14 @@ class JournalEntry implements Comparable<JournalEntry> {
         ? DateTime.parse(data[_kFileCreated] as String)
         : null;
 
-    category = stringToEnum(Category.values, data[_kFileCategory] as String);
+    category = (data[_kFileCategory] as String).toEnum(Category.values);
     quote = (data[_kFileQuote] ?? data[_kFileReference]) as String ?? '';
     reference = data[_kFileReference] as String ?? '';
     url = data[_kFileURL] as String ?? '';
     commentary = data[_kFileCommentary] as String ?? '';
 
     tags = data.containsKey(_kFileTags)
-        ? data[_kFileTags] as List<String>
+        ? (data[_kFileTags] as List<dynamic>).whereType<String>().toList()
         : <String>[];
   }
 

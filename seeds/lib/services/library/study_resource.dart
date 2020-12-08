@@ -111,9 +111,8 @@ class StudyResource {
         element.findElements('body').first.children;
 
     // Initialize properties
-    category =
-        stringToEnum(Category.values, element.getAttribute('category')) ??
-            Category.other;
+    category = element.getAttribute('category').toEnum(Category.values) ??
+        Category.other;
     topics = topicElements.map((t) => t.text).toSet();
     reference = referenceElement.text;
     referenceURL = referenceElement.getAttribute('url');

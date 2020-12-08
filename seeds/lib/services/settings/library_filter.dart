@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../library/study_resource.dart';
 
 class LibraryFilter extends ChangeNotifier {
-  static const String kCategoryPref = 'study_category_';
+  static const String kCategoryPref = 'study_';
 
   Map<Category, bool> _filter;
 
