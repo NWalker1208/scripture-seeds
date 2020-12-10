@@ -14447,6 +14447,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>commandments</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.9?lang=eng#p9">Doctrine And Covenants 6:9</reference>
     <body>
@@ -14464,6 +14465,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>prayer</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.14-15?lang=eng#p14">Doctrine And Covenants 6:14-15</reference>
     <body>
       <title>Doctrine And Covenants 6</title>
@@ -14472,7 +14474,9 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>charity</topic>
     <topic>faith</topic>
+    <topic>patience</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.19?lang=eng#p19">Doctrine And Covenants 6:19</reference>
     <body>
@@ -14507,9 +14511,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>commandments</topic>
     <topic>faith</topic>
-    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.36?lang=eng#p36">Doctrine And Covenants 6:36</reference>
     <body>
       <title>Doctrine And Covenants 6</title>
@@ -14521,7 +14523,6 @@
     <topic>knowledge</topic>
     <topic>prayer</topic>
     <topic>spirit</topic>
-    <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/8.1-3?lang=eng#p1">Doctrine And Covenants 8:1-3</reference>
     <body>
       <title>Doctrine And Covenants 8</title>
@@ -14584,6 +14585,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/10.47,49,52?lang=eng#p47">Doctrine And Covenants 10:47,49,52</reference>
     <body>
       <title>Doctrine And Covenants 10</title>
@@ -14617,7 +14619,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>sabbath</topic>
+    <topic>commandments</topic>
+    <topic>prayer</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/11.5-7?lang=eng#p5">Doctrine And Covenants 11:5-7</reference>
     <body>
@@ -14628,6 +14631,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>commandments</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/11.9?lang=eng#p9">Doctrine And Covenants 11:9</reference>
     <body>
@@ -14662,12 +14666,9 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
     <topic>endure</topic>
     <topic>life</topic>
     <topic>obedience</topic>
-    <topic>prophets</topic>
-    <topic>tithing</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/14.7?lang=eng#p7">Doctrine And Covenants 14:7</reference>
     <body>
       <title>Doctrine And Covenants 14</title>
@@ -14676,6 +14677,8 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>prayer</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/14.8?lang=eng#p8">Doctrine And Covenants 14:8</reference>
     <body>
       <title>Doctrine And Covenants 14</title>
@@ -14684,6 +14687,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>creation</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/14.9?lang=eng#p9">Doctrine And Covenants 14:9</reference>
     <body>
       <title>Doctrine And Covenants 14</title>
@@ -14711,16 +14715,10 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
-    <topic>charity</topic>
-    <topic>commandments</topic>
-    <topic>faith</topic>
-    <topic>hope</topic>
-    <topic>Jesus Christ</topic>
-    <topic>knowledge</topic>
-    <topic>leadership</topic>
+    <topic>apostles</topic>
     <topic>missionary</topic>
     <topic>repentance</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.9-25?lang=eng#p9">Doctrine And Covenants 18:9-25</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.9-16?lang=eng#p9">Doctrine And Covenants 18:9-16</reference>
     <body>
       <title>Doctrine And Covenants 18</title>
       <highlight verse="9">And now, Oliver Cowdery, I speak unto you, and also unto David Whitmer, by the way of commandment; for, behold, I command all men everywhere to repent, and I speak unto you, even as unto Paul mine apostle, for you are called even with that same calling with which he was called.</highlight>
@@ -14731,9 +14729,31 @@
       <highlight verse="14">Wherefore, you are called to cry repentance unto this people.</highlight>
       <highlight verse="15">And if it so be that you should labor all your days in crying repentance unto this people, and bring, save it be one soul unto me, how great shall be your joy with him in the kingdom of my Father!</highlight>
       <highlight verse="16">And now, if your joy will be great with one soul that you have brought unto me into the kingdom of my Father, how great will be your joy if you should bring many souls unto me!</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>spirit</topic>
+    <topic>charity</topic>
+    <topic>faith</topic>
+    <topic>hope</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.17-19?lang=eng#p17">Doctrine And Covenants 18:17-19</reference>
+    <body>
+      <title>Doctrine And Covenants 18</title>
       <highlight verse="17">Behold, you have my gospel before you, and my rock, and my salvation.</highlight>
       <highlight verse="18">Ask the Father in my name in faith, believing that you shall receive, and you shall have the Holy Ghost, which manifesteth all things which are expedient unto the children of men.</highlight>
       <highlight verse="19">And if you have not faith, hope, and charity, you can do nothing.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>baptism</topic>
+    <topic>charity</topic>
+    <topic>endure</topic>
+    <topic>Jesus Christ</topic>
+    <topic>missionary</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.20-25?lang=eng#p20">Doctrine And Covenants 18:20-25</reference>
+    <body>
+      <title>Doctrine And Covenants 18</title>
       <highlight verse="20">Contend against no church, save it be the church of the devil.</highlight>
       <highlight verse="21">Take upon you the name of Christ, and speak the truth in soberness.</highlight>
       <highlight verse="22">And as many as repent and are baptized in my name, which is Jesus Christ, and endure to the end, the same shall be saved.</highlight>
@@ -14782,12 +14802,10 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
-    <topic>chastity</topic>
     <topic>Jesus Christ</topic>
-    <topic>prayer</topic>
     <topic>repentance</topic>
     <topic>spirit</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.15-24?lang=eng#p15">Doctrine And Covenants 19:15-24</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.15-20?lang=eng#p15">Doctrine And Covenants 19:15-20</reference>
     <body>
       <title>Doctrine And Covenants 19</title>
       <highlight verse="15">Therefore I command you to repent—repent, lest I smite you by the rod of my mouth, and by my wrath, and by my anger, and your sufferings be sore—how sore you know not, how exquisite you know not, yea, how hard to bear you know not.</highlight>
@@ -14796,6 +14814,16 @@
       <highlight verse="18">Which suffering caused myself, even God, the greatest of all, to tremble because of pain, and to bleed at every pore, and to suffer both body and spirit—and would that I might not drink the bitter cup, and shrink—</highlight>
       <highlight verse="19">Nevertheless, glory be to the Father, and I partook and finished my preparations unto the children of men.</highlight>
       <highlight verse="20">Wherefore, I command you again to repent, lest I humble you with my almighty power; and that you confess your sins, lest you suffer these punishments of which I have spoken, of which in the smallest, yea, even in the least degree you have tasted at the time I withdrew my Spirit.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>knowledge</topic>
+    <topic>Jesus Christ</topic>
+    <topic>missionary</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.21-24?lang=eng#p21">Doctrine And Covenants 19:21-24</reference>
+    <body>
+      <title>Doctrine And Covenants 19</title>
       <highlight verse="21">And I command you that you preach naught but repentance, and show not these things unto the world until it is wisdom in me.</highlight>
       <highlight verse="22">For they cannot bear meat now, but milk they must receive; wherefore, they must not know these things, lest they perish.</highlight>
       <highlight verse="23">Learn of me, and listen to my words; walk in the meekness of my Spirit, and you shall have peace in me.</highlight>
@@ -14813,6 +14841,8 @@
   <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
     <topic>faith</topic>
+    <topic>missionary</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.31?lang=eng#p31">Doctrine And Covenants 19:31</reference>
     <body>
       <title>Doctrine And Covenants 19</title>
@@ -14821,6 +14851,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>prayer</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.38?lang=eng#p38">Doctrine And Covenants 19:38</reference>
     <body>
       <title>Doctrine And Covenants 19</title>
@@ -14853,7 +14884,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>atonement</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.22?lang=eng#p22">Doctrine And Covenants 20:22</reference>
     <body>
       <title>Doctrine And Covenants 20</title>
@@ -14861,8 +14892,11 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>endure</topic>
     <topic>faith</topic>
     <topic>repentance</topic>
+    <topic>baptism</topic>
+    <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.25,29?lang=eng#p25">Doctrine And Covenants 20:25,29</reference>
     <body>
       <title>Doctrine And Covenants 20</title>
@@ -14879,14 +14913,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>spirit</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.28?lang=eng#p28">Doctrine And Covenants 20:28</reference>
-    <body>
-      <title>Doctrine And Covenants 20</title>
-      <highlight verse="28">Which Father, Son, and Holy Ghost are one God, infinite and eternal, without end. Amen.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
     <topic>humility</topic>
     <topic>repentance</topic>
@@ -14897,12 +14923,10 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>baptism</topic>
-    <topic>humility</topic>
-    <topic>Jesus Christ</topic>
-    <topic>prayer</topic>
+    <topic>apostle</topic>
+    <topic>leadership</topic>
     <topic>priesthood</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.38-67,71-79?lang=eng#p38">Doctrine And Covenants 20:38-67,71-79</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.38-45?lang=eng#p38">Doctrine And Covenants 20:38-45</reference>
     <body>
       <title>Doctrine And Covenants 20</title>
       <highlight verse="38">The duty of the elders, priests, teachers, deacons, and members of the church of Christ—An apostle is an elder, and it is his calling to baptize;</highlight>
@@ -14913,6 +14937,14 @@
       <highlight verse="43">And to confirm the church by the laying on of the hands, and the giving of the Holy Ghost;</highlight>
       <highlight verse="44">And to take the lead of all meetings.</highlight>
       <highlight verse="45">The elders are to conduct the meetings as they are led by the Holy Ghost, according to the commandments and revelations of God.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>leadership</topic>
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.46-52?lang=eng#p46">Doctrine And Covenants 20:46-52</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
       <highlight verse="46">The priest’s duty is to preach, teach, expound, exhort, and baptize, and administer the sacrament,</highlight>
       <highlight verse="47">And visit the house of each member, and exhort them to pray vocally and in secret and attend to all family duties.</highlight>
       <highlight verse="48">And he may also ordain other priests, teachers, and deacons.</highlight>
@@ -14920,6 +14952,14 @@
       <highlight verse="50">But when there is an elder present, he is only to preach, teach, expound, exhort, and baptize,</highlight>
       <highlight verse="51">And visit the house of each member, exhorting them to pray vocally and in secret and attend to all family duties.</highlight>
       <highlight verse="52">In all these duties the priest is to assist the elder if occasion requires.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>leadership</topic>
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.53-59?lang=eng#p53">Doctrine And Covenants 20:53-59</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
       <highlight verse="53">The teacher’s duty is to watch over the church always, and be with and strengthen them;</highlight>
       <highlight verse="54">And see that there is no iniquity in the church, neither hardness with each other, neither lying, backbiting, nor evil speaking;</highlight>
       <highlight verse="55">And see that the church meet together often, and also see that all the members do their duty.</highlight>
@@ -14927,18 +14967,44 @@
       <highlight verse="57">And is to be assisted always, in all his duties in the church, by the deacons, if occasion requires.</highlight>
       <highlight verse="58">But neither teachers nor deacons have authority to baptize, administer the sacrament, or lay on hands;</highlight>
       <highlight verse="59">They are, however, to warn, expound, exhort, and teach, and invite all to come unto Christ.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>priesthood</topic>
+    <topic>spirit</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.60?lang=eng#p60">Doctrine And Covenants 20:60</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
       <highlight verse="60">Every elder, priest, teacher, or deacon is to be ordained according to the gifts and callings of God unto him; and he is to be ordained by the power of the Holy Ghost, which is in the one who ordains him.</highlight>
-      <highlight verse="61">The several elders composing this church of Christ are to meet in conference once in three months, or from time to time as said conferences shall direct or appoint;</highlight>
-      <highlight verse="62">And said conferences are to do whatever church business is necessary to be done at the time.</highlight>
-      <highlight verse="63">The elders are to receive their licenses from other elders, by vote of the church to which they belong, or from the conferences.</highlight>
-      <highlight verse="64">Each priest, teacher, or deacon, who is ordained by a priest, may take a certificate from him at the time, which certificate, when presented to an elder, shall entitle him to a license, which shall authorize him to perform the duties of his calling, or he may receive it from a conference.</highlight>
-      <highlight verse="65">No person is to be ordained to any office in this church, where there is a regularly organized branch of the same, without the vote of that church;</highlight>
-      <highlight verse="66">But the presiding elders, traveling bishops, high councilors, high priests, and elders, may have the privilege of ordaining, where there is no branch of the church that a vote may be called.</highlight>
-      <highlight verse="67">Every president of the high priesthood (or presiding elder), bishop, high councilor, and high priest, is to be ordained by the direction of a high council or general conference.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>baptism</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.71?lang=eng#p71">Doctrine And Covenants 20:71</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
       <highlight verse="71">No one can be received into the church of Christ unless he has arrived unto the years of accountability before God, and is capable of repentance.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>baptism</topic>
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.72-74?lang=eng#p72">Doctrine And Covenants 20:72-74</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
       <highlight verse="72">Baptism is to be administered in the following manner unto all those who repent—</highlight>
       <highlight verse="73">The person who is called of God and has authority from Jesus Christ to baptize, shall go down into the water with the person who has presented himself or herself for baptism, and shall say, calling him or her by name: Having been commissioned of Jesus Christ, I baptize you in the name of the Father, and of the Son, and of the Holy Ghost. Amen.</highlight>
       <highlight verse="74">Then shall he immerse him or her in the water, and come forth again out of the water.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>Jesus Christ</topic>
+    <topic>prayer</topic>
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.75-79?lang=eng#p75">Doctrine And Covenants 20:75-79</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
       <highlight verse="75">It is expedient that the church meet together often to partake of bread and wine in the remembrance of the Lord Jesus;</highlight>
       <highlight verse="76">And the elder or priest shall administer it; and after this manner shall he administer it—he shall kneel with the church and call upon the Father in solemn prayer, saying:</highlight>
       <highlight verse="77">O God, the Eternal Father, we ask thee in the name of thy Son, Jesus Christ, to bless and sanctify this bread to the souls of all those who partake of it, that they may eat in remembrance of the body of thy Son, and witness unto thee, O God, the Eternal Father, that they are willing to take upon them the name of thy Son, and always remember him and keep his commandments which he has given them; that they may always have his Spirit to be with them. Amen.</highlight>
@@ -14964,7 +15030,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
-    <topic>knowledge</topic>
+    <topic>patience</topic>
     <topic>leadership</topic>
     <topic>obedience</topic>
     <topic>prophets</topic>
@@ -15033,9 +15099,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
     <topic>faith</topic>
-    <topic>prophets</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/26.2?lang=eng#p2">Doctrine And Covenants 26:2</reference>
     <body>
       <title>Doctrine And Covenants 26</title>
@@ -15077,16 +15142,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
-    <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/28.13?lang=eng#p13">Doctrine And Covenants 28:13</reference>
-    <body>
-      <title>Doctrine And Covenants 28</title>
-      <highlight verse="13">For all things must be done in order, and by common consent in the church, by the prayer of faith.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.6?lang=eng#p6">Doctrine And Covenants 29:6</reference>
     <body>
       <title>Doctrine And Covenants 29</title>
@@ -15102,6 +15159,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>apostles</topic>
     <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.12?lang=eng#p12">Doctrine And Covenants 29:12</reference>
     <body>
@@ -15155,6 +15213,7 @@
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
     <topic>faith</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.41-42?lang=eng#p41">Doctrine And Covenants 29:41-42</reference>
     <body>
       <title>Doctrine And Covenants 29</title>
@@ -15180,7 +15239,6 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>atonement</topic>
-    <topic>baptism</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.46-47?lang=eng#p46">Doctrine And Covenants 29:46-47</reference>
     <body>
@@ -15190,7 +15248,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>salvation</topic>
+    <topic>knowledge</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/29.49-50?lang=eng#p49">Doctrine And Covenants 29:49-50</reference>
     <body>
       <title>Doctrine And Covenants 29</title>
@@ -15199,8 +15258,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>leadership</topic>
-    <topic>missionary</topic>
+    <topic>diligence</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/31.5?lang=eng#p5">Doctrine And Covenants 31:5</reference>
     <body>
       <title>Doctrine And Covenants 31</title>
@@ -15208,7 +15266,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>charity</topic>
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/31.9?lang=eng#p9">Doctrine And Covenants 31:9</reference>
     <body>
@@ -15225,14 +15282,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>Jesus Christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/33.5?lang=eng#p5">Doctrine And Covenants 33:5</reference>
-    <body>
-      <title>Doctrine And Covenants 33</title>
-      <highlight verse="5">And verily, verily, I say unto you, that this church have I established and called forth out of the wilderness.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/33.12?lang=eng#p12">Doctrine And Covenants 33:12</reference>
     <body>
@@ -15242,6 +15291,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/33.15?lang=eng#p15">Doctrine And Covenants 33:15</reference>
     <body>
       <title>Doctrine And Covenants 33</title>
@@ -15268,17 +15318,10 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/35.9?lang=eng#p9">Doctrine And Covenants 35:9</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/35.9,11?lang=eng#p9">Doctrine And Covenants 35:9,11</reference>
     <body>
       <title>Doctrine And Covenants 35</title>
       <highlight verse="9">And whoso shall ask it in my name in faith, they shall cast out devils; they shall heal the sick; they shall cause the blind to receive their sight, and the deaf to hear, and the dumb to speak, and the lame to walk.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>faith</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/35.11?lang=eng#p11">Doctrine And Covenants 35:11</reference>
-    <body>
-      <title>Doctrine And Covenants 35</title>
       <highlight verse="11">But without faith shall not anything be shown forth except desolations upon Babylon, the same which has made all nations drink of the wine of the wrath of her fornication.</highlight>
     </body>
   </resource>
