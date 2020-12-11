@@ -15376,7 +15376,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>humility</topic>
+    <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/38.9?lang=eng#p9">Doctrine And Covenants 38:9</reference>
     <body>
       <title>Doctrine And Covenants 38</title>
@@ -15444,9 +15444,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
+    <topic>missionary</topic>
     <topic>priesthood</topic>
-    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/42.11?lang=eng#p11">Doctrine And Covenants 42:11</reference>
     <body>
       <title>Doctrine And Covenants 42</title>
@@ -15500,6 +15499,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>charity</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/42.39?lang=eng#p39">Doctrine And Covenants 42:39</reference>
     <body>
@@ -15616,6 +15616,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/44.2?lang=eng#p2">Doctrine And Covenants 44:2</reference>
     <body>
       <title>Doctrine And Covenants 44</title>
@@ -15716,7 +15717,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>leadership</topic>
+    <topic>spirit</topic>
     <topic>prayer</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/46.8-9,28-30?lang=eng#p8">Doctrine And Covenants 46:8-9,28-30</reference>
@@ -15823,20 +15824,12 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>leadership</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/50.13-14?lang=eng#p13">Doctrine And Covenants 50:13-14</reference>
     <body>
       <title>Doctrine And Covenants 50</title>
       <highlight verse="13">Wherefore, I the Lord ask you this question—unto what were ye ordained?</highlight>
       <highlight verse="14">To preach my gospel by the Spirit, even the Comforter which was sent forth to teach the truth.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>leadership</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/50.18?lang=eng#p18">Doctrine And Covenants 50:18</reference>
-    <body>
-      <title>Doctrine And Covenants 50</title>
-      <highlight verse="18">And if it be by some other way it is not of God.</highlight>
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
@@ -15891,7 +15884,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>obedience</topic>
+    <topic>endure</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/53.7?lang=eng#p7">Doctrine And Covenants 53:7</reference>
     <body>
       <title>Doctrine And Covenants 53</title>
@@ -15928,7 +15921,6 @@
   <resource category="DoctrineAndCovenants">
     <topic>agency</topic>
     <topic>diligence</topic>
-    <topic>hope</topic>
     <topic>obedience</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/58.26-33?lang=eng#p26">Doctrine And Covenants 58:26-33</reference>
@@ -15945,12 +15937,9 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>chastity</topic>
     <topic>commandments</topic>
     <topic>humility</topic>
     <topic>repentance</topic>
-    <topic>scriptures</topic>
-    <topic>virtue</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/58.42-43?lang=eng#p42">Doctrine And Covenants 58:42-43</reference>
     <body>
       <title>Doctrine And Covenants 58</title>
@@ -15988,28 +15977,41 @@
   <resource category="DoctrineAndCovenants">
     <topic>chastity</topic>
     <topic>commandments</topic>
-    <topic>creation</topic>
-    <topic>fasting</topic>
     <topic>Jesus Christ</topic>
-    <topic>prayer</topic>
-    <topic>sabbath</topic>
     <topic>service</topic>
-    <topic>temples</topic>
-    <topic>virtue</topic>
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/59.5-20?lang=eng#p5">Doctrine And Covenants 59:5-20</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/59.5-8?lang=eng#p5">Doctrine And Covenants 59:5-8</reference>
     <body>
       <title>Doctrine And Covenants 59</title>
       <highlight verse="5">Wherefore, I give unto them a commandment, saying thus: Thou shalt love the Lord thy God with all thy heart, with all thy might, mind, and strength; and in the name of Jesus Christ thou shalt serve him.</highlight>
       <highlight verse="6">Thou shalt love thy neighbor as thyself. Thou shalt not steal; neither commit adultery, nor kill, nor do anything like unto it.</highlight>
       <highlight verse="7">Thou shalt thank the Lord thy God in all things.</highlight>
       <highlight verse="8">Thou shalt offer a sacrifice unto the Lord thy God in righteousness, even that of a broken heart and a contrite spirit.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>commandments</topic>
+    <topic>fasting</topic>
+    <topic>Jesus Christ</topic>
+    <topic>prayer</topic>
+    <topic>sabbath</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/59.9-14?lang=eng#p9">Doctrine And Covenants 59:9-14</reference>
+    <body>
+      <title>Doctrine And Covenants 59</title>
       <highlight verse="9">And that thou mayest more fully keep thyself unspotted from the world, thou shalt go to the house of prayer and offer up thy sacraments upon my holy day;</highlight>
       <highlight verse="10">For verily this is a day appointed unto you to rest from your labors, and to pay thy devotions unto the Most High;</highlight>
       <highlight verse="11">Nevertheless thy vows shall be offered up in righteousness on all days and at all times;</highlight>
       <highlight verse="12">But remember that on this, the Lord’s day, thou shalt offer thine oblations and thy sacraments unto the Most High, confessing thy sins unto thy brethren, and before the Lord.</highlight>
       <highlight verse="13">And on this day thou shalt do none other thing, only let thy food be prepared with singleness of heart that thy fasting may be perfect, or, in other words, that thy joy may be full.</highlight>
       <highlight verse="14">Verily, this is fasting and prayer, or in other words, rejoicing and prayer.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>commandments</topic>
+    <topic>obedience</topic>
+    <topic>wisdom</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/59.15-20?lang=eng#p15">Doctrine And Covenants 59:15-20</reference>
+    <body>
+      <title>Doctrine And Covenants 59</title>
       <highlight verse="15">And inasmuch as ye do these things with thanksgiving, with cheerful hearts and countenances, not with much laughter, for this is sin, but with a glad heart and a cheerful countenance—</highlight>
       <highlight verse="16">Verily I say, that inasmuch as ye do this, the fulness of the earth is yours, the beasts of the field and the fowls of the air, and that which climbeth upon the trees and walketh upon the earth;</highlight>
       <highlight verse="17">Yea, and the herb, and the good things which come of the earth, whether for food or for raiment, or for houses, or for barns, or for orchards, or for gardens, or for vineyards;</highlight>
@@ -16028,7 +16030,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>atonement</topic>
+    <topic>agency</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/59.23?lang=eng#p23">Doctrine And Covenants 59:23</reference>
     <body>
@@ -16092,7 +16094,6 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>chastity</topic>
-    <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/63.16?lang=eng#p16">Doctrine And Covenants 63:16</reference>
     <body>
       <title>Doctrine And Covenants 63</title>
@@ -16172,7 +16173,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>chastity</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/64.34-35?lang=eng#p34">Doctrine And Covenants 64:34-35</reference>
     <body>
       <title>Doctrine And Covenants 64</title>
@@ -16254,7 +16255,6 @@
     <topic>baptism</topic>
     <topic>faith</topic>
     <topic>prayer</topic>
-    <topic>priesthood</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/68.25-28?lang=eng#p25">Doctrine And Covenants 68:25-28</reference>
     <body>
