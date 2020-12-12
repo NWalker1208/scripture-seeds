@@ -86,17 +86,23 @@ class _JournalPageState extends State<JournalPage> {
                   trailing: Consumer<JournalData>(
                     builder: (context, journal, child) =>
                         DropdownButton<String>(
-                      value: filter,
+                      value: filter ?? 'all_topics',
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1
                           .copyWith(color: Colors.white),
                       dropdownColor: Theme.of(context).primaryColor,
                       iconEnabledColor: Colors.white,
-                      onChanged: (topic) => setState(() => filter = topic),
+                      onChanged: (topic) => setState(() {
+                        if (topic == 'all_topics') {
+                          filter = null;
+                        } else {
+                          filter = topic;
+                        }
+                      }),
                       items: [
                         const DropdownMenuItem<String>(
-                          value: null,
+                          value: 'all_topics',
                           child: Text('All'),
                         ),
                         ...journal.topics.map(
