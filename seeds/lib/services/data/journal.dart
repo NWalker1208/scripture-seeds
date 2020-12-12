@@ -147,16 +147,15 @@ class JournalData extends ChangeNotifier {
   }
 
   /// File system backend
+  static Future<Directory> get _journalFolder async => Directory(
+          (await getApplicationDocumentsDirectory()).path + _kJournalFolder)
+      .create(recursive: true);
 
   static Future<List<JournalEntry>> _loadEntries() async {
     print('Loading journal entries...');
 
     try {
-      var appDocDir = await getApplicationDocumentsDirectory();
-      var journalFolder = Directory(appDocDir.path + _kJournalFolder)
-        ..createSync(recursive: true);
-
-      var entryFiles = journalFolder.listSync();
+      var entryFiles = (await _journalFolder).listSync();
 
       var entries = <JournalEntry>[];
       for (var entity in entryFiles) {
@@ -166,14 +165,19 @@ class JournalData extends ChangeNotifier {
             entries.add(entry);
           } on FormatException {
             print(
-              'Encountered invalid journal entry at ${entity.path}, deleting...',
+              'Encountered invalid journal entry ${entity.path}, deleting...',
             );
             await entity.delete();
+          } on Exception catch (e) {
+            print(
+              'Unknown exception occurred while reading '
+              'journal entry ${entity.path}: $e',
+            );
           }
         }
       }
 
-      print('Journal entries loaded!');
+      print('Loaded ${entries.length} journal entries!');
       return entries;
     } on FileSystemException catch (e) {
       print('File system exception while loading journal: $e');
@@ -185,8 +189,7 @@ class JournalData extends ChangeNotifier {
     print('Saving new entry to journal...');
 
     try {
-      var appDocDir = await getApplicationDocumentsDirectory();
-      var entryFile = File(appDocDir.path + _kJournalFolder + entry.fileName);
+      var entryFile = File((await _journalFolder).path + entry.fileName);
       entryFile.writeAsStringSync(entry.toJSON());
 
       print('Entry saved.');
@@ -201,8 +204,7 @@ class JournalData extends ChangeNotifier {
     print('Deleting entry from journal...');
 
     try {
-      var appDocDir = await getApplicationDocumentsDirectory();
-      var entryFile = File(appDocDir.path + _kJournalFolder + entry.fileName);
+      var entryFile = File((await _journalFolder).path + entry.fileName);
       entryFile.deleteSync();
 
       print('Entry deleted.');
@@ -217,9 +219,7 @@ class JournalData extends ChangeNotifier {
     print('Erasing all journal entries...');
 
     try {
-      var appDocDir = await getApplicationDocumentsDirectory();
-      var journalFolder = Directory(appDocDir.path + _kJournalFolder);
-      journalFolder.deleteSync(recursive: true);
+      (await _journalFolder).deleteSync(recursive: true);
 
       print('Journal erased.');
       return true;
