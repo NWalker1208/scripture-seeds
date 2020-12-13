@@ -17467,6 +17467,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>leadership</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.22?lang=eng#p22">Doctrine And Covenants 107:22</reference>
     <body>
       <title>Doctrine And Covenants 107</title>
@@ -17526,7 +17527,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>obedience</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.56?lang=eng#p56">Doctrine And Covenants 107:56</reference>
     <body>
       <title>Doctrine And Covenants 107</title>
@@ -17542,16 +17543,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>fasting</topic>
-    <topic>priesthood</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.68?lang=eng#p68">Doctrine And Covenants 107:68</reference>
-    <body>
-      <title>Doctrine And Covenants 107</title>
-      <highlight verse="68">Wherefore, the office of a bishop is not equal unto it; for the office of a bishop is in administering all temporal things;</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>apostles</topic>
+    <topic>leadership</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.80?lang=eng#p80">Doctrine And Covenants 107:80</reference>
     <body>
       <title>Doctrine And Covenants 107</title>
@@ -17559,6 +17552,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>leadership</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.85-88?lang=eng#p85">Doctrine And Covenants 107:85-88</reference>
     <body>
@@ -17610,18 +17604,11 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
+    <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/109.14?lang=eng#p14">Doctrine And Covenants 109:14</reference>
     <body>
       <title>Doctrine And Covenants 109</title>
       <highlight verse="14">And do thou grant, Holy Father, that all those who shall worship in this house may be taught words of wisdom out of the best books, and that they may seek learning even by study, and also by faith, as thou hast said;</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/109.20?lang=eng#p20">Doctrine And Covenants 109:20</reference>
-    <body>
-      <title>Doctrine And Covenants 109</title>
-      <highlight verse="20">And that no unclean thing shall be permitted to come into thy house to pollute it;</highlight>
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
@@ -17636,7 +17623,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>genealogy</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/110.7-8?lang=eng#p7">Doctrine And Covenants 110:7-8</reference>
     <body>
@@ -17646,15 +17632,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>genealogy</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/110.12?lang=eng#p12">Doctrine And Covenants 110:12</reference>
-    <body>
-      <title>Doctrine And Covenants 110</title>
-      <highlight verse="12">After this, Elias appeared, and committed the dispensation of the gospel of Abraham, saying that in us and our seed all generations after us should be blessed.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
     <topic>genealogy</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/110.13-16?lang=eng#p13">Doctrine And Covenants 110:13-16</reference>
     <body>
@@ -17684,7 +17661,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/112.19?lang=eng#p19">Doctrine And Covenants 112:19</reference>
     <body>
       <title>Doctrine And Covenants 112</title>
@@ -17700,15 +17677,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>wisdom</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/112.23?lang=eng#p23">Doctrine And Covenants 112:23</reference>
-    <body>
-      <title>Doctrine And Covenants 112</title>
-      <highlight verse="23">Verily, verily, I say unto you, darkness covereth the earth, and gross darkness the minds of the people, and all flesh has become corrupt before my face.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>humility</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/112.28?lang=eng#p28">Doctrine And Covenants 112:28</reference>
     <body>
       <title>Doctrine And Covenants 112</title>
@@ -17755,15 +17725,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>tithing</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/120.1?lang=eng#p1">Doctrine And Covenants 120:1</reference>
-    <body>
-      <title>Doctrine And Covenants 120</title>
-      <highlight verse="1">Verily, thus saith the Lord, the time is now come, that it shall be disposed of by a council, composed of the First Presidency of my Church, and of the bishop and his council, and by my high council; and by mine own voice unto them, saith the Lord. Even so. Amen.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>leadership</topic>
+    <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121.1-2?lang=eng#p1">Doctrine And Covenants 121:1-2</reference>
     <body>
       <title>Doctrine And Covenants 121</title>
@@ -17772,7 +17734,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>baptism</topic>
     <topic>endure</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121.7-8?lang=eng#p7">Doctrine And Covenants 121:7-8</reference>
@@ -17783,7 +17744,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>leadership</topic>
+    <topic>endure</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121.10?lang=eng#p10">Doctrine And Covenants 121:10</reference>
     <body>
       <title>Doctrine And Covenants 121</title>
@@ -17828,11 +17789,9 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>charity</topic>
-    <topic>chastity</topic>
     <topic>priesthood</topic>
     <topic>spirit</topic>
     <topic>virtue</topic>
-    <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121.45-46?lang=eng#p45">Doctrine And Covenants 121:45-46</reference>
     <body>
       <title>Doctrine And Covenants 121</title>
@@ -17843,17 +17802,10 @@
   <resource category="DoctrineAndCovenants">
     <topic>endure</topic>
     <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/122.7?lang=eng#p7">Doctrine And Covenants 122:7</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/122.7-8?lang=eng#p7">Doctrine And Covenants 122:7-8</reference>
     <body>
       <title>Doctrine And Covenants 122</title>
       <highlight verse="7">And if thou shouldst be cast into the pit, or into the hands of murderers, and the sentence of death passed upon thee; if thou be cast into the deep; if the billowing surge conspire against thee; if fierce winds become thine enemy; if the heavens gather blackness, and all the elements combine to hedge up the way; and above all, if the very jaws of hell shall gape open the mouth wide after thee, know thou, my son, that all these things shall give thee experience, and shall be for thy good.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>faith</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/122.8?lang=eng#p8">Doctrine And Covenants 122:8</reference>
-    <body>
-      <title>Doctrine And Covenants 122</title>
       <highlight verse="8">The Son of Man hath descended below them all. Art thou greater than he?</highlight>
     </body>
   </resource>
@@ -17892,7 +17844,6 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>genealogy</topic>
-    <topic>humility</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/124.24,39-41?lang=eng#p24">Doctrine And Covenants 124:24,39-41</reference>
     <body>
@@ -17905,6 +17856,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
+    <topic>genealogy</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/124.29?lang=eng#p29">Doctrine And Covenants 124:29</reference>
     <body>
       <title>Doctrine And Covenants 124</title>
@@ -17928,15 +17880,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
-    <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/124.126?lang=eng#p126">Doctrine And Covenants 124:126</reference>
-    <body>
-      <title>Doctrine And Covenants 124</title>
-      <highlight verse="126">I give unto him for counselors my servant Sidney Rigdon and my servant William Law, that these may constitute a quorum and First Presidency, to receive the oracles for the whole church.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>diligence</topic>
     <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/127.4?lang=eng#p4">Doctrine And Covenants 127:4</reference>
@@ -17947,6 +17890,8 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
+    <topic>genealogy</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/127.5-9?lang=eng#p5">Doctrine And Covenants 127:5-9</reference>
     <body>
       <title>Doctrine And Covenants 127</title>
@@ -17958,15 +17903,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/128.1?lang=eng#p1">Doctrine And Covenants 128:1</reference>
-    <body>
-      <title>Doctrine And Covenants 128</title>
-      <highlight verse="1">As I stated to you in my letter before I left my place, that I would write to you from time to time and give you information in relation to many subjects, I now resume the subject of the baptism for the dead, as that subject seems to occupy my mind, and press itself upon my feelings the strongest, since I have been pursued by my enemies.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>genealogy</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/128.10?lang=eng#p10">Doctrine And Covenants 128:10</reference>
     <body>
       <title>Doctrine And Covenants 128</title>
@@ -18015,7 +17952,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/129.1?lang=eng#p1">Doctrine And Covenants 129:1</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/129.1-3?lang=eng#p1">Doctrine And Covenants 129:1-3</reference>
     <body>
       <title>Doctrine And Covenants 129</title>
       <highlight verse="1">There are two kinds of beings in heaven, namely: Angels, who are resurrected personages, having bodies of flesh and bones—</highlight>
@@ -18043,7 +17980,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>chastity</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/130.22?lang=eng#p22">Doctrine And Covenants 130:22</reference>
     <body>
@@ -18068,6 +18004,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>knowledge</topic>
+    <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/131.6?lang=eng#p6">Doctrine And Covenants 131:6</reference>
     <body>
       <title>Doctrine And Covenants 131</title>
@@ -18083,7 +18020,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>marriage</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.3?lang=eng#p3">Doctrine And Covenants 132:3</reference>
     <body>
       <title>Doctrine And Covenants 132</title>
@@ -18099,11 +18036,9 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>genealogy</topic>
     <topic>knowledge</topic>
     <topic>marriage</topic>
     <topic>obedience</topic>
-    <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.6,34-40,45?lang=eng#p6">Doctrine And Covenants 132:6,34-40,45</reference>
     <body>
       <title>Doctrine And Covenants 132</title>
@@ -18121,9 +18056,9 @@
   <resource category="DoctrineAndCovenants">
     <topic>marriage</topic>
     <topic>priesthood</topic>
-    <topic>prophets</topic>
+    <topic>resurrection</topic>
     <topic>spirit</topic>
-    <topic>virtue</topic>
+    <topic>chastity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.7,18-20,26?lang=eng#p7">Doctrine And Covenants 132:7,18-20,26</reference>
     <body>
       <title>Doctrine And Covenants 132</title>
@@ -18155,7 +18090,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>genealogy</topic>
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.46?lang=eng#p46">Doctrine And Covenants 132:46</reference>
     <body>
       <title>Doctrine And Covenants 132</title>
@@ -18171,7 +18106,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>knowledge</topic>
+    <topic>chastity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.63?lang=eng#p63">Doctrine And Covenants 132:63</reference>
     <body>
       <title>Doctrine And Covenants 132</title>
@@ -18222,6 +18157,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>prophets</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/135.3?lang=eng#p3">Doctrine And Covenants 135:3</reference>
     <body>
@@ -18231,6 +18167,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>Jesus Christ</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/135.5?lang=eng#p5">Doctrine And Covenants 135:5</reference>
     <body>
       <title>Doctrine And Covenants 135</title>
@@ -18246,8 +18183,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
-    <topic>prophets</topic>
+    <topic>endure</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/136.31?lang=eng#p31">Doctrine And Covenants 136:31</reference>
     <body>
       <title>Doctrine And Covenants 136</title>
@@ -18301,6 +18237,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>resurrection</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138.16-17?lang=eng#p16">Doctrine And Covenants 138:16-17</reference>
     <body>
@@ -18310,14 +18247,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>genealogy</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138.27?lang=eng#p27">Doctrine And Covenants 138:27</reference>
-    <body>
-      <title>Doctrine And Covenants 138</title>
-      <highlight verse="27">But his ministry among those who were dead was limited to the brief time intervening between the crucifixion and his resurrection;</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
+    <topic>Jesus Christ</topic>
+    <topic>missionary</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138.28-30?lang=eng#p28">Doctrine And Covenants 138:28-30</reference>
     <body>
@@ -18359,6 +18290,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>spirit</topic>
     <topic>temples</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138.54?lang=eng#p54">Doctrine And Covenants 138:54</reference>
     <body>
@@ -18375,6 +18307,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>death</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138.58?lang=eng#p58">Doctrine And Covenants 138:58</reference>
     <body>
