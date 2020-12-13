@@ -44,15 +44,8 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   String toString() => toMap().toString();
 
   @override
-  int compareTo(ProgressRecord other) => name.compareTo(other.name);
-
-  // Sorting by priority messes up animations
-  /*int comp = other._priority.compareTo(_priority);
-
-    if (comp == 0)
-      comp = name.compareTo(other.name);
-
-    return comp;*/
+  int compareTo(ProgressRecord other) =>
+      name.toLowerCase().compareTo(other.name.toLowerCase());
 
   // Getters
   /*int get _priority =>

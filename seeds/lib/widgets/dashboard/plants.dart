@@ -39,7 +39,7 @@ class PlantsDashboard extends StatelessWidget {
                 return Stack(children: [
                   AnimatedListBuilder<ProgressRecord>(
                     items: records,
-                    duration: Duration(milliseconds: 250),
+                    duration: const Duration(milliseconds: 200),
                     childBuilder: (context, record, animation) =>
                         FadeTransition(
                       opacity: animation,
@@ -53,12 +53,13 @@ class PlantsDashboard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    viewBuilder: (context, children) => ListView.separated(
+                    viewBuilder: (context, builder, itemCount) =>
+                        ListView.separated(
                       padding: EdgeInsets.all(8),
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: children.length,
-                      itemBuilder: (context, index) => children[index],
+                      itemBuilder: builder,
+                      itemCount: itemCount,
                       separatorBuilder: (context, index) =>
                           const SizedBox(width: 8),
                     ),

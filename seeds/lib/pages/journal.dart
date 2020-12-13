@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../services/data/journal.dart';
 import '../services/utility.dart';
+import '../widgets/animated_list.dart';
 import '../widgets/dialogs/erase_journal_entry.dart';
 import '../widgets/journal_entry.dart';
 
@@ -132,55 +133,72 @@ class _JournalPageState extends State<JournalPage> {
                 );
               }
 
-              return ListView.builder(
-                padding: const EdgeInsets.only(bottom: 12.0),
-                itemCount: entries.length,
-                itemBuilder: (context, index) => Padding(
+              return AnimatedListBuilder<JournalEntry>(
+                items: entries,
+                duration: const Duration(milliseconds: 200),
+                childBuilder: (context, entry, animation) => Padding(
                   padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
-                  child: Stack(
-                    alignment: Alignment.centerLeft,
-                    children: <Widget>[
-                      Checkbox(
-                        value: selected.contains(entries[index]),
-                        onChanged: (value) => setState(() {
-                          if (value) {
-                            selected.add(entries[index]);
-                          } else {
-                            selected.remove(entries[index]);
-                          }
-                        }),
-                      ),
-                      TweenAnimationBuilder<double>(
-                        tween: Tween<double>(begin: 1, end: editMode ? 0.9 : 1),
-                        duration: const Duration(milliseconds: 200),
+                  child: FadeTransition(
+                    opacity: animation,
+                    child: SizeTransition(
+                      sizeFactor: CurvedAnimation(
+                        parent: animation,
                         curve: Curves.ease,
-                        builder: (context, scale, child) => Transform.scale(
-                          alignment: Alignment.centerRight,
-                          scale: scale,
-                          child: child,
-                        ),
-                        child: GestureDetector(
-                          onLongPress: () {
-                            if (!editMode) {
-                              toggleEditMode(selectedEntry: entries[index]);
-                            } else if (!selected.contains(entries[index])) {
-                              setState(() => selected.add(entries[index]));
-                            }
-                          },
-                          onTap: () {
-                            if (editMode) {
-                              if (selected.contains(entries[index])) {
-                                setState(() => selected.remove(entries[index]));
+                      ),
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        children: <Widget>[
+                          Checkbox(
+                            value: selected.contains(entry),
+                            onChanged: (value) => setState(() {
+                              if (value) {
+                                selected.add(entry);
                               } else {
-                                setState(() => selected.add(entries[index]));
+                                selected.remove(entry);
                               }
-                            }
-                          },
-                          child: JournalEntryView(entries[index]),
-                        ),
-                      )
-                    ],
+                            }),
+                          ),
+                          TweenAnimationBuilder<double>(
+                            tween: Tween<double>(
+                              begin: editMode ? 0.9 : 1,
+                              end: editMode ? 0.9 : 1,
+                            ),
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.ease,
+                            builder: (context, scale, child) => Transform.scale(
+                              alignment: Alignment.centerRight,
+                              scale: scale,
+                              child: child,
+                            ),
+                            child: GestureDetector(
+                              onLongPress: () {
+                                if (!editMode) {
+                                  toggleEditMode(selectedEntry: entry);
+                                } else if (!selected.contains(entry)) {
+                                  setState(() => selected.add(entry));
+                                }
+                              },
+                              onTap: () {
+                                if (editMode) {
+                                  if (selected.contains(entry)) {
+                                    setState(() => selected.remove(entry));
+                                  } else {
+                                    setState(() => selected.add(entry));
+                                  }
+                                }
+                              },
+                              child: JournalEntryView(entry),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
+                ),
+                viewBuilder: (context, builder, itemCount) => ListView.builder(
+                  padding: const EdgeInsets.only(bottom: 12.0),
+                  itemBuilder: builder,
+                  itemCount: itemCount,
                 ),
               );
             },

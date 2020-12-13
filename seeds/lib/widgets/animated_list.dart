@@ -2,8 +2,16 @@ import 'package:flutter/widgets.dart';
 
 class AnimatedListBuilder<T> extends StatefulWidget {
   final List<T> items;
-  final Widget Function(BuildContext, List<Widget>) viewBuilder;
-  final Widget Function(BuildContext, T, Animation<double>) childBuilder;
+  final Widget Function(
+    BuildContext context,
+    IndexedWidgetBuilder itemBuilder,
+    int itemCount,
+  ) viewBuilder;
+  final Widget Function(
+    BuildContext context,
+    T item,
+    Animation<double> animation,
+  ) childBuilder;
   final Duration duration;
 
   AnimatedListBuilder({
@@ -14,18 +22,41 @@ class AnimatedListBuilder<T> extends StatefulWidget {
     Key key,
   }) : super(key: key);
 
+  AnimatedListBuilder.list({
+    this.items = const [],
+    @required Widget Function(BuildContext, List<Widget>) viewBuilder,
+    @required this.childBuilder,
+    @required this.duration,
+    Key key,
+  })  : viewBuilder = ((context, itemBuilder, itemCount) => viewBuilder(
+              context,
+              List.generate(
+                itemCount,
+                (index) => itemBuilder(context, index),
+              ),
+            )),
+        super(key: key);
+
   @override
   _AnimatedListBuilderState<T> createState() => _AnimatedListBuilderState<T>();
 }
 
-class _AnimatedListBuilderState<T> extends State<AnimatedListBuilder<T>> {
+class _ItemController<T> {
+  T item;
+  AnimationController controller;
+
+  _ItemController(this.item, this.controller);
+}
+
+class _AnimatedListBuilderState<T> extends State<AnimatedListBuilder<T>>
+    with TickerProviderStateMixin {
   bool itemsChanged;
-  List<_ItemKeyPair<T>> currentItems;
+  List<_ItemController<T>> currentItems;
 
   // Updates current items based on the difference between oldItems and newItems
   void updateItemsList() {
-    var newItems = <_ItemKeyPair<T>>[];
-    var oldItems = <_ItemKeyPair<T>>[];
+    var newItems = <_ItemController<T>>[];
+    var oldItems = <_ItemController<T>>[];
 
     for (var item in widget.items) {
       var keyPair = currentItems.firstWhere(
@@ -34,7 +65,13 @@ class _AnimatedListBuilderState<T> extends State<AnimatedListBuilder<T>> {
       );
 
       if (keyPair == null) {
-        keyPair = _ItemKeyPair(item);
+        keyPair = _ItemController(
+            item,
+            AnimationController(
+              vsync: this,
+              duration: widget.duration,
+            ));
+        keyPair.controller.forward();
       } else {
         // Animate out any skipped items, then remove from list
         var index = currentItems.indexOf(keyPair);
@@ -55,17 +92,34 @@ class _AnimatedListBuilderState<T> extends State<AnimatedListBuilder<T>> {
     itemsChanged = true;
 
     for (var oldItem in oldItems) {
-      oldItem.key.currentState
-          .animateOut()
-          .then((value) => setState(() => currentItems.remove(oldItem)));
+      oldItem.controller.reverse().then((value) => setState(() {
+            oldItem.controller.dispose();
+            return currentItems.remove(oldItem);
+          }));
     }
   }
 
   @override
   void initState() {
     itemsChanged = false;
-    currentItems = widget.items.map((item) => _ItemKeyPair<T>(item)).toList();
+    currentItems = widget.items
+        .map((item) => _ItemController(
+            item,
+            AnimationController(
+              vsync: this,
+              value: 1,
+              duration: widget.duration,
+            )))
+        .toList();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    for (var item in currentItems) {
+      item.controller.dispose();
+    }
+    super.dispose();
   }
 
   @override
@@ -77,79 +131,11 @@ class _AnimatedListBuilderState<T> extends State<AnimatedListBuilder<T>> {
   @override
   Widget build(BuildContext context) => widget.viewBuilder(
         context,
-        currentItems
-            .map((item) => _AnimatedListChild<T>(
-                  item.item,
-                  builder: widget.childBuilder,
-                  duration: widget.duration,
-                  startVisible: !itemsChanged,
-                  key: item.key,
-                ))
-            .toList(),
+        (context, index) => widget.childBuilder(
+          context,
+          currentItems[index].item,
+          currentItems[index].controller,
+        ),
+        currentItems.length,
       );
-}
-
-class _ItemKeyPair<T> {
-  T item;
-  GlobalKey<_AnimatedListChildState> key;
-
-  _ItemKeyPair(this.item, [GlobalKey<_AnimatedListChildState> key])
-      : key = key ?? GlobalKey();
-}
-
-class _AnimatedListChild<T> extends StatefulWidget {
-  final T value;
-  final Widget Function(BuildContext, T, Animation<double>) builder;
-  final Duration duration;
-  final bool startVisible;
-
-  _AnimatedListChild(
-    this.value, {
-    @required this.builder,
-    @required this.duration,
-    this.startVisible = false,
-    Key key,
-  }) : super(key: key);
-
-  @override
-  _AnimatedListChildState<T> createState() => _AnimatedListChildState<T>();
-}
-
-class _AnimatedListChildState<T> extends State<_AnimatedListChild<T>>
-    with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-
-  // Start fade out animation
-  Future<void> animateOut() => _controller.reverse().orCancel;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.duration,
-    );
-
-    if (widget.startVisible) {
-      _controller.value = 1;
-    } else {
-      _controller.forward();
-    }
-  }
-
-  @override
-  void didUpdateWidget(_AnimatedListChild<T> oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    _controller.duration = widget.duration;
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) =>
-      widget.builder(context, widget.value, _controller);
 }

@@ -48,7 +48,7 @@ class TopicList extends StatelessWidget {
           var topicsAlreadyPurchased = progress.recordNames;
           topics.removeWhere((t) => topicsAlreadyPurchased.contains(t));
 
-          if (maxToShow != 0) topics = topics.sublist(0, maxToShow);
+          if (maxToShow != 0) topics = topics.take(maxToShow).toList();
 
           // Show message if all topics are purchased
           if (topics.isEmpty) {
@@ -58,9 +58,9 @@ class TopicList extends StatelessWidget {
             );
           }
 
-          return AnimatedListBuilder<String>(
+          return AnimatedListBuilder<String>.list(
             items: topics,
-            duration: Duration(milliseconds: 250),
+            duration: const Duration(milliseconds: 200),
             childBuilder: (context, topic, animation) => FadeTransition(
               opacity: animation,
               child: SizeTransition(
