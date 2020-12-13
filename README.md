@@ -26,7 +26,7 @@ These items are necessary, but can be built upon over time.
   - [x] Add topic summary and version number to library header (1 day)
   - [x] Collect a large library (3 days)
   - [ ] Submit library for approval!!!
-- [ ] Create topics page (1 day)
+- [x] Create topics page (1 day)
 
 ### 3) Features and Design (finish before wide release)
 These items are unnecessary, but improve the user experience.
@@ -35,22 +35,30 @@ These items are unnecessary, but improve the user experience.
   - [x] Improve and expand tutorial system
 - [x] Fruit growth after reaching goal (1 week)
   - [x] System to unlock new topics with fruit
-  - [ ] Delete plant after harvest
+  - [ ] Create way to sell topics after purchase, autosell on harvest
   - [ ] Improve rendering of fruit
 - [x] Finish basic journal dashboard widget
+- [ ] Show whole chapter while studying
+  - [ ] Refactor library system to load only references
+  - [ ] Create service for getting scripture text
+  - [ ] Improve highlight widget performance
+- [ ] Create topic page instead of immediately purchasing
+  - [ ] Show list of scriptures
+  - [ ] Purchase button/Link to plant
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
 - [ ] Intro page to configure default filter
-- [ ] Improve journal page
+- [x] Improve journal page
 - [ ] Optimize plant renderer
 
 ### 4) Bonus (future features)
 - [ ] Define word in scripture (1 week)
-- [ ] Implement video system in activities
+- [ ] Create custom topic based on keyword search
+  - [ ] Create index of words in scriptures
 - [ ] Share picture quote (1 week)
-- [ ] Improve plant display (1 week)
+- [ ] Refactor code to follow MVC
+- [x] Improve plant display (1 week)
   - [x] Make scaling relative to size
   - [x] Create actual plant graphic
   - [x] Improve animation
-  - [ ] Sunrise/sunset
 

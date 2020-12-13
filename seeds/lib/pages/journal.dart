@@ -149,6 +149,7 @@ class _JournalPageState extends State<JournalPage> {
                         alignment: Alignment.centerLeft,
                         children: <Widget>[
                           Checkbox(
+                            key: ValueKey(entry),
                             value: selected.contains(entry),
                             onChanged: (value) => setState(() {
                               if (value) {
