@@ -36,6 +36,7 @@ class HelpPageState extends State<HelpPage> {
       helpPagesShown.add(widget.pageName);
 
       // Open dialog on next frame
+      print('Showing help dialog for ${widget.pageName}...');
       WidgetsBinding.instance.addPostFrameCallback(
         (_) async => showDialog<bool>(
           context: context,
@@ -68,7 +69,6 @@ class HelpPageState extends State<HelpPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    print('Changed dependencies, showing help...');
     settings = Provider.of<HelpSettings>(context, listen: true);
     showHelpDialog(always: false);
   }
@@ -78,8 +78,6 @@ class HelpPageState extends State<HelpPage> {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.pageName != widget.pageName) {
-      print(
-          'Updated page from ${oldWidget.pageName} to ${widget.pageName}, showing help...');
       showHelpDialog(always: false);
     }
   }

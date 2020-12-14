@@ -98,8 +98,6 @@ class LibraryManager extends ChangeNotifier {
   /// XML Loading Functions
   // Initialize library from cache and assets
   Future<Library> _loadLibrary() async {
-    print('Loading local library...');
-
     // Load from cache and assets
     var libs = await Future.wait([
       _loadFromCache()
@@ -113,19 +111,12 @@ class LibraryManager extends ChangeNotifier {
 
     // If cache is older than asset, return asset
     if ((assetsLibrary?.version ?? -1) > (cacheLibrary?.version ?? -1)) {
-      // Delete cache
-      // Commented out so cache is not deleted as frequently
-      /*_getCacheFile().then((cache) {
-        if (cache.existsSync()){
-          print('Cache is outdated. Deleting old cache...');
-          cache.delete();
-        }
-      });*/
-
+      print('Using assets library (version ${assetsLibrary?.version}).');
       return assetsLibrary;
     }
 
     // Otherwise, cache is newer, so use cache
+    print('Using cache library (version ${cacheLibrary?.version}).');
     return cacheLibrary;
   }
 
