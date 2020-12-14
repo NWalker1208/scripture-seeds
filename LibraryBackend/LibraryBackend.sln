@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryXMLEditor", "Library
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryXML", "LibraryXML\LibraryXML.csproj", "{6AB0B1E7-42CD-416D-A288-B668123D46E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryJSON", "LibraryJSON\LibraryJSON.csproj", "{6FF22867-281B-4714-8B59-44A253A89FB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{6AB0B1E7-42CD-416D-A288-B668123D46E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AB0B1E7-42CD-416D-A288-B668123D46E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AB0B1E7-42CD-416D-A288-B668123D46E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF22867-281B-4714-8B59-44A253A89FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF22867-281B-4714-8B59-44A253A89FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF22867-281B-4714-8B59-44A253A89FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF22867-281B-4714-8B59-44A253A89FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
