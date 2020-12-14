@@ -4954,7 +4954,7 @@
     <topic>leadership</topic>
     <topic>priesthood</topic>
     <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/10.17-24?lang=eng#p1">Luke 10:17-24</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/10.17-24?lang=eng#p17">Luke 10:17-24</reference>
     <body>
       <title>Luke 10</title>
       <highlight verse="17">And the seventy returned again with joy, saying, Lord, even the devils are subject unto us through thy name.</highlight>
@@ -9083,7 +9083,7 @@
   </resource>
   <resource category="NewTestament">
     <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/3.14-19?lang=eng#p14">Revelation 3:14-19</reference>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/nt/rev/3.14?lang=eng#p14">Revelation 3:14</reference>
     <body>
       <title>Revelation 3</title>
       <highlight verse="14">And unto the angel of the church of the Laodiceans write; These things saith the Amen, the faithful and true witness, the beginning of the creation of God;</highlight>
@@ -9436,6 +9436,7 @@
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/11.10-11?lang=eng#p10">1 Nephi 11:10-11</reference>
     <body>
       <title>1 Nephi 11</title>
+      <highlight verse="10">And he said unto me: What desirest thou?</highlight>
       <highlight verse="11">And I said unto him: To know the interpretation thereof—for I spake unto him as a man speaketh; for I beheld that he was in the form of a man; yet nevertheless, I knew that it was the Spirit of the Lord; and he spake unto me as a man speaketh with another.</highlight>
     </body>
   </resource>
@@ -9653,6 +9654,7 @@
     <body>
       <title>1 Nephi 20</title>
       <highlight verse="1">Hearken and hear this, O house of Jacob, who are called by the name of Israel, and are come forth out of the waters of Judah, or out of the waters of baptism, who swear by the name of the Lord, and make mention of the God of Israel, yet they swear not in truth nor in righteousness.</highlight>
+      <highlight verse="2">Nevertheless, they call themselves of the holy city, but they do not stay themselves upon the God of Israel, who is the Lord of Hosts; yea, the Lord of Hosts is his name.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -9721,8 +9723,8 @@
   <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>atonement</topic>
-    <topic>missionary</topic>
     <topic>knowledge</topic>
+    <topic>missionary</topic>
     <topic>repentance</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.3-8?lang=eng#p3">2 Nephi 2:3-8</reference>
@@ -9746,6 +9748,16 @@
       <title>2 Nephi 2</title>
       <highlight verse="9">Wherefore, he is the firstfruits unto God, inasmuch as he shall make intercession for all the children of men; and they that believe in him shall be saved.</highlight>
       <highlight verse="10">And because of the intercession for all, all men come unto God; wherefore, they stand in the presence of him, to be judged of him according to the truth and holiness which is in him. Wherefore, the ends of the law which the Holy One hath given, unto the inflicting of the punishment which is affixed, which punishment that is affixed is in opposition to that of the happiness which is affixed, to answer the ends of the atonement—</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>agency</topic>
+    <topic>patience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.11,13?lang=eng#p11">2 Nephi 2:11,13</reference>
+    <body>
+      <title>2 Nephi 2</title>
+      <highlight verse="11">For it must needs be, that there is an opposition in all things. If not so, my firstborn in the wilderness, righteousness could not be brought to pass, neither wickedness, neither holiness nor misery, neither good nor bad. Wherefore, all things must needs be a compound in one; wherefore, if it should be one body it must needs remain as dead, having no life neither death, nor corruption nor incorruption, happiness nor misery, neither sense nor insensibility.</highlight>
+      <highlight verse="13">And if ye shall say there is no law, ye shall also say there is no sin. If ye shall say there is no sin, ye shall also say there is no righteousness. And if there be no righteousness there be no happiness. And if there be no righteousness nor happiness there be no punishment nor misery. And if these things are not there is no God. And if there is no God we are not, neither the earth; for there could have been no creation of things, neither to act nor to be acted upon; wherefore, all things must have vanished away.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -9785,9 +9797,9 @@
   <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>commandments</topic>
-    <topic>life</topic>
     <topic>death</topic>
     <topic>Jesus Christ</topic>
+    <topic>life</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.27-29?lang=eng#p27">2 Nephi 2:27-29</reference>
     <body>
       <title>2 Nephi 2</title>
@@ -9797,18 +9809,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>agency</topic>
-    <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.11,13?lang=eng#p11">2 Nephi 2:11,13</reference>
-    <body>
-      <title>2 Nephi 2</title>
-      <highlight verse="11">For it must needs be, that there is an opposition in all things. If not so, my firstborn in the wilderness, righteousness could not be brought to pass, neither wickedness, neither holiness nor misery, neither good nor bad. Wherefore, all things must needs be a compound in one; wherefore, if it should be one body it must needs remain as dead, having no life neither death, nor corruption nor incorruption, happiness nor misery, neither sense nor insensibility.</highlight>
-      <highlight verse="13">And if ye shall say there is no law, ye shall also say there is no sin. If ye shall say there is no sin, ye shall also say there is no righteousness. And if there be no righteousness there be no happiness. And if there be no righteousness nor happiness there be no punishment nor misery. And if these things are not there is no God. And if there is no God we are not, neither the earth; for there could have been no creation of things, neither to act nor to be acted upon; wherefore, all things must have vanished away.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>scriptures</topic>
     <topic>prophets</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/2.30?lang=eng#p30">2 Nephi 2:30</reference>
     <body>
       <title>2 Nephi 2</title>
@@ -9824,8 +9826,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>scriptures</topic>
     <topic>prophets</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/3.15?lang=eng#p15">2 Nephi 3:15</reference>
     <body>
       <title>2 Nephi 3</title>
@@ -9910,8 +9912,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>faith</topic>
     <topic>endure</topic>
+    <topic>faith</topic>
     <topic>repentance</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.16-18?lang=eng#p16">2 Nephi 9:16-18</reference>
@@ -9961,8 +9963,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>obedience</topic>
     <topic>life</topic>
+    <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/9.39?lang=eng#p39">2 Nephi 9:39</reference>
     <body>
       <title>2 Nephi 9</title>
@@ -10246,8 +10248,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>Jesus Christ</topic>
     <topic>endure</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31.16?lang=eng#p16">2 Nephi 31:16</reference>
     <body>
       <title>2 Nephi 31</title>
@@ -10390,11 +10392,12 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>creation</topic>
     <topic>commandments</topic>
+    <topic>creation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/2.20-21?lang=eng#p20">Jacob 2:20-21</reference>
     <body>
       <title>Jacob 2</title>
+      <highlight verse="20">And now, my brethren, I have spoken unto you concerning pride; and those of you which have afflicted your neighbor, and persecuted him because ye were proud in your hearts, of the things which God hath given you, what say ye of it?</highlight>
       <highlight verse="21">Do ye not suppose that such things are abominable unto him who created all flesh? And the one being is as precious in his sight as the other. And all flesh is of the dust; and for the selfsame end hath he created them, that they should keep his commandments and glorify him forever.</highlight>
     </body>
   </resource>
@@ -10433,9 +10436,9 @@
   <resource category="BookOfMormon">
     <topic>faith</topic>
     <topic>hope</topic>
-    <topic>scriptures</topic>
     <topic>Jesus Christ</topic>
     <topic>prophets</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/4.4-7?lang=eng#p4">Jacob 4:4-7</reference>
     <body>
       <title>Jacob 4</title>
@@ -10551,9 +10554,9 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>prophets</topic>
     <topic>humility</topic>
     <topic>missionary</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/enos/1.19-26?lang=eng#p19">Enos 1:19-26</reference>
     <body>
       <title>Enos 1</title>
@@ -10612,8 +10615,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>atonement</topic>
-    <topic>fasting</topic>
     <topic>endure</topic>
+    <topic>fasting</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/omni/1.26?lang=eng#p26">Omni 1:26</reference>
     <body>
       <title>Omni 1</title>
@@ -10716,8 +10719,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>atonement</topic>
-    <topic>knowledge</topic>
     <topic>faith</topic>
+    <topic>knowledge</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/3.11-12?lang=eng#p11">Mosiah 3:11-12</reference>
     <body>
@@ -10757,29 +10760,6 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>knowledge</topic>
-    <topic>humility</topic>
-    <topic>prayer</topic>
-    <topic>repentance</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.10-13?lang=eng#p10">Mosiah 4:10-13</reference>
-    <body>
-      <title>Mosiah 4</title>
-      <highlight verse="10">And again, believe that ye must repent of your sins and forsake them, and humble yourselves before God; and ask in sincerity of heart that he would forgive you; and now, if you believe all these things see that ye do them.</highlight>
-      <highlight verse="11">And again I say unto you as I have said before, that as ye have come to the knowledge of the glory of God, or if ye have known of his goodness and have tasted of his love, and have received a remission of your sins, which causeth such exceedingly great joy in your souls, even so I would that ye should remember, and always retain in remembrance, the greatness of God, and your own nothingness, and his goodness and long-suffering towards you, unworthy creatures, and humble yourselves even in the depths of humility, calling on the name of the Lord daily, and standing steadfastly in the faith of that which is to come, which was spoken by the mouth of the angel.</highlight>
-      <highlight verse="12">And behold, I say unto you that if ye do this ye shall always rejoice, and be filled with the love of God, and always retain a remission of your sins; and ye shall grow in the knowledge of the glory of him that created you, or in the knowledge of that which is just and true.</highlight>
-      <highlight verse="13">And ye will not have a mind to injure one another, but to live peaceably, and to render to every man according to that which is his due.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>repentance</topic>
-    <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.26?lang=eng#p26">Mosiah 4:26</reference>
-    <body>
-      <title>Mosiah 4</title>
-      <highlight verse="26">And now, for the sake of these things which I have spoken unto you—that is, for the sake of retaining a remission of your sins from day to day, that ye may walk guiltless before God—I would that ye should impart of your substance to the poor, every man according to that which he hath, such as feeding the hungry, clothing the naked, visiting the sick and administering to their relief, both spiritually and temporally, according to their wants.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
     <topic>atonement</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.6-8?lang=eng#p6">Mosiah 4:6-8</reference>
     <body>
@@ -10800,6 +10780,20 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>humility</topic>
+    <topic>knowledge</topic>
+    <topic>prayer</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.10-13?lang=eng#p10">Mosiah 4:10-13</reference>
+    <body>
+      <title>Mosiah 4</title>
+      <highlight verse="10">And again, believe that ye must repent of your sins and forsake them, and humble yourselves before God; and ask in sincerity of heart that he would forgive you; and now, if you believe all these things see that ye do them.</highlight>
+      <highlight verse="11">And again I say unto you as I have said before, that as ye have come to the knowledge of the glory of God, or if ye have known of his goodness and have tasted of his love, and have received a remission of your sins, which causeth such exceedingly great joy in your souls, even so I would that ye should remember, and always retain in remembrance, the greatness of God, and your own nothingness, and his goodness and long-suffering towards you, unworthy creatures, and humble yourselves even in the depths of humility, calling on the name of the Lord daily, and standing steadfastly in the faith of that which is to come, which was spoken by the mouth of the angel.</highlight>
+      <highlight verse="12">And behold, I say unto you that if ye do this ye shall always rejoice, and be filled with the love of God, and always retain a remission of your sins; and ye shall grow in the knowledge of the glory of him that created you, or in the knowledge of that which is just and true.</highlight>
+      <highlight verse="13">And ye will not have a mind to injure one another, but to live peaceably, and to render to every man according to that which is his due.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
     <topic>charity</topic>
     <topic>marriage</topic>
     <topic>service</topic>
@@ -10812,8 +10806,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>charity</topic>
-    <topic>salvation</topic>
     <topic>repentance</topic>
+    <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.16-20?lang=eng#p16">Mosiah 4:16-20</reference>
     <body>
       <title>Mosiah 4</title>
@@ -10826,8 +10820,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>charity</topic>
-    <topic>repentance</topic>
     <topic>humility</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.21-24?lang=eng#p21">Mosiah 4:21-24</reference>
     <body>
       <title>Mosiah 4</title>
@@ -10835,6 +10829,15 @@
       <highlight verse="22">And if ye judge the man who putteth up his petition to you for your substance that he perish not, and condemn him, how much more just will be your condemnation for withholding your substance, which doth not belong to you but to God, to whom also your life belongeth; and yet ye put up no petition, nor repent of the thing which thou hast done.</highlight>
       <highlight verse="23">I say unto you, wo be unto that man, for his substance shall perish with him; and now, I say these things unto those who are rich as pertaining to the things of this world.</highlight>
       <highlight verse="24">And again, I say unto the poor, ye who have not and yet have sufficient, that ye remain from day to day; I mean all you who deny the beggar, because ye have not; I would that ye say in your hearts that: I give not because I have not, but if I had I would give.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>charity</topic>
+    <topic>repentance</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4.26?lang=eng#p26">Mosiah 4:26</reference>
+    <body>
+      <title>Mosiah 4</title>
+      <highlight verse="26">And now, for the sake of these things which I have spoken unto you—that is, for the sake of retaining a remission of your sins from day to day, that ye may walk guiltless before God—I would that ye should impart of your substance to the poor, every man according to that which he hath, such as feeding the hungry, clothing the naked, visiting the sick and administering to their relief, both spiritually and temporally, according to their wants.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -11164,8 +11167,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>Jesus Christ</topic>
     <topic>baptism</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/26.22?lang=eng#p22">Mosiah 26:22</reference>
     <body>
       <title>Mosiah 26</title>
@@ -11235,9 +11238,9 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>Jesus Christ</topic>
+    <topic>missionary</topic>
     <topic>repentance</topic>
     <topic>salvation</topic>
-    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27.29-32?lang=eng#p29">Mosiah 27:29-32</reference>
     <body>
       <title>Mosiah 27</title>
@@ -11571,8 +11574,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>faith</topic>
     <topic>creation</topic>
+    <topic>faith</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.1-3?lang=eng#p1">Alma 13:1-3</reference>
     <body>
@@ -11597,8 +11600,8 @@
   <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>faith</topic>
-    <topic>repentance</topic>
     <topic>priesthood</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.7-12?lang=eng#p7">Alma 13:7-12</reference>
     <body>
       <title>Alma 13</title>
@@ -11635,8 +11638,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>repentance</topic>
     <topic>hope</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/13.27-29?lang=eng#p27">Alma 13:27-29</reference>
     <body>
       <title>Alma 13</title>
@@ -11674,9 +11677,9 @@
     <topic>diligence</topic>
     <topic>fasting</topic>
     <topic>leadership</topic>
+    <topic>missionary</topic>
     <topic>prayer</topic>
     <topic>scriptures</topic>
-    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.1-4?lang=eng#p1">Alma 17:1-4</reference>
     <body>
       <title>Alma 17</title>
@@ -11688,10 +11691,10 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>fasting</topic>
+    <topic>missionary</topic>
     <topic>patience</topic>
     <topic>prayer</topic>
     <topic>scriptures</topic>
-    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17.5-11?lang=eng#p5">Alma 17:5-11</reference>
     <body>
       <title>Alma 17</title>
@@ -11803,8 +11806,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>prayer</topic>
     <topic>missionary</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26.22?lang=eng#p22">Alma 26:22</reference>
     <body>
       <title>Alma 26</title>
@@ -11890,8 +11893,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>virtue</topic>
     <topic>missionary</topic>
+    <topic>virtue</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/29.9?lang=eng#p9">Alma 29:9</reference>
     <body>
       <title>Alma 29</title>
@@ -11916,12 +11919,14 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>Jesus Christ</topic>
     <topic>hope</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/30.13?lang=eng#p13">Alma 30:12-14,18</reference>
+    <topic>Jesus Christ</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/30.12-14,18?lang=eng#p12">Alma 30:12-14,18</reference>
     <body>
       <title>Alma 30</title>
+      <highlight verse="12">And this Anti-Christ, whose name was Korihor, (and the law could have no hold upon him) began to preach unto the people that there should be no Christ. And after this manner did he preach, saying:</highlight>
       <highlight verse="13">O ye that are bound down under a foolish and a vain hope, why do ye yoke yourselves with such foolish things? Why do ye look for a Christ? For no man can know of anything which is to come.</highlight>
+      <highlight verse="14">Behold, these things which ye call prophecies, which ye say are handed down by holy prophets, behold, they are foolish traditions of your fathers.</highlight>
       <highlight verse="18">And thus he did preach unto them, leading away the hearts of many, causing them to lift up their heads in their wickedness, yea, leading away many women, and also men, to commit whoredoms—telling them that when a man was dead, that was the end thereof.</highlight>
     </body>
   </resource>
@@ -12039,6 +12044,8 @@
     <body>
       <title>Alma 33</title>
       <highlight verse="3">Do ye remember to have read what Zenos, the prophet of old, has said concerning prayer or worship?</highlight>
+      <highlight verse="4">For he said: Thou art merciful, O God, for thou hast heard my prayer, even when I was in the wilderness; yea, thou wast merciful when I prayed concerning those who were mine enemies, and thou didst turn them to me.</highlight>
+      <highlight verse="8">Yea, thou art merciful unto thy children when they cry unto thee, to be heard of thee and not of men, and thou wilt hear them.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -12245,8 +12252,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>wisdom</topic>
     <topic>knowledge</topic>
+    <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/37.11-12?lang=eng#p11">Alma 37:11-12</reference>
     <body>
       <title>Alma 37</title>
@@ -12263,8 +12270,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>obedience</topic>
     <topic>genealogy</topic>
+    <topic>obedience</topic>
     <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/37.14-19?lang=eng#p14">Alma 37:14-19</reference>
     <body>
@@ -12278,8 +12285,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>missionary</topic>
     <topic>faith</topic>
+    <topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/37.33?lang=eng#p33">Alma 37:33</reference>
     <body>
       <title>Alma 37</title>
@@ -12391,6 +12398,22 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>resurrection</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/40.8?lang=eng#p8">Alma 40:8</reference>
+    <body>
+      <title>Alma 40</title>
+      <highlight verse="8">Now whether there is more than one time appointed for men to rise it mattereth not; for all do not die at once, and this mattereth not; all is as one day with God, and time only is measured unto men.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>patience</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/40.10?lang=eng#p10">Alma 40:10</reference>
+    <body>
+      <title>Alma 40</title>
+      <highlight verse="10">And when the time cometh when all shall rise, then shall they know that God knoweth all the times which are appointed unto man.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
     <topic>death</topic>
     <topic>resurrection</topic>
     <topic>spirit</topic>
@@ -12429,22 +12452,6 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>resurrection</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/40.8?lang=eng#p8">Alma 40:8</reference>
-    <body>
-      <title>Alma 40</title>
-      <highlight verse="8">Now whether there is more than one time appointed for men to rise it mattereth not; for all do not die at once, and this mattereth not; all is as one day with God, and time only is measured unto men.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>patience</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/40.10?lang=eng#p10">Alma 40:10</reference>
-    <body>
-      <title>Alma 40</title>
-      <highlight verse="10">And when the time cometh when all shall rise, then shall they know that God knoweth all the times which are appointed unto man.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/41.3-4?lang=eng#p3">Alma 41:3-4</reference>
@@ -12475,8 +12482,8 @@
   <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>atonement</topic>
-    <topic>salvation</topic>
     <topic>death</topic>
+    <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/42.6-9?lang=eng#p6">Alma 42:6-9</reference>
     <body>
       <title>Alma 42</title>
@@ -12543,8 +12550,8 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>agency</topic>
-    <topic>repentance</topic>
     <topic>humility</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/42.27-30?lang=eng#p27">Alma 42:27-30</reference>
     <body>
       <title>Alma 42</title>
@@ -12736,8 +12743,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>repentance</topic>
     <topic>faith</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/13.6?lang=eng#p6">Helaman 13:6</reference>
     <body>
       <title>Helaman 13</title>
@@ -12768,8 +12775,8 @@
   <resource category="BookOfMormon">
     <topic>atonement</topic>
     <topic>death</topic>
-    <topic>resurrection</topic>
     <topic>repentance</topic>
+    <topic>resurrection</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/14.15-19?lang=eng#p15">Helaman 14:15-19</reference>
     <body>
       <title>Helaman 14</title>
@@ -13041,8 +13048,8 @@
   <resource category="BookOfMormon">
     <topic>baptism</topic>
     <topic>leadership</topic>
-    <topic>repentance</topic>
     <topic>missionary</topic>
+    <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11.38-41?lang=eng#p38">3 Nephi 11:38-41</reference>
     <body>
       <title>3 Nephi 11</title>
@@ -13094,8 +13101,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>prayer</topic>
     <topic>humility</topic>
+    <topic>prayer</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/13.5-9?lang=eng#p5">3 Nephi 13:5-9</reference>
     <body>
       <title>3 Nephi 13</title>
@@ -13214,9 +13221,9 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>obedience</topic>
     <topic>baptism</topic>
     <topic>Jesus Christ</topic>
+    <topic>obedience</topic>
     <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.3-12?lang=eng#p3">3 Nephi 18:3-12</reference>
     <body>
@@ -13258,11 +13265,12 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>charity</topic>
-    <topic>sabbath</topic>
     <topic>prayer</topic>
+    <topic>sabbath</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.22-23?lang=eng#p22">3 Nephi 18:22-23</reference>
     <body>
       <title>3 Nephi 18</title>
+      <highlight verse="22">And behold, ye shall meet together oft; and ye shall not forbid any man from coming unto you when ye shall meet together, but suffer them that they may come unto you and forbid them not;</highlight>
       <highlight verse="23">But ye shall pray for them, and shall not cast them out; and if it so be that they come unto you oft ye shall pray for them unto the Father, in my name.</highlight>
     </body>
   </resource>
@@ -13277,10 +13285,10 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>charity</topic>
     <topic>commandments</topic>
     <topic>obedience</topic>
     <topic>repentance</topic>
-    <topic>charity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18.26-30?lang=eng#p26">3 Nephi 18:26-30</reference>
     <body>
       <title>3 Nephi 18</title>
@@ -13488,8 +13496,8 @@
     <topic>baptism</topic>
     <topic>endure</topic>
     <topic>faith</topic>
-    <topic>obedience</topic>
     <topic>Jesus Christ</topic>
+    <topic>obedience</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.13-19?lang=eng#p13">3 Nephi 27:13-19</reference>
     <body>
@@ -13518,20 +13526,20 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>leadership</topic>
-    <topic>Jesus Christ</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.27?lang=eng#p27">3 Nephi 27:27</reference>
-    <body>
-      <title>3 Nephi 27</title>
-      <highlight verse="27">And know ye that ye shall be judges of this people, according to the judgment which I shall give unto you, which shall be just. Therefore, what manner of men ought ye to be? Verily I say unto you, even as I am.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
     <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.26?lang=eng#p26">3 Nephi 27:26</reference>
     <body>
       <title>3 Nephi 27</title>
       <highlight verse="26">And behold, all things are written by the Father; therefore out of the books which shall be written shall the world be judged.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>Jesus Christ</topic>
+    <topic>leadership</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/27.27?lang=eng#p27">3 Nephi 27:27</reference>
+    <body>
+      <title>3 Nephi 27</title>
+      <highlight verse="27">And know ye that ye shall be judges of this people, according to the judgment which I shall give unto you, which shall be just. Therefore, what manner of men ought ye to be? Verily I say unto you, even as I am.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -13745,9 +13753,9 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>knowledge</topic>
     <topic>faith</topic>
     <topic>Jesus Christ</topic>
+    <topic>knowledge</topic>
     <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/3.17-20?lang=eng#p17">Ether 3:17-20</reference>
     <body>
@@ -13776,8 +13784,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>faith</topic>
     <topic>Jesus Christ</topic>
-	<topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/4.19?lang=eng#p19">Ether 4:19</reference>
     <body>
       <title>Ether 4</title>
@@ -13868,17 +13876,6 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>faith</topic>
-    <topic>hope</topic>
-    <topic>humility</topic>
-    <topic>charity</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.37?lang=eng#p37">Ether 12:37</reference>
-    <body>
-      <title>Ether 12</title>
-      <highlight verse="37">And it came to pass that the Lord said unto me: If they have not charity it mattereth not unto thee, thou hast been faithful; wherefore, thy garments shall be made clean. And because thou hast seen thy weakness thou shalt be made strong, even unto the sitting down in the place which I have prepared in the mansions of my Father.</highlight>
-    </body>
-  </resource>
-  <resource category="BookOfMormon">
-    <topic>faith</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.30?lang=eng#p30">Ether 12:30</reference>
     <body>
       <title>Ether 12</title>
@@ -13900,6 +13897,17 @@
       <title>Ether 12</title>
       <highlight verse="33">And again, I remember that thou hast said that thou hast loved the world, even unto the laying down of thy life for the world, that thou mightest take it again to prepare a place for the children of men.</highlight>
       <highlight verse="34">And now I know that this love which thou hast had for the children of men is charity; wherefore, except men shall have charity they cannot inherit that place which thou hast prepared in the mansions of thy Father.</highlight>
+    </body>
+  </resource>
+  <resource category="BookOfMormon">
+    <topic>charity</topic>
+    <topic>faith</topic>
+    <topic>hope</topic>
+    <topic>humility</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12.37?lang=eng#p37">Ether 12:37</reference>
+    <body>
+      <title>Ether 12</title>
+      <highlight verse="37">And it came to pass that the Lord said unto me: If they have not charity it mattereth not unto thee, thou hast been faithful; wherefore, thy garments shall be made clean. And because thou hast seen thy weakness thou shalt be made strong, even unto the sitting down in the place which I have prepared in the mansions of my Father.</highlight>
     </body>
   </resource>
   <resource category="BookOfMormon">
@@ -13928,8 +13936,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>missionary</topic>
     <topic>priesthood</topic>
-	<topic>missionary</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/3.3?lang=eng#p3">Moroni 3:3</reference>
     <body>
       <title>Moroni 3</title>
@@ -13976,8 +13984,8 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
+    <topic>knowledge</topic>
     <topic>leadership</topic>
-	<topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.5?lang=eng#p5">Moroni 7:5</reference>
     <body>
       <title>Moroni 7</title>
@@ -14008,7 +14016,7 @@
   <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>knowledge</topic>
-	<topic>spirit</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.15-19?lang=eng#p15">Moroni 7:15-19</reference>
     <body>
       <title>Moroni 7</title>
@@ -14020,10 +14028,10 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>knowledge</topic>
     <topic>faith</topic>
-    <topic>prophets</topic>
+    <topic>knowledge</topic>
     <topic>prayer</topic>
+    <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7.20-26?lang=eng#p20">Moroni 7:20-26</reference>
     <body>
       <title>Moroni 7</title>
@@ -14110,8 +14118,8 @@
   <resource category="BookOfMormon">
     <topic>agency</topic>
     <topic>baptism</topic>
-    <topic>repentance</topic>
     <topic>hope</topic>
+    <topic>repentance</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/8.8-12?lang=eng#p8">Moroni 8:8-12</reference>
     <body>
@@ -14154,11 +14162,11 @@
     </body>
   </resource>
   <resource category="BookOfMormon">
-    <topic>commandments</topic>
     <topic>baptism</topic>
-    <topic>repentance</topic>
-    <topic>humility</topic>
+    <topic>commandments</topic>
     <topic>hope</topic>
+    <topic>humility</topic>
+    <topic>repentance</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/8.22-26?lang=eng#p22">Moroni 8:22-26</reference>
     <body>
@@ -14197,7 +14205,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>hope</topic>
-	<topic>Jesus Christ</topic>
+    <topic>Jesus Christ</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/9.25?lang=eng#p25">Moroni 9:25</reference>
     <body>
       <title>Moroni 9</title>
@@ -14234,7 +14242,7 @@
   </resource>
   <resource category="BookOfMormon">
     <topic>charity</topic>
-	<topic>faith</topic>
+    <topic>faith</topic>
     <topic>hope</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10.20-21?lang=eng#p20">Moroni 10:20-21</reference>
     <body>
@@ -14476,8 +14484,8 @@
   <resource category="DoctrineAndCovenants">
     <topic>charity</topic>
     <topic>faith</topic>
-    <topic>patience</topic>
     <topic>hope</topic>
+    <topic>patience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6.19?lang=eng#p19">Doctrine And Covenants 6:19</reference>
     <body>
       <title>Doctrine And Covenants 6</title>
@@ -14714,8 +14722,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>atonement</topic>
     <topic>apostles</topic>
+    <topic>atonement</topic>
     <topic>missionary</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.9-16?lang=eng#p9">Doctrine And Covenants 18:9-16</reference>
@@ -14732,10 +14740,10 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>spirit</topic>
     <topic>charity</topic>
     <topic>faith</topic>
     <topic>hope</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/18.17-19?lang=eng#p17">Doctrine And Covenants 18:17-19</reference>
     <body>
       <title>Doctrine And Covenants 18</title>
@@ -14817,8 +14825,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>knowledge</topic>
     <topic>Jesus Christ</topic>
+    <topic>knowledge</topic>
     <topic>missionary</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/19.21-24?lang=eng#p21">Doctrine And Covenants 19:21-24</reference>
@@ -14892,10 +14900,10 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>baptism</topic>
     <topic>endure</topic>
     <topic>faith</topic>
     <topic>repentance</topic>
-    <topic>baptism</topic>
     <topic>salvation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.25,29?lang=eng#p25">Doctrine And Covenants 20:25,29</reference>
     <body>
@@ -14923,7 +14931,7 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>apostle</topic>
+    <topic>apostles</topic>
     <topic>leadership</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.38-45?lang=eng#p38">Doctrine And Covenants 20:38-45</reference>
@@ -14980,6 +14988,14 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>baptism</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.68?lang=eng#p68">Doctrine And Covenants 20:68</reference>
+    <body>
+      <title>Doctrine And Covenants 20</title>
+      <highlight verse="68">The duty of the members after they are received by baptism—The elders or priests are to have a sufficient time to expound all things concerning the church of Christ to their understanding, previous to their partaking of the sacrament and being confirmed by the laying on of the hands of the elders, so that all things may be done in order.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>baptism</topic>
     <topic>repentance</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.71?lang=eng#p71">Doctrine And Covenants 20:71</reference>
     <body>
@@ -15013,14 +15029,6 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20.68?lang=eng#p68">Doctrine And Covenants 20:68</reference>
-    <body>
-      <title>Doctrine And Covenants 20</title>
-      <highlight verse="68">The duty of the members after they are received by baptism—The elders or priests are to have a sufficient time to expound all things concerning the church of Christ to their understanding, previous to their partaking of the sacrament and being confirmed by the laying on of the hands of the elders, so that all things may be done in order.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
     <topic>apostles</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/21.1?lang=eng#p1">Doctrine And Covenants 21:1</reference>
     <body>
@@ -15030,9 +15038,9 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>faith</topic>
-    <topic>patience</topic>
     <topic>leadership</topic>
     <topic>obedience</topic>
+    <topic>patience</topic>
     <topic>prophets</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/21.4-6?lang=eng#p4">Doctrine And Covenants 21:4-6</reference>
     <body>
@@ -15717,8 +15725,8 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
-    <topic>spirit</topic>
     <topic>prayer</topic>
+    <topic>spirit</topic>
     <topic>wisdom</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/46.8-9,28-30?lang=eng#p8">Doctrine And Covenants 46:8-9,28-30</reference>
     <body>
@@ -16569,6 +16577,23 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.21-22?lang=eng#p21">Doctrine And Covenants 84:21-22</reference>
+    <body>
+      <title>Doctrine And Covenants 84</title>
+      <highlight verse="21">And without the ordinances thereof, and the authority of the priesthood, the power of godliness is not manifest unto men in the flesh;</highlight>
+      <highlight verse="22">For without this no man can see the face of God, even the Father, and live.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>baptism</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.27?lang=eng#p27">Doctrine And Covenants 84:27</reference>
+    <body>
+      <title>Doctrine And Covenants 84</title>
+      <highlight verse="27">Which gospel is the gospel of repentance and of baptism, and the remission of sins, and the law of carnal commandments, which the Lord in his wrath caused to continue with the house of Aaron among the children of Israel until John, whom God raised up, being filled with the Holy Ghost from his mother’s womb.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
     <topic>diligence</topic>
     <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.33-35?lang=eng#p33">Doctrine And Covenants 84:33-35</reference>
@@ -16596,9 +16621,9 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>diligence</topic>
-    <topic>spirit</topic>
-    <topic>scriptures</topic>
     <topic>prophets</topic>
+    <topic>scriptures</topic>
+    <topic>spirit</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.43-47?lang=eng#p43">Doctrine And Covenants 84:43-47</reference>
     <body>
       <title>Doctrine And Covenants 84</title>
@@ -16607,23 +16632,6 @@
       <highlight verse="45">For the word of the Lord is truth, and whatsoever is truth is light, and whatsoever is light is Spirit, even the Spirit of Jesus Christ.</highlight>
       <highlight verse="46">And the Spirit giveth light to every man that cometh into the world; and the Spirit enlighteneth every man through the world, that hearkeneth to the voice of the Spirit.</highlight>
       <highlight verse="47">And every one that hearkeneth to the voice of the Spirit cometh unto God, even the Father.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>priesthood</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.21-22?lang=eng#p21">Doctrine And Covenants 84:21-22</reference>
-    <body>
-      <title>Doctrine And Covenants 84</title>
-      <highlight verse="21">And without the ordinances thereof, and the authority of the priesthood, the power of godliness is not manifest unto men in the flesh;</highlight>
-      <highlight verse="22">For without this no man can see the face of God, even the Father, and live.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>baptism</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84.27?lang=eng#p27">Doctrine And Covenants 84:27</reference>
-    <body>
-      <title>Doctrine And Covenants 84</title>
-      <highlight verse="27">Which gospel is the gospel of repentance and of baptism, and the remission of sins, and the law of carnal commandments, which the Lord in his wrath caused to continue with the house of Aaron among the children of Israel until John, whom God raised up, being filled with the Holy Ghost from his mother’s womb.</highlight>
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
@@ -16810,7 +16818,7 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>diligence</topic>
-	<topic>knowledge</topic>
+    <topic>knowledge</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/88.78?lang=eng#p78">Doctrine And Covenants 88:78</reference>
     <body>
       <title>Doctrine And Covenants 88</title>
@@ -17408,53 +17416,21 @@
   </resource>
   <resource category="DoctrineAndCovenants">
     <topic>priesthood</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.11-12?lang=eng#p11">Doctrine And Covenants 107:11-12</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="11">An elder has a right to officiate in his stead when the high priest is not present.</highlight>
+      <highlight verse="12">The high priest and elder are to administer in spiritual things, agreeable to the covenants and commandments of the church; and they have a right to officiate in all these offices of the church when there are no higher authorities present.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>priesthood</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.13-15?lang=eng#p13">Doctrine And Covenants 107:13-15</reference>
     <body>
       <title>Doctrine And Covenants 107</title>
       <highlight verse="13">The second priesthood is called the Priesthood of Aaron, because it was conferred upon Aaron and his seed, throughout all their generations.</highlight>
       <highlight verse="14">Why it is called the lesser priesthood is because it is an appendage to the greater, or the Melchizedek Priesthood, and has power in administering outward ordinances.</highlight>
       <highlight verse="15">The bishopric is the presidency of this priesthood, and holds the keys or authority of the same.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>priesthood</topic>
-    <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.65-67?lang=eng#p65">Doctrine And Covenants 107:65-67</reference>
-    <body>
-      <title>Doctrine And Covenants 107</title>
-      <highlight verse="65">Wherefore, it must needs be that one be appointed of the High Priesthood to preside over the priesthood, and he shall be called President of the High Priesthood of the Church;</highlight>
-      <highlight verse="66">Or, in other words, the Presiding High Priest over the High Priesthood of the Church.</highlight>
-      <highlight verse="67">From the same comes the administering of ordinances and blessings upon the church, by the laying on of the hands.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>apostles</topic>
-    <topic>priesthood</topic>
-    <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.78-79?lang=eng#p78">Doctrine And Covenants 107:78-79</reference>
-    <body>
-      <title>Doctrine And Covenants 107</title>
-      <highlight verse="78">Again, verily, I say unto you, the most important business of the church, and the most difficult cases of the church, inasmuch as there is not satisfaction upon the decision of the bishop or judges, it shall be handed over and carried up unto the council of the church, before the Presidency of the High Priesthood.</highlight>
-      <highlight verse="79">And the Presidency of the council of the High Priesthood shall have power to call other high priests, even twelve, to assist as counselors; and thus the Presidency of the High Priesthood and its counselors shall have power to decide upon testimony according to the laws of the church.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>priesthood</topic>
-    <topic>prophets</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.91-92?lang=eng#p91">Doctrine And Covenants 107:91-92</reference>
-    <body>
-      <title>Doctrine And Covenants 107</title>
-      <highlight verse="91">And again, the duty of the President of the office of the High Priesthood is to preside over the whole church, and to be like unto Moses—</highlight>
-      <highlight verse="92">Behold, here is wisdom; yea, to be a seer, a revelator, a translator, and a prophet, having all the gifts of God which he bestows upon the head of the church.</highlight>
-    </body>
-  </resource>
-  <resource category="DoctrineAndCovenants">
-    <topic>priesthood</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.11-12?lang=eng#p11">Doctrine And Covenants 107:11-12</reference>
-    <body>
-      <title>Doctrine And Covenants 107</title>
-      <highlight verse="11">An elder has a right to officiate in his stead when the high priest is not present.</highlight>
-      <highlight verse="12">The high priest and elder are to administer in spiritual things, agreeable to the covenants and commandments of the church; and they have a right to officiate in all these offices of the church when there are no higher authorities present.</highlight>
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
@@ -17543,6 +17519,28 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>priesthood</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.65-67?lang=eng#p65">Doctrine And Covenants 107:65-67</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="65">Wherefore, it must needs be that one be appointed of the High Priesthood to preside over the priesthood, and he shall be called President of the High Priesthood of the Church;</highlight>
+      <highlight verse="66">Or, in other words, the Presiding High Priest over the High Priesthood of the Church.</highlight>
+      <highlight verse="67">From the same comes the administering of ordinances and blessings upon the church, by the laying on of the hands.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>apostles</topic>
+    <topic>priesthood</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.78-79?lang=eng#p78">Doctrine And Covenants 107:78-79</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="78">Again, verily, I say unto you, the most important business of the church, and the most difficult cases of the church, inasmuch as there is not satisfaction upon the decision of the bishop or judges, it shall be handed over and carried up unto the council of the church, before the Presidency of the High Priesthood.</highlight>
+      <highlight verse="79">And the Presidency of the council of the High Priesthood shall have power to call other high priests, even twelve, to assist as counselors; and thus the Presidency of the High Priesthood and its counselors shall have power to decide upon testimony according to the laws of the church.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
     <topic>apostles</topic>
     <topic>leadership</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.80?lang=eng#p80">Doctrine And Covenants 107:80</reference>
@@ -17561,6 +17559,16 @@
       <highlight verse="86">And also the duty of the president over the office of the teachers is to preside over twenty-four of the teachers, and to sit in council with them, teaching them the duties of their office, as given in the covenants.</highlight>
       <highlight verse="87">Also the duty of the president over the Priesthood of Aaron is to preside over forty-eight priests, and sit in council with them, to teach them the duties of their office, as is given in the covenants—</highlight>
       <highlight verse="88">This president is to be a bishop; for this is one of the duties of this priesthood.</highlight>
+    </body>
+  </resource>
+  <resource category="DoctrineAndCovenants">
+    <topic>priesthood</topic>
+    <topic>prophets</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/107.91-92?lang=eng#p91">Doctrine And Covenants 107:91-92</reference>
+    <body>
+      <title>Doctrine And Covenants 107</title>
+      <highlight verse="91">And again, the duty of the President of the office of the High Priesthood is to preside over the whole church, and to be like unto Moses—</highlight>
+      <highlight verse="92">Behold, here is wisdom; yea, to be a seer, a revelator, a translator, and a prophet, having all the gifts of God which he bestows upon the head of the church.</highlight>
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
@@ -17956,6 +17964,8 @@
     <body>
       <title>Doctrine And Covenants 129</title>
       <highlight verse="1">There are two kinds of beings in heaven, namely: Angels, who are resurrected personages, having bodies of flesh and bones—</highlight>
+      <highlight verse="2">For instance, Jesus said: Handle me and see, for a spirit hath not flesh and bones, as ye see me have.</highlight>
+      <highlight verse="3">Secondly: the spirits of just men made perfect, they who are not resurrected, but inherit the same glory.</highlight>
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
@@ -18054,11 +18064,11 @@
     </body>
   </resource>
   <resource category="DoctrineAndCovenants">
+    <topic>chastity</topic>
     <topic>marriage</topic>
     <topic>priesthood</topic>
     <topic>resurrection</topic>
     <topic>spirit</topic>
-    <topic>chastity</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/132.7,18-20,26?lang=eng#p7">Doctrine And Covenants 132:7,18-20,26</reference>
     <body>
       <title>Doctrine And Covenants 132</title>
@@ -18381,8 +18391,8 @@
   </resource>
   <resource category="PearlOfGreatPrice">
     <topic>creation</topic>
-    <topic>scriptures</topic>
     <topic>prophets</topic>
+    <topic>scriptures</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/1.40-42?lang=eng#p40">Moses 1:40-42</reference>
     <body>
       <title>Moses 1</title>
@@ -18427,30 +18437,6 @@
   </resource>
   <resource category="PearlOfGreatPrice">
     <topic>creation</topic>
-    <topic>Jesus Christ</topic>
-    <topic>marriage</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/2.24-28?lang=eng#p24">Moses 2:24-28</reference>
-    <body>
-      <title>Moses 2</title>
-      <highlight verse="24">And I, God, said: Let the earth bring forth the living creature after his kind, cattle, and creeping things, and beasts of the earth after their kind, and it was so;</highlight>
-      <highlight verse="25">And I, God, made the beasts of the earth after their kind, and cattle after their kind, and everything which creepeth upon the earth after his kind; and I, God, saw that all these things were good.</highlight>
-      <highlight verse="26">And I, God, said unto mine Only Begotten, which was with me from the beginning: Let us make man in our image, after our likeness; and it was so. And I, God, said: Let them have dominion over the fishes of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.</highlight>
-      <highlight verse="27">And I, God, created man in mine own image, in the image of mine Only Begotten created I him; male and female created I them.</highlight>
-      <highlight verse="28">And I, God, blessed them, and said unto them: Be fruitful, and multiply, and replenish the earth, and subdue it, and have dominion over the fish of the sea, and over the fowl of the air, and over every living thing that moveth upon the earth.</highlight>
-    </body>
-  </resource>
-  <resource category="PearlOfGreatPrice">
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/2.29-31?lang=eng#p29">Moses 2:29-31</reference>
-    <body>
-      <title>Moses 2</title>
-      <highlight verse="29">And I, God, said unto man: Behold, I have given you every herb bearing seed, which is upon the face of all the earth, and every tree in the which shall be the fruit of a tree yielding seed; to you it shall be for meat.</highlight>
-      <highlight verse="30">And to every beast of the earth, and to every fowl of the air, and to everything that creepeth upon the earth, wherein I grant life, there shall be given every clean herb for meat; and it was so, even as I spake.</highlight>
-      <highlight verse="31">And I, God, saw everything that I had made, and, behold, all things which I had made were very good; and the evening and the morning were the sixth day.</highlight>
-    </body>
-  </resource>
-  <resource category="PearlOfGreatPrice">
-    <topic>creation</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/2.14-19?lang=eng#p14">Moses 2:14-19</reference>
     <body>
       <title>Moses 2</title>
@@ -18471,6 +18457,30 @@
       <highlight verse="21">And I, God, created great whales, and every living creature that moveth, which the waters brought forth abundantly, after their kind, and every winged fowl after his kind; and I, God, saw that all things which I had created were good.</highlight>
       <highlight verse="22">And I, God, blessed them, saying: Be fruitful, and multiply, and fill the waters in the sea; and let fowl multiply in the earth;</highlight>
       <highlight verse="23">And the evening and the morning were the fifth day.</highlight>
+    </body>
+  </resource>
+  <resource category="PearlOfGreatPrice">
+    <topic>creation</topic>
+    <topic>Jesus Christ</topic>
+    <topic>marriage</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/2.24-28?lang=eng#p24">Moses 2:24-28</reference>
+    <body>
+      <title>Moses 2</title>
+      <highlight verse="24">And I, God, said: Let the earth bring forth the living creature after his kind, cattle, and creeping things, and beasts of the earth after their kind, and it was so;</highlight>
+      <highlight verse="25">And I, God, made the beasts of the earth after their kind, and cattle after their kind, and everything which creepeth upon the earth after his kind; and I, God, saw that all these things were good.</highlight>
+      <highlight verse="26">And I, God, said unto mine Only Begotten, which was with me from the beginning: Let us make man in our image, after our likeness; and it was so. And I, God, said: Let them have dominion over the fishes of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.</highlight>
+      <highlight verse="27">And I, God, created man in mine own image, in the image of mine Only Begotten created I him; male and female created I them.</highlight>
+      <highlight verse="28">And I, God, blessed them, and said unto them: Be fruitful, and multiply, and replenish the earth, and subdue it, and have dominion over the fish of the sea, and over the fowl of the air, and over every living thing that moveth upon the earth.</highlight>
+    </body>
+  </resource>
+  <resource category="PearlOfGreatPrice">
+    <topic>creation</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/2.29-31?lang=eng#p29">Moses 2:29-31</reference>
+    <body>
+      <title>Moses 2</title>
+      <highlight verse="29">And I, God, said unto man: Behold, I have given you every herb bearing seed, which is upon the face of all the earth, and every tree in the which shall be the fruit of a tree yielding seed; to you it shall be for meat.</highlight>
+      <highlight verse="30">And to every beast of the earth, and to every fowl of the air, and to everything that creepeth upon the earth, wherein I grant life, there shall be given every clean herb for meat; and it was so, even as I spake.</highlight>
+      <highlight verse="31">And I, God, saw everything that I had made, and, behold, all things which I had made were very good; and the evening and the morning were the sixth day.</highlight>
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
@@ -18500,6 +18510,16 @@
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
+    <topic>agency</topic>
+    <topic>creation</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/3.16-17?lang=eng#p16">Moses 3:16-17</reference>
+    <body>
+      <title>Moses 3</title>
+      <highlight verse="16">And I, the Lord God, commanded the man, saying: Of every tree of the garden thou mayest freely eat,</highlight>
+      <highlight verse="17">But of the tree of the knowledge of good and evil, thou shalt not eat of it, nevertheless, thou mayest choose for thyself, for it is given unto thee; but, remember that I forbid it, for in the day thou eatest thereof thou shalt surely die.</highlight>
+    </body>
+  </resource>
+  <resource category="PearlOfGreatPrice">
     <topic>chastity</topic>
     <topic>creation</topic>
     <topic>marriage</topic>
@@ -18514,16 +18534,6 @@
       <highlight verse="23">And Adam said: This I know now is bone of my bones, and flesh of my flesh; she shall be called Woman, because she was taken out of man.</highlight>
       <highlight verse="24">Therefore shall a man leave his father and his mother, and shall cleave unto his wife; and they shall be one flesh.</highlight>
       <highlight verse="25">And they were both naked, the man and his wife, and were not ashamed.</highlight>
-    </body>
-  </resource>
-  <resource category="PearlOfGreatPrice">
-    <topic>agency</topic>
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/3.16-17?lang=eng#p16">Moses 3:16-17</reference>
-    <body>
-      <title>Moses 3</title>
-      <highlight verse="16">And I, the Lord God, commanded the man, saying: Of every tree of the garden thou mayest freely eat,</highlight>
-      <highlight verse="17">But of the tree of the knowledge of good and evil, thou shalt not eat of it, nevertheless, thou mayest choose for thyself, for it is given unto thee; but, remember that I forbid it, for in the day thou eatest thereof thou shalt surely die.</highlight>
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
@@ -18912,6 +18922,30 @@
   </resource>
   <resource category="PearlOfGreatPrice">
     <topic>creation</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/4.14-19?lang=eng#p14">Abraham 4:14-19</reference>
+    <body>
+      <title>Abraham 4</title>
+      <highlight verse="14">And the Gods organized the lights in the expanse of the heaven, and caused them to divide the day from the night; and organized them to be for signs and for seasons, and for days and for years;</highlight>
+      <highlight verse="15">And organized them to be for lights in the expanse of the heaven to give light upon the earth; and it was so.</highlight>
+      <highlight verse="16">And the Gods organized the two great lights, the greater light to rule the day, and the lesser light to rule the night; with the lesser light they set the stars also;</highlight>
+      <highlight verse="17">And the Gods set them in the expanse of the heavens, to give light upon the earth, and to rule over the day and over the night, and to cause to divide the light from the darkness.</highlight>
+      <highlight verse="18">And the Gods watched those things which they had ordered until they obeyed.</highlight>
+      <highlight verse="19">And it came to pass that it was from evening until morning that it was night; and it came to pass that it was from morning until evening that it was day; and it was the fourth time.</highlight>
+    </body>
+  </resource>
+  <resource category="PearlOfGreatPrice">
+    <topic>creation</topic>
+    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/4.20-23?lang=eng#p20">Abraham 4:20-23</reference>
+    <body>
+      <title>Abraham 4</title>
+      <highlight verse="20">And the Gods said: Let us prepare the waters to bring forth abundantly the moving creatures that have life; and the fowl, that they may fly above the earth in the open expanse of heaven.</highlight>
+      <highlight verse="21">And the Gods prepared the waters that they might bring forth great whales, and every living creature that moveth, which the waters were to bring forth abundantly after their kind; and every winged fowl after their kind. And the Gods saw that they would be obeyed, and that their plan was good.</highlight>
+      <highlight verse="22">And the Gods said: We will bless them, and cause them to be fruitful and multiply, and fill the waters in the seas or great waters; and cause the fowl to multiply in the earth.</highlight>
+      <highlight verse="23">And it came to pass that it was from evening until morning that they called night; and it came to pass that it was from morning until evening that they called day; and it was the fifth time.</highlight>
+    </body>
+  </resource>
+  <resource category="PearlOfGreatPrice">
+    <topic>creation</topic>
     <topic>obedience</topic>
     <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/4.24-25?lang=eng#p24">Abraham 4:24-25</reference>
     <body>
@@ -18933,30 +18967,6 @@
       <highlight verse="29">And the Gods said: Behold, we will give them every herb bearing seed that shall come upon the face of all the earth, and every tree which shall have fruit upon it; yea, the fruit of the tree yielding seed to them we will give it; it shall be for their meat.</highlight>
       <highlight verse="30">And to every beast of the earth, and to every fowl of the air, and to every thing that creepeth upon the earth, behold, we will give them life, and also we will give to them every green herb for meat, and all these things shall be thus organized.</highlight>
       <highlight verse="31">And the Gods said: We will do everything that we have said, and organize them; and behold, they shall be very obedient. And it came to pass that it was from evening until morning they called night; and it came to pass that it was from morning until evening that they called day; and they numbered the sixth time.</highlight>
-    </body>
-  </resource>
-  <resource category="PearlOfGreatPrice">
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/4.14-19?lang=eng#p14">Abraham 4:14-19</reference>
-    <body>
-      <title>Abraham 4</title>
-      <highlight verse="14">And the Gods organized the lights in the expanse of the heaven, and caused them to divide the day from the night; and organized them to be for signs and for seasons, and for days and for years;</highlight>
-      <highlight verse="15">And organized them to be for lights in the expanse of the heaven to give light upon the earth; and it was so.</highlight>
-      <highlight verse="16">And the Gods organized the two great lights, the greater light to rule the day, and the lesser light to rule the night; with the lesser light they set the stars also;</highlight>
-      <highlight verse="17">And the Gods set them in the expanse of the heavens, to give light upon the earth, and to rule over the day and over the night, and to cause to divide the light from the darkness.</highlight>
-      <highlight verse="18">And the Gods watched those things which they had ordered until they obeyed.</highlight>
-      <highlight verse="19">And it came to pass that it was from evening until morning that it was night; and it came to pass that it was from morning until evening that it was day; and it was the fourth time.</highlight>
-    </body>
-  </resource>
-  <resource category="PearlOfGreatPrice">
-    <topic>creation</topic>
-    <reference url="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/4.20-23?lang=eng#p20">Abraham 4:20-23</reference>
-    <body>
-      <title>Abraham 4</title>
-      <highlight verse="20">And the Gods said: Let us prepare the waters to bring forth abundantly the moving creatures that have life; and the fowl, that they may fly above the earth in the open expanse of heaven.</highlight>
-      <highlight verse="21">And the Gods prepared the waters that they might bring forth great whales, and every living creature that moveth, which the waters were to bring forth abundantly after their kind; and every winged fowl after their kind. And the Gods saw that they would be obeyed, and that their plan was good.</highlight>
-      <highlight verse="22">And the Gods said: We will bless them, and cause them to be fruitful and multiply, and fill the waters in the seas or great waters; and cause the fowl to multiply in the earth.</highlight>
-      <highlight verse="23">And it came to pass that it was from evening until morning that they called night; and it came to pass that it was from morning until evening that they called day; and it was the fifth time.</highlight>
     </body>
   </resource>
   <resource category="PearlOfGreatPrice">
