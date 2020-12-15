@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryJSON
 {
-    class Topic
+    public class Topic : IComparable<Topic>
     {
         public string id;
         public string name;
@@ -19,6 +19,11 @@ namespace LibraryJSON
             this.id = id;
             this.name = name;
             this.cost = cost;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Topic: {0}, Scriptures: [\n\t{1}\n]", name, string.Join(",\n\t", scriptures));
         }
 
         // Operators for sorting

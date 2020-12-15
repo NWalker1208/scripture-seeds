@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace LibraryJSON
 {
@@ -22,7 +21,7 @@ namespace LibraryJSON
             topic.scriptures.Add(scriptureB);
             library.topics.Add(topic);
 
-            Console.WriteLine(JsonConvert.SerializeObject(library, Formatting.Indented));
+            Console.WriteLine(library.ToJson());
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace LibraryJSON
 {
-    enum Volume
+    public enum Volume
     {
         OldTestament, NewTestament, BookOfMormon, DoctrineAndCovenants, PearlOfGreatPrice
     }
 
-    enum Book
+    public enum Book
     {
         Genesis, Exodus, Leviticus, Numbers, Deuteronomy, Joshua, Judges, Ruth, Samuel1, Samuel2,
         Kings1, Kings2, Chronicles1, Chronicles2, Ezra, Nehemiah, Esther, Job, Psalms, Proverbs,
@@ -28,7 +28,7 @@ namespace LibraryJSON
         DoctrineAndCovenants, Moses, Abraham, JosephSmithMatthew, JosephSmithHistory, ArticlesOfFaith
     }
 
-    class Reference : IComparable<Reference>
+    public class Reference : IComparable<Reference>
     {
         public Volume volume;
         public Book book;
@@ -42,6 +42,46 @@ namespace LibraryJSON
             this.book = book;
             this.chapter = chapter;
             this.verses = new SortedSet<uint>(verses);
+        }
+
+        public string VersesToString()
+        {
+            string str = "";
+
+            if (verses.Count > 0)
+            {
+                uint prevVerse = verses.First();
+                bool range = false;
+                str += prevVerse.ToString();
+
+                foreach (uint verse in verses.Skip(1))
+                {
+                    if (verse == prevVerse + 1)
+                        range = true;
+                    else
+                    {
+                        if (range)
+                        {
+                            range = false;
+                            str += "-" + prevVerse.ToString();
+                        }
+
+                        str += "," + verse.ToString();
+                    }
+
+                    prevVerse = verse;
+                }
+
+                if (range)
+                    str += "-" + prevVerse.ToString();
+            }
+
+            return str;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1}:{2}", book, chapter, VersesToString());
         }
 
         // Operators for sorting
