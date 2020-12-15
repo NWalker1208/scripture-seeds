@@ -12,7 +12,7 @@ namespace LibraryJSON
         public string name;
         public uint cost = 1;
 
-        public SortedSet<Reference> scriptures = new SortedSet<Reference>();
+        public SortedSet<Reference> references = new SortedSet<Reference>();
 
         public Topic(string id, string name, uint cost = 1)
         {
@@ -23,7 +23,7 @@ namespace LibraryJSON
 
         public override string ToString()
         {
-            return string.Format("Topic: {0}, Scriptures: [\n\t{1}\n]", name, string.Join(",\n\t", scriptures));
+            return string.Format("Topic: {0}, References: [\n\t{1}\n]", name, string.Join(",\n\t", references));
         }
 
         // Operators for sorting

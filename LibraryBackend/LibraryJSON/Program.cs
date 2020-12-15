@@ -17,8 +17,8 @@ namespace LibraryJSON
             Reference scriptureA = new Reference(Volume.BookOfMormon, Book.Alma, 32, new uint[] { 22, 21, 21 });
             Reference scriptureB = new Reference(Volume.BookOfMormon, Book.Alma, 32, new uint[] { 20, 23 });
 
-            topic.scriptures.Add(scriptureA);
-            topic.scriptures.Add(scriptureB);
+            topic.references.Add(scriptureA);
+            topic.references.Add(scriptureB);
             library.topics.Add(topic);
 
             Console.WriteLine(library.ToJson());

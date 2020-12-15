@@ -49,7 +49,7 @@ namespace LibraryXMLtoJSON
                         index.topics.Add(topic);
                     }
 
-                    topic.scriptures.Add(reference);
+                    topic.references.Add(reference);
                 }
             }
 
