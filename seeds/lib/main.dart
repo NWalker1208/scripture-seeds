@@ -11,6 +11,7 @@ import 'services/library/manager.dart';
 import 'services/settings/help.dart';
 import 'services/settings/library_filter.dart';
 import 'services/settings/theme.dart';
+import 'services/topics/provider.dart';
 
 void main() {
   // Needed to prevent errors while loading data
@@ -24,8 +25,9 @@ void main() {
   runApp(MultiProvider(
     providers: [
       // ThemePreference notifier
-      ChangeNotifierProvider(create: (_) => ThemePreference()),
-      ChangeNotifierProvider(create: (_) => HelpSettings()),
+      ChangeNotifierProvider(create: (_) => ThemePreference(), lazy: false),
+      ChangeNotifierProvider(create: (_) => HelpSettings(), lazy: false),
+
       ChangeNotifierProvider(create: (_) => ProgressData()),
       ChangeNotifierProvider(create: (_) => WalletData()),
       ChangeNotifierProvider(create: (_) => JournalData()),
@@ -33,6 +35,11 @@ void main() {
       ChangeNotifierProvider(create: (_) => LibraryManager(assets: rootBundle)),
       ChangeNotifierProvider(create: (_) => LibraryFilter()),
       ChangeNotifierProvider(create: (_) => LibraryHistory()),
+
+      ChangeNotifierProvider(
+        create: (_) => TopicIndexProvider(assets: rootBundle),
+        lazy: false,
+      ),
     ],
     child: const SeedsApp(),
   ));
