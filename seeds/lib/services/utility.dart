@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 // The home of miscellaneous functions
-
-String enumToString<T>(T value) => value.toString().split('.').last;
-
 extension DateTimeExtension on DateTime {
   // Return true if present is on a future date from past
   @Deprecated('Please use daysUntil instead')
@@ -49,6 +46,8 @@ extension DateTimeExtension on DateTime {
   }
 }
 
+String enumToString<T>(T value) => value.toString().split('.').last;
+
 extension StringExtension on String {
   String capitalize() {
     if (length > 1) {
@@ -60,12 +59,18 @@ extension StringExtension on String {
     }
   }
 
+  // Capitalizes and adds spaces between existing capital letters
+  String toTitle() =>
+      ((length > 0) ? this[0].toUpperCase() : '') +
+      ((length > 1)
+          ? substring(1).characters.map((c) => c.isCapital ? ' $c' : c).join()
+          : '');
+
   // Converts a string to an enum value
   T toEnum<T>(List<T> values) => values.firstWhere(
-        (val) =>
-    val.toString().split('.').last.toLowerCase() == toLowerCase(),
-    orElse: () => null,
-  );
+        (val) => val.toString().split('.').last.toLowerCase() == toLowerCase(),
+        orElse: () => null,
+      );
 
   int get wordCount {
     final containsLetter = RegExp(r'.*[a-zA-Z].*');
@@ -77,6 +82,7 @@ extension StringExtension on String {
   }
 
   bool get isCapital => this == toUpperCase();
+  bool get isNumeric => double.tryParse(this ?? '') != null;
 }
 
 extension ListExtension<T> on List<T> {

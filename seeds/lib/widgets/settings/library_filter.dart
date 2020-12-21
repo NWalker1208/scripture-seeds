@@ -11,16 +11,6 @@ class LibraryFilterSettings extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  String categoryToReadable(study_resource.Category category) {
-    var string = enumToString(category);
-    return string[0].capitalize() +
-        string
-            .substring(1)
-            .characters
-            .map((c) => c.isCapital ? ' $c' : c)
-            .join();
-  }
-
   @override
   Widget build(BuildContext context) =>
       Consumer2<LibraryManager, LibraryFilter>(
@@ -38,7 +28,7 @@ class LibraryFilterSettings extends StatelessWidget {
               ),
               ...categories.map(
                 (category) => SwitchListTile(
-                  title: Text(categoryToReadable(category)),
+                  title: Text(enumToString(category).toTitle()),
                   value: filter[category],
                   onChanged: (value) => filter[category] = value,
                 ),
