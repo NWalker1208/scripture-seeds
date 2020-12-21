@@ -30,22 +30,8 @@ Topic _$TopicFromJson(Map<String, dynamic> json) {
       references: $checkedConvert(
           json,
           'references',
-          (v) => (v as List)?.map((e) => e == null
-              ? null
-              : Reference.fromJson(e as Map<String, dynamic>))),
-    );
-    return val;
-  });
-}
-
-Reference _$ReferenceFromJson(Map<String, dynamic> json) {
-  return $checkedNew('Reference', json, () {
-    final val = Reference(
-      volume: $checkedConvert(json, 'volume', (v) => v as int),
-      book: $checkedConvert(json, 'book', (v) => v as int),
-      chapter: $checkedConvert(json, 'chapter', (v) => v as int),
-      verses: $checkedConvert(
-          json, 'verses', (v) => (v as List)?.map((e) => e as int)),
+          (v) => (v as List)?.map(
+              (e) => const _CustomReferenceConverter().fromJson(e as String))),
     );
     return val;
   });

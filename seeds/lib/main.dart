@@ -32,7 +32,7 @@ void main() {
       ChangeNotifierProvider(create: (_) => WalletData()),
       ChangeNotifierProvider(create: (_) => JournalData()),
 
-      ChangeNotifierProvider(create: (_) => LibraryManager(assets: rootBundle)),
+      ChangeNotifierProvider(create: (_) => LibraryManager()),
       ChangeNotifierProvider(create: (_) => LibraryFilter()),
       ChangeNotifierProvider(create: (_) => LibraryHistory()),
 

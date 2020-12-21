@@ -1,8 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'reference.dart';
+
 part 'index.g.dart';
 
-@JsonSerializable(checked: true, createToJson: false)
+@JsonSerializable()
 class TopicIndex {
   static const minSchema = 1;
   static const maxSchema = 1;
@@ -24,7 +26,8 @@ class TopicIndex {
   Topic operator [](String id) => _index[id];
 }
 
-@JsonSerializable(checked: true, createToJson: false)
+@JsonSerializable()
+@_CustomReferenceConverter()
 class Topic {
   final String id;
   final String name;
@@ -38,24 +41,15 @@ class Topic {
     Iterable<Reference> references,
   }) : references = references.toSet();
 
-  factory Topic.fromJson(Map<String, dynamic> json) =>
-      _$TopicFromJson(json);
+  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 }
 
-@JsonSerializable(checked: true, createToJson: false)
-class Reference {
-  final int volume;
-  final int book;
-  final int chapter;
-  final Set<int> verses;
+class _CustomReferenceConverter implements JsonConverter<Reference, String> {
+  const _CustomReferenceConverter();
 
-  Reference({
-    this.volume,
-    this.book,
-    this.chapter,
-    Iterable<int> verses,
-  }) : verses = verses.toSet();
+  @override
+  Reference fromJson(String str) => Reference.parse(str);
 
-  factory Reference.fromJson(Map<String, dynamic> json) =>
-      _$ReferenceFromJson(json);
+  @override
+  String toJson(Reference reference) => reference.toString();
 }

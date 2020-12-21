@@ -31,8 +31,8 @@ namespace LibraryJSON
             return topics.Where((existing) => existing.name == name).FirstOrDefault();
         }
 
-        public static Index FromJson(string json) => JsonConvert.DeserializeObject<Index>(json);
-        public string ToJson(bool indented = false) => JsonConvert.SerializeObject(this, indented ? Formatting.Indented : Formatting.None);
+        public static Index FromJson(string json) => JsonConvert.DeserializeObject<Index>(json, new ReferenceConverter());
+        public string ToJson(bool indented = false) => JsonConvert.SerializeObject(this, indented ? Formatting.Indented : Formatting.None, new ReferenceConverter());
 
         public override string ToString()
         {

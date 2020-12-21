@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'index.dart';
@@ -21,15 +20,16 @@ abstract class TopicIndexJson {
 }
 
 class TopicIndexAssets extends TopicIndexJson {
-  final AssetBundle assets;
+  final AssetBundle _assets;
 
   TopicIndexAssets({
     String languageCode = 'eng',
-    @required this.assets,
-  }) : super(languageCode);
+    AssetBundle assets,
+  })  : _assets = assets ?? rootBundle,
+        super(languageCode);
 
   @override
-  Future<String> _loadJson() => assets.loadString('assets/$_jsonFileName');
+  Future<String> _loadJson() => _assets.loadString('assets/$_jsonFileName');
 }
 
 class TopicIndexWeb extends TopicIndexJson {

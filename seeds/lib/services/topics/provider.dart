@@ -7,9 +7,11 @@ import 'json.dart';
 class TopicIndexProvider extends ChangeNotifier {
   final TopicIndexAssets _assetService;
   final TopicIndexWeb _webService;
-  TopicIndex _index;
 
-  TopicIndexProvider({@required AssetBundle assets})
+  TopicIndex _index;
+  TopicIndex get index => _index;
+
+  TopicIndexProvider({AssetBundle assets})
       : _assetService = TopicIndexAssets(assets: assets),
         _webService = TopicIndexWeb() {
     _assetService.loadIndex().then((value) {

@@ -44,6 +44,11 @@ namespace LibraryJSON
             this.verses = new SortedSet<uint>(verses);
         }
 
+        public Reference(string reference)
+        {
+            throw new NotImplementedException();
+        }
+
         public string VersesToString()
         {
             string str = "";

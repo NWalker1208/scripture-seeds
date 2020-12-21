@@ -13,7 +13,7 @@ class LibraryManager extends ChangeNotifier {
       'https://firebasestorage.googleapis.com/v0/b/scripture-seeds.appspot.com/o/';
 
   final String lang;
-  final AssetBundle assets;
+  final AssetBundle _assets;
   final int daysBetweenRefresh;
   final String _libFileName;
 
@@ -21,8 +21,12 @@ class LibraryManager extends ChangeNotifier {
   DateTime _lastRefresh;
   DateTime get lastRefresh => _lastRefresh;
 
-  LibraryManager({this.assets, this.daysBetweenRefresh = 2, this.lang = 'eng'})
-      : _libFileName = 'library_$lang' {
+  LibraryManager({
+    AssetBundle assets,
+    this.daysBetweenRefresh = 2,
+    this.lang = 'eng',
+  })  : _assets = assets ?? rootBundle,
+        _libFileName = 'library_$lang' {
     _loadLibrary().then((library) async {
       // Update library and notify listeners
       if (library != null) {
@@ -122,11 +126,11 @@ class LibraryManager extends ChangeNotifier {
 
   // Loads library file from assets
   Future<XmlDocument> _loadFromAssets() async {
-    if (assets != null) {
+    if (_assets != null) {
       print('Loading library from assets...');
       try {
         return XmlDocument.parse(
-            await assets.loadString('assets/$_libFileName.xml'));
+            await _assets.loadString('assets/$_libFileName.xml'));
         // ignore: avoid_catching_errors
       } on FlutterError {
         print('Could not find library asset for language "$lang"');
@@ -201,7 +205,7 @@ class LibraryManager extends ChangeNotifier {
       }
 
       print('Download failed with code ${response.statusCode}');
-    } on Exception catch(e) {
+    } on Exception catch (e) {
       print('Download failed with exception $e');
     }
 
