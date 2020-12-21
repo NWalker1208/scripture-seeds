@@ -8,6 +8,8 @@ import 'services/data/progress.dart';
 import 'services/data/wallet.dart';
 import 'services/library/history.dart';
 import 'services/library/manager.dart';
+import 'services/scriptures/pd_scriptures.dart';
+import 'services/scriptures/provider.dart';
 import 'services/settings/help.dart';
 import 'services/settings/library_filter.dart';
 import 'services/settings/theme.dart';
@@ -36,8 +38,9 @@ void main() {
       ChangeNotifierProvider(create: (_) => LibraryFilter()),
       ChangeNotifierProvider(create: (_) => LibraryHistory()),
 
+      ChangeNotifierProvider(create: (_) => TopicIndexProvider(), lazy: false),
       ChangeNotifierProvider(
-        create: (_) => TopicIndexProvider(assets: rootBundle),
+        create: (_) => ScriptureProvider(PublicDomainScriptures()),
         lazy: false,
       ),
     ],
