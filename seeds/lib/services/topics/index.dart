@@ -22,7 +22,7 @@ class TopicIndex {
   factory TopicIndex.fromJson(Map<String, dynamic> json) =>
       _$TopicIndexFromJson(json);
 
-  List<String> get topics => _index.keys.toList();
+  Set<String> get topics => _index.keys.toSet();
   Topic operator [](String id) => _index[id];
 }
 

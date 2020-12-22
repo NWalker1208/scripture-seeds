@@ -10,10 +10,13 @@ class EraseEntryDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        title: Text(
-            'Erase Journal ${entriesToDelete.length == 1 ? 'Entry' : 'Entries'}'),
-        content: Text(
-            'Are you sure you want to delete ${entriesToDelete.length == 1 ? 'this journal entry' : 'these journal entries'}? This cannot be undone.'),
+        title: Text('Erase Journal '
+            '${entriesToDelete.length == 1 ? 'Entry' : 'Entries'}'),
+        content: Text('Are you sure you want to delete '
+            '${entriesToDelete.length == 1
+                ?'this journal entry'
+                : 'these journal entries'}? '
+            'This cannot be undone.'),
         actions: <Widget>[
           // Reset progress if user selects yes
           FlatButton(

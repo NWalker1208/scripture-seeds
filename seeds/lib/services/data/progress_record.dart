@@ -3,20 +3,20 @@ import 'dart:math';
 import '../utility.dart';
 
 class ProgressRecord implements Comparable<ProgressRecord> {
-  static const String kName = 'name';
+  static const String kId = 'name';
   static const String kProgress = 'progress';
   static const String kReward = 'rewardAvailable';
   static const String kLastUpdate = 'lastUpdate';
   static const int kMaxInactiveDays = 3;
 
-  String name;
+  String id;
 
   DateTime _lastUpdate;
   int _lastProgress;
   bool _rewardAvailable;
   final int maxProgress;
 
-  ProgressRecord(this.name,
+  ProgressRecord(this.id,
       {DateTime lastUpdate,
       int progress = 0,
       bool rewardAvailable = false,
@@ -26,7 +26,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
         _rewardAvailable = rewardAvailable;
 
   ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 3})
-      : name = data[kName] as String,
+      : id = data[kId] as String,
         _lastProgress = data[kProgress] as int ?? 0,
         _rewardAvailable = (data[kReward] ?? 0) == 1,
         _lastUpdate = data[kLastUpdate] == 'null'
@@ -34,7 +34,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
             : DateTime.parse(data[kLastUpdate] as String);
 
   Map<String, dynamic> toMap() => <String, dynamic>{
-        kName: name,
+        kId: id,
         kProgress: _lastProgress,
         kReward: _rewardAvailable ? 1 : 0,
         kLastUpdate: _lastUpdate.toString(),
@@ -45,7 +45,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
 
   @override
   int compareTo(ProgressRecord other) =>
-      name.toLowerCase().compareTo(other.name.toLowerCase());
+      id.toLowerCase().compareTo(other.id.toLowerCase());
 
   // Getters
   /*int get _priority =>

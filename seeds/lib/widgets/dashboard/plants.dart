@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../services/data/progress.dart';
 import '../../services/data/progress_record.dart';
-import '../../services/library/manager.dart';
+import '../../services/topics/provider.dart';
 import '../animated_list.dart';
 import '../plant/button.dart';
 import 'indicators/daily_progress.dart';
@@ -24,16 +24,15 @@ class PlantsDashboard extends StatelessWidget {
           // Plant list
           SizedBox(
             height: 250,
-            child: Consumer2<ProgressData, LibraryManager>(
-              builder: (context, progress, libManager, child) {
-                var library = libManager.library;
-                // Check if library is still loading
-                if (library == null) {
+            child: Consumer2<ProgressData, TopicIndexProvider>(
+              builder: (context, progress, topics, child) {
+                // Check if topics are done loading
+                if (topics.index == null) {
                   return const Center(child: Text('Loading...'));
                 }
 
                 // Sort records so that incomplete ones go first
-                var records = progress.recordsWithTopics(library.topics)
+                var records = progress.recordsWithTopics(topics.index.topics)
                   ..sort();
 
                 return Stack(children: [
@@ -46,10 +45,10 @@ class PlantsDashboard extends StatelessWidget {
                       child: SizeTransition(
                         axis: Axis.horizontal,
                         sizeFactor: CurvedAnimation(
-                            parent: animation, curve: Curves.easeOut),
+                            parent: animation, curve: Curves.ease),
                         child: AspectRatio(
                           aspectRatio: 3 / 5,
-                          child: PlantButton(record.name),
+                          child: PlantButton(record.id),
                         ),
                       ),
                     ),

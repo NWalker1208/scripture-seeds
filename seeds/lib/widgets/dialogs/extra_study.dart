@@ -8,8 +8,8 @@ class ExtraStudyDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AlertDialog(
         title: const Text('Daily Activity'),
-        content: const Text(
-            'You can\'t water this plant again until tomorrow. Would you like to do an activity anyways?'),
+        content: const Text('You can\'t water this plant again until tomorrow. '
+            'Would you like to do an activity anyways?'),
         actions: <Widget>[
           FlatButton(
             child: const Text('CONTINUE'),

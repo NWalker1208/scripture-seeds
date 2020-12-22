@@ -11,8 +11,9 @@ class EraseJournalDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AlertDialog(
         title: const Text('Erase Journal'),
-        content: const Text(
-            'Are you sure you want to erase your study journal? This cannot be undone.'),
+        content:
+            const Text('Are you sure you want to erase your study journal? '
+                'This cannot be undone.'),
         actions: <Widget>[
           // Reset progress if user selects yes
           FlatButton(

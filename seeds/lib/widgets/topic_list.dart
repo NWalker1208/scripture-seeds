@@ -5,7 +5,7 @@ import '../services/custom_icons.dart';
 import '../services/data/progress.dart';
 import '../services/data/progress_record.dart';
 import '../services/data/wallet.dart';
-import '../services/library/manager.dart';
+import '../services/topics/provider.dart';
 import 'animated_list.dart';
 
 class TopicList extends StatelessWidget {
@@ -33,16 +33,14 @@ class TopicList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      Consumer3<LibraryManager, ProgressData, WalletData>(
-        builder: (context, libManager, progress, wallet, child) {
-          var library = libManager.library;
-
+      Consumer3<TopicIndexProvider, ProgressData, WalletData>(
+        builder: (context, topicIndex, progress, wallet, child) {
           // Check if library is still loading
-          if (library == null) {
+          if (topicIndex.index == null) {
             return const Text('Loading...', textAlign: TextAlign.center);
           }
 
-          var topics = library.topics.toList();
+          var topics = topicIndex.index.topics.toList();
           topics.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
 
           var topicsAlreadyPurchased = progress.recordNames;
@@ -67,22 +65,26 @@ class TopicList extends StatelessWidget {
                 axis: Axis.horizontal,
                 sizeFactor: CurvedAnimation(
                   parent: animation,
-                  curve: Curves.easeOut,
+                  curve: Curves.easeInOut,
                 ),
                 child: ActionChip(
                   label: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('${library.topicPrices[topic]}'),
+                      Text('${topicIndex.index[topic].cost}'),
                       const SizedBox(width: 4),
                       const Icon(CustomIcons.seeds),
                       const SizedBox(width: 8),
-                      Text(topic),
+                      Text(topicIndex.index[topic].name),
                     ],
                   ),
                   onPressed: () {
                     if (!purchase(
-                        wallet, progress, topic, library.topicPrices[topic])) {
+                      wallet,
+                      progress,
+                      topic,
+                      topicIndex.index[topic].cost,
+                    )) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text('Collect seeds to buy more topics.'),
                       ));

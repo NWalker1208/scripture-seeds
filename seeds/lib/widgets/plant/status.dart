@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../services/data/progress_record.dart';
+import '../../services/topics/provider.dart';
 
 class PlantStatus extends StatelessWidget {
   final ProgressRecord progress;
@@ -31,7 +33,8 @@ class PlantStatus extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             alignment: Alignment.centerLeft,
-            child: Text('${progress.name}'),
+            child: Consumer<TopicIndexProvider>(builder: (context, topics, _) =>
+                Text('${topics.index[progress.id].name}')),
           ),
         ),
       ],

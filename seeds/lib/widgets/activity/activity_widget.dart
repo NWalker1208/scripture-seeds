@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../../services/topics/index.dart';
+
 abstract class ActivityWidget extends StatefulWidget {
-  final String topic;
+  final Topic topic;
   final FutureOr<void> Function(bool) onProgressChange;
   final bool activityCompleted;
 

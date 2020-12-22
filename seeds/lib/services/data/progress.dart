@@ -29,7 +29,7 @@ class ProgressData extends ChangeNotifier {
 
   // Returns all progress records with topics from the set given.
   List<ProgressRecord> recordsWithTopics(Set<String> topics) =>
-      records.toList()..removeWhere((record) => !topics.contains(record.name));
+      records.toList()..removeWhere((record) => !topics.contains(record.id));
 
   // Gets the progress for a specific item
   // Returns a record with 0 progress if the record does not exist or if the
@@ -44,7 +44,7 @@ class ProgressData extends ChangeNotifier {
   bool createProgressRecord(ProgressRecord record) {
     if (!isLoaded) return false;
 
-    _records[record.name] = record;
+    _records[record.id] = record;
     // Save to database and notify listeners
     _saveData();
     notifyListeners();
@@ -178,7 +178,7 @@ class ProgressData extends ChangeNotifier {
   static Future<void> _createProgressTable(Database db, int version) async {
     final progressSql = '''CREATE TABLE $kProgressTable
     (
-      ${ProgressRecord.kName} TEXT PRIMARY KEY,
+      ${ProgressRecord.kId} TEXT PRIMARY KEY,
       ${ProgressRecord.kProgress} INTEGER,
       ${ProgressRecord.kReward} INTEGER,
       ${ProgressRecord.kLastUpdate} TEXT
@@ -199,8 +199,8 @@ class ProgressData extends ChangeNotifier {
     }
     if (oldVersion < 3) {
       final upgradeSql = '''UPDATE $kProgressTable
-        SET ${ProgressRecord.kName} = "Jesus Christ"
-        WHERE ${ProgressRecord.kName} = "jesus christ"
+        SET ${ProgressRecord.kId} = "Jesus Christ"
+        WHERE ${ProgressRecord.kId} = "jesus christ"
       ''';
       await db.execute(upgradeSql);
     }
@@ -211,7 +211,7 @@ class ProgressData extends ChangeNotifier {
   // Gets a list of all progress records
   static Future<Map<String, ProgressRecord>> _queryRecords(Database db) async {
     var recordMaps = await db.query(kProgressTable, columns: [
-      ProgressRecord.kName,
+      ProgressRecord.kId,
       ProgressRecord.kProgress,
       ProgressRecord.kReward,
       ProgressRecord.kLastUpdate
@@ -220,7 +220,7 @@ class ProgressData extends ChangeNotifier {
     var recordList =
         recordMaps.map((map) => ProgressRecord.fromMap(map)).toList();
 
-    var records = {for (var e in recordList) e.name: e};
+    var records = {for (var e in recordList) e.id: e};
 
     return records;
   }
@@ -237,7 +237,7 @@ class ProgressData extends ChangeNotifier {
     oldRecords.forEach((name, progress) {
       if (!records.containsKey(name)) {
         batch.delete(kProgressTable,
-            where: '${ProgressRecord.kName} = ?', whereArgs: <String>[name]);
+            where: '${ProgressRecord.kId} = ?', whereArgs: <String>[name]);
       }
     });
 
@@ -245,7 +245,7 @@ class ProgressData extends ChangeNotifier {
     records.forEach((name, progress) {
       if (oldRecords.containsKey(name)) {
         batch.update(kProgressTable, progress.toMap(),
-            where: '${ProgressRecord.kName} = ?', whereArgs: <String>[name]);
+            where: '${ProgressRecord.kId} = ?', whereArgs: <String>[name]);
       } else {
         batch.insert(kProgressTable, progress.toMap());
       }

@@ -143,7 +143,7 @@ class _JournalPageState extends State<JournalPage> {
                     child: SizeTransition(
                       sizeFactor: CurvedAnimation(
                         parent: animation,
-                        curve: Curves.ease,
+                        curve: Curves.easeInOut,
                       ),
                       child: Stack(
                         alignment: Alignment.centerLeft,

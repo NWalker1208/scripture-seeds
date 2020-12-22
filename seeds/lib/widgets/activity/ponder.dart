@@ -3,12 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../pages/activity.dart';
+import '../../services/topics/index.dart';
 import '../../services/utility.dart';
 import 'activity_widget.dart';
 
 class PonderActivity extends ActivityWidget {
   PonderActivity(
-    String topic, {
+    Topic topic, {
     FutureOr<void> Function(bool) onProgressChange,
     bool completed,
     Key key,
@@ -23,8 +24,8 @@ class PonderActivity extends ActivityWidget {
   _PonderActivityState createState() => _PonderActivityState();
 
   @override
-  String getHelpText() =>
-      'Write down your thoughts on the previous scripture and what it teaches you about $topic.';
+  String getHelpText() => 'Write down your thoughts on the previous scripture '
+      'and what it teaches you about "${topic.name}."';
 }
 
 class _PonderActivityState extends State<PonderActivity> {
@@ -72,7 +73,7 @@ class _PonderActivityState extends State<PonderActivity> {
                 borderRadius: BorderRadius.circular(12),
               ),*/
 
-                  hintText: '${widget.topic.capitalize()} is...',
+                  hintText: '${widget.topic.name.capitalize()}...',
                   counterText: '$wordCount/$kMinWords words',
                   counterStyle: DefaultTextStyle.of(context).style.copyWith(
                       color: (wordCount < kMinWords) ? Colors.red : null)),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/data/progress.dart';
-import '../../services/library/manager.dart';
+import '../../services/topics/provider.dart';
 import 'status.dart';
 
 class PlantList extends StatelessWidget {
@@ -11,10 +11,10 @@ class PlantList extends StatelessWidget {
   PlantList(this.currentlyOpen, {Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer2<ProgressData, LibraryManager>(
-        builder: (context, progress, libManager, child) {
-          var records = progress.recordsWithTopics(libManager.library.topics)
-            ..sort();
+  Widget build(BuildContext context) =>
+      Consumer2<ProgressData, TopicIndexProvider>(
+        builder: (context, progress, topics, child) {
+          var records = progress.recordsWithTopics(topics.index.topics)..sort();
 
           // This column will build the list of plants based on progressData
           return Column(
@@ -26,9 +26,9 @@ class PlantList extends StatelessWidget {
               (record) {
                 // Create an onPressed event if the topic is not currently open
                 var onPressed = () => Navigator.of(context)
-                    .pushReplacementNamed('/plant', arguments: record.name);
+                    .pushReplacementNamed('/plant', arguments: record.id);
 
-                if (record.name == currentlyOpen) onPressed = null;
+                if (record.id == currentlyOpen) onPressed = null;
 
                 // Choose a color based on the theme
                 var selectedColor =

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../pages/activity.dart';
 import '../../services/data/journal.dart';
+import '../../services/topics/index.dart';
 import '../journal_entry.dart';
 import 'activity_widget.dart';
 
@@ -11,7 +12,7 @@ class ShareActivity extends ActivityWidget {
   final JournalEntry journalEntry;
 
   ShareActivity(
-    String topic,
+    Topic topic,
     this.journalEntry, {
     FutureOr<void> Function(bool) onProgressChange,
     bool completed,

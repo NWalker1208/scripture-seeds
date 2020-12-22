@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../services/data/progress.dart';
 import '../../services/data/wallet.dart';
-import '../../services/library/history.dart';
+import '../../services/study/history.dart';
 
 class ResetProgressDialog extends StatelessWidget {
   const ResetProgressDialog({
@@ -14,7 +14,8 @@ class ResetProgressDialog extends StatelessWidget {
   Widget build(BuildContext context) => AlertDialog(
         title: const Text('Reset Progress'),
         content: const Text(
-            'Are you sure you want to reset your progress? This cannot be undone.'),
+            'Are you sure you want to reset your progress? '
+                'This cannot be undone.'),
         actions: <Widget>[
           // Reset progress if user selects yes
           FlatButton(
@@ -25,7 +26,7 @@ class ResetProgressDialog extends StatelessWidget {
               var progress = Provider.of<ProgressData>(context, listen: false);
               progress.resetProgress();
 
-              var history = Provider.of<LibraryHistory>(context, listen: false);
+              var history = Provider.of<StudyHistory>(context, listen: false);
               history.resetHistory();
 
               var wallet = Provider.of<WalletData>(context, listen: false);

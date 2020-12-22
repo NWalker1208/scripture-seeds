@@ -6,7 +6,7 @@ final ThemeData lightTheme = ThemeData(
   accentColor: Colors.blue,
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: Colors.blue,
-    selectionColor: Colors.green[200],
+    selectionColor: Colors.green[300],
   ),
   dialogTheme: DialogTheme(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -33,7 +33,7 @@ final ThemeData darkTheme = ThemeData(
 
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: Colors.blue,
-    selectionColor: Colors.green[500],
+    selectionColor: Colors.green[600],
   ),
   dialogTheme: DialogTheme(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

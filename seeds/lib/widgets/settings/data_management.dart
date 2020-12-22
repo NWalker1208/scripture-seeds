@@ -30,6 +30,8 @@ class DataManagementSettings extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Your progress has been reset.')),
         );
+        
+        Navigator.of(context).popUntil(ModalRoute.withName('/'));
       }
     });
   }

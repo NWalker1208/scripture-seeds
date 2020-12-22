@@ -9,6 +9,7 @@ import 'pages/settings.dart';
 import 'pages/topics.dart';
 import 'services/settings/theme.dart';
 import 'services/themes.dart' as theme;
+import 'services/topics/provider.dart';
 
 class SeedsApp extends StatelessWidget {
   const SeedsApp({
@@ -28,10 +29,12 @@ class SeedsApp extends StatelessWidget {
             '/settings': (context) => const SettingsPage(),
             '/topics': (context) => const TopicsPage(),
             '/plant': (context) => PlantPage(
-                  ModalRoute.of(context).settings.arguments as String,
+              Provider.of<TopicIndexProvider>(context).index[
+              ModalRoute.of(context).settings.arguments as String],
                 ),
             '/plant/activity': (context) => ActivityPage(
-                  ModalRoute.of(context).settings.arguments as String,
+                  Provider.of<TopicIndexProvider>(context).index[
+                      ModalRoute.of(context).settings.arguments as String],
                 ),
             '/journal': (context) => JournalPage(
                   defaultFilter:

@@ -4,18 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:mutex/mutex.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'study_resource.dart';
+import '../topics/reference.dart';
 
-class LibraryHistory extends ChangeNotifier {
-  static const String kDatabaseFile = 'lib_history.db';
-  static const String kHistoryTable = 'history';
-  static const String kReferenceName = 'ref';
-  static const String kLastStudiedName = 'last_studied';
+class StudyHistory extends ChangeNotifier {
+  static const String _databaseFile = 'lib_history.db';
+  static const String _historyTable = 'history';
+  static const String _referenceName = 'ref';
+  static const String _lastStudiedName = 'last_studied';
 
-  Map<String, DateTime> _history;
+  Map<Reference, DateTime> _history;
+  List<Reference> get referencesStudied => _history?.keys?.toList();
 
   /// Front-End
-  LibraryHistory() {
+  StudyHistory() {
     _loadData().then((success) {
       if (success) notifyListeners();
     });
@@ -26,22 +27,21 @@ class LibraryHistory extends ChangeNotifier {
 
   // Gets the date last studied for a library resource.
   // Returns null if never studied or if history is not loaded.
-  DateTime dateLastStudied(StudyResource resource) {
-    if (!isLoaded || !_history.containsKey(resource.reference)) return null;
-
-    return _history[resource.reference];
+  DateTime dateLastStudied(Reference reference) {
+    if (!isLoaded || !_history.containsKey(reference)) return null;
+    return _history[reference];
   }
 
   // Updates the history of a library resource to show studied on date
   // (Default is today). Fails silently if history has not finished loading.
-  void markAsStudied(StudyResource resource, {DateTime date}) {
+  void markAsStudied(Reference reference, {DateTime date}) {
     if (!isLoaded) return;
 
-    _history[resource.reference] = date ?? DateTime.now();
+    _history[reference] = date ?? DateTime.now();
     _saveData();
     notifyListeners();
 
-    print('Marked ${resource.reference} as studied.');
+    print('Marked $reference as studied.');
   }
 
   // Deletes all history entries
@@ -59,7 +59,7 @@ class LibraryHistory extends ChangeNotifier {
   // Deletes the database file
   static Future<bool> deleteDatabase() async {
     final databasePath = await getDatabasesPath();
-    final path = databasePath + kDatabaseFile;
+    final path = databasePath + _databaseFile;
 
     var file = File(path);
 
@@ -80,11 +80,14 @@ class LibraryHistory extends ChangeNotifier {
       await _databaseMutex.acquire();
       var db = await _openDatabase();
 
-      _history = await _queryHistory(db);
+      var history = await _queryHistory(db);
 
       await db.close();
       _databaseMutex.release();
-      print('History loaded!');
+
+      _history = history.map(
+          (reference, value) => MapEntry(Reference.parse(reference), value));
+      print('History loaded with ${_history.length} references.');
       return true;
     } on DatabaseException catch (e) {
       print('Database exception while loading: $e');
@@ -98,7 +101,11 @@ class LibraryHistory extends ChangeNotifier {
       await _databaseMutex.acquire();
       var db = await _openDatabase();
 
-      await _updateHistory(db, _history);
+      await _updateHistory(
+        db,
+        _history
+            .map((reference, value) => MapEntry(reference.toString(), value)),
+      );
 
       await db.close();
       _databaseMutex.release();
@@ -113,7 +120,7 @@ class LibraryHistory extends ChangeNotifier {
   // Opens the database file
   static Future<Database> _openDatabase() async {
     final databasePath = await getDatabasesPath();
-    final path = databasePath + kDatabaseFile;
+    final path = databasePath + _databaseFile;
 
     return openDatabase(path,
         version: 2,
@@ -123,10 +130,10 @@ class LibraryHistory extends ChangeNotifier {
 
   // Creates the table of progress records
   static Future<void> _createHistoryTable(Database db, int version) async {
-    final progressSql = '''CREATE TABLE $kHistoryTable
+    final progressSql = '''CREATE TABLE $_historyTable
     (
-      $kReferenceName TEXT PRIMARY KEY,
-      $kLastStudiedName TEXT
+      $_referenceName TEXT PRIMARY KEY,
+      $_lastStudiedName TEXT
     )''';
 
     await db.execute(progressSql);
@@ -137,7 +144,7 @@ class LibraryHistory extends ChangeNotifier {
       Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 2) {
       // Delete old history, not useful anymore
-      await db.execute('DROP TABLE $kHistoryTable');
+      await db.execute('DROP TABLE $_historyTable');
       await _createHistoryTable(db, newVersion);
     }
 
@@ -146,15 +153,15 @@ class LibraryHistory extends ChangeNotifier {
 
   // Gets a list of all study history
   static Future<Map<String, DateTime>> _queryHistory(Database db) async {
-    var historyMaps = await db.query(kHistoryTable, columns: [
-      kReferenceName,
-      kLastStudiedName,
+    var historyMaps = await db.query(_historyTable, columns: [
+      _referenceName,
+      _lastStudiedName,
     ]);
 
     var history = {
       for (var e in historyMaps)
-        e[kReferenceName] as String:
-            DateTime.parse(e[kLastStudiedName] as String)
+        e[_referenceName] as String:
+            DateTime.parse(e[_lastStudiedName] as String)
     };
 
     return history;
@@ -171,23 +178,23 @@ class LibraryHistory extends ChangeNotifier {
     // Delete oldHistory that don't exist any more
     oldHistory.forEach((reference, lastStudied) {
       if (!history.containsKey(reference)) {
-        batch.delete(kHistoryTable,
-            where: '$kReferenceName = ?', whereArgs: <String>[reference]);
+        batch.delete(_historyTable,
+            where: '$_referenceName = ?', whereArgs: <String>[reference]);
       }
     });
 
     // Update or create records
     history.forEach((reference, lastStudied) {
       var sqlEntry = <String, dynamic>{
-        kReferenceName: reference,
-        kLastStudiedName: lastStudied.toString()
+        _referenceName: reference,
+        _lastStudiedName: lastStudied.toString()
       };
 
       if (oldHistory.containsKey(reference)) {
-        batch.update(kHistoryTable, sqlEntry,
-            where: '$kReferenceName = ?', whereArgs: <String>[reference]);
+        batch.update(_historyTable, sqlEntry,
+            where: '$_referenceName = ?', whereArgs: <String>[reference]);
       } else {
-        batch.insert(kHistoryTable, sqlEntry);
+        batch.insert(_historyTable, sqlEntry);
       }
     });
 

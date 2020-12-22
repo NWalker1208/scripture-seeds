@@ -14,7 +14,7 @@ class PublicDomainScriptures extends ScriptureDatabase {
   // Database Schema
   static const String _bookTable = 'books';
   static const String _bookId = 'id';
-  static const String _bookVolume = 'volume_id';
+  //static const String _bookVolume = 'volume_id';
   static const String _bookTitle = 'book_title';
 
   static const String _chapterTable = 'chapters';

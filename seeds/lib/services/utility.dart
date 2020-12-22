@@ -67,9 +67,9 @@ extension StringExtension on String {
           : '');
 
   // Converts a string to an enum value
-  T toEnum<T>(List<T> values) => values.firstWhere(
+  T toEnum<T>(List<T> values, {T Function() orElse}) => values.firstWhere(
         (val) => val.toString().split('.').last.toLowerCase() == toLowerCase(),
-        orElse: () => null,
+        orElse: orElse,
       );
 
   int get wordCount {
