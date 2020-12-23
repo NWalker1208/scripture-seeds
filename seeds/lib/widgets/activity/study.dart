@@ -39,8 +39,15 @@ class StudyActivity extends ActivityWidget {
       context.findAncestorStateOfType<StudyActivityState>();
 }
 
+class _VerseKey {
+  final String text;
+  final GlobalKey key;
+
+  _VerseKey(this.text, [GlobalKey key]) : key = key ?? GlobalKey();
+}
+
 class StudyActivityState extends State<StudyActivity> {
-  List<String> verses;
+  List<_VerseKey> _verses;
   Map<int, List<WordState>> highlights;
 
   void updateHighlight(int id, List<WordState> highlight) {
@@ -50,12 +57,12 @@ class StudyActivityState extends State<StudyActivity> {
     var activityCompleted = false;
 
     var allWords = <WordState>[];
-    highlights.forEach((key, value) {
-      for (var word in value) {
+    for (var verse in widget.reference.verses) {
+      for (var word in highlights[verse - 1]) {
         if (word.highlighted) activityCompleted = true;
       }
-      allWords.addAll(value);
-    });
+      allWords.addAll(highlights[verse - 1]);
+    }
 
     if (activityCompleted != widget.activityCompleted) {
       widget.onProgressChange?.call(activityCompleted);
@@ -64,6 +71,18 @@ class StudyActivityState extends State<StudyActivity> {
     // Update the share text
     var quote = buildSharableQuote(allWords);
     ActivityPage.of(context)?.updateQuote('\u{201C}$quote\u{201D}');
+  }
+
+  void scrollToVerse(
+    int verse, {
+    Duration duration = const Duration(milliseconds: 800),
+  }) {
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => Scrollable.ensureVisible(
+              _verses[verse].key.currentContext,
+              duration: duration,
+              curve: Curves.easeInOut,
+            ));
   }
 
   void switchTopic(String topic) {
@@ -77,49 +96,64 @@ class StudyActivityState extends State<StudyActivity> {
 
     Provider.of<StudyLibraryProvider>(context, listen: false)
         .getChapterOfReference(widget.reference)
-        .then((verses) => setState(() => this.verses = verses));
+        .then((verses) => setState(() {
+              _verses = verses.map((v) => _VerseKey(v)).toList();
+              scrollToVerse(widget.reference.verses.first - 1);
+            }));
 
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) => verses == null
+  Widget build(BuildContext context) => _verses == null
       ? Center(child: CircularProgressIndicator())
-      : CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-              sliver: SliverToBoxAdapter(
-                child: Text(
-                  '${widget.reference.book.title} '
-                  '${widget.reference.chapter}',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4
-                      .copyWith(fontFamily: 'Buenard'),
-                ),
+      : ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                '${widget.reference.book.title} '
+                '${widget.reference.chapter}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(fontFamily: 'Buenard'),
               ),
             ),
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
-              sliver: SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => (index.isEven)
-                      ? HighlightStudyBlock(
-                          verses[index ~/ 2],
-                          id: index ~/ 2,
-                          leadingText: '${index ~/ 2 + 1}. ',
-                          key: ValueKey(verses[index ~/ 2]),
-                        )
-                      : SizedBox(height: 8.0),
-                  semanticIndexCallback: (widget, localIndex) =>
-                      (localIndex.isEven) ? localIndex ~/ 2 : null,
-                  childCount: verses.length * 2 - 1,
-                ),
+
+            // Chapter Text
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 75.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < _verses.length; i++)
+                    Container(
+                      key: _verses[i].key,
+                      decoration: widget.reference.verses.contains(i + 1)
+                          ? BoxDecoration(
+                              border: Border.all(
+                                color: Colors.blue.withOpacity(0.5),
+                                width: 4.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            )
+                          : null,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 12),
+                        child: HighlightStudyBlock(
+                          _verses[i].text,
+                          id: i,
+                          leadingText: '${i + 1}. ',
+                        ),
+                      ),
+                    )
+                ],
               ),
             ),
-            /*SliverPadding(
+          ],
+          /*SliverPadding(
             padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
             sliver: SliverToBoxAdapter(
               child: Wrap(
@@ -141,6 +175,5 @@ class StudyActivityState extends State<StudyActivity> {
               ),
             ),
           ),*/
-          ],
         );
 }

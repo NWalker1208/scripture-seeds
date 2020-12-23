@@ -91,15 +91,3 @@ extension ListExtension<T> on List<T> {
   // Returns a random item from the list
   T randomItem() => length > 0 ? this[_random.nextInt(length)] : null;
 }
-
-int hitTestList(Offset position, List<GlobalKey> widgets) {
-  for (var i = 0; i < widgets.length; i++) {
-    var renderBox = widgets[i].currentContext.findRenderObject() as RenderBox;
-    var localPosition = renderBox.globalToLocal(position);
-    var result = BoxHitTestResult();
-
-    if (renderBox.hitTest(result, position: localPosition)) return i;
-  }
-
-  return null;
-}

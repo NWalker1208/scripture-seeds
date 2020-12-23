@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
-import '../../services/utility.dart';
 import 'word.dart';
 
 class WordState {
@@ -65,8 +65,6 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
   int selectionStart;
   int selectionEnd;
 
-  HighlightTextSpanState();
-
   _HighlightAppearance _wordState(int index) {
     if (index < 0 || index > widget.words.length - 1) {
       return _HighlightAppearance.off;
@@ -85,19 +83,71 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     }
   }
 
-  /// Gesture handlers
-  void _updateSelection(Offset position) {
-    var word = hitTestList(position, _wordKeys);
-    if (word != null) setState(() => selectionEnd = word);
+  int _wordAtPosition(Offset position) {
+    // Check if position falls on any of the words in the span
+    for (var i = 0; i < _wordKeys.length; i++) {
+      var renderBox =
+          _wordKeys[i].currentContext.findRenderObject() as RenderBox;
+      var localPosition = renderBox.globalToLocal(position);
+      var result = BoxHitTestResult();
+
+      if (renderBox.hitTest(result, position: localPosition)) return i;
+    }
+
+    // Check if position is before first word
+    var firstRenderBox =
+        _wordKeys.first.currentContext.findRenderObject() as RenderBox;
+    var firstLocalPosition = firstRenderBox.globalToLocal(position);
+
+    if (firstLocalPosition.dy < 0 ||
+        (firstLocalPosition.dy < firstRenderBox.size.height &&
+            firstLocalPosition.dx < 0)) {
+      return 0;
+    }
+
+    // Check if position is after last word
+    var lastRenderBox =
+        _wordKeys.last.currentContext.findRenderObject() as RenderBox;
+    var lastLocalPosition = lastRenderBox.globalToLocal(position);
+
+    if (lastLocalPosition.dy > lastRenderBox.size.height ||
+        (lastLocalPosition.dy > 0 &&
+            lastLocalPosition.dx > lastRenderBox.size.width)) {
+      return _wordKeys.length - 1;
+    }
+
+    // No word under position
+    return null;
   }
 
-  /// Selection management functions
-  void _startSelection(int index) {
-    setState(() {
-      selectionAction = !widget.words[index].highlighted;
-      selectionStart = index;
-      selectionEnd = index;
-    });
+  /// Gesture handlers
+  // For each function, position indicates where a gesture occurred
+  // to trigger this action.
+  void _toggleHighlight(Offset position) {
+    var index = _wordAtPosition(position);
+    if (index != null) {
+      setState(() {
+        _clearSelection();
+        var change = <int, bool>{index: !widget.words[index].highlighted};
+        widget.onChangeHighlight?.call(change);
+      });
+    }
+  }
+
+  void _startSelection(Offset position) {
+    var index = _wordAtPosition(position);
+    if (index != null) {
+      setState(() {
+        selectionAction = !widget.words[index].highlighted;
+        selectionStart = index;
+        selectionEnd = index;
+      });
+    }
+  }
+
+  void _updateSelection(Offset position) {
+    var index = _wordAtPosition(position);
+    if (index != null) setState(() => selectionEnd = index);
   }
 
   void _clearSelection() {
@@ -136,20 +186,14 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     }
   }
 
-  void _quickSelect(int index) {
-    setState(() {
-      _clearSelection();
-      var change = <int, bool>{index: !widget.words[index].highlighted};
-      widget.onChangeHighlight?.call(change);
-    });
-  }
-
   /// Widget functions
   @override
   void initState() {
     super.initState();
-    _wordKeys = List<GlobalKey>.generate(widget.words.length,
-        (index) => GlobalKey(debugLabel: widget.words[index].text));
+    _wordKeys = List<GlobalKey>.generate(
+      widget.words.length,
+      (index) => GlobalKey(debugLabel: widget.words[index].text),
+    );
   }
 
   @override
@@ -174,29 +218,44 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
         Theme.of(context).textSelectionTheme.selectionColor;
     var style = widget.style ?? DefaultTextStyle.of(context).style;
 
-    return RichText(
-      textAlign: TextAlign.left,
-      text: TextSpan(
-        text: widget.leadingText,
-        style: style,
-        // Generate a list of textSpans for the words
-        children: List<InlineSpan>.generate(
-          widget.words.length,
-          (index) => WidgetSpan(
-            child: HighlightTextWord(
-              widget.words[index].text,
-              highlighted: _wordState(index) == _HighlightAppearance.on,
-              selected: _wordState(index) == _HighlightAppearance.selected,
-              leftNeighbor: _wordState(index - 1) != _HighlightAppearance.off,
-              rightNeighbor: _wordState(index + 1) != _HighlightAppearance.off,
-              backgroundColor: backgroundColor,
-              highlightColor: highlightColor,
-              style: style,
-              onTap: () => _quickSelect(index),
-              onSelectionStart: () => _startSelection(index),
-              onSelectionUpdate: _updateSelection,
-              onSelectionEnd: _applySelection,
-              key: _wordKeys[index],
+    return GestureDetector(
+      // Tap to highlight
+      onTapUp: (details) => _toggleHighlight(details.globalPosition),
+      // Long press to highlight
+      onLongPressStart: (details) => _startSelection(details.globalPosition),
+      onLongPressMoveUpdate: (details) =>
+          _updateSelection(details.globalPosition),
+      onLongPressEnd: (_) => _applySelection(),
+      // Swipe to highlight
+      onHorizontalDragStart: (details) =>
+          _startSelection(details.globalPosition),
+      onHorizontalDragUpdate: (details) =>
+          _updateSelection(details.globalPosition),
+      onHorizontalDragEnd: (_) => _applySelection(),
+      onHorizontalDragCancel: _clearSelection,
+
+      // Text
+      child: RichText(
+        textAlign: TextAlign.left,
+        text: TextSpan(
+          text: widget.leadingText,
+          style: style,
+          // Generate a list of textSpans for the words
+          children: List<InlineSpan>.generate(
+            widget.words.length,
+            (index) => WidgetSpan(
+              child: HighlightTextWord(
+                widget.words[index].text,
+                highlighted: _wordState(index) == _HighlightAppearance.on,
+                selected: _wordState(index) == _HighlightAppearance.selected,
+                leftNeighbor: _wordState(index - 1) != _HighlightAppearance.off,
+                rightNeighbor:
+                    _wordState(index + 1) != _HighlightAppearance.off,
+                backgroundColor: backgroundColor,
+                highlightColor: highlightColor,
+                style: style,
+                key: _wordKeys[index],
+              ),
             ),
           ),
         ),
