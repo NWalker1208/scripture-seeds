@@ -3,52 +3,22 @@ import 'package:flutter/rendering.dart';
 
 import 'word.dart';
 
-class WordState {
-  String text;
-  bool highlighted;
-
-  WordState(this.text, {this.highlighted = false});
-}
-
-List<WordState> buildWordList(String text) =>
-    text.split(' ').map((t) => WordState(t)).toList();
-
-String buildSharableQuote(List<WordState> words) {
-  var quote = '';
-
-  var continued = true;
-  for (var word in words) {
-    if (word.highlighted) {
-      if (!continued) quote += ' ';
-
-      quote += word.text;
-      continued = false;
-    } else {
-      if (!continued) quote += '...';
-
-      continued = true;
-    }
-  }
-
-  return quote;
-}
-
 class HighlightTextSpan extends StatefulWidget {
+  final String text;
   final String leadingText;
-  final List<WordState> words;
   final TextStyle style;
   final Color backgroundColor;
   final Color highlightColor;
 
-  final void Function(Map<int, bool>) onChangeHighlight;
+  final void Function(List<bool>) onHighlightChange;
 
   HighlightTextSpan(
-    this.words, {
+    this.text, {
     this.leadingText = '',
     this.style,
     this.backgroundColor,
     this.highlightColor,
-    this.onChangeHighlight,
+    this.onHighlightChange,
     Key key,
   }) : super(key: key);
 
@@ -56,38 +26,75 @@ class HighlightTextSpan extends StatefulWidget {
   HighlightTextSpanState createState() => HighlightTextSpanState();
 }
 
-enum _HighlightAppearance { off, selected, on }
+class _WordState {
+  final String text;
+  final GlobalKey key;
+  bool highlighted;
+
+  _WordState(this.text, {GlobalKey key, this.highlighted = false})
+      : key = key ?? GlobalKey();
+
+  static List<_WordState> buildWordList(String text) =>
+      text.split(' ').map((t) => _WordState(t)).toList();
+}
 
 class HighlightTextSpanState extends State<HighlightTextSpan> {
-  List<GlobalKey> _wordKeys;
+  List<_WordState> _words;
 
   bool selectionAction;
   int selectionStart;
   int selectionEnd;
 
-  _HighlightAppearance _wordState(int index) {
-    if (index < 0 || index > widget.words.length - 1) {
-      return _HighlightAppearance.off;
+  List<String> get words => _words.map((word) => word.text).toList();
+
+  String getSharableQuote() {
+    var quote = '';
+
+    bool continued;
+    for (var word in _words) {
+      if (word.highlighted) {
+        if (!(continued ?? true)) quote += ' ';
+
+        quote += word.text;
+        continued = false;
+      } else {
+        if (!(continued ?? false)) quote += '...';
+
+        continued = true;
+      }
     }
 
+    return quote;
+  }
+
+  bool isHighlighted(int index) => (index < 0 || index > _words.length - 1)
+      ? false
+      : _words[index].highlighted;
+
+  bool isSelected(int index) {
+    // Check if index is out of range
+    if (index < 0 || index > _words.length - 1) return false;
+
+    // Check if index is within selection
     if (selectionStart != null &&
         selectionEnd != null &&
         ((index >= selectionStart && index <= selectionEnd) ||
             (index <= selectionStart && index >= selectionEnd)) &&
-        widget.words[index].highlighted != selectionAction) {
-      return _HighlightAppearance.selected;
-    } else if (widget.words[index].highlighted) {
-      return _HighlightAppearance.on;
+        _words[index].highlighted != selectionAction) {
+      return true;
     } else {
-      return _HighlightAppearance.off;
+      return false;
     }
   }
 
+  void _notifyHighlightUpdate() =>
+      widget.onHighlightChange(_words.map((word) => word.highlighted).toList());
+
   int _wordAtPosition(Offset position) {
     // Check if position falls on any of the words in the span
-    for (var i = 0; i < _wordKeys.length; i++) {
+    for (var i = 0; i < _words.length; i++) {
       var renderBox =
-          _wordKeys[i].currentContext.findRenderObject() as RenderBox;
+          _words[i].key.currentContext.findRenderObject() as RenderBox;
       var localPosition = renderBox.globalToLocal(position);
       var result = BoxHitTestResult();
 
@@ -96,7 +103,7 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
 
     // Check if position is before first word
     var firstRenderBox =
-        _wordKeys.first.currentContext.findRenderObject() as RenderBox;
+        _words.first.key.currentContext.findRenderObject() as RenderBox;
     var firstLocalPosition = firstRenderBox.globalToLocal(position);
 
     if (firstLocalPosition.dy < 0 ||
@@ -107,13 +114,13 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
 
     // Check if position is after last word
     var lastRenderBox =
-        _wordKeys.last.currentContext.findRenderObject() as RenderBox;
+        _words.last.key.currentContext.findRenderObject() as RenderBox;
     var lastLocalPosition = lastRenderBox.globalToLocal(position);
 
     if (lastLocalPosition.dy > lastRenderBox.size.height ||
         (lastLocalPosition.dy > 0 &&
             lastLocalPosition.dx > lastRenderBox.size.width)) {
-      return _wordKeys.length - 1;
+      return _words.length - 1;
     }
 
     // No word under position
@@ -128,8 +135,10 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     if (index != null) {
       setState(() {
         _clearSelection();
-        var change = <int, bool>{index: !widget.words[index].highlighted};
-        widget.onChangeHighlight?.call(change);
+        setState(() {
+          _words[index].highlighted = !_words[index].highlighted;
+        });
+        _notifyHighlightUpdate();
       });
     }
   }
@@ -138,7 +147,7 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     var index = _wordAtPosition(position);
     if (index != null) {
       setState(() {
-        selectionAction = !widget.words[index].highlighted;
+        selectionAction = !_words[index].highlighted;
         selectionStart = index;
         selectionEnd = index;
       });
@@ -160,28 +169,25 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
 
   void _applySelection() {
     if (selectionStart != null && selectionEnd != null) {
-      setState(() {
-        int start, end;
-        if (selectionEnd >= selectionStart) {
-          start = selectionStart;
-          end = selectionEnd;
-        } else {
-          start = selectionEnd;
-          end = selectionStart;
-        }
+      int start, end;
+      if (selectionEnd >= selectionStart) {
+        start = selectionStart;
+        end = selectionEnd;
+      } else {
+        start = selectionEnd;
+        end = selectionStart;
+      }
 
-        var changes = <int, bool>{};
+      setState(() {
         for (var i = start; i <= end; i++) {
-          if (selectionAction != widget.words[i].highlighted) {
-            changes[i] = selectionAction;
-          }
+          _words[i].highlighted = selectionAction;
         }
 
         selectionAction = null;
         selectionStart = null;
         selectionEnd = null;
 
-        widget.onChangeHighlight?.call(changes);
+        _notifyHighlightUpdate();
       });
     }
   }
@@ -189,25 +195,19 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
   /// Widget functions
   @override
   void initState() {
+    _words = _WordState.buildWordList(widget.text);
     super.initState();
-    _wordKeys = List<GlobalKey>.generate(
-      widget.words.length,
-      (index) => GlobalKey(debugLabel: widget.words[index].text),
-    );
   }
 
   @override
   void didUpdateWidget(HighlightTextSpan oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    if (oldWidget.words.length != widget.words.length) {
+    if (widget.text != oldWidget.text) {
       setState(() {
-        _wordKeys = List<GlobalKey>.generate(
-          widget.words.length,
-          (index) => GlobalKey(debugLabel: widget.words[index].text),
-        );
+        _words = _WordState.buildWordList(widget.text);
       });
     }
+
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -242,19 +242,19 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
           style: style,
           // Generate a list of textSpans for the words
           children: List<InlineSpan>.generate(
-            widget.words.length,
+            _words.length,
             (index) => WidgetSpan(
               child: HighlightTextWord(
-                widget.words[index].text,
-                highlighted: _wordState(index) == _HighlightAppearance.on,
-                selected: _wordState(index) == _HighlightAppearance.selected,
-                leftNeighbor: _wordState(index - 1) != _HighlightAppearance.off,
+                _words[index].text,
+                highlighted: isHighlighted(index),
+                selected: isSelected(index),
+                leftNeighbor: isHighlighted(index - 1) || isSelected(index - 1),
                 rightNeighbor:
-                    _wordState(index + 1) != _HighlightAppearance.off,
+                    isHighlighted(index + 1) || isSelected(index + 1),
                 backgroundColor: backgroundColor,
                 highlightColor: highlightColor,
                 style: style,
-                key: _wordKeys[index],
+                key: _words[index].key,
               ),
             ),
           ),

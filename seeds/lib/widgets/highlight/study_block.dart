@@ -22,40 +22,30 @@ class HighlightStudyBlock extends StatefulWidget {
 }
 
 class _HighlightStudyBlockState extends State<HighlightStudyBlock> {
-  List<WordState> highlight;
+  GlobalKey<HighlightTextSpanState> _highlightKey;
 
-  void updateHighlight(Map<int, bool> changes) {
-    setState(() {
-      changes.forEach((index, value) => highlight[index].highlighted = value);
-      StudyActivity.of(context).updateHighlight(widget.id, highlight);
-    });
+  void updateHighlight(List<bool> highlightedWords) {
+    StudyActivity.of(context).updateHighlight(
+      widget.id,
+      highlightedWords,
+      _highlightKey.currentState,
+    );
   }
 
   @override
   void initState() {
+    _highlightKey = GlobalKey();
     super.initState();
-
-    highlight = StudyActivity.of(context).highlights[widget.id];
-
-    if (highlight == null) {
-      highlight = buildWordList(widget.text);
-      StudyActivity.of(context).highlights[widget.id] = highlight;
-    }
-  }
-
-  @override
-  void didUpdateWidget(HighlightStudyBlock oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.text != widget.text) highlight = buildWordList(widget.text);
   }
 
   @override
   Widget build(BuildContext context) => HighlightTextSpan(
-        highlight,
+        widget.text,
         leadingText: widget.leadingText,
         style: DefaultTextStyle.of(context)
             .style
             .copyWith(fontFamily: 'Buenard', fontSize: 20, height: 1.5),
-        onChangeHighlight: updateHighlight,
+        onHighlightChange: updateHighlight,
+        key: _highlightKey,
       );
 }

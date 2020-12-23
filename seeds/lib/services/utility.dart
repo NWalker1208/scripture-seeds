@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 // The home of miscellaneous functions
 extension DateTimeExtension on DateTime {

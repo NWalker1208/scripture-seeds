@@ -48,20 +48,26 @@ class _VerseKey {
 
 class StudyActivityState extends State<StudyActivity> {
   List<_VerseKey> _verses;
-  Map<int, List<WordState>> highlights;
+  Map<int, String> quotes;
+  Map<int, List<bool>> highlights;
 
-  void updateHighlight(int id, List<WordState> highlight) {
-    highlights[id] = highlight;
+  String getSharableQuote() => widget.reference.verses
+      .map((verse) => quotes[verse - 1])
+      .where((str) => str != null)
+      .join(' ')
+      .replaceAll('... ...', '...');
+
+  void updateHighlight(
+      int id, List<bool> highlightedWords, HighlightTextSpanState highlight) {
+    highlights[id] = highlightedWords;
 
     // Determine if the activity has been completed
     var activityCompleted = false;
 
-    var allWords = <WordState>[];
     for (var verse in widget.reference.verses) {
-      for (var word in highlights[verse - 1]) {
-        if (word.highlighted) activityCompleted = true;
+      for (var word in highlights[verse - 1] ?? <bool>[]) {
+        if (word) activityCompleted = true;
       }
-      allWords.addAll(highlights[verse - 1]);
     }
 
     if (activityCompleted != widget.activityCompleted) {
@@ -69,8 +75,11 @@ class StudyActivityState extends State<StudyActivity> {
     }
 
     // Update the share text
-    var quote = buildSharableQuote(allWords);
-    ActivityPage.of(context)?.updateQuote('\u{201C}$quote\u{201D}');
+    if (widget.reference.verses.contains(id + 1)) {
+      quotes[id] = highlight.getSharableQuote();
+      ActivityPage.of(context)
+          ?.updateQuote('\u{201C}${getSharableQuote()}\u{201D}');
+    }
   }
 
   void scrollToVerse(
@@ -92,7 +101,8 @@ class StudyActivityState extends State<StudyActivity> {
 
   @override
   void initState() {
-    highlights = <int, List<WordState>>{};
+    quotes = <int, String>{};
+    highlights = <int, List<bool>>{};
 
     Provider.of<StudyLibraryProvider>(context, listen: false)
         .getChapterOfReference(widget.reference)
