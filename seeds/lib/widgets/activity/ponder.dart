@@ -12,10 +12,6 @@ class PonderActivity extends StatelessWidget {
   const PonderActivity(this.topic, {this.minWords = 8, Key key})
       : super(key: key);
 
-  String getHelpText(Topic topic) =>
-      'Write down your thoughts on the previous scripture '
-      'and what it teaches you about "${topic.name}."';
-
   void _updateCommentary(BuildContext context, String text) {
     var activity = Provider.of<ActivityProvider>(context, listen: false);
 

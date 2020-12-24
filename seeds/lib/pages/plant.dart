@@ -8,7 +8,7 @@ import '../services/data/wallet.dart';
 import '../services/topics/index.dart';
 import '../services/utility.dart';
 import '../widgets/dialogs/extra_study.dart';
-import '../widgets/help_page.dart';
+import '../widgets/help_info.dart';
 import '../widgets/plant/progress_indicator.dart';
 import '../widgets/plant/view.dart';
 
@@ -42,11 +42,12 @@ class PlantPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => HelpPage(
+  Widget build(BuildContext context) => HelpInfo(
         'plant',
         title: 'Plants',
-        helpText:
-            'Water your plants each day by clicking the blue button below.',
+        helpText: 'To help your plants grow, water them each day by studying '
+            'the scriptures. Click the blue button below to study '
+            'a scripture about ${topic.name}.',
         child: Scaffold(
           appBar: AppBar(
             title: Text(topic.name.capitalize()),

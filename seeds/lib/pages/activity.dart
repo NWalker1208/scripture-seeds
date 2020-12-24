@@ -14,6 +14,7 @@ import '../widgets/activity/progress.dart';
 import '../widgets/activity/share.dart';
 import '../widgets/activity/study.dart';
 import '../widgets/animated_indexed_stack.dart';
+import '../widgets/help_info.dart';
 
 class ActivityPage extends StatefulWidget {
   final Topic topic;
@@ -74,6 +75,7 @@ class ActivityProvider extends ChangeNotifier {
 class _ActivityPageState extends State<ActivityPage> {
   int _stage;
   Reference _reference;
+  GlobalKey<HelpInfoState> _helpKey;
 
   void nextStage(ActivityProvider activity) {
     if (_stage == 2) {
@@ -106,6 +108,7 @@ class _ActivityPageState extends State<ActivityPage> {
     var lib = Provider.of<StudyLibraryProvider>(context, listen: false);
     _reference = lib.leastRecent(widget.topic.id).randomItem();
 
+    _helpKey = GlobalKey();
     super.initState();
   }
 
@@ -124,83 +127,96 @@ class _ActivityPageState extends State<ActivityPage> {
         },
         child: ChangeNotifierProvider<ActivityProvider>(
           create: (context) => ActivityProvider(),
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text('Daily Activity'),
-              actions: [
-                if (_stage == 0)
-                  IconButton(
-                    icon: const Icon(Icons.open_in_new),
-                    tooltip: 'Open in Gospel Library',
-                    onPressed: () => _reference.openInGospelLibrary(),
-                  ),
-                /*IconButton(
-                  icon: const Icon(Icons.help),
-                  tooltip: 'Help',
-                  onPressed: () => helpPage.showHelpDialog(),
-                )*/
-              ],
-            ),
-
-            body: _reference == null
-                ? Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'We couldn\'t find anything to study!\n'
-                            'Try enabling more study sources in settings.',
-                            style: Theme.of(context).textTheme.subtitle1,
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(height: 8),
-                          RaisedButton.icon(
-                            icon: Icon(Icons.settings),
-                            label: Text('Settings'),
-                            textColor: Colors.white,
-                            onPressed: () => Navigator.of(context)
-                                .popAndPushNamed('/settings'),
-                          )
-                        ],
-                      ),
+          child: HelpInfo(
+            'activity_$_stage',
+            title: const <String>['Study', 'Ponder','Share'][_stage],
+            helpText: <String>[
+              'Study the selected verses and highlight the '
+                  'parts that teach you about ${widget.topic.name}.',
+              'Write down what you learned about ${widget.topic.name} '
+                  'from the verses you read.',
+              'Share what you studied with others. '
+                  'You can also save your notes to your journal.',
+            ][_stage],
+            key: _helpKey,
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text('Daily Activity'),
+                actions: [
+                  if (_stage == 0)
+                    IconButton(
+                      icon: const Icon(Icons.open_in_new),
+                      tooltip: 'Open in Gospel Library',
+                      onPressed: () => _reference.openInGospelLibrary(),
                     ),
+                  IconButton(
+                    icon: const Icon(Icons.help),
+                    tooltip: 'Help',
+                    onPressed: () => _helpKey.currentState.showHelpDialog(),
                   )
-                : AnimatedIndexedStack(
-                    duration: const Duration(milliseconds: 200),
-                    index: _stage,
-                    children: [
-                      StudyActivity(_reference),
-                      PonderActivity(widget.topic),
-                      ShareActivity(widget.topic, _reference),
-                    ],
-                  ),
+                ],
+              ),
 
-            // Floating action button allows user to progress through activity
-            floatingActionButton: Consumer<ActivityProvider>(
-              builder: (context, activity, _) => TweenAnimationBuilder<Color>(
-                tween: ColorTween(
-                    end: activity[_stage]
-                        ? (Theme.of(context).accentColor)
-                        : Colors.grey[500]),
-                duration: const Duration(milliseconds: 200),
-                builder: (context, color, child) => FloatingActionButton(
-                  child: const Icon(Icons.navigate_next),
-                  backgroundColor: color,
-                  disabledElevation: 1,
-                  onPressed:
-                      activity[_stage] ? () => nextStage(activity) : null,
+              body: _reference == null
+                  ? Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'We couldn\'t find anything to study!\n'
+                              'Try enabling more study sources in settings.',
+                              style: Theme.of(context).textTheme.subtitle1,
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 8),
+                            RaisedButton.icon(
+                              icon: Icon(Icons.settings),
+                              label: Text('Settings'),
+                              textColor: Colors.white,
+                              onPressed: () => Navigator.of(context)
+                                  .popAndPushNamed('/settings'),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  : AnimatedIndexedStack(
+                      duration: const Duration(milliseconds: 200),
+                      index: _stage,
+                      children: [
+                        StudyActivity(_reference),
+                        PonderActivity(widget.topic),
+                        ShareActivity(widget.topic, _reference),
+                      ],
+                    ),
+
+              // Floating action button allows user to progress through activity
+              floatingActionButton: Consumer<ActivityProvider>(
+                builder: (context, activity, _) => TweenAnimationBuilder<Color>(
+                  tween: ColorTween(
+                      end: activity[_stage]
+                          ? (Theme.of(context).accentColor)
+                          : Colors.grey[500]),
+                  duration: const Duration(milliseconds: 200),
+                  builder: (context, color, child) => FloatingActionButton(
+                    child: const Icon(Icons.navigate_next),
+                    backgroundColor: color,
+                    disabledElevation: 1,
+                    onPressed:
+                        activity[_stage] ? () => nextStage(activity) : null,
+                  ),
                 ),
               ),
-            ),
 
-            // Bottom app bar shows progress through the day's activity
-            bottomNavigationBar: BottomAppBar(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                child: ActivityProgressMap(_stage),
+              // Bottom app bar shows progress through the day's activity
+              bottomNavigationBar: BottomAppBar(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  child: ActivityProgressMap(_stage),
+                ),
               ),
             ),
           ),

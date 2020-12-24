@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/dashboard/journal.dart';
 import '../widgets/dashboard/plants.dart';
 import '../widgets/dashboard/topics.dart';
-import '../widgets/help_page.dart';
+import '../widgets/help_info.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({
@@ -11,7 +11,7 @@ class DashboardPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => HelpPage(
+  Widget build(BuildContext context) => HelpInfo(
         'dashboard',
         title: 'Scripture Seeds',
         helpText: 'Welcome to Scripture Seeds! Select a topic to begin.',

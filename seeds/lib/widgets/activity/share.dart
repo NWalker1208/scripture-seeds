@@ -12,8 +12,6 @@ class ShareActivity extends StatelessWidget {
 
   const ShareActivity(this.topic, this.reference, {Key key}) : super(key: key);
 
-  String getHelpText() => 'Share what you studied today.';
-
   void _notifyCompleted(BuildContext context, [bool saveToJournal]) {
     var activity = Provider.of<ActivityProvider>(context, listen: false);
     if (!activity[2]) activity[2] = true;

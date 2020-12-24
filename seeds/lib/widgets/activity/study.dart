@@ -12,9 +12,6 @@ class StudyActivity extends StatefulWidget {
 
   @override
   _StudyActivityState createState() => _StudyActivityState();
-
-  String getHelpText() => 'Study the scripture or quote and highlight '
-      'the parts that are most important to you.';
 }
 
 class _StudyActivityState extends State<StudyActivity> {
