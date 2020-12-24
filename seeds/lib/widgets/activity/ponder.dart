@@ -1,54 +1,28 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
 import '../../services/topics/index.dart';
 import '../../services/utility.dart';
-import 'activity_widget.dart';
 
-class PonderActivity extends ActivityWidget {
-  PonderActivity(
-    Topic topic, {
-    FutureOr<void> Function(bool) onProgressChange,
-    bool completed,
-    Key key,
-  }) : super(
-          topic,
-          onProgressChange: onProgressChange,
-          activityCompleted: completed,
-          key: key,
-        );
+class PonderActivity extends StatelessWidget {
+  final Topic topic;
+  final int minWords;
 
-  @override
-  _PonderActivityState createState() => _PonderActivityState();
+  const PonderActivity(this.topic, {this.minWords = 8, Key key})
+      : super(key: key);
 
-  @override
-  String getHelpText() => 'Write down your thoughts on the previous scripture '
+  String getHelpText(Topic topic) =>
+      'Write down your thoughts on the previous scripture '
       'and what it teaches you about "${topic.name}."';
-}
 
-class _PonderActivityState extends State<PonderActivity> {
-  static final int kMinWords = 8;
+  void _updateCommentary(BuildContext context, String text) {
+    var activity = Provider.of<ActivityProvider>(context, listen: false);
 
-  int wordCount;
-
-  void updateCount(String text) {
-    setState(() {
-      wordCount = text.wordCount;
-      var completed = wordCount >= kMinWords;
-      if (completed != widget.activityCompleted) {
-        widget.onProgressChange?.call(completed);
-      }
-
-      ActivityPage.of(context).updateCommentary(text);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    wordCount = 0;
+    var wordCount = text.wordCount;
+    var completed = wordCount >= minWords;
+    activity[1] = completed;
+    activity.commentary = text;
   }
 
   @override
@@ -59,25 +33,27 @@ class _PonderActivityState extends State<PonderActivity> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             // Ponder text
-            TextField(
-              textCapitalization: TextCapitalization.sentences,
-              keyboardType: TextInputType.text,
-              maxLines: null,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(12),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  /*focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.green, width: 2.0),
-                borderRadius: BorderRadius.circular(12),
-              ),*/
+            Selector<ActivityProvider, String>(
+              selector: (context, activity) => activity.commentary,
+              builder: (context, commentary, child) {
+                var wordCount = commentary.wordCount;
 
-                  hintText: '${widget.topic.name.capitalize()}...',
-                  counterText: '$wordCount/$kMinWords words',
-                  counterStyle: DefaultTextStyle.of(context).style.copyWith(
-                      color: (wordCount < kMinWords) ? Colors.red : null)),
-              onChanged: updateCount,
+                return TextField(
+                  onChanged: (text) => _updateCommentary(context, text),
+                  textCapitalization: TextCapitalization.sentences,
+                  keyboardType: TextInputType.text,
+                  maxLines: null,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(12),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    hintText: '${topic.name.capitalize()}...',
+                    counterText: '$wordCount/$minWords words',
+                    counterStyle: DefaultTextStyle.of(context).style.copyWith(
+                        color: (wordCount < minWords) ? Colors.red : null),
+                  ),
+                );
+              },
             )
           ],
         ),

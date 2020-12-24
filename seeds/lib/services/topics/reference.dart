@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../services/utility.dart';
 import '../scriptures/books.dart';
@@ -72,6 +73,11 @@ class Reference {
     }
 
     return verses;
+  }
+
+  Future<void> openInGospelLibrary() async {
+    print('Opening URL: $url');
+    if (await canLaunch(url)) await launch(url);
   }
 
   @override

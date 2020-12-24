@@ -10,7 +10,7 @@ class HighlightTextSpan extends StatefulWidget {
   final Color backgroundColor;
   final Color highlightColor;
 
-  final void Function(List<bool>) onHighlightChange;
+  final void Function(List<bool> highlight, String quote) onHighlightChange;
 
   HighlightTextSpan(
     this.text, {
@@ -41,9 +41,9 @@ class _WordState {
 class HighlightTextSpanState extends State<HighlightTextSpan> {
   List<_WordState> _words;
 
-  bool selectionAction;
-  int selectionStart;
-  int selectionEnd;
+  bool _selectionAction;
+  int _selectionStart;
+  int _selectionEnd;
 
   List<String> get words => _words.map((word) => word.text).toList();
 
@@ -76,19 +76,19 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     if (index < 0 || index > _words.length - 1) return false;
 
     // Check if index is within selection
-    if (selectionStart != null &&
-        selectionEnd != null &&
-        ((index >= selectionStart && index <= selectionEnd) ||
-            (index <= selectionStart && index >= selectionEnd)) &&
-        _words[index].highlighted != selectionAction) {
+    if (_selectionStart != null &&
+        _selectionEnd != null &&
+        ((index >= _selectionStart && index <= _selectionEnd) ||
+            (index <= _selectionStart && index >= _selectionEnd)) &&
+        _words[index].highlighted != _selectionAction) {
       return true;
     } else {
       return false;
     }
   }
 
-  void _notifyHighlightUpdate() =>
-      widget.onHighlightChange(_words.map((word) => word.highlighted).toList());
+  void _notifyHighlightChange() => widget.onHighlightChange?.call(
+      _words.map((word) => word.highlighted).toList(), getSharableQuote());
 
   int _wordAtPosition(Offset position) {
     // Check if position falls on any of the words in the span
@@ -138,7 +138,7 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
         setState(() {
           _words[index].highlighted = !_words[index].highlighted;
         });
-        _notifyHighlightUpdate();
+        _notifyHighlightChange();
       });
     }
   }
@@ -147,47 +147,47 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     var index = _wordAtPosition(position);
     if (index != null) {
       setState(() {
-        selectionAction = !_words[index].highlighted;
-        selectionStart = index;
-        selectionEnd = index;
+        _selectionAction = !_words[index].highlighted;
+        _selectionStart = index;
+        _selectionEnd = index;
       });
     }
   }
 
   void _updateSelection(Offset position) {
     var index = _wordAtPosition(position);
-    if (index != null) setState(() => selectionEnd = index);
+    if (index != null) setState(() => _selectionEnd = index);
   }
 
   void _clearSelection() {
     setState(() {
-      selectionAction = null;
-      selectionStart = null;
-      selectionEnd = null;
+      _selectionAction = null;
+      _selectionStart = null;
+      _selectionEnd = null;
     });
   }
 
   void _applySelection() {
-    if (selectionStart != null && selectionEnd != null) {
+    if (_selectionStart != null && _selectionEnd != null) {
       int start, end;
-      if (selectionEnd >= selectionStart) {
-        start = selectionStart;
-        end = selectionEnd;
+      if (_selectionEnd >= _selectionStart) {
+        start = _selectionStart;
+        end = _selectionEnd;
       } else {
-        start = selectionEnd;
-        end = selectionStart;
+        start = _selectionEnd;
+        end = _selectionStart;
       }
 
       setState(() {
         for (var i = start; i <= end; i++) {
-          _words[i].highlighted = selectionAction;
+          _words[i].highlighted = _selectionAction;
         }
 
-        selectionAction = null;
-        selectionStart = null;
-        selectionEnd = null;
+        _selectionAction = null;
+        _selectionStart = null;
+        _selectionEnd = null;
 
-        _notifyHighlightUpdate();
+        _notifyHighlightChange();
       });
     }
   }

@@ -1,189 +1,75 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
-import '../../services/scriptures/books.dart';
-import '../../services/study/provider.dart';
-import '../../services/topics/index.dart';
 import '../../services/topics/reference.dart';
-import '../highlight/span.dart';
-import '../highlight/study_block.dart';
-import 'activity_widget.dart';
+import '../highlight/chapter.dart';
 
-class StudyActivity extends ActivityWidget {
+class StudyActivity extends StatefulWidget {
   final Reference reference;
 
-  StudyActivity(
-    Topic topic,
-    this.reference, {
-    FutureOr<void> Function(bool) onProgressChange,
-    bool completed,
-    Key key,
-  }) : super(
-          topic,
-          onProgressChange: onProgressChange,
-          activityCompleted: completed,
-          key: key,
-        );
+  const StudyActivity(this.reference, {Key key}) : super(key: key);
 
   @override
-  StudyActivityState createState() => StudyActivityState();
+  _StudyActivityState createState() => _StudyActivityState();
 
-  @override
   String getHelpText() => 'Study the scripture or quote and highlight '
       'the parts that are most important to you.';
-
-  static StudyActivityState of(BuildContext context) =>
-      context.findAncestorStateOfType<StudyActivityState>();
 }
 
-class _VerseKey {
-  final String text;
-  final GlobalKey key;
-
-  _VerseKey(this.text, [GlobalKey key]) : key = key ?? GlobalKey();
-}
-
-class StudyActivityState extends State<StudyActivity> {
-  List<_VerseKey> _verses;
-  Map<int, String> quotes;
-  Map<int, List<bool>> highlights;
+class _StudyActivityState extends State<StudyActivity> {
+  Map<int, String> _quotes;
+  Map<int, List<bool>> _highlights;
 
   String getSharableQuote() => widget.reference.verses
-      .map((verse) => quotes[verse - 1])
+      .map((verse) => _quotes[verse - 1])
       .where((str) => str != null)
       .join(' ')
       .replaceAll('... ...', '...');
 
-  void updateHighlight(
-      int id, List<bool> highlightedWords, HighlightTextSpanState highlight) {
-    highlights[id] = highlightedWords;
-
-    // Determine if the activity has been completed
-    var activityCompleted = false;
-
+  bool checkCompleted() {
     for (var verse in widget.reference.verses) {
-      for (var word in highlights[verse - 1] ?? <bool>[]) {
-        if (word) activityCompleted = true;
+      for (var word in _highlights[verse - 1] ?? <bool>[]) {
+        if (word) return true;
       }
     }
 
-    if (activityCompleted != widget.activityCompleted) {
-      widget.onProgressChange?.call(activityCompleted);
-    }
-
-    // Update the share text
-    if (widget.reference.verses.contains(id + 1)) {
-      quotes[id] = highlight.getSharableQuote();
-      ActivityPage.of(context)
-          ?.updateQuote('\u{201C}${getSharableQuote()}\u{201D}');
-    }
+    return false;
   }
 
-  void scrollToVerse(
-    int verse, {
-    Duration duration = const Duration(milliseconds: 800),
-  }) {
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => Scrollable.ensureVisible(
-              _verses[verse].key.currentContext,
-              duration: duration,
-              curve: Curves.easeInOut,
-            ));
+  void updateHighlight(int verse, List<bool> highlight, String quote) {
+    _quotes[verse] = quote;
+    _highlights[verse] = highlight;
+    updateQuote();
   }
 
-  void switchTopic(String topic) {
-    Navigator.of(context).pop();
-    Navigator.of(context).pushReplacementNamed('/plant', arguments: topic);
+  void updateQuote() {
+    var activity = Provider.of<ActivityProvider>(context, listen: false);
+    activity[0] = checkCompleted();
+    activity.quote = getSharableQuote();
   }
 
   @override
   void initState() {
-    quotes = <int, String>{};
-    highlights = <int, List<bool>>{};
-
-    Provider.of<StudyLibraryProvider>(context, listen: false)
-        .getChapterOfReference(widget.reference)
-        .then((verses) => setState(() {
-              _verses = verses.map((v) => _VerseKey(v)).toList();
-              scrollToVerse(widget.reference.verses.first - 1);
-            }));
-
+    _quotes = <int, String>{};
+    _highlights = <int, List<bool>>{};
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) => _verses == null
-      ? Center(child: CircularProgressIndicator())
-      : ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                '${widget.reference.book.title} '
-                '${widget.reference.chapter}',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(fontFamily: 'Buenard'),
-              ),
-            ),
+  void didUpdateWidget(StudyActivity oldWidget) {
+    if (oldWidget.reference != widget.reference) {
+      _quotes = <int, String>{};
+      _highlights = <int, List<bool>>{};
+      updateQuote();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
 
-            // Chapter Text
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 75.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  for (var i = 0; i < _verses.length; i++)
-                    Container(
-                      key: _verses[i].key,
-                      decoration: widget.reference.verses.contains(i + 1)
-                          ? BoxDecoration(
-                              border: Border.all(
-                                color: Colors.blue.withOpacity(0.5),
-                                width: 4.0,
-                              ),
-                              borderRadius: BorderRadius.circular(16.0),
-                            )
-                          : null,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 12),
-                        child: HighlightStudyBlock(
-                          _verses[i].text,
-                          id: i,
-                          leadingText: '${i + 1}. ',
-                        ),
-                      ),
-                    )
-                ],
-              ),
-            ),
-          ],
-          /*SliverPadding(
-            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 80.0),
-            sliver: SliverToBoxAdapter(
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: widget.resource.topics
-                    .map(
-                      (topic) => Chip(
-                        label: Text(topic),
-                        backgroundColor: Colors.transparent,
-                        shape: StadiumBorder(
-                            side: BorderSide(
-                                color:
-                                    DefaultTextStyle.of(context).style.color)),
-                        //onPressed: () => _switchTopic(topic),
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-          ),*/
-        );
+  @override
+  Widget build(BuildContext context) => ChapterView(
+    widget.reference,
+    onHighlightChange: updateHighlight,
+    padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 80.0),
+  );
 }

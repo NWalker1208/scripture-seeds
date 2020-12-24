@@ -30,7 +30,7 @@ class JournalEntryView extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: entry.quote,
+                        text: '\u{201C}${entry.quote}\u{201D}',
                         style: DefaultTextStyle.of(context)
                             .style
                             .copyWith(height: 1.5, fontStyle: FontStyle.italic),

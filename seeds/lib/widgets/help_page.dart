@@ -59,18 +59,15 @@ class HelpPageState extends State<HelpPage> {
 
   @override
   void initState() {
-    super.initState();
-
     helpPagesShown = <String>{};
-    settings = null;
+    super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    settings = Provider.of<HelpSettings>(context, listen: true);
+    settings = Provider.of<HelpSettings>(context);
     showHelpDialog(always: false);
+    super.didChangeDependencies();
   }
 
   @override

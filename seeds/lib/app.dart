@@ -29,8 +29,8 @@ class SeedsApp extends StatelessWidget {
             '/settings': (context) => const SettingsPage(),
             '/topics': (context) => const TopicsPage(),
             '/plant': (context) => PlantPage(
-              Provider.of<TopicIndexProvider>(context).index[
-              ModalRoute.of(context).settings.arguments as String],
+                  Provider.of<TopicIndexProvider>(context).index[
+                      ModalRoute.of(context).settings.arguments as String],
                 ),
             '/plant/activity': (context) => ActivityPage(
                   Provider.of<TopicIndexProvider>(context).index[

@@ -1,43 +1,23 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
-import '../../services/data/journal.dart';
 import '../../services/topics/index.dart';
+import '../../services/topics/reference.dart';
 import '../journal_entry.dart';
-import 'activity_widget.dart';
 
-class ShareActivity extends ActivityWidget {
-  final JournalEntry journalEntry;
+class ShareActivity extends StatelessWidget {
+  final Topic topic;
+  final Reference reference;
 
-  ShareActivity(
-    Topic topic,
-    this.journalEntry, {
-    FutureOr<void> Function(bool) onProgressChange,
-    bool completed,
-    Key key,
-  }) : super(
-          topic,
-          onProgressChange: onProgressChange,
-          activityCompleted: completed,
-          key: key,
-        );
+  const ShareActivity(this.topic, this.reference, {Key key}) : super(key: key);
 
-  @override
-  _ShareActivityState createState() => _ShareActivityState();
-
-  @override
   String getHelpText() => 'Share what you studied today.';
-}
 
-class _ShareActivityState extends State<ShareActivity> {
-  bool saveToJournal;
-
-  @override
-  void initState() {
-    super.initState();
-    saveToJournal = false;
+  void _notifyCompleted(BuildContext context, [bool saveToJournal]) {
+    var activity = Provider.of<ActivityProvider>(context, listen: false);
+    if (!activity[2]) activity[2] = true;
+    if (saveToJournal != null) activity.saveToJournal = saveToJournal;
   }
 
   @override
@@ -47,13 +27,11 @@ class _ShareActivityState extends State<ShareActivity> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            JournalEntryView(
-              widget.journalEntry,
-              onShare: () {
-                if (!widget.activityCompleted) {
-                  widget.onProgressChange?.call(true);
-                }
-              },
+            Consumer<ActivityProvider>(
+              builder: (context, activity, child) => JournalEntryView(
+                activity.createJournalEntry(topic, reference),
+                onShare: () => _notifyCompleted(context),
+              ),
             ),
             SizedBox(height: 12),
 
@@ -61,19 +39,14 @@ class _ShareActivityState extends State<ShareActivity> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Checkbox(
-                  value: saveToJournal,
-                  onChanged: (save) => setState(
-                    () {
-                      saveToJournal = save;
-                      if (!widget.activityCompleted) {
-                        widget.onProgressChange?.call(true);
-                      }
-                      ActivityPage.of(context)?.updateSaveToJournal(save);
-                    },
+                Selector<ActivityProvider, bool>(
+                  selector: (context, activity) => activity.saveToJournal,
+                  builder: (context, saveToJournal, child) => Checkbox(
+                    value: saveToJournal,
+                    onChanged: (save) => _notifyCompleted(context, save)
                   ),
                 ),
-                Text('Save to journal')
+                Text('Save to journal'),
               ],
             ),
           ],
