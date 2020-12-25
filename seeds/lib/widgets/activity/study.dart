@@ -19,14 +19,14 @@ class _StudyActivityState extends State<StudyActivity> {
   Map<int, List<bool>> _highlights;
 
   String getSharableQuote() => widget.reference.verses
-      .map((verse) => _quotes[verse - 1])
+      .map((verse) => _quotes[verse])
       .where((str) => str != null)
       .join(' ')
       .replaceAll('... ...', '...');
 
   bool checkCompleted() {
     for (var verse in widget.reference.verses) {
-      for (var word in _highlights[verse - 1] ?? <bool>[]) {
+      for (var word in _highlights[verse] ?? <bool>[]) {
         if (word) return true;
       }
     }

@@ -103,12 +103,13 @@ class _ActivityPageState extends State<ActivityPage> {
   @override
   void initState() {
     _stage = 0;
+    _helpKey = GlobalKey();
 
     // Pick a reference to study
     var lib = Provider.of<StudyLibraryProvider>(context, listen: false);
     _reference = lib.leastRecent(widget.topic.id).randomItem();
+    print('Starting activity for ${widget.topic}, studying $_reference');
 
-    _helpKey = GlobalKey();
     super.initState();
   }
 
@@ -128,8 +129,12 @@ class _ActivityPageState extends State<ActivityPage> {
         child: ChangeNotifierProvider<ActivityProvider>(
           create: (context) => ActivityProvider(),
           child: HelpInfo(
-            'activity_$_stage',
-            title: const <String>['Study', 'Ponder','Share'][_stage],
+            const <String>[
+              'activity_study',
+              'activity_ponder',
+              'activity_share'
+            ][_stage],
+            title: const <String>['Study', 'Ponder', 'Share'][_stage],
             helpText: <String>[
               'Study the selected verses and highlight the '
                   'parts that teach you about ${widget.topic.name}.',
