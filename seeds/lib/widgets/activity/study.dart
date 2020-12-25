@@ -67,6 +67,6 @@ class _StudyActivityState extends State<StudyActivity> {
   Widget build(BuildContext context) => ChapterView(
     widget.reference,
     onHighlightChange: updateHighlight,
-    padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 80.0),
+    padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 80.0),
   );
 }

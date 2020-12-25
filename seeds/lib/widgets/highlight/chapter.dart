@@ -17,7 +17,7 @@ class ChapterView extends StatefulWidget {
     this.reference, {
     this.scrollToReference = true,
     this.onHighlightChange,
-    this.padding = const EdgeInsets.all(8.0),
+    this.padding = const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
     Key key,
   }) : super(key: key);
 
@@ -66,11 +66,17 @@ class _ChapterViewState extends State<ChapterView> {
 
   void scrollToReference() {
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => Scrollable.ensureVisible(
+        .addPostFrameCallback((_) {
+          if (_referenceKey.currentContext != null) {
+            Scrollable.ensureVisible(
               _referenceKey.currentContext,
               duration: const Duration(milliseconds: 800),
               curve: Curves.easeInOut,
-            ));
+            );
+          } else {
+            print('Unable to scroll to reference.');
+          }
+        });
   }
 
   @override
@@ -99,74 +105,47 @@ class _ChapterViewState extends State<ChapterView> {
         future: _chapter,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final referenceDecoration = BoxDecoration(
-              border: Border.all(
-                color: Theme.of(context).accentColor,
-                width: 4.0,
-              ),
-              borderRadius: BorderRadius.circular(8.0),
-            );
-
-            final verseStyle = DefaultTextStyle.of(context).style.copyWith(
-                  fontFamily: 'Buenard',
-                  fontSize: 20,
-                  height: 1.5,
-                );
-
             var verses = snapshot.data as List<String>;
             var firstOfReference = widget.reference.verses.first;
             var groups = _VerseGroup.createList(verses, widget.reference);
 
-            return ListView(
-              padding: widget.padding,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    // Chapter Heading
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
+            return CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  pinned: true,
+                  primary: false,
+                  automaticallyImplyLeading: false,
+                  brightness: Theme.of(context).brightness,
+                  backgroundColor: Theme.of(context)
+                      .scaffoldBackgroundColor.withOpacity(0.95),
+                  centerTitle: true,
+                  title:  Text(
                         '${widget.reference.book.title} '
                         '${widget.reference.chapter}',
-                        textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
-                            .headline4
-                            .copyWith(fontFamily: 'Buenard'),
+                            .headline5
+                            .copyWith(fontFamily: 'Buenard')),
+                ),
+                SliverPadding(
+                  padding: widget.padding,
+                  sliver: SliverList(
+                    delegate: SliverChildListDelegate([
+                      Column(
+                        children: [
+                          // Verse Text
+                          for (var group in groups)
+                            _VerseGroupView(
+                              group,
+                              onHighlightChange: widget.onHighlightChange,
+                              key: group.startNumber == firstOfReference
+                                  ? _referenceKey
+                                  : null,
+                            )
+                        ],
                       ),
-                    ),
-                    // Verse Text
-                    for (var group in groups)
-                      Container(
-                        foregroundDecoration:
-                            group.important ? referenceDecoration : null,
-                        child: Column(
-                          children: [
-                            for (var i = 0; i < group.verses.length; i++)
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 2, 8, 10),
-                                child: HighlightTextSpan(
-                                  group.verses[i],
-                                  leadingText: '${i + group.startNumber}. ',
-                                  style: verseStyle,
-                                  key: (i + group.startNumber) ==
-                                          firstOfReference
-                                      ? _referenceKey
-                                      : null,
-                                  onHighlightChange: group.important
-                                      ? (highlight, quote) =>
-                                          widget.onHighlightChange?.call(
-                                              i + group.startNumber,
-                                              highlight,
-                                              quote)
-                                      : null,
-                                ),
-                              ),
-                          ],
-                        ),
-                      )
-                  ],
+                    ]),
+                  ),
                 ),
               ],
             );
@@ -188,4 +167,53 @@ class _ChapterViewState extends State<ChapterView> {
           }
         },
       );
+}
+
+class _VerseGroupView extends StatelessWidget {
+  final _VerseGroup group;
+  final void Function(int verse, List<bool> highlight, String quote)
+      onHighlightChange;
+
+  _VerseGroupView(
+    this.group, {
+    this.onHighlightChange,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final referenceDecoration = BoxDecoration(
+      border: Border.all(
+        color: Theme.of(context).accentColor,
+        width: 4.0,
+      ),
+      borderRadius: BorderRadius.circular(8.0),
+    );
+
+    final verseStyle = DefaultTextStyle.of(context).style.copyWith(
+          fontFamily: 'Buenard',
+          fontSize: 20,
+          //height: 1.5,
+        );
+
+    return Container(
+      foregroundDecoration: group.important ? referenceDecoration : null,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (var i = 0; i < group.verses.length; i++)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: HighlightTextSpan(
+                group.verses[i],
+                leadingText: '${i + group.startNumber}. ',
+                style: verseStyle,
+                onHighlightChange: (highlight, quote) => onHighlightChange
+                    ?.call(i + group.startNumber, highlight, quote),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
 }

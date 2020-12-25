@@ -82,59 +82,53 @@ class _HighlightTextWordState extends State<HighlightTextWord>
       curve: Curves.easeInOut,
     );
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 4),
-      child: Stack(
-        children: <Widget>[
-          // Highlight box
-          if (_highlightVisible)
-            Positioned.fill(
-              child: FractionalTranslation(
-                translation: const Offset(0, 0.08),
-                child: Transform.scale(
-                  scale: 1.01,
-                  child: AnimatedBuilder(
-                    animation: animation,
-                    builder: (context, child) {
-                      var color = Color.lerp(
-                          backgroundColor, highlightColor, animation.value);
+    return Stack(
+      children: <Widget>[
+        // Highlight box
+        if (_highlightVisible)
+          Positioned.fill(
+            child: Transform.scale(
+              scale: 1.01,
+              child: AnimatedBuilder(
+                animation: animation,
+                builder: (context, child) {
+                  var color = Color.lerp(
+                      backgroundColor, highlightColor, animation.value);
 
-                      // Set corner radius based on if neighbors are active
-                      var leftRadius = widget.leftNeighbor ? 0.0 : 6.0;
-                      var rightRadius = widget.rightNeighbor ? 0.0 : 6.0;
+                  // Set corner radius based on if neighbors are active
+                  var leftRadius = widget.leftNeighbor ? 0.0 : 6.0;
+                  var rightRadius = widget.rightNeighbor ? 0.0 : 6.0;
 
-                      // Animation builders for left and right corners of
-                      // rounded highlight rectangle
-                      return TweenAnimationBuilder<double>(
-                        tween: Tween(end: leftRadius),
-                        duration: const Duration(milliseconds: 200),
-                        builder: (_, left, __) => TweenAnimationBuilder<double>(
-                          tween: Tween(end: rightRadius),
-                          duration: const Duration(milliseconds: 200),
-                          builder: (_, right, __) => Container(
-                            decoration: BoxDecoration(
-                              color: color,
-                              borderRadius: BorderRadius.horizontal(
-                                left: Radius.circular(left),
-                                right: Radius.circular(right),
-                              ),
-                            ),
+                  // Animation builders for left and right corners of
+                  // rounded highlight rectangle
+                  return TweenAnimationBuilder<double>(
+                    tween: Tween(end: leftRadius),
+                    duration: const Duration(milliseconds: 200),
+                    builder: (_, left, __) => TweenAnimationBuilder<double>(
+                      tween: Tween(end: rightRadius),
+                      duration: const Duration(milliseconds: 200),
+                      builder: (_, right, __) => Container(
+                        decoration: BoxDecoration(
+                          color: color,
+                          borderRadius: BorderRadius.horizontal(
+                            left: Radius.circular(left),
+                            right: Radius.circular(right),
                           ),
                         ),
-                      );
-                    },
-                  ),
-                ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
+          ),
 
-          // Text of word
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            child: Text(widget.text, style: style),
-          )
-        ],
-      ),
+        // Text of word
+        Padding(
+          padding: const EdgeInsets.fromLTRB(2, 0, 2, 2),
+          child: Text(widget.text, style: style),
+        )
+      ],
     );
   }
 }

@@ -46,7 +46,7 @@ class PlantPage extends StatelessWidget {
         'plant',
         title: 'Plants',
         helpText: 'To help your plants grow, water them each day by studying '
-            'the scriptures. Click the blue button below to study '
+            'the scriptures.\n\nClick the blue button below to study '
             'a scripture about ${topic.name}.',
         child: Scaffold(
           appBar: AppBar(

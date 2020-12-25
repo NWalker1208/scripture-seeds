@@ -235,30 +235,26 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
       onHorizontalDragCancel: _clearSelection,
 
       // Text
-      child: RichText(
-        textAlign: TextAlign.left,
-        text: TextSpan(
-          text: widget.leadingText,
-          style: style,
-          // Generate a list of textSpans for the words
-          children: List<InlineSpan>.generate(
-            _words.length,
-            (index) => WidgetSpan(
-              child: HighlightTextWord(
-                _words[index].text,
-                highlighted: isHighlighted(index),
-                selected: isSelected(index),
-                leftNeighbor: isHighlighted(index - 1) || isSelected(index - 1),
-                rightNeighbor:
-                    isHighlighted(index + 1) || isSelected(index + 1),
-                backgroundColor: backgroundColor,
-                highlightColor: highlightColor,
-                style: style,
-                key: _words[index].key,
-              ),
-            ),
+      child: Wrap(
+        runSpacing: 4.0,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 2.0),
+            child: Text(widget.leadingText, style: style),
           ),
-        ),
+          for (var i = 0; i < _words.length; i++)
+            HighlightTextWord(
+              _words[i].text,
+              highlighted: isHighlighted(i),
+              selected: isSelected(i),
+              leftNeighbor: isHighlighted(i - 1) || isSelected(i - 1),
+              rightNeighbor: isHighlighted(i + 1) || isSelected(i + 1),
+              backgroundColor: backgroundColor,
+              highlightColor: highlightColor,
+              style: style,
+              key: _words[i].key,
+            ),
+        ],
       ),
     );
   }

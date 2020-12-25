@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/scriptures/books.dart';
 
 import '../services/data/journal.dart';
 import '../services/data/progress.dart';
@@ -108,7 +109,7 @@ class _ActivityPageState extends State<ActivityPage> {
     // Pick a reference to study
     var lib = Provider.of<StudyLibraryProvider>(context, listen: false);
     _reference = lib.leastRecent(widget.topic.id).randomItem();
-    print('Starting activity for ${widget.topic}, studying $_reference');
+    print('Starting activity for ${widget.topic.name}, studying $_reference');
 
     super.initState();
   }
