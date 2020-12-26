@@ -24,6 +24,17 @@ class TopicIndex {
 
   Set<String> get topics => _index.keys.toSet();
   Topic operator [](String id) => _index[id];
+
+  Set<String> relatedTo(String topic, {int referencesInCommon = 8}) => {
+        for (var other in topics)
+          if (other != topic &&
+              _index[topic]
+                      .references
+                      .intersection(_index[other].references)
+                      .length >
+                  referencesInCommon)
+            other
+      };
 }
 
 @JsonSerializable()

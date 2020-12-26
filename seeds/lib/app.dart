@@ -5,11 +5,14 @@ import 'pages/activity.dart';
 import 'pages/dashboard.dart';
 import 'pages/journal.dart';
 import 'pages/plant.dart';
+import 'pages/scripture.dart';
 import 'pages/settings.dart';
+import 'pages/topic_details.dart';
 import 'pages/topics.dart';
 import 'services/settings/theme.dart';
 import 'services/themes.dart' as theme;
 import 'services/topics/provider.dart';
+import 'services/topics/reference.dart';
 
 class SeedsApp extends StatelessWidget {
   const SeedsApp({
@@ -28,6 +31,12 @@ class SeedsApp extends StatelessWidget {
             '/': (context) => const DashboardPage(),
             '/settings': (context) => const SettingsPage(),
             '/topics': (context) => const TopicsPage(),
+            '/topics/details': (context) => TopicDetailsPage(
+                  Provider.of<TopicIndexProvider>(context).index[
+                      ModalRoute.of(context).settings.arguments as String],
+                ),
+            '/scripture': (context) => ScripturePage(Reference.parse(
+                ModalRoute.of(context).settings.arguments as String)),
             '/plant': (context) => PlantPage(
                   Provider.of<TopicIndexProvider>(context).index[
                       ModalRoute.of(context).settings.arguments as String],

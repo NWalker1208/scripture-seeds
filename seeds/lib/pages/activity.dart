@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/scriptures/books.dart';
 
 import '../services/data/journal.dart';
 import '../services/data/progress.dart';
@@ -149,12 +148,6 @@ class _ActivityPageState extends State<ActivityPage> {
               appBar: AppBar(
                 title: Text('Daily Activity'),
                 actions: [
-                  if (_stage == 0)
-                    IconButton(
-                      icon: const Icon(Icons.open_in_new),
-                      tooltip: 'Open in Gospel Library',
-                      onPressed: () => _reference.openInGospelLibrary(),
-                    ),
                   IconButton(
                     icon: const Icon(Icons.help),
                     tooltip: 'Help',

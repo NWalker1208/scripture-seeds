@@ -51,6 +51,15 @@ class PlantPage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Text(topic.name.capitalize()),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.share),
+                tooltip: 'Share',
+                onPressed: () => SocialShare.shareOptions(
+                  'I\'m studying about ${topic.name} with Scripture Seeds!',
+                ),
+              )
+            ],
             bottom: PreferredSize(
               preferredSize: const Size(0, 50),
               child: Padding(
@@ -105,16 +114,12 @@ class PlantPage extends StatelessWidget {
                     },
                   ),
                 ),
-                Consumer<ProgressData>(builder: (context, progressData, child) {
-                  var record = progressData.getProgressRecord(topic.id);
-                  return IconButton(
-                    icon: const Icon(Icons.share),
-                    onPressed: () => SocialShare.shareOptions(
-                      'Day ${record.progress} of '
-                      '${record.maxProgress} on ${topic.name}!',
-                    ),
-                  );
-                })
+                IconButton(
+                  icon: const Icon(Icons.article),
+                  tooltip: 'Details',
+                  onPressed: () => Navigator.pushNamed(context, '/topics/details',
+                      arguments: topic.id),
+                ),
               ],
             ),
           ),

@@ -3,61 +3,45 @@ import 'package:provider/provider.dart';
 
 import '../services/custom_icons.dart';
 import '../services/data/progress.dart';
-import '../services/data/progress_record.dart';
-import '../services/data/wallet.dart';
 import '../services/topics/provider.dart';
 import 'animated_list.dart';
 
 class TopicList extends StatelessWidget {
+  final Set<String> topics;
   final int maxToShow;
 
   const TopicList({
-    this.maxToShow = 0,
+    this.topics,
+    this.maxToShow,
     Key key,
   }) : super(key: key);
 
-  bool purchase(
-    WalletData wallet,
-    ProgressData progress,
-    String topic,
-    int price,
-  ) {
-    if (wallet.spend(price)) {
-      progress.createProgressRecord(ProgressRecord(topic));
-      return true;
-    } else {
-      print('Not enough funds to purchase "$topic"');
-      return false;
-    }
-  }
-
   @override
   Widget build(BuildContext context) =>
-      Consumer3<TopicIndexProvider, ProgressData, WalletData>(
-        builder: (context, topicIndex, progress, wallet, child) {
+      Consumer2<TopicIndexProvider, ProgressData>(
+        builder: (context, indexProvider, progress, child) {
+          var index = indexProvider.index;
+
           // Check if library is still loading
-          if (topicIndex.index == null) {
+          if (index == null) {
             return const Text('Loading...', textAlign: TextAlign.center);
           }
 
-          var topics = topicIndex.index.topics.toList();
-          topics.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
+          var topicList = (topics ?? index.topics).toList();
 
-          var topicsAlreadyPurchased = progress.recordNames;
-          topics.removeWhere((t) => topicsAlreadyPurchased.contains(t));
-
-          if (maxToShow != 0) topics = topics.take(maxToShow).toList();
-
-          // Show message if all topics are purchased
-          if (topics.isEmpty) {
+          // Check if empty
+          if (topicList.isEmpty) {
             return const Text(
-              'You\'ve collected every topic!',
+              'No topics found',
               textAlign: TextAlign.center,
             );
           }
 
+          // Reduce to maxToShow topics if specified
+          if (maxToShow != null) topicList = topicList.take(maxToShow).toList();
+
           return AnimatedListBuilder<String>.list(
-            items: topics,
+            items: topicList,
             duration: const Duration(milliseconds: 200),
             childBuilder: (context, topic, animation) => FadeTransition(
               opacity: animation,
@@ -71,24 +55,18 @@ class TopicList extends StatelessWidget {
                   label: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('${topicIndex.index[topic].cost}'),
-                      const SizedBox(width: 4),
-                      const Icon(CustomIcons.seeds),
+                      progress.recordNames.contains(topic)
+                          ? const Icon(Icons.check)
+                          : const Icon(CustomIcons.seeds),
                       const SizedBox(width: 8),
-                      Text(topicIndex.index[topic].name),
+                      Text(index[topic].name),
                     ],
                   ),
                   onPressed: () {
-                    if (!purchase(
-                      wallet,
-                      progress,
-                      topic,
-                      topicIndex.index[topic].cost,
-                    )) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text('Collect seeds to buy more topics.'),
-                      ));
-                    }
+                    Navigator.of(context).pushNamed(
+                      '/topics/details',
+                      arguments: topic,
+                    );
                   },
                 ),
               ),

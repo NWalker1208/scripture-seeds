@@ -48,7 +48,10 @@ class PlantsDashboard extends StatelessWidget {
                             parent: animation, curve: Curves.ease),
                         child: AspectRatio(
                           aspectRatio: 3 / 5,
-                          child: PlantButton(record.id),
+                          child: PlantButton(
+                            record.id,
+                            key: ValueKey(record.id),
+                          ),
                         ),
                       ),
                     ),

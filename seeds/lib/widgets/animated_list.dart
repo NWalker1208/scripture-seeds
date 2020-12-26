@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class AnimatedListBuilder<T> extends StatefulWidget {
-  final List<T> items;
+  final Iterable<T> items;
   final Widget Function(
     BuildContext context,
     IndexedWidgetBuilder itemBuilder,

@@ -12,12 +12,14 @@ class ChapterView extends StatefulWidget {
   final void Function(int verse, List<bool> highlight, String quote)
       onHighlightChange;
   final EdgeInsets padding;
+  final bool primaryAppBar;
 
   ChapterView(
     this.reference, {
     this.scrollToReference = true,
     this.onHighlightChange,
     this.padding = const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
+    this.primaryAppBar = false,
     Key key,
   }) : super(key: key);
 
@@ -65,18 +67,17 @@ class _ChapterViewState extends State<ChapterView> {
   Future<List<String>> _chapter;
 
   void scrollToReference() {
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) {
-          if (_referenceKey.currentContext != null) {
-            Scrollable.ensureVisible(
-              _referenceKey.currentContext,
-              duration: const Duration(milliseconds: 800),
-              curve: Curves.easeInOut,
-            );
-          } else {
-            print('Unable to scroll to reference.');
-          }
-        });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_referenceKey.currentContext != null) {
+        Scrollable.ensureVisible(
+          _referenceKey.currentContext,
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
+        );
+      } else {
+        print('Unable to scroll to reference.');
+      }
+    });
   }
 
   @override
@@ -113,19 +114,32 @@ class _ChapterViewState extends State<ChapterView> {
               slivers: [
                 SliverAppBar(
                   pinned: true,
-                  primary: false,
-                  automaticallyImplyLeading: false,
+                  primary: widget.primaryAppBar,
+                  automaticallyImplyLeading: widget.primaryAppBar,
                   brightness: Theme.of(context).brightness,
-                  backgroundColor: Theme.of(context)
-                      .scaffoldBackgroundColor.withOpacity(0.95),
+                  backgroundColor: widget.primaryAppBar
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withOpacity(0.95),
                   centerTitle: true,
-                  title:  Text(
-                        '${widget.reference.book.title} '
-                        '${widget.reference.chapter}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5
-                            .copyWith(fontFamily: 'Buenard')),
+                  titleSpacing: 4,
+                  title: Text(
+                      '${widget.reference.book.title} '
+                      '${widget.reference.chapter}',
+                      style: Theme.of(context).textTheme.headline5.copyWith(
+                          fontFamily: 'Buenard',
+                          color: widget.primaryAppBar ? Colors.white : null)),
+                  actions: [
+                    IconButton(
+                      icon: const Icon(Icons.open_in_new),
+                      color: widget.primaryAppBar
+                          ? Colors.white
+                          : Theme.of(context).textTheme.headline5.color,
+                      tooltip: 'Open in Gospel Library',
+                      onPressed: () => widget.reference.openInGospelLibrary(),
+                    ),
+                  ],
                 ),
                 SliverPadding(
                   padding: widget.padding,
@@ -193,7 +207,6 @@ class _VerseGroupView extends StatelessWidget {
     final verseStyle = DefaultTextStyle.of(context).style.copyWith(
           fontFamily: 'Buenard',
           fontSize: 20,
-          //height: 1.5,
         );
 
     return Container(
