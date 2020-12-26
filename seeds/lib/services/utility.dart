@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 // The home of miscellaneous functions
@@ -81,6 +82,7 @@ extension StringExtension on String {
   }
 
   bool get isCapital => this == toUpperCase();
+
   bool get isNumeric => double.tryParse(this ?? '') != null;
 }
 

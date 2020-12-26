@@ -40,9 +40,8 @@ class ShareActivity extends StatelessWidget {
                 Selector<ActivityProvider, bool>(
                   selector: (context, activity) => activity.saveToJournal,
                   builder: (context, saveToJournal, child) => Checkbox(
-                    value: saveToJournal,
-                    onChanged: (save) => _notifyCompleted(context, save)
-                  ),
+                      value: saveToJournal,
+                      onChanged: (save) => _notifyCompleted(context, save)),
                 ),
                 Text('Save to journal'),
               ],

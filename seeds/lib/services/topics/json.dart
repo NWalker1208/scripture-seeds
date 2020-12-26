@@ -9,6 +9,7 @@ import 'index.dart';
 
 abstract class TopicIndexJson {
   final String language;
+
   String get _jsonFileName => 'topics_$language.json';
 
   TopicIndexJson(this.language);

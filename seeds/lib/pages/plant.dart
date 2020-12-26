@@ -117,7 +117,8 @@ class PlantPage extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.article),
                   tooltip: 'Details',
-                  onPressed: () => Navigator.pushNamed(context, '/topics/details',
+                  onPressed: () => Navigator.pushNamed(
+                      context, '/topics/details',
                       arguments: topic.id),
                 ),
               ],

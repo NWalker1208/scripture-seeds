@@ -10,6 +10,6 @@ class ScripturePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      body: ChapterView(reference, primaryAppBar: true),
-    );
+        body: ChapterView(reference, primaryAppBar: true),
+      );
 }

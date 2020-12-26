@@ -33,8 +33,9 @@ class PlantStatus extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             alignment: Alignment.centerLeft,
-            child: Consumer<TopicIndexProvider>(builder: (context, topics, _) =>
-                Text('${topics.index[progress.id].name}')),
+            child: Consumer<TopicIndexProvider>(
+                builder: (context, topics, _) =>
+                    Text('${topics.index[progress.id].name}')),
           ),
         ),
       ],

@@ -30,7 +30,7 @@ class DataManagementSettings extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Your progress has been reset.')),
         );
-        
+
         Navigator.of(context).popUntil(ModalRoute.withName('/'));
       }
     });
@@ -38,23 +38,23 @@ class DataManagementSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-    children: [
-      Expanded(
-        child: ListTile(
-          leading: const Icon(Icons.delete_forever),
-          title: const Text('Erase Journal'),
-          tileColor: Theme.of(context).errorColor.withOpacity(0.8),
-          onTap: () => _eraseJournal(context),
-        ),
-      ),
-      Expanded(
-        child: ListTile(
-          leading: const Icon(Icons.undo_rounded),
-          title: const Text('Reset Progress'),
-          tileColor: Theme.of(context).errorColor.withOpacity(0.8),
-          onTap: () => _resetProgress(context),
-        ),
-      ),
-    ],
-  );
+        children: [
+          Expanded(
+            child: ListTile(
+              leading: const Icon(Icons.delete_forever),
+              title: const Text('Erase Journal'),
+              tileColor: Theme.of(context).errorColor.withOpacity(0.8),
+              onTap: () => _eraseJournal(context),
+            ),
+          ),
+          Expanded(
+            child: ListTile(
+              leading: const Icon(Icons.undo_rounded),
+              title: const Text('Reset Progress'),
+              tileColor: Theme.of(context).errorColor.withOpacity(0.8),
+              onTap: () => _resetProgress(context),
+            ),
+          ),
+        ],
+      );
 }

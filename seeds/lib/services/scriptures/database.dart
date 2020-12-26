@@ -8,7 +8,9 @@ abstract class ScriptureDatabase {
   final _cache = <Book, Map<int, Map<int, Future<String>>>>{};
 
   Future<int> getChapterCount(Book book);
+
   Future<int> getVerseCount(Book book, int chapter);
+
   @protected
   Future<String> loadVerseText(Book book, int chapter, int verse);
 
