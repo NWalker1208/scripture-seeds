@@ -26,6 +26,8 @@ class HelpInfoState extends State<HelpInfo> {
   static final _helpPagesShown = <String>{};
   HelpSettings settings;
 
+  static void resetPagesShown() => _helpPagesShown.clear();
+
   void showHelpDialog() {
     // Mark page as shown
     _helpPagesShown.add(widget.page);

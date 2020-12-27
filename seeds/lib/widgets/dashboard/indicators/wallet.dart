@@ -5,7 +5,10 @@ import '../../../services/custom_icons.dart';
 import '../../../services/data/wallet.dart';
 
 class WalletIndicator extends StatelessWidget {
+  final int required;
+
   const WalletIndicator({
+    this.required,
     Key key,
   }) : super(key: key);
 
@@ -14,8 +17,8 @@ class WalletIndicator extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Consumer<WalletData>(
-            builder: (context, wallet, child) =>
-                Text('${wallet.availableFunds}'),
+            builder: (context, wallet, child) => Text('${wallet.availableFunds}'
+                '${required == null ? '' : '/$required'}'),
           ),
           const SizedBox(width: 4),
           const Icon(CustomIcons.seeds),
