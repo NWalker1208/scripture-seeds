@@ -36,7 +36,7 @@ class _JournalPageState extends State<JournalPage> {
         context: context,
         barrierDismissible: true,
         builder: (_) => EraseEntryDialog(selected)).then((deleted) {
-      if (deleted) {
+      if (deleted ?? false) {
         checkFilter();
         toggleEditMode();
       }

@@ -3,47 +3,36 @@ import 'package:provider/provider.dart';
 
 import '../services/custom_icons.dart';
 import '../services/data/progress.dart';
-import '../services/data/progress_record.dart';
 import '../services/data/wallet.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/index.dart';
 import '../services/topics/provider.dart';
 import '../services/topics/reference.dart';
 import '../services/utility.dart';
+import '../widgets/dashboard/indicators/wallet.dart';
+import '../widgets/dialogs/purchase_topic.dart';
 import '../widgets/topic_list.dart';
 
 class TopicDetailsPage extends StatelessWidget {
   final Topic topic;
 
-  TopicDetailsPage(this.topic, {Key key}) : super(key: key);
-
-  void _purchase(BuildContext context) {
-    if (Provider.of<WalletData>(context, listen: false).spend(topic.cost)) {
-      Provider.of<ProgressData>(context, listen: false)
-          .createProgressRecord(ProgressRecord(topic.id));
-      Navigator.of(context).popUntil(ModalRoute.withName('/'));
-    } else {
-      print('Not enough funds to purchase "$topic"');
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Collect more seeds to buy more topics.'),
-      ));
-    }
-  }
-
-  void _sell(BuildContext context) {
-    if (Provider.of<ProgressData>(context, listen: false)
-        .removeProgressRecord(topic.id)) {
-      Provider.of<WalletData>(context, listen: false).give(topic.cost);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Sold plant for ${topic.cost} seeds.'),
-      ));
-    }
-  }
+  TopicDetailsPage(this.topic) : super(key: ValueKey(topic));
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(topic.name.capitalize()),
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Consumer<ProgressData>(
+                builder: (context, progress, child) =>
+                    progress.recordNames.contains(topic.id)
+                        ? const Icon(Icons.check)
+                        : const WalletIndicator(),
+              ),
+            ),
+          ],
         ),
         body: Column(
           children: [
@@ -80,30 +69,7 @@ class TopicDetailsPage extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: BottomAppBar(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Consumer<ProgressData>(
-              builder: (context, progress, child) {
-                var purchased = progress.recordNames.contains(topic.id);
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                        child: ListTile(
-                            title: Text(purchased
-                                ? 'Purchased'
-                                : 'Cost - ${topic.cost}'))),
-                    FloatingActionButton(
-                      child: Icon(CustomIcons.seeds),
-                      onPressed: () =>
-                          purchased ? _sell(context) : _purchase(context),
-                      tooltip: purchased ? 'Sell' : 'Buy',
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
+          child: _PurchasePlantTile(topic),
         ),
       );
 }
@@ -138,4 +104,59 @@ class _VolumeRefList extends StatelessWidget {
       ],
     );
   }
+}
+
+class _PurchasePlantTile extends StatelessWidget {
+  final Topic topic;
+
+  _PurchasePlantTile(this.topic, {Key key}) : super(key: key);
+
+  void _purchase(BuildContext context) {
+    if (Provider.of<WalletData>(context, listen: false).canAfford(topic.cost)) {
+      showDialog<bool>(
+          context: context,
+          barrierDismissible: true,
+          builder: (_) => PurchaseTopicDialog(topic)).then((purchased) {
+        if (purchased ?? false) _openPlant(context);
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('You need to collect more seeds from other topics '
+            'before starting a new one.'),
+      ));
+    }
+  }
+
+  void _openPlant(BuildContext context) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+        '/plant', ModalRoute.withName('/'),
+        arguments: topic.id);
+  }
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Consumer<ProgressData>(
+          builder: (context, progress, child) {
+            var purchased = progress.recordNames.contains(topic.id);
+            return ListTile(
+              title: Text(
+                purchased ? 'Go to plant' : 'Plant seed and begin studying',
+                //textAlign: TextAlign.center,
+              ),
+              trailing: purchased
+                  ? FloatingActionButton(
+                      child: Icon(CustomIcons.seeds),
+                      tooltip: 'Go to plant',
+                      onPressed: () => _openPlant(context),
+                    )
+                  : FloatingActionButton(
+                      child: Icon(CustomIcons.seeds),
+                      tooltip: 'Plant seed',
+                      onPressed: () => _purchase(context),
+                    ),
+            );
+          },
+        ),
+      );
 }
