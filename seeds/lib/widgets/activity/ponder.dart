@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../extensions/string.dart';
 import '../../pages/activity.dart';
 import '../../services/topics/index.dart';
-import '../../services/utility.dart';
 
 class PonderActivity extends StatelessWidget {
   final Topic topic;

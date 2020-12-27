@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
+import '../extensions/string.dart';
 import '../services/data/journal.dart';
-import '../services/utility.dart';
 import '../widgets/animated_list.dart';
+import '../widgets/appear_transition.dart';
 import '../widgets/dialogs/erase_journal_entry.dart';
 import '../widgets/journal_entry.dart';
 
@@ -134,65 +135,59 @@ class _JournalPageState extends State<JournalPage> {
               }
 
               return AnimatedListBuilder<JournalEntry>(
-                items: entries,
+                values: entries,
                 duration: const Duration(milliseconds: 200),
                 childBuilder: (context, entry, animation) => Padding(
                   padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
-                  child: FadeTransition(
-                    opacity: animation,
-                    child: SizeTransition(
-                      sizeFactor: CurvedAnimation(
-                        parent: animation,
-                        curve: Curves.easeInOut,
-                      ),
-                      child: Stack(
-                        alignment: Alignment.centerLeft,
-                        children: <Widget>[
-                          Checkbox(
-                            key: ValueKey(entry),
-                            value: selected.contains(entry),
-                            onChanged: (value) => setState(() {
-                              if (value) {
-                                selected.add(entry);
-                              } else {
-                                selected.remove(entry);
-                              }
-                            }),
+                  child: AppearTransition(
+                    visibility: animation,
+                    child: Stack(
+                      alignment: Alignment.centerLeft,
+                      children: <Widget>[
+                        Checkbox(
+                          key: ValueKey(entry),
+                          value: selected.contains(entry),
+                          onChanged: (value) => setState(() {
+                            if (value) {
+                              selected.add(entry);
+                            } else {
+                              selected.remove(entry);
+                            }
+                          }),
+                        ),
+                        TweenAnimationBuilder<double>(
+                          tween: Tween<double>(
+                            begin: editMode ? 0.9 : 1,
+                            end: editMode ? 0.9 : 1,
                           ),
-                          TweenAnimationBuilder<double>(
-                            tween: Tween<double>(
-                              begin: editMode ? 0.9 : 1,
-                              end: editMode ? 0.9 : 1,
-                            ),
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.ease,
-                            builder: (context, scale, child) => Transform.scale(
-                              alignment: Alignment.centerRight,
-                              scale: scale,
-                              child: child,
-                            ),
-                            child: GestureDetector(
-                              onLongPress: () {
-                                if (!editMode) {
-                                  toggleEditMode(selectedEntry: entry);
-                                } else if (!selected.contains(entry)) {
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.ease,
+                          builder: (context, scale, child) => Transform.scale(
+                            alignment: Alignment.centerRight,
+                            scale: scale,
+                            child: child,
+                          ),
+                          child: GestureDetector(
+                            onLongPress: () {
+                              if (!editMode) {
+                                toggleEditMode(selectedEntry: entry);
+                              } else if (!selected.contains(entry)) {
+                                setState(() => selected.add(entry));
+                              }
+                            },
+                            onTap: () {
+                              if (editMode) {
+                                if (selected.contains(entry)) {
+                                  setState(() => selected.remove(entry));
+                                } else {
                                   setState(() => selected.add(entry));
                                 }
-                              },
-                              onTap: () {
-                                if (editMode) {
-                                  if (selected.contains(entry)) {
-                                    setState(() => selected.remove(entry));
-                                  } else {
-                                    setState(() => selected.add(entry));
-                                  }
-                                }
-                              },
-                              child: JournalEntryView(entry),
-                            ),
-                          )
-                        ],
-                      ),
+                              }
+                            },
+                            child: JournalEntryView(entry),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),

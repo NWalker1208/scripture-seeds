@@ -5,6 +5,7 @@ import '../../services/data/progress.dart';
 import '../../services/data/progress_record.dart';
 import '../../services/topics/provider.dart';
 import '../animated_list.dart';
+import '../appear_transition.dart';
 import '../plant/button.dart';
 import 'indicators/daily_progress.dart';
 
@@ -28,51 +29,41 @@ class PlantsDashboard extends StatelessWidget {
               builder: (context, progress, topics, child) {
                 // Check if topics are done loading
                 if (topics.index == null) {
-                  return const Center(child: Text('Loading...'));
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 // Sort records so that incomplete ones go first
                 var records = progress.recordsWithTopics(topics.index.topics)
                   ..sort();
 
-                return Stack(children: [
-                  AnimatedListBuilder<ProgressRecord>(
-                    items: records,
-                    duration: const Duration(milliseconds: 200),
-                    childBuilder: (context, record, animation) =>
-                        FadeTransition(
-                      opacity: animation,
-                      child: SizeTransition(
-                        axis: Axis.horizontal,
-                        sizeFactor: CurvedAnimation(
-                            parent: animation, curve: Curves.ease),
-                        child: AspectRatio(
-                          aspectRatio: 3 / 5,
-                          child: PlantButton(
-                            record.id,
-                            key: ValueKey(record.id),
-                          ),
-                        ),
+                return AnimatedListBuilder<ProgressRecord>(
+                  values: records,
+                  duration: const Duration(milliseconds: 200),
+                  insertDelay: const Duration(milliseconds: 200),
+                  removeDelay: const Duration(milliseconds: 400),
+                  childBuilder: (_, record, animation) => AppearTransition(
+                    visibility: animation,
+                    axis: Axis.horizontal,
+                    child: AspectRatio(
+                      aspectRatio: 3 / 5,
+                      child: PlantButton(
+                        record.id,
+                        key: ValueKey(record.id),
                       ),
                     ),
-                    viewBuilder: (context, builder, itemCount) =>
-                        ListView.separated(
-                      padding: EdgeInsets.all(8),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: builder,
-                      itemCount: itemCount,
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: 8),
-                    ),
                   ),
-
-                  // If no plants are started, show a message
-                  if (records.isEmpty)
-                    const Center(
-                      child: Text('Select a topic below to begin.'),
-                    ),
-                ]);
+                  viewBuilder: (_, builder, itemCount) => itemCount > 0
+                      ? ListView.separated(
+                          padding: EdgeInsets.all(8),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: builder,
+                          itemCount: itemCount,
+                          separatorBuilder: (_, index) =>
+                              const SizedBox(width: 8),
+                        )
+                      : Center(child: Text('Select a topic below to begin.')),
+                );
               },
             ),
           ),

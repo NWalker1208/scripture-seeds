@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../extensions/list.dart';
 import '../services/data/journal.dart';
 import '../services/data/progress.dart';
 import '../services/scriptures/volumes.dart';
@@ -8,7 +9,6 @@ import '../services/study/history.dart';
 import '../services/study/provider.dart';
 import '../services/topics/index.dart';
 import '../services/topics/reference.dart';
-import '../services/utility.dart';
 import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';
 import '../widgets/activity/share.dart';

@@ -1,4 +1,4 @@
-import '../utility.dart';
+import '../../extensions/string.dart';
 import 'volumes.dart';
 
 extension BookExtension on Book {
@@ -28,7 +28,7 @@ extension BookExtension on Book {
     }
 
     // Other books
-    var str = enumToString(book);
+    var str = StringExtension.fromEnum(book);
     if (str[str.length - 1].isNumeric) {
       str = str[str.length - 1] +
           str[0].toUpperCase() +

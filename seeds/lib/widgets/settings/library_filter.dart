@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../extensions/string.dart';
 import '../../services/scriptures/volumes.dart';
 import '../../services/settings/study_filter.dart';
-import '../../services/utility.dart';
 
 class LibraryFilterSettings extends StatelessWidget {
   const LibraryFilterSettings({
@@ -19,7 +19,7 @@ class LibraryFilterSettings extends StatelessWidget {
             ),
             ...Volume.values.map(
               (volume) => SwitchListTile(
-                title: Text(enumToString(volume).toTitle()),
+                title: Text(StringExtension.fromEnum(volume).toTitle()),
                 value: filter[volume],
                 onChanged: (value) => filter[volume] = value,
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../services/utility.dart';
+import '../../extensions/string.dart';
 import '../scriptures/books.dart';
 import '../scriptures/volumes.dart';
 

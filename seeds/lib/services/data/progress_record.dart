@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../utility.dart';
+import '../../extensions/date_time.dart';
 
 class ProgressRecord implements Comparable<ProgressRecord> {
   static const String kId = 'name';

@@ -18,8 +18,8 @@ class PlantButton extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         color: Colors.transparent,
         textColor: Colors.white,
-        onPressed: () =>
-            Navigator.of(context).pushNamed('/plant', arguments: topic),
+        onPressed: () => Navigator.of(context)
+            .pushNamed('/plant', arguments: topic),
         child: PlantView(
           topic,
           plantPadding: EdgeInsets.fromLTRB(

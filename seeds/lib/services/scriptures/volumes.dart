@@ -1,9 +1,9 @@
-import '../utility.dart';
+import '../../extensions/string.dart';
 
 extension VolumeExtension on Volume {
   // Title
   static String _title(Volume vol) {
-    var str = enumToString(vol);
+    var str = StringExtension.fromEnum(vol);
     if (str[str.length - 1].isNumeric) {
       str = str[str.length - 1] +
           str[0].toUpperCase() +

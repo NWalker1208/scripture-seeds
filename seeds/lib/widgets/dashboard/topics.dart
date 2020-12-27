@@ -21,7 +21,7 @@ class TopicsDashboard extends StatelessWidget {
           // Plant list
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: TopicList(maxToShow: 8),
+            child: TopicList(showPurchased: false, maxToShow: 8),
           ),
 
           ListTile(

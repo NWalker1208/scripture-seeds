@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:social_share/social_share.dart';
 
+import '../extensions/string.dart';
 import '../services/custom_icons.dart';
 import '../services/data/progress.dart';
 import '../services/data/wallet.dart';
 import '../services/topics/index.dart';
-import '../services/utility.dart';
 import '../widgets/dialogs/extra_study.dart';
+import '../widgets/dialogs/remove_plant.dart';
 import '../widgets/help_info.dart';
 import '../widgets/plant/progress_indicator.dart';
 import '../widgets/plant/view.dart';
@@ -41,6 +42,19 @@ class PlantPage extends StatelessWidget {
         .showSnackBar(SnackBar(content: Text('You collected $reward seeds.')));
   }
 
+  void removePlant(BuildContext context) {
+    showDialog<bool>(
+      context: context,
+      barrierDismissible: true,
+      builder: (_) => RemovePlantDialog(topic),
+    ).then((removed) {
+      if (removed ?? false) {
+        Navigator.of(context).popUntil(ModalRoute.withName('/'));
+        //Navigator.of(context).pushNamedAndRemoveUntil('/', (_) => false);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) => HelpInfo(
         'plant',
@@ -58,6 +72,11 @@ class PlantPage extends StatelessWidget {
                 onPressed: () => SocialShare.shareOptions(
                   'I\'m studying about ${topic.name} with Scripture Seeds!',
                 ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.delete),
+                tooltip: 'Remove',
+                onPressed: () => removePlant(context),
               )
             ],
             bottom: PreferredSize(

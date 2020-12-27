@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../extensions/string.dart';
 import '../services/custom_icons.dart';
 import '../services/data/progress.dart';
 import '../services/data/wallet.dart';
@@ -8,7 +9,6 @@ import '../services/scriptures/volumes.dart';
 import '../services/topics/index.dart';
 import '../services/topics/provider.dart';
 import '../services/topics/reference.dart';
-import '../services/utility.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/dialogs/purchase_topic.dart';
 import '../widgets/help_info.dart';
@@ -119,7 +119,9 @@ class _PurchasePlantTile extends StatelessWidget {
           context: context,
           barrierDismissible: true,
           builder: (_) => PurchaseTopicDialog(topic)).then((purchased) {
-        if (purchased ?? false) _openPlant(context);
+        if (purchased ?? false) {
+          Navigator.of(context).popUntil(ModalRoute.withName('/'));
+        }
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -129,11 +131,9 @@ class _PurchasePlantTile extends StatelessWidget {
     }
   }
 
-  void _openPlant(BuildContext context) {
-    Navigator.of(context).pushNamedAndRemoveUntil(
-        '/plant', ModalRoute.withName('/'),
-        arguments: topic.id);
-  }
+  void _openPlant(BuildContext context) => Navigator.of(context)
+      .pushNamedAndRemoveUntil('/plant', ModalRoute.withName('/'),
+          arguments: topic.id);
 
   @override
   Widget build(BuildContext context) => Consumer<ProgressData>(
