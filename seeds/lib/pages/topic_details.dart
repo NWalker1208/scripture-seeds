@@ -57,15 +57,17 @@ class TopicDetailsPage extends StatelessWidget {
               ),
               Container(
                 constraints: BoxConstraints(maxHeight: 160),
-                child: ListView(shrinkWrap: true, children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Consumer<TopicIndexProvider>(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  shrinkWrap: true,
+                  primary: false,
+                  children: [
+                    Consumer<TopicIndexProvider>(
                       builder: (context, indexProvider, child) => TopicList(
                           topics: indexProvider.index.relatedTo(topic.id)),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
               )
             ],
           ),
