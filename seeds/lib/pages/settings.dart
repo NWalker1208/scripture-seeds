@@ -18,7 +18,17 @@ class SettingsPage extends StatelessWidget {
           applicationName: 'Scripture Seeds',
           applicationIcon: const Icon(CustomIcons.seeds, size: 40),
           applicationVersion: info.version,
-          children: [const Text('App developed by Nathan Walker.')],
+          children: [
+            const Text('App developed by Nathan Walker.'),
+            const SizedBox(height: 8),
+            const Text('Scripture references for topics were '
+                'initially obtained from ChurchOfJesusChrist.org '
+                'and were then curated by Nathan Walker.'),
+            const SizedBox(height: 8),
+            const Text('Scriptural text is made available '
+                'by the open source database "lds-scriptures" '
+                'created by GitHub user beandog.'),
+          ],
         ));
   }
 

@@ -13,8 +13,8 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => HelpInfo(
         'dashboard',
-        title: 'Scripture Seeds',
-        helpText: 'Welcome to Scripture Seeds! Select a topic to begin.',
+        title: 'Welcome!',
+        helpText: 'To begin, select a topic that you would like to study.',
         child: Scaffold(
           body: CustomScrollView(
             slivers: [

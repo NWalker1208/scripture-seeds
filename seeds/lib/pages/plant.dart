@@ -102,6 +102,7 @@ class PlantPage extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   icon: const Icon(Icons.book),
+                  tooltip: 'Journal',
                   onPressed: () => Navigator.pushNamed(context, '/journal',
                       arguments: topic.name),
                 ),
@@ -114,6 +115,7 @@ class PlantPage extends StatelessWidget {
                       var canMakeProgress = record.canMakeProgressToday;
 
                       return FloatingActionButton(
+                        tooltip: 'Study',
                         child: Icon(reward
                             ? CustomIcons.sickle
                             : CustomIcons.water_drop),
