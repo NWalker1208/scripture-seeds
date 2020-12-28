@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/labeled_icon_button.dart';
 import 'package:social_share/social_share.dart';
 
 import '../extensions/string.dart';
@@ -17,30 +18,6 @@ class PlantPage extends StatelessWidget {
   final Topic topic;
 
   PlantPage(this.topic, {Key key}) : super(key: key);
-
-  // Opens a dialog for when today's activity has already been completed
-  void openActivityDialog(BuildContext context) {
-    showDialog<bool>(
-      context: context,
-      barrierDismissible: true,
-      builder: (_) => const ExtraStudyDialog(),
-    ).then((doActivity) {
-      if (doActivity ?? false) openActivity(context);
-    });
-  }
-
-  void openActivity(BuildContext context) {
-    Navigator.pushNamed(context, '/plant/activity', arguments: topic.id);
-  }
-
-  void collectReward(BuildContext context) {
-    var progress = Provider.of<ProgressData>(context, listen: false);
-    var reward = progress.collectReward(topic.id);
-    Provider.of<WalletData>(context, listen: false).give(reward);
-
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text('You collected $reward seeds.')));
-  }
 
   void removePlant(BuildContext context) {
     showDialog<bool>(
@@ -63,6 +40,7 @@ class PlantPage extends StatelessWidget {
             'the scriptures.\n\nClick the blue button below to study '
             'a scripture about ${topic.name}.',
         child: Scaffold(
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(topic.name.capitalize()),
             actions: [
@@ -90,8 +68,6 @@ class PlantPage extends StatelessWidget {
               ),
             ),
           ),
-          //drawer: PlantSelectDrawer(plantName),
-          backgroundColor: Colors.transparent,
           body: PlantView(
             topic.id,
             plantPadding: EdgeInsets.symmetric(vertical: 50),
@@ -100,44 +76,19 @@ class PlantPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                IconButton(
+                LabeledIconButton(
                   icon: const Icon(Icons.book),
-                  tooltip: 'Journal',
+                  label: 'Journal',
                   onPressed: () => Navigator.pushNamed(context, '/journal',
                       arguments: topic.name),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Consumer<ProgressData>(
-                    builder: (context, progressData, child) {
-                      var record = progressData.getProgressRecord(topic.id);
-                      var reward = record.rewardAvailable;
-                      var canMakeProgress = record.canMakeProgressToday;
-
-                      return FloatingActionButton(
-                        tooltip: 'Study',
-                        child: Icon(reward
-                            ? CustomIcons.sickle
-                            : CustomIcons.water_drop),
-                        backgroundColor: (canMakeProgress || reward)
-                            ? Theme.of(context).accentColor
-                            : Colors.grey[500],
-                        onPressed: () {
-                          if (reward) {
-                            collectReward(context);
-                          } else if (!canMakeProgress) {
-                            openActivityDialog(context);
-                          } else {
-                            openActivity(context);
-                          }
-                        },
-                      );
-                    },
-                  ),
+                  child: _StudyButton(topic),
                 ),
-                IconButton(
+                LabeledIconButton(
                   icon: const Icon(Icons.article),
-                  tooltip: 'Details',
+                  label: 'Details',
                   onPressed: () => Navigator.pushNamed(
                       context, '/topics/details',
                       arguments: topic.id),
@@ -148,3 +99,62 @@ class PlantPage extends StatelessWidget {
         ),
       );
 }
+
+class _StudyButton extends StatelessWidget {
+  final Topic topic;
+
+  const _StudyButton(this.topic, {Key key}) : super(key: key);
+
+  // Opens a dialog for when today's activity has already been completed
+  void openActivityDialog(BuildContext context) {
+    showDialog<bool>(
+      context: context,
+      barrierDismissible: true,
+      builder: (_) => const ExtraStudyDialog(),
+    ).then((doActivity) {
+      if (doActivity ?? false) openActivity(context);
+    });
+  }
+
+  void openActivity(BuildContext context) {
+    Navigator.pushNamed(context, '/plant/activity', arguments: topic.id);
+  }
+
+  void collectReward(BuildContext context) {
+    var progress = Provider.of<ProgressData>(context, listen: false);
+    var reward = progress.collectReward(topic.id);
+    Provider.of<WalletData>(context, listen: false).give(reward);
+
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('You collected $reward seeds.')));
+  }
+
+  @override
+  Widget build(BuildContext context) => Consumer<ProgressData>(
+      builder: (context, progressData, child) {
+        var record = progressData.getProgressRecord(topic.id);
+        var reward = record.rewardAvailable;
+        var canMakeProgress = record.canMakeProgressToday;
+
+        return FloatingActionButton(
+          tooltip: 'Study',
+          child: Icon(reward
+              ? CustomIcons.sickle
+              : CustomIcons.water_drop),
+          backgroundColor: (canMakeProgress || reward)
+              ? Theme.of(context).accentColor
+              : Colors.grey[500],
+          onPressed: () {
+            if (reward) {
+              collectReward(context);
+            } else if (!canMakeProgress) {
+              openActivityDialog(context);
+            } else {
+              openActivity(context);
+            }
+          },
+        );
+      },
+    );
+}
+
