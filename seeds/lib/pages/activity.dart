@@ -140,8 +140,8 @@ class _ActivityPageState extends State<ActivityPage> {
                   'parts that teach you about ${widget.topic.name}.',
               'Write down what you learned about ${widget.topic.name} '
                   'from the verses you read.',
-              'Share what you studied with others. '
-                  'You can also save your notes to your journal.',
+              'Here you can share with others what you learned. If you want to '
+                  'keep a record of it, press "Save to journal."',
             ][_stage],
             key: _helpKey,
             child: Scaffold(
