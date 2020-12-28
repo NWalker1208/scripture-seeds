@@ -13,7 +13,7 @@ import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';
 import '../widgets/activity/share.dart';
 import '../widgets/activity/study.dart';
-import '../widgets/animated_indexed_stack.dart';
+import '../widgets/animation/indexed_stack.dart';
 import '../widgets/help_info.dart';
 
 class ActivityPage extends StatefulWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../services/custom_icons.dart';
-import '../services/data/progress.dart';
-import '../services/topics/provider.dart';
-import 'animated_list.dart';
-import 'appear_transition.dart';
+import '../../services/data/progress.dart';
+import '../../services/topics/provider.dart';
+import '../animation/appear_transition.dart';
+import '../animation/list.dart';
+import 'chip.dart';
 
 class TopicList extends StatelessWidget {
   final Set<String> topics;
@@ -20,22 +20,26 @@ class TopicList extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      Consumer2<TopicIndexProvider, ProgressData>(
-        builder: (context, indexProvider, progress, child) {
+  Widget build(BuildContext context) => Consumer<TopicIndexProvider>(
+        builder: (context, indexProvider, child) {
           var index = indexProvider.index;
 
           // Check if library is still loading
           if (index == null) {
-            return const Text('Loading...', textAlign: TextAlign.center);
+            return const Center(child: CircularProgressIndicator());
           }
 
           var topicList = (topics ?? index.topics).toList();
 
           // Remove purchased topics if specified
           if (!showPurchased) {
-            topicList
-                .removeWhere((topic) => progress.recordNames.contains(topic));
+            var progress = Provider.of<ProgressData>(context);
+            if (!progress.isLoaded) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            var purchased = progress.recordNames;
+            topicList.removeWhere((topic) => purchased.contains(topic));
           }
 
           // Check if empty
@@ -57,27 +61,12 @@ class TopicList extends StatelessWidget {
             childBuilder: (context, topic, animation) => AppearTransition(
               visibility: animation,
               axis: Axis.horizontal,
-              child: ActionChip(
-                label: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    progress.recordNames.contains(topic)
-                        ? const Icon(Icons.check)
-                        : const Icon(CustomIcons.seeds),
-                    const SizedBox(width: 8),
-                    Text(index[topic].name),
-                  ],
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(
-                    '/topics/details',
-                    arguments: topic,
-                  );
-                },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                child: TopicChip(indexProvider.index[topic]),
               ),
             ),
             viewBuilder: (context, children) => Wrap(
-              spacing: 12.0,
               alignment: WrapAlignment.center,
               children: children,
             ),

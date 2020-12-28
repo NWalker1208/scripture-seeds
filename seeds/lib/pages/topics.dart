@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/dashboard/indicators/wallet.dart';
-import '../widgets/topic_list.dart';
+import '../widgets/topics/list.dart';
 
 class TopicsPage extends StatelessWidget {
   const TopicsPage({Key key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../extensions/list.dart';
+import '../../extensions/list.dart';
 
 typedef IndexedViewBuilder = Widget Function(
   BuildContext context,

@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import '../../services/data/progress.dart';
 import '../../services/data/progress_record.dart';
 import '../../services/topics/provider.dart';
-import '../animated_list.dart';
-import '../appear_transition.dart';
+import '../animation/appear_transition.dart';
+import '../animation/list.dart';
 import '../plant/button.dart';
 import 'indicators/daily_progress.dart';
 

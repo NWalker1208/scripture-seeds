@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../topic_list.dart';
+import '../topics/list.dart';
 import 'indicators/wallet.dart';
 
 class TopicsDashboard extends StatelessWidget {

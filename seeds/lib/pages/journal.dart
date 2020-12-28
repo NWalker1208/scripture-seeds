@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 import '../extensions/string.dart';
 import '../services/data/journal.dart';
-import '../widgets/animated_list.dart';
-import '../widgets/appear_transition.dart';
+import '../widgets/animation/appear_transition.dart';
+import '../widgets/animation/list.dart';
 import '../widgets/dialogs/erase_journal_entry.dart';
 import '../widgets/journal_entry.dart';
 
