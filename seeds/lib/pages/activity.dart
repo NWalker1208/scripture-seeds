@@ -193,20 +193,31 @@ class _ActivityPageState extends State<ActivityPage> {
 
               // Floating action button allows user to progress through activity
               floatingActionButton: Consumer<ActivityProvider>(
-                builder: (context, activity, _) => TweenAnimationBuilder<Color>(
-                  tween: ColorTween(
-                      end: activity[_stage]
+                builder: (context, activity, child) {
+                  final stageCompleted = _stage == 2 || activity[_stage];
+                  final icon = (_stage == 2)
+                      ? const Icon(Icons.check)
+                      : const Icon(Icons.navigate_next);
+
+                  return TweenAnimationBuilder<Color>(
+                    duration: const Duration(milliseconds: 200),
+                    tween: ColorTween(
+                      end: stageCompleted
                           ? (Theme.of(context).accentColor)
-                          : Colors.grey[500]),
-                  duration: const Duration(milliseconds: 200),
-                  builder: (context, color, child) => FloatingActionButton(
-                    child: const Icon(Icons.navigate_next),
-                    backgroundColor: color,
-                    disabledElevation: 1,
-                    onPressed:
-                        activity[_stage] ? () => nextStage(activity) : null,
-                  ),
-                ),
+                          : Colors.grey[500],
+                    ),
+                    builder: (context, color, child) => FloatingActionButton(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 200),
+                        child: icon,
+                      ),
+                      backgroundColor: color,
+                      disabledElevation: 1,
+                      onPressed:
+                          stageCompleted ? () => nextStage(activity) : null,
+                    ),
+                  );
+                },
               ),
 
               // Bottom app bar shows progress through the day's activity
