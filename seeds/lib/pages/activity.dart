@@ -196,8 +196,8 @@ class _ActivityPageState extends State<ActivityPage> {
                 builder: (context, activity, child) {
                   final stageCompleted = _stage == 2 || activity[_stage];
                   final icon = (_stage == 2)
-                      ? const Icon(Icons.check)
-                      : const Icon(Icons.navigate_next);
+                      ? const Icon(Icons.check, key: ValueKey('done'))
+                      : const Icon(Icons.navigate_next, key: ValueKey('next'));
 
                   return TweenAnimationBuilder<Color>(
                     duration: const Duration(milliseconds: 200),
