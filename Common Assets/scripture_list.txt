@@ -726,7 +726,7 @@ Topic: diligence, References: [
 	DoctrineAndCovenants 136:42
 ]
 
-Topic: endure, References: [
+Topic: enduring, References: [
 	Matthew 10:22,
 	Matthew 24:13,
 	Mark 4:17,
@@ -1750,7 +1750,7 @@ Topic: marriage, References: [
 	Abraham 5:18
 ]
 
-Topic: missionary, References: [
+Topic: missionaries, References: [
 	Matthew 5:13-16,
 	Matthew 10:1-15,
 	Matthew 24:14,
@@ -2563,7 +2563,7 @@ Topic: resurrection, References: [
 	Moses 7:62
 ]
 
-Topic: sabbath, References: [
+Topic: the Sabbath, References: [
 	Genesis 2:1-7,
 	Exodus 16:23-30,
 	Exodus 20:1-17,
