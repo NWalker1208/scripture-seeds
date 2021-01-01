@@ -170,16 +170,15 @@ class _ChapterAppBar extends StatelessWidget {
         pinned: true,
         primary: primary,
         automaticallyImplyLeading: primary,
+        brightness: Brightness.dark,
         backgroundColor: primary
             ? Theme.of(context).primaryColor
             : Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
         centerTitle: true,
         titleSpacing: 4,
-        title: Text(
-            '${reference.book.title} '
-            '${reference.chapter}',
-            style: Theme.of(context).textTheme.headline5.copyWith(
-                fontFamily: 'Buenard', color: primary ? Colors.white : null)),
+        titleTextStyle: Theme.of(context).textTheme.headline5.copyWith(
+            fontFamily: 'Buenard', color: primary ? Colors.white : Colors.black),
+        title: Text('${reference.book.title} ${reference.chapter}'),
         actions: [
           IconButton(
             icon: const Icon(Icons.open_in_new),

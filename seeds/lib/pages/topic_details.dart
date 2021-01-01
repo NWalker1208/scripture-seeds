@@ -29,33 +29,59 @@ class TopicDetailsPage extends StatelessWidget {
           appBar: AppBar(title: Text('Details')),
           body: Column(
             children: [
-              ListTile(title: Text('Scriptures', textAlign: TextAlign.center)),
-              Divider(height: 1),
               Expanded(
-                child: ListView.separated(
-                  itemCount: Volume.values.length,
-                  itemBuilder: (context, index) =>
-                      _VolumeRefList(Volume.values[index], topic.references),
-                  separatorBuilder: (context, index) => Divider(),
-                ),
-              ),
-              Divider(height: 1),
-              ListTile(
-                title: Text('Related Topics', textAlign: TextAlign.center),
-              ),
-              Divider(height: 1),
-              Container(
-                constraints: BoxConstraints(maxHeight: 165),
-                child: ListView(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  shrinkWrap: true,
-                  primary: false,
-                  children: [
-                    Consumer<TopicIndexProvider>(
-                      builder: (context, indexProvider, child) => TopicList(
-                          topics: indexProvider.index.relatedTo(topic.id)),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverAppBar(
+                      pinned: true,
+                      primary: false,
+                      automaticallyImplyLeading: false,
+                      backgroundColor:
+                          Theme.of(context).scaffoldBackgroundColor,
+                      centerTitle: true,
+                      title: Text('Scriptures',
+                          style: Theme.of(context).textTheme.subtitle1),
+                    ),
+                    SliverList(
+                      delegate: SliverChildListDelegate([
+                        for (var volume in Volume.values)
+                          _VolumeRefList(volume, topic.references),
+                      ]),
                     ),
                   ],
+                ),
+              ),
+              Material(
+                elevation: 8,
+                child: Container(
+                  constraints: BoxConstraints(maxHeight: 175),
+                  child: CustomScrollView(
+                    shrinkWrap: true,
+                    primary: false,
+                    slivers: [
+                      SliverAppBar(
+                        pinned: true,
+                        primary: false,
+                        automaticallyImplyLeading: false,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
+                        centerTitle: true,
+                        title: Text('Related Topics',
+                            style: Theme.of(context).textTheme.subtitle1),
+                      ),
+                      SliverPadding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        sliver: SliverToBoxAdapter(
+                          child: Consumer<TopicIndexProvider>(
+                            builder: (context, indexProvider, child) =>
+                                TopicList(
+                                    topics: indexProvider.index
+                                        .relatedTo(topic.id)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -97,15 +123,30 @@ class _VolumeRefList extends StatelessWidget {
     }
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ListTile(title: Text(volume.title)),
-        for (var reference in refsInVolume)
-          ListTile(
-            title: Text(reference.toString()),
-            onTap: () => Navigator.of(context)
-                .pushNamed('/scripture', arguments: reference.toString()),
-            dense: true,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
+          child: Text(volume.title, style: Theme.of(context).textTheme.caption),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Wrap(
+            alignment: WrapAlignment.start,
+            children: [
+              for (var reference in refsInVolume)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  child: ActionChip(
+                    elevation: 4,
+                    label: Text(reference.toString()),
+                    onPressed: () => Navigator.of(context)
+                        .pushNamed('/scripture', arguments: reference.toString()),
+                  ),
+                ),
+            ],
           ),
+        ),
       ],
     );
   }

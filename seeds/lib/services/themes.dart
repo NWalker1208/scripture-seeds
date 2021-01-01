@@ -4,6 +4,7 @@ final ThemeData lightTheme = ThemeData(
   primarySwatch: Colors.green,
   toggleableActiveColor: Colors.green,
   accentColor: Colors.blue,
+
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: Colors.blue,
     selectionColor: Colors.green[300],
@@ -20,6 +21,7 @@ final ThemeData lightTheme = ThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
   ),
   dividerTheme: DividerThemeData(thickness: 1, indent: 0, endIndent: 0),
+
   visualDensity: VisualDensity.adaptivePlatformDensity,
 );
 
