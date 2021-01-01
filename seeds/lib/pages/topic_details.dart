@@ -114,14 +114,6 @@ class _VolumeRefList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var refsInVolume = references.where((ref) => ref.volume == volume);
-
-    if (refsInVolume.isEmpty) {
-      return ListTile(
-        title: Text(volume.title),
-        subtitle: Text('No scriptures found'),
-      );
-    }
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -129,24 +121,31 @@ class _VolumeRefList extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
           child: Text(volume.title, style: Theme.of(context).textTheme.caption),
         ),
-        Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Wrap(
-            alignment: WrapAlignment.start,
-            children: [
-              for (var reference in refsInVolume)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                  child: ActionChip(
-                    elevation: 4,
-                    label: Text(reference.toString()),
-                    onPressed: () => Navigator.of(context)
-                        .pushNamed('/scripture', arguments: reference.toString()),
+        if (refsInVolume.isEmpty)
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text('No scriptures found'),
+          )
+        else
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Wrap(
+              alignment: WrapAlignment.start,
+              children: [
+                for (var reference in refsInVolume)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                    child: ActionChip(
+                      elevation: 4,
+                      label: Text(reference.toString()),
+                      onPressed: () => Navigator.of(context).pushNamed(
+                          '/scripture',
+                          arguments: reference.toString()),
+                    ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
-        ),
       ],
     );
   }
