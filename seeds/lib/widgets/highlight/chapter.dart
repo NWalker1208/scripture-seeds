@@ -134,7 +134,6 @@ class _ChapterViewState extends State<ChapterView> {
                 sliver: SliverList(
                   delegate: SliverChildListDelegate([
                     Column(children: [
-                      // Verse Text
                       for (var group in _VerseGroup.createList(
                           snapshot.data as List<String>, widget.reference))
                         _VerseGroupView(
@@ -143,8 +142,8 @@ class _ChapterViewState extends State<ChapterView> {
                           key: group.startNumber == firstVerse
                               ? _referenceKey
                               : null,
-                        )
-                    ])
+                        ),
+                    ]),
                   ]),
                 ),
               ),

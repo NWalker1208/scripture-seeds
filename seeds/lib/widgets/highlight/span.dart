@@ -38,7 +38,8 @@ class _WordState {
       text.split(' ').map((t) => _WordState(t)).toList();
 }
 
-class HighlightTextSpanState extends State<HighlightTextSpan> {
+class HighlightTextSpanState extends State<HighlightTextSpan>
+    with AutomaticKeepAliveClientMixin {
   List<_WordState> _words;
 
   bool _selectionAction;
@@ -87,8 +88,13 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
     }
   }
 
-  void _notifyHighlightChange() => widget.onHighlightChange?.call(
-      _words.map((word) => word.highlighted).toList(), getSharableQuote());
+  void _notifyHighlightChange() {
+    updateKeepAlive();
+    widget.onHighlightChange?.call(
+      _words.map((word) => word.highlighted).toList(),
+      getSharableQuote(),
+    );
+  }
 
   int _wordAtPosition(Offset position) {
     // Check if position falls on any of the words in the span
@@ -137,8 +143,8 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
         _clearSelection();
         setState(() {
           _words[index].highlighted = !_words[index].highlighted;
+          _notifyHighlightChange();
         });
-        _notifyHighlightChange();
       });
     }
   }
@@ -211,7 +217,12 @@ class HighlightTextSpanState extends State<HighlightTextSpan> {
   }
 
   @override
+  bool get wantKeepAlive => _words.any((word) => word.highlighted);
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     var backgroundColor =
         widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
     var highlightColor = widget.highlightColor ??
