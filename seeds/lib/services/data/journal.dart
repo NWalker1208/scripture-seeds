@@ -83,30 +83,25 @@ class JournalEntry implements Comparable<JournalEntry> {
 }
 
 class JournalData extends ChangeNotifier {
+  List<String> _topics;
   List<JournalEntry> _entries;
 
   JournalData() {
     _loadEntries().then((entries) {
-      _entries = entries;
-      _entries.sort();
+      _entries = entries..sort();
+      _topics = <String>{for (var e in _entries) ...e.tags}.toList()..sort();
       notifyListeners();
     });
   }
 
   bool get isLoaded => _entries != null;
   List<JournalEntry> get entries => _entries?.toList() ?? <JournalEntry>[];
-
-  Set<String> get topics {
-    var _topics = <String>{};
-    for (var entry in entries) {
-      _topics.addAll(entry.tags);
-    }
-    return _topics;
-  }
+  List<String> get topics => _topics?.toList() ?? <String>[];
 
   void createEntry(JournalEntry entry) {
     _entries.add(entry);
     _entries.sort();
+    _topics = (_topics.toSet()..addAll(entry.tags)).toList()..sort();
     notifyListeners();
 
     _saveNewEntry(entry);
