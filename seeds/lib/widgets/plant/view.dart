@@ -55,7 +55,14 @@ class _PlantViewState extends State<PlantView> {
               gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors: [Color.lerp(skyColor, Colors.white, 0.2), skyColor],
+                colors: [
+                  Color.lerp(
+                    Theme.of(context).scaffoldBackgroundColor,
+                    skyColor,
+                    0.5,
+                  ),
+                  skyColor
+                ],
                 stops: const [0, 1],
               ),
             ),
@@ -67,10 +74,7 @@ class _PlantViewState extends State<PlantView> {
                   child: LayoutBuilder(
                     builder: (context, constraints) =>
                         TweenAnimationBuilder<double>(
-                      tween: Tween<double>(
-                        begin: _record.progressPercent + _record.lostPercent,
-                        end: _record.progressPercent,
-                      ),
+                      tween: Tween<double>(end: _record.progressPercent),
                       duration: Duration(milliseconds: 1000),
                       curve: Curves.easeInOutCubic,
                       builder: (context, progress, child) => CustomPaint(
@@ -94,7 +98,12 @@ class _PlantViewState extends State<PlantView> {
                       .resolve(Directionality.of(context))
                       .bottom,
                   child: Container(
-                    decoration: BoxDecoration(color: Colors.brown[800]),
+                    decoration: BoxDecoration(
+                        color: Color.lerp(
+                      Theme.of(context).scaffoldBackgroundColor,
+                      Colors.brown[900],
+                      0.9,
+                    )),
                   ),
                 ),
               ],

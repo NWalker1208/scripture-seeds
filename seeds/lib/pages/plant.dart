@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/widgets/labeled_icon_button.dart';
 import 'package:social_share/social_share.dart';
 
 import '../extensions/string.dart';
@@ -11,6 +10,7 @@ import '../services/topics/index.dart';
 import '../widgets/dialogs/extra_study.dart';
 import '../widgets/dialogs/remove_plant.dart';
 import '../widgets/help_info.dart';
+import '../widgets/labeled_icon_button.dart';
 import '../widgets/plant/progress_indicator.dart';
 import '../widgets/plant/view.dart';
 

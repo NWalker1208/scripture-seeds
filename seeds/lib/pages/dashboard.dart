@@ -22,6 +22,7 @@ class DashboardPage extends StatelessWidget {
                 expandedHeight: 150,
                 pinned: true,
                 stretch: true,
+                forceElevated: true,
                 flexibleSpace: const FlexibleSpaceBar(
                   titlePadding: EdgeInsets.all(16),
                   title: Text('Scripture Seeds'),

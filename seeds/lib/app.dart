@@ -9,8 +9,7 @@ import 'pages/scripture.dart';
 import 'pages/settings.dart';
 import 'pages/topic_details.dart';
 import 'pages/topics.dart';
-import 'services/settings/theme.dart';
-import 'services/themes.dart' as theme;
+import 'services/theme/provider.dart';
 import 'services/topics/provider.dart';
 import 'services/topics/reference.dart';
 
@@ -20,12 +19,12 @@ class SeedsApp extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer<ThemePreference>(
-        builder: (context, setting, child) => MaterialApp(
+  Widget build(BuildContext context) => Consumer<ThemeProvider>(
+        builder: (context, theme, child) => MaterialApp(
           title: 'Seeds',
-          theme: theme.lightTheme,
-          darkTheme: theme.darkTheme,
-          themeMode: setting.mode,
+          theme: theme.light,
+          darkTheme: theme.dark,
+          themeMode: theme.mode,
           initialRoute: '/',
           routes: {
             '/': (context) => const DashboardPage(),

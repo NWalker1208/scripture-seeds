@@ -51,37 +51,33 @@ class TopicDetailsPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Material(
-                elevation: 8,
-                child: Container(
-                  constraints: BoxConstraints(maxHeight: 175),
-                  child: CustomScrollView(
-                    shrinkWrap: true,
-                    primary: false,
-                    slivers: [
-                      SliverAppBar(
-                        pinned: true,
-                        primary: false,
-                        automaticallyImplyLeading: false,
-                        backgroundColor:
-                            Theme.of(context).scaffoldBackgroundColor,
-                        centerTitle: true,
-                        title: Text('Related Topics',
-                            style: Theme.of(context).textTheme.subtitle1),
-                      ),
-                      SliverPadding(
-                        padding: const EdgeInsets.symmetric(vertical: 4.0),
-                        sliver: SliverToBoxAdapter(
-                          child: Consumer<TopicIndexProvider>(
-                            builder: (context, indexProvider, child) =>
-                                TopicList(
-                                    topics: indexProvider.index
-                                        .relatedTo(topic.id)),
-                          ),
+              Divider(height: DividerTheme.of(context).thickness),
+              Container(
+                constraints: BoxConstraints(maxHeight: 175),
+                child: CustomScrollView(
+                  shrinkWrap: true,
+                  primary: false,
+                  slivers: [
+                    SliverAppBar(
+                      pinned: true,
+                      primary: false,
+                      automaticallyImplyLeading: false,
+                      backgroundColor:
+                          Theme.of(context).scaffoldBackgroundColor,
+                      centerTitle: true,
+                      title: Text('Related Topics',
+                          style: Theme.of(context).textTheme.subtitle1),
+                    ),
+                    SliverPadding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      sliver: SliverToBoxAdapter(
+                        child: Consumer<TopicIndexProvider>(
+                          builder: (context, indexProvider, child) => TopicList(
+                              topics: indexProvider.index.relatedTo(topic.id)),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -195,7 +191,7 @@ class _PurchasePlantButton extends StatelessWidget {
               visualDensity: VisualDensity(
                 vertical: VisualDensity.maximumDensity,
               ),
-              backgroundColor: Colors.green,
+              backgroundColor: Theme.of(context).primaryColor,
               labelStyle: DefaultTextStyle.of(context)
                   .style
                   .copyWith(color: Colors.white),

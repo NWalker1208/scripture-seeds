@@ -18,6 +18,7 @@ class JournalEntryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
+        color: Theme.of(context).colorScheme.primaryVariant,
         margin: EdgeInsets.zero,
         child: Padding(
           padding: const EdgeInsets.all(12.0),

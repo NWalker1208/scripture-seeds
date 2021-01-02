@@ -15,7 +15,7 @@ class PlantButton extends StatelessWidget {
   Widget build(BuildContext context) => RaisedButton(
         padding: EdgeInsets.zero,
         highlightElevation: 6,
-        clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.hardEdge,
         color: Colors.transparent,
         textColor: Colors.white,
         onPressed: () => Navigator.of(context)

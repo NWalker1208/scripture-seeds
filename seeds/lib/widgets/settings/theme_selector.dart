@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/settings/theme.dart';
+import '../../services/theme/provider.dart';
 
 class ThemeSelector extends StatelessWidget {
   const ThemeSelector({
@@ -11,11 +11,11 @@ class ThemeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListTile(
         title: const Text('Theme'),
-        trailing: Consumer<ThemePreference>(
-          builder: (context, setting, child) => DropdownButton<ThemeMode>(
-            value: setting.mode,
+        trailing: Consumer<ThemeProvider>(
+          builder: (context, theme, child) => DropdownButton<ThemeMode>(
+            value: theme.mode,
             icon: const Icon(Icons.arrow_drop_down),
-            onChanged: (newMode) => setting.mode = newMode,
+            onChanged: (newMode) => theme.mode = newMode,
             items: <DropdownMenuItem<ThemeMode>>[
               const DropdownMenuItem<ThemeMode>(
                 value: ThemeMode.system,
