@@ -12,7 +12,9 @@ class AppBarThemed extends StatelessWidget {
     final textTheme = theme.appBarTheme.textTheme ?? theme.primaryTextTheme;
     final brightness =
         theme.appBarTheme.brightness ?? theme.primaryColorBrightness;
-    final color = theme.appBarTheme.backgroundColor ?? theme.primaryColor;
+    final background = theme.appBarTheme.backgroundColor ?? theme.primaryColor;
+    final foreground =
+        theme.appBarTheme.foregroundColor ?? theme.colorScheme.onPrimary;
 
     return Theme(
       data: theme.copyWith(
@@ -23,15 +25,14 @@ class AppBarThemed extends StatelessWidget {
           brightness: brightness,
           labelStyle: textTheme.bodyText1,
         ),
-        canvasColor: color,
-        backgroundColor: color,
+        canvasColor: background,
+        backgroundColor: background,
+        splashColor: foreground.withOpacity(0.2),
+        highlightColor: foreground.withOpacity(0.1),
         brightness: brightness,
       ),
       child: DefaultTextStyle(
-        style: DefaultTextStyle.of(context).style.copyWith(
-              color: theme.appBarTheme.foregroundColor ??
-                  theme.colorScheme.onPrimary,
-            ),
+        style: DefaultTextStyle.of(context).style.copyWith(color: foreground),
         child: child,
       ),
     );

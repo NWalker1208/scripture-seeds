@@ -130,6 +130,8 @@ class CustomThemeData {
       textTheme: typography.black,
     ).copyWith(
       toggleableActiveColor: colorsLight.primary,
+      highlightColor: colorsLight.onSurface.withOpacity(0.2),
+      splashColor: colorsLight.onSurface.withOpacity(0.1),
       disabledColor: Colors.grey[500],
       appBarTheme: appBarThemeLight,
       bottomAppBarTheme: bottomAppBarThemeLight,
@@ -145,6 +147,8 @@ class CustomThemeData {
       textTheme: typography.white,
     ).copyWith(
       toggleableActiveColor: colorsDark.primary,
+      highlightColor: colorsDark.onSurface.withOpacity(0.2),
+      splashColor: colorsDark.onSurface.withOpacity(0.1),
       disabledColor: Colors.grey[500],
       appBarTheme: appBarThemeDark,
       bottomAppBarTheme: bottomAppBarThemeDark,

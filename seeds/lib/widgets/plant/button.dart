@@ -28,25 +28,18 @@ class PlantButton extends StatelessWidget {
                 alignment: Alignment.bottomLeft,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: AppBarThemed(
-                    Consumer<ProgressData>(
-                      builder: (context, progress, child) =>
-                          PlantStatus(progress.getProgressRecord(topic)),
-                    ),
-                  ),
+                  child: AppBarThemed(Consumer<ProgressData>(
+                    builder: (context, progress, child) =>
+                        PlantStatus(progress.getProgressRecord(topic)),
+                  )),
                 ),
               ),
             ),
             Material(
               type: MaterialType.transparency,
-              child: InkWell(
-                highlightColor:
-                    Theme.of(context).colorScheme.onPrimary.withOpacity(0.05),
-                splashColor:
-                    Theme.of(context).colorScheme.onPrimary.withOpacity(0.1),
-                onTap: () =>
-                    Navigator.of(context).pushNamed('/plant', arguments: topic),
-              ),
+              child: AppBarThemed(InkWell(
+                  onTap: () => Navigator.of(context)
+                      .pushNamed('/plant', arguments: topic))),
             )
           ],
         ),

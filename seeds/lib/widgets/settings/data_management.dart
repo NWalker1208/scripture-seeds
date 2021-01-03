@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/widgets/app_bar_themed.dart';
 
 import '../dialogs/erase_journal.dart';
 import '../dialogs/reset_progress.dart';
@@ -38,10 +39,8 @@ class DataManagementSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListTileTheme.merge(
-        iconColor: Theme.of(context).primaryIconTheme.color,
-        textColor: Theme.of(context).colorScheme.onPrimary,
         tileColor: Theme.of(context).errorColor.withOpacity(0.95),
-        child: Row(
+        child: AppBarThemed(Row(
           children: [
             Expanded(
               child: ListTile(
@@ -58,6 +57,6 @@ class DataManagementSettings extends StatelessWidget {
               ),
             ),
           ],
-        ),
+        )),
       );
 }
