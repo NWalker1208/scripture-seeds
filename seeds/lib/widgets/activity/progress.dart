@@ -28,7 +28,7 @@ class ActivityProgressMap extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: completed
                         ? Theme.of(context).accentColor
-                        : Colors.grey[500].withAlpha(126)),
+                        : Theme.of(context).disabledColor),
               );
             } else {
               return Expanded(
@@ -38,7 +38,7 @@ class ActivityProgressMap extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: completed
                           ? Theme.of(context).accentColor
-                          : Colors.grey[500].withAlpha(126)),
+                          : Theme.of(context).disabledColor),
                 ),
               );
             }

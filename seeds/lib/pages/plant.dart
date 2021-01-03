@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/app_bar_themed.dart';
 import 'package:social_share/social_share.dart';
 
 import '../extensions/string.dart';
@@ -40,7 +41,6 @@ class PlantPage extends StatelessWidget {
             'the scriptures.\n\nClick the blue button below to study '
             'a scripture about ${topic.name}.',
         child: Scaffold(
-          backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(topic.name.capitalize()),
             actions: [
@@ -59,13 +59,10 @@ class PlantPage extends StatelessWidget {
             ],
             bottom: PreferredSize(
               preferredSize: const Size(0, 50),
-              child: Padding(
+              child: AppBarThemed(Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: PlantProgressIndicator(
-                  topic.id,
-                  textColor: Colors.white,
-                ),
-              ),
+                child: PlantProgressIndicator(topic.id),
+              )),
             ),
           ),
           body: PlantView(
@@ -131,30 +128,27 @@ class _StudyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Consumer<ProgressData>(
-      builder: (context, progressData, child) {
-        var record = progressData.getProgressRecord(topic.id);
-        var reward = record.rewardAvailable;
-        var canMakeProgress = record.canMakeProgressToday;
+        builder: (context, progressData, child) {
+          var record = progressData.getProgressRecord(topic.id);
+          var reward = record.rewardAvailable;
+          var canMakeProgress = record.canMakeProgressToday;
 
-        return FloatingActionButton(
-          tooltip: 'Study',
-          child: Icon(reward
-              ? CustomIcons.sickle
-              : CustomIcons.water_drop),
-          backgroundColor: (canMakeProgress || reward)
-              ? Theme.of(context).accentColor
-              : Colors.grey[500],
-          onPressed: () {
-            if (reward) {
-              collectReward(context);
-            } else if (!canMakeProgress) {
-              openActivityDialog(context);
-            } else {
-              openActivity(context);
-            }
-          },
-        );
-      },
-    );
+          return FloatingActionButton(
+            tooltip: 'Study',
+            child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
+            backgroundColor: (canMakeProgress || reward)
+                ? Theme.of(context).accentColor
+                : Theme.of(context).disabledColor,
+            onPressed: () {
+              if (reward) {
+                collectReward(context);
+              } else if (!canMakeProgress) {
+                openActivityDialog(context);
+              } else {
+                openActivity(context);
+              }
+            },
+          );
+        },
+      );
 }
-

@@ -107,48 +107,55 @@ class _ChapterViewState extends State<ChapterView> {
     final chapterTitle =
         _ChapterAppBar(widget.reference, primary: widget.primaryAppBar);
 
-    return FutureBuilder(
-      future: _chapter,
-      builder: (context, snapshot) => Stack(
-        alignment: Alignment.center,
-        children: [
-          // Loading indicator
-          if (!snapshot.hasData && !snapshot.hasError)
-            CircularProgressIndicator(),
-          // Error message
-          if (snapshot.hasError)
-            Column(mainAxisSize: MainAxisSize.min, children: [
-              Icon(Icons.error),
-              Text(
-                'An error occurred.\n'
-                'Please exit and try again.',
-                textAlign: TextAlign.center,
-              ),
-            ]),
-          // Chapter text
-          CustomScrollView(slivers: [
-            chapterTitle,
-            if (snapshot.hasData)
-              SliverPadding(
-                padding: widget.padding,
-                sliver: SliverList(
-                  delegate: SliverChildListDelegate([
-                    Column(children: [
-                      for (var group in _VerseGroup.createList(
-                          snapshot.data as List<String>, widget.reference))
-                        _VerseGroupView(
-                          group,
-                          onHighlightChange: widget.onHighlightChange,
-                          key: group.startNumber == firstVerse
-                              ? _referenceKey
-                              : null,
-                        ),
-                    ]),
-                  ]),
+    return Theme(
+      data: Theme.of(context).copyWith(
+          textTheme: Theme.of(context).textTheme.apply(
+                fontFamily: 'Buenard',
+                fontSizeDelta: 5,
+              )),
+      child: FutureBuilder(
+        future: _chapter,
+        builder: (context, snapshot) => Stack(
+          alignment: Alignment.center,
+          children: [
+            // Loading indicator
+            if (!snapshot.hasData && !snapshot.hasError)
+              CircularProgressIndicator(),
+            // Error message
+            if (snapshot.hasError)
+              Column(mainAxisSize: MainAxisSize.min, children: [
+                Icon(Icons.error),
+                Text(
+                  'An error occurred.\n'
+                  'Please exit and try again.',
+                  textAlign: TextAlign.center,
                 ),
-              ),
-          ]),
-        ],
+              ]),
+            // Chapter text
+            CustomScrollView(slivers: [
+              chapterTitle,
+              if (snapshot.hasData)
+                SliverPadding(
+                  padding: widget.padding,
+                  sliver: SliverList(
+                    delegate: SliverChildListDelegate([
+                      Column(children: [
+                        for (var group in _VerseGroup.createList(
+                            snapshot.data as List<String>, widget.reference))
+                          _VerseGroupView(
+                            group,
+                            onHighlightChange: widget.onHighlightChange,
+                            key: group.startNumber == firstVerse
+                                ? _referenceKey
+                                : null,
+                          ),
+                      ]),
+                    ]),
+                  ),
+                ),
+            ]),
+          ],
+        ),
       ),
     );
   }
@@ -169,23 +176,17 @@ class _ChapterAppBar extends StatelessWidget {
         pinned: true,
         primary: primary,
         automaticallyImplyLeading: primary,
-        brightness: primary
-            ? AppBarTheme.of(context).brightness
-            : Theme.of(context).brightness,
-        backgroundColor: primary
-            ? Theme.of(context).primaryColor
-            : Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
+        backgroundColor:
+            primary ? null : Theme.of(context).scaffoldBackgroundColor,
+        foregroundColor:
+            primary ? null : Theme.of(context).colorScheme.onBackground,
+        iconTheme: primary ? null : Theme.of(context).iconTheme,
         centerTitle: true,
         titleSpacing: 4,
-        title: Text('${reference.book.title} ${reference.chapter}',
-            style: Theme.of(context).textTheme.headline5.copyWith(
-                fontFamily: 'Buenard', color: primary ? Colors.white : null)),
+        title: Text('${reference.book.title} ${reference.chapter}'),
         actions: [
           IconButton(
             icon: const Icon(Icons.open_in_new),
-            color: primary
-                ? Colors.white
-                : Theme.of(context).textTheme.headline5.color,
             tooltip: 'Open in Gospel Library',
             onPressed: reference.openInGospelLibrary,
           ),
@@ -213,11 +214,7 @@ class _VerseGroupView extends StatelessWidget {
       ),
       borderRadius: BorderRadius.circular(8.0),
     );
-
-    final verseStyle = DefaultTextStyle.of(context).style.copyWith(
-          fontFamily: 'Buenard',
-          fontSize: 20,
-        );
+    final textStyle = Theme.of(context).textTheme.bodyText1;
 
     return Container(
       foregroundDecoration: group.important ? referenceDecoration : null,
@@ -230,7 +227,7 @@ class _VerseGroupView extends StatelessWidget {
               child: HighlightTextSpan(
                 group.verses[i],
                 leadingText: '${i + group.startNumber}. ',
-                style: verseStyle,
+                style: textStyle,
                 onHighlightChange: (highlight, quote) => onHighlightChange
                     ?.call(i + group.startNumber, highlight, quote),
               ),

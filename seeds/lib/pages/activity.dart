@@ -173,7 +173,6 @@ class _ActivityPageState extends State<ActivityPage> {
                             RaisedButton.icon(
                               icon: Icon(Icons.settings),
                               label: Text('Settings'),
-                              textColor: Colors.white,
                               onPressed: () => Navigator.of(context)
                                   .popAndPushNamed('/settings'),
                             )
@@ -203,8 +202,8 @@ class _ActivityPageState extends State<ActivityPage> {
                     duration: const Duration(milliseconds: 200),
                     tween: ColorTween(
                       end: stageCompleted
-                          ? (Theme.of(context).accentColor)
-                          : Colors.grey[500],
+                          ? Theme.of(context).accentColor
+                          : Theme.of(context).disabledColor,
                     ),
                     builder: (context, color, child) => FloatingActionButton(
                       child: AnimatedSwitcher(
@@ -212,7 +211,7 @@ class _ActivityPageState extends State<ActivityPage> {
                         child: icon,
                       ),
                       backgroundColor: color,
-                      disabledElevation: 1,
+                      disabledElevation: 2,
                       onPressed:
                           stageCompleted ? () => nextStage(activity) : null,
                     ),

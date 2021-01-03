@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,6 +26,9 @@ class CustomThemeData {
       errorColor: Colors.red[600],
       brightness: Brightness.dark,
     );
+
+    // Typography
+    final typography = Typography.material2014(platform: defaultTargetPlatform);
 
     // System Overlay
     final systemOverlayLight = SystemUiOverlayStyle(
@@ -79,6 +83,7 @@ class CustomThemeData {
 
     // Button Theme
     final buttonTheme = ButtonThemeData(
+      textTheme: ButtonTextTheme.primary,
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
@@ -96,8 +101,12 @@ class CustomThemeData {
     );
 
     // ThemeData
-    final light = ThemeData.from(colorScheme: colorsLight).copyWith(
+    final light = ThemeData.from(
+      colorScheme: colorsLight,
+      textTheme: typography.black,
+    ).copyWith(
       toggleableActiveColor: colorsLight.primary,
+      disabledColor: Colors.grey[500],
       appBarTheme: appBarThemeLight,
       bottomAppBarTheme: bottomAppBarThemeLight,
       dialogTheme: dialogThemeLight,
@@ -105,8 +114,12 @@ class CustomThemeData {
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,
     );
-    final dark = ThemeData.from(colorScheme: colorsDark).copyWith(
+    final dark = ThemeData.from(
+      colorScheme: colorsDark,
+      textTheme: typography.white,
+    ).copyWith(
       toggleableActiveColor: colorsDark.primary,
+      disabledColor: Colors.grey[500],
       appBarTheme: appBarThemeDark,
       bottomAppBarTheme: bottomAppBarThemeDark,
       dialogTheme: dialogThemeDark,

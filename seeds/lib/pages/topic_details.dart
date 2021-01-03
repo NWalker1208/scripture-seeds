@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/app_bar_themed.dart';
 
 import '../extensions/string.dart';
 import '../services/data/progress.dart';
@@ -182,19 +183,14 @@ class _PurchasePlantButton extends StatelessWidget {
   Widget build(BuildContext context) => Consumer<ProgressData>(
         builder: (context, progress, child) {
           var purchased = progress.recordNames.contains(topic.id);
-          return IconTheme.merge(
-            data: IconThemeData(color: Colors.white),
-            child: ActionChip(
+          return AppBarThemed(
+            ActionChip(
               elevation: 6,
               pressElevation: 12,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              visualDensity: VisualDensity(
-                vertical: VisualDensity.maximumDensity,
-              ),
+              visualDensity:
+                  VisualDensity(vertical: VisualDensity.maximumDensity),
               backgroundColor: Theme.of(context).primaryColor,
-              labelStyle: DefaultTextStyle.of(context)
-                  .style
-                  .copyWith(color: Colors.white),
               label: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

@@ -6,11 +6,9 @@ import '../../services/data/progress.dart';
 
 class PlantProgressIndicator extends StatefulWidget {
   final String plantName;
-  final Color textColor;
 
   PlantProgressIndicator(
     this.plantName, {
-    this.textColor,
     Key key,
   }) : super(key: key);
 
@@ -30,36 +28,33 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<ProgressData>(
-        builder: (context, progressData, child) {
-          var record = progressData.getProgressRecord(widget.plantName);
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final progressColor = theme.colorScheme.onPrimary;
+    final backgroundColor = theme.colorScheme.onSurface;
 
-          return TweenAnimationBuilder<double>(
-            tween: Tween<double>(
-              begin: initialProgress,
-              end: record.progressPercent,
-            ),
-            duration: Duration(milliseconds: 1000),
-            curve: Curves.easeInOutCubic,
-            builder: (context, percent, child) => LinearPercentIndicator(
-              backgroundColor: Theme.of(context).brightness == Brightness.light
-                  ? Colors.black.withAlpha(50)
-                  : Colors.green.withAlpha(50),
-              progressColor: Theme.of(context).brightness == Brightness.light
-                  ? Colors.white
-                  : Colors.green,
-              linearStrokeCap: LinearStrokeCap.roundAll,
-              animation: false,
-              leading: Text(
-                '${(percent * 100).round()} %',
-                style: DefaultTextStyle.of(context)
-                    .style
-                    .copyWith(color: widget.textColor),
-              ),
-              trailing: Icon(Icons.flag, color: widget.textColor),
-              percent: percent,
-            ),
-          );
-        },
-      );
+    return Consumer<ProgressData>(
+      builder: (context, progressData, child) {
+        var record = progressData.getProgressRecord(widget.plantName);
+
+        return TweenAnimationBuilder<double>(
+          tween: Tween<double>(
+            begin: initialProgress,
+            end: record.progressPercent,
+          ),
+          duration: Duration(milliseconds: 1000),
+          curve: Curves.easeInOutCubic,
+          builder: (context, percent, child) => LinearPercentIndicator(
+            backgroundColor: backgroundColor.withAlpha(50),
+            progressColor: progressColor,
+            linearStrokeCap: LinearStrokeCap.roundAll,
+            animation: false,
+            leading: Text('${(percent * 100).round()} %'),
+            trailing: Icon(Icons.flag),
+            percent: percent,
+          ),
+        );
+      },
+    );
+  }
 }

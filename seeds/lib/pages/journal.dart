@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/app_bar_themed.dart';
 
 import '../extensions/string.dart';
 import '../services/data/journal.dart';
@@ -81,43 +82,28 @@ class _JournalPageState extends State<JournalPage> {
             ],
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(50),
-              child: ListTileTheme(
-                textColor: Colors.white,
-                child: ListTile(
-                  title: const Text('Topic'),
-                  trailing: Consumer<JournalData>(
-                    builder: (context, journal, child) =>
-                        DropdownButton<String>(
-                      value: filter ?? 'all_topics',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .copyWith(color: Colors.white),
-                      dropdownColor: Theme.of(context).primaryColor,
-                      iconEnabledColor: Colors.white,
-                      onChanged: (topic) => setState(() {
-                        if (topic == 'all_topics') {
-                          filter = null;
-                        } else {
-                          filter = topic;
-                        }
-                      }),
-                      items: [
-                        const DropdownMenuItem<String>(
-                          value: 'all_topics',
-                          child: Text('All'),
-                        ),
-                        ...journal.topics.map(
-                          (topic) => DropdownMenuItem<String>(
-                            value: topic,
-                            child: Text(topic.capitalize()),
-                          ),
-                        )
-                      ],
-                    ),
+              child: AppBarThemed(ListTile(
+                title: const Text('Topic'),
+                trailing: Consumer<JournalData>(
+                  builder: (_, journal, child) => DropdownButton<String>(
+                    value: filter ?? 'all_topics',
+                    onChanged: (topic) => setState(() {
+                      if (topic == 'all_topics') {
+                        filter = null;
+                      } else {
+                        filter = topic;
+                      }
+                    }),
+                    items: [
+                      const DropdownMenuItem<String>(
+                          value: 'all_topics', child: Text('All')),
+                      for (var topic in journal.topics)
+                        DropdownMenuItem<String>(
+                            value: topic, child: Text(topic.capitalize()))
+                    ],
                   ),
                 ),
-              ),
+              )),
             ),
           ),
           body: Consumer<JournalData>(
@@ -204,8 +190,9 @@ class _JournalPageState extends State<JournalPage> {
               : FloatingActionButton(
                   child: const Icon(Icons.delete),
                   backgroundColor: selected.isEmpty
-                      ? Colors.grey[500]
+                      ? Theme.of(context).disabledColor
                       : Theme.of(context).accentColor,
+                  disabledElevation: 2,
                   onPressed: selected.isEmpty ? null : deleteSelected,
                 ),
         ),

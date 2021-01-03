@@ -31,10 +31,7 @@ class PlantList extends StatelessWidget {
                 if (record.id == currentlyOpen) onPressed = null;
 
                 // Choose a color based on the theme
-                var selectedColor =
-                    Theme.of(context).brightness == Brightness.light
-                        ? Colors.green[800]
-                        : Colors.green[300];
+                var selectedColor = Theme.of(context).colorScheme.primaryVariant;
 
                 return FlatButton(
                   disabledTextColor: selectedColor,

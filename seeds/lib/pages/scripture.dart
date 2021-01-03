@@ -9,7 +9,6 @@ class ScripturePage extends StatelessWidget {
   const ScripturePage(this.reference, {Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: ChapterView(reference, primaryAppBar: true),
-      );
+  Widget build(BuildContext context) =>
+      Scaffold(body: ChapterView(reference, primaryAppBar: true));
 }
