@@ -46,7 +46,9 @@ class PonderActivity extends StatelessWidget {
                     hintText: '${topic.name.capitalize()}...',
                     counterText: '$wordCount/$minWords words',
                     counterStyle: DefaultTextStyle.of(context).style.copyWith(
-                        color: (wordCount < minWords) ? Theme.of(context).errorColor : null),
+                        color: (wordCount < minWords)
+                            ? Theme.of(context).errorColor
+                            : null),
                   ),
                 );
               },

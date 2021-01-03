@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/widgets/app_bar_themed.dart';
 
 import '../extensions/string.dart';
 import '../services/data/journal.dart';
 import '../widgets/animation/appear_transition.dart';
 import '../widgets/animation/list.dart';
+import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/erase_journal_entry.dart';
 import '../widgets/journal_entry.dart';
 
