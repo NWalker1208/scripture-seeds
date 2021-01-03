@@ -37,24 +37,27 @@ class DataManagementSettings extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Row(
-        children: [
-          Expanded(
-            child: ListTile(
-              leading: const Icon(Icons.delete_forever),
-              title: const Text('Erase Journal'),
-              tileColor: Theme.of(context).errorColor.withOpacity(0.8),
-              onTap: () => _eraseJournal(context),
+  Widget build(BuildContext context) => ListTileTheme.merge(
+        iconColor: Theme.of(context).primaryIconTheme.color,
+        textColor: Theme.of(context).colorScheme.onPrimary,
+        tileColor: Theme.of(context).errorColor.withOpacity(0.95),
+        child: Row(
+          children: [
+            Expanded(
+              child: ListTile(
+                leading: const Icon(Icons.delete_forever),
+                title: const Text('Erase Journal'),
+                onTap: () => _eraseJournal(context),
+              ),
             ),
-          ),
-          Expanded(
-            child: ListTile(
-              leading: const Icon(Icons.undo_rounded),
-              title: const Text('Reset Progress'),
-              tileColor: Theme.of(context).errorColor.withOpacity(0.8),
-              onTap: () => _resetProgress(context),
+            Expanded(
+              child: ListTile(
+                leading: const Icon(Icons.undo_rounded),
+                title: const Text('Reset Progress'),
+                onTap: () => _resetProgress(context),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
 }
