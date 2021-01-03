@@ -81,11 +81,35 @@ class CustomThemeData {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
 
+    // Text Selection Theme
+    final textSelectionThemeLight = TextSelectionThemeData(
+      cursorColor: Colors.green,
+      selectionColor: Colors.green[300],
+      selectionHandleColor: Colors.green,
+    );
+    final textSelectionThemeDark = TextSelectionThemeData(
+      cursorColor: Colors.green,
+      selectionColor: Colors.green[700],
+      selectionHandleColor: Colors.green,
+    );
+
     // Button Theme
     final buttonTheme = ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    );
+
+    // Input Decoration Theme
+    final inputTheme = InputDecorationTheme(
+      contentPadding: EdgeInsets.all(12),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: Colors.green, width: 2.5),
+      ),
     );
 
     // Card Theme
@@ -110,7 +134,9 @@ class CustomThemeData {
       appBarTheme: appBarThemeLight,
       bottomAppBarTheme: bottomAppBarThemeLight,
       dialogTheme: dialogThemeLight,
+      textSelectionTheme: textSelectionThemeLight,
       buttonTheme: buttonTheme,
+      inputDecorationTheme: inputTheme,
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,
     );
@@ -123,7 +149,9 @@ class CustomThemeData {
       appBarTheme: appBarThemeDark,
       bottomAppBarTheme: bottomAppBarThemeDark,
       dialogTheme: dialogThemeDark,
+      textSelectionTheme: textSelectionThemeDark,
       buttonTheme: buttonTheme,
+      inputDecorationTheme: inputTheme,
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,
     );

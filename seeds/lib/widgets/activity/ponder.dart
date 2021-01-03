@@ -40,12 +40,9 @@ class PonderActivity extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   maxLines: null,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(12),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
                     hintText: '${topic.name.capitalize()}...',
                     counterText: '$wordCount/$minWords words',
-                    counterStyle: DefaultTextStyle.of(context).style.copyWith(
+                    counterStyle: Theme.of(context).textTheme.caption.copyWith(
                         color: (wordCount < minWords)
                             ? Theme.of(context).errorColor
                             : null),
