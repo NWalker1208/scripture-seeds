@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:seeds/widgets/app_bar_themed.dart';
 
+import '../app_bar_themed.dart';
 import '../dialogs/erase_journal.dart';
 import '../dialogs/reset_progress.dart';
 

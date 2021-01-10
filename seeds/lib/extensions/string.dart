@@ -38,7 +38,12 @@ extension StringExtension on String {
   // Returns true if this string can be parsed to a double
   bool get isNumeric => double.tryParse(this ?? '') != null;
 
+  // RegExp for finding letters
+  static final _letter = RegExp(r'[a-z]', caseSensitive: false);
+
+  // Returns true if this string is purely letters
+  bool get isAlpha => _letter.allMatches(this).length == length;
+
   // Returns true if this string contains a letter from A-Z (case insensitive).
-  static final _containsLetter = RegExp(r'.*[a-zA-Z].*');
-  bool get containsLetter => _containsLetter.hasMatch(this);
+  bool get containsLetter => _letter.hasMatch(this);
 }

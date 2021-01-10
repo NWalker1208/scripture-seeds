@@ -32,16 +32,19 @@ class JournalEntryView extends StatelessWidget {
                     RichText(
                       text: TextSpan(
                         text: '\u{201C}${entry.quote}\u{201D}',
-                        style: DefaultTextStyle.of(context)
-                            .style
-                            .copyWith(height: 1.5, fontStyle: FontStyle.italic),
+                        style: DefaultTextStyle.of(context).style.copyWith(
+                              height: 1.5,
+                              fontStyle: FontStyle.italic,
+                            ),
                         children: [
                           if (entry.quote != entry.reference)
-                            WidgetSpan(
-                              child: Text(' \u{2013} ${entry.reference}',
-                                  style: DefaultTextStyle.of(context)
-                                      .style
-                                      .copyWith(height: 1.5)),
+                            TextSpan(
+                              text: ' \u{2013} ${entry.reference}',
+                              style:
+                                  DefaultTextStyle.of(context).style.copyWith(
+                                        height: 1.5,
+                                        fontStyle: FontStyle.normal,
+                                      ),
                             )
                         ],
                       ),

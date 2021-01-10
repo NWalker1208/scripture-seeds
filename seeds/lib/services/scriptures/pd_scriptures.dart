@@ -107,7 +107,7 @@ class PublicDomainScriptures extends ScriptureDatabase {
   @override
   Future<String> loadVerseText(Book book, int chapter, int verse) async {
     var db = await _db;
-    return (await db.query(
+    final text = (await db.query(
       _verseTable,
       columns: [_verseText],
       where: '$_verseId=?',
@@ -115,6 +115,7 @@ class PublicDomainScriptures extends ScriptureDatabase {
       limit: 1,
     ))
         .first[_verseText] as String;
+    return text.replaceAll('\n', '').replaceAll('--', '\u{2013}');
   }
 
   Future<File> _createTempDatabaseCopy() async {

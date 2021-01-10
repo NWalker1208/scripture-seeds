@@ -3,40 +3,38 @@ import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
 import '../../services/topics/reference.dart';
-import '../highlight/chapter.dart';
+import '../scriptures/chapter.dart';
 
 class StudyActivity extends StatefulWidget {
-  final Reference reference;
-
   const StudyActivity(this.reference, {Key key}) : super(key: key);
+
+  final Reference reference;
 
   @override
   _StudyActivityState createState() => _StudyActivityState();
 }
 
+class _VerseQuote {
+  final String quote;
+  bool get hasHighlight => (quote?.length ?? 0) > 0;
+
+  _VerseQuote(this.quote);
+}
+
 class _StudyActivityState extends State<StudyActivity> {
-  Map<int, String> _quotes;
-  Map<int, List<bool>> _highlights;
+  Map<int, _VerseQuote> _verses;
 
   String getSharableQuote() => widget.reference.verses
-      .map((verse) => _quotes[verse])
+      .map((verse) => _verses[verse]?.quote)
       .where((str) => str != null)
       .join(' ')
       .replaceAll('... ...', '...');
 
-  bool checkCompleted() {
-    for (var verse in widget.reference.verses) {
-      for (var word in _highlights[verse] ?? <bool>[]) {
-        if (word) return true;
-      }
-    }
+  bool checkCompleted() =>
+      widget.reference.verses.any((v) => _verses[v]?.hasHighlight ?? false);
 
-    return false;
-  }
-
-  void updateHighlight(int verse, List<bool> highlight, String quote) {
-    _quotes[verse] = quote;
-    _highlights[verse] = highlight;
+  void onHighlightChange(int verse, String quote) {
+    _verses[verse] = _VerseQuote(quote);
     updateQuote();
   }
 
@@ -48,16 +46,14 @@ class _StudyActivityState extends State<StudyActivity> {
 
   @override
   void initState() {
-    _quotes = <int, String>{};
-    _highlights = <int, List<bool>>{};
+    _verses = <int, _VerseQuote>{};
     super.initState();
   }
 
   @override
   void didUpdateWidget(StudyActivity oldWidget) {
     if (oldWidget.reference != widget.reference) {
-      _quotes = <int, String>{};
-      _highlights = <int, List<bool>>{};
+      _verses = <int, _VerseQuote>{};
       updateQuote();
     }
     super.didUpdateWidget(oldWidget);
@@ -66,7 +62,7 @@ class _StudyActivityState extends State<StudyActivity> {
   @override
   Widget build(BuildContext context) => ChapterView(
         widget.reference,
-        onHighlightChange: updateHighlight,
+        onHighlightChange: onHighlightChange,
         padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 80.0),
       );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'word.dart';
+import 'word_old.dart';
 
 class HighlightTextSpan extends StatefulWidget {
   final String text;
@@ -23,7 +23,7 @@ class HighlightTextSpan extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  HighlightTextSpanState createState() => HighlightTextSpanState();
+  _HighlightTextSpanState createState() => _HighlightTextSpanState();
 }
 
 class _WordState {
@@ -38,15 +38,13 @@ class _WordState {
       text.split(' ').map((t) => _WordState(t)).toList();
 }
 
-class HighlightTextSpanState extends State<HighlightTextSpan>
+class _HighlightTextSpanState extends State<HighlightTextSpan>
     with AutomaticKeepAliveClientMixin {
   List<_WordState> _words;
 
   bool _selectionAction;
   int _selectionStart;
   int _selectionEnd;
-
-  List<String> get words => _words.map((word) => word.text).toList();
 
   String getSharableQuote() {
     var quote = '';

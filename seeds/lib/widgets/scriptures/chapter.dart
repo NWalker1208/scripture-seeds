@@ -4,13 +4,12 @@ import 'package:provider/provider.dart';
 import '../../services/scriptures/books.dart';
 import '../../services/scriptures/database.dart';
 import '../../services/topics/reference.dart';
-import 'span.dart';
+import 'verse.dart';
 
 class ChapterView extends StatefulWidget {
   final Reference reference;
   final bool scrollToReference;
-  final void Function(int verse, List<bool> highlight, String quote)
-      onHighlightChange;
+  final VerseHighlightChangeHandler onHighlightChange;
   final EdgeInsets padding;
   final bool primaryAppBar;
 
@@ -35,19 +34,17 @@ class _VerseGroup {
   _VerseGroup({this.important, this.startNumber, this.verses});
 
   static List<_VerseGroup> createList(
-    List<String> allVerses,
-    Reference reference,
-  ) {
+      List<String> chapter, Reference reference) {
     var groups = <_VerseGroup>[];
 
-    for (var i = 0; i < allVerses.length;) {
+    for (var i = 0; i < chapter.length;) {
       var startNumber = i + 1;
       var important = reference.verses.contains(i + 1);
       var verses = <String>[];
 
-      while (reference.verses.contains(i + 1) == important &&
-          i < allVerses.length) {
-        verses.add(allVerses[i]);
+      while (
+          reference.verses.contains(i + 1) == important && i < chapter.length) {
+        verses.add(chapter[i]);
         i++;
       }
 
@@ -101,11 +98,39 @@ class _ChapterViewState extends State<ChapterView> {
     super.didUpdateWidget(oldWidget);
   }
 
+  Widget _buildAppBar(BuildContext context) {
+    final primary = widget.primaryAppBar;
+    return SliverAppBar(
+      pinned: true,
+      primary: primary,
+      automaticallyImplyLeading: primary,
+      backgroundColor:
+          primary ? null : Theme.of(context).scaffoldBackgroundColor,
+      foregroundColor:
+          primary ? null : Theme.of(context).colorScheme.onBackground,
+      iconTheme: primary ? null : Theme.of(context).iconTheme,
+      centerTitle: true,
+      titleSpacing: 4,
+      title: Text('${widget.reference.book.title} ${widget.reference.chapter}'),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.open_in_new),
+          tooltip: 'Open in Gospel Library',
+          onPressed: widget.reference.openInGospelLibrary,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final firstVerse = widget.reference.verses.first;
-    final chapterTitle =
-        _ChapterAppBar(widget.reference, primary: widget.primaryAppBar);
+    final chapterTitle = _buildAppBar(context);
+
+    final referenceDecoration = BoxDecoration(
+      border: Border.all(color: Theme.of(context).accentColor, width: 4.0),
+      borderRadius: BorderRadius.circular(8.0),
+    );
 
     return Theme(
       data: Theme.of(context).copyWith(
@@ -142,12 +167,27 @@ class _ChapterViewState extends State<ChapterView> {
                       Column(children: [
                         for (var group in _VerseGroup.createList(
                             snapshot.data as List<String>, widget.reference))
-                          _VerseGroupView(
-                            group,
-                            onHighlightChange: widget.onHighlightChange,
+                          Container(
                             key: group.startNumber == firstVerse
                                 ? _referenceKey
                                 : null,
+                            foregroundDecoration:
+                                group.important ? referenceDecoration : null,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                for (var i = 0; i < group.verses.length; i++)
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: VerseView(
+                                      i + group.startNumber,
+                                      group.verses[i],
+                                      onHighlightChange:
+                                          widget.onHighlightChange,
+                                    ),
+                                  ),
+                              ],
+                            ),
                           ),
                       ]),
                     ]),
@@ -156,83 +196,6 @@ class _ChapterViewState extends State<ChapterView> {
             ]),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _ChapterAppBar extends StatelessWidget {
-  final Reference reference;
-  final bool primary;
-
-  const _ChapterAppBar(
-    this.reference, {
-    this.primary = true,
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) => SliverAppBar(
-        pinned: true,
-        primary: primary,
-        automaticallyImplyLeading: primary,
-        backgroundColor:
-            primary ? null : Theme.of(context).scaffoldBackgroundColor,
-        foregroundColor:
-            primary ? null : Theme.of(context).colorScheme.onBackground,
-        iconTheme: primary ? null : Theme.of(context).iconTheme,
-        centerTitle: true,
-        titleSpacing: 4,
-        title: Text('${reference.book.title} ${reference.chapter}'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.open_in_new),
-            tooltip: 'Open in Gospel Library',
-            onPressed: reference.openInGospelLibrary,
-          ),
-        ],
-      );
-}
-
-class _VerseGroupView extends StatelessWidget {
-  final _VerseGroup group;
-  final void Function(int verse, List<bool> highlight, String quote)
-      onHighlightChange;
-
-  _VerseGroupView(
-    this.group, {
-    this.onHighlightChange,
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final referenceDecoration = BoxDecoration(
-      border: Border.all(
-        color: Theme.of(context).accentColor,
-        width: 4.0,
-      ),
-      borderRadius: BorderRadius.circular(8.0),
-    );
-    final textStyle = Theme.of(context).textTheme.bodyText1;
-
-    return Container(
-      foregroundDecoration: group.important ? referenceDecoration : null,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          for (var i = 0; i < group.verses.length; i++)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: HighlightTextSpan(
-                group.verses[i],
-                leadingText: '${i + group.startNumber}. ',
-                style: textStyle,
-                onHighlightChange: (highlight, quote) => onHighlightChange
-                    ?.call(i + group.startNumber, highlight, quote),
-              ),
-            ),
-        ],
       ),
     );
   }

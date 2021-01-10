@@ -1,134 +1,69 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
-class HighlightTextWord extends StatefulWidget {
-  final String text;
-  final bool highlighted;
-  final bool selected;
-  final bool leftNeighbor;
-  final bool rightNeighbor;
-  final Color backgroundColor;
-  final Color highlightColor;
-  final TextStyle style;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
 
-  HighlightTextWord(
-    this.text, {
-    this.highlighted = false,
-    this.selected = false,
-    this.leftNeighbor = false,
-    this.rightNeighbor = false,
-    this.backgroundColor,
-    this.highlightColor,
-    this.style,
-    Key key,
-  }) : super(key: key);
+import '../../extensions/string.dart';
 
-  @override
-  _HighlightTextWordState createState() => _HighlightTextWordState();
-}
+class Word {
+  final TextRange range;
+  bool highlighted;
 
-class _HighlightTextWordState extends State<HighlightTextWord>
-    with TickerProviderStateMixin {
-  bool _highlightVisible;
-  AnimationController _highlightController;
+  Word._(this.range, {this.highlighted = false});
 
-  @override
-  void initState() {
-    _highlightVisible = widget.highlighted || widget.selected;
-    _highlightController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 200),
-      value: widget.selected ? 0.5 : (widget.highlighted ? 1 : 0),
-    );
-    super.initState();
-  }
+  static Iterable<Word> fromString(String text) {
+    var words = <Word>[];
+    int start;
 
-  @override
-  void dispose() {
-    _highlightController.dispose();
-    super.dispose();
-  }
+    for (var i = 0; i <= text.length; i++) {
+      var char = i < text.length ? text[i] : '';
 
-  @override
-  void didUpdateWidget(HighlightTextWord oldWidget) {
-    if (widget.selected) {
-      if (!_highlightVisible) setState(() => _highlightVisible = true);
-      if (!oldWidget.selected) _highlightController.animateTo(0.5);
-    } else if (widget.highlighted) {
-      if (!_highlightVisible) setState(() => _highlightVisible = true);
-      if (oldWidget.selected || !oldWidget.highlighted) {
-        _highlightController.animateTo(1);
-      }
-    } else {
-      if (oldWidget.selected || oldWidget.highlighted) {
-        _highlightController.animateTo(0).then((_) {
-          if (_highlightVisible) setState(() => _highlightVisible = false);
-        });
+      if (char.containsLetter) {
+        start ??= i;
+      } else {
+        if (start != null) {
+          words.add(Word._(TextRange(start: start, end: i)));
+          start = null;
+        }
       }
     }
 
-    super.didUpdateWidget(oldWidget);
+    return words;
   }
 
   @override
-  Widget build(BuildContext context) {
-    var backgroundColor =
-        widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
-    var highlightColor = widget.highlightColor ??
-        Theme.of(context).textSelectionTheme.selectionColor;
-    var style = widget.style ?? DefaultTextStyle.of(context).style;
+  String toString() => '$range [$highlighted]';
+}
 
-    var animation = CurvedAnimation(
-      parent: _highlightController,
-      curve: Curves.easeInOut,
-    );
+@immutable
+class WordSelection {
+  final Word start;
+  final Word end;
 
-    return Stack(
-      children: <Widget>[
-        // Highlight box
-        if (_highlightVisible)
-          Positioned.fill(
-            child: Transform.scale(
-              scale: 1.01,
-              child: AnimatedBuilder(
-                animation: animation,
-                builder: (context, child) {
-                  var color = Color.lerp(
-                      backgroundColor, highlightColor, animation.value);
+  const WordSelection(this.start, this.end);
 
-                  // Set corner radius based on if neighbors are active
-                  var leftRadius = widget.leftNeighbor ? 0.0 : 6.0;
-                  var rightRadius = widget.rightNeighbor ? 0.0 : 6.0;
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is WordSelection && other.start == start && other.end == end;
+  }
 
-                  // Animation builders for left and right corners of
-                  // rounded highlight rectangle
-                  return TweenAnimationBuilder<double>(
-                    tween: Tween(end: leftRadius),
-                    duration: const Duration(milliseconds: 200),
-                    builder: (_, left, __) => TweenAnimationBuilder<double>(
-                      tween: Tween(end: rightRadius),
-                      duration: const Duration(milliseconds: 200),
-                      builder: (_, right, __) => Container(
-                        decoration: BoxDecoration(
-                          color: color,
-                          borderRadius: BorderRadius.horizontal(
-                            left: Radius.circular(left),
-                            right: Radius.circular(right),
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
+  @override
+  int get hashCode => hashValues(start.hashCode, end.hashCode);
+}
 
-        // Text of word
-        Padding(
-          padding: const EdgeInsets.fromLTRB(2, 0, 2, 2),
-          child: Text(widget.text, style: style),
-        )
-      ],
-    );
+extension IterableExtension on Iterable<Word> {
+  Word atPosition(TextPosition position) {
+    if (position == null) return null;
+    var offset = position.offset;
+    return firstWhere((word) => offset <= word.range.end, orElse: () => last);
+  }
+}
+
+extension SelectionExtension on TextSelection {
+  WordSelection toWordSelection(Iterable<Word> words) {
+    final start = baseOffset <= extentOffset ? base : extent;
+    final end = baseOffset <= extentOffset ? extent : base;
+    return WordSelection(words.atPosition(start), words.atPosition(end));
   }
 }

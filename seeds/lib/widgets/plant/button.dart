@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/widgets/app_bar_themed.dart';
 
 import '../../services/data/progress.dart';
+import '../app_bar_themed.dart';
 import 'status.dart';
 import 'view.dart';
 
