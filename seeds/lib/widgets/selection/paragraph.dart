@@ -12,6 +12,7 @@ class SelectionParagraph extends RichText {
     @required InlineSpan text,
     Iterable<SelectionDecoration> selections = const [],
     TextAlign textAlign = TextAlign.start,
+    TextHeightBehavior textHeightBehavior,
     double textScaleFactor = 1.0,
     Key key,
   })  : _selections = selections.toBuiltList(),
@@ -19,6 +20,7 @@ class SelectionParagraph extends RichText {
           key: key,
           text: text,
           textAlign: textAlign,
+          textHeightBehavior: textHeightBehavior,
           textScaleFactor: textScaleFactor,
         );
 
@@ -31,6 +33,7 @@ class SelectionParagraph extends RichText {
         text: text,
         selections: selections,
         textAlign: textAlign,
+        textHeightBehavior: textHeightBehavior,
         textScaleFactor: textScaleFactor,
         textDirection: Directionality.of(context),
         locale: Localizations.localeOf(context, nullOk: true),
@@ -43,6 +46,7 @@ class SelectionParagraph extends RichText {
         ..text = text
         ..selections = selections
         ..textAlign = textAlign
+        ..textHeightBehavior = textHeightBehavior
         ..textScaleFactor = textScaleFactor
         ..textDirection = Directionality.of(context)
         ..locale = Localizations.localeOf(context, nullOk: true);

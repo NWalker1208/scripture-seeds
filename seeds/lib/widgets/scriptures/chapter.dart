@@ -134,10 +134,10 @@ class _ChapterViewState extends State<ChapterView> {
 
     return Theme(
       data: Theme.of(context).copyWith(
-          textTheme: Theme.of(context).textTheme.apply(
-                fontFamily: 'Buenard',
-                fontSizeDelta: 5,
-              )),
+        textTheme: Theme.of(context)
+            .textTheme
+            .apply(fontFamily: 'Buenard', fontSizeDelta: 5),
+      ),
       child: FutureBuilder(
         future: _chapter,
         builder: (context, snapshot) => Stack(
@@ -168,6 +168,8 @@ class _ChapterViewState extends State<ChapterView> {
                         for (var group in _VerseGroup.createList(
                             snapshot.data as List<String>, widget.reference))
                           Container(
+                            margin: const EdgeInsets.only(top: 4.0),
+                            padding: const EdgeInsets.all(2.0),
                             key: group.startNumber == firstVerse
                                 ? _referenceKey
                                 : null,
@@ -178,7 +180,7 @@ class _ChapterViewState extends State<ChapterView> {
                               children: [
                                 for (var i = 0; i < group.verses.length; i++)
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(6.0),
                                     child: VerseView(
                                       i + group.startNumber,
                                       group.verses[i],

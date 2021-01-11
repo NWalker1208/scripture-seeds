@@ -36,6 +36,7 @@ class RenderSelectionParagraph extends RenderParagraph {
     InlineSpan text,
     Iterable<SelectionDecoration> selections,
     TextAlign textAlign = TextAlign.start,
+    TextHeightBehavior textHeightBehavior,
     double textScaleFactor = 1.0,
     @required TextDirection textDirection,
     Locale locale,
@@ -43,6 +44,7 @@ class RenderSelectionParagraph extends RenderParagraph {
         super(
           text,
           textAlign: textAlign,
+          textHeightBehavior: textHeightBehavior,
           textScaleFactor: textScaleFactor,
           textDirection: textDirection,
           locale: locale,

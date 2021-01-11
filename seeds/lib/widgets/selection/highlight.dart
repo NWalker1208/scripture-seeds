@@ -16,6 +16,9 @@ class HighlightParagraph extends StatefulWidget {
   const HighlightParagraph({
     @required this.text,
     this.style,
+    this.textAlign = TextAlign.start,
+    this.textHeightBehavior,
+    this.textScaleFactor = 1.0,
     this.highlightColor,
     this.highlightShape,
     this.onHighlightChange,
@@ -24,6 +27,9 @@ class HighlightParagraph extends StatefulWidget {
 
   final String text;
   final TextStyle style;
+  final TextAlign textAlign;
+  final TextHeightBehavior textHeightBehavior;
+  final double textScaleFactor;
   final Color highlightColor;
   final ShapeBorder highlightShape;
   final HighlightChangeHandler onHighlightChange;
@@ -122,7 +128,9 @@ class HighlightParagraphState extends State<HighlightParagraph>
 
   @override
   void didUpdateWidget(HighlightParagraph oldWidget) {
-    _words = Word.fromString(widget.text).toBuiltList();
+    if (oldWidget.text != widget.text) {
+      _words = Word.fromString(widget.text).toBuiltList();
+    }
     super.didUpdateWidget(oldWidget);
   }
 
@@ -147,6 +155,9 @@ class HighlightParagraphState extends State<HighlightParagraph>
       child: SelectionParagraph(
         key: _paragraphKey,
         text: TextSpan(text: '${widget.text}', style: style),
+        textAlign: widget.textAlign,
+        textHeightBehavior: widget.textHeightBehavior,
+        textScaleFactor: widget.textScaleFactor,
         selections: [
           for (var highlight in _getHighlights())
             SelectionDecoration(

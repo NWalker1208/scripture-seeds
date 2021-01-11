@@ -10,6 +10,7 @@ class VerseView extends StatelessWidget {
     this.number,
     this.text, {
     this.style,
+    this.height = 1.6,
     this.onHighlightChange,
     Key key,
   }) : super(key: key);
@@ -17,6 +18,7 @@ class VerseView extends StatelessWidget {
   final int number;
   final String text;
   final TextStyle style;
+  final double height;
   final VerseHighlightChangeHandler onHighlightChange;
 
   String _getQuote(Iterable<Word> words) {
@@ -42,11 +44,18 @@ class VerseView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _style = style ?? Theme.of(context).textTheme.bodyText1;
+    final _style = style ??
+        Theme.of(context).textTheme.bodyText1.copyWith(
+              height: height,
+            );
 
     return HighlightParagraph(
       text: '$number. $text',
       style: _style,
+      textHeightBehavior: const TextHeightBehavior(
+        applyHeightToFirstAscent: false,
+        applyHeightToLastDescent: false,
+      ),
       highlightShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(4.0))),
       onHighlightChange: (words) {
