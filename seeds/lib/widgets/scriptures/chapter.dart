@@ -128,7 +128,7 @@ class _ChapterViewState extends State<ChapterView> {
     final chapterTitle = _buildAppBar(context);
 
     final referenceDecoration = BoxDecoration(
-      border: Border.all(color: Theme.of(context).accentColor, width: 4.0),
+      border: Border.all(color: Theme.of(context).primaryColor, width: 4.0),
       borderRadius: BorderRadius.circular(8.0),
     );
 
