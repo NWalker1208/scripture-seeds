@@ -39,7 +39,7 @@ class DataManagementSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListTileTheme.merge(
-        tileColor: Theme.of(context).errorColor.withOpacity(0.95),
+        tileColor: Theme.of(context).errorColor,
         child: AppBarThemed(Row(
           children: [
             Expanded(
