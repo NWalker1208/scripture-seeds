@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../highlight/paragraph.dart';
-import '../highlight/word.dart';
+import '../selection/highlight.dart';
+import '../selection/word.dart';
 
 typedef VerseHighlightChangeHandler = Function(int verse, String quote);
 
@@ -47,9 +47,8 @@ class VerseView extends StatelessWidget {
     return HighlightParagraph(
       text: '$number. $text',
       style: _style,
-      highlightShape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6.0),
-      ),
+      highlightShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(4.0))),
       onHighlightChange: (words) {
         onHighlightChange?.call(number, _getQuote(words));
       },

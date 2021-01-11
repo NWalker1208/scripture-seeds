@@ -1,9 +1,9 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 
-import 'delegate.dart';
+import 'detector.dart';
+import 'paragraph.dart';
 import 'render.dart';
-import 'selection_detector.dart';
 import 'word.dart';
 
 // Responsible for:
@@ -37,25 +37,20 @@ class HighlightParagraphState extends State<HighlightParagraph>
   final _paragraphKey = GlobalKey();
   BuiltList<Word> _words;
   WordSelection _activeSelection;
+  bool _selectionAction;
 
-  RenderHighlightParagraph _getParagraph() =>
+  RenderSelectionParagraph _getParagraph() =>
       _paragraphKey.currentContext.findRenderObject()
-          as RenderHighlightParagraph;
+          as RenderSelectionParagraph;
 
   List<TextSelection> _getHighlights() {
     var highlights = <TextSelection>[];
     int start, end;
 
-    final selStartIndex = _words.indexOf(_activeSelection?.start);
-    final selEndIndex = _words.indexOf(_activeSelection?.end);
-
     for (var i = 0; i <= _words.length; i++) {
       final word = i < _words.length ? _words[i] : null;
 
-      if ((word?.highlighted ?? false) ||
-          (_activeSelection != null &&
-              i >= selStartIndex &&
-              i <= selEndIndex)) {
+      if (word?.highlighted ?? false) {
         start ??= word.range.start;
         end = word.range.end;
       } else if (start != null) {
@@ -70,23 +65,30 @@ class HighlightParagraphState extends State<HighlightParagraph>
   // Selection controls
   void _updateSelection(TextSelection selection) {
     final wordSelection = selection?.toWordSelection(_words);
-    if (_activeSelection != wordSelection) {
-      setState(() => _activeSelection = wordSelection);
+    var action = _words.atPosition(selection?.base)?.highlighted;
+    if (action != null) action = !action;
+
+    if (_activeSelection != wordSelection || _selectionAction != action) {
+      setState(() {
+        _selectionAction = action;
+        _activeSelection = wordSelection;
+      });
     }
   }
 
-  void _applySelection(TextSelection selection, bool action) {
-    final wordSelection = selection.toWordSelection(_words);
+  void _applySelection() {
+    if (_activeSelection == null) return;
 
     final changingWords = _words.sublist(
-      _words.indexOf(wordSelection.start),
-      _words.indexOf(wordSelection.end) + 1,
+      _words.indexOf(_activeSelection.start),
+      _words.indexOf(_activeSelection.end) + 1,
     );
 
     setState(() {
       for (var word in changingWords) {
-        word.highlighted = action;
+        word.highlighted = _selectionAction;
       }
+      _updateSelection(null);
       _notifyHighlightChange();
     });
   }
@@ -104,9 +106,8 @@ class HighlightParagraphState extends State<HighlightParagraph>
       _updateSelection(TextSelection.fromPosition(position));
 
   void _handleSelectionDone(TextSelection selection) {
-    _updateSelection(null);
-    final action = !_words.atPosition(selection.base).highlighted;
-    _applySelection(selection, action);
+    _updateSelection(selection);
+    _applySelection();
   }
 
   // Widget methods
@@ -128,18 +129,38 @@ class HighlightParagraphState extends State<HighlightParagraph>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final style = widget.style ?? DefaultTextStyle.of(context).style;
+    final color = widget.highlightColor ??
+        Theme.of(context).textSelectionTheme.selectionColor;
+    final shape = widget.highlightShape ?? const Border();
+
+    final background = Theme.of(context).backgroundColor;
+    final selectionColor = _selectionAction ?? true
+        ? color.withOpacity(0.5)
+        : background.withOpacity(0.5);
+
     return SelectionDetector(
       offsetToPosition: _offsetToPosition,
       onSelectionStart: _handleSelectionStart,
       onSelectionUpdate: _updateSelection,
       onSelectionDone: _handleSelectionDone,
-      child: HighlightParagraphDelegate(
-        text: '${widget.text}',
-        highlights: _getHighlights(),
-        highlightColor: widget.highlightColor,
-        highlightShape: widget.highlightShape,
-        textStyle: widget.style,
+      child: SelectionParagraph(
         key: _paragraphKey,
+        text: TextSpan(text: '${widget.text}', style: style),
+        selections: [
+          for (var highlight in _getHighlights())
+            SelectionDecoration(
+                selection: highlight, color: color, shape: shape),
+          if (_activeSelection != null)
+            SelectionDecoration(
+              selection: TextSelection(
+                baseOffset: _activeSelection.start.range.start,
+                extentOffset: _activeSelection.end.range.end,
+              ),
+              color: selectionColor,
+              shape: shape,
+            ),
+        ],
       ),
     );
   }
