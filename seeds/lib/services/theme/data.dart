@@ -19,7 +19,7 @@ class CustomThemeData {
     );
     final colorsDark = ColorScheme.fromSwatch(
       primarySwatch: Colors.green,
-      primaryColorDark: Colors.green[800],
+      primaryColorDark: Colors.green[900],
       accentColor: Colors.blue,
       backgroundColor: Colors.black,
       cardColor: Color(0xFF101010),
@@ -108,13 +108,14 @@ class CustomThemeData {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.green, width: 2.5),
+        borderSide: BorderSide(color: Colors.green, width: 3),
       ),
     );
 
     // Card Theme
     final cardTheme = CardTheme(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 4.0,
     );
 
     // Divider Theme

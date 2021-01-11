@@ -123,62 +123,62 @@ class _JournalPageState extends State<JournalPage> {
               return AnimatedListBuilder<JournalEntry>(
                 values: entries,
                 duration: const Duration(milliseconds: 200),
-                childBuilder: (context, entry, animation) => Padding(
-                  padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0),
-                  child: AppearTransition(
-                    visibility: animation,
-                    child: Stack(
-                      alignment: Alignment.centerLeft,
-                      children: <Widget>[
-                        Checkbox(
-                          key: ValueKey(entry),
-                          value: selected.contains(entry),
-                          onChanged: (value) => setState(() {
-                            if (value) {
-                              selected.add(entry);
-                            } else {
-                              selected.remove(entry);
-                            }
-                          }),
+                childBuilder: (context, entry, animation) => AppearTransition(
+                  visibility: animation,
+                  child: Stack(
+                    alignment: Alignment.centerLeft,
+                    children: <Widget>[
+                      Checkbox(
+                        key: ValueKey(entry),
+                        value: selected.contains(entry),
+                        onChanged: (value) => setState(() {
+                          if (value) {
+                            selected.add(entry);
+                          } else {
+                            selected.remove(entry);
+                          }
+                        }),
+                      ),
+                      TweenAnimationBuilder<double>(
+                        tween: Tween<double>(
+                          begin: editMode ? 0.9 : 1,
+                          end: editMode ? 0.9 : 1,
                         ),
-                        TweenAnimationBuilder<double>(
-                          tween: Tween<double>(
-                            begin: editMode ? 0.9 : 1,
-                            end: editMode ? 0.9 : 1,
-                          ),
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.ease,
-                          builder: (context, scale, child) => Transform.scale(
-                            alignment: Alignment.centerRight,
-                            scale: scale,
-                            child: child,
-                          ),
-                          child: GestureDetector(
-                            onLongPress: () {
-                              if (!editMode) {
-                                toggleEditMode(selectedEntry: entry);
-                              } else if (!selected.contains(entry)) {
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.ease,
+                        builder: (context, scale, child) => Transform.scale(
+                          alignment: Alignment.centerRight,
+                          scale: scale,
+                          child: child,
+                        ),
+                        child: GestureDetector(
+                          onLongPress: () {
+                            if (!editMode) {
+                              toggleEditMode(selectedEntry: entry);
+                            } else if (!selected.contains(entry)) {
+                              setState(() => selected.add(entry));
+                            }
+                          },
+                          onTap: () {
+                            if (editMode) {
+                              if (selected.contains(entry)) {
+                                setState(() => selected.remove(entry));
+                              } else {
                                 setState(() => selected.add(entry));
                               }
-                            },
-                            onTap: () {
-                              if (editMode) {
-                                if (selected.contains(entry)) {
-                                  setState(() => selected.remove(entry));
-                                } else {
-                                  setState(() => selected.add(entry));
-                                }
-                              }
-                            },
+                            }
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 4, 12, 8),
                             child: JournalEntryView(entry),
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 viewBuilder: (context, builder, itemCount) => ListView.builder(
-                  padding: const EdgeInsets.only(bottom: 12.0),
+                  padding: const EdgeInsets.only(top: 8.0, bottom: 4),
                   itemBuilder: builder,
                   itemCount: itemCount,
                 ),

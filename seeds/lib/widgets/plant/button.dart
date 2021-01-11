@@ -15,8 +15,8 @@ class PlantButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Material(
         type: MaterialType.card,
-        elevation: 4,
-        borderRadius: BorderRadius.circular(12.0),
+        elevation: Theme.of(context).cardTheme.elevation,
+        shape: Theme.of(context).cardTheme.shape,
         clipBehavior: Clip.antiAlias,
         child: Stack(
           children: [
