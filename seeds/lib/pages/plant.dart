@@ -67,7 +67,7 @@ class PlantPage extends StatelessWidget {
           ),
           body: PlantView(
             topic.id,
-            plantPadding: EdgeInsets.symmetric(vertical: 50),
+            padding: EdgeInsets.symmetric(vertical: 50),
           ),
           bottomNavigationBar: BottomAppBar(
             child: Row(

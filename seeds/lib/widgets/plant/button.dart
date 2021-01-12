@@ -22,17 +22,17 @@ class PlantButton extends StatelessWidget {
           children: [
             PlantView(
               topic,
-              plantPadding: EdgeInsets.fromLTRB(
+              padding: EdgeInsets.fromLTRB(
                   20, 20, 20, Theme.of(context).buttonTheme.height + 4),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppBarThemed(Consumer<ProgressData>(
-                    builder: (context, progress, child) =>
-                        PlantStatus(progress.getProgressRecord(topic)),
-                  )),
-                ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppBarThemed(Consumer<ProgressData>(
+                  builder: (context, progress, child) =>
+                      PlantStatus(progress.getProgressRecord(topic)),
+                )),
               ),
             ),
             Material(
