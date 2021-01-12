@@ -41,35 +41,35 @@ class _AppProvidersState extends State<AppProviders> {
   Widget build(BuildContext context) {
     themeProvider.refresh();
     return MultiProvider(
-        providers: [
-          // Settings
-          ChangeNotifierProvider.value(value: themeProvider),
-          ChangeNotifierProvider(create: (_) => StudyFilter(), lazy: false),
-          ChangeNotifierProvider(create: (_) => HelpSettings(), lazy: false),
+      providers: [
+        // Settings
+        ChangeNotifierProvider.value(value: themeProvider),
+        ChangeNotifierProvider(create: (_) => StudyFilter(), lazy: false),
+        ChangeNotifierProvider(create: (_) => HelpSettings(), lazy: false),
 
-          // Scriptures and Topics
-          Provider<ScriptureDatabase>(create: (_) => PublicDomainScriptures()),
-          ChangeNotifierProvider(create: (_) => TopicIndexProvider()),
+        // Scriptures and Topics
+        Provider<ScriptureDatabase>(create: (_) => PublicDomainScriptures()),
+        ChangeNotifierProvider(create: (_) => TopicIndexProvider()),
 
-          // Study
-          ChangeNotifierProvider(create: (_) => StudyHistory(), lazy: false),
-          ProxyProvider4<ScriptureDatabase, TopicIndexProvider, StudyFilter,
-              StudyHistory, StudyLibraryProvider>(
-            update: (context, scriptures, topics, filter, history, _) =>
-                StudyLibraryProvider(
-              scriptures: scriptures,
-              topics: topics,
-              filter: filter,
-              history: history,
-            ),
+        // Study
+        ChangeNotifierProvider(create: (_) => StudyHistory(), lazy: false),
+        ProxyProvider4<ScriptureDatabase, TopicIndexProvider, StudyFilter,
+            StudyHistory, StudyLibraryProvider>(
+          update: (context, scriptures, topics, filter, history, _) =>
+              StudyLibraryProvider(
+            scriptures: scriptures,
+            topics: topics,
+            filter: filter,
+            history: history,
           ),
+        ),
 
-          // User data
-          ChangeNotifierProvider(create: (_) => ProgressData()),
-          ChangeNotifierProvider(create: (_) => WalletData()),
-          ChangeNotifierProvider(create: (_) => JournalData()),
-        ],
-        child: widget.app,
-      );
+        // User data
+        ChangeNotifierProvider(create: (_) => ProgressData()),
+        ChangeNotifierProvider(create: (_) => WalletData()),
+        ChangeNotifierProvider(create: (_) => JournalData()),
+      ],
+      child: widget.app,
+    );
   }
 }

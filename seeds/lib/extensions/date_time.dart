@@ -1,4 +1,3 @@
-
 extension DateTimeExtension on DateTime {
   // Calculates the days until (pos) or since (neg) the given date. Days begin
   // at midnight of the local timezone.
