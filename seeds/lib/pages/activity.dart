@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../extensions/list.dart';
+import '../extensions/string.dart';
 import '../services/data/journal.dart';
 import '../services/data/progress.dart';
 import '../services/scriptures/volumes.dart';
@@ -13,7 +14,6 @@ import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';
 import '../widgets/activity/share.dart';
 import '../widgets/activity/study.dart';
-import '../widgets/animation/indexed_stack.dart';
 import '../widgets/help_info.dart';
 
 class ActivityPage extends StatefulWidget {
@@ -73,18 +73,26 @@ class ActivityProvider extends ChangeNotifier {
 }
 
 class _ActivityPageState extends State<ActivityPage> {
-  int _stage;
+  int _stage = 0;
+  final _stageController = PageController();
+  final _helpKey = GlobalKey<HelpInfoState>();
   Reference _reference;
-  GlobalKey<HelpInfoState> _helpKey;
+
+  void setStage(int stage) {
+    setState(() => _stage = stage);
+    FocusScope.of(context).unfocus();
+    _stageController.animateToPage(
+      stage,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+    );
+  }
 
   void nextStage(ActivityProvider activity) {
     if (_stage == 2) {
       _endActivity(activity);
     } else {
-      setState(() {
-        FocusScope.of(context).unfocus();
-        _stage++;
-      });
+      setStage(_stage + 1);
     }
   }
 
@@ -102,9 +110,6 @@ class _ActivityPageState extends State<ActivityPage> {
 
   @override
   void initState() {
-    _stage = 0;
-    _helpKey = GlobalKey();
-
     // Pick a reference to study
     var lib = Provider.of<StudyLibraryProvider>(context, listen: false);
     _reference = lib.leastRecent(widget.topic.id).randomItem();
@@ -114,15 +119,18 @@ class _ActivityPageState extends State<ActivityPage> {
   }
 
   @override
+  void dispose() {
+    _stageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => WillPopScope(
         onWillPop: () async {
           if (_stage == 0) {
             return true;
           } else {
-            setState(() {
-              FocusScope.of(context).unfocus();
-              _stage--;
-            });
+            setStage(_stage - 1);
             return false;
           }
         },
@@ -146,7 +154,7 @@ class _ActivityPageState extends State<ActivityPage> {
             key: _helpKey,
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Daily Activity'),
+                title: Text(widget.topic.name.capitalize()),
                 actions: [
                   IconButton(
                     icon: const Icon(Icons.help),
@@ -180,14 +188,22 @@ class _ActivityPageState extends State<ActivityPage> {
                         ),
                       ),
                     )
-                  : AnimatedIndexedStack(
-                      duration: const Duration(milliseconds: 200),
-                      index: _stage,
-                      children: [
-                        StudyActivity(_reference),
-                        PonderActivity(widget.topic),
-                        ShareActivity(widget.topic, _reference),
-                      ],
+                  : Consumer<ActivityProvider>(
+                      builder: (context, activity, child) => PageView(
+                        controller: _stageController,
+                        onPageChanged: (stage) {
+                          if (_stage != stage) {
+                            setState(() => _stage = stage);
+                            FocusScope.of(context).unfocus();
+                          }
+                        },
+                        children: [
+                          StudyActivity(_reference),
+                          if (activity[0]) PonderActivity(widget.topic),
+                          if (activity[1])
+                            ShareActivity(widget.topic, _reference),
+                        ],
+                      ),
                     ),
 
               // Floating action button allows user to progress through activity
