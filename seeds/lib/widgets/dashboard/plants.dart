@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
-import '../../services/data/progress_record.dart';
+import '../../services/progress/provider.dart';
+import '../../services/progress/record.dart';
 import '../../services/topics/provider.dart';
 import '../animation/appear_transition.dart';
 import '../animation/list.dart';
@@ -25,7 +25,7 @@ class PlantsDashboard extends StatelessWidget {
           // Plant list
           SizedBox(
             height: 250,
-            child: Consumer2<ProgressData, TopicIndexProvider>(
+            child: Consumer2<ProgressProvider, TopicIndexProvider>(
               builder: (context, progress, topics, child) {
                 // Check if topics are done loading
                 if (topics.index == null) {
@@ -33,8 +33,10 @@ class PlantsDashboard extends StatelessWidget {
                 }
 
                 // Sort records so that incomplete ones go first
-                var records = progress.recordsWithTopics(topics.index.topics)
-                  ..sort();
+                var records = progress
+                    .recordsWithTopics(topics.index.topics)
+                    .toList()
+                      ..sort();
 
                 return AnimatedListBuilder<ProgressRecord>(
                   values: records,

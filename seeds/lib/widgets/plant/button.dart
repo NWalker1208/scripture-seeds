@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
+import '../../services/progress/provider.dart';
 import '../app_bar_themed.dart';
 import 'status.dart';
 import 'view.dart';
@@ -29,7 +29,7 @@ class PlantButton extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: AppBarThemed(Consumer<ProgressData>(
+                child: AppBarThemed(Consumer<ProgressProvider>(
                   builder: (context, progress, child) =>
                       PlantStatus(progress.getProgressRecord(topic)),
                 )),

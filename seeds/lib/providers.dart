@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'services/data/journal.dart';
-import 'services/data/progress.dart';
 import 'services/data/wallet.dart';
+import 'services/progress/provider.dart';
+import 'services/progress/sql_data.dart';
 import 'services/scriptures/database.dart';
 import 'services/scriptures/pd_scriptures.dart';
 import 'services/settings/help.dart';
@@ -65,7 +66,8 @@ class _AppProvidersState extends State<AppProviders> {
         ),
 
         // User data
-        ChangeNotifierProvider(create: (_) => ProgressData()),
+        ChangeNotifierProvider(
+            create: (_) => ProgressProvider(SqlProgressDatabase())),
         ChangeNotifierProvider(create: (_) => WalletData()),
         ChangeNotifierProvider(create: (_) => JournalData()),
       ],

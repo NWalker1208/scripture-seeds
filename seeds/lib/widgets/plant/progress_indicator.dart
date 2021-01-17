@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
+import '../../services/progress/provider.dart';
 
 class PlantProgressIndicator extends StatefulWidget {
   final String plantName;
@@ -21,7 +21,7 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
 
   @override
   void initState() {
-    var progressData = Provider.of<ProgressData>(context, listen: false);
+    var progressData = Provider.of<ProgressProvider>(context, listen: false);
     var record = progressData.getProgressRecord(widget.plantName);
     initialProgress = record.progressPercent;
     super.initState();
@@ -33,7 +33,7 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
     final progressColor = theme.colorScheme.onPrimary;
     final backgroundColor = theme.colorScheme.onSurface;
 
-    return Consumer<ProgressData>(
+    return Consumer<ProgressProvider>(
       builder: (context, progressData, child) {
         var record = progressData.getProgressRecord(widget.plantName);
 

@@ -4,8 +4,8 @@ import 'package:social_share/social_share.dart';
 
 import '../extensions/string.dart';
 import '../services/custom_icons.dart';
-import '../services/data/progress.dart';
 import '../services/data/wallet.dart';
+import '../services/progress/provider.dart';
 import '../services/topics/index.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/extra_study.dart';
@@ -118,7 +118,7 @@ class _StudyButton extends StatelessWidget {
   }
 
   void collectReward(BuildContext context) {
-    var progress = Provider.of<ProgressData>(context, listen: false);
+    var progress = Provider.of<ProgressProvider>(context, listen: false);
     var reward = progress.collectReward(topic.id);
     Provider.of<WalletData>(context, listen: false).give(reward);
 
@@ -127,7 +127,7 @@ class _StudyButton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<ProgressData>(
+  Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progressData, child) {
           var record = progressData.getProgressRecord(topic.id);
           var reward = record.rewardAvailable;

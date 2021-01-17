@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
+import '../../services/progress/provider.dart';
 import '../../services/topics/index.dart';
 
 class TopicChip extends StatelessWidget {
@@ -13,7 +13,7 @@ class TopicChip extends StatelessWidget {
   Widget build(BuildContext context) => ActionChip(
         elevation: 2,
         pressElevation: 4,
-        label: Consumer<ProgressData>(
+        label: Consumer<ProgressProvider>(
           builder: (context, progress, child) => Row(
             mainAxisSize: MainAxisSize.min,
             children: [

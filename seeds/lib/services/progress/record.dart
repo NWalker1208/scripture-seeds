@@ -101,8 +101,10 @@ class ProgressRecord implements Comparable<ProgressRecord> {
     _lastUpdate = DateTime.now();
   }
 
-  void takeReward() {
+  int takeReward() {
     _rewardAvailable = false;
     _lastProgress = 0;
+
+    return 2; // TODO: Randomize
   }
 }

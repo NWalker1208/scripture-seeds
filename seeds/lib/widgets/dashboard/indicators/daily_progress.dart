@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../services/custom_icons.dart';
-import '../../../services/data/progress.dart';
+import '../../../services/progress/provider.dart';
 
 class DailyProgressIndicator extends StatelessWidget {
   const DailyProgressIndicator({
@@ -10,7 +10,7 @@ class DailyProgressIndicator extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer<ProgressData>(
+  Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
           var records = progress.records;
 

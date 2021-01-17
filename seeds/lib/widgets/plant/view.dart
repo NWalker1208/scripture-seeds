@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
+import '../../services/progress/provider.dart';
 import 'widget.dart';
 
 class PlantView extends StatelessWidget {
@@ -17,7 +17,7 @@ class PlantView extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Hero(
         tag: 'plant_view_$name',
-        child: Consumer<ProgressData>(
+        child: Consumer<ProgressProvider>(
           builder: (_, progress, __) {
             final record = progress.getProgressRecord(name);
             return TweenAnimationBuilder<double>(

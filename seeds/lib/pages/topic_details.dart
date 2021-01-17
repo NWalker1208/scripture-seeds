@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../extensions/string.dart';
-import '../services/data/progress.dart';
 import '../services/data/wallet.dart';
+import '../services/progress/provider.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/index.dart';
 import '../services/topics/provider.dart';
@@ -180,7 +180,7 @@ class _PurchasePlantButton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<ProgressData>(
+  Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
           var purchased = progress.recordNames.contains(topic.id);
           return AppBarThemed(

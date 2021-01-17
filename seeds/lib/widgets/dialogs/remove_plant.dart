@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
 import '../../services/data/wallet.dart';
+import '../../services/progress/provider.dart';
 import '../../services/topics/index.dart';
 
 class RemovePlantDialog extends StatelessWidget {
@@ -24,7 +24,7 @@ class RemovePlantDialog extends StatelessWidget {
           TextButton(
             child: const Text('CONTINUE'),
             onPressed: () {
-              if (Provider.of<ProgressData>(context, listen: false)
+              if (Provider.of<ProgressProvider>(context, listen: false)
                   .removeProgressRecord(topic.id)) {
                 Provider.of<WalletData>(context, listen: false).give(1);
                 Navigator.of(context).pop(true);

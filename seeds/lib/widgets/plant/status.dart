@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress_record.dart';
+import '../../services/progress/record.dart';
 import '../../services/topics/provider.dart';
 
 class PlantStatus extends StatelessWidget {

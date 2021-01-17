@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
 import '../../services/data/wallet.dart';
+import '../../services/progress/provider.dart';
 import '../../services/settings/help.dart';
 import '../../services/study/history.dart';
 import '../help_info.dart';
@@ -28,7 +28,8 @@ class ResetProgressDialog extends StatelessWidget {
               HelpInfoState.resetPagesShown();
               help.resetHelp();
 
-              var progress = Provider.of<ProgressData>(context, listen: false);
+              var progress =
+                  Provider.of<ProgressProvider>(context, listen: false);
               progress.resetProgress();
 
               var history = Provider.of<StudyHistory>(context, listen: false);

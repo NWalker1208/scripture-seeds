@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:mutex/mutex.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../topics/reference.dart';
@@ -70,20 +69,17 @@ class StudyHistory extends ChangeNotifier {
   }
 
   /// SQFLite operations
-  static final Mutex _databaseMutex = Mutex();
 
   // Loads in data from the database file.
   // This should only need to be called when the program starts.
   Future<bool> _loadData() async {
     try {
       print('Loading history database...');
-      await _databaseMutex.acquire();
       var db = await _openDatabase();
 
       var history = await _queryHistory(db);
 
       await db.close();
-      _databaseMutex.release();
 
       _history = history.map(
           (reference, value) => MapEntry(Reference.parse(reference), value));
@@ -98,7 +94,6 @@ class StudyHistory extends ChangeNotifier {
   Future<bool> _saveData() async {
     try {
       print('Saving history...');
-      await _databaseMutex.acquire();
       var db = await _openDatabase();
 
       await _updateHistory(
@@ -108,7 +103,6 @@ class StudyHistory extends ChangeNotifier {
       );
 
       await db.close();
-      _databaseMutex.release();
       print('History save complete!');
       return true;
     } on DatabaseException catch (e) {

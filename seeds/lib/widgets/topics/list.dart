@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/progress.dart';
+import '../../services/progress/provider.dart';
 import '../../services/topics/provider.dart';
 import '../animation/appear_transition.dart';
 import '../animation/list.dart';
@@ -33,7 +33,7 @@ class TopicList extends StatelessWidget {
 
           // Remove purchased topics if specified
           if (!showPurchased) {
-            var progress = Provider.of<ProgressData>(context);
+            var progress = Provider.of<ProgressProvider>(context);
             if (!progress.isLoaded) {
               return const Center(child: CircularProgressIndicator());
             }
