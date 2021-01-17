@@ -16,7 +16,7 @@ class EraseJournalDialog extends StatelessWidget {
                 'This cannot be undone.'),
         actions: <Widget>[
           // Reset progress if user selects yes
-          FlatButton(
+          TextButton(
             child: const Text('CONTINUE'),
             onPressed: () {
               Navigator.of(context).pop(true);
@@ -26,7 +26,7 @@ class EraseJournalDialog extends StatelessWidget {
           ),
 
           // Close dialog if user selects no
-          RaisedButton(
+          ElevatedButton(
             child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
           )

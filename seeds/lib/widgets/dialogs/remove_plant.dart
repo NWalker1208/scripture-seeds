@@ -21,7 +21,7 @@ class RemovePlantDialog extends StatelessWidget {
                 '"${topic.name}?"\n\nYou will receive a seed, but you will '
                 'also lose any progress for this topic.'),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: const Text('CONTINUE'),
             onPressed: () {
               if (Provider.of<ProgressData>(context, listen: false)
@@ -33,7 +33,7 @@ class RemovePlantDialog extends StatelessWidget {
               }
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
           ),

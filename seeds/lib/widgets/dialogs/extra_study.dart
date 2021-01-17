@@ -11,11 +11,11 @@ class ExtraStudyDialog extends StatelessWidget {
         content: const Text('You can\'t water this plant again until tomorrow. '
             'Would you like to do an activity anyways?'),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: const Text('CONTINUE'),
             onPressed: () => Navigator.of(context).pop(true),
           ),
-          FlatButton(
+          TextButton(
             child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
           ),

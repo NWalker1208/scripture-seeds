@@ -98,11 +98,17 @@ class CustomThemeData {
     );
 
     // Button Theme
-    final buttonTheme = ButtonThemeData(
-      textTheme: ButtonTextTheme.primary,
+    final textButtonTheme = TextButtonThemeData(
+        style: TextButton.styleFrom(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    );
+    ));
+
+    final elevatedButtonTheme = ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    ));
 
     // Input Decoration Theme
     final inputTheme = InputDecorationTheme(
@@ -142,7 +148,8 @@ class CustomThemeData {
       bottomAppBarTheme: bottomAppBarThemeLight,
       dialogTheme: dialogThemeLight,
       textSelectionTheme: textSelectionThemeLight,
-      buttonTheme: buttonTheme,
+      textButtonTheme: textButtonTheme,
+      elevatedButtonTheme: elevatedButtonTheme,
       inputDecorationTheme: inputTheme,
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,
@@ -159,7 +166,8 @@ class CustomThemeData {
       bottomAppBarTheme: bottomAppBarThemeDark,
       dialogTheme: dialogThemeDark,
       textSelectionTheme: textSelectionThemeDark,
-      buttonTheme: buttonTheme,
+      textButtonTheme: textButtonTheme,
+      elevatedButtonTheme: elevatedButtonTheme,
       inputDecorationTheme: inputTheme,
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,

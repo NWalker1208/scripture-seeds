@@ -170,7 +170,7 @@ class _ActivityPageState extends State<ActivityPage> {
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(height: 8),
-                            RaisedButton.icon(
+                            ElevatedButton.icon(
                               icon: Icon(Icons.settings),
                               label: Text('Settings'),
                               onPressed: () => Navigator.of(context)
