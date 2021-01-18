@@ -13,7 +13,7 @@ class SqlHistoryDatabase extends HistoryDatabase<Database>
   String get databaseFileName => 'lib_history.db';
 
   @override
-  int get databaseVersion => 0;
+  int get databaseVersion => 1;
 
   @override
   String get createTableSql => '''CREATE TABLE $table

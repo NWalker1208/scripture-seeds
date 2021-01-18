@@ -15,7 +15,7 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
 
   /// SQL to execute when upgrading the database.
   /// Given the old version is a, and the new version is b:
-  /// Items from index a (inclusive) to b (exclusive) will be executed.
+  /// Items from index a - 1 (inclusive) to b - 1 (exclusive) will be executed.
   List<String> get upgradeTableSql;
 
   /// Name of the SQL table.
@@ -48,7 +48,7 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
       db.execute(createTableSql);
 
   FutureOr<void> onUpgradeDatabase(Database db, int oldVer, int newVer) async {
-    for (var sql in upgradeTableSql.sublist(oldVer, newVer)) {
+    for (var sql in upgradeTableSql.sublist(oldVer - 1, newVer - 1)) {
       await db.execute(sql);
     }
     print('Database "$table" upgraded from v$oldVer to v$newVer.');

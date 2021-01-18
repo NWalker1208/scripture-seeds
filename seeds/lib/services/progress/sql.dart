@@ -10,7 +10,7 @@ class SqlProgressDatabase extends ProgressDatabase<Database>
   String get databaseFileName => 'progress.db';
 
   @override
-  int get databaseVersion => 0;
+  int get databaseVersion => 1;
 
   @override
   String get createTableSql => '''CREATE TABLE $table
