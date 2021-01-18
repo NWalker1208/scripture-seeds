@@ -31,7 +31,7 @@ class PlantButton extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: AppBarThemed(Consumer<ProgressProvider>(
                   builder: (context, progress, child) =>
-                      PlantStatus(progress.getProgressRecord(topic)),
+                      PlantStatus(progress.getRecord(topic)),
                 )),
               ),
             ),

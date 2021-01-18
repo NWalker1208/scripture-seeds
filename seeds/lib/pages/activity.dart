@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import '../extensions/list.dart';
 import '../extensions/string.dart';
 import '../services/data/journal.dart';
+import '../services/history/provider.dart';
 import '../services/progress/provider.dart';
 import '../services/scriptures/volumes.dart';
-import '../services/study/history.dart';
 import '../services/study/provider.dart';
 import '../services/topics/index.dart';
 import '../services/topics/reference.dart';
@@ -102,9 +102,9 @@ class _ActivityPageState extends State<ActivityPage> {
           .createEntry(activity.createJournalEntry(widget.topic, _reference));
     }
 
-    Provider.of<StudyHistory>(context, listen: false).markAsStudied(_reference);
+    Provider.of<StudyHistory>(context, listen: false).markStudied(_reference);
     Provider.of<ProgressProvider>(context, listen: false)
-        .addProgress(widget.topic.id);
+        .increment(widget.topic.id);
     Navigator.pop(context, true);
   }
 

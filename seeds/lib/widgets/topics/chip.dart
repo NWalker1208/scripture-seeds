@@ -17,7 +17,7 @@ class TopicChip extends StatelessWidget {
           builder: (context, progress, child) => Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (progress.recordNames.contains(topic.id)) ...const [
+              if (progress.names.contains(topic.id)) ...const [
                 Icon(Icons.check),
                 SizedBox(width: 8)
               ],

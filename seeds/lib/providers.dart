@@ -3,13 +3,14 @@ import 'package:provider/provider.dart';
 
 import 'services/data/journal.dart';
 import 'services/data/wallet.dart';
+import 'services/history/provider.dart';
+import 'services/history/sql.dart';
 import 'services/progress/provider.dart';
-import 'services/progress/sql_data.dart';
+import 'services/progress/sql.dart';
 import 'services/scriptures/database.dart';
 import 'services/scriptures/pd_scriptures.dart';
 import 'services/settings/help.dart';
 import 'services/settings/study_filter.dart';
-import 'services/study/history.dart';
 import 'services/study/provider.dart';
 import 'services/theme/provider.dart';
 import 'services/topics/provider.dart';
@@ -53,7 +54,10 @@ class _AppProvidersState extends State<AppProviders> {
         ChangeNotifierProvider(create: (_) => TopicIndexProvider()),
 
         // Study
-        ChangeNotifierProvider(create: (_) => StudyHistory(), lazy: false),
+        ChangeNotifierProvider(
+          create: (_) => StudyHistory(SqlHistoryDatabase()),
+          lazy: false,
+        ),
         ProxyProvider4<ScriptureDatabase, TopicIndexProvider, StudyFilter,
             StudyHistory, StudyLibraryProvider>(
           update: (context, scriptures, topics, filter, history, _) =>
@@ -67,7 +71,9 @@ class _AppProvidersState extends State<AppProviders> {
 
         // User data
         ChangeNotifierProvider(
-            create: (_) => ProgressProvider(SqlProgressDatabase())),
+          create: (_) => ProgressProvider(SqlProgressDatabase()),
+          lazy: false,
+        ),
         ChangeNotifierProvider(create: (_) => WalletData()),
         ChangeNotifierProvider(create: (_) => JournalData()),
       ],

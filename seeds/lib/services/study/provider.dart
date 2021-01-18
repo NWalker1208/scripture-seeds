@@ -1,8 +1,8 @@
+import '../history/provider.dart';
 import '../scriptures/database.dart';
 import '../settings/study_filter.dart';
 import '../topics/provider.dart';
 import '../topics/reference.dart';
-import 'history.dart';
 
 class StudyLibraryProvider {
   final ScriptureDatabase scriptures;
@@ -32,7 +32,7 @@ class StudyLibraryProvider {
     DateTime leastRecentDate;
 
     for (var ref in references) {
-      var lastStudied = history.dateLastStudied(ref);
+      var lastStudied = history.lastStudied(ref);
 
       if (leastRecent.isEmpty ||
           lastStudied == null ||

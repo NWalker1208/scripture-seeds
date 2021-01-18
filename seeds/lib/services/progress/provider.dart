@@ -1,50 +1,42 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 import 'database.dart';
 import 'record.dart';
 
 class ProgressProvider extends ChangeNotifier {
-  final ProgressDatabase _database;
-  Map<String, ProgressRecord> _records;
-
   ProgressProvider(ProgressDatabase database) : _database = database {
-    _database.loadAllRecords().then((records) {
-      _records = {
-        for (var record in records) record.id: record,
-      };
+    _database.loadAll().then((records) {
+      _records = records;
       notifyListeners();
     });
   }
 
-  @override
-  void dispose() {
-    _database.close();
-    super.dispose();
-  }
+  final ProgressDatabase _database;
+  Map<String, ProgressRecord> _records;
 
-  // Check if the database has been loaded
+  /// Check if the database has been loaded
   bool get isLoaded => _records != null;
 
-  // Get list of existing records
-  Iterable<String> get recordNames => _records?.keys ?? <String>[];
-  Iterable<ProgressRecord> get records =>
-      _records?.values ?? <ProgressRecord>[];
+  /// Get list of existing records
+  Iterable<String> get names => _records?.keys ?? const [];
+  Iterable<ProgressRecord> get records => _records?.values ?? const [];
 
-  // Returns all progress records with topics from the set given.
-  Iterable<ProgressRecord> recordsWithTopics(Set<String> topics) =>
-      records.where((record) => topics.contains(record.id));
-
-  // Gets the progress for a specific item
-  // Returns a record with 0 progress if the record does not exist or if the
-  // records have not been loaded.
-  ProgressRecord getProgressRecord(String name) {
+  /// Gets the progress for a specific topic.
+  /// Returns a record with 0 progress if the record does not exist or if the
+  /// records have not been loaded.
+  ProgressRecord getRecord(String name) {
     if (!isLoaded || !_records.containsKey(name)) return ProgressRecord(name);
-
     return _records[name];
   }
 
-  // Creates a progress record
-  bool createProgressRecord(ProgressRecord record) {
+  /// Returns all progress records with topics from the set given.
+  Iterable<ProgressRecord> fromTopics(Set<String> topics) {
+    if (!isLoaded) return const [];
+    return records.where((record) => topics.contains(record.id));
+  }
+
+  /// Creates a progress record
+  bool create(ProgressRecord record) {
     if (!isLoaded) return false;
 
     _records[record.id] = record;
@@ -54,11 +46,12 @@ class ProgressProvider extends ChangeNotifier {
     return true;
   }
 
-  // Increments progress by 1 and sets the date
-  bool addProgress(String name, {bool force = false}) {
+  /// Increments progress by 1 and sets the date.
+  bool increment(String name, {bool force = false}) {
     if (!isLoaded) return false;
 
-    var record = getProgressRecord(name);
+    // Gets or creates record for name.
+    final record = getRecord(name);
 
     if (force || record.canMakeProgressToday) {
       record.updateProgress();
@@ -72,11 +65,11 @@ class ProgressProvider extends ChangeNotifier {
     }
   }
 
-  // Deletes a record from progress data, such as when a plant is harvested.
-  bool removeProgressRecord(String name) {
+  /// Deletes a record from progress data, such as when a plant is harvested.
+  bool remove(String name) {
     if (isLoaded && _records.containsKey(name)) {
       _records.remove(name);
-      _database.deleteRecord(name);
+      _database.delete(name);
       notifyListeners();
       return true;
     } else {
@@ -84,10 +77,10 @@ class ProgressProvider extends ChangeNotifier {
     }
   }
 
-  // Collects the reward from the given plant if available.
-  // Returns the number of seeds granted.
+  /// Collects the reward from the given plant if available.
+  /// Returns the number of seeds granted.
   int collectReward(String name) {
-    var progress = getProgressRecord(name);
+    var progress = getRecord(name);
 
     if (!progress.rewardAvailable) return 0;
 
@@ -98,15 +91,21 @@ class ProgressProvider extends ChangeNotifier {
     return reward;
   }
 
-  // Deletes all progress entries
-  bool resetProgress() {
+  /// Deletes all progress entries
+  bool reset() {
     if (isLoaded) {
       _records.clear();
-      _database.deleteAllRecords();
+      _database.clear();
       notifyListeners();
       return true;
     } else {
       return false;
     }
+  }
+
+  @override
+  void dispose() {
+    _database.close();
+    super.dispose();
   }
 }

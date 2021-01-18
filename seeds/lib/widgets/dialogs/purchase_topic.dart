@@ -26,7 +26,7 @@ class PurchaseTopicDialog extends StatelessWidget {
               if (Provider.of<WalletData>(context, listen: false)
                   .spend(topic.cost)) {
                 Provider.of<ProgressProvider>(context, listen: false)
-                    .createProgressRecord(ProgressRecord(topic.id));
+                    .create(ProgressRecord(topic.id));
                 Navigator.of(context).pop(true);
               } else {
                 Navigator.of(context).pop(false);

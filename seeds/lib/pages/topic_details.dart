@@ -182,7 +182,7 @@ class _PurchasePlantButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
-          var purchased = progress.recordNames.contains(topic.id);
+          var purchased = progress.names.contains(topic.id);
           return AppBarThemed(
             ActionChip(
               elevation: 6,

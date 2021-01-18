@@ -1,16 +1,12 @@
-import 'dart:core';
-
+import '../custom_database/database.dart';
 import 'record.dart';
 
-abstract class ProgressDatabase {
-  Future<Iterable<String>> getRecordNames();
-  Future<ProgressRecord> loadRecord(String name);
-  Future<void> saveRecord(ProgressRecord record);
-  Future<bool> deleteRecord(String name);
-  Future<void> deleteAllRecords();
-  Future<void> close() async {}
+abstract class ProgressDatabase<D>
+    extends CustomDatabase<D, String, ProgressRecord> {
+  /// Saves the progress record to the database, using the ID as the key.
+  Future<void> saveRecord(ProgressRecord record) => save(record.id, record);
 
-  Future<Iterable<ProgressRecord>> loadAllRecords() async => [
-        for (var name in await getRecordNames()) await loadRecord(name),
-      ];
+  /// Loads all records as an iterable.
+  Future<Iterable<ProgressRecord>> loadAllRecords() async =>
+      (await loadAll()).values;
 }

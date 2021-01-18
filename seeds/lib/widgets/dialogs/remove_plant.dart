@@ -25,7 +25,7 @@ class RemovePlantDialog extends StatelessWidget {
             child: const Text('CONTINUE'),
             onPressed: () {
               if (Provider.of<ProgressProvider>(context, listen: false)
-                  .removeProgressRecord(topic.id)) {
+                  .remove(topic.id)) {
                 Provider.of<WalletData>(context, listen: false).give(1);
                 Navigator.of(context).pop(true);
               } else {

@@ -129,7 +129,7 @@ class _StudyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progressData, child) {
-          var record = progressData.getProgressRecord(topic.id);
+          var record = progressData.getRecord(topic.id);
           var reward = record.rewardAvailable;
           var canMakeProgress = record.canMakeProgressToday;
 

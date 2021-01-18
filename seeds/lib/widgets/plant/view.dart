@@ -19,7 +19,7 @@ class PlantView extends StatelessWidget {
         tag: 'plant_view_$name',
         child: Consumer<ProgressProvider>(
           builder: (_, progress, __) {
-            final record = progress.getProgressRecord(name);
+            final record = progress.getRecord(name);
             return TweenAnimationBuilder<double>(
               tween: Tween<double>(end: record.progressPercent),
               duration: Duration(milliseconds: 1000),
