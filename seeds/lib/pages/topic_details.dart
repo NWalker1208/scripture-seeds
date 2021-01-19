@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../extensions/string.dart';
-import '../services/data/wallet.dart';
 import '../services/progress/provider.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/index.dart';
 import '../services/topics/provider.dart';
 import '../services/topics/reference.dart';
+import '../services/wallet/provider.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/dialogs/purchase_topic.dart';
@@ -154,7 +154,8 @@ class _PurchasePlantButton extends StatelessWidget {
   _PurchasePlantButton(this.topic, {Key key}) : super(key: key);
 
   void _purchase(BuildContext context) {
-    if (Provider.of<WalletData>(context, listen: false).canAfford(topic.cost)) {
+    if (Provider.of<WalletProvider>(context, listen: false)
+        .canAfford(topic.cost)) {
       showDialog<bool>(
           context: context,
           barrierDismissible: true,

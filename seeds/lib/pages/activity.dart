@@ -7,8 +7,8 @@ import '../services/history/provider.dart';
 import '../services/journal/entry.dart';
 import '../services/journal/provider.dart';
 import '../services/progress/provider.dart';
+import '../services/proxies/study_library.dart';
 import '../services/scriptures/volumes.dart';
-import '../services/study/provider.dart';
 import '../services/topics/index.dart';
 import '../services/topics/reference.dart';
 import '../widgets/activity/ponder.dart';
@@ -112,7 +112,7 @@ class _ActivityPageState extends State<ActivityPage> {
   @override
   void initState() {
     // Pick a reference to study
-    var lib = Provider.of<StudyLibraryProvider>(context, listen: false);
+    var lib = Provider.of<StudyLibraryProxy>(context, listen: false);
     _reference = lib.leastRecent(widget.topic.id).randomItem();
     print('Starting activity for ${widget.topic.name}, studying $_reference');
 

@@ -33,10 +33,8 @@ class PlantsDashboard extends StatelessWidget {
                 }
 
                 // Sort records so that incomplete ones go first
-                var records = progress
-                    .fromTopics(topics.index.topics)
-                    .toList()
-                      ..sort();
+                var records = progress.fromTopics(topics.index.topics).toList()
+                  ..sort();
 
                 return AnimatedListBuilder<ProgressRecord>(
                   values: records,

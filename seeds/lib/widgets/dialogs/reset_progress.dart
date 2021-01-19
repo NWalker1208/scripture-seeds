@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/wallet.dart';
 import '../../services/history/provider.dart';
 import '../../services/progress/provider.dart';
 import '../../services/settings/help.dart';
+import '../../services/wallet/provider.dart';
 import '../help_info.dart';
 
 class ResetProgressDialog extends StatelessWidget {
@@ -35,7 +35,7 @@ class ResetProgressDialog extends StatelessWidget {
               var history = Provider.of<StudyHistory>(context, listen: false);
               history.clear();
 
-              var wallet = Provider.of<WalletData>(context, listen: false);
+              var wallet = Provider.of<WalletProvider>(context, listen: false);
               wallet.reset();
             },
           ),

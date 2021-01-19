@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 
-import '../custom_database/sql.dart';
+import '../mixins/sql.dart';
 import '../topics/reference.dart';
 import 'database.dart';
 
@@ -8,7 +8,7 @@ const String _referenceColumn = 'ref';
 const String _lastStudiedColumn = 'last_studied';
 
 class SqlHistoryDatabase extends HistoryDatabase<Database>
-    with CustomSqlDatabase<Reference, DateTime> {
+    with SqlDatabaseMixin<Reference, DateTime> {
   @override
   String get databaseFileName => 'lib_history.db';
 

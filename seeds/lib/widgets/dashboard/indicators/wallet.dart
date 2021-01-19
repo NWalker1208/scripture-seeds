@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../services/custom_icons.dart';
-import '../../../services/data/wallet.dart';
+import '../../../services/wallet/provider.dart';
+import '../../../utility/custom_icons.dart';
 
 class WalletIndicator extends StatelessWidget {
   final int required;
@@ -16,8 +16,8 @@ class WalletIndicator extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Consumer<WalletData>(
-            builder: (context, wallet, child) => Text('${wallet.availableFunds}'
+          Consumer<WalletProvider>(
+            builder: (context, wallet, child) => Text('${wallet.balance}'
                 '${required == null ? '' : '/$required'}'),
           ),
           const SizedBox(width: 4),

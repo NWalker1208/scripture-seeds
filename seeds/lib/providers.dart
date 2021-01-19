@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'services/data/wallet.dart';
 import 'services/history/provider.dart';
 import 'services/history/sql.dart';
 import 'services/journal/json.dart';
 import 'services/journal/provider.dart';
 import 'services/progress/provider.dart';
 import 'services/progress/sql.dart';
+import 'services/proxies/study_library.dart';
 import 'services/scriptures/database.dart';
-import 'services/scriptures/pd_scriptures.dart';
+import 'services/scriptures/sql.dart';
 import 'services/settings/help.dart';
 import 'services/settings/study_filter.dart';
-import 'services/study/provider.dart';
 import 'services/theme/provider.dart';
 import 'services/topics/provider.dart';
+import 'services/wallet/provider.dart';
+import 'services/wallet/shared_prefs.dart';
 
 class AppProviders extends StatefulWidget {
   final Widget app;
@@ -51,7 +52,7 @@ class _AppProvidersState extends State<AppProviders> {
         ChangeNotifierProvider(create: (_) => HelpSettings(), lazy: false),
 
         // Scriptures and Topics
-        Provider<ScriptureDatabase>(create: (_) => PublicDomainScriptures()),
+        Provider<ScriptureDatabase>(create: (_) => SqlScriptureDatabase()),
         ChangeNotifierProvider(create: (_) => TopicIndexProvider()),
 
         // Study
@@ -60,9 +61,9 @@ class _AppProvidersState extends State<AppProviders> {
           lazy: false,
         ),
         ProxyProvider4<ScriptureDatabase, TopicIndexProvider, StudyFilter,
-            StudyHistory, StudyLibraryProvider>(
+            StudyHistory, StudyLibraryProxy>(
           update: (context, scriptures, topics, filter, history, _) =>
-              StudyLibraryProvider(
+              StudyLibraryProxy(
             scriptures: scriptures,
             topics: topics,
             filter: filter,
@@ -75,7 +76,8 @@ class _AppProvidersState extends State<AppProviders> {
           create: (_) => ProgressProvider(SqlProgressDatabase()),
           lazy: false,
         ),
-        ChangeNotifierProvider(create: (_) => WalletData()),
+        ChangeNotifierProvider(
+            create: (_) => WalletProvider(SharedPrefsWalletService())),
         ChangeNotifierProvider(
             create: (_) => JournalProvider(JsonJournalDatabase())),
       ],

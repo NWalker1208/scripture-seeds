@@ -1,4 +1,4 @@
-import '../custom_database/database.dart';
+import '../database.dart';
 import 'entry.dart';
 
 abstract class JournalDatabase<D>
@@ -10,6 +10,9 @@ abstract class JournalDatabase<D>
   Future<bool> deleteEntry(JournalEntry entry) => delete(entry.name);
 
   /// Loads all journal entries as an iterable.
-  Future<Iterable<JournalEntry>> loadAllEntries() async =>
-      (await loadAll()).values;
+  /// Automatically removes entries which loaded as null.
+  Future<Iterable<JournalEntry>> loadAllEntries() async => [
+        for (var entry in (await loadAll()).values)
+          if (entry != null) entry,
+      ];
 }

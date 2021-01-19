@@ -1,17 +1,17 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
 
-import '../custom_database/file.dart';
+import '../mixins/file.dart';
 import 'database.dart';
 import 'entry.dart';
 
 const String _journalFolder = 'study_journal';
 
 class JsonJournalDatabase extends JournalDatabase<Directory>
-    with CustomFileDatabase<String, JournalEntry> {
+    with FileDatabaseMixin<String, JournalEntry> {
   @override
   Future<Directory> get directory async => Directory(path.join(
         (await getApplicationDocumentsDirectory()).path,
@@ -31,7 +31,12 @@ class JsonJournalDatabase extends JournalDatabase<Directory>
   String filenameToKey(String file) => file;
 
   @override
-  JournalEntry parseValue(String str) =>
-      JournalEntry.fromJson(jsonDecode(str) as Map<String, dynamic>);
-
+  JournalEntry parseValue(String str) {
+    try {
+      return JournalEntry.fromJson(jsonDecode(str) as Map<String, dynamic>);
+    } on Exception {
+      print('Encountered invalid journal entry.');
+      return null;
+    }
+  }
 }

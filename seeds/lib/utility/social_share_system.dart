@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:social_share/social_share.dart';
 
-import 'journal/entry.dart';
+import '../services/journal/entry.dart';
 
 enum SharePlatform {
   system, // Only one implemented

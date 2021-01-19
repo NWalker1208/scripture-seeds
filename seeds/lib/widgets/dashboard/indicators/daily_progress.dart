@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../services/custom_icons.dart';
 import '../../../services/progress/provider.dart';
+import '../../../utility/custom_icons.dart';
 
 class DailyProgressIndicator extends StatelessWidget {
   const DailyProgressIndicator({

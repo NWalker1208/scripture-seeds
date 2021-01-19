@@ -3,7 +3,7 @@ include: package:pedantic/analysis_options.yaml
 analyzer:
   exclude:
     - lib/**.g.dart
-    - lib/services/custom_icons.dart
+    - lib/**/custom_icons.dart
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false

@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:sqflite/sqflite.dart';
-import 'database.dart';
 
-mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
+import '../database.dart';
+
+mixin SqlDatabaseMixin<K, V> on CustomDatabase<Database, K, V> {
   /// Filename of the database file.
   String get databaseFileName;
 
@@ -44,9 +45,11 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
   /// Map values may be an [int], [num], [String], or [Uint8list].
   V resultToValue(Map<String, dynamic> result);
 
+  /// Used to initialize the database.
   FutureOr<void> onCreateDatabase(Database db, int version) =>
       db.execute(createTableSql);
 
+  /// Used to upgrade the database between versions.
   FutureOr<void> onUpgradeDatabase(Database db, int oldVer, int newVer) async {
     for (var sql in upgradeTableSql.sublist(oldVer - 1, newVer - 1)) {
       await db.execute(sql);
@@ -67,14 +70,14 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
 
   @override
   Future<Iterable<K>> loadKeys() async {
-    final db = await database;
+    final db = await source;
     var entries = await db.query(table, columns: [keyColumn]);
     return [for (var entry in entries) resultToKey(entry[keyColumn])];
   }
 
   @override
   Future<V> load(K key) async {
-    final db = await database;
+    final db = await source;
     var records = await db.query(
       table,
       columns: valueColumns.toList(),
@@ -88,7 +91,7 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
 
   @override
   Future<void> save(K key, V value) async {
-    final db = await database;
+    final db = await source;
     final entry = valueToArgs(value);
     entry[keyColumn] = keyToArg(key);
 
@@ -97,7 +100,7 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
 
   @override
   Future<bool> delete(K key) async {
-    final db = await database;
+    final db = await source;
     final count = await db.delete(
       table,
       where: '$keyColumn = ?',
@@ -108,13 +111,13 @@ mixin CustomSqlDatabase<K, V> on CustomDatabase<Database, K, V> {
 
   @override
   Future<void> clear() async {
-    final db = await database;
+    final db = await source;
     await db.delete(table);
   }
 
   @override
   Future<void> close() async {
-    final db = await database;
+    final db = await source;
     await db.close();
     await super.close();
   }

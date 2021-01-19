@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:social_share/social_share.dart';
 
 import '../extensions/string.dart';
-import '../services/custom_icons.dart';
-import '../services/data/wallet.dart';
 import '../services/progress/provider.dart';
 import '../services/topics/index.dart';
+import '../services/wallet/provider.dart';
+import '../utility/custom_icons.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/extra_study.dart';
 import '../widgets/dialogs/remove_plant.dart';
@@ -120,7 +120,7 @@ class _StudyButton extends StatelessWidget {
   void collectReward(BuildContext context) {
     var progress = Provider.of<ProgressProvider>(context, listen: false);
     var reward = progress.collectReward(topic.id);
-    Provider.of<WalletData>(context, listen: false).give(reward);
+    Provider.of<WalletProvider>(context, listen: false).add(reward);
 
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('You collected $reward seeds.')));

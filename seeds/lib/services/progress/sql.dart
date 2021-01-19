@@ -1,11 +1,11 @@
 import 'package:sqflite/sqflite.dart';
 
-import '../custom_database/sql.dart';
+import '../mixins/sql.dart';
 import 'database.dart';
 import 'record.dart';
 
 class SqlProgressDatabase extends ProgressDatabase<Database>
-    with CustomSqlDatabase<String, ProgressRecord> {
+    with SqlDatabaseMixin<String, ProgressRecord> {
   @override
   String get databaseFileName => 'progress.db';
 
@@ -32,11 +32,11 @@ class SqlProgressDatabase extends ProgressDatabase<Database>
 
   @override
   Iterable<String> get valueColumns => const [
-    ProgressRecord.kId,
-    ProgressRecord.kProgress,
-    ProgressRecord.kReward,
-    ProgressRecord.kLastUpdate
-  ];
+        ProgressRecord.kId,
+        ProgressRecord.kProgress,
+        ProgressRecord.kReward,
+        ProgressRecord.kLastUpdate
+      ];
 
   @override
   dynamic keyToArg(String key) => key;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/wallet.dart';
 import '../../services/progress/provider.dart';
 import '../../services/progress/record.dart';
 import '../../services/topics/index.dart';
+import '../../services/wallet/provider.dart';
 
 class PurchaseTopicDialog extends StatelessWidget {
   final Topic topic;
@@ -23,7 +23,7 @@ class PurchaseTopicDialog extends StatelessWidget {
           TextButton(
             child: const Text('CONTINUE'),
             onPressed: () {
-              if (Provider.of<WalletData>(context, listen: false)
+              if (Provider.of<WalletProvider>(context, listen: false)
                   .spend(topic.cost)) {
                 Provider.of<ProgressProvider>(context, listen: false)
                     .create(ProgressRecord(topic.id));

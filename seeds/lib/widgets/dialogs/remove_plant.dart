@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/wallet.dart';
 import '../../services/progress/provider.dart';
 import '../../services/topics/index.dart';
+import '../../services/wallet/provider.dart';
 
 class RemovePlantDialog extends StatelessWidget {
   final Topic topic;
@@ -26,7 +26,7 @@ class RemovePlantDialog extends StatelessWidget {
             onPressed: () {
               if (Provider.of<ProgressProvider>(context, listen: false)
                   .remove(topic.id)) {
-                Provider.of<WalletData>(context, listen: false).give(1);
+                Provider.of<WalletProvider>(context, listen: false).add(1);
                 Navigator.of(context).pop(true);
               } else {
                 Navigator.of(context).pop(false);

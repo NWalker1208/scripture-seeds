@@ -21,7 +21,8 @@ class JournalDashboard extends StatelessWidget {
 
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Consumer<JournalProvider>(builder: (context, journal, child) {
+            child:
+                Consumer<JournalProvider>(builder: (context, journal, child) {
               if (journal.entries.isEmpty) {
                 return const Text(
                     'Your most recent journal entry will appear here.');

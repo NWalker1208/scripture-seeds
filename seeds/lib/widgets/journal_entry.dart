@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../services/journal/entry.dart';
-import '../services/social_share_system.dart';
+import '../utility/social_share_system.dart';
 
 class JournalEntryView extends StatelessWidget {
   final JournalEntry entry;

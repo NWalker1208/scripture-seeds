@@ -7,7 +7,7 @@ import 'package:sqflite/sqflite.dart';
 import 'books.dart';
 import 'database.dart';
 
-class PublicDomainScriptures extends ScriptureDatabase {
+class SqlScriptureDatabase extends ScriptureDatabase {
   static const String _databaseAsset =
       'assets/lds-scriptures/sqlite/lds-scriptures-sqlite.db';
 
@@ -37,7 +37,7 @@ class PublicDomainScriptures extends ScriptureDatabase {
 
   Future<Database> _db;
 
-  PublicDomainScriptures({AssetBundle assets})
+  SqlScriptureDatabase({AssetBundle assets})
       : _assets = assets ?? rootBundle {
     print('Loading public domain scriptures database...');
     _db = _createTempDatabaseCopy().then((file) => openDatabase(file.path));

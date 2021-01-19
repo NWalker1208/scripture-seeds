@@ -1,4 +1,4 @@
-import '../custom_database/database.dart';
+import '../database.dart';
 import 'record.dart';
 
 abstract class ProgressDatabase<D>

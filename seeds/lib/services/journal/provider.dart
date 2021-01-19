@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'database.dart';
 
+import 'database.dart';
 import 'entry.dart';
 
 class JournalProvider extends ChangeNotifier {
@@ -60,6 +60,12 @@ class JournalProvider extends ChangeNotifier {
     _entries.clear();
     _database.clear();
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _database.close();
+    super.dispose();
   }
 
   // static Future<List<JournalEntry>> _loadEntries() async {

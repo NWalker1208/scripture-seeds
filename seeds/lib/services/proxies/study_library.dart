@@ -4,13 +4,13 @@ import '../settings/study_filter.dart';
 import '../topics/provider.dart';
 import '../topics/reference.dart';
 
-class StudyLibraryProvider {
+class StudyLibraryProxy {
   final ScriptureDatabase scriptures;
   final TopicIndexProvider topics;
   final StudyFilter filter;
   final StudyHistory history;
 
-  StudyLibraryProvider({
+  StudyLibraryProxy({
     this.scriptures,
     this.topics,
     this.filter,

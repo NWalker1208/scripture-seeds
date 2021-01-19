@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 
-import '../services/custom_icons.dart';
+import '../utility/custom_icons.dart';
 import '../widgets/settings/data_management.dart';
 import '../widgets/settings/library_filter.dart';
 import '../widgets/settings/library_refresh.dart';
