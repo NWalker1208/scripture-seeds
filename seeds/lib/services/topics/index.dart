@@ -4,7 +4,7 @@ import 'reference.dart';
 
 part 'index.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class TopicIndex {
   static const minSchema = 1;
   static const maxSchema = 1;
@@ -37,7 +37,7 @@ class TopicIndex {
       };
 }
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 @_CustomReferenceConverter()
 class Topic {
   final String id;

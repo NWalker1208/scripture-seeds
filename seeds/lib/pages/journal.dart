@@ -3,7 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import '../extensions/string.dart';
-import '../services/data/journal.dart';
+import '../services/journal/entry.dart';
+import '../services/journal/provider.dart';
 import '../widgets/animation/appear_transition.dart';
 import '../widgets/animation/list.dart';
 import '../widgets/app_bar_themed.dart';

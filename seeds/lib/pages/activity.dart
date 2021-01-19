@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../extensions/list.dart';
 import '../extensions/string.dart';
-import '../services/data/journal.dart';
 import '../services/history/provider.dart';
+import '../services/journal/entry.dart';
+import '../services/journal/provider.dart';
 import '../services/progress/provider.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/study/provider.dart';

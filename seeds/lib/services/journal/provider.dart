@@ -4,83 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'entry.dart';
+
 const String _kJournalFolder = '/study_journal/';
-const String _kEntryFileExtension = '.jrnent';
-
-const String _kFileCreated = 'created';
-const String _kFileCategory = 'category';
-const String _kFileQuote = 'quote';
-const String _kFileReference = 'reference';
-const String _kFileURL = 'url';
-const String _kFileCommentary = 'commentary';
-const String _kFileTags = 'tags';
-
-class JournalEntry implements Comparable<JournalEntry> {
-  DateTime created;
-  String category;
-  String quote;
-  String reference;
-  String url;
-  String commentary;
-  List<String> tags;
-
-  JournalEntry({
-    DateTime created,
-    this.category = 'other',
-    this.quote = '',
-    this.reference = '',
-    this.url = '',
-    this.commentary = '',
-    List<String> tags,
-  })  : created = created ?? DateTime.now(),
-        tags = tags ?? <String>[];
-
-  JournalEntry.fromJSON(String json) {
-    var data = jsonDecode(json) as Map<String, dynamic>;
-
-    created = data.containsKey(_kFileCreated)
-        ? DateTime.parse(data[_kFileCreated] as String)
-        : null;
-
-    category = data[_kFileCategory] as String ?? 'other';
-    quote = (data[_kFileQuote] ?? data[_kFileReference]) as String ?? '';
-    reference = data[_kFileReference] as String ?? '';
-    url = data[_kFileURL] as String ?? '';
-    commentary = data[_kFileCommentary] as String ?? '';
-
-    tags = data.containsKey(_kFileTags)
-        ? (data[_kFileTags] as List<dynamic>).whereType<String>().toList()
-        : <String>[];
-  }
-
-  String toJSON() {
-    var data = <String, dynamic>{};
-    data[_kFileCreated] = created.toString();
-    data[_kFileCategory] = category;
-    data[_kFileQuote] = quote;
-    data[_kFileReference] = reference;
-    data[_kFileURL] = url;
-    data[_kFileCommentary] = commentary;
-    data[_kFileTags] = tags;
-    return jsonEncode(data);
-  }
-
-  @override
-  String toString() {
-    if (quote != reference) {
-      return '$quote - $reference\n$commentary\n$url';
-    } else {
-      return '$quote\n$commentary';
-    }
-  }
-
-  String get fileName =>
-      created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_') +
-      _kEntryFileExtension;
-
-  @override
-  int compareTo(JournalEntry other) => created.compareTo(other.created);
-}
 
 class JournalData extends ChangeNotifier {
   List<String> _topics;
@@ -153,7 +79,8 @@ class JournalData extends ChangeNotifier {
       for (var entity in entryFiles) {
         if (entity is File) {
           try {
-            var entry = JournalEntry.fromJSON(entity.readAsStringSync());
+            var entry = JournalEntry.fromJson(
+                jsonDecode(entity.readAsStringSync()) as Map<String, dynamic>);
             entries.add(entry);
           } on FormatException {
             print(
@@ -182,7 +109,7 @@ class JournalData extends ChangeNotifier {
 
     try {
       var entryFile = File((await _journalFolder).path + entry.fileName);
-      entryFile.writeAsStringSync(entry.toJSON());
+      entryFile.writeAsStringSync(jsonEncode(entry.toJSON()));
 
       print('Entry saved.');
       return true;

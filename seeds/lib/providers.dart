@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'services/data/journal.dart';
 import 'services/data/wallet.dart';
 import 'services/history/provider.dart';
 import 'services/history/sql.dart';
+import 'services/journal/provider.dart';
 import 'services/progress/provider.dart';
 import 'services/progress/sql.dart';
 import 'services/scriptures/database.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/data/journal.dart';
+import '../../services/journal/provider.dart';
 import '../journal_entry.dart';
 import 'indicators/streak.dart';
 
