@@ -9,7 +9,7 @@ class StreakIndicator extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer<JournalData>(
+  Widget build(BuildContext context) => Consumer<JournalProvider>(
         builder: (context, journal, child) => Row(
           mainAxisSize: MainAxisSize.min,
           children: [

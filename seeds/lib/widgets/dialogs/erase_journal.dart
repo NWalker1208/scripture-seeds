@@ -20,8 +20,8 @@ class EraseJournalDialog extends StatelessWidget {
             child: const Text('CONTINUE'),
             onPressed: () {
               Navigator.of(context).pop(true);
-              Provider.of<JournalData>(context, listen: false)
-                  .deleteAllEntries();
+              Provider.of<JournalProvider>(context, listen: false)
+                  .deleteAll();
             },
           ),
 

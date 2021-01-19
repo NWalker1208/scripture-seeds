@@ -47,8 +47,8 @@ class _JournalPageState extends State<JournalPage> {
   }
 
   void checkFilter() {
-    if (!Provider.of<JournalData>(context, listen: false)
-        .topics
+    if (!Provider.of<JournalProvider>(context, listen: false)
+        .allTags
         .contains(filter)) filter = null;
   }
 
@@ -85,7 +85,7 @@ class _JournalPageState extends State<JournalPage> {
               preferredSize: const Size.fromHeight(50),
               child: AppBarThemed(ListTile(
                 title: const Text('Topic'),
-                trailing: Consumer<JournalData>(
+                trailing: Consumer<JournalProvider>(
                   builder: (_, journal, child) => DropdownButton<String>(
                     value: filter ?? 'all_topics',
                     onChanged: (topic) => setState(() {
@@ -98,7 +98,7 @@ class _JournalPageState extends State<JournalPage> {
                     items: [
                       const DropdownMenuItem<String>(
                           value: 'all_topics', child: Text('All')),
-                      for (var topic in journal.topics)
+                      for (var topic in journal.allTags)
                         DropdownMenuItem<String>(
                             value: topic, child: Text(topic.capitalize()))
                     ],
@@ -107,13 +107,12 @@ class _JournalPageState extends State<JournalPage> {
               )),
             ),
           ),
-          body: Consumer<JournalData>(
+          body: Consumer<JournalProvider>(
             builder: (context, journal, child) {
-              var entries = journal.entries.reversed.toList();
-
-              if (filter != null) {
-                entries.removeWhere((entry) => !entry.tags.contains(filter));
-              }
+              final entries = filter == null
+                  ? journal.entries
+                  : journal.entries
+                      .where((entry) => entry.tags.contains(filter));
 
               if (entries.isEmpty) {
                 return Center(
@@ -122,7 +121,7 @@ class _JournalPageState extends State<JournalPage> {
               }
 
               return AnimatedListBuilder<JournalEntry>(
-                values: entries,
+                values: entries.toList().reversed,
                 duration: const Duration(milliseconds: 200),
                 childBuilder: (context, entry, animation) => AppearTransition(
                   visibility: animation,

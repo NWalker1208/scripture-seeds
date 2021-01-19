@@ -27,7 +27,7 @@ class JournalEntry implements Comparable<JournalEntry> {
   factory JournalEntry.fromJson(Map<String, dynamic> json) =>
       _$JournalEntryFromJson(json);
 
-  Map<String, dynamic> toJSON() => _$JournalEntryToJson(this);
+  Map<String, dynamic> toJson() => _$JournalEntryToJson(this);
 
   @override
   String toString() {
@@ -38,8 +38,7 @@ class JournalEntry implements Comparable<JournalEntry> {
     }
   }
 
-  String get fileName =>
-      '${created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_')}.jrnent';
+  String get name => created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_');
 
   @override
   int compareTo(JournalEntry other) => created.compareTo(other.created);

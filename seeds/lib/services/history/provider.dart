@@ -18,7 +18,7 @@ class StudyHistory extends ChangeNotifier {
   final HistoryDatabase _database;
   Map<Reference, DateTime> _history;
 
-  /// Check if the database has been loaded
+  /// Check if the database has been loaded.
   bool get isLoaded => _history != null;
 
   /// Get list of all references in history.

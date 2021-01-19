@@ -22,8 +22,8 @@ class EraseEntryDialog extends StatelessWidget {
             child: Text('CONTINUE'),
             onPressed: () {
               Navigator.of(context).pop(true);
-              Provider.of<JournalData>(context, listen: false)
-                  .deleteEntrySet(entriesToDelete);
+              Provider.of<JournalProvider>(context, listen: false)
+                  .deleteCollection(entriesToDelete);
             },
           ),
 

@@ -37,6 +37,7 @@ dependencies:
   package_info: ^0.4.3
   intl: ^0.16.1
   json_serializable: ^3.5.1
+  path: ^1.7.0
 
 dev_dependencies:
   flutter_test:

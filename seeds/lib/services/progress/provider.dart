@@ -14,10 +14,10 @@ class ProgressProvider extends ChangeNotifier {
   final ProgressDatabase _database;
   Map<String, ProgressRecord> _records;
 
-  /// Check if the database has been loaded
+  /// Check if the database has been loaded.
   bool get isLoaded => _records != null;
 
-  /// Get list of existing records
+  /// Get list of existing records.
   Iterable<String> get names => _records?.keys ?? const [];
   Iterable<ProgressRecord> get records => _records?.values ?? const [];
 

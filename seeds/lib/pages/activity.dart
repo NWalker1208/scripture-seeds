@@ -99,8 +99,8 @@ class _ActivityPageState extends State<ActivityPage> {
 
   void _endActivity(ActivityProvider activity) {
     if (activity.saveToJournal) {
-      Provider.of<JournalData>(context, listen: false)
-          .createEntry(activity.createJournalEntry(widget.topic, _reference));
+      Provider.of<JournalProvider>(context, listen: false)
+          .save(activity.createJournalEntry(widget.topic, _reference));
     }
 
     Provider.of<StudyHistory>(context, listen: false).markStudied(_reference);
