@@ -1,6 +1,14 @@
 import '../../extensions/string.dart';
 import 'volumes.dart';
 
+Book parseBook(String string) {
+  // Remove whitespace and dashes
+  string = string.replaceAll(RegExp(r'[ -]'), '');
+  // Move number to end
+  if (string[0].isNumeric) string = string.substring(1) + string[0];
+  return string.toEnum(Book.values);
+}
+
 extension BookExtension on Book {
   // Volume
   Volume get volume {

@@ -50,11 +50,8 @@ class ScriptureReference implements Comparable<ScriptureReference> {
       bookStr = bookStr.substring(2) + bookStr[0];
     }
 
-    // Remove whitespace and dashes
-    bookStr = bookStr.replaceAll(RegExp(r'[ -]'), '');
-
     return ScriptureReference(
-      bookStr.toEnum(Book.values),
+      parseBook(bookStr),
       int.parse(chapterStr),
       stringToVerseSet(versesStr),
     );

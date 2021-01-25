@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/scriptures/json.dart';
 
 import 'services/history/provider.dart';
 import 'services/history/sql.dart';
@@ -53,7 +54,9 @@ class _AppProvidersState extends State<AppProviders> {
 
         // Scriptures and Topics
         ChangeNotifierProvider(
-            create: (_) => ScriptureProvider(SqlScriptureDatabase())),
+          create: (_) => ScriptureProvider(JsonScriptureDatabase()),
+          lazy: false,
+        ),
         ChangeNotifierProvider(create: (_) => TopicIndexProvider()),
 
         // Study
