@@ -1,15 +1,10 @@
 import '../history/provider.dart';
-import '../scriptures/database.dart';
+import '../scriptures/provider.dart';
+import '../scriptures/reference.dart';
 import '../settings/study_filter.dart';
 import '../topics/provider.dart';
-import '../topics/reference.dart';
 
 class StudyLibraryProxy {
-  final ScriptureDatabase scriptures;
-  final TopicIndexProvider topics;
-  final StudyFilter filter;
-  final StudyHistory history;
-
   StudyLibraryProxy({
     this.scriptures,
     this.topics,
@@ -17,18 +12,20 @@ class StudyLibraryProxy {
     this.history,
   });
 
-  Future<List<String>> getChapterOfReference(Reference reference) =>
-      scriptures.getChapterText(reference.book, reference.chapter);
+  final ScriptureProvider scriptures;
+  final TopicIndexProvider topics;
+  final StudyFilter filter;
+  final StudyHistory history;
 
-  List<Reference> availableReferences(String topic) {
+  List<ScriptureReference> availableReferences(String topic) {
     var references = topics.index[topic].references.toList();
     references.removeWhere((ref) => !filter[ref.volume]);
     return references;
   }
 
-  List<Reference> leastRecent(String topic) {
+  List<ScriptureReference> leastRecent(String topic) {
     var references = availableReferences(topic);
-    var leastRecent = <Reference>[];
+    var leastRecent = <ScriptureReference>[];
     DateTime leastRecentDate;
 
     for (var ref in references) {

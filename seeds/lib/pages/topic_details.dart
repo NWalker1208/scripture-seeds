@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 
 import '../extensions/string.dart';
 import '../services/progress/provider.dart';
+import '../services/scriptures/reference.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/index.dart';
 import '../services/topics/provider.dart';
-import '../services/topics/reference.dart';
 import '../services/wallet/provider.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
@@ -104,7 +104,7 @@ class TopicDetailsPage extends StatelessWidget {
 
 class _VolumeRefList extends StatelessWidget {
   final Volume volume;
-  final Iterable<Reference> references;
+  final Iterable<ScriptureReference> references;
 
   _VolumeRefList(this.volume, this.references, {Key key}) : super(key: key);
 

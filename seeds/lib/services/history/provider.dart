@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import '../topics/reference.dart';
+import '../scriptures/reference.dart';
 import 'database.dart';
 
 class StudyHistory extends ChangeNotifier {
@@ -16,17 +16,17 @@ class StudyHistory extends ChangeNotifier {
   }
 
   final HistoryDatabase _database;
-  Map<Reference, DateTime> _history;
+  Map<ScriptureReference, DateTime> _history;
 
   /// Check if the database has been loaded.
   bool get isLoaded => _history != null;
 
   /// Get list of all references in history.
-  List<Reference> get references => _history?.keys?.toList();
+  List<ScriptureReference> get references => _history?.keys?.toList();
 
   /// Gets the date last studied for a library resource.
   /// Returns null if never studied or if history is not loaded.
-  DateTime lastStudied(Reference reference) {
+  DateTime lastStudied(ScriptureReference reference) {
     if (!isLoaded || !_history.containsKey(reference)) return null;
     return _history[reference];
   }
@@ -34,7 +34,7 @@ class StudyHistory extends ChangeNotifier {
   /// Updates the history of a library resource to show studied on date.
   /// If no date is given, the current time is used.
   /// Returns false if history has not finished loading.
-  bool markStudied(Reference reference, {DateTime date}) {
+  bool markStudied(ScriptureReference reference, {DateTime date}) {
     if (!isLoaded) return false;
 
     _history[reference] = date ?? DateTime.now();

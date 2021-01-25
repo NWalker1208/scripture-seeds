@@ -16,26 +16,4 @@ abstract class CustomDatabase<D, K, V> extends CustomService<D> {
   Future<Map<K, V>> loadAll() async => {
         for (var key in await loadKeys()) key: await load(key),
       };
-
-  /// Associates the given value with the key.
-  Future<void> save(K key, V value);
-
-  /// Deletes the entry with the given key.
-  /// Returns true if an entry was deleted, false otherwise.
-  Future<bool> delete(K key);
-
-  /// Clears all data from the database.
-  Future<void> clear() async {
-    for (var key in await loadKeys()) {
-      await delete(key);
-    }
-  }
-
-  /// Transfers entries from this database to another.
-  Future<void> transferTo(CustomDatabase<dynamic, K, V> destination) async {
-    final map = await loadAll();
-    for (var entry in map.entries) {
-      await destination.save(entry.key, entry.value);
-    }
-  }
 }

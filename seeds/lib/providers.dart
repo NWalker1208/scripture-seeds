@@ -8,7 +8,7 @@ import 'services/journal/provider.dart';
 import 'services/progress/provider.dart';
 import 'services/progress/sql.dart';
 import 'services/proxies/study_library.dart';
-import 'services/scriptures/database.dart';
+import 'services/scriptures/provider.dart';
 import 'services/scriptures/sql.dart';
 import 'services/settings/help.dart';
 import 'services/settings/study_filter.dart';
@@ -52,7 +52,8 @@ class _AppProvidersState extends State<AppProviders> {
         ChangeNotifierProvider(create: (_) => HelpSettings(), lazy: false),
 
         // Scriptures and Topics
-        Provider<ScriptureDatabase>(create: (_) => SqlScriptureDatabase()),
+        ChangeNotifierProvider(
+            create: (_) => ScriptureProvider(SqlScriptureDatabase())),
         ChangeNotifierProvider(create: (_) => TopicIndexProvider()),
 
         // Study
@@ -60,7 +61,7 @@ class _AppProvidersState extends State<AppProviders> {
           create: (_) => StudyHistory(SqlHistoryDatabase()),
           lazy: false,
         ),
-        ProxyProvider4<ScriptureDatabase, TopicIndexProvider, StudyFilter,
+        ProxyProvider4<ScriptureProvider, TopicIndexProvider, StudyFilter,
             StudyHistory, StudyLibraryProxy>(
           update: (context, scriptures, topics, filter, history, _) =>
               StudyLibraryProxy(

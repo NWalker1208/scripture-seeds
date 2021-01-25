@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/scriptures/books.dart';
-import '../../services/scriptures/database.dart';
-import '../../services/topics/reference.dart';
+import '../../services/scriptures/provider.dart';
+import '../../services/scriptures/reference.dart';
 import 'verse.dart';
 
 class ChapterView extends StatefulWidget {
-  final Reference reference;
+  final ScriptureReference reference;
   final bool scrollToReference;
   final VerseHighlightChangeHandler onHighlightChange;
   final EdgeInsets padding;
@@ -34,7 +34,7 @@ class _VerseGroup {
   _VerseGroup({this.important, this.startNumber, this.verses});
 
   static List<_VerseGroup> createList(
-      List<String> chapter, Reference reference) {
+      List<String> chapter, ScriptureReference reference) {
     var groups = <_VerseGroup>[];
 
     for (var i = 0; i < chapter.length;) {
@@ -61,7 +61,7 @@ class _VerseGroup {
 
 class _ChapterViewState extends State<ChapterView> {
   GlobalKey _referenceKey;
-  Future<List<String>> _chapter;
+  Future<Iterable<String>> _chapter;
 
   void scrollToReference() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -81,8 +81,8 @@ class _ChapterViewState extends State<ChapterView> {
   void initState() {
     _referenceKey = GlobalKey();
     // Load chapter text
-    _chapter = Provider.of<ScriptureDatabase>(context, listen: false)
-        .getChapterText(widget.reference.book, widget.reference.chapter);
+    _chapter = Provider.of<ScriptureProvider>(context, listen: false)
+        .loadChapterOfReference(widget.reference);
     if (widget.scrollToReference) _chapter.then((_) => scrollToReference());
     super.initState();
   }
@@ -91,8 +91,8 @@ class _ChapterViewState extends State<ChapterView> {
   void didUpdateWidget(ChapterView oldWidget) {
     if (oldWidget.reference != widget.reference) {
       // Load chapter text
-      _chapter = Provider.of<ScriptureDatabase>(context, listen: false)
-          .getChapterText(widget.reference.book, widget.reference.chapter);
+      _chapter = Provider.of<ScriptureProvider>(context, listen: false)
+          .loadChapterOfReference(widget.reference);
       if (widget.scrollToReference) _chapter.then((_) => scrollToReference());
     }
     super.didUpdateWidget(oldWidget);
@@ -138,7 +138,7 @@ class _ChapterViewState extends State<ChapterView> {
             .textTheme
             .apply(fontFamily: 'Buenard', fontSizeDelta: 5),
       ),
-      child: FutureBuilder(
+      child: FutureBuilder<Iterable<String>>(
         future: _chapter,
         builder: (context, snapshot) => Stack(
           alignment: Alignment.center,
@@ -166,7 +166,7 @@ class _ChapterViewState extends State<ChapterView> {
                     delegate: SliverChildListDelegate([
                       Column(children: [
                         for (var group in _VerseGroup.createList(
-                            snapshot.data as List<String>, widget.reference))
+                            snapshot.data.toList(), widget.reference))
                           Container(
                             margin: const EdgeInsets.only(top: 4.0),
                             padding: const EdgeInsets.all(2.0),

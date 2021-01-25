@@ -1,8 +1,8 @@
-import '../database.dart';
+import '../saved.dart';
 import 'record.dart';
 
 abstract class ProgressDatabase<D>
-    extends CustomDatabase<D, String, ProgressRecord> {
+    extends SavedDatabase<D, String, ProgressRecord> {
   /// Saves the progress record to the database, using the ID as the key.
   Future<void> saveRecord(ProgressRecord record) => save(record.id, record);
 

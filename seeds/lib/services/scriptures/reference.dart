@@ -1,32 +1,36 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:ui';
+
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../extensions/iterable.dart';
 import '../../extensions/string.dart';
-import '../scriptures/books.dart';
-import '../scriptures/volumes.dart';
+import 'books.dart';
+import 'volumes.dart';
+
+const String _gospelLibraryUrl =
+    'https://www.churchofjesuschrist.org/study/scriptures/';
 
 @immutable
-class Reference {
-  static const String gospelLibraryUrl =
-      'https://www.churchofjesuschrist.org/study/scriptures/';
-
-  final Volume volume;
-  final Book book;
-  final int chapter;
-  final Set<int> verses;
-
-  String get url => '$gospelLibraryUrl${volume.url}/${book.url}/'
-      '$chapter.${versesToString()}#p${verses.first}';
-
-  Reference(
+class ScriptureReference implements Comparable<ScriptureReference> {
+  ScriptureReference(
     this.book,
     this.chapter,
     Iterable<int> verses,
   )   : volume = book.volume,
-        verses = verses.toSet();
+        _verses = verses.toBuiltSet();
 
-  factory Reference.parse(String string) {
+  final Volume volume;
+  final Book book;
+  final int chapter;
+  final BuiltSet<int> _verses;
+  Iterable<int> get verses => _verses;
+
+  String get url => '$_gospelLibraryUrl${volume.url}/${book.url}/'
+      '$chapter.${versesToString()}#p${verses.first}';
+
+  factory ScriptureReference.parse(String string) {
     var spaceIndex = string.lastIndexOf(' ');
     var colonIndex = string.indexOf(':');
 
@@ -49,7 +53,7 @@ class Reference {
     // Remove whitespace and dashes
     bookStr = bookStr.replaceAll(RegExp(r'[ -]'), '');
 
-    return Reference(
+    return ScriptureReference(
       bookStr.toEnum(Book.values),
       int.parse(chapterStr),
       stringToVerseSet(versesStr),
@@ -82,20 +86,30 @@ class Reference {
 
   @override
   bool operator ==(Object other) {
-    if (other is Reference) {
+    if (other is ScriptureReference) {
       return other.book == book &&
           other.chapter == chapter &&
-          other.verses.containsAll(verses) &&
-          verses.containsAll(other.verses);
+          other._verses == _verses;
     }
     return false;
   }
 
   @override
-  int get hashCode =>
-      book.hashCode +
-      chapter.hashCode * 100 +
-      verses.reduce((value, element) => value + element.hashCode) * 500;
+  int get hashCode => hashValues(book, chapter, verses.hashCode);
+
+  @override
+  int compareTo(ScriptureReference other) {
+    var c = book.index.compareTo(other.book.index);
+    if (c != 0) return c;
+    c = chapter.compareTo(other.chapter);
+    if (c != 0) return c;
+
+    final verseComps = verses.zip(other.verses, (a, b) => a.compareTo(b));
+    return verseComps.firstWhere(
+      (c) => c != 0,
+      orElse: () => verses.length.compareTo(other.verses.length),
+    );
+  }
 
   @override
   String toString() => '${book.title} $chapter:${versesToString()}';

@@ -6,83 +6,41 @@ import 'package:sqflite/sqflite.dart';
 
 import 'books.dart';
 import 'database.dart';
+import 'verse.dart';
 
-class SqlScriptureDatabase extends ScriptureDatabase {
-  static const String _databaseAsset =
-      'assets/lds-scriptures/sqlite/lds-scriptures-sqlite.db';
+// Database Schema
+const String _bookTable = 'books';
+const String _bookId = 'id';
+const String _bookTitle = 'book_title';
 
-  // Database Schema
-  static const String _bookTable = 'books';
-  static const String _bookId = 'id';
-  //static const String _bookVolume = 'volume_id';
-  static const String _bookTitle = 'book_title';
+const String _chapterTable = 'chapters';
+const String _chapterId = 'id';
+const String _chapterBook = 'book_id';
+const String _chapterNumber = 'chapter_number';
 
-  static const String _chapterTable = 'chapters';
-  static const String _chapterId = 'id';
-  static const String _chapterBook = 'book_id';
-  static const String _chapterNumber = 'chapter_number';
+const String _verseTable = 'verses';
+const String _verseId = 'id';
+const String _verseChapter = 'chapter_id';
+const String _verseNumber = 'verse_number';
+const String _verseText = 'scripture_text';
 
-  static const String _verseTable = 'verses';
-  static const String _verseId = 'id';
-  static const String _verseChapter = 'chapter_id';
-  static const String _verseNumber = 'verse_number';
-  static const String _verseText = 'scripture_text';
+const String _databaseAsset =
+    'assets/lds-scriptures/sqlite/lds-scriptures-sqlite.db';
 
-  /*static const String _volumeTable = 'volumes';
-  static const String _volumeId = 'id';
-  static const String _volumeTitle = 'volume_title';*/
+class SqlScriptureDatabase extends ScriptureDatabase<Database> {
+  SqlScriptureDatabase({AssetBundle assets}) : _assets = assets ?? rootBundle;
 
-  // Database helper
   final AssetBundle _assets;
 
-  Future<Database> _db;
-
-  SqlScriptureDatabase({AssetBundle assets})
-      : _assets = assets ?? rootBundle {
-    print('Loading public domain scriptures database...');
-    _db = _createTempDatabaseCopy().then((file) => openDatabase(file.path));
-    _db.then((_) => print('Public domain scripture database loaded!'));
-  }
-
-  Future<int> _getBookId(Book book) async {
-    var db = await _db;
-    return (await db.query(
-      _bookTable,
-      columns: [_bookId],
-      where: 'lower($_bookTitle)=?',
-      whereArgs: <dynamic>[book.title.replaceAll('\u2014', '--').toLowerCase()],
-      limit: 1,
-    ))
-        .first[_bookId] as int;
-  }
-
-  Future<int> _getChapterId(Book book, int chapter) async {
-    var db = await _db;
-    return (await db.query(
-      _chapterTable,
-      columns: [_chapterId],
-      where: '$_chapterBook=? AND $_chapterNumber=?',
-      whereArgs: <dynamic>[await _getBookId(book), chapter],
-      limit: 1,
-    ))
-        .first[_chapterId] as int;
-  }
-
-  Future<int> _getVerseId(Book book, int chapter, int verse) async {
-    var db = await _db;
-    return (await db.query(
-      _verseTable,
-      columns: [_verseId],
-      where: '$_verseChapter=? AND $_verseNumber=?',
-      whereArgs: <dynamic>[await _getChapterId(book, chapter), verse],
-      limit: 1,
-    ))
-        .first[_chapterId] as int;
+  @override
+  Future<Database> open() async {
+    var file = await _createTempDatabaseCopy();
+    return openDatabase(file.path);
   }
 
   @override
   Future<int> getChapterCount(Book book) async {
-    var db = await _db;
+    var db = await data;
     var chapters = await db.query(
       _chapterTable,
       where: '$_chapterBook=?',
@@ -94,7 +52,7 @@ class SqlScriptureDatabase extends ScriptureDatabase {
 
   @override
   Future<int> getVerseCount(Book book, int chapter) async {
-    var db = await _db;
+    var db = await data;
     var verses = await db.query(
       _verseTable,
       where: '$_verseChapter=?',
@@ -105,13 +63,15 @@ class SqlScriptureDatabase extends ScriptureDatabase {
   }
 
   @override
-  Future<String> loadVerseText(Book book, int chapter, int verse) async {
-    var db = await _db;
+  Future<String> load(ScriptureVerse verse) async {
+    var db = await data;
     final text = (await db.query(
       _verseTable,
       columns: [_verseText],
       where: '$_verseId=?',
-      whereArgs: <dynamic>[await _getVerseId(book, chapter, verse)],
+      whereArgs: <dynamic>[
+        await _getVerseId(verse.book, verse.chapter, verse.number)
+      ],
       limit: 1,
     ))
         .first[_verseText] as String;
@@ -134,5 +94,41 @@ class SqlScriptureDatabase extends ScriptureDatabase {
     }
 
     return copyFile;
+  }
+
+  Future<int> _getBookId(Book book) async {
+    var db = await data;
+    return (await db.query(
+      _bookTable,
+      columns: [_bookId],
+      where: 'lower($_bookTitle)=?',
+      whereArgs: <dynamic>[book.title.replaceAll('\u2014', '--').toLowerCase()],
+      limit: 1,
+    ))
+        .first[_bookId] as int;
+  }
+
+  Future<int> _getChapterId(Book book, int chapter) async {
+    var db = await data;
+    return (await db.query(
+      _chapterTable,
+      columns: [_chapterId],
+      where: '$_chapterBook=? AND $_chapterNumber=?',
+      whereArgs: <dynamic>[await _getBookId(book), chapter],
+      limit: 1,
+    ))
+        .first[_chapterId] as int;
+  }
+
+  Future<int> _getVerseId(Book book, int chapter, int verse) async {
+    var db = await data;
+    return (await db.query(
+      _verseTable,
+      columns: [_verseId],
+      where: '$_verseChapter=? AND $_verseNumber=?',
+      whereArgs: <dynamic>[await _getChapterId(book, chapter), verse],
+      limit: 1,
+    ))
+        .first[_chapterId] as int;
   }
 }

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
+import '../../services/scriptures/reference.dart';
 import '../../services/topics/index.dart';
-import '../../services/topics/reference.dart';
 import '../journal_entry.dart';
 
 class ShareActivity extends StatelessWidget {
   final Topic topic;
-  final Reference reference;
+  final ScriptureReference reference;
 
   const ShareActivity(this.topic, this.reference, {Key key}) : super(key: key);
 

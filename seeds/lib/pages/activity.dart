@@ -8,9 +8,9 @@ import '../services/journal/entry.dart';
 import '../services/journal/provider.dart';
 import '../services/progress/provider.dart';
 import '../services/proxies/study_library.dart';
+import '../services/scriptures/reference.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/index.dart';
-import '../services/topics/reference.dart';
 import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';
 import '../widgets/activity/share.dart';
@@ -56,7 +56,7 @@ class ActivityProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  JournalEntry createJournalEntry(Topic topic, Reference reference) =>
+  JournalEntry createJournalEntry(Topic topic, ScriptureReference reference) =>
       JournalEntry(
         category: reference.volume.title,
         quote: quote,
@@ -77,7 +77,7 @@ class _ActivityPageState extends State<ActivityPage> {
   int _stage = 0;
   final _stageController = PageController();
   final _helpKey = GlobalKey<HelpInfoState>();
-  Reference _reference;
+  ScriptureReference _reference;
 
   void setStage(int stage) {
     setState(() => _stage = stage);

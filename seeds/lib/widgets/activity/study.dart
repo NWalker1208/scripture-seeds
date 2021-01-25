@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
-import '../../services/topics/reference.dart';
+import '../../services/scriptures/reference.dart';
 import '../scriptures/chapter.dart';
 
 class StudyActivity extends StatefulWidget {
   const StudyActivity(this.reference, {Key key}) : super(key: key);
 
-  final Reference reference;
+  final ScriptureReference reference;
 
   @override
   _StudyActivityState createState() => _StudyActivityState();

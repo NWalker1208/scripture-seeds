@@ -1,46 +1,26 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
-
+import '../../extensions/iterable.dart';
+import '../database.dart';
 import 'books.dart';
+import 'verse.dart';
 
-abstract class ScriptureDatabase {
-  final _cache = <Book, Map<int, Map<int, Future<String>>>>{};
+/// Database for obtaining scriptural text.
+/// D - Internal database instance.
+abstract class ScriptureDatabase<D>
+    extends CustomDatabase<D, ScriptureVerse, String> {
+  /// Avoid calling of possible
+  @override
+  Future<Iterable<ScriptureVerse>> loadKeys() async => [
+        for (var book in Book.values)
+          for (var chapter in range(await getChapterCount(book)))
+            for (var verse in range(await getVerseCount(book, chapter + 1)))
+              ScriptureVerse(book, chapter + 1, verse + 1),
+      ];
 
+  /// Returns the number of chapters in a book.
   Future<int> getChapterCount(Book book);
 
+  /// Returns the number of verses in a chapter.
   Future<int> getVerseCount(Book book, int chapter);
-
-  @protected
-  Future<String> loadVerseText(Book book, int chapter, int verse);
-
-  Future<String> getVerseText(Book book, int chapter, int verse) {
-    if (!_cache.containsKey(book)) {
-      _cache[book] = <int, Map<int, Future<String>>>{};
-    }
-    if (!_cache[book].containsKey(chapter)) {
-      _cache[book][chapter] = <int, Future<String>>{};
-    }
-    if (!_cache[book][chapter].containsKey(verse)) {
-      _cache[book][chapter][verse] = loadVerseText(book, chapter, verse);
-    }
-
-    return _cache[book][chapter][verse];
-  }
-
-  Future<List<String>> getChapterText(Book book, int chapter) async {
-    var stopwatch = Stopwatch()..start();
-
-    var verseCount = await getVerseCount(book, chapter);
-    var verses = List.generate(
-      verseCount,
-      (index) => getVerseText(book, chapter, index + 1),
-    );
-
-    return Future.wait(verses).then((verses) {
-      print('Database loaded ${verses.length} verses from '
-          '${book.title} $chapter in ${stopwatch.elapsed}');
-      return verses;
-    });
-  }
 }

@@ -10,13 +10,13 @@ class SharedPrefsWalletService extends WalletService<SharedPreferences> {
 
   @override
   Future<int> loadBalance() async {
-    final prefs = await source;
+    final prefs = await data;
     return prefs.getInt(_walletPref);
   }
 
   @override
   Future<void> setBalance(int amount) async {
-    final prefs = await source;
+    final prefs = await data;
     await prefs.setInt(_walletPref, amount);
   }
 }

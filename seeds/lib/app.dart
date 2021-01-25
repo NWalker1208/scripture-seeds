@@ -9,9 +9,9 @@ import 'pages/scripture.dart';
 import 'pages/settings.dart';
 import 'pages/topic_details.dart';
 import 'pages/topics.dart';
+import 'services/scriptures/reference.dart';
 import 'services/theme/provider.dart';
 import 'services/topics/provider.dart';
-import 'services/topics/reference.dart';
 
 class SeedsApp extends StatelessWidget {
   const SeedsApp({
@@ -34,7 +34,7 @@ class SeedsApp extends StatelessWidget {
                   Provider.of<TopicIndexProvider>(context).index[
                       ModalRoute.of(context).settings.arguments as String],
                 ),
-            '/scripture': (context) => ScripturePage(Reference.parse(
+            '/scripture': (context) => ScripturePage(ScriptureReference.parse(
                 ModalRoute.of(context).settings.arguments as String)),
             '/plant': (context) => PlantPage(
                   Provider.of<TopicIndexProvider>(context).index[

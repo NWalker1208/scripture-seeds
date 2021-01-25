@@ -1,5 +1,5 @@
-import '../database.dart';
-import '../topics/reference.dart';
+import '../saved.dart';
+import '../scriptures/reference.dart';
 
 abstract class HistoryDatabase<D>
-    extends CustomDatabase<D, Reference, DateTime> {}
+    extends SavedDatabase<D, ScriptureReference, DateTime> {}

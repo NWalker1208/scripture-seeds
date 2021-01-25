@@ -3,9 +3,10 @@ import 'dart:io';
 
 import 'package:path/path.dart' as path;
 
-import '../database.dart';
+import '../saved.dart';
 
-mixin FileDatabaseMixin<K, V> on CustomDatabase<Directory, K, V> {
+/// Mixin for databases that use files within a directory as entries.
+mixin FileDatabaseMixin<K, V> on SavedDatabase<Directory, K, V> {
   /// Get the directory where files should be read from and written to.
   Future<Directory> get directory;
 
@@ -31,7 +32,7 @@ mixin FileDatabaseMixin<K, V> on CustomDatabase<Directory, K, V> {
 
   @override
   Future<Iterable<K>> loadKeys() async {
-    final dir = await source;
+    final dir = await data;
     final contents = await dir.list().toList();
     return [
       for (var entity in contents)
@@ -42,7 +43,7 @@ mixin FileDatabaseMixin<K, V> on CustomDatabase<Directory, K, V> {
 
   @override
   Future<V> load(K key) async {
-    final dir = await source;
+    final dir = await data;
     final file = File(path.join(dir.path, keyToFilename(key) + extension));
     if (!await file.exists()) return null;
     return parseValue(await file.readAsString());
@@ -50,7 +51,7 @@ mixin FileDatabaseMixin<K, V> on CustomDatabase<Directory, K, V> {
 
   @override
   Future<void> save(K key, V value) async {
-    final dir = await source;
+    final dir = await data;
     final file = File(path.join(dir.path, keyToFilename(key) + extension));
     await file.create(recursive: true);
     await file.writeAsString(writeValue(value), flush: true);
@@ -58,7 +59,7 @@ mixin FileDatabaseMixin<K, V> on CustomDatabase<Directory, K, V> {
 
   @override
   Future<bool> delete(K key) async {
-    final dir = await source;
+    final dir = await data;
     final file = File(path.join(dir.path, keyToFilename(key) + extension));
     if (!await file.exists()) return false;
     await file.delete();

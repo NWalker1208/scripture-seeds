@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'reference.dart';
+import '../scriptures/reference.dart';
 
 part 'index.g.dart';
 
@@ -43,24 +43,25 @@ class Topic {
   final String id;
   final String name;
   final int cost;
-  final Set<Reference> references;
+  final Set<ScriptureReference> references;
 
   Topic({
     this.id,
     this.name,
     this.cost = 1,
-    Iterable<Reference> references,
+    Iterable<ScriptureReference> references,
   }) : references = references.toSet();
 
   factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 }
 
-class _CustomReferenceConverter implements JsonConverter<Reference, String> {
+class _CustomReferenceConverter
+    implements JsonConverter<ScriptureReference, String> {
   const _CustomReferenceConverter();
 
   @override
-  Reference fromJson(String str) => Reference.parse(str);
+  ScriptureReference fromJson(String str) => ScriptureReference.parse(str);
 
   @override
-  String toJson(Reference reference) => reference.toString();
+  String toJson(ScriptureReference reference) => reference.toString();
 }

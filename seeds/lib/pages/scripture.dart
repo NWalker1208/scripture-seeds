@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../services/topics/reference.dart';
+import '../services/scriptures/reference.dart';
 import '../widgets/scriptures/chapter.dart';
 
 class ScripturePage extends StatelessWidget {
-  final Reference reference;
+  final ScriptureReference reference;
 
   const ScripturePage(this.reference, {Key key}) : super(key: key);
 

@@ -1,8 +1,8 @@
-import '../database.dart';
+import '../saved.dart';
 import 'entry.dart';
 
 abstract class JournalDatabase<D>
-    extends CustomDatabase<D, String, JournalEntry> {
+    extends SavedDatabase<D, String, JournalEntry> {
   /// Saves the journal entry to the database, using the name as the key.
   Future<void> saveEntry(JournalEntry entry) => save(entry.name, entry);
 
