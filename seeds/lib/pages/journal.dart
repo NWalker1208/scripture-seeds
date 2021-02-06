@@ -77,7 +77,12 @@ class _JournalPageState extends State<JournalPage> {
             title: const Text('Journal'),
             actions: <Widget>[
               IconButton(
-                icon: Icon(editMode ? Icons.cancel : Icons.edit),
+                icon: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 200),
+                  child: editMode
+                      ? const Icon(Icons.cancel, key: Key('cancel'))
+                      : const Icon(Icons.edit, key: Key('edit')),
+                ),
                 onPressed: toggleEditMode,
               )
             ],
