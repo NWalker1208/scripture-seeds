@@ -40,7 +40,7 @@ class PlantPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(topic.name.capitalize()),
           actions: [
-            HelpButton(() => context),
+            HelpButton(),
             PopupMenuButton<Function()>(
               onSelected: (action) => action(),
               itemBuilder: (context) => [

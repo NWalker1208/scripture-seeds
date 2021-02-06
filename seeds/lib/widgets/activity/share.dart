@@ -21,15 +21,16 @@ class ShareActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => HelpInfo(
+        tag: 2,
         title: 'Share',
         helpText: 'Share what you learned with others. If you want to '
             'keep a record of what you wrote, select '
             '"Save to journal."',
-        child: Padding(
-          padding: EdgeInsets.all(40.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Center(
+          child: ListView(
+            shrinkWrap: true,
+            primary: false,
+            padding: const EdgeInsets.all(40.0),
             children: <Widget>[
               Consumer<ActivityProvider>(
                 builder: (context, activity, child) => JournalEntryView(
@@ -38,8 +39,6 @@ class ShareActivity extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12),
-
-              // Journal
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[

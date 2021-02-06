@@ -62,6 +62,7 @@ class _StudyActivityState extends State<StudyActivity> {
 
   @override
   Widget build(BuildContext context) => HelpInfo(
+        tag: 0,
         title: 'Study',
         helpText: 'Study the selected verses and highlight the '
             'parts that are significant to you.',

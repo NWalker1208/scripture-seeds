@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 import '../dialogs/help.dart';
 
 class HelpInfo extends StatefulWidget {
-  final String helpText;
-  final String title;
-  final Widget child;
-
   const HelpInfo({
     @required this.helpText,
     this.title = 'Help',
     this.child,
+    this.tag,
     Key key,
   }) : super(key: key);
+
+  final String helpText;
+  final String title;
+  final Object tag;
+  final Widget child;
 
   static Iterable<HelpInfoState> allIn(BuildContext context) {
     final result = <HelpInfoState>[];
@@ -29,8 +31,11 @@ class HelpInfo extends StatefulWidget {
     return result;
   }
 
-  static Future<void> open(BuildContext context) async {
-    final widgets = allIn(context);
+  static Future<void> open(BuildContext context, {Object filter}) async {
+    var widgets = allIn(context);
+    if (filter != null) {
+      widgets = widgets.where((info) => info.widget.tag == filter);
+    }
     for (var info in widgets) {
       await info.open();
     }

@@ -44,16 +44,16 @@ class _PonderActivityState extends State<PonderActivity>
   Widget build(BuildContext context) {
     super.build(context);
     return HelpInfo(
+      tag: 1,
       title: 'Ponder',
       helpText: 'Write down what you learned about ${widget.topic.name} '
           'from the verses you read.',
-      child: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            // Ponder text
+      child: Center(
+        child: ListView(
+          shrinkWrap: true,
+          primary: false,
+          padding: const EdgeInsets.fromLTRB(40, 40, 40, 80),
+          children: [
             Selector<ActivityProvider, String>(
               selector: (context, activity) => activity.commentary,
               builder: (context, commentary, child) {
@@ -75,7 +75,7 @@ class _PonderActivityState extends State<PonderActivity>
                   ),
                 );
               },
-            )
+            ),
           ],
         ),
       ),

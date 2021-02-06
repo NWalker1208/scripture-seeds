@@ -25,7 +25,7 @@ class DashboardPage extends StatelessWidget {
                 title: Text('Scripture Seeds'),
               ),
               actions: [
-                HelpButton(() => context),
+                HelpButton(),
                 IconButton(
                   icon: const Icon(Icons.settings),
                   tooltip: 'Settings',

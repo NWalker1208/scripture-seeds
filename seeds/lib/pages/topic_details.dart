@@ -25,7 +25,7 @@ class TopicDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text('Details'),
-          actions: [HelpButton(() => context)],
+          actions: [HelpButton()],
         ),
         body: HelpInfo(
           title: 'Topics',
