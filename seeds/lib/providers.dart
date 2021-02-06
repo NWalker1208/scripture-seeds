@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/scriptures/json.dart';
 
 import 'services/history/provider.dart';
 import 'services/history/sql.dart';
@@ -9,12 +8,13 @@ import 'services/journal/provider.dart';
 import 'services/progress/provider.dart';
 import 'services/progress/sql.dart';
 import 'services/proxies/study_library.dart';
+import 'services/scriptures/json.dart';
 import 'services/scriptures/provider.dart';
-import 'services/scriptures/sql.dart';
-import 'services/settings/help.dart';
 import 'services/settings/study_filter.dart';
 import 'services/theme/provider.dart';
 import 'services/topics/provider.dart';
+import 'services/tutorial/provider.dart';
+import 'services/tutorial/shared_prefs.dart';
 import 'services/wallet/provider.dart';
 import 'services/wallet/shared_prefs.dart';
 
@@ -50,7 +50,10 @@ class _AppProvidersState extends State<AppProviders> {
         // Settings
         ChangeNotifierProvider.value(value: themeProvider),
         ChangeNotifierProvider(create: (_) => StudyFilter(), lazy: false),
-        ChangeNotifierProvider(create: (_) => HelpSettings(), lazy: false),
+        ChangeNotifierProvider(
+          create: (_) => TutorialProvider(SharedPrefsTutorialDatabase()),
+          lazy: false,
+        ),
 
         // Scriptures and Topics
         ChangeNotifierProvider(

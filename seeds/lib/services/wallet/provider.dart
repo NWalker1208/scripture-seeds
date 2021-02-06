@@ -7,7 +7,11 @@ const int _initialBalance = 3;
 class WalletProvider extends ChangeNotifier {
   WalletProvider(WalletService service) : _service = service {
     _service.loadBalance().then((balance) {
-      _balance = balance ?? _initialBalance;
+      if (balance == null) {
+        balance = _initialBalance;
+        _service.setBalance(balance);
+      }
+      _balance = balance;
       notifyListeners();
     });
   }

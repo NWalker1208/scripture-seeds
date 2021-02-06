@@ -10,10 +10,12 @@ import '../utility/custom_icons.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/extra_study.dart';
 import '../widgets/dialogs/remove_plant.dart';
-import '../widgets/help_info.dart';
 import '../widgets/labeled_icon_button.dart';
 import '../widgets/plant/progress_indicator.dart';
 import '../widgets/plant/view.dart';
+import '../widgets/tutorial/focus.dart';
+import '../widgets/tutorial/help_button.dart';
+import '../widgets/tutorial/help_info.dart';
 
 class PlantPage extends StatelessWidget {
   final Topic topic;
@@ -34,64 +36,70 @@ class PlantPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => HelpInfo(
-        'plant',
-        title: 'Plants',
-        helpText: 'To help your plants grow, water them each day by studying '
-            'the scriptures.\n\nClick the blue button below to study '
-            'a scripture about ${topic.name}.',
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(topic.name.capitalize()),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.share),
-                tooltip: 'Share',
-                onPressed: () => SocialShare.shareOptions(
-                  'I\'m studying about ${topic.name} with Scripture Seeds!',
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text(topic.name.capitalize()),
+          actions: [
+            HelpButton(() => context),
+            PopupMenuButton<Function()>(
+              onSelected: (action) => action(),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: Text('Share'),
+                  value: () => SocialShare.shareOptions(
+                    'I\'m studying about ${topic.name} with Scripture Seeds!',
+                  ),
                 ),
-              ),
-              IconButton(
-                icon: const Icon(Icons.delete),
-                tooltip: 'Remove',
-                onPressed: () => removePlant(context),
-              )
-            ],
-            bottom: PreferredSize(
-              preferredSize: const Size(0, 50),
-              child: AppBarThemed(Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: PlantProgressIndicator(topic.id),
-              )),
-            ),
-          ),
-          body: PlantView(
-            topic.id,
-            padding: EdgeInsets.symmetric(vertical: 50),
-          ),
-          bottomNavigationBar: BottomAppBar(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                LabeledIconButton(
-                  icon: const Icon(Icons.book),
-                  label: 'Journal',
-                  onPressed: () => Navigator.pushNamed(context, '/journal',
-                      arguments: topic.name),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: _StudyButton(topic),
-                ),
-                LabeledIconButton(
-                  icon: const Icon(Icons.article),
-                  label: 'Details',
-                  onPressed: () => Navigator.pushNamed(
-                      context, '/topics/details',
-                      arguments: topic.id),
+                PopupMenuItem(
+                  child: Text('Remove'),
+                  value: () => removePlant(context),
                 ),
               ],
             ),
+          ],
+          bottom: PreferredSize(
+            preferredSize: const Size(0, 50),
+            child: AppBarThemed(Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: PlantProgressIndicator(topic.id),
+            )),
+          ),
+        ),
+        body: HelpInfo(
+          title: 'Plants',
+          helpText: 'To help your plants grow, water them each day by studying '
+              'the scriptures.\n\nClick the blue button below to study '
+              'a scripture about ${topic.name}.',
+          child: PlantView(
+            topic.id,
+            padding: EdgeInsets.symmetric(vertical: 50),
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              LabeledIconButton(
+                icon: const Icon(Icons.book),
+                label: 'Journal',
+                onPressed: () => Navigator.pushNamed(context, '/journal',
+                    arguments: topic.name),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TutorialFocus(
+                  tag: 'water_plant',
+                  overlayLabel: Text('Water your plant to help it grow.'),
+                  child: _StudyButton(topic),
+                ),
+              ),
+              LabeledIconButton(
+                icon: const Icon(Icons.article),
+                label: 'Details',
+                onPressed: () => Navigator.pushNamed(context, '/topics/details',
+                    arguments: topic.id),
+              ),
+            ],
           ),
         ),
       );

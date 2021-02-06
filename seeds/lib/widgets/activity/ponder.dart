@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../extensions/string.dart';
 import '../../pages/activity.dart';
 import '../../services/topics/index.dart';
+import '../tutorial/help_info.dart';
 
 class PonderActivity extends StatefulWidget {
   final Topic topic;
@@ -42,36 +43,41 @@ class _PonderActivityState extends State<PonderActivity>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Padding(
-      padding: const EdgeInsets.all(40.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          // Ponder text
-          Selector<ActivityProvider, String>(
-            selector: (context, activity) => activity.commentary,
-            builder: (context, commentary, child) {
-              var wordCount = commentary.wordCount;
+    return HelpInfo(
+      title: 'Ponder',
+      helpText: 'Write down what you learned about ${widget.topic.name} '
+          'from the verses you read.',
+      child: Padding(
+        padding: const EdgeInsets.all(40.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            // Ponder text
+            Selector<ActivityProvider, String>(
+              selector: (context, activity) => activity.commentary,
+              builder: (context, commentary, child) {
+                var wordCount = commentary.wordCount;
 
-              return TextField(
-                onChanged: (text) => _updateCommentary(context, text),
-                textCapitalization: TextCapitalization.sentences,
-                keyboardType: TextInputType.text,
-                maxLines: null,
-                controller: _textController,
-                decoration: InputDecoration(
-                  hintText: '${widget.topic.name.capitalize()}...',
-                  counterText: '$wordCount/${widget.minWords} words',
-                  counterStyle: Theme.of(context).textTheme.caption.copyWith(
-                      color: (wordCount < widget.minWords)
-                          ? Theme.of(context).errorColor
-                          : null),
-                ),
-              );
-            },
-          )
-        ],
+                return TextField(
+                  onChanged: (text) => _updateCommentary(context, text),
+                  textCapitalization: TextCapitalization.sentences,
+                  keyboardType: TextInputType.text,
+                  maxLines: null,
+                  controller: _textController,
+                  decoration: InputDecoration(
+                    hintText: '${widget.topic.name.capitalize()}...',
+                    counterText: '$wordCount/${widget.minWords} words',
+                    counterStyle: Theme.of(context).textTheme.caption.copyWith(
+                        color: (wordCount < widget.minWords)
+                            ? Theme.of(context).errorColor
+                            : null),
+                  ),
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }

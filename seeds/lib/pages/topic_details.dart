@@ -11,8 +11,10 @@ import '../services/wallet/provider.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/dialogs/purchase_topic.dart';
-import '../widgets/help_info.dart';
 import '../widgets/topics/list.dart';
+import '../widgets/tutorial/focus.dart';
+import '../widgets/tutorial/help_button.dart';
+import '../widgets/tutorial/help_info.dart';
 
 class TopicDetailsPage extends StatelessWidget {
   final Topic topic;
@@ -20,15 +22,17 @@ class TopicDetailsPage extends StatelessWidget {
   TopicDetailsPage(this.topic) : super(key: ValueKey(topic));
 
   @override
-  Widget build(BuildContext context) => HelpInfo(
-        'topic_details',
-        title: 'Topics',
-        helpText: 'Here you can read any scriptures associated with this '
-            'topic.\n\nTo create a plant that will help you study this topic '
-            'each day, press the button at the bottom of the screen.',
-        child: Scaffold(
-          appBar: AppBar(title: Text('Details')),
-          body: Column(
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text('Details'),
+          actions: [HelpButton(() => context)],
+        ),
+        body: HelpInfo(
+          title: 'Topics',
+          helpText: 'Here you can read any scriptures associated with this '
+              'topic.\n\nTo create a plant that will help you study this topic '
+              'each day, press the button at the bottom of the screen.',
+          child: Column(
             children: [
               Expanded(
                 child: CustomScrollView(
@@ -83,20 +87,24 @@ class TopicDetailsPage extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar: BottomAppBar(
-            child: Stack(
-              alignment: Alignment.centerRight,
-              children: [
-                ListTile(
-                  title: Text(topic.name.capitalize()),
-                  subtitle: Text('Topic'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Stack(
+            alignment: Alignment.centerRight,
+            children: [
+              ListTile(
+                title: Text(topic.name.capitalize()),
+                subtitle: Text('Topic'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TutorialFocus(
+                  tag: 'purchase_topic',
+                  overlayLabel: Text('Press to plant seed.'),
                   child: _PurchasePlantButton(topic),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );

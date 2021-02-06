@@ -3,9 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../services/history/provider.dart';
 import '../../services/progress/provider.dart';
-import '../../services/settings/help.dart';
+import '../../services/tutorial/provider.dart';
 import '../../services/wallet/provider.dart';
-import '../help_info.dart';
 
 class ResetProgressDialog extends StatelessWidget {
   const ResetProgressDialog({
@@ -22,21 +21,11 @@ class ResetProgressDialog extends StatelessWidget {
           TextButton(
             child: const Text('CONTINUE'),
             onPressed: () {
+              Provider.of<TutorialProvider>(context, listen: false).reset();
+              Provider.of<ProgressProvider>(context, listen: false).reset();
+              Provider.of<StudyHistory>(context, listen: false).clear();
+              Provider.of<WalletProvider>(context, listen: false).reset();
               Navigator.of(context).pop(true);
-
-              var help = Provider.of<HelpSettings>(context, listen: false);
-              HelpInfoState.resetPagesShown();
-              help.resetHelp();
-
-              var progress =
-                  Provider.of<ProgressProvider>(context, listen: false);
-              progress.reset();
-
-              var history = Provider.of<StudyHistory>(context, listen: false);
-              history.clear();
-
-              var wallet = Provider.of<WalletProvider>(context, listen: false);
-              wallet.reset();
             },
           ),
 

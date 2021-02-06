@@ -5,6 +5,7 @@ import '../../pages/activity.dart';
 import '../../services/scriptures/reference.dart';
 import '../../services/topics/index.dart';
 import '../journal_entry.dart';
+import '../tutorial/help_info.dart';
 
 class ShareActivity extends StatelessWidget {
   final Topic topic;
@@ -19,34 +20,40 @@ class ShareActivity extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Consumer<ActivityProvider>(
-              builder: (context, activity, child) => JournalEntryView(
-                activity.createJournalEntry(topic, reference),
-                onShare: () => _notifyCompleted(context),
-              ),
-            ),
-            SizedBox(height: 12),
-
-            // Journal
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Selector<ActivityProvider, bool>(
-                  selector: (context, activity) => activity.saveToJournal,
-                  builder: (context, saveToJournal, child) => Checkbox(
-                      value: saveToJournal,
-                      onChanged: (save) => _notifyCompleted(context, save)),
+  Widget build(BuildContext context) => HelpInfo(
+        title: 'Share',
+        helpText: 'Share what you learned with others. If you want to '
+            'keep a record of what you wrote, select '
+            '"Save to journal."',
+        child: Padding(
+          padding: EdgeInsets.all(40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Consumer<ActivityProvider>(
+                builder: (context, activity, child) => JournalEntryView(
+                  activity.createJournalEntry(topic, reference),
+                  onShare: () => _notifyCompleted(context),
                 ),
-                Text('Save to journal'),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(height: 12),
+
+              // Journal
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Selector<ActivityProvider, bool>(
+                    selector: (context, activity) => activity.saveToJournal,
+                    builder: (context, saveToJournal, child) => Checkbox(
+                        value: saveToJournal,
+                        onChanged: (save) => _notifyCompleted(context, save)),
+                  ),
+                  Text('Save to journal'),
+                ],
+              ),
+            ],
+          ),
         ),
       );
 }

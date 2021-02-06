@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../topics/list.dart';
+import '../tutorial/focus.dart';
 import 'indicators/wallet.dart';
 
 class TopicsDashboard extends StatelessWidget {
@@ -21,7 +22,11 @@ class TopicsDashboard extends StatelessWidget {
           // Plant list
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: TopicList(showPurchased: false, maxToShow: 8),
+            child: TutorialFocus(
+              tag: 'dashboard_topics',
+              overlayLabel: Text('Select a topic to begin.'),
+              child: TopicList(showPurchased: false, maxToShow: 8),
+            ),
           ),
 
           ListTile(

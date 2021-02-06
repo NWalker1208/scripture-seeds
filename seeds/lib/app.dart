@@ -12,6 +12,7 @@ import 'pages/topics.dart';
 import 'services/scriptures/reference.dart';
 import 'services/theme/provider.dart';
 import 'services/topics/provider.dart';
+import 'services/tutorial/observer.dart';
 
 class SeedsApp extends StatelessWidget {
   const SeedsApp({
@@ -25,6 +26,7 @@ class SeedsApp extends StatelessWidget {
           theme: theme.light,
           darkTheme: theme.dark,
           themeMode: theme.mode,
+          navigatorObservers: [TutorialObserver()],
           initialRoute: '/',
           routes: {
             '/': (context) => const DashboardPage(),
