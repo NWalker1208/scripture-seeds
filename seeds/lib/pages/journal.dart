@@ -10,6 +10,7 @@ import '../widgets/animation/list.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/erase_journal_entry.dart';
 import '../widgets/journal_entry.dart';
+import '../widgets/switcher.dart';
 
 class JournalPage extends StatefulWidget {
   final String defaultFilter;
@@ -77,12 +78,7 @@ class _JournalPageState extends State<JournalPage> {
             title: const Text('Journal'),
             actions: <Widget>[
               IconButton(
-                icon: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 200),
-                  child: editMode
-                      ? const Icon(Icons.cancel, key: Key('cancel'))
-                      : const Icon(Icons.edit, key: Key('edit')),
-                ),
+                icon: IconSwitcher(editMode ? Icons.cancel : Icons.edit),
                 onPressed: toggleEditMode,
               )
             ],

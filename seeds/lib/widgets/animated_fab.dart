@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'switcher.dart';
+
 class AnimatedFloatingActionButton extends StatelessWidget {
   const AnimatedFloatingActionButton({
     this.icon,
@@ -24,12 +26,9 @@ class AnimatedFloatingActionButton extends StatelessWidget {
               ? Theme.of(context).disabledColor
               : backgroundColor ?? Theme.of(context).accentColor,
         ),
-        child: Icon(icon, key: ValueKey(icon)),
+        child: IconSwitcher(icon),
         builder: (context, color, child) => FloatingActionButton(
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 200),
-            child: child,
-          ),
+          child: child,
           tooltip: tooltip,
           backgroundColor: color,
           disabledElevation: 2,

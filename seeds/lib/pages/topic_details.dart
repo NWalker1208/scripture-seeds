@@ -11,6 +11,7 @@ import '../services/wallet/provider.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/dialogs/purchase_topic.dart';
+import '../widgets/switcher.dart';
 import '../widgets/topics/list.dart';
 import '../widgets/tutorial/focus.dart';
 import '../widgets/tutorial/help_button.dart';
@@ -203,8 +204,7 @@ class _PurchasePlantButton extends StatelessWidget {
               label: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
+                  AnimatedSizeSwitcher(
                     child: purchased
                         ? const Icon(Icons.check)
                         : WalletIndicator(required: topic.cost),
