@@ -4,7 +4,7 @@ import 'package:social_share/social_share.dart';
 
 import '../extensions/string.dart';
 import '../services/progress/provider.dart';
-import '../services/topics/index.dart';
+import '../services/topics/topic.dart';
 import '../services/wallet/provider.dart';
 import '../utility/custom_icons.dart';
 import '../widgets/app_bar_themed.dart';

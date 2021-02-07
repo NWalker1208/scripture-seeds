@@ -30,7 +30,7 @@ class ProgressProvider extends ChangeNotifier {
   }
 
   /// Returns all progress records with topics from the set given.
-  Iterable<ProgressRecord> fromTopics(Set<String> topics) {
+  Iterable<ProgressRecord> fromTopics(Iterable<String> topics) {
     if (!isLoaded) return const [];
     return records.where((record) => topics.contains(record.id));
   }

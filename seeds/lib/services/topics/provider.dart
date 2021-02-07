@@ -3,9 +3,16 @@ import 'package:flutter/services.dart';
 
 import 'index.dart';
 import 'json.dart';
+import 'web.dart';
 
 class TopicIndexProvider extends ChangeNotifier {
-  final int daysBetweenRefreshes;
+  TopicIndexProvider({this.maxCacheAgeDays = 7, AssetBundle assets})
+      : _assetService = TopicIndexAssets(assets: assets),
+        _webService = TopicIndexWeb() {
+    _initialize();
+  }
+
+  final int maxCacheAgeDays;
   final TopicIndexAssets _assetService;
   final TopicIndexWeb _webService;
 
@@ -15,41 +22,10 @@ class TopicIndexProvider extends ChangeNotifier {
   DateTime _lastRefresh;
   DateTime get lastRefresh => _lastRefresh;
 
-  TopicIndexProvider({this.daysBetweenRefreshes = 7, AssetBundle assets})
-      : _assetService = TopicIndexAssets(assets: assets),
-        _webService = TopicIndexWeb() {
-    var indices = [_assetService.loadIndex(), _webService.loadIndex()];
-    Future.wait(indices).then((indices) async {
-      var assetIndex = indices[0];
-      var webIndex = indices[1];
-
-      // Check if web index is outdated
-      if (webIndex == null || assetIndex.version > webIndex.version) {
-        _index = assetIndex;
-      } else {
-        _index = webIndex;
-      }
-
-      if (_index == null) throw Exception('Unable to load any topic index!');
-
-      // Load last refresh data
-      _lastRefresh = await _webService.lastRefresh();
-
-      print('Loaded index version ${_index.version} '
-          'with ${_index.topics.length} topics');
-      notifyListeners();
-
-      // Check if should refresh
-      if (_lastRefresh == null ||
-          DateTime.now().difference(_lastRefresh).inDays >=
-              daysBetweenRefreshes) {
-        await refresh();
-      }
-    });
-  }
-
+  /// Refresh the cached topic index download. Returns true if successful.
+  /// Does nothing when running from web.
   Future<bool> refresh() async {
-    if (await _webService.refresh()) {
+    if (!kIsWeb && await _webService.refresh()) {
       var newIndex = await _webService.loadIndex();
 
       if (newIndex != null) {
@@ -61,5 +37,32 @@ class TopicIndexProvider extends ChangeNotifier {
     }
 
     return false;
+  }
+
+  /// Loads the index from assets, and web if possible.
+  Future<void> _initialize() async {
+    _index = await _assetService.loadIndex();
+
+    // Will not run when kIsWeb is true. _webService will be null.
+    if (!kIsWeb) {
+      final webIndex = await _webService.loadIndex();
+      if (webIndex != null &&
+          (_index == null || _index.version < webIndex.version)) {
+        _index = webIndex;
+      }
+    }
+
+    if (_index == null) throw Exception('Unable to load any topic index!');
+    print('Loaded index version ${_index.version} with'
+        ' ${_index.topics.length} topics.');
+
+    _lastRefresh = kIsWeb ? DateTime.now() : await _webService.lastRefresh();
+    notifyListeners();
+
+    // Check if should refresh
+    if (_lastRefresh == null ||
+        DateTime.now().difference(_lastRefresh).inDays >= maxCacheAgeDays) {
+      await refresh();
+    }
   }
 }

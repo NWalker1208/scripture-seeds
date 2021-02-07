@@ -5,8 +5,8 @@ import '../extensions/string.dart';
 import '../services/progress/provider.dart';
 import '../services/scriptures/reference.dart';
 import '../services/scriptures/volumes.dart';
-import '../services/topics/index.dart';
 import '../services/topics/provider.dart';
+import '../services/topics/topic.dart';
 import '../services/wallet/provider.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
@@ -79,7 +79,8 @@ class TopicDetailsPage extends StatelessWidget {
                       sliver: SliverToBoxAdapter(
                         child: Consumer<TopicIndexProvider>(
                           builder: (context, indexProvider, child) => TopicList(
-                              topics: indexProvider.index.relatedTo(topic.id)),
+                              topics: indexProvider.index
+                                  .relatedTo(topic.id, maxCount: 8)),
                         ),
                       ),
                     ),

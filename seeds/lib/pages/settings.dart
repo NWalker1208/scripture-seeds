@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 
@@ -41,7 +42,7 @@ class SettingsPage extends StatelessWidget {
             const Divider(),
             const LibraryFilterSettings(),
             const Divider(),
-            const LibraryRefreshTile(),
+            if (!kIsWeb) const LibraryRefreshTile(),
             const DataManagementSettings(),
             const Divider(),
             ListTile(

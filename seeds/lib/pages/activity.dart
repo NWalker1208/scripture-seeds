@@ -12,7 +12,7 @@ import '../services/progress/provider.dart';
 import '../services/proxies/study_library.dart';
 import '../services/scriptures/reference.dart';
 import '../services/scriptures/volumes.dart';
-import '../services/topics/index.dart';
+import '../services/topics/topic.dart';
 import '../widgets/activity/error.dart';
 import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';

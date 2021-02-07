@@ -8,7 +8,7 @@ import '../animation/list.dart';
 import 'chip.dart';
 
 class TopicList extends StatelessWidget {
-  final Set<String> topics;
+  final Iterable<String> topics;
   final bool showPurchased;
   final int maxToShow;
 

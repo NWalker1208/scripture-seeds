@@ -48,8 +48,6 @@ class JournalEntry implements Comparable<JournalEntry> {
     }
   }
 
-  String get name => created.toIso8601String().replaceAll(RegExp(r'[:.]'), '_');
-
   @override
   int compareTo(JournalEntry other) => created.compareTo(other.created);
 }

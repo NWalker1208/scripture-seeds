@@ -38,7 +38,7 @@ mixin FileDatabaseMixin<K, V> on SavedDatabase<Directory, K, V> {
       for (var entity in contents)
         if (entity is File)
           filenameToKey(path.basenameWithoutExtension(entity.path)),
-    ]..removeWhere((key) => key == null);
+    ].where((key) => key != null);
   }
 
   @override

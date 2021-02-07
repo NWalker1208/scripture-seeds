@@ -5,13 +5,20 @@ import 'database.dart';
 import 'entry.dart';
 
 class HiveJournalDatabase extends JournalDatabase<Box<JournalEntry>>
-    with HiveDatabaseMixin<String, JournalEntry> {
+    with HiveDatabaseMixin<DateTime, JournalEntry> {
   @override
   String get boxName => 'journal';
 
   @override
-  String keyToString(String key) => key;
+  String keyToString(DateTime key) => key.toIso8601String();
 
   @override
-  String stringToKey(String string) => string;
+  DateTime stringToKey(String string) {
+    try {
+      return DateTime.parse(string);
+    } on FormatException {
+      print('Invalid journal entry key: "$string"');
+      return null;
+    }
+  }
 }

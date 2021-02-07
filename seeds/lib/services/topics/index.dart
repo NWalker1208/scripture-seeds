@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../scriptures/reference.dart';
+import 'topic.dart';
 
 part 'index.g.dart';
 
@@ -8,10 +8,6 @@ part 'index.g.dart';
 class TopicIndex {
   static const minSchema = 1;
   static const maxSchema = 1;
-
-  final String language;
-  final int version;
-  final Map<String, Topic> _index;
 
   TopicIndex({
     this.language = 'eng',
@@ -22,46 +18,24 @@ class TopicIndex {
   factory TopicIndex.fromJson(Map<String, dynamic> json) =>
       _$TopicIndexFromJson(json);
 
-  Set<String> get topics => _index.keys.toSet();
+  final String language;
+  final int version;
+  final Map<String, Topic> _index;
+
+  Iterable<String> get topics => _index.keys;
   Topic operator [](String id) => _index[id];
 
-  Set<String> relatedTo(String topic, {int referencesInCommon = 6}) => {
-        for (var other in topics)
-          if (other != topic &&
-              _index[topic]
-                      .references
-                      .intersection(_index[other].references)
-                      .length >
-                  referencesInCommon)
-            other
-      };
-}
-
-@JsonSerializable(createToJson: false)
-@_CustomReferenceConverter()
-class Topic {
-  final String id;
-  final String name;
-  final int cost;
-  final Set<ScriptureReference> references;
-
-  Topic({
-    this.id,
-    this.name,
-    this.cost = 1,
-    Iterable<ScriptureReference> references,
-  }) : references = references.toSet();
-
-  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
-}
-
-class _CustomReferenceConverter
-    implements JsonConverter<ScriptureReference, String> {
-  const _CustomReferenceConverter();
-
-  @override
-  ScriptureReference fromJson(String str) => ScriptureReference.parse(str);
-
-  @override
-  String toJson(ScriptureReference reference) => reference.toString();
+  Iterable<String> relatedTo(String id, {int maxCount}) {
+    final topic = _index[id];
+    final otherTopics = _index.values.where((t) => t != topic).toList();
+    final inCommon = {
+      for (var other in otherTopics) other: topic.referencesInCommon(other),
+    };
+    // Remove topics that share no reference, sort by number in common
+    otherTopics.removeWhere((t) => inCommon[t] == 0);
+    otherTopics.sort((a, b) => -inCommon[a].compareTo(inCommon[b]));
+    // Take only the most related topics, reduce to IDs, and sort by id.
+    final related = maxCount == null ? otherTopics : otherTopics.take(maxCount);
+    return related.map((t) => t.id).toList()..sort();
+  }
 }

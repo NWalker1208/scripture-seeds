@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../extensions/string.dart';
 import '../../pages/activity.dart';
-import '../../services/topics/index.dart';
+import '../../services/topics/topic.dart';
 import '../tutorial/help_info.dart';
 
 class PonderActivity extends StatefulWidget {

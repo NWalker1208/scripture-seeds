@@ -14,6 +14,7 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
   String keyToString(K key);
 
   /// Convert a string from storage back to a key.
+  /// Return null for invalid keys.
   @protected
   K stringToKey(String string);
 
@@ -32,7 +33,7 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
     return [
       for (var key in box.keys)
         stringToKey(key as String),
-    ];
+    ].where((key) => key != null);
   }
 
   @override
@@ -50,5 +51,18 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
       return true;
     }
     return false;
+  }
+
+  @override
+  Future<void> clear() async {
+    final box = await data;
+    await box.clear();
+  }
+
+  @override
+  Future<void> close() async {
+    final box = await data;
+    await box.close();
+    await super.close();
   }
 }

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../pages/activity.dart';
 import '../../services/scriptures/reference.dart';
-import '../../services/topics/index.dart';
+import '../../services/topics/topic.dart';
 import '../journal_entry.dart';
 import '../tutorial/help_info.dart';
 

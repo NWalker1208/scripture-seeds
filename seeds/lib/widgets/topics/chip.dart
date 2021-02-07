@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/progress/provider.dart';
-import '../../services/topics/index.dart';
+import '../../services/topics/topic.dart';
 
 class TopicChip extends StatelessWidget {
   final Topic topic;

@@ -11,7 +11,7 @@ import 'entry.dart';
 const String _journalFolder = 'study_journal';
 
 class JsonJournalDatabase extends JournalDatabase<Directory>
-    with FileDatabaseMixin<String, JournalEntry> {
+    with FileDatabaseMixin<DateTime, JournalEntry> {
   @override
   Future<Directory> get directory async => Directory(path.join(
         (await getApplicationDocumentsDirectory()).path,
@@ -22,13 +22,21 @@ class JsonJournalDatabase extends JournalDatabase<Directory>
   String get extension => '.jrnent';
 
   @override
-  String keyToFilename(String key) => key;
+  String keyToFilename(DateTime key) =>
+      key.toIso8601String().replaceAll(':', '_');
+
+  @override
+  DateTime filenameToKey(String file) {
+    try {
+      return DateTime.parse(file.replaceAll('_', ':'));
+    } on FormatException {
+      print('Invalid journal entry key: "$file"');
+      return null;
+    }
+  }
 
   @override
   String writeValue(JournalEntry value) => jsonEncode(value.toJson());
-
-  @override
-  String filenameToKey(String file) => file;
 
   @override
   JournalEntry parseValue(String str) {

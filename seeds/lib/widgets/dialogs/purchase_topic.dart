@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../services/progress/provider.dart';
 import '../../services/progress/record.dart';
-import '../../services/topics/index.dart';
+import '../../services/topics/topic.dart';
 import '../../services/wallet/provider.dart';
 
 class PurchaseTopicDialog extends StatelessWidget {
