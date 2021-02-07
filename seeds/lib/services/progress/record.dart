@@ -1,20 +1,18 @@
 import 'dart:math';
 
+import 'package:hive/hive.dart';
+
 import '../../extensions/date_time.dart';
 
+part 'record.g.dart';
+
+@HiveType(typeId: 0)
 class ProgressRecord implements Comparable<ProgressRecord> {
   static const String kId = 'name';
   static const String kProgress = 'progress';
   static const String kReward = 'rewardAvailable';
   static const String kLastUpdate = 'lastUpdate';
   static const int kMaxInactiveDays = 3;
-
-  String id;
-
-  DateTime _lastUpdate;
-  int _lastProgress;
-  bool _rewardAvailable;
-  final int maxProgress;
 
   ProgressRecord(this.id,
       {DateTime lastUpdate,
@@ -24,6 +22,17 @@ class ProgressRecord implements Comparable<ProgressRecord> {
       : _lastUpdate = lastUpdate,
         _lastProgress = progress,
         _rewardAvailable = rewardAvailable;
+
+  @HiveField(0)
+  final String id;
+  final int maxProgress;
+
+  @HiveField(1)
+  DateTime _lastUpdate;
+  @HiveField(2)
+  int _lastProgress;
+  @HiveField(3)
+  bool _rewardAvailable;
 
   ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 3})
       : id = data[kId] as String,
@@ -48,12 +57,6 @@ class ProgressRecord implements Comparable<ProgressRecord> {
       id.toLowerCase().compareTo(other.id.toLowerCase());
 
   // Getters
-  /*int get _priority =>
-      (progressLost ?? -4) +
-      4 +
-      (canMakeProgressToday ? 2 : 0) +
-      (_lastProgress > 0 ? 1 : 0);*/
-
   int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
   bool get canMakeProgressToday =>
       _lastUpdate == null || daysSinceLastUpdate > 0;

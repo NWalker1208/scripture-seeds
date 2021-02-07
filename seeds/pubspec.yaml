@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   pedantic: ^1.9.0
   built_collection: ^4.3.2
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
   xml: ^4.5.1
   social_share: ^2.0.5
   shared_preferences: ">=0.5.12+4 <2.0.0"
@@ -43,7 +45,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.8.1
-  build_runner: ^1.0.0
+  hive_generator: ^0.8.2
+  build_runner: ^1.11.1
 
 # Run 'flutter pub run flutter_launcher_icons:main' to update icons
 flutter_icons:

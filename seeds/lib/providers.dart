@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'services/history/hive.dart';
 import 'services/history/provider.dart';
-import 'services/history/sql.dart';
-import 'services/journal/json.dart';
+import 'services/journal/hive.dart';
 import 'services/journal/provider.dart';
+import 'services/progress/hive.dart';
 import 'services/progress/provider.dart';
-import 'services/progress/sql.dart';
 import 'services/proxies/study_library.dart';
 import 'services/scriptures/json.dart';
 import 'services/scriptures/provider.dart';
@@ -64,7 +64,7 @@ class _AppProvidersState extends State<AppProviders> {
 
         // Study
         ChangeNotifierProvider(
-          create: (_) => StudyHistory(SqlHistoryDatabase()),
+          create: (_) => StudyHistory(HiveHistoryDatabase()),
           lazy: false,
         ),
         ProxyProvider4<ScriptureProvider, TopicIndexProvider, StudyFilter,
@@ -80,13 +80,13 @@ class _AppProvidersState extends State<AppProviders> {
 
         // User data
         ChangeNotifierProvider(
-          create: (_) => ProgressProvider(SqlProgressDatabase()),
+          create: (_) => ProgressProvider(HiveProgressDatabase()),
           lazy: false,
         ),
         ChangeNotifierProvider(
             create: (_) => WalletProvider(SharedPrefsWalletService())),
         ChangeNotifierProvider(
-            create: (_) => JournalProvider(JsonJournalDatabase())),
+            create: (_) => JournalProvider(HiveJournalDatabase())),
       ],
       child: widget.app,
     );
