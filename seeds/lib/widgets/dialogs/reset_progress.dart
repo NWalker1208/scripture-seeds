@@ -23,7 +23,7 @@ class ResetProgressDialog extends StatelessWidget {
             onPressed: () {
               Provider.of<TutorialProvider>(context, listen: false).reset();
               Provider.of<ProgressProvider>(context, listen: false).reset();
-              Provider.of<StudyHistory>(context, listen: false).clear();
+              Provider.of<HistoryProvider>(context, listen: false).clear();
               Provider.of<WalletProvider>(context, listen: false).reset();
               Navigator.of(context).pop(true);
             },

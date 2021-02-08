@@ -69,7 +69,7 @@ class ProgressProvider extends ChangeNotifier {
   bool remove(String name) {
     if (isLoaded && _records.containsKey(name)) {
       _records.remove(name);
-      _database.delete(name);
+      _database.remove(name);
       notifyListeners();
       return true;
     } else {

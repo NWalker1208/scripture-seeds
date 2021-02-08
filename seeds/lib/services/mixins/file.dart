@@ -58,11 +58,18 @@ mixin FileDatabaseMixin<K, V> on SavedDatabase<Directory, K, V> {
   }
 
   @override
-  Future<bool> delete(K key) async {
+  Future<bool> remove(K key) async {
     final dir = await data;
     final file = File(path.join(dir.path, keyToFilename(key) + extension));
     if (!await file.exists()) return false;
     await file.delete();
     return true;
+  }
+
+  @override
+  Future<void> delete() async {
+    final dir = await data;
+    if (await dir.exists()) await dir.delete(recursive: true);
+    return super.delete();
   }
 }

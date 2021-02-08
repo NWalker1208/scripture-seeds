@@ -100,7 +100,7 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
   }
 
   @override
-  Future<bool> delete(K key) async {
+  Future<bool> remove(K key) async {
     final db = await data;
     final count = await db.delete(
       table,
@@ -114,6 +114,13 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
   Future<void> clear() async {
     final db = await data;
     await db.delete(table);
+  }
+
+  @override
+  Future<void> delete() async {
+    final path = await getDatabasesPath();
+    await deleteDatabase(path + databaseFileName);
+    return super.delete();
   }
 
   @override

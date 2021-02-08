@@ -43,7 +43,7 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
   }
 
   @override
-  Future<bool> delete(K key) async {
+  Future<bool> remove(K key) async {
     final box = await data;
     final str = keyToString(key);
     if (box.containsKey(str)) {
@@ -57,6 +57,13 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
   Future<void> clear() async {
     final box = await data;
     await box.clear();
+  }
+
+  @override
+  Future<void> delete() async {
+    final box = await data;
+    await box.deleteFromDisk();
+    return super.delete();
   }
 
   @override

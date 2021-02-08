@@ -64,11 +64,11 @@ class _AppProvidersState extends State<AppProviders> {
 
         // Study
         ChangeNotifierProvider(
-          create: (_) => StudyHistory(HiveHistoryDatabase()),
+          create: (_) => HistoryProvider(HiveHistoryDatabase()),
           lazy: false,
         ),
         ProxyProvider4<ScriptureProvider, TopicIndexProvider, StudyFilter,
-            StudyHistory, StudyLibraryProxy>(
+            HistoryProvider, StudyLibraryProxy>(
           update: (context, scriptures, topics, filter, history, _) =>
               StudyLibraryProxy(
             scriptures: scriptures,

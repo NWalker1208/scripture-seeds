@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import '../scriptures/reference.dart';
 import 'database.dart';
 
-class StudyHistory extends ChangeNotifier {
-  StudyHistory(
+class HistoryProvider extends ChangeNotifier {
+  HistoryProvider(
     HistoryDatabase database, {
     Duration maxAge = const Duration(days: 30),
   }) : _database = database {
@@ -51,7 +51,7 @@ class StudyHistory extends ChangeNotifier {
     final oldEntries = _history.entries.where((e) => e.value.isBefore(date));
     for (var entry in oldEntries) {
       _history.remove(entry.key);
-      _database.delete(entry.key);
+      _database.remove(entry.key);
     }
     if (oldEntries.isNotEmpty) notifyListeners();
 

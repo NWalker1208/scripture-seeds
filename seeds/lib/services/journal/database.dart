@@ -7,7 +7,7 @@ abstract class JournalDatabase<D>
   Future<void> saveEntry(JournalEntry entry) => save(entry.created, entry);
 
   /// Deletes the journal entry from the database based on the entry's name.
-  Future<bool> deleteEntry(JournalEntry entry) => delete(entry.created);
+  Future<bool> deleteEntry(JournalEntry entry) => remove(entry.created);
 
   /// Loads all journal entries as an iterable.
   /// Automatically removes entries which loaded as null.

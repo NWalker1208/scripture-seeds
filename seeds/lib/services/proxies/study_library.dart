@@ -15,7 +15,7 @@ class StudyLibraryProxy {
   final ScriptureProvider scriptures;
   final TopicIndexProvider topics;
   final StudyFilter filter;
-  final StudyHistory history;
+  final HistoryProvider history;
 
   List<ScriptureReference> availableReferences(String topic) {
     var references = topics.index[topic].references.toList();

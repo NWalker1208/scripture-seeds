@@ -36,7 +36,7 @@ class SharedPrefsTutorialDatabase extends TutorialDatabase<SharedPreferences> {
   }
 
   @override
-  Future<bool> delete(String key) async {
+  Future<bool> remove(String key) async {
     final p = '$_tutorialPrefs$key';
     final prefs = await data;
     return prefs.remove(p);
