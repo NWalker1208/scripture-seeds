@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../extensions/string.dart';
 import '../../services/scriptures/volumes.dart';
-import '../../services/settings/study_filter.dart';
+import '../../services/settings/filter.dart';
 
 class LibraryFilterSettings extends StatelessWidget {
   const LibraryFilterSettings({
@@ -11,7 +11,7 @@ class LibraryFilterSettings extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer<StudyFilter>(
+  Widget build(BuildContext context) => Consumer<FilterProvider>(
         builder: (context, filter, child) => Column(
           children: [
             const ListTile(

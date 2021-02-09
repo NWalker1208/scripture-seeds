@@ -6,7 +6,10 @@ abstract class CustomService<D> {
   /// Opens the source by calling the open method.
   @mustCallSuper
   CustomService() {
-    _data = open();
+    _data = open().catchError((dynamic e) {
+      print('Service failed to open: $e');
+      return null;
+    });
   }
 
   /// Stores the future given by the open function.

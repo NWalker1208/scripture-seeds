@@ -1,28 +1,21 @@
-import 'package:flutter/foundation.dart';
-
+import '../provider.dart';
 import '../scriptures/reference.dart';
 import 'database.dart';
 
-class HistoryProvider extends ChangeNotifier {
+class HistoryProvider extends ServiceProvider<HistoryDatabase> {
   HistoryProvider(
-    HistoryDatabase database, {
-    Duration maxAge = const Duration(days: 30),
-  }) : _database = database {
-    _database.loadAll().then((history) {
-      _history = history;
-      notifyListeners();
-      deleteOld(DateTime.now().subtract(maxAge));
-    });
-  }
+    HistoryDatabase Function() create, {
+    this.maxAge = const Duration(days: 30),
+  }) : super(create);
 
-  final HistoryDatabase _database;
+  final Duration maxAge;
   Map<ScriptureReference, DateTime> _history;
 
-  /// Check if the database has been loaded.
-  bool get isLoaded => _history != null;
+  /// Oldest date allowable for history entries to be kept.
+  DateTime get minimumDate => DateTime.now().subtract(maxAge);
 
   /// Get list of all references in history.
-  List<ScriptureReference> get references => _history?.keys?.toList();
+  Iterable<ScriptureReference> get references => _history?.keys;
 
   /// Gets the date last studied for a library resource.
   /// Returns null if never studied or if history is not loaded.
@@ -33,46 +26,36 @@ class HistoryProvider extends ChangeNotifier {
 
   /// Updates the history of a library resource to show studied on date.
   /// If no date is given, the current time is used.
-  /// Returns false if history has not finished loading.
+  /// Returns false if unable to add, or if date is too old.
   bool markStudied(ScriptureReference reference, {DateTime date}) {
     if (!isLoaded) return false;
-
-    _history[reference] = date ?? DateTime.now();
-    _database.save(reference, _history[reference]);
-    notifyListeners();
-
-    return true;
-  }
-
-  /// Deletes history that occurred prior to date.
-  int deleteOld(DateTime date) {
-    if (!isLoaded) return 0;
-
-    final oldEntries = _history.entries.where((e) => e.value.isBefore(date));
-    for (var entry in oldEntries) {
-      _history.remove(entry.key);
-      _database.remove(entry.key);
+    date ??= DateTime.now();
+    if (date.isBefore(minimumDate)) {
+      _history.remove(reference);
+      notifyService((data) => data.remove(reference));
+      return false;
+    } else {
+      _history[reference] = date;
+      notifyService((data) => data.save(reference, date));
+      return true;
     }
-    if (oldEntries.isNotEmpty) notifyListeners();
-
-    return oldEntries.length;
   }
 
   /// Deletes all history entries
-  bool clear() {
-    if (isLoaded) {
-      _history.clear();
-      _database.clear();
-      notifyListeners();
-      return true;
-    } else {
-      return false;
-    }
+  void clear() {
+    if (!isLoaded) return;
+    _history.clear();
+    notifyService((data) => data.clear());
   }
 
   @override
-  void dispose() {
-    _database.close();
-    super.dispose();
+  Future<void> loadData(HistoryDatabase data) async {
+    _history = await data.loadAll();
+    // Delete old records before finishing
+    final date = minimumDate;
+    for (var entry in _history.entries.where((e) => e.value.isBefore(date))) {
+      _history.remove(entry.key);
+      await data.remove(entry.key);
+    }
   }
 }

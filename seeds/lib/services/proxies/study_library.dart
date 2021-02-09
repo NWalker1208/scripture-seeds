@@ -1,7 +1,10 @@
+import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+
 import '../history/provider.dart';
-import '../scriptures/provider.dart';
+import '../scriptures/database.dart';
 import '../scriptures/reference.dart';
-import '../settings/study_filter.dart';
+import '../settings/filter.dart';
 import '../topics/provider.dart';
 
 class StudyLibraryProxy {
@@ -12,9 +15,17 @@ class StudyLibraryProxy {
     this.history,
   });
 
-  final ScriptureProvider scriptures;
+  factory StudyLibraryProxy.fromContext(BuildContext context) =>
+      StudyLibraryProxy(
+        scriptures: Provider.of(context),
+        topics: Provider.of(context),
+        filter: Provider.of(context),
+        history: Provider.of(context),
+      );
+
+  final ScriptureDatabase scriptures;
   final TopicIndexProvider topics;
-  final StudyFilter filter;
+  final FilterProvider filter;
   final HistoryProvider history;
 
   List<ScriptureReference> availableReferences(String topic) {

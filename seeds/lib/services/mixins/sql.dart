@@ -118,9 +118,9 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
 
   @override
   Future<void> delete() async {
+    await super.delete();
     final path = await getDatabasesPath();
     await deleteDatabase(path + databaseFileName);
-    return super.delete();
   }
 
   @override

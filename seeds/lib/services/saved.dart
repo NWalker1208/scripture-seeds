@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import 'database.dart';
 
@@ -37,5 +37,22 @@ abstract class SavedDatabase<D, K, V> extends CustomDatabase<D, K, V> {
         await save(entry.key, entry.value);
       }
     }
+  }
+
+  /// Copies the contents of this database to [other], if [isOpen] is true.
+  /// Returns true if anything was copied to the database.
+  /// Closes this database when finished.
+  Future<bool> upgrade(SavedDatabase<dynamic, K, V> newDatabase) async {
+    var upgraded = false;
+    if (isOpen) {
+      if ((await loadKeys()).isNotEmpty) {
+        await newDatabase.copyFrom(this);
+        upgraded = true;
+        print('Upgraded from $runtimeType to ${newDatabase.runtimeType}.');
+      }
+      await delete();
+    }
+    if (!upgraded) print('No data present in $runtimeType to upgrade.');
+    return upgraded;
   }
 }

@@ -36,7 +36,7 @@ class SelectionParagraph extends RichText {
         textHeightBehavior: textHeightBehavior,
         textScaleFactor: textScaleFactor,
         textDirection: Directionality.of(context),
-        locale: Localizations.localeOf(context, nullOk: true),
+        locale: Localizations.maybeLocaleOf(context),
       );
 
   @override
@@ -49,7 +49,7 @@ class SelectionParagraph extends RichText {
         ..textHeightBehavior = textHeightBehavior
         ..textScaleFactor = textScaleFactor
         ..textDirection = Directionality.of(context)
-        ..locale = Localizations.localeOf(context, nullOk: true);
+        ..locale = Localizations.maybeLocaleOf(context);
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {

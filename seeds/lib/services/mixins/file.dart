@@ -70,6 +70,6 @@ mixin FileDatabaseMixin<K, V> on SavedDatabase<Directory, K, V> {
   Future<void> delete() async {
     final dir = await data;
     if (await dir.exists()) await dir.delete(recursive: true);
-    return super.delete();
+    await super.delete();
   }
 }

@@ -1,24 +1,14 @@
 import 'dart:collection';
 
-import 'package:flutter/foundation.dart';
-
+import '../provider.dart';
 import 'database.dart';
 import 'entry.dart';
 
-class JournalProvider extends ChangeNotifier {
-  JournalProvider(JournalDatabase database) : _database = database {
-    _database.loadAllEntries().then((entries) {
-      _entries = SplayTreeSet.of(entries);
-      notifyListeners();
-    });
-  }
+class JournalProvider extends ServiceProvider<JournalDatabase> {
+  JournalProvider(JournalDatabase Function() create) : super(create);
 
-  final JournalDatabase _database;
   SplayTreeSet<JournalEntry> _entries;
   SplayTreeSet<String> _tagCache;
-
-  /// Check if the database has been loaded.
-  bool get isLoaded => _entries != null;
 
   /// Get all the entries stored in the journal.
   /// Sorted oldest to newest.
@@ -27,59 +17,48 @@ class JournalProvider extends ChangeNotifier {
   /// Get each tag that at least one entry has in its tag set.
   /// Sorted in alphabetical order.
   Iterable<String> get allTags {
-    if (isLoaded) {
-      _tagCache ??= SplayTreeSet.of(_entries.fold(
-        Iterable.empty(),
-        (p, e) => p.followedBy(e.tags),
-      ));
-      return _tagCache;
-    }
-    return const Iterable.empty();
+    if (!isLoaded) return const Iterable.empty();
+    return _tagCache ??= SplayTreeSet.of({
+      for (var entry in _entries) ...entry.tags,
+    });
   }
 
   /// Save a new journal entry.
   void save(JournalEntry entry) {
-    _entries.add(entry);
-    _database.saveEntry(entry);
     _tagCache?.addAll(entry.tags);
-    notifyListeners();
+    _entries.add(entry);
+    notifyService((data) => data.saveEntry(entry));
   }
 
   /// Delete a journal entry. Returns true if successful.
   bool delete(JournalEntry entry) {
     if (!entries.contains(entry)) return false;
 
-    _entries.remove(entry);
-    _database.deleteEntry(entry);
     _tagCache = null; // Clear tag cache
-    notifyListeners();
+    _entries.remove(entry);
+    notifyService((data) => data.removeEntry(entry));
 
     return true;
   }
 
   /// Deletes all journal entries in the given iterable.
   void deleteCollection(Iterable<JournalEntry> entries) {
-    for (var entry in entries) {
-      if (!entries.contains(entry)) continue;
-      _entries.remove(entry);
-      _database.deleteEntry(entry);
-    }
-
     _tagCache = null; // Clear tag cache
-    notifyListeners();
+    _entries.removeAll(entries);
+    notifyService((data) => Future.wait([
+          for (var entry in entries) data.removeEntry(entry),
+        ]));
   }
 
   /// Deletes every journal entry.
   void deleteAll() {
+    _tagCache = SplayTreeSet();
     _entries.clear();
-    _database.clear();
-    _tagCache = null; // Clear tag cache
-    notifyListeners();
+    notifyService((data) => data.clear());
   }
 
   @override
-  void dispose() {
-    _database.close();
-    super.dispose();
+  Future<void> loadData(JournalDatabase data) async {
+    _entries = SplayTreeSet.of(await data.loadAllEntries());
   }
 }

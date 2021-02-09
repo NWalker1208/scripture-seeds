@@ -61,9 +61,8 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
 
   @override
   Future<void> delete() async {
-    final box = await data;
-    await box.deleteFromDisk();
-    return super.delete();
+    await super.delete();
+    await Hive.deleteBoxFromDisk(boxName);
   }
 
   @override

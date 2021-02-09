@@ -1,42 +1,26 @@
-import 'package:flutter/material.dart';
-
+import '../provider.dart';
 import 'service.dart';
 
 const int _initialBalance = 3;
 
-class WalletProvider extends ChangeNotifier {
-  WalletProvider(WalletService service) : _service = service {
-    _service.loadBalance().then((balance) {
-      if (balance == null) {
-        balance = _initialBalance;
-        _service.setBalance(balance);
-      }
-      _balance = balance;
-      notifyListeners();
-    });
-  }
-
-  final WalletService _service;
-
-  /// Check if the wallet has been loaded.
-  bool get isLoaded => _balance != null;
+class WalletProvider extends ServiceProvider<WalletService> {
+  WalletProvider(WalletService Function() create) : super(create);
 
   int _balance;
 
   /// Current balance of the wallet.
   int get balance => _balance ?? 0;
 
+  /// Returns true if balance is greater than or equal to the price.
+  bool canAfford(int price) => _balance >= price;
+
   /// Add the given amount to the wallet.
   void add(int amount) {
     print('Added $amount to wallet.');
 
     _balance += amount;
-    _service.add(amount);
-    notifyListeners();
+    notifyService((s) => s.add(amount));
   }
-
-  /// Returns true if balance is greater than or equal to the price.
-  bool canAfford(int price) => _balance >= price;
 
   /// Spend the given amount.
   /// Returns true if enough balance was available.
@@ -47,21 +31,23 @@ class WalletProvider extends ChangeNotifier {
     print('Spent $amount from wallet.');
 
     _balance -= amount;
-    _service.subtract(amount);
-    notifyListeners();
+    notifyService((s) => s.subtract(amount));
     return true;
   }
 
   /// Reset balance to [_initialBalance].
   void reset() {
     _balance = _initialBalance;
-    _service.setBalance(_initialBalance);
-    notifyListeners();
+    notifyService((s) => s.setBalance(_initialBalance));
   }
 
   @override
-  void dispose() {
-    _service.close();
-    super.dispose();
+  Future<void> loadData(WalletService service) async {
+    _balance = await service.loadBalance();
+
+    if (_balance == null) {
+      _balance = _initialBalance;
+      await service.setBalance(_balance);
+    }
   }
 }

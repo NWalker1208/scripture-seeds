@@ -3,12 +3,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../scriptures/volumes.dart';
 
-class StudyFilter extends ChangeNotifier {
+class FilterProvider extends ChangeNotifier {
   static const String kCategoryPref = 'study_';
 
   Map<Volume, bool> _filter;
 
-  StudyFilter() {
+  FilterProvider() {
     _filter = <Volume, bool>{};
     for (var volume in Volume.values) {
       _filter[volume] = true;

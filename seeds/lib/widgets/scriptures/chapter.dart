@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/scriptures/books.dart';
-import '../../services/scriptures/provider.dart';
+import '../../services/scriptures/database.dart';
 import '../../services/scriptures/reference.dart';
 import 'verse.dart';
 
@@ -81,7 +81,7 @@ class _ChapterViewState extends State<ChapterView> {
   void initState() {
     _referenceKey = GlobalKey();
     // Load chapter text
-    _chapter = Provider.of<ScriptureProvider>(context, listen: false)
+    _chapter = Provider.of<ScriptureDatabase>(context, listen: false)
         .loadChapterOfReference(widget.reference);
     if (widget.scrollToReference) _chapter.then((_) => scrollToReference());
     super.initState();
@@ -91,7 +91,7 @@ class _ChapterViewState extends State<ChapterView> {
   void didUpdateWidget(ChapterView oldWidget) {
     if (oldWidget.reference != widget.reference) {
       // Load chapter text
-      _chapter = Provider.of<ScriptureProvider>(context, listen: false)
+      _chapter = Provider.of<ScriptureDatabase>(context, listen: false)
           .loadChapterOfReference(widget.reference);
       if (widget.scrollToReference) _chapter.then((_) => scrollToReference());
     }
