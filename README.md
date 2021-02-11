@@ -1,4 +1,4 @@
-# Seeds
+# Scripture Seeds
 
 An app to encourage the development of Christ-like attributes and aid in personal scripture study.
 
@@ -42,26 +42,26 @@ These items are unnecessary, but improve the user experience.
   - [x] Refactor library system to load only references
   - [x] Create service for getting scripture text
   - [x] Improve highlight widget performance
-  - [ ] Add keepAlives to highlights
+  - [x] Add keepAlives to highlights
 - [x] Create topic page instead of immediately purchasing
   - [x] Show list of scriptures
   - [x] Purchase button/Link to plant
+- [x] Improve journal page
+- [x] Optimize plant renderer
+- [x] Create overlay based tutorial system
 - [ ] Add reminder notifications (0.5 weeks)
   - [ ] Setting for notification time
 - [ ] Intro page to configure default filter
-- [x] Improve journal page
-- [ ] Optimize plant renderer
-- [ ] Create overlay based tutorial system
-- [ ] General UI and animation improvements
 
 ### 4) Bonus (future features)
 - [ ] Google Drive API for backup and sync
 - [ ] Web and Desktop
 - [ ] Define word in scripture (1 week)
+- [ ] Save highlights to database
 - [ ] Create custom topic based on keyword search
   - [ ] Create index of words in scriptures
-- [ ] Refactor highlight to use render objects
-- [ ] Refactor code to follow MVC
+- [x] Refactor highlight to use render objects
+- [x] Refactor code to follow MVC
 - [x] Improve plant display (1 week)
   - [x] Make scaling relative to size
   - [x] Create actual plant graphic
