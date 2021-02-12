@@ -1,20 +1,19 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 
+import 'assets.dart';
 import 'index.dart';
-import 'json.dart';
 import 'web.dart';
 
 class TopicIndexProvider extends ChangeNotifier {
-  TopicIndexProvider({this.maxCacheAgeDays = 7, AssetBundle assets})
-      : _assetService = TopicIndexAssets(assets: assets),
-        _webService = TopicIndexWeb() {
+  TopicIndexProvider({this.maxCacheAgeDays = 7})
+      : _assetService = AssetTopicIndexService(),
+        _webService = WebTopicIndexService() {
     _initialize();
   }
 
   final int maxCacheAgeDays;
-  final TopicIndexAssets _assetService;
-  final TopicIndexWeb _webService;
+  final AssetTopicIndexService _assetService;
+  final WebTopicIndexService _webService;
 
   TopicIndex _index;
   TopicIndex get index => _index;
@@ -25,17 +24,13 @@ class TopicIndexProvider extends ChangeNotifier {
   /// Refresh the cached topic index download. Returns true if successful.
   /// Does nothing when running from web.
   Future<bool> refresh() async {
-    if (!kIsWeb && await _webService.refresh()) {
-      var newIndex = await _webService.loadIndex();
-
-      if (newIndex != null) {
-        _index = newIndex;
-        _lastRefresh = DateTime.now();
-        notifyListeners();
-        return true;
-      }
+    var newIndex = await _webService.refresh();
+    if (newIndex != null && _index.version <= newIndex.version) {
+      _index = newIndex;
+      _lastRefresh = DateTime.now();
+      notifyListeners();
+      return true;
     }
-
     return false;
   }
 
@@ -43,20 +38,16 @@ class TopicIndexProvider extends ChangeNotifier {
   Future<void> _initialize() async {
     _index = await _assetService.loadIndex();
 
-    // Will not run when kIsWeb is true. _webService will be null.
-    if (!kIsWeb) {
-      final webIndex = await _webService.loadIndex();
-      if (webIndex != null &&
-          (_index == null || _index.version < webIndex.version)) {
-        _index = webIndex;
-      }
+    // Try downloading the index from the web server
+    final webIndex = await _webService.loadIndex();
+    if (webIndex != null &&
+        (_index == null || _index.version < webIndex.version)) {
+      _index = webIndex;
     }
 
     if (_index == null) throw Exception('Unable to load any topic index!');
-    print('Loaded index version ${_index.version} with'
-        ' ${_index.topics.length} topics.');
-
-    _lastRefresh = kIsWeb ? DateTime.now() : await _webService.lastRefresh();
+    _lastRefresh =
+        kIsWeb ? DateTime.now() : await _webService.cacheLastModified;
     notifyListeners();
 
     // Check if should refresh
