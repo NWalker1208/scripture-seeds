@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
 
-import '../utility/custom_icons.dart';
+import '../widgets/dialogs/about.dart';
 import '../widgets/settings/data_management.dart';
 import '../widgets/settings/library_filter.dart';
 import '../widgets/settings/library_refresh.dart';
@@ -12,26 +11,6 @@ class SettingsPage extends StatelessWidget {
   const SettingsPage({
     Key key,
   }) : super(key: key);
-
-  void _aboutHandler(BuildContext context) {
-    PackageInfo.fromPlatform().then((info) => showAboutDialog(
-          context: context,
-          applicationName: 'Scripture Seeds',
-          applicationIcon: const Icon(CustomIcons.seeds, size: 40),
-          applicationVersion: info.version,
-          children: [
-            const Text('App developed by Nathan Walker.'),
-            const SizedBox(height: 8),
-            const Text('Scripture references for topics were '
-                'initially obtained from ChurchOfJesusChrist.org '
-                'and were then curated by Nathan Walker.'),
-            const SizedBox(height: 8),
-            const Text('Scriptural text is made available '
-                'by the open source database "lds-scriptures" '
-                'created by GitHub user beandog.'),
-          ],
-        ));
-  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -44,13 +23,24 @@ class SettingsPage extends StatelessWidget {
             const Divider(),
             if (!kIsWeb) const LibraryRefreshTile(),
             const DataManagementSettings(),
-            const Divider(),
-            ListTile(
-              title: const Text('About Scripture Seeds',
-                  textAlign: TextAlign.center),
-              onTap: () => _aboutHandler(context),
-            )
+            const AboutTile(),
           ],
+        ),
+      );
+}
+
+class AboutTile extends StatelessWidget {
+  const AboutTile({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => ListTile(
+        title: const Text(
+          'About Scripture Seeds',
+          textAlign: TextAlign.center,
+        ),
+        onTap: () => showDialog<void>(
+          context: context,
+          builder: (context) => CustomAboutDialog(),
         ),
       );
 }
