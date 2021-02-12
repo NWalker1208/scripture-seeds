@@ -19,14 +19,27 @@ extension StringExtension on String {
           ? substring(1).characters.map((c) => c.isCapital ? ' $c' : c).join()
           : '');
 
-  // Returns a String of only the enum's value (removes type prefix).
-  static String fromEnum<T>(T value) => value.toString().split('.').last;
+  // Returns a string of the enum's value (removes type prefix).
+  static String fromEnum<T>(T value) {
+    final str = value.toString();
+    return str.substring(str.lastIndexOf('.') + 1);
+  }
 
-  // Converts a string to an enum value
-  T toEnum<T>(List<T> values, {T Function() orElse}) => values.firstWhere(
-        (val) => val.toString().split('.').last.toLowerCase() == toLowerCase(),
-        orElse: orElse,
-      );
+  // Converts a string to an enum value.
+  static final _enumCache = <Type, Map<dynamic, String>>{};
+  T toEnum<T>(List<T> values, {T Function() orElse}) {
+    // Cache the string representations of the enum's values
+    final enumType = values.first.runtimeType;
+    _enumCache[enumType] ??= <T, String>{};
+
+    // Find the matching enum value
+    final lower = toLowerCase();
+    final cache = _enumCache[enumType] as Map<T, String>;
+    return values.firstWhere(
+      (v) => (cache[v] ??= fromEnum(v).toLowerCase()) == lower,
+      orElse: orElse,
+    );
+  }
 
   // Returns the number of words separable by spaces.
   // A word must contain at least one letter.
