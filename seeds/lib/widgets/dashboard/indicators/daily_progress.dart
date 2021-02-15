@@ -15,16 +15,24 @@ class DailyProgressIndicator extends StatelessWidget {
           var records = progress.records;
 
           var completed = 0;
+          var wilted = 0;
           for (var record in records) {
             if (!record.canMakeProgressToday) completed++;
+            if (record.progressLost != null) wilted++;
           }
 
           return Row(
             mainAxisSize: MainAxisSize.min,
             children: [
+              if (wilted > 0) ...[
+                Text('$wilted'),
+                const SizedBox(width: 4),
+                const Icon(Icons.error),
+                const SizedBox(width: 8),
+              ],
               Text('$completed / ${records.length}'),
               const SizedBox(width: 4),
-              const Icon(CustomIcons.water_drop)
+              const Icon(CustomIcons.water_drop),
             ],
           );
         },

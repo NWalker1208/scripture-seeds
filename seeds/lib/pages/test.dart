@@ -25,6 +25,11 @@ class TestPage extends StatelessWidget {
       progress: 3,
       rewardAvailable: true,
     ));
+    await progress.saveRecord(ProgressRecord(
+      'apostles',
+      progress: 2,
+      lastUpdate: DateTime.now().subtract(Duration(days: 7)),
+    ));
     for (var i = 0; i < 10; i++) {
       await journal.saveEntry(JournalEntry(
         quote: 'quote #$i',
