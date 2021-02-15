@@ -11,7 +11,7 @@ import '../services/wallet/provider.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/dialogs/purchase_topic.dart';
-import '../widgets/switcher.dart';
+import '../widgets/animation/switcher.dart';
 import '../widgets/topics/list.dart';
 import '../widgets/tutorial/focus.dart';
 import '../widgets/tutorial/help_button.dart';

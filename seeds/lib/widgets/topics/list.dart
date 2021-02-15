@@ -54,11 +54,11 @@ class TopicList extends StatelessWidget {
           if (maxToShow != null) topicList = topicList.take(maxToShow).toList();
 
           return AnimatedListBuilder<String>.list(
-            values: topicList,
+            items: topicList,
             duration: const Duration(milliseconds: 200),
             insertDelay: const Duration(milliseconds: 400),
             removeDelay: const Duration(milliseconds: 400),
-            childBuilder: (context, topic, animation) => AppearTransition(
+            itemBuilder: (context, topic, animation) => AppearTransition(
               visibility: animation,
               axis: Axis.horizontal,
               child: Padding(

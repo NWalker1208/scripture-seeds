@@ -7,10 +7,10 @@ import '../services/journal/entry.dart';
 import '../services/journal/provider.dart';
 import '../widgets/animation/appear_transition.dart';
 import '../widgets/animation/list.dart';
+import '../widgets/animation/switcher.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/erase_journal_entry.dart';
 import '../widgets/journal_entry.dart';
-import '../widgets/switcher.dart';
 
 class JournalPage extends StatefulWidget {
   final String defaultFilter;
@@ -122,9 +122,9 @@ class _JournalPageState extends State<JournalPage> {
               }
 
               return AnimatedListBuilder<JournalEntry>(
-                values: entries.toList().reversed,
+                items: entries.toList().reversed,
                 duration: const Duration(milliseconds: 200),
-                childBuilder: (context, entry, animation) => AppearTransition(
+                itemBuilder: (context, entry, animation) => AppearTransition(
                   visibility: animation,
                   child: Stack(
                     alignment: Alignment.centerLeft,
@@ -178,10 +178,10 @@ class _JournalPageState extends State<JournalPage> {
                     ],
                   ),
                 ),
-                viewBuilder: (context, builder, itemCount) => ListView.builder(
+                viewBuilder: (context, itemCount, builder) => ListView.builder(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 4),
-                  itemBuilder: builder,
                   itemCount: itemCount,
+                  itemBuilder: builder,
                 ),
               );
             },

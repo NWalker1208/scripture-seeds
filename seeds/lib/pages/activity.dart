@@ -18,7 +18,7 @@ import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';
 import '../widgets/activity/share.dart';
 import '../widgets/activity/study.dart';
-import '../widgets/animated_fab.dart';
+import '../widgets/animation/fab.dart';
 import '../widgets/tutorial/help_button.dart';
 
 class ActivityPage extends StatefulWidget {

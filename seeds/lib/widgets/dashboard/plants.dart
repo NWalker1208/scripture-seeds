@@ -37,11 +37,11 @@ class PlantsDashboard extends StatelessWidget {
                   ..sort();
 
                 return AnimatedListBuilder<ProgressRecord>(
-                  values: records,
+                  items: records,
                   duration: const Duration(milliseconds: 200),
                   insertDelay: const Duration(milliseconds: 200),
                   removeDelay: const Duration(milliseconds: 400),
-                  childBuilder: (_, record, animation) => AppearTransition(
+                  itemBuilder: (_, record, animation) => AppearTransition(
                     visibility: animation,
                     axis: Axis.horizontal,
                     child: Padding(
@@ -56,15 +56,19 @@ class PlantsDashboard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  viewBuilder: (_, builder, itemCount) => itemCount > 0
-                      ? ListView.builder(
-                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: builder,
-                          itemCount: itemCount,
-                        )
-                      : Center(child: Text('Select a topic below to begin.')),
+                  viewBuilder: (_, itemCount, builder) => AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 200),
+                    child: itemCount > 0
+                        ? ListView.builder(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 4.0),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: itemCount,
+                            itemBuilder: builder,
+                          )
+                        : Center(child: Text('Select a topic below to begin.')),
+                  ),
                 );
               },
             ),

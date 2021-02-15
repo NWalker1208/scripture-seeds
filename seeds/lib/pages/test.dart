@@ -10,68 +10,36 @@ import 'package:seeds/services/progress/provider.dart';
 import 'package:seeds/services/progress/record.dart';
 import 'package:seeds/services/progress/sql.dart';
 import 'package:seeds/services/scriptures/reference.dart';
+import 'package:seeds/widgets/animation/appear_transition.dart';
+import 'package:seeds/widgets/animation/list.dart';
 
 /// Debug-only test page for testing new features.
-class TestPage extends StatelessWidget {
+class TestPage extends StatefulWidget {
   const TestPage({Key key}) : super(key: key);
 
-  void createOldData(BuildContext context) async {
-    final progress = SqlProgressDatabase();
-    final journal = JsonJournalDatabase();
-    final history = SqlHistoryDatabase();
+  @override
+  _TestPageState createState() => _TestPageState();
+}
 
-    await progress.saveRecord(ProgressRecord(
-      'agency',
-      progress: 3,
-      rewardAvailable: true,
-    ));
-    await progress.saveRecord(ProgressRecord(
-      'apostles',
-      progress: 2,
-      lastUpdate: DateTime.now().subtract(Duration(days: 7)),
-    ));
-    for (var i = 0; i < 10; i++) {
-      await journal.saveEntry(JournalEntry(
-        quote: 'quote #$i',
-        reference: '1 Nephi 1:$i',
-        commentary: 'commentary #$i',
-        tags: ['test'],
-      ));
-      await Future<void>.delayed(Duration(milliseconds: 200));
-    }
+class _TestPageState extends State<TestPage> {
+  List<DateTime> items = [];
 
-    await history.save(
-      ScriptureReference.parse('1 Nephi 1:1'),
-      DateTime.now(),
-    );
-
-    await progress.close();
-    await journal.close();
-    await history.close();
-
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Data Created'),
-    ));
+  void addItem() {
+    setState(() {
+      items.add(DateTime.now());
+    });
   }
 
-  void upgradeOldData(BuildContext context) async {
-    final progress = Provider.of<ProgressProvider>(context, listen: false);
-    final journal = Provider.of<JournalProvider>(context, listen: false);
-    final history = Provider.of<HistoryProvider>(context, listen: false);
-
-    await progress.modify((data) => SqlProgressDatabase().upgrade(data));
-    await journal.modify((data) => JsonJournalDatabase().upgrade(data));
-    await history.modify((data) => SqlHistoryDatabase().upgrade(data));
+  void removeItem(DateTime item) {
+    setState(() {
+      items.remove(item);
+    });
   }
 
-  void readNewData(BuildContext context) {
-    final progress = Provider.of<ProgressProvider>(context, listen: false);
-    final journal = Provider.of<JournalProvider>(context, listen: false);
-    final history = Provider.of<HistoryProvider>(context, listen: false);
-
-    print(progress.records);
-    print(journal.entries);
-    print(history.references);
+  @override
+  void initState() {
+    addItem();
+    super.initState();
   }
 
   @override
@@ -90,8 +58,86 @@ class TestPage extends StatelessWidget {
             ListTile(
               title: Text('Read New Data'),
               onTap: () => readNewData(context),
+            ),
+            AnimatedListBuilder<DateTime>.list(
+              items: items,
+              duration: const Duration(seconds: 1),
+              insertDelay: const Duration(milliseconds: 250),
+              removeDelay: const Duration(milliseconds: 250),
+              viewBuilder: (context, children) => Column(
+                children: children,
+              ),
+              itemBuilder: (context, item, animation) => AppearTransition(
+                visibility: animation,
+                child: ListTile(
+                  title: Text('$item'),
+                  onTap: addItem,
+                  onLongPress: () => removeItem(item),
+                ),
+              ),
             )
           ],
         ),
       );
+}
+
+// Test Functions
+
+void createOldData(BuildContext context) async {
+  final progress = SqlProgressDatabase();
+  final journal = JsonJournalDatabase();
+  final history = SqlHistoryDatabase();
+
+  await progress.saveRecord(ProgressRecord(
+    'agency',
+    progress: 3,
+    rewardAvailable: true,
+  ));
+  await progress.saveRecord(ProgressRecord(
+    'apostles',
+    progress: 2,
+    lastUpdate: DateTime.now().subtract(Duration(days: 7)),
+  ));
+  for (var i = 0; i < 10; i++) {
+    await journal.saveEntry(JournalEntry(
+      quote: 'quote #$i',
+      reference: '1 Nephi 1:$i',
+      commentary: 'commentary #$i',
+      tags: ['test'],
+    ));
+    await Future<void>.delayed(Duration(milliseconds: 200));
+  }
+
+  await history.save(
+    ScriptureReference.parse('1 Nephi 1:1'),
+    DateTime.now(),
+  );
+
+  await progress.close();
+  await journal.close();
+  await history.close();
+
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text('Data Created'),
+  ));
+}
+
+void upgradeOldData(BuildContext context) async {
+  final progress = Provider.of<ProgressProvider>(context, listen: false);
+  final journal = Provider.of<JournalProvider>(context, listen: false);
+  final history = Provider.of<HistoryProvider>(context, listen: false);
+
+  await progress.modify((data) => SqlProgressDatabase().upgrade(data));
+  await journal.modify((data) => JsonJournalDatabase().upgrade(data));
+  await history.modify((data) => SqlHistoryDatabase().upgrade(data));
+}
+
+void readNewData(BuildContext context) {
+  final progress = Provider.of<ProgressProvider>(context, listen: false);
+  final journal = Provider.of<JournalProvider>(context, listen: false);
+  final history = Provider.of<HistoryProvider>(context, listen: false);
+
+  print(progress.records);
+  print(journal.entries);
+  print(history.references);
 }
