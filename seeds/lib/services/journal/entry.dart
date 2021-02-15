@@ -40,13 +40,8 @@ class JournalEntry implements Comparable<JournalEntry> {
   Map<String, dynamic> toJson() => _$JournalEntryToJson(this);
 
   @override
-  String toString() {
-    if (quote != reference) {
-      return '"$quote" - $reference : "$commentary" ($url)';
-    } else {
-      return '"$quote" : $commentary';
-    }
-  }
+  String toString() =>
+      '"$quote" ($reference): "$commentary" [${tags.join(', ')}]';
 
   @override
   int compareTo(JournalEntry other) => created.compareTo(other.created);

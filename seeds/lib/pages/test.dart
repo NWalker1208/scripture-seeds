@@ -21,20 +21,32 @@ class TestPage extends StatelessWidget {
     final history = SqlHistoryDatabase();
 
     await progress.saveRecord(ProgressRecord(
-      'test',
+      'agency',
       progress: 3,
       rewardAvailable: true,
     ));
-    await journal.saveEntry(JournalEntry(
-      quote: 'quote',
-      reference: '1 Nephi 1:1',
-      commentary: 'commentary',
-    ));
-    await history.save(ScriptureReference.parse('1 Nephi 1:1'), DateTime.now());
+    for (var i = 0; i < 10; i++) {
+      await journal.saveEntry(JournalEntry(
+        quote: 'quote #$i',
+        reference: '1 Nephi 1:$i',
+        commentary: 'commentary #$i',
+        tags: ['test'],
+      ));
+      await Future<void>.delayed(Duration(milliseconds: 200));
+    }
+
+    await history.save(
+      ScriptureReference.parse('1 Nephi 1:1'),
+      DateTime.now(),
+    );
 
     await progress.close();
     await journal.close();
     await history.close();
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('Data Created'),
+    ));
   }
 
   void upgradeOldData(BuildContext context) async {
@@ -45,6 +57,12 @@ class TestPage extends StatelessWidget {
     await progress.modify((data) => SqlProgressDatabase().upgrade(data));
     await journal.modify((data) => JsonJournalDatabase().upgrade(data));
     await history.modify((data) => SqlHistoryDatabase().upgrade(data));
+  }
+
+  void readNewData(BuildContext context) {
+    final progress = Provider.of<ProgressProvider>(context, listen: false);
+    final journal = Provider.of<JournalProvider>(context, listen: false);
+    final history = Provider.of<HistoryProvider>(context, listen: false);
 
     print(progress.records);
     print(journal.entries);
@@ -63,6 +81,10 @@ class TestPage extends StatelessWidget {
             ListTile(
               title: Text('Upgrade Old Data'),
               onTap: () => upgradeOldData(context),
+            ),
+            ListTile(
+              title: Text('Read New Data'),
+              onTap: () => readNewData(context),
             )
           ],
         ),
