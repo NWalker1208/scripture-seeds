@@ -42,9 +42,9 @@ class JournalEntry implements Comparable<JournalEntry> {
   @override
   String toString() {
     if (quote != reference) {
-      return '$quote - $reference\n$commentary\n$url';
+      return '"$quote" - $reference : "$commentary" ($url)';
     } else {
-      return '$quote\n$commentary';
+      return '"$quote" : $commentary';
     }
   }
 

@@ -23,12 +23,15 @@ class JsonJournalDatabase extends JournalDatabase<Directory>
 
   @override
   String keyToFilename(DateTime key) =>
-      key.toIso8601String().replaceAll(':', '_');
+      key.toIso8601String().replaceAll(RegExp(r'[:.]'), '_');
 
   @override
   DateTime filenameToKey(String file) {
+    // Reformat filename to get removed characters
+    var i = file.lastIndexOf('_');
+    var key = file.replaceAll('_', ':').replaceRange(i, i + 1, '.');
     try {
-      return DateTime.parse(file.replaceAll('_', ':'));
+      return DateTime.parse(key);
     } on FormatException {
       print('Invalid journal entry key: "$file"');
       return null;

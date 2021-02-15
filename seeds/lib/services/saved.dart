@@ -45,10 +45,12 @@ abstract class SavedDatabase<D, K, V> extends CustomDatabase<D, K, V> {
   Future<bool> upgrade(SavedDatabase<dynamic, K, V> newDatabase) async {
     var upgraded = false;
     if (isOpen) {
-      if ((await loadKeys()).isNotEmpty) {
+      final keys = await loadKeys();
+      if (keys.isNotEmpty) {
         await newDatabase.copyFrom(this);
         upgraded = true;
-        print('Upgraded from $runtimeType to ${newDatabase.runtimeType}.');
+        print('Upgraded ${keys.length} entries from '
+            '$runtimeType to ${newDatabase.runtimeType}.');
       }
       await delete();
     }

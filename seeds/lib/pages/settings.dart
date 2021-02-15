@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:seeds/pages/test.dart';
 
 import '../widgets/dialogs/about.dart';
 import '../widgets/settings/data_management.dart';
@@ -24,6 +25,7 @@ class SettingsPage extends StatelessWidget {
             if (!kIsWeb) const LibraryRefreshTile(),
             const DataManagementSettings(),
             const AboutTile(),
+            if (!kReleaseMode) const DebugPageTile(),
           ],
         ),
       );
@@ -42,5 +44,20 @@ class AboutTile extends StatelessWidget {
           context: context,
           builder: (context) => CustomAboutDialog(),
         ),
+      );
+}
+
+class DebugPageTile extends StatelessWidget {
+  const DebugPageTile({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => ListTile(
+        tileColor: Colors.yellow,
+        title: Text(
+          'Debug Page',
+          textAlign: TextAlign.center,
+        ),
+        onTap: () => Navigator.of(context)
+            .push(MaterialPageRoute<void>(builder: (context) => TestPage())),
       );
 }
