@@ -1,8 +1,6 @@
 name: Flutter Web
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 jobs:
   build:
     name: Build Web
@@ -10,16 +8,22 @@ jobs:
       my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - uses: subosito/flutter-action@v1
         with:
           channel: 'dev'
-      - run: flutter config --enable-web
-      - working-directory: ./seeds
+      - name: Enable Flutter Web
+        run: flutter config --enable-web
+      - name: Get Dependencies
+        working-directory: ./seeds
         run: flutter pub get
-      - working-directory: ./seeds
+      - name: Build Web Release
+        working-directory: ./seeds
         run: flutter build web --release
-      - working-directory: ./seeds
+      - name: Push to GitHub Pages
+        working-directory: ./seeds
         run: |
           cd build/web
           git init
