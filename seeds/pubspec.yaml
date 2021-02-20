@@ -71,7 +71,7 @@ flutter:
   assets:
     - assets/library_eng.xml
     - assets/topics_eng.json
-    - assets/lds-scriptures/sqlite/lds-scriptures-sqlite.db
+  # - assets/lds-scriptures/sqlite/lds-scriptures-sqlite.db
     - assets/lds-scriptures/json/lds-scriptures-json.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
