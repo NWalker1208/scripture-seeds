@@ -1,6 +1,8 @@
 name: Flutter Web
 on:
   workflow_dispatch:
+  release:
+    types: [published]
 jobs:
   build:
     name: Build Web
