@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/tutorial/focus.dart';
 import 'provider.dart';
 
 class TutorialObserver extends NavigatorObserver {
@@ -33,7 +34,9 @@ class TutorialObserver extends NavigatorObserver {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         final context = toRoute.subtreeContext;
         final provider = Provider.of<TutorialProvider>(context, listen: false);
-        provider.showTutorial(context, force: false);
+        for (var focus in TutorialFocus.allIn(context)) {
+          provider.showTutorial(focus, force: false);
+        }
       });
     }
   }

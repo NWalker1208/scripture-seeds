@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/services/history/provider.dart';
-import 'package:seeds/services/history/sql.dart';
-import 'package:seeds/services/journal/entry.dart';
-import 'package:seeds/services/journal/json.dart';
-import 'package:seeds/services/journal/provider.dart';
-import 'package:seeds/services/progress/provider.dart';
-import 'package:seeds/services/progress/record.dart';
-import 'package:seeds/services/progress/sql.dart';
-import 'package:seeds/services/scriptures/reference.dart';
-import 'package:seeds/widgets/animation/appear_transition.dart';
-import 'package:seeds/widgets/animation/list.dart';
+
+import '../services/history/provider.dart';
+import '../services/history/sql.dart';
+import '../services/journal/entry.dart';
+import '../services/journal/json.dart';
+import '../services/journal/provider.dart';
+import '../services/progress/provider.dart';
+import '../services/progress/record.dart';
+import '../services/progress/sql.dart';
+import '../services/scriptures/reference.dart';
+import '../widgets/animation/appear_transition.dart';
+import '../widgets/animation/list.dart';
 
 /// Debug-only test page for testing new features.
 class TestPage extends StatefulWidget {

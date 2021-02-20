@@ -73,8 +73,8 @@ class TutorialFocusState extends State<TutorialFocus> {
     );
   }
 
+  /// Hides placeholder once closing animation completes.
   void _pageAnimationListener(AnimationStatus status) {
-    // Hide placeholder once closing animation completes.
     if (status == AnimationStatus.dismissed) {
       _link.placeholderSize.value = null;
     }

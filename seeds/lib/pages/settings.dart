@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:seeds/pages/test.dart';
 
 import '../widgets/dialogs/about.dart';
 import '../widgets/settings/data_management.dart';
 import '../widgets/settings/library_filter.dart';
 import '../widgets/settings/library_refresh.dart';
 import '../widgets/settings/theme_selector.dart';
+import 'test.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({
