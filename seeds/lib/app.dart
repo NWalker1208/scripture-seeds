@@ -22,7 +22,7 @@ class SeedsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<ThemeProvider>(
         builder: (context, theme, child) => MaterialApp(
-          title: 'Seeds',
+          title: 'Scripture Seeds',
           theme: theme.light,
           darkTheme: theme.dark,
           themeMode: theme.mode,
