@@ -29,17 +29,19 @@ class TutorialProvider extends ServiceProvider<TutorialDatabase> {
   /// Shows the tutorial for the given context. Completes once all overlays
   /// have been closed.
   Future<void> showTutorial(TutorialFocusState focus,
-      {bool force = true}) async {
+      {bool force = true}) {
     final tag = focus.widget.tag;
 
     // Check if this tutorial has already been completed.
-    if (!force && (tag == null || this[tag])) return;
+    if (!force && (tag == null || this[tag])) return Future.value();
     if (tag != null) this[tag] = true;
 
     // Show the tutorial overlay
-    await Scrollable.ensureVisible(focus.context, alignment: 0.5);
-    await WidgetsBinding.instance.endOfFrame;
-    await focus.showOverlay();
+    return () async {
+      await Scrollable.ensureVisible(focus.context, alignment: 0.5);
+      await WidgetsBinding.instance.endOfFrame;
+      await focus.showOverlay();
+    }();
   }
 
   @override

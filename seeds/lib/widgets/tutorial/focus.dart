@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../services/tutorial/provider.dart';
 import 'overlay.dart';
 
 typedef OverlayBuilder = Widget Function(
@@ -95,6 +97,14 @@ class TutorialFocusState extends State<TutorialFocus> {
       label: widget.overlayLabel,
       animation: animation,
     );
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<TutorialProvider>(context, listen: false).showTutorial(this);
+    });
+    super.initState();
   }
 
   @override
