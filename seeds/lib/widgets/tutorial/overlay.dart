@@ -43,18 +43,25 @@ class TutorialOverlay extends StatelessWidget {
           children: [
             CompositedTransformFollower(
               link: link.transform,
-              child: ValueListenableBuilder<BoxConstraints>(
-                valueListenable: link.overlayConstraints,
-                builder: (context, constraints, child) {
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    final box = context.findRenderObject() as RenderBox;
-                    link.placeholderSize.value = box.size;
-                  });
-                  return ConstrainedBox(constraints: constraints, child: child);
-                },
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: IgnorePointer(child: child),
+              child: GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: IgnorePointer(
+                  child: UnconstrainedBox(
+                    child: ValueListenableBuilder<BoxConstraints>(
+                      valueListenable: link.overlayConstraints,
+                      child: child,
+                      builder: (context, constraints, child) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          final box = context.findRenderObject() as RenderBox;
+                          link.placeholderSize.value = box.size;
+                        });
+                        return ConstrainedBox(
+                          constraints: constraints,
+                          child: child,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),

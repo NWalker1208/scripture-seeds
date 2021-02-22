@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/widgets/tutorial/focus.dart';
 
 import '../../services/scriptures/books.dart';
 import '../../services/scriptures/database.dart';
@@ -122,15 +123,45 @@ class _ChapterViewState extends State<ChapterView> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget buildVerseGroup(_VerseGroup group) {
     final firstVerse = widget.reference.verses.first;
-    final chapterTitle = _buildAppBar(context);
-
     final referenceDecoration = BoxDecoration(
       border: Border.all(color: Theme.of(context).primaryColor, width: 3.0),
       borderRadius: BorderRadius.circular(8.0),
     );
+
+    // Create column of verses
+    Widget result = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (var i = 0; i < group.verses.length; i++)
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: VerseView(
+              i + group.startNumber,
+              group.verses[i],
+              onHighlightChange: widget.onHighlightChange,
+            ),
+          ),
+      ],
+    );
+
+    // Add outline if important
+    result = Container(
+      margin: const EdgeInsets.only(top: 4.0),
+      padding: const EdgeInsets.all(2.0),
+      key: group.startNumber == firstVerse ? _referenceKey : null,
+      foregroundDecoration: group.important ? referenceDecoration : null,
+      child: result,
+    );
+
+    return result;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final chapterTitle = _buildAppBar(context);
 
     return Theme(
       data: Theme.of(context).copyWith(
@@ -167,30 +198,7 @@ class _ChapterViewState extends State<ChapterView> {
                       Column(children: [
                         for (var group in _VerseGroup.createList(
                             snapshot.data.toList(), widget.reference))
-                          Container(
-                            margin: const EdgeInsets.only(top: 4.0),
-                            padding: const EdgeInsets.all(2.0),
-                            key: group.startNumber == firstVerse
-                                ? _referenceKey
-                                : null,
-                            foregroundDecoration:
-                                group.important ? referenceDecoration : null,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                for (var i = 0; i < group.verses.length; i++)
-                                  Padding(
-                                    padding: const EdgeInsets.all(6.0),
-                                    child: VerseView(
-                                      i + group.startNumber,
-                                      group.verses[i],
-                                      onHighlightChange:
-                                          widget.onHighlightChange,
-                                    ),
-                                  ),
-                              ],
-                            ),
-                          ),
+                          buildVerseGroup(group),
                       ]),
                     ]),
                   ),
