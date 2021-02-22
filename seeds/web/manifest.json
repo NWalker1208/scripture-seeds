@@ -1,11 +1,11 @@
 {
-    "name": "seeds",
-    "short_name": "seeds",
+    "name": "Scripture Seeds",
+    "short_name": "Seeds",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#3A2E00",
+    "theme_color": "#4CAF50",
+    "description": "Grow your seeds of faith by studying the scriptures each day.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
