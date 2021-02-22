@@ -11,7 +11,7 @@ class FocusOverlayLink {
   }
 }
 
-class TutorialOverlay extends StatelessWidget {
+class TutorialOverlay extends StatefulWidget {
   const TutorialOverlay({
     this.child,
     this.label,
@@ -27,13 +27,53 @@ class TutorialOverlay extends StatelessWidget {
   final Animation<double> animation;
   final double spacing;
 
-  Widget _buildLabel(BuildContext context) => DefaultTextStyle(
+  @override
+  _TutorialOverlayState createState() => _TutorialOverlayState();
+}
+
+class _TutorialOverlayState extends State<TutorialOverlay> {
+  final _overlayKey = GlobalKey();
+
+  void updateSize() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final box = _overlayKey.currentContext.findRenderObject() as RenderBox;
+      widget.link.placeholderSize.value = box.size;
+    });
+  }
+
+  Widget buildLabel(BuildContext context) => DefaultTextStyle(
         style: Theme.of(context).textTheme.subtitle1.copyWith(
           color: Colors.white,
           shadows: [Shadow(blurRadius: 4)],
         ),
-        child: label,
+        child: widget.label,
       );
+
+  Widget buildOverlay() => UnconstrainedBox(
+        child: NotificationListener<SizeChangedLayoutNotification>(
+          onNotification: (notification) {
+            updateSize();
+            return true;
+          },
+          child: SizeChangedLayoutNotifier(
+            child: ValueListenableBuilder<BoxConstraints>(
+              valueListenable: widget.link.overlayConstraints,
+              child: widget.child,
+              builder: (context, constraints, child) => ConstrainedBox(
+                key: _overlayKey,
+                constraints: constraints,
+                child: child,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  @override
+  void initState() {
+    updateSize();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) => Material(
@@ -42,39 +82,23 @@ class TutorialOverlay extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             CompositedTransformFollower(
-              link: link.transform,
+              link: widget.link.transform,
               child: GestureDetector(
                 onTap: () => Navigator.of(context).pop(),
-                child: IgnorePointer(
-                  child: UnconstrainedBox(
-                    child: ValueListenableBuilder<BoxConstraints>(
-                      valueListenable: link.overlayConstraints,
-                      child: child,
-                      builder: (context, constraints, child) {
-                        WidgetsBinding.instance.addPostFrameCallback((_) {
-                          final box = context.findRenderObject() as RenderBox;
-                          link.placeholderSize.value = box.size;
-                        });
-                        return ConstrainedBox(
-                          constraints: constraints,
-                          child: child,
-                        );
-                      },
-                    ),
-                  ),
-                ),
+                child: IgnorePointer(child: buildOverlay()),
               ),
             ),
-            if (label != null)
+            if (widget.label != null)
               CompositedTransformFollower(
-                link: link.transform,
+                link: widget.link.transform,
                 targetAnchor: Alignment.topCenter,
                 followerAnchor: Alignment.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: spacing),
+                  padding: EdgeInsets.only(bottom: widget.spacing),
                   child: FadeTransition(
-                    opacity: animation ?? const AlwaysStoppedAnimation(1.0),
-                    child: _buildLabel(context),
+                    opacity:
+                        widget.animation ?? const AlwaysStoppedAnimation(1.0),
+                    child: buildLabel(context),
                   ),
                 ),
               ),
