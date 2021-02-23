@@ -5,7 +5,7 @@ import '../../pages/activity.dart';
 import '../../services/scriptures/reference.dart';
 import '../../services/topics/topic.dart';
 import '../journal_entry.dart';
-import '../tutorial/help_info.dart';
+import '../tutorial/help.dart';
 
 class ShareActivity extends StatelessWidget {
   final Topic topic;
@@ -20,8 +20,8 @@ class ShareActivity extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => HelpInfo(
-        tag: 2,
+  Widget build(BuildContext context) => TutorialHelp(
+        'activity2',
         title: 'Share',
         helpText: 'Share what you learned with others. If you want to '
             'keep a record of what you wrote, select '

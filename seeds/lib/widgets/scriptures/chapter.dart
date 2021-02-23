@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seeds/widgets/tutorial/focus.dart';
 
 import '../../services/scriptures/books.dart';
 import '../../services/scriptures/database.dart';

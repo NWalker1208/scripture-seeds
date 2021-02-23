@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/tutorial/focus.dart';
+import '../../widgets/tutorial/step.dart';
 import '../provider.dart';
 import 'database.dart';
 
@@ -10,7 +10,7 @@ class TutorialProvider extends ServiceProvider<TutorialDatabase> {
   Set<String> _tagsShown;
 
   /// Check if the given tutorial tag has been completed.
-  bool operator [](String tag) => _tagsShown?.contains(tag) ?? false;
+  bool operator [](String tag) => _tagsShown?.contains(tag) ?? true;
 
   /// Mark the given tutorial tag as having been completed or not.
   void operator []=(String tag, bool value) {
@@ -26,22 +26,21 @@ class TutorialProvider extends ServiceProvider<TutorialDatabase> {
     notifyService((data) => data.clear());
   }
 
-  /// Shows the tutorial for the given context. Completes once all overlays
-  /// have been closed.
-  Future<void> showTutorial(TutorialFocusState focus,
-      {bool force = false}) {
-    final tag = focus.widget.tag;
+  /// Shows the tutorial for the given tag, using all tutorial widgets under
+  /// the given context.
+  Future<void> show(BuildContext context, [String tag]) async {
+    for (var step in TutorialStep.of(context, tag)) {
+      await step.onStart(context);
+    }
+  }
 
-    // Check if this tutorial has already been completed.
-    if (!force && (tag == null || this[tag])) return Future.value();
-    if (tag != null) this[tag] = true;
-
-    // Show the tutorial overlay
-    return () async {
-      await Scrollable.ensureVisible(focus.context);
-      await WidgetsBinding.instance.endOfFrame;
-      await focus.showOverlay();
-    }();
+  /// Shows the tutorial if the given tag has not already been shown.
+  void maybeShow(BuildContext context, String tag) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (this[tag]) return;
+      this[tag] = true;
+      show(context, tag);
+    });
   }
 
   @override

@@ -14,12 +14,10 @@ import '../services/scriptures/reference.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/topic.dart';
 import '../widgets/activity/error.dart';
-import '../widgets/activity/ponder.dart';
 import '../widgets/activity/progress.dart';
-import '../widgets/activity/share.dart';
-import '../widgets/activity/study.dart';
+import '../widgets/activity/stages.dart';
 import '../widgets/animation/fab.dart';
-import '../widgets/tutorial/help_button.dart';
+import '../widgets/tutorial/button.dart';
 
 class ActivityPage extends StatefulWidget {
   final Topic topic;
@@ -94,6 +92,7 @@ class ActivityProvider extends ChangeNotifier {
 class _ActivityPageState extends State<ActivityPage> {
   ScriptureReference _reference;
 
+  /// Advances the activity to the next stage, or ends the activity.
   void nextStage(ActivityProvider activity) {
     if (activity.stage == 2) {
       _endActivity(activity);
@@ -126,112 +125,35 @@ class _ActivityPageState extends State<ActivityPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    // Create body
-    var result = _reference == null
-        ? const ActivityError()
-        : _ActivityStages(reference: _reference, topic: widget.topic);
-
-    // Add scaffold
-    result = Scaffold(
-      body: result,
-      appBar: AppBar(
-        title: Text(widget.topic.name.capitalize()),
-        actions: [
-          Consumer<ActivityProvider>(
-            builder: (_, activity, __) => HelpButton(filter: activity.stage),
-          ),
-        ],
-      ),
-      floatingActionButton: Consumer<ActivityProvider>(
-        builder: (context, activity, child) => AnimatedFloatingActionButton(
-          icon: (activity.stage == 2) ? Icons.check : Icons.navigate_next,
-          disabled: activity.stage < 2 && !activity.canContinue,
-          onPressed: () => nextStage(activity),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-          child: ActivityProgressMap(),
-        ),
-      ),
-    );
-
-    // Add WillPopScope
-    result = Consumer<ActivityProvider>(
-      builder: (context, activity, child) => WillPopScope(
-        onWillPop: () async {
-          if (activity.stage == 0) {
-            return true;
-          } else {
-            setState(() => activity.stage--);
-            return false;
-          }
-        },
-        child: child,
-      ),
-      child: result,
-    );
-
-    // Create provider
-    return ChangeNotifierProvider<ActivityProvider>(
-      create: (context) => ActivityProvider(),
-      child: result,
-    );
-  }
-}
-
-// Manages stages of activities with PageView
-class _ActivityStages extends StatefulWidget {
-  const _ActivityStages({
-    this.reference,
-    this.topic,
-    Key key,
-  }) : super(key: key);
-
-  final ScriptureReference reference;
-  final Topic topic;
-
-  @override
-  _ActivityStagesState createState() => _ActivityStagesState();
-}
-
-class _ActivityStagesState extends State<_ActivityStages> {
-  final controller = PageController();
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => Consumer<ActivityProvider>(
-        builder: (context, activity, child) {
-          if (controller.hasClients &&
-              activity.stage != controller.page.round()) {
-            FocusScope.of(context).unfocus();
-            controller.animateToPage(
-              activity.stage,
-              duration: const Duration(milliseconds: 400),
-              curve: Curves.easeInOut,
-            );
-          }
-          return PageView(
-            controller: controller,
-            onPageChanged: (page) {
-              if (activity.stage != page) {
-                FocusScope.of(context).unfocus();
-                activity.stage = page;
-              }
-            },
-            children: [
-              StudyActivity(widget.reference),
-              if (activity[0]) PonderActivity(widget.topic),
-              if (activity[1]) ShareActivity(widget.topic, widget.reference),
+  Widget build(BuildContext context) =>
+      ChangeNotifierProvider<ActivityProvider>(
+        create: (context) => ActivityProvider(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.topic.name.capitalize()),
+            actions: [
+              Consumer<ActivityProvider>(
+                builder: (_, activity, __) =>
+                    TutorialButton(tag: 'activity${activity.stage}'),
+              ),
             ],
-          );
-        },
+          ),
+          body: _reference == null
+              ? const ActivityError()
+              : ActivityStages(reference: _reference, topic: widget.topic),
+          floatingActionButton: Consumer<ActivityProvider>(
+            builder: (context, activity, child) => AnimatedFloatingActionButton(
+              icon: (activity.stage == 2) ? Icons.check : Icons.navigate_next,
+              disabled: activity.stage < 2 && !activity.canContinue,
+              onPressed: () => nextStage(activity),
+            ),
+          ),
+          bottomNavigationBar: BottomAppBar(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              child: ActivityProgressMap(),
+            ),
+          ),
+        ),
       );
 }
