@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "325127689157",
+    "firebase_url": "https://scripture-seeds.firebaseio.com",
+    "project_id": "scripture-seeds",
+    "storage_bucket": "scripture-seeds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325127689157:android:22540af2530c1ea7d531ac",
+        "android_client_info": {
+          "package_name": "com.walkergamedevelopment.seeds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325127689157-bnl94b2sitt6vbvokfe4tmpl545iuk2v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.walkergamedevelopment.seeds",
+            "certificate_hash": "1e09d3589192f9b02d54820228e4e7504cab1c60"
+          }
+        },
+        {
+          "client_id": "325127689157-389s89a5ekfejd4advh75qpfieevt0rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaYuXKvzKyAS40DlKM5uqiuTKwOJA_vQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325127689157-389s89a5ekfejd4advh75qpfieevt0rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +36,8 @@ class AppProviders extends StatefulWidget {
 }
 
 class AppProvidersState extends State<AppProviders> {
+  final _initialization = Firebase.initializeApp();
+
   // App Data
   ScriptureDatabase scriptures = JsonScriptureDatabase();
   final topicIndex = TopicIndexProvider();
@@ -101,6 +104,7 @@ class AppProvidersState extends State<AppProviders> {
     return MultiProvider(
       providers: [
         // Providers
+        FutureProvider.value(value: _initialization),
         Provider.value(value: scriptures),
         ChangeNotifierProvider.value(value: topicIndex),
         ChangeNotifierProvider.value(value: themes),
