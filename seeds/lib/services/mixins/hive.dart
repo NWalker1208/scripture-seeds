@@ -31,8 +31,7 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
   Future<Iterable<K>> loadKeys() async {
     final box = await data;
     return [
-      for (var key in box.keys)
-        stringToKey(key as String),
+      for (var key in box.keys) stringToKey(key as String),
     ].where((key) => key != null);
   }
 

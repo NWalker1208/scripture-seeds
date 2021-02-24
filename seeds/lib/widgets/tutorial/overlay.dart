@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FocusOverlayLink {
+class OverlayLink {
   final transform = LayerLink();
   final overlayConstraints = ValueNotifier<BoxConstraints>(null);
   final placeholderSize = ValueNotifier<Size>(null);
@@ -23,7 +23,7 @@ class TutorialOverlay extends StatefulWidget {
 
   final Widget child;
   final Widget label;
-  final FocusOverlayLink link;
+  final OverlayLink link;
   final Animation<double> animation;
   final double spacing;
 

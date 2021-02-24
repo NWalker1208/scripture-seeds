@@ -7,15 +7,16 @@ import '../services/scriptures/reference.dart';
 import '../services/scriptures/volumes.dart';
 import '../services/topics/provider.dart';
 import '../services/topics/topic.dart';
+import '../services/tutorial/provider.dart';
 import '../services/wallet/provider.dart';
 import '../widgets/animation/switcher.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/dialogs/purchase_topic.dart';
 import '../widgets/topics/list.dart';
+import '../widgets/tutorial/button.dart';
 import '../widgets/tutorial/focus.dart';
-import '../widgets/tutorial/help_button.dart';
-import '../widgets/tutorial/help_info.dart';
+import '../widgets/tutorial/help.dart';
 
 class TopicDetailsPage extends StatelessWidget {
   final Topic topic;
@@ -23,93 +24,97 @@ class TopicDetailsPage extends StatelessWidget {
   TopicDetailsPage(this.topic) : super(key: ValueKey(topic));
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text('Details'),
-          actions: [HelpButton()],
-        ),
-        body: HelpInfo(
-          title: 'Topics',
-          helpText: 'Here you can read any scriptures associated with this '
-              'topic.\n\nTo create a plant that will help you study this topic '
-              'each day, press the button at the bottom of the screen.',
-          child: Column(
-            children: [
-              Expanded(
-                child: CustomScrollView(
-                  slivers: [
-                    SliverAppBar(
-                      pinned: true,
-                      primary: false,
-                      automaticallyImplyLeading: false,
-                      backgroundColor:
-                          Theme.of(context).scaffoldBackgroundColor,
-                      centerTitle: true,
-                      title: Text('Scriptures',
-                          style: Theme.of(context).textTheme.subtitle1),
-                    ),
-                    SliverList(
-                      delegate: SliverChildListDelegate([
-                        for (var volume in Volume.values)
-                          _VolumeRefList(volume, topic.references),
-                      ]),
-                    ),
-                  ],
-                ),
+  Widget build(BuildContext context) {
+    Provider.of<TutorialProvider>(context).maybeShow(context, 'topic_details');
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details'),
+        actions: [TutorialButton()],
+      ),
+      body: TutorialHelp(
+        'topic_details',
+        index: 0,
+        title: 'Topics',
+        helpText: 'Here you can read any scriptures associated with this '
+            'topic.\n\nTo create a plant that will help you study this topic '
+            'each day, press the button at the bottom of the screen.',
+        child: Column(
+          children: [
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    pinned: true,
+                    primary: false,
+                    automaticallyImplyLeading: false,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    centerTitle: true,
+                    title: Text('Scriptures',
+                        style: Theme.of(context).textTheme.subtitle1),
+                  ),
+                  SliverList(
+                    delegate: SliverChildListDelegate([
+                      for (var volume in Volume.values)
+                        _VolumeRefList(volume, topic.references),
+                    ]),
+                  ),
+                ],
               ),
-              Divider(height: DividerTheme.of(context).thickness),
-              Container(
-                constraints: BoxConstraints(maxHeight: 175),
-                child: CustomScrollView(
-                  shrinkWrap: true,
-                  primary: false,
-                  slivers: [
-                    SliverAppBar(
-                      pinned: true,
-                      primary: false,
-                      automaticallyImplyLeading: false,
-                      backgroundColor:
-                          Theme.of(context).scaffoldBackgroundColor,
-                      centerTitle: true,
-                      title: Text('Related Topics',
-                          style: Theme.of(context).textTheme.subtitle1),
-                    ),
-                    SliverPadding(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0),
-                      sliver: SliverToBoxAdapter(
-                        child: Consumer<TopicIndexProvider>(
-                          builder: (context, indexProvider, child) => TopicList(
-                              topics: indexProvider.index
-                                  .relatedTo(topic.id, maxCount: 8)),
-                        ),
+            ),
+            Divider(height: DividerTheme.of(context).thickness),
+            Container(
+              constraints: BoxConstraints(maxHeight: 175),
+              child: CustomScrollView(
+                shrinkWrap: true,
+                primary: false,
+                slivers: [
+                  SliverAppBar(
+                    pinned: true,
+                    primary: false,
+                    automaticallyImplyLeading: false,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    centerTitle: true,
+                    title: Text('Related Topics',
+                        style: Theme.of(context).textTheme.subtitle1),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    sliver: SliverToBoxAdapter(
+                      child: Consumer<TopicIndexProvider>(
+                        builder: (context, indexProvider, child) => TopicList(
+                            topics: indexProvider.index
+                                .relatedTo(topic.id, maxCount: 8)),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Stack(
-            alignment: Alignment.centerRight,
-            children: [
-              ListTile(
-                title: Text(topic.name.capitalize()),
-                subtitle: Text('Topic'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Stack(
+          alignment: Alignment.centerRight,
+          children: [
+            ListTile(
+              title: Text(topic.name.capitalize()),
+              subtitle: Text('Topic'),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TutorialFocus(
+                'topic_details',
+                index: 1,
+                overlayLabel: Text('Press to plant seed.'),
+                child: _PurchasePlantButton(topic),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TutorialFocus(
-                  tag: 'purchase_topic',
-                  overlayLabel: Text('Press to plant seed.'),
-                  child: _PurchasePlantButton(topic),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
+      ),
+    );
+  }
 }
 
 class _VolumeRefList extends StatelessWidget {

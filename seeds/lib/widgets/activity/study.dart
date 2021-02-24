@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../pages/activity.dart';
 import '../../services/scriptures/reference.dart';
 import '../scriptures/chapter.dart';
-import '../tutorial/help_info.dart';
+import '../tutorial/help.dart';
 
 class StudyActivity extends StatefulWidget {
   const StudyActivity(this.reference, {Key key}) : super(key: key);
@@ -61,8 +61,8 @@ class _StudyActivityState extends State<StudyActivity> {
   }
 
   @override
-  Widget build(BuildContext context) => HelpInfo(
-        tag: 0,
+  Widget build(BuildContext context) => TutorialHelp(
+        'activity0',
         title: 'Study',
         helpText: 'Study the selected verses and highlight the '
             'parts that are significant to you.',

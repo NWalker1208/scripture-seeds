@@ -2,49 +2,24 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../services/tutorial/provider.dart';
 import 'overlay.dart';
-
-typedef OverlayBuilder = Widget Function(
-  BuildContext context,
-  Animation<double> animation,
-  Widget child,
-);
+import 'step.dart';
 
 /// A widget which will be focused on when a tutorial is triggered.
 class TutorialFocus extends StatefulWidget {
-  const TutorialFocus({
-    @required this.child,
-    this.tag,
-    this.priority = 0,
+  const TutorialFocus(
+    this.tag, {
+    this.index = 0,
     this.overlayLabel,
-    this.overlayBuilder,
+    @required this.child,
     Key key,
   }) : super(key: key);
 
-  final Widget child;
   final String tag;
-  final int priority;
+  final int index;
   final Widget overlayLabel;
-  final OverlayBuilder overlayBuilder;
-
-  static Iterable<TutorialFocusState> allIn(BuildContext context) {
-    final result = <TutorialFocusState>[];
-
-    void visitor(Element element) {
-      if (element.widget is TutorialFocus) {
-        final focus = element as StatefulElement;
-        result.add(focus.state as TutorialFocusState);
-      }
-      element.visitChildren(visitor);
-    }
-
-    context.visitChildElements(visitor);
-    return result
-      ..sort((a, b) => a.widget.priority.compareTo(b.widget.priority));
-  }
+  final Widget child;
 
   @override
   TutorialFocusState createState() => TutorialFocusState();
@@ -52,10 +27,10 @@ class TutorialFocus extends StatefulWidget {
 
 class TutorialFocusState extends State<TutorialFocus> {
   final _boxKey = GlobalKey();
-  final _link = FocusOverlayLink();
+  final _link = OverlayLink();
 
   /// Show the tutorial overlay for this widget.
-  Future<void> showOverlay() async {
+  Future<void> showOverlay(BuildContext context) {
     // Show placeholder
     assert(mounted);
     final box = _boxKey.currentContext.findRenderObject() as RenderBox;
@@ -64,8 +39,15 @@ class TutorialFocusState extends State<TutorialFocus> {
 
     // Show dialog
     final themes = InheritedTheme.capture(
-        from: context, to: Navigator.of(context, rootNavigator: true).context);
-    await showGeneralDialog(
+      from: context,
+      to: Navigator.of(context, rootNavigator: true).context,
+    );
+    Scrollable.ensureVisible(
+      this.context,
+      alignment: 0.5,
+      duration: const Duration(milliseconds: 400),
+    );
+    return showGeneralDialog(
       context: context,
       pageBuilder: (_, animation, __) => themes.wrap(_buildOverlay(animation)),
       barrierDismissible: true,
@@ -75,36 +57,19 @@ class TutorialFocusState extends State<TutorialFocus> {
     );
   }
 
-  /// Hides placeholder once closing animation completes.
-  void _pageAnimationListener(AnimationStatus status) {
-    if (status == AnimationStatus.dismissed) {
-      _link.placeholderSize.value = null;
-    }
-  }
-
   Widget _buildOverlay(Animation<double> animation) {
-    var child = widget.child;
-    if (widget.overlayBuilder != null) {
-      child = Builder(
-        builder: (context) => widget.overlayBuilder(context, animation, child),
-      );
-    }
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) {
+        _link.placeholderSize.value = null;
+      }
+    });
 
-    animation.addStatusListener(_pageAnimationListener);
     return TutorialOverlay(
       link: _link,
-      child: child,
+      child: widget.child,
       label: widget.overlayLabel,
       animation: animation,
     );
-  }
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<TutorialProvider>(context, listen: false).showTutorial(this);
-    });
-    super.initState();
   }
 
   @override
@@ -114,21 +79,26 @@ class TutorialFocusState extends State<TutorialFocus> {
   }
 
   @override
-  Widget build(BuildContext context) => CompositedTransformTarget(
-        link: _link.transform,
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            WidgetsBinding.instance.addPostFrameCallback(
-                (_) => _link.overlayConstraints.value = constraints);
-            return ValueListenableBuilder<Size>(
-              valueListenable: _link.placeholderSize,
-              builder: (context, size, child) => SizedBox.fromSize(
-                key: _boxKey,
-                size: size,
-                child: size == null ? widget.child : null,
-              ),
-            );
-          },
+  Widget build(BuildContext context) => TutorialStep(
+        widget.tag,
+        index: widget.index,
+        onStart: showOverlay,
+        child: CompositedTransformTarget(
+          link: _link.transform,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              WidgetsBinding.instance.addPostFrameCallback(
+                  (_) => _link.overlayConstraints.value = constraints);
+              return ValueListenableBuilder<Size>(
+                valueListenable: _link.placeholderSize,
+                builder: (context, size, child) => SizedBox.fromSize(
+                  key: _boxKey,
+                  size: size,
+                  child: size == null ? widget.child : null,
+                ),
+              );
+            },
+          ),
         ),
       );
 }

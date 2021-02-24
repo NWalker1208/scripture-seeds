@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../extensions/string.dart';
 import '../../pages/activity.dart';
 import '../../services/topics/topic.dart';
-import '../tutorial/help_info.dart';
+import '../tutorial/help.dart';
 
 class PonderActivity extends StatefulWidget {
   final Topic topic;
@@ -43,8 +43,8 @@ class _PonderActivityState extends State<PonderActivity>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return HelpInfo(
-      tag: 1,
+    return TutorialHelp(
+      'activity1',
       title: 'Ponder',
       helpText: 'Write down what you learned about ${widget.topic.name} '
           'from the verses you read.',
