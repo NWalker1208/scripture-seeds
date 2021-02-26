@@ -95,6 +95,7 @@ class PlantPage extends StatelessWidget {
                 'plant',
                 index: 1,
                 overlayLabel: Text('Water your plant to help it grow.'),
+                overlayShape: const CircleBorder(),
                 child: _StudyButton(topic),
               ),
             ),

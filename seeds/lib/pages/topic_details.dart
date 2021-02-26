@@ -107,6 +107,7 @@ class TopicDetailsPage extends StatelessWidget {
                 'topic_details',
                 index: 1,
                 overlayLabel: Text('Press to plant seed.'),
+                overlayShape: const StadiumBorder(),
                 child: _PurchasePlantButton(topic),
               ),
             ),

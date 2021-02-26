@@ -59,6 +59,7 @@ class _ActivityStagesState extends State<ActivityStages> {
         }
       },
       child: PageView(
+        allowImplicitScrolling: true,
         controller: controller,
         onPageChanged: (page) {
           if (activity.stage != page) {
