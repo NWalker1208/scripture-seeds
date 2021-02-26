@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../cutout_clipper.dart';
+import '../../utility/cutout_clipper.dart';
+import '../../utility/pass_through.dart';
 import 'step.dart';
 
 /// A widget which will be focused on when a tutorial is triggered.
@@ -12,7 +14,8 @@ class TutorialFocus extends StatefulWidget {
     this.tag, {
     this.index = 0,
     this.overlayLabel,
-    this.overlayShape = const CircleBorder(),
+    this.overlayShape = const Border(),
+    this.overlayPadding = 4.0,
     @required this.child,
     Key key,
   }) : super(key: key);
@@ -21,6 +24,7 @@ class TutorialFocus extends StatefulWidget {
   final int index;
   final Widget overlayLabel;
   final ShapeBorder overlayShape;
+  final double overlayPadding;
   final Widget child;
 
   @override
@@ -60,6 +64,13 @@ class TutorialFocusState extends State<TutorialFocus> {
     Overlay.of(context).insert(_overlayEntry);
   }
 
+  /// Returns true if the overlay is not open (For usage with WillPopScope).
+  Future<bool> closeOverlay() async {
+    if (_overlayEntry == null) return true;
+    await _overlayKey.currentState.close();
+    return false;
+  }
+
   void _hideOverlay() {
     _overlayEntry?.remove();
     _overlayEntry = null;
@@ -67,8 +78,8 @@ class TutorialFocusState extends State<TutorialFocus> {
 
   void _updateOverlay() {
     final render = _childKey.currentContext.findRenderObject() as RenderBox;
-    _overlayRect.value =
-        (render.localToGlobal(Offset.zero) & render.size); //.inflate(8.0);
+    _overlayRect.value = (render.localToGlobal(Offset.zero) & render.size)
+        .inflate(widget.overlayPadding);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_overlayEntry != null) _updateOverlay();
     });
@@ -83,16 +94,22 @@ class TutorialFocusState extends State<TutorialFocus> {
 
   @override
   Widget build(BuildContext context) => WillPopScope(
-        onWillPop: () async {
-          if (_overlayEntry == null) return true;
-          await _overlayKey.currentState.close();
-          return false;
-        },
+        onWillPop: closeOverlay,
         child: TutorialStep(
           widget.tag,
           index: widget.index,
           onStart: showOverlay,
-          child: SizedBox(key: _childKey, child: widget.child),
+          child: RawGestureDetector(
+            key: _childKey,
+            child: widget.child,
+            gestures: {
+              PassThroughTapRecognizer: GestureRecognizerFactoryWithHandlers<
+                  PassThroughTapRecognizer>(
+                () => PassThroughTapRecognizer(), //constructor
+                (instance) => instance..onTap = closeOverlay,
+              )
+            },
+          ),
         ),
       );
 }
@@ -101,7 +118,7 @@ class _FocusOverlay extends StatefulWidget {
   const _FocusOverlay({
     this.cutout,
     this.label,
-    this.shape = const CircleBorder(),
+    this.shape,
     this.onDismiss,
     Key key,
   }) : super(key: key);
@@ -136,12 +153,21 @@ class _FocusOverlayState extends State<_FocusOverlay>
   }
 
   @override
-  Widget build(BuildContext context) => FadeTransition(
-        opacity: CurvedAnimation(parent: _controller, curve: Curves.ease),
-        child: ClipPath(
-          clipper: CutoutClipper(widget.shape.getOuterPath(widget.cutout)),
-          child: GestureDetector(
-            onTap: close,
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => ClipPath(
+        clipper: CutoutClipper(widget.shape.getOuterPath(
+          widget.cutout,
+          textDirection: Directionality.of(context),
+        )),
+        child: GestureDetector(
+          onTap: close,
+          child: FadeTransition(
+            opacity: CurvedAnimation(parent: _controller, curve: Curves.ease),
             child: Stack(
               children: [
                 Container(color: Colors.black54),

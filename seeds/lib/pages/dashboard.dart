@@ -52,12 +52,7 @@ class DashboardPage extends StatelessWidget {
                 const [
                   PlantsDashboard(),
                   Divider(),
-                  TutorialFocus(
-                    'dashboard',
-                    index: 1,
-                    overlayLabel: Text('Select a topic to begin.'),
-                    child: TopicsDashboard(),
-                  ),
+                  TopicsDashboard(),
                   Divider(),
                   JournalDashboard()
                 ],
