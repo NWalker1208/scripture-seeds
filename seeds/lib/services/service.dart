@@ -4,16 +4,16 @@ import 'package:flutter/foundation.dart';
 /// D - Internal data service class
 abstract class CustomService<D> {
   /// Opens the source by calling the open method.
+  /// Should throw an exception if the service fails to open.
   @mustCallSuper
   CustomService() {
     _data = open().catchError((dynamic e) {
-      print('Service failed to open: $e');
-      return null;
+      throw ServiceFailedException(this, e);
     });
   }
 
   /// Stores the future given by the open function.
-  /// Is set to null when the service is closed.
+  /// Set to null when the service is closed.
   Future<D> _data;
 
   /// Used to create the internal data service instance.
@@ -22,11 +22,12 @@ abstract class CustomService<D> {
   Future<D> open();
 
   /// Used to obtain the internal data service instance.
-  /// Throws an exception if the source is closed.
+  /// Throws an exception if the source is closed or
+  /// if the service failed to open.
   @protected
-  Future<D> get data {
+  Future<D> get data async {
     assertOpen();
-    return _data;
+    return await _data;
   }
 
   /// Completes once the service is ready.
@@ -61,5 +62,21 @@ class ServiceClosedException implements Exception {
   final CustomService source;
 
   @override
-  String toString() => 'Attempted to access a closed service: $source';
+  String toString() =>
+      'Attempted to access a closed service: ${source.runtimeType}';
+}
+
+/// Custom exception for access of a broken service.
+/// Thrown if service is accessed after failing to load.
+class ServiceFailedException implements Exception {
+  const ServiceFailedException(this.source, this.cause);
+
+  /// The service which was accessed.
+  final CustomService source;
+
+  /// The exception thrown when the service was opened.
+  final Object cause;
+
+  @override
+  String toString() => '${source.runtimeType} failed to open: $cause';
 }

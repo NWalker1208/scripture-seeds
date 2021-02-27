@@ -6,7 +6,6 @@ import '../widgets/dashboard/journal.dart';
 import '../widgets/dashboard/plants.dart';
 import '../widgets/dashboard/topics.dart';
 import '../widgets/tutorial/button.dart';
-import '../widgets/tutorial/focus.dart';
 import '../widgets/tutorial/help.dart';
 
 class DashboardPage extends StatelessWidget {

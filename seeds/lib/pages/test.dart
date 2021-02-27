@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,6 +6,7 @@ import '../services/history/sql.dart';
 import '../services/journal/entry.dart';
 import '../services/journal/json.dart';
 import '../services/journal/provider.dart';
+import '../services/notifications/service.dart';
 import '../services/progress/provider.dart';
 import '../services/progress/record.dart';
 import '../services/progress/sql.dart';
@@ -40,6 +40,7 @@ class _TestPageState extends State<TestPage> {
   @override
   void initState() {
     addItem();
+
     super.initState();
   }
 
@@ -48,6 +49,10 @@ class _TestPageState extends State<TestPage> {
         appBar: AppBar(title: Text('Test Page')),
         body: ListView(
           children: [
+            ListTile(
+              title: Text('Notification'),
+              onTap: () => showNotification(context),
+            ),
             ListTile(
               title: Text('Create Old Data'),
               onTap: () => createOldData(context),
@@ -83,6 +88,12 @@ class _TestPageState extends State<TestPage> {
 }
 
 // Test Functions
+
+void showNotification(BuildContext context) {
+  final notifications =
+      Provider.of<NotificationService>(context, listen: false);
+  notifications.show(NotificationData(0, 'test', 'body', 'payload'));
+}
 
 void createOldData(BuildContext context) async {
   final progress = SqlProgressDatabase();

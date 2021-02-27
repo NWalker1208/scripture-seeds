@@ -8,6 +8,7 @@ import 'services/history/sql.dart';
 import 'services/journal/hive.dart';
 import 'services/journal/json.dart';
 import 'services/journal/provider.dart';
+import 'services/notifications/service.dart';
 import 'services/progress/hive.dart';
 import 'services/progress/provider.dart';
 import 'services/progress/sql.dart';
@@ -50,6 +51,9 @@ class AppProvidersState extends State<AppProviders> {
   final journal = JournalProvider(() => HiveJournalDatabase());
   final history = HistoryProvider(() => HiveHistoryDatabase());
 
+  // Other
+  final notifications = NotificationService();
+
   /// Refreshes all user data services.
   Future<void> refreshAll() async {
     await tutorial.refresh();
@@ -87,6 +91,7 @@ class AppProvidersState extends State<AppProviders> {
     progress.dispose();
     journal.dispose();
     history.dispose();
+    notifications.close();
     super.dispose();
   }
 
@@ -110,6 +115,7 @@ class AppProvidersState extends State<AppProviders> {
         ChangeNotifierProvider.value(value: progress),
         ChangeNotifierProvider.value(value: journal),
         ChangeNotifierProvider.value(value: history),
+        Provider.value(value: notifications),
         // Proxy
         ProxyProvider0<StudyLibraryProxy>(
           update: (context, old) => StudyLibraryProxy.fromContext(context),
