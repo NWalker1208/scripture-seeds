@@ -201,14 +201,12 @@ class _PurchasePlantButton extends StatelessWidget {
         builder: (context, progress, child) {
           var purchased = progress.names.contains(topic.id);
           return AppBarThemed(
-            ActionChip(
-              elevation: 6,
-              pressElevation: 12,
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              visualDensity:
-                  VisualDensity(vertical: VisualDensity.maximumDensity),
-              backgroundColor: Theme.of(context).primaryColor,
-              label: Row(
+            ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(StadiumBorder()),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AnimatedSizeSwitcher(
