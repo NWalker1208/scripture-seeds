@@ -5,6 +5,7 @@ import 'extensions/string.dart';
 import 'pages/activity.dart';
 import 'pages/dashboard.dart';
 import 'pages/journal.dart';
+import 'pages/loading.dart';
 import 'pages/plant.dart';
 import 'pages/scripture.dart';
 import 'pages/settings.dart';
@@ -45,18 +46,19 @@ class AppRoutePath {
       : page = AppPage.plant,
         fromPlant = false,
         reference = null;
-  const AppRoutePath.journal({this.topic})
+  const AppRoutePath.journal([this.topic])
       : page = AppPage.journal,
         fromPlant = topic != null,
         reference = null;
-  const AppRoutePath.details(this.topic, {this.fromPlant})
+  const AppRoutePath.details(this.topic, [this.fromPlant = false])
       : page = AppPage.details,
         reference = null;
   const AppRoutePath.activity(this.topic)
       : page = AppPage.activity,
         fromPlant = true,
         reference = null;
-  const AppRoutePath.scripture(this.topic, this.reference, this.fromPlant)
+  const AppRoutePath.scripture(this.topic, this.reference,
+      [this.fromPlant = false])
       : page = AppPage.scripture;
 
   factory AppRoutePath.parse(String location) {
@@ -74,7 +76,7 @@ class AppRoutePath {
         final topic = page[1];
         if (page.length == 2) return AppRoutePath.details(topic);
         final reference = ScriptureReference.parse(url.queryParameters['ref']);
-        return AppRoutePath.scripture(topic, reference, false);
+        return AppRoutePath.scripture(topic, reference);
       } else {
         // Other pages
         final topic = url.queryParameters['topic'];
@@ -82,7 +84,7 @@ class AppRoutePath {
           case 'plant':
             return AppRoutePath.plant(topic);
           case 'journal':
-            return AppRoutePath.journal(topic: topic);
+            return AppRoutePath.journal(topic);
           case 'activity':
             return AppRoutePath.activity(topic);
         }
@@ -176,7 +178,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
         if (_fromPlant || _page == AppPage.plant)
           MaterialPage<void>(
             key: ValueKey('$_topicId-plant'),
-            child: PlantPage(topic),
+            child: topic == null ? LoadingPage() : PlantPage(topic),
           ),
         if (_page == AppPage.journal)
           MaterialPage<void>(
@@ -186,7 +188,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
         if (_page == AppPage.details || _page == AppPage.scripture)
           MaterialPage<void>(
             key: ValueKey('$_topicId-details'),
-            child: TopicDetailsPage(topic),
+            child: topic == null ? LoadingPage() : TopicDetailsPage(topic),
           ),
         if (_page == AppPage.scripture)
           MaterialPage<void>(
@@ -196,7 +198,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
         if (_page == AppPage.activity)
           MaterialPage<void>(
             key: ValueKey('$_topicId-activity'),
-            child: ActivityPage(topic),
+            child: topic == null ? LoadingPage() : ActivityPage(topic),
           ),
       ],
       onPopPage: (route, dynamic result) {
@@ -204,10 +206,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
         if (_page == AppPage.home) return true;
 
         if (_page == AppPage.scripture) {
-          _configuration = AppRoutePath.details(
-            _topicId,
-            fromPlant: _fromPlant,
-          );
+          _configuration = AppRoutePath.details(_topicId, _fromPlant);
         } else if (_fromPlant) {
           _configuration = AppRoutePath.plant(_topicId);
         } else {

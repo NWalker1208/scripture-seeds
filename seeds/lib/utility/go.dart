@@ -27,12 +27,11 @@ class Go {
       to(AppRoutePath.plant(topic ?? _currentTopic));
 
   Future<void> toJournal([String topic]) =>
-      to(AppRoutePath.journal(topic: topic ?? _currentTopic));
+      to(AppRoutePath.journal(topic ?? _currentTopic));
 
   Future<void> toDetails([String topic]) => to(AppRoutePath.details(
-        topic ?? _currentTopic,
-        fromPlant: _currentPage == AppPage.plant && _currentTopic == topic,
-      ));
+      topic ?? _currentTopic,
+      _currentPage == AppPage.plant && _currentTopic == topic));
 
   Future<void> toScripture(ScriptureReference reference, [String topic]) =>
       to(AppRoutePath.scripture(topic ?? _currentTopic, reference, _fromPlant));
