@@ -9,6 +9,7 @@ import '../services/topics/provider.dart';
 import '../services/topics/topic.dart';
 import '../services/tutorial/provider.dart';
 import '../services/wallet/provider.dart';
+import '../utility/go.dart';
 import '../widgets/animation/switcher.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
@@ -151,9 +152,7 @@ class _VolumeRefList extends StatelessWidget {
                     child: ActionChip(
                       elevation: 4,
                       label: Text(reference.toString()),
-                      onPressed: () => Navigator.of(context).pushNamed(
-                          '/scripture',
-                          arguments: reference.toString()),
+                      onPressed: () => Go.from(context).toScripture(reference),
                     ),
                   ),
               ],
@@ -190,11 +189,7 @@ class _PurchasePlantButton extends StatelessWidget {
     }
   }
 
-  void _openPlant(BuildContext context) {
-    Navigator.of(context).pushNamedAndRemoveUntil(
-        '/plant', ModalRoute.withName('/'),
-        arguments: topic.id);
-  }
+  void _openPlant(BuildContext context) => Go.from(context).toPlant();
 
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(

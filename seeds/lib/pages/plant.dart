@@ -8,6 +8,7 @@ import '../services/topics/topic.dart';
 import '../services/tutorial/provider.dart';
 import '../services/wallet/provider.dart';
 import '../utility/custom_icons.dart';
+import '../utility/go.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/extra_study.dart';
 import '../widgets/dialogs/remove_plant.dart';
@@ -86,8 +87,7 @@ class PlantPage extends StatelessWidget {
             LabeledIconButton(
               icon: const Icon(Icons.book),
               label: 'Journal',
-              onPressed: () => Navigator.pushNamed(context, '/journal',
-                  arguments: topic.name),
+              onPressed: () => Go.from(context).toJournal(),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -102,8 +102,7 @@ class PlantPage extends StatelessWidget {
             LabeledIconButton(
               icon: const Icon(Icons.article),
               label: 'Details',
-              onPressed: () => Navigator.pushNamed(context, '/topics/details',
-                  arguments: topic.id),
+              onPressed: () => Go.from(context).toDetails(),
             ),
           ],
         ),
@@ -128,9 +127,7 @@ class _StudyButton extends StatelessWidget {
     });
   }
 
-  void openActivity(BuildContext context) {
-    Navigator.pushNamed(context, '/plant/activity', arguments: topic.id);
-  }
+  void openActivity(BuildContext context) => Go.from(context).toActivity();
 
   void collectReward(BuildContext context) {
     var progress = Provider.of<ProgressProvider>(context, listen: false);

@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/progress/provider.dart';
+import '../../utility/go.dart';
 import '../app_bar_themed.dart';
 import 'status.dart';
 import 'view.dart';
@@ -37,9 +38,9 @@ class PlantButton extends StatelessWidget {
             ),
             Material(
               type: MaterialType.transparency,
-              child: AppBarThemed(InkWell(
-                  onTap: () => Navigator.of(context)
-                      .pushNamed('/plant', arguments: topic))),
+              child: AppBarThemed(
+                InkWell(onTap: () => Go.from(context).toPlant(topic)),
+              ),
             )
           ],
         ),

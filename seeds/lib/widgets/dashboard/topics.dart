@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utility/go.dart';
 import '../topics/list.dart';
 import '../tutorial/focus.dart';
 import 'indicators/wallet.dart';
@@ -32,7 +33,7 @@ class TopicsDashboard extends StatelessWidget {
 
           ListTile(
             title: const Text('View All', textAlign: TextAlign.center),
-            onTap: () => Navigator.of(context).pushNamed('/topics'),
+            onTap: () => Go.from(context).toTopics(),
           ),
         ],
       );

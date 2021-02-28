@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../services/progress/provider.dart';
 import '../../services/topics/topic.dart';
+import '../../utility/go.dart';
 
 class TopicChip extends StatelessWidget {
   final Topic topic;
@@ -26,11 +27,6 @@ class TopicChip extends StatelessWidget {
           ),
           child: Text(topic.name),
         ),
-        onPressed: () {
-          Navigator.of(context).pushNamed(
-            '/topics/details',
-            arguments: topic.id,
-          );
-        },
+        onPressed: () => Go.from(context).toDetails(topic.id),
       );
 }

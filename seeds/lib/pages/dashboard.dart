@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../services/tutorial/provider.dart';
 
+import '../services/tutorial/provider.dart';
+import '../utility/go.dart';
 import '../widgets/dashboard/journal.dart';
 import '../widgets/dashboard/plants.dart';
 import '../widgets/dashboard/topics.dart';
 import '../widgets/tutorial/button.dart';
-import '../widgets/tutorial/focus.dart';
 import '../widgets/tutorial/help.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -34,7 +34,7 @@ class DashboardPage extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.settings),
                 tooltip: 'Settings',
-                onPressed: () => Navigator.pushNamed(context, '/settings'),
+                onPressed: () => Go.from(context).toSettings(),
               ),
             ],
           ),

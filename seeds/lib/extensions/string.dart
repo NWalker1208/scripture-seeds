@@ -20,9 +20,12 @@ extension StringExtension on String {
           : '');
 
   // Returns a string of the enum's value (removes type prefix).
+  static final _valueCache = <dynamic, String>{};
   static String fromEnum<T>(T value) {
-    final str = value.toString();
-    return str.substring(str.lastIndexOf('.') + 1);
+    if (_valueCache.containsKey(value)) return _valueCache[value];
+    var str = value.toString();
+    str = str.substring(str.lastIndexOf('.') + 1);
+    return _valueCache[value] = str;
   }
 
   // Converts a string to an enum value.
