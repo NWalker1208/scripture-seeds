@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seeds/services/notifications/reminders.dart';
 
 import 'services/history/hive.dart';
 import 'services/history/provider.dart';
@@ -118,7 +119,11 @@ class AppProvidersState extends State<AppProviders> {
         Provider.value(value: notifications),
         // Proxy
         ProxyProvider0<StudyLibraryProxy>(
-          update: (context, old) => StudyLibraryProxy.fromContext(context),
+          update: (context, _) => StudyLibraryProxy.fromContext(context),
+        ),
+        ProxyProvider0<RemindersProxy>(
+          lazy: false,
+          update: (context, old) => RemindersProxy.fromContext(context),
         ),
       ],
       child: widget.app,
