@@ -21,7 +21,7 @@ class PlantView extends StatelessWidget {
 
     return TweenAnimationBuilder<double>(
       tween: Tween<double>(end: record.progressPercent),
-      duration: Duration(milliseconds: 4000),
+      duration: Duration(milliseconds: 2000),
       curve: Curves.easeInOutCubic,
       builder: (context, growth, child) => Hero(
         tag: 'plant_$name',
@@ -97,11 +97,18 @@ class _PlantViewDelegate extends StatelessWidget {
     );
 
     // Build plant view
+    // TODO: Account for wilting
     return Container(
       padding: padding,
       decoration: BoxDecoration(gradient: sky),
       foregroundDecoration: BoxDecoration(border: dirt),
-      child: PlantWidget(seed: seed, growth: growth),
+      child: PlantWidget(
+        seed: seed,
+        growth: growth,
+        stemColor: Color.lerp(Colors.lightGreen, Colors.brown[600], growth),
+        leafColor: Colors.green,
+        fruitColor: Colors.red,
+      ),
     );
   }
 }

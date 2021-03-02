@@ -8,12 +8,14 @@ class RenderPlant extends RenderBox {
     PlantBranch root, {
     double scaleOffset = 0,
     double minScale = 0.1,
+    double leafScale = 1,
     Color stemColor = Colors.brown,
     Color leafColor = Colors.green,
     Color fruitColor = Colors.red,
   })  : _root = root,
         _scaleOffset = scaleOffset,
         _minScale = minScale,
+        _leafScale = leafScale,
         _stemColor = stemColor,
         _leafColor = leafColor,
         _fruitColor = fruitColor;
@@ -21,6 +23,7 @@ class RenderPlant extends RenderBox {
   PlantBranch _root;
   double _scaleOffset;
   double _minScale;
+  double _leafScale;
   Color _stemColor;
   Color _leafColor;
   Color _fruitColor;
@@ -47,6 +50,14 @@ class RenderPlant extends RenderBox {
   set minScale(double value) {
     if (_minScale == value) return;
     _minScale = value;
+    markNeedsPaint();
+  }
+
+  /// The scale multiplier for leaves. Leaves are not rendered if this equals 0.
+  double get leafScale => _leafScale;
+  set leafScale(double value) {
+    if (_leafScale == value) return;
+    _leafScale = value;
     markNeedsPaint();
   }
 
@@ -142,6 +153,6 @@ class RenderPlant extends RenderBox {
       ..color = leafColor
       ..style = PaintingStyle.fill;
 
-    canvas.drawCircle(position, 8 * scale, leaf);
+    canvas.drawCircle(position, 8 * scale * leafScale, leaf);
   }
 }
