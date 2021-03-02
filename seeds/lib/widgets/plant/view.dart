@@ -15,47 +15,69 @@ class PlantView extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   @override
-  Widget build(BuildContext context) => Hero(
-        tag: 'plant_$name',
-        child: _PlantViewDelegate(name: name, padding: padding),
-        flightShuttleBuilder: (context, animation, direction, from, to) {
-          final fromView = (from.widget as Hero).child as _PlantViewDelegate;
-          final toView = (to.widget as Hero).child as _PlantViewDelegate;
+  Widget build(BuildContext context) {
+    final progress = Provider.of<ProgressProvider>(context);
+    final record = progress.getRecord(name);
 
+    return TweenAnimationBuilder<double>(
+      tween: Tween<double>(end: record.progressPercent),
+      duration: Duration(milliseconds: 4000),
+      curve: Curves.easeInOutCubic,
+      builder: (context, growth, child) => Hero(
+        tag: 'plant_$name',
+        child: _PlantViewDelegate(seed: name, growth: growth, padding: padding),
+
+        // Animate padding between heroes
+        flightShuttleBuilder: (_, animation, direction, from, to) {
+          if (direction == HeroFlightDirection.pop) {
+            animation = ReverseAnimation(animation);
+          }
           return AnimatedBuilder(
             animation: animation,
-            builder: (context, child) => _PlantViewDelegate(
-              name: name,
-              padding: EdgeInsetsGeometry.lerp(
-                fromView.padding,
-                toView.padding,
-                direction == HeroFlightDirection.push
-                    ? animation.value
-                    : 1 - animation.value,
-              ),
-            ),
+            builder: (context, child) {
+              final viewA = (from.widget as Hero).child as _PlantViewDelegate;
+              final viewB = (to.widget as Hero).child as _PlantViewDelegate;
+              return _PlantViewDelegate(
+                seed: name,
+                growth: viewB.growth,
+                padding: EdgeInsetsGeometry.lerp(
+                  viewA.padding,
+                  viewB.padding,
+                  animation.value,
+                ),
+              );
+            },
           );
         },
-      );
+      ),
+    );
+  }
 }
 
+// Renders the view and the surrounding decorations.
 class _PlantViewDelegate extends StatelessWidget {
   const _PlantViewDelegate({
-    this.name,
+    this.seed,
+    this.growth,
     this.padding,
     Key key,
   }) : super(key: key);
 
-  final String name;
+  final Object seed;
+  final double growth;
   final EdgeInsetsGeometry padding;
 
-  static final Color kDayColor = Colors.lightBlue[200];
-  static final Color kNightColor = Colors.indigo[900];
-  Gradient _buildSky(BuildContext context) {
-    final skyColor = Theme.of(context).brightness == Brightness.dark
-        ? kNightColor
-        : kDayColor;
-    return LinearGradient(
+  @override
+  Widget build(BuildContext context) {
+    final dayColor = Colors.lightBlue[200];
+    final nightColor = Colors.indigo[900];
+    final dirtColor = Colors.brown[900];
+    //final wiltedColor = Color(0xFFB98D51);
+
+    // Create sky gradient
+    final skyColor =
+        Theme.of(context).brightness == Brightness.dark ? nightColor : dayColor;
+    final sky = LinearGradient(
       begin: Alignment.bottomCenter,
       end: Alignment.topCenter,
       colors: [
@@ -64,38 +86,22 @@ class _PlantViewDelegate extends StatelessWidget {
       ],
       stops: const [0, 1],
     );
+
+    // Create dirt border
+    final dirt = Border(
+      bottom: BorderSide(
+        width: padding.resolve(Directionality.of(context)).bottom,
+        color: Color.lerp(
+            Theme.of(context).scaffoldBackgroundColor, dirtColor, 0.9),
+      ),
+    );
+
+    // Build plant view
+    return Container(
+      padding: padding,
+      decoration: BoxDecoration(gradient: sky),
+      foregroundDecoration: BoxDecoration(border: dirt),
+      child: PlantWidget(seed: seed, growth: growth),
+    );
   }
-
-  static final Color kDirtColor = Colors.brown[900];
-  Border _buildDirt(BuildContext context) => Border(
-        bottom: BorderSide(
-          width: padding.resolve(Directionality.of(context)).bottom,
-          color: Color.lerp(
-              Theme.of(context).scaffoldBackgroundColor, kDirtColor, 0.9),
-        ),
-      );
-
-  static final kWiltedColor = Color(0xFFB98D51);
-  Widget _buildProgress(BuildContext context) => Consumer<ProgressProvider>(
-    builder: (_, progress, __) {
-      final record = progress.getRecord(name);
-      return TweenAnimationBuilder<double>(
-        tween: Tween<double>(end: record.progressPercent),
-        duration: Duration(milliseconds: 4000),
-        curve: Curves.easeInOutCubic,
-        builder: (context, progress, child) => PlantWidget(
-          seed: record.id,
-          growth: progress,
-        ),
-      );
-    },
-  );
-
-  @override
-  Widget build(BuildContext context) => Container(
-        padding: padding,
-        decoration: BoxDecoration(gradient: _buildSky(context)),
-        foregroundDecoration: BoxDecoration(border: _buildDirt(context)),
-        child: _buildProgress(context),
-      );
 }

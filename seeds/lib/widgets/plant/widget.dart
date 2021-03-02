@@ -17,7 +17,7 @@ class PlantWidget extends LeafRenderObjectWidget {
   RenderPlant createRenderObject(BuildContext context) => RenderPlant(
         PlantBranch.generate(seed),
         scaleOffset: 1 - growth,
-        stemColor: Color.lerp(Colors.brown, Colors.green, growth),
+        stemColor: Colors.green,
       );
 
   @override
@@ -25,6 +25,6 @@ class PlantWidget extends LeafRenderObjectWidget {
     renderObject
       ..root = PlantBranch.generate(seed)
       ..scaleOffset = 1 - growth
-      ..stemColor = Color.lerp(Colors.green, Colors.brown[600], growth);
+      ..stemColor = Colors.green;
   }
 }
