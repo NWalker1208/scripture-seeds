@@ -87,35 +87,61 @@ class RenderPlant extends RenderBox {
     canvas.translate(offset.dx, offset.dy);
     canvas.translate(size.width / 2, size.height);
     canvas.scale(size.height / 48);
-    _paintBranch(canvas, size, root);
+    _paintBranch(canvas, root);
     canvas.restore();
   }
 
-  void _paintBranch(Canvas canvas, Size size, PlantBranch branch) {
-    if (branch.scale - scaleOffset < minScale) {
-      final leaf = Paint()
-        ..color = leafColor
-        ..style = PaintingStyle.fill;
+  double _getNodeScale(PlantBranch branch, PlantNode node) =>
+      branch.scale * (1 - node.branchPosition) - scaleOffset;
 
-      canvas.drawCircle(branch.origin, 0.2, leaf);
-      return;
-    }
+  double _getLeafScale(double branchPosition) {
+    var size = 2 * branchPosition;
+    size *= 2 * (1 - branchPosition);
+    return size * size * size;
+  }
 
+  void _paintBranch(Canvas canvas, PlantBranch branch) {
+    if (branch.scale - scaleOffset < minScale) return;
+
+    // Paint branch
     var pos = branch.origin;
     for (final node in branch.nodes) {
-      final nodeScale = branch.scale * (1 - node.branchPosition) - scaleOffset;
+      final nodeScale = _getNodeScale(branch, node);
       if (nodeScale < minScale) break;
+
       final stem = Paint()
         ..color = stemColor
-        ..strokeWidth = nodeScale
+        ..strokeWidth = nodeScale * 2
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round;
 
       canvas.drawLine(pos, node.position, stem);
       for (final branch in node.branches) {
-        _paintBranch(canvas, size, branch);
+        _paintBranch(canvas, branch);
       }
       pos = node.position;
     }
+
+    // Paint leaves
+    for (final node in branch.nodes) {
+      final nodeScale = _getNodeScale(branch, node);
+      if (nodeScale < minScale) break;
+
+      if (branch != root) {
+        final scale = _getLeafScale(node.branchPosition);
+        _paintLeaf(canvas, node.position, scale * nodeScale);
+      } else if (node.branchPosition > 0.5) {
+        final scale = _getLeafScale(2 * (node.branchPosition - 0.5));
+        _paintLeaf(canvas, node.position, scale * nodeScale * 0.6);
+      }
+    }
+  }
+
+  void _paintLeaf(Canvas canvas, Offset position, double scale) {
+    final leaf = Paint()
+      ..color = leafColor
+      ..style = PaintingStyle.fill;
+
+    canvas.drawCircle(position, 8 * scale, leaf);
   }
 }
