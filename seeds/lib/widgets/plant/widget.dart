@@ -8,6 +8,7 @@ class PlantWidget extends LeafRenderObjectWidget {
     @required this.seed,
     this.growth = 1.0,
     this.leafScale = 1.0,
+    this.fruitScale = 1.0,
     this.stemColor = Colors.brown,
     this.leafColor = Colors.green,
     this.fruitColor = Colors.red,
@@ -17,6 +18,7 @@ class PlantWidget extends LeafRenderObjectWidget {
   final Object seed;
   final double growth;
   final double leafScale;
+  final double fruitScale;
   final Color stemColor;
   final Color leafColor;
   final Color fruitColor;
@@ -26,6 +28,7 @@ class PlantWidget extends LeafRenderObjectWidget {
         PlantBranch.generate(seed),
         scaleOffset: 1 - growth,
         leafScale: leafScale,
+        fruitScale: fruitScale,
         stemColor: stemColor,
         leafColor: leafColor,
         fruitColor: fruitColor,
@@ -37,6 +40,7 @@ class PlantWidget extends LeafRenderObjectWidget {
       ..root = PlantBranch.generate(seed)
       ..scaleOffset = 1 - growth
       ..leafScale = leafScale
+      ..fruitScale = fruitScale
       ..stemColor = stemColor
       ..leafColor = leafColor
       ..fruitColor = fruitColor;

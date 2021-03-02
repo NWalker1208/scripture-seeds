@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,18 +16,15 @@ class PlantView extends StatelessWidget {
   final String name;
   final EdgeInsetsGeometry padding;
 
-  @override
-  Widget build(BuildContext context) {
-    final progress = Provider.of<ProgressProvider>(context);
-    final record = progress.getRecord(name);
-
-    return TweenAnimationBuilder<double>(
-      tween: Tween<double>(end: record.progressPercent),
-      duration: Duration(milliseconds: 2000),
-      curve: Curves.easeInOutCubic,
-      builder: (context, growth, child) => Hero(
+  Widget _buildHero(double growth, double fruit, double wilt) => Hero(
         tag: 'plant_$name',
-        child: _PlantViewDelegate(seed: name, growth: growth, padding: padding),
+        child: _PlantViewDelegate(
+          seed: name,
+          growth: growth,
+          fruit: fruit,
+          wilt: wilt,
+          padding: padding,
+        ),
 
         // Animate padding between heroes
         flightShuttleBuilder: (_, animation, direction, from, to) {
@@ -37,19 +36,49 @@ class PlantView extends StatelessWidget {
             builder: (context, child) {
               final viewA = (from.widget as Hero).child as _PlantViewDelegate;
               final viewB = (to.widget as Hero).child as _PlantViewDelegate;
+              final val = animation.value;
               return _PlantViewDelegate(
                 seed: name,
-                growth: viewB.growth,
+                growth: lerpDouble(viewA.growth, viewB.growth, val),
+                fruit: lerpDouble(viewA.fruit, viewB.fruit, val),
+                wilt: lerpDouble(viewA.wilt, viewB.wilt, val),
                 padding: EdgeInsetsGeometry.lerp(
                   viewA.padding,
                   viewB.padding,
-                  animation.value,
+                  val,
                 ),
               );
             },
           );
         },
-      ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    final progress = Provider.of<ProgressProvider>(context);
+    final record = progress.getRecord(name);
+
+    Widget growthAnimation(double fruit, double wilt) =>
+        TweenAnimationBuilder<double>(
+          tween: Tween(end: record.progressPercent),
+          duration: Duration(milliseconds: 2000),
+          curve: Curves.easeInOutCubic,
+          builder: (_, growth, __) => _buildHero(growth, fruit, wilt),
+        );
+
+    Widget fruitAnimation(double wilt) => TweenAnimationBuilder<double>(
+          tween: Tween(end: record.rewardAvailable ? 1 : 0),
+          duration: Duration(milliseconds: 1000),
+          curve: Curves.easeOut,
+          builder: (_, fruit, __) => growthAnimation(fruit, wilt),
+        );
+
+    // Wilt animation
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: -1, end: record.progressLost?.toDouble() ?? -1),
+      duration: Duration(milliseconds: 2000),
+      curve: Curves.easeInOutCubic,
+      builder: (_, wilt, __) => fruitAnimation(wilt),
     );
   }
 }
@@ -59,20 +88,32 @@ class _PlantViewDelegate extends StatelessWidget {
   const _PlantViewDelegate({
     this.seed,
     this.growth,
+    this.wilt,
+    this.fruit,
     this.padding,
     Key key,
   }) : super(key: key);
 
   final Object seed;
   final double growth;
+  final double wilt;
+  final double fruit;
   final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
+    // Background colors
     final dayColor = Colors.lightBlue[200];
     final nightColor = Colors.indigo[900];
     final dirtColor = Colors.brown[900];
-    //final wiltedColor = Color(0xFFB98D51);
+
+    // Foreground colors
+    final stemColor = Colors.lightGreen;
+    final trunkColor = Colors.brown[500];
+    final leafColor = Colors.green[700];
+    final fruitColor = Colors.red;
+    final wiltedStemColor = Colors.brown;
+    final wiltedLeafColor = Color(0xFFB98D51);
 
     // Create sky gradient
     final skyColor =
@@ -97,7 +138,9 @@ class _PlantViewDelegate extends StatelessWidget {
     );
 
     // Build plant view
-    // TODO: Account for wilting
+    final colorGrowth = (4 * growth - 1.5).clamp(0, 1).toDouble();
+    final colorWilt = (wilt + 1).clamp(0, 1).toDouble();
+    final leafWilt = (1 - wilt).clamp(0, 1).toDouble();
     return Container(
       padding: padding,
       decoration: BoxDecoration(gradient: sky),
@@ -105,9 +148,15 @@ class _PlantViewDelegate extends StatelessWidget {
       child: PlantWidget(
         seed: seed,
         growth: growth,
-        stemColor: Color.lerp(Colors.lightGreen, Colors.brown[600], growth),
-        leafColor: Colors.green,
-        fruitColor: Colors.red,
+        leafScale: leafWilt,
+        fruitScale: fruit,
+        stemColor: Color.lerp(
+          Color.lerp(stemColor, trunkColor, colorGrowth),
+          wiltedStemColor,
+          colorWilt,
+        ),
+        leafColor: Color.lerp(leafColor, wiltedLeafColor, colorWilt),
+        fruitColor: fruitColor,
       ),
     );
   }
