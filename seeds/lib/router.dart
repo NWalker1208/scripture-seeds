@@ -158,12 +158,6 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
     return Navigator(
       key: navigatorKey,
       pages: [
-        /*
-        // TODO: Add back scripture page
-       '/scripture': (context) => ScripturePage(ScriptureReference.parse(
-           ModalRoute.of(context).settings.arguments as String)),
-       ),
-       */
         const MaterialPage<void>(child: DashboardPage()),
         if (_page == AppPage.settings)
           const MaterialPage<void>(
@@ -203,7 +197,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
       ],
       onPopPage: (route, dynamic result) {
         if (!route.didPop(result)) return false;
-        if (_page == AppPage.home) return true;
+        if (_page == AppPage.home) return false;
 
         if (_page == AppPage.scripture) {
           _configuration = AppRoutePath.details(_topicId, _fromPlant);
