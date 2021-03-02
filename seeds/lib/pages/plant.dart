@@ -30,9 +30,7 @@ class PlantPage extends StatelessWidget {
       barrierDismissible: true,
       builder: (_) => RemovePlantDialog(topic),
     ).then((removed) {
-      if (removed ?? false) {
-        Navigator.of(context).popUntil(ModalRoute.withName('/'));
-      }
+      if (removed ?? false) Go.from(context).toHome();
     });
   }
 
