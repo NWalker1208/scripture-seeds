@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utility/go.dart';
 import '../app_bar_themed.dart';
 import '../dialogs/erase_journal.dart';
 import '../dialogs/reset_progress.dart';
@@ -31,8 +32,7 @@ class DataManagementSettings extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Your progress has been reset.')),
         );
-
-        Navigator.of(context).popUntil(ModalRoute.withName('/'));
+        Go.from(context).toHome();
       }
     });
   }
