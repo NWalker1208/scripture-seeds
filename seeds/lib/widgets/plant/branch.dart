@@ -68,14 +68,17 @@ class PlantNode {
   }) {
     final nodeScale = branchScale * (1 - branchPosition);
     // Maybe generate branch
-    final prob = pow(4 * nodeScale * branchPosition, 4);
+    final branchProb = pow(4 * nodeScale * branchPosition, 4);
+    final fruitProb =
+        1 - 4 * ((direction + pi / 2).remainder(pi) - pi / 2).abs() / pi;
     final branches = <PlantBranch>[
-      if (random.nextChance(0.8 * prob))
+      if (random.nextChance(0.8 * branchProb))
         PlantBranch._generate(random,
             origin: position,
-            scale: nodeScale * prob * random.nextInRange(0.6, 0.9),
+            scale: nodeScale * branchProb * random.nextInRange(0.6, 0.9),
             direction: direction +
                 pi * random.nextInRange(0.25, 0.45) * random.nextSign()),
+      if (random.nextChance(0.2 * fruitProb)) PlantBranch(position, 0, []),
     ];
     // Create node
     return PlantNode(position, branchPosition, branches);

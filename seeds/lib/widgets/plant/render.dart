@@ -9,6 +9,7 @@ class RenderPlant extends RenderBox {
     double scaleOffset = 0,
     double minScale = 0.1,
     double leafScale = 1,
+    double fruitScale = 1,
     Color stemColor = Colors.brown,
     Color leafColor = Colors.green,
     Color fruitColor = Colors.red,
@@ -16,6 +17,7 @@ class RenderPlant extends RenderBox {
         _scaleOffset = scaleOffset,
         _minScale = minScale,
         _leafScale = leafScale,
+        _fruitScale = fruitScale,
         _stemColor = stemColor,
         _leafColor = leafColor,
         _fruitColor = fruitColor;
@@ -24,6 +26,7 @@ class RenderPlant extends RenderBox {
   double _scaleOffset;
   double _minScale;
   double _leafScale;
+  double _fruitScale;
   Color _stemColor;
   Color _leafColor;
   Color _fruitColor;
@@ -58,6 +61,14 @@ class RenderPlant extends RenderBox {
   set leafScale(double value) {
     if (_leafScale == value) return;
     _leafScale = value;
+    markNeedsPaint();
+  }
+
+  /// The scale multiplier for fruit. Fruit are not rendered if this equals 0.
+  double get fruitScale => _fruitScale;
+  set fruitScale(double value) {
+    if (_fruitScale == value) return;
+    _fruitScale = value;
     markNeedsPaint();
   }
 
@@ -112,9 +123,13 @@ class RenderPlant extends RenderBox {
   }
 
   void _paintBranch(Canvas canvas, PlantBranch branch) {
-    if (branch.scale - scaleOffset < minScale) return;
+    // Check if branch represents fruit
+    if (branch.scale == 0) {
+      _paintFruit(canvas, branch.origin);
+    }
 
     // Paint branch
+    if (branch.scale - scaleOffset < minScale) return;
     var pos = branch.origin;
     for (final node in branch.nodes) {
       final nodeScale = _getNodeScale(branch, node);
@@ -154,5 +169,14 @@ class RenderPlant extends RenderBox {
       ..style = PaintingStyle.fill;
 
     canvas.drawCircle(position, 8 * scale * leafScale, leaf);
+  }
+
+  void _paintFruit(Canvas canvas, Offset position) {
+    final fruit = Paint()
+      ..color = fruitColor
+      ..style = PaintingStyle.fill;
+
+    final radius = 1.5 * fruitScale;
+    canvas.drawCircle(position + Offset(0, radius), radius, fruit);
   }
 }
