@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../../extensions/canvas.dart';
 import 'branch.dart';
@@ -153,7 +152,7 @@ class RenderPlant extends RenderBox {
 
   static const _branchRadius = 1.0;
   void _paintBranch(Canvas canvas, PlantBranch branch) {
-    if (branch.scale == 0) return _paintFruit(canvas, branch.origin);
+    if (branch.isFruit) return _paintFruit(canvas, branch.origin);
     if (branch.scale < scaleOffset || branch.nodes.isEmpty) return;
 
     final nodes = branch.nodes.where((node) => node.scale >= scaleOffset);
@@ -185,11 +184,20 @@ class RenderPlant extends RenderBox {
     );
   }
 
+  static const _fruitRadius = 0.8;
   void _paintFruit(Canvas canvas, Offset position) {
     if (fruitScale == 0) return;
-    final fruit = Paint()..color = fruitColor;
+    final radius = _fruitRadius * fruitScale;
+    position += Offset(0, radius * 1.2);
+    final rect = Rect.fromCircle(center: position, radius: radius);
+    final fruit = Paint()
+      ..color = fruitColor
+      ..shader = RadialGradient(
+        colors: [fruitColor, Color.lerp(Colors.white, fruitColor, 0.75)],
+        stops: [0.4, 1],
+      ).createShader(rect);
 
-    final radius = 0.8 * fruitScale;
-    canvas.drawCircle(position + Offset(0, radius * 1.2), radius, fruit);
+    canvas.drawShadow(Path()..addOval(rect), Colors.black, 2.0, false);
+    canvas.drawCircle(position, radius, fruit);
   }
 }

@@ -111,7 +111,7 @@ class _PlantViewDelegate extends StatelessWidget {
     final stemColor = Colors.lightGreen;
     final trunkColor = Colors.brown[500];
     final leafColor = Colors.green[700];
-    final fruitColor = Colors.red;
+    final fruitColor = Colors.red[700];
     final wiltedStemColor = Colors.brown;
     final wiltedLeafColor = Color(0xFFB98D51);
 

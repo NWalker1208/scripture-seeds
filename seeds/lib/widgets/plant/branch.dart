@@ -11,6 +11,10 @@ class PlantBranch {
   PlantBranch(this.origin, this.scale, Iterable<PlantNode> nodes)
       : _nodes = nodes.toBuiltList();
 
+  PlantBranch.fruit(this.origin)
+      : scale = 0.0,
+        _nodes = BuiltList();
+
   static final _genCache = <int, PlantBranch>{};
   factory PlantBranch.generate(Object seed) {
     final hash = seed.hashCode;
@@ -37,7 +41,7 @@ class PlantBranch {
       final angle = ((direction + pi / 2).remainder(pi) - pi / 2).abs();
       final fromPosition = 4 * position * (1 - position);
       final fromAngle = 2 * angle / (pi / 2);
-      return 0.6 * (fromPosition * fromPosition - fromAngle);
+      return 0.5 * (fromPosition * fromPosition - fromAngle);
     }
 
     var offset = origin;
@@ -61,6 +65,8 @@ class PlantBranch {
   final double scale;
   final BuiltList<PlantNode> _nodes;
   Iterable<PlantNode> get nodes => _nodes;
+
+  bool get isFruit => scale == 0;
 
   @override
   String toString() => '(${origin.dx},${origin.dy}): $nodes';
@@ -96,9 +102,9 @@ class PlantNode {
           origin: position,
           scale: scale * random.nextInRange(0.7, 0.8),
           direction:
-              direction + pi * random.nextInRange(0.3, 0.4) * random.nextSign(),
+              direction + pi * random.nextInRange(0.2, 0.4) * random.nextSign(),
         ),
-      if (hasFruit) PlantBranch(position, 0, []),
+      if (hasFruit) PlantBranch.fruit(position),
     ];
     // Create node
     return PlantNode(position, scale, branches);
@@ -118,7 +124,7 @@ class PlantNode {
         position,
         scale,
         branches
-            .where((branch) => branch.scale > minScale)
+            .where((branch) => branch.scale > minScale || branch.isFruit)
             .map((branch) => branch.prune(minScale)),
       );
 }
