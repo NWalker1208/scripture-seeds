@@ -75,7 +75,7 @@ class PlantView extends StatelessWidget {
 
     // Wilt animation
     return TweenAnimationBuilder<double>(
-      tween: Tween(begin: -1, end: record.progressLost?.toDouble() ?? -1),
+      tween: Tween(end: record.progressLost?.toDouble() ?? -1),
       duration: Duration(milliseconds: 2000),
       curve: Curves.easeInOutCubic,
       builder: (_, wilt, __) => fruitAnimation(wilt),
@@ -140,7 +140,7 @@ class _PlantViewDelegate extends StatelessWidget {
     // Build plant view
     final colorGrowth = (4 * growth - 1.5).clamp(0, 1).toDouble();
     final colorWilt = (wilt + 1).clamp(0, 1).toDouble();
-    final leafWilt = (1 - wilt).clamp(0, 1).toDouble();
+    final leafWilt = (1 - wilt / 2).clamp(0, 1).toDouble();
     return Container(
       padding: padding,
       decoration: BoxDecoration(gradient: sky),

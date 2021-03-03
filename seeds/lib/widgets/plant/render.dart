@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -108,17 +110,13 @@ class RenderPlant extends RenderBox {
     canvas.save();
     canvas.translate(offset.dx, offset.dy);
     canvas.translate(size.width / 2, size.height);
-    canvas.scale(size.height / 48);
+    canvas.scale(size.height / 25);
     _paintBranch(canvas, root);
     canvas.restore();
   }
 
-  double _getNodeScale(PlantBranch branch, PlantNode node) =>
-      branch.scale * (1 - node.branchPosition) - scaleOffset;
-
-  double _getLeafScale(double branchPosition) {
-    var size = 2 * branchPosition;
-    size *= 2 * (1 - branchPosition);
+  double _getLeafScale(double position) {
+    final size = 4 * position * (1 - position);
     return size * size * size;
   }
 
@@ -128,11 +126,30 @@ class RenderPlant extends RenderBox {
       _paintFruit(canvas, branch.origin);
     }
 
+    // Paint leaves
+    if (leafScale > 0) {
+      var index = 1;
+      final count = branch.nodes.length;
+      for (final node in branch.nodes) {
+        final nodeScale = node.scale - scaleOffset;
+        if (nodeScale < minScale) break;
+
+        if (branch != root) {
+          final scale = _getLeafScale(index / count);
+          _paintLeaf(canvas, node.position, scale * nodeScale);
+        } else if (index > count * 0.75) {
+          final scale = _getLeafScale(index / count);
+          _paintLeaf(canvas, node.position, scale * nodeScale * 0.8);
+        }
+        index++;
+      }
+    }
+
     // Paint branch
     if (branch.scale - scaleOffset < minScale) return;
     var pos = branch.origin;
     for (final node in branch.nodes) {
-      final nodeScale = _getNodeScale(branch, node);
+      final nodeScale = node.scale - scaleOffset;
       if (nodeScale < minScale) break;
 
       final stem = Paint()
@@ -147,20 +164,6 @@ class RenderPlant extends RenderBox {
       }
       pos = node.position;
     }
-
-    // Paint leaves
-    for (final node in branch.nodes) {
-      final nodeScale = _getNodeScale(branch, node);
-      if (nodeScale < minScale) break;
-
-      if (branch != root) {
-        final scale = _getLeafScale(node.branchPosition);
-        _paintLeaf(canvas, node.position, scale * nodeScale);
-      } else if (node.branchPosition > 0.5) {
-        final scale = _getLeafScale(2 * (node.branchPosition - 0.5));
-        _paintLeaf(canvas, node.position, scale * nodeScale * 0.6);
-      }
-    }
   }
 
   void _paintLeaf(Canvas canvas, Offset position, double scale) {
@@ -168,6 +171,7 @@ class RenderPlant extends RenderBox {
       ..color = leafColor
       ..style = PaintingStyle.fill;
 
+    scale = max(scale, 0.1);
     canvas.drawCircle(position, 8 * scale * leafScale, leaf);
   }
 
@@ -176,7 +180,7 @@ class RenderPlant extends RenderBox {
       ..color = fruitColor
       ..style = PaintingStyle.fill;
 
-    final radius = 1.5 * fruitScale;
-    canvas.drawCircle(position + Offset(0, radius), radius, fruit);
+    final radius = 0.8 * fruitScale;
+    canvas.drawCircle(position + Offset(0, radius * 1.2), radius, fruit);
   }
 }

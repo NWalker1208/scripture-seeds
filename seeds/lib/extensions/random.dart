@@ -12,5 +12,5 @@ extension RandomExtension on Random {
 
   /// Obtains the next random double and returns true if it is less than
   /// or equal to probability.
-  bool nextChance(double probability) => nextDouble() <= probability;
+  bool nextChance(double probability) => nextDouble() < probability;
 }
