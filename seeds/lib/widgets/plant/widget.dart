@@ -25,7 +25,7 @@ class PlantWidget extends LeafRenderObjectWidget {
 
   @override
   RenderPlant createRenderObject(BuildContext context) => RenderPlant(
-        PlantBranch.generate(seed),
+        PlantBranch.generate(seed).prune(0.05),
         scaleOffset: 1 - growth,
         leafScale: leafScale,
         fruitScale: fruitScale,
@@ -37,7 +37,7 @@ class PlantWidget extends LeafRenderObjectWidget {
   @override
   void updateRenderObject(BuildContext context, RenderPlant renderObject) {
     renderObject
-      ..root = PlantBranch.generate(seed)
+      ..root = PlantBranch.generate(seed).prune(0.05)
       ..scaleOffset = 1 - growth
       ..leafScale = leafScale
       ..fruitScale = fruitScale

@@ -141,22 +141,24 @@ class _PlantViewDelegate extends StatelessWidget {
     final colorGrowth = (4 * growth - 1.5).clamp(0, 1).toDouble();
     final colorWilt = (wilt + 1).clamp(0, 1).toDouble();
     final leafWilt = (1 - wilt / 2).clamp(0, 1).toDouble();
-    return Container(
-      padding: padding,
-      decoration: BoxDecoration(gradient: sky),
-      foregroundDecoration: BoxDecoration(border: dirt),
-      child: PlantWidget(
-        seed: seed,
-        growth: growth,
-        leafScale: leafWilt,
-        fruitScale: fruit,
-        stemColor: Color.lerp(
-          Color.lerp(stemColor, trunkColor, colorGrowth),
-          wiltedStemColor,
-          colorWilt,
+    return ClipRect(
+      child: Container(
+        padding: padding,
+        decoration: BoxDecoration(gradient: sky),
+        foregroundDecoration: BoxDecoration(border: dirt),
+        child: PlantWidget(
+          seed: seed,
+          growth: growth,
+          leafScale: leafWilt,
+          fruitScale: fruit,
+          stemColor: Color.lerp(
+            Color.lerp(stemColor, trunkColor, colorGrowth),
+            wiltedStemColor,
+            colorWilt,
+          ),
+          leafColor: Color.lerp(leafColor, wiltedLeafColor, colorWilt),
+          fruitColor: fruitColor,
         ),
-        leafColor: Color.lerp(leafColor, wiltedLeafColor, colorWilt),
-        fruitColor: fruitColor,
       ),
     );
   }

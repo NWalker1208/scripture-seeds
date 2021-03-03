@@ -3,13 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../../extensions/canvas.dart';
 import 'branch.dart';
 
 class RenderPlant extends RenderBox {
   RenderPlant(
     PlantBranch root, {
     double scaleOffset = 0,
-    double minScale = 0.1,
     double leafScale = 1,
     double fruitScale = 1,
     Color stemColor = Colors.brown,
@@ -17,7 +17,6 @@ class RenderPlant extends RenderBox {
     Color fruitColor = Colors.red,
   })  : _root = root,
         _scaleOffset = scaleOffset,
-        _minScale = minScale,
         _leafScale = leafScale,
         _fruitScale = fruitScale,
         _stemColor = stemColor,
@@ -26,7 +25,6 @@ class RenderPlant extends RenderBox {
 
   PlantBranch _root;
   double _scaleOffset;
-  double _minScale;
   double _leafScale;
   double _fruitScale;
   Color _stemColor;
@@ -47,14 +45,6 @@ class RenderPlant extends RenderBox {
   set scaleOffset(double value) {
     if (_scaleOffset == value) return;
     _scaleOffset = value;
-    markNeedsPaint();
-  }
-
-  /// The smallest scale a node or branch must have to be drawn.
-  double get minScale => _minScale;
-  set minScale(double value) {
-    if (_minScale == value) return;
-    _minScale = value;
     markNeedsPaint();
   }
 
@@ -110,7 +100,8 @@ class RenderPlant extends RenderBox {
     canvas.save();
     canvas.translate(offset.dx, offset.dy);
     canvas.translate(size.width / 2, size.height);
-    canvas.scale(size.height / 25);
+    canvas.scale(size.height / 30);
+    _paintLeaves(canvas, root);
     _paintBranch(canvas, root);
     canvas.restore();
   }
@@ -120,65 +111,83 @@ class RenderPlant extends RenderBox {
     return size * size * size;
   }
 
-  void _paintBranch(Canvas canvas, PlantBranch branch) {
-    // Check if branch represents fruit
-    if (branch.scale == 0) {
-      _paintFruit(canvas, branch.origin);
+  static const _leafSize = 10.0;
+  void _paintLeaves(Canvas canvas, PlantBranch branch) {
+    if (leafScale == 0 || branch.scale == 0) return;
+    if (branch.scale < scaleOffset || branch.nodes.isEmpty) return;
+
+    var nodes = branch.nodes.where((node) => node.scale >= scaleOffset);
+
+    // Paint children
+    for (final node in nodes) {
+      for (final branch in node.branches) {
+        _paintLeaves(canvas, branch);
+      }
     }
 
-    // Paint leaves
-    if (leafScale > 0) {
-      var index = 1;
-      final count = branch.nodes.length;
-      for (final node in branch.nodes) {
-        final nodeScale = node.scale - scaleOffset;
-        if (nodeScale < minScale) break;
+    // Skip painting leaves on bottom of trunk
+    if (branch == root) nodes = nodes.skip((nodes.length * 0.6).round());
 
-        if (branch != root) {
-          final scale = _getLeafScale(index / count);
-          _paintLeaf(canvas, node.position, scale * nodeScale);
-        } else if (index > count * 0.75) {
-          final scale = _getLeafScale(index / count);
-          _paintLeaf(canvas, node.position, scale * nodeScale * 0.8);
-        }
-        index++;
+    // Paint leaves of branch
+    final leaf = Paint()..color = leafColor;
+
+    var index = 0;
+    final count = nodes.length;
+    canvas.drawWideLine(
+      [
+        for (final node in nodes)
+          OffsetWidth(
+            node.position,
+            leafScale *
+                (_leafSize *
+                        (node.scale - scaleOffset) *
+                        _getLeafScale(index++ / count) *
+                        (count / root.nodes.length) +
+                    0.7),
+          ),
+      ],
+      leaf,
+      endCaps: StrokeCap.round,
+    );
+  }
+
+  static const _branchRadius = 1.0;
+  void _paintBranch(Canvas canvas, PlantBranch branch) {
+    if (branch.scale == 0) return _paintFruit(canvas, branch.origin);
+    if (branch.scale < scaleOffset || branch.nodes.isEmpty) return;
+
+    final nodes = branch.nodes.where((node) => node.scale >= scaleOffset);
+
+    // Paint children
+    for (final node in nodes) {
+      for (final branch in node.branches) {
+        _paintBranch(canvas, branch);
       }
     }
 
     // Paint branch
-    if (branch.scale - scaleOffset < minScale) return;
-    var pos = branch.origin;
-    for (final node in branch.nodes) {
-      final nodeScale = node.scale - scaleOffset;
-      if (nodeScale < minScale) break;
+    final stem = Paint()..color = stemColor;
 
-      final stem = Paint()
-        ..color = stemColor
-        ..strokeWidth = nodeScale * 2
-        ..style = PaintingStyle.stroke
-        ..strokeCap = StrokeCap.round;
-
-      canvas.drawLine(pos, node.position, stem);
-      for (final branch in node.branches) {
-        _paintBranch(canvas, branch);
-      }
-      pos = node.position;
-    }
-  }
-
-  void _paintLeaf(Canvas canvas, Offset position, double scale) {
-    final leaf = Paint()
-      ..color = leafColor
-      ..style = PaintingStyle.fill;
-
-    scale = max(scale, 0.1);
-    canvas.drawCircle(position, 8 * scale * leafScale, leaf);
+    canvas.drawWideLine(
+      [
+        OffsetWidth(
+          branch.origin,
+          _branchRadius * (branch.scale - scaleOffset),
+        ),
+        for (final node in nodes)
+          OffsetWidth(
+            node.position,
+            _branchRadius * (node.scale - scaleOffset),
+          ),
+      ],
+      stem,
+      initialDirection: branch == root ? pi * 1.5 : null,
+    );
   }
 
   void _paintFruit(Canvas canvas, Offset position) {
-    final fruit = Paint()
-      ..color = fruitColor
-      ..style = PaintingStyle.fill;
+    if (fruitScale == 0) return;
+    final fruit = Paint()..color = fruitColor;
 
     final radius = 0.8 * fruitScale;
     canvas.drawCircle(position + Offset(0, radius * 1.2), radius, fruit);

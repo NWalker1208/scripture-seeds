@@ -64,6 +64,15 @@ class PlantBranch {
 
   @override
   String toString() => '(${origin.dx},${origin.dy}): $nodes';
+
+  /// Removes all branches or nodes smaller than minScale.
+  PlantBranch prune(double minScale) => PlantBranch(
+        origin,
+        scale,
+        nodes
+            .where((node) => node.scale > minScale)
+            .map((node) => node.prune(minScale)),
+      );
 }
 
 @immutable
@@ -103,4 +112,13 @@ class PlantNode {
   @override
   String toString() =>
       '($scale, (${position.dx}, ${position.dy}), branches: $branches)';
+
+  /// Removes all branches or nodes smaller than minScale.
+  PlantNode prune(double minScale) => PlantNode(
+        position,
+        scale,
+        branches
+            .where((branch) => branch.scale > minScale)
+            .map((branch) => branch.prune(minScale)),
+      );
 }
