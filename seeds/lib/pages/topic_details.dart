@@ -182,8 +182,7 @@ class _PurchasePlantButton extends StatelessWidget {
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('You need to collect more seeds from other topics '
-            'before starting this one.'),
+        content: Text('You don\'t have enough seeds.'),
       ));
     }
   }
