@@ -24,7 +24,7 @@ class ShareActivity extends StatelessWidget {
   Widget build(BuildContext context) => TutorialHelp(
         'activity2',
         index: 0,
-        title: 'Step 3: Share',
+        title: 'Step 3 - Share',
         helpText: 'You can share what you highlighted and wrote with others or '
             'save it to your journal.',
         child: Center(

@@ -63,7 +63,7 @@ class _StudyActivityState extends State<StudyActivity> {
   @override
   Widget build(BuildContext context) => TutorialHelp(
         'activity0',
-        title: 'Step 1: Study',
+        title: 'Step 1 - Study',
         helpText: 'Study and highlight the verses that are outlined in green.',
         child: ChapterView(
           widget.reference,

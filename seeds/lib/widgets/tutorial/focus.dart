@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
@@ -9,8 +10,7 @@ import '../../utility/pass_through.dart';
 import 'step.dart';
 
 const defaultOverlayShape = RoundedRectangleBorder(
-  borderRadius: BorderRadius.all(Radius.circular(4.0))
-);
+    borderRadius: BorderRadius.all(Radius.circular(4.0)));
 
 /// A widget which will be focused on when a tutorial is triggered.
 class TutorialFocus extends StatefulWidget {
@@ -38,8 +38,8 @@ class TutorialFocus extends StatefulWidget {
 class TutorialFocusState extends State<TutorialFocus> {
   final _childKey = GlobalKey();
   final _overlayKey = GlobalKey<_FocusOverlayState>();
-  final _overlayRect = ValueNotifier<Rect>(null);
   OverlayEntry _overlayEntry;
+  Completer<void> _overlayCompleter;
 
   /// Show the tutorial overlay for this widget.
   Future<void> showOverlay(BuildContext context) async {
@@ -49,41 +49,41 @@ class TutorialFocusState extends State<TutorialFocus> {
       duration: const Duration(milliseconds: 400),
     );
     if (_overlayEntry != null) _overlayEntry.remove();
-
+    _overlayCompleter = Completer<void>();
     _overlayEntry = OverlayEntry(
       maintainState: true,
-      builder: (context) => ValueListenableBuilder<Rect>(
-        valueListenable: _overlayRect,
-        builder: (context, rect, child) => _FocusOverlay(
-          key: _overlayKey,
-          cutout: rect,
-          label: widget.overlayLabel,
-          shape: widget.overlayShape,
-          onDismiss: _hideOverlay,
-        ),
+      builder: (context) => _FocusOverlay(
+        key: _overlayKey,
+        initialCutout: _getCutout(),
+        label: widget.overlayLabel,
+        shape: widget.overlayShape,
+        onDismiss: _disposeOverlay,
       ),
     );
     _updateOverlay();
 
     Overlay.of(context).insert(_overlayEntry);
+    return _overlayCompleter.future;
   }
 
-  /// Returns true if the overlay is not open (For usage with WillPopScope).
-  Future<bool> closeOverlay() async {
-    if (_overlayEntry == null) return true;
-    await _overlayKey.currentState.close();
-    return false;
+  Future<void> closeOverlay() => _overlayKey.currentState?.close();
+
+  Rect _getCutout() {
+    final render = _childKey.currentContext.findRenderObject() as RenderBox;
+    if (!render.hasSize) return Rect.zero;
+    return (render.localToGlobal(Offset.zero) & render.size)
+        .inflate(widget.overlayPadding);
   }
 
-  void _hideOverlay() {
+  void _disposeOverlay() {
     _overlayEntry?.remove();
+    _overlayCompleter?.complete();
     _overlayEntry = null;
+    _overlayCompleter = null;
   }
 
   void _updateOverlay() {
-    final render = _childKey.currentContext.findRenderObject() as RenderBox;
-    _overlayRect.value = (render.localToGlobal(Offset.zero) & render.size)
-        .inflate(widget.overlayPadding);
+    _overlayKey.currentState?.cutout = _getCutout();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_overlayEntry != null) _updateOverlay();
     });
@@ -91,14 +91,17 @@ class TutorialFocusState extends State<TutorialFocus> {
 
   @override
   void dispose() {
-    _hideOverlay();
-    _overlayRect.dispose();
+    _disposeOverlay();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) => WillPopScope(
-        onWillPop: closeOverlay,
+        onWillPop: () async {
+          if (_overlayEntry == null) return true;
+          await closeOverlay();
+          return false;
+        },
         child: TutorialStep(
           widget.tag,
           index: widget.index,
@@ -120,14 +123,14 @@ class TutorialFocusState extends State<TutorialFocus> {
 
 class _FocusOverlay extends StatefulWidget {
   const _FocusOverlay({
-    this.cutout,
+    this.initialCutout,
     this.label,
     this.shape,
     this.onDismiss,
     Key key,
   }) : super(key: key);
 
-  final Rect cutout;
+  final Rect initialCutout;
   final Widget label;
   final ShapeBorder shape;
   final void Function() onDismiss;
@@ -138,7 +141,11 @@ class _FocusOverlay extends StatefulWidget {
 
 class _FocusOverlayState extends State<_FocusOverlay>
     with SingleTickerProviderStateMixin {
+  Rect _cutout;
   AnimationController _controller;
+
+  Rect get cutout => _cutout;
+  set cutout(Rect value) => setState(() => _cutout = value);
 
   Future<void> close() async {
     await _controller.reverse();
@@ -147,6 +154,7 @@ class _FocusOverlayState extends State<_FocusOverlay>
 
   @override
   void initState() {
+    _cutout = widget.initialCutout;
     _controller = AnimationController(
       value: 0,
       duration: const Duration(milliseconds: 150),
@@ -165,7 +173,7 @@ class _FocusOverlayState extends State<_FocusOverlay>
   @override
   Widget build(BuildContext context) => ClipPath(
         clipper: CutoutClipper(widget.shape.getOuterPath(
-          widget.cutout,
+          _cutout,
           textDirection: Directionality.of(context),
         )),
         child: GestureDetector(
@@ -177,9 +185,9 @@ class _FocusOverlayState extends State<_FocusOverlay>
                 Container(color: Colors.black54),
                 if (widget.label != null)
                   Positioned(
-                    top: widget.cutout.top - 8,
-                    left: widget.cutout.left,
-                    width: widget.cutout.width,
+                    top: _cutout.top - 8,
+                    left: _cutout.left,
+                    width: _cutout.width,
                     height: 0,
                     child: OverflowBox(
                       alignment: Alignment.bottomCenter,
