@@ -101,12 +101,14 @@ class CustomThemeData {
     final textButtonTheme = TextButtonThemeData(
         style: TextButton.styleFrom(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      visualDensity: VisualDensity.standard,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ));
 
     final elevatedButtonTheme = ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      visualDensity: VisualDensity.standard,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ));
 
