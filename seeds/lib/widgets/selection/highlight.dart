@@ -6,12 +6,9 @@ import 'paragraph.dart';
 import 'render.dart';
 import 'word.dart';
 
-// Responsible for:
-//  - Event handling
-//  - State
-
 typedef HighlightChangeHandler = Function(Iterable<Word> words);
 
+/// Selection widget responsible for handling selection state and events.
 class HighlightParagraph extends StatefulWidget {
   const HighlightParagraph({
     @required this.text,
