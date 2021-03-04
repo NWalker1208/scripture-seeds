@@ -19,7 +19,6 @@ class ResetProgressDialog extends StatelessWidget {
         actions: <Widget>[
           // Reset progress if user selects yes
           TextButton(
-            child: const Text('CONTINUE'),
             onPressed: () {
               Provider.of<TutorialProvider>(context, listen: false).reset();
               Provider.of<ProgressProvider>(context, listen: false).reset();
@@ -27,12 +26,13 @@ class ResetProgressDialog extends StatelessWidget {
               Provider.of<WalletProvider>(context, listen: false).reset();
               Navigator.of(context).pop(true);
             },
+            child: const Text('CONTINUE'),
           ),
 
           // Close dialog if user selects no
           ElevatedButton(
-            child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('CANCEL'),
           )
         ],
       );

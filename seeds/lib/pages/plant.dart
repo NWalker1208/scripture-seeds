@@ -46,14 +46,14 @@ class PlantPage extends StatelessWidget {
             onSelected: (action) => action(),
             itemBuilder: (context) => [
               PopupMenuItem(
-                child: Text('Share'),
                 value: () => SocialShare.shareOptions(
                   'I\'m studying about ${topic.name} with Scripture Seeds!',
                 ),
+                child: Text('Share'),
               ),
               PopupMenuItem(
-                child: Text('Remove'),
                 value: () => removePlant(context),
+                child: Text('Remove'),
               ),
             ],
           ),
@@ -163,12 +163,11 @@ class _StudyButton extends StatelessWidget {
 
           if (!canMakeProgress) {
             Provider.of<TutorialProvider>(context)
-                .maybeShow(context, 'grow_plant');
+                .maybeShow(ModalRoute.of(context).subtreeContext, 'grow_plant');
           }
 
           return FloatingActionButton(
             tooltip: 'Study',
-            child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
             backgroundColor: (canMakeProgress || reward)
                 ? Theme.of(context).accentColor
                 : Theme.of(context).disabledColor,
@@ -181,6 +180,7 @@ class _StudyButton extends StatelessWidget {
                 openActivity(context);
               }
             },
+            child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
           );
         },
       );

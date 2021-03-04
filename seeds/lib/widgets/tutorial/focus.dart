@@ -108,7 +108,6 @@ class TutorialFocusState extends State<TutorialFocus> {
           onStart: showOverlay,
           child: RawGestureDetector(
             key: _childKey,
-            child: widget.child,
             gestures: {
               PassThroughTapRecognizer: GestureRecognizerFactoryWithHandlers<
                   PassThroughTapRecognizer>(
@@ -116,6 +115,7 @@ class TutorialFocusState extends State<TutorialFocus> {
                 (instance) => instance..onTap = closeOverlay,
               )
             },
+            child: widget.child,
           ),
         ),
       );

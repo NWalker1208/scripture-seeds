@@ -70,8 +70,7 @@ extension CanvasExtension on Canvas {
     final arc = pi + atan(widthChange / vector.distance);
     // Calculate center
     final direction = vector.direction;
-    final offset =
-        Offset.fromDirection(direction, tan((pi - arc) / 2));
+    final offset = Offset.fromDirection(direction, tan((pi - arc) / 2));
     final center = end.offset - offset * end.width;
     // Draw the arc
     final edges = (10 * arc / pi).ceil();

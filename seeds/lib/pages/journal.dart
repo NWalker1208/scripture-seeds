@@ -128,6 +128,7 @@ class _JournalPageState extends State<JournalPage> {
             selected: selected,
             onSelect: (entry, value) => setState(() {
               if (value) {
+                editMode = true;
                 selected.add(entry);
               } else {
                 selected.remove(entry);
@@ -138,12 +139,12 @@ class _JournalPageState extends State<JournalPage> {
         floatingActionButton: !editMode
             ? null
             : FloatingActionButton(
-                child: const Icon(Icons.delete),
                 backgroundColor: selected.isEmpty
                     ? Theme.of(context).disabledColor
                     : Theme.of(context).accentColor,
                 disabledElevation: 2,
                 onPressed: selected.isEmpty ? null : deleteSelected,
+                child: const Icon(Icons.delete),
               ),
       ),
     );

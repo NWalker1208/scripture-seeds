@@ -207,6 +207,9 @@ class _PurchasePlantButton extends StatelessWidget {
                   shape: MaterialStateProperty.all(StadiumBorder()),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
+                onPressed: purchased
+                    ? () => _openPlant(context)
+                    : () => _purchase(context),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -219,9 +222,6 @@ class _PurchasePlantButton extends StatelessWidget {
                     Text(purchased ? 'View Plant' : 'Plant Seed'),
                   ],
                 ),
-                onPressed: purchased
-                    ? () => _openPlant(context)
-                    : () => _purchase(context),
               ),
             ),
           );

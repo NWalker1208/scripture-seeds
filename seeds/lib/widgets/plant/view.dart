@@ -18,14 +18,6 @@ class PlantView extends StatelessWidget {
 
   Widget _buildHero(double growth, double fruit, double wilt) => Hero(
         tag: 'plant_$name',
-        child: _PlantViewDelegate(
-          seed: name,
-          growth: growth,
-          fruit: fruit,
-          wilt: wilt,
-          padding: padding,
-        ),
-
         // Animate padding between heroes
         flightShuttleBuilder: (_, animation, direction, from, to) {
           if (direction == HeroFlightDirection.pop) {
@@ -51,6 +43,13 @@ class PlantView extends StatelessWidget {
             },
           );
         },
+        child: _PlantViewDelegate(
+          seed: name,
+          growth: growth,
+          fruit: fruit,
+          wilt: wilt,
+          padding: padding,
+        ),
       );
 
   @override
