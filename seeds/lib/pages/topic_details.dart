@@ -151,7 +151,6 @@ class _VolumeRefList extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6.0),
                     child: ActionChip(
-                      elevation: 4,
                       label: Text(reference.toString()),
                       onPressed: () => Go.from(context).toScripture(reference),
                     ),

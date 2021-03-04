@@ -12,8 +12,6 @@ class TopicChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ActionChip(
-        elevation: 2,
-        pressElevation: 4,
         label: Consumer<ProgressProvider>(
           builder: (context, progress, child) => Row(
             mainAxisSize: MainAxisSize.min,

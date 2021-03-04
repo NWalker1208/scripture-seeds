@@ -63,7 +63,7 @@ class AppProvidersState extends State<AppProviders> {
 
   /// Upgrade data from old databases to the new systems.
   Future<void> attemptUpgrade() async {
-    if (Platform.isAndroid) {
+    if (!kIsWeb && Platform.isAndroid) {
       await progress.modify((data) => SqlProgressDatabase().upgrade(data));
       await journal.modify((data) => JsonJournalDatabase().upgrade(data));
       await history.modify((data) => SqlHistoryDatabase().upgrade(data));

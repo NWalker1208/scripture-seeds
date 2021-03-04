@@ -112,6 +112,25 @@ class CustomThemeData {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ));
 
+    // Chip Theme
+    final chipThemeLight = ChipThemeData.fromDefaults(
+      brightness: Brightness.light,
+      secondaryColor: colorsLight.primary,
+      labelStyle: typography.black.bodyText1,
+    ).copyWith(
+      elevation: 4.0,
+      pressElevation: 6.0,
+    );
+
+    final chipThemeDark = ChipThemeData.fromDefaults(
+      brightness: Brightness.dark,
+      secondaryColor: colorsDark.primary,
+      labelStyle: typography.white.bodyText1,
+    ).copyWith(
+      elevation: 4.0,
+      pressElevation: 6.0,
+    );
+
     // Input Decoration Theme
     final inputTheme = InputDecorationTheme(
       contentPadding: EdgeInsets.all(12),
@@ -142,6 +161,7 @@ class CustomThemeData {
       colorScheme: colorsLight,
       textTheme: typography.black,
     ).copyWith(
+      materialTapTargetSize: MaterialTapTargetSize.padded,
       toggleableActiveColor: colorsLight.primary,
       highlightColor: colorsLight.onSurface.withOpacity(0.2),
       splashColor: colorsLight.onSurface.withOpacity(0.1),
@@ -152,6 +172,7 @@ class CustomThemeData {
       textSelectionTheme: textSelectionThemeLight,
       textButtonTheme: textButtonTheme,
       elevatedButtonTheme: elevatedButtonTheme,
+      chipTheme: chipThemeLight,
       inputDecorationTheme: inputTheme,
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,
@@ -160,6 +181,8 @@ class CustomThemeData {
       colorScheme: colorsDark,
       textTheme: typography.white,
     ).copyWith(
+      //applyElevationOverlayColor: false,
+      materialTapTargetSize: MaterialTapTargetSize.padded,
       toggleableActiveColor: colorsDark.primary,
       highlightColor: colorsDark.onSurface.withOpacity(0.2),
       splashColor: colorsDark.onSurface.withOpacity(0.1),
@@ -170,6 +193,7 @@ class CustomThemeData {
       textSelectionTheme: textSelectionThemeDark,
       textButtonTheme: textButtonTheme,
       elevatedButtonTheme: elevatedButtonTheme,
+      chipTheme: chipThemeDark,
       inputDecorationTheme: inputTheme,
       cardTheme: cardTheme,
       dividerTheme: dividerTheme,
