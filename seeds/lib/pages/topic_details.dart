@@ -44,6 +44,7 @@ class TopicDetailsPage extends StatelessWidget {
               child: CustomScrollView(
                 slivers: [
                   SliverAppBar(
+                    backwardsCompatibility: false,
                     pinned: true,
                     primary: false,
                     automaticallyImplyLeading: false,
@@ -69,6 +70,7 @@ class TopicDetailsPage extends StatelessWidget {
                 primary: false,
                 slivers: [
                   SliverAppBar(
+                    backwardsCompatibility: false,
                     pinned: true,
                     primary: false,
                     automaticallyImplyLeading: false,
