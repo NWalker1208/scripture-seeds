@@ -63,9 +63,8 @@ class _StudyActivityState extends State<StudyActivity> {
   @override
   Widget build(BuildContext context) => TutorialHelp(
         'activity0',
-        title: 'Study',
-        helpText: 'Study the selected verses and highlight the '
-            'parts that are significant to you.',
+        title: 'Step 1: Study',
+        helpText: 'Study and highlight the verses that are outlined in green.',
         child: ChapterView(
           widget.reference,
           onHighlightChange: onHighlightChange,

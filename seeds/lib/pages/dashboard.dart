@@ -43,10 +43,10 @@ class DashboardPage extends StatelessWidget {
           TutorialHelp(
             'dashboard',
             index: 0,
-            title: 'Dashboard',
-            helpText: 'Welcome to Scripture Seeds!\n\nFrom this page, '
-                'you can check on your plants, explore new topics, and '
-                'review your journal entries.',
+            title: 'Tutorial',
+            helpText: 'Welcome to Scripture Seeds!\n\nTo begin, let us walk '
+                'you through how this app can help you remember to study the '
+                'scriptures every day.',
             child: SliverList(
               delegate: SliverChildListDelegate(
                 const [

@@ -5,6 +5,7 @@ import '../../pages/activity.dart';
 import '../../services/scriptures/reference.dart';
 import '../../services/topics/topic.dart';
 import '../journal_entry.dart';
+import '../tutorial/focus.dart';
 import '../tutorial/help.dart';
 
 class ShareActivity extends StatelessWidget {
@@ -22,10 +23,10 @@ class ShareActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) => TutorialHelp(
         'activity2',
-        title: 'Share',
-        helpText: 'Share what you learned with others. If you want to '
-            'keep a record of what you wrote, select '
-            '"Save to journal."',
+        index: 0,
+        title: 'Step 3: Share',
+        helpText: 'You can share what you highlighted and wrote with others or '
+            'save it to your journal.',
         child: Center(
           child: ListView(
             shrinkWrap: true,
@@ -39,17 +40,23 @@ class ShareActivity extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Selector<ActivityProvider, bool>(
-                    selector: (context, activity) => activity.saveToJournal,
-                    builder: (context, saveToJournal, child) => Checkbox(
+              TutorialFocus(
+                'activity2',
+                index: 1,
+                overlayLabel: Text('Tap here if you want to save this entry.'),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Selector<ActivityProvider, bool>(
+                      selector: (context, activity) => activity.saveToJournal,
+                      builder: (context, saveToJournal, child) => Checkbox(
                         value: saveToJournal,
-                        onChanged: (save) => _notifyCompleted(context, save)),
-                  ),
-                  Text('Save to journal'),
-                ],
+                        onChanged: (save) => _notifyCompleted(context, save),
+                      ),
+                    ),
+                    Text('Save to journal'),
+                  ],
+                ),
               ),
             ],
           ),

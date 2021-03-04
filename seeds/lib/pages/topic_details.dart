@@ -36,9 +36,8 @@ class TopicDetailsPage extends StatelessWidget {
         'topic_details',
         index: 0,
         title: 'Topics',
-        helpText: 'Here you can read any scriptures associated with this '
-            'topic.\n\nTo create a plant that will help you study this topic '
-            'each day, press the button at the bottom of the screen.',
+        helpText: 'You can view all the scriptures for any topic, but to help '
+            'you remember to study it every day, you need to plant a seed.',
         child: Column(
           children: [
             Expanded(
@@ -107,7 +106,7 @@ class TopicDetailsPage extends StatelessWidget {
               child: TutorialFocus(
                 'topic_details',
                 index: 1,
-                overlayLabel: Text('Press to plant seed.'),
+                overlayLabel: Text('Tap here to plant a seed for this topic.'),
                 overlayShape: const StadiumBorder(),
                 child: _PurchasePlantButton(topic),
               ),
@@ -194,28 +193,37 @@ class _PurchasePlantButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
-          var purchased = progress.names.contains(topic.id);
+          final purchased = progress.names.contains(topic.id);
+          if (purchased) {
+            Provider.of<TutorialProvider>(context)
+                .maybeShow(context, 'topic_plant');
+          }
           return AppBarThemed(
-            ElevatedButton(
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(StadiumBorder()),
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            TutorialFocus(
+              'topic_plant',
+              overlayLabel: Text('Now tap again to view your plant.'),
+              overlayShape: const StadiumBorder(),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(StadiumBorder()),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AnimatedSizeSwitcher(
+                      child: purchased
+                          ? const Icon(Icons.check)
+                          : WalletIndicator(required: topic.cost),
+                    ),
+                    SizedBox(width: 8),
+                    Text(purchased ? 'View Plant' : 'Plant Seed'),
+                  ],
+                ),
+                onPressed: purchased
+                    ? () => _openPlant(context)
+                    : () => _purchase(context),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  AnimatedSizeSwitcher(
-                    child: purchased
-                        ? const Icon(Icons.check)
-                        : WalletIndicator(required: topic.cost),
-                  ),
-                  SizedBox(width: 8),
-                  Text(purchased ? 'View Plant' : 'Plant Seed'),
-                ],
-              ),
-              onPressed: purchased
-                  ? () => _openPlant(context)
-                  : () => _purchase(context),
             ),
           );
         },

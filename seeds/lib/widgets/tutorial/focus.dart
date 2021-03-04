@@ -8,13 +8,17 @@ import '../../utility/cutout_clipper.dart';
 import '../../utility/pass_through.dart';
 import 'step.dart';
 
+const defaultOverlayShape = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(Radius.circular(4.0))
+);
+
 /// A widget which will be focused on when a tutorial is triggered.
 class TutorialFocus extends StatefulWidget {
   const TutorialFocus(
     this.tag, {
     this.index = 0,
     this.overlayLabel,
-    this.overlayShape = const Border(),
+    this.overlayShape = defaultOverlayShape,
     this.overlayPadding = 4.0,
     @required this.child,
     Key key,

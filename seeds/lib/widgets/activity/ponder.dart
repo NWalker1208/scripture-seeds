@@ -45,9 +45,9 @@ class _PonderActivityState extends State<PonderActivity>
     super.build(context);
     return TutorialHelp(
       'activity1',
-      title: 'Ponder',
-      helpText: 'Write down what you learned about ${widget.topic.name} '
-          'from the verses you read.',
+      title: 'Step 2: Ponder',
+      helpText: 'Write down what those verses taught you about '
+          '${widget.topic.name}.',
       child: Center(
         child: ListView(
           shrinkWrap: true,

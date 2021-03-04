@@ -17,16 +17,21 @@ class TopicsDashboard extends StatelessWidget {
           // Dashboard item title
           const ListTile(
             title: Text('Topics'),
-            trailing: WalletIndicator(),
+            trailing: TutorialFocus(
+              'dashboard',
+              index: 1,
+              overlayLabel: Text('You will use seeds to unlock topics.'),
+              child: WalletIndicator(),
+            ),
           ),
 
           // Plant list
-          const TutorialFocus(
-            'dashboard',
-            index: 1,
-            overlayLabel: Text('Select a topic to begin.'),
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TutorialFocus(
+              'dashboard',
+              index: 2,
+              overlayLabel: Text('Select a topic that you want to study.'),
               child: TopicList(showPurchased: false, maxToShow: 8),
             ),
           ),
