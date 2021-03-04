@@ -12,9 +12,9 @@ Web App: http://nwalker1208.github.io/scripture-seeds/
 ## Current Features
 
 - Study scriptures for dozens of topics.
-- Grow plants that you water by studying.
+- Plant seeds to study new topics.
+- Water your plants by studying.
 - Collect seeds from harvesting plants.
-- Use seeds to study new topics.
 - Keep a journal of what you've studied.
 
 ## Future Features
