@@ -25,7 +25,7 @@ class ShareActivity extends StatelessWidget {
         'activity2',
         index: 0,
         title: 'Step 3 - Share',
-        helpText: 'You can share what you highlighted and wrote with others or '
+        helpText: 'You can share what studied with others or '
             'save it to your journal.',
         child: Center(
           child: ListView(
@@ -43,7 +43,9 @@ class ShareActivity extends StatelessWidget {
               TutorialFocus(
                 'activity2',
                 index: 1,
-                overlayLabel: Text('Tap here if you want to save this entry.'),
+                overlayLabel: Text('Tap here if you want to save this '
+                    'journal entry.'),
+                overlayAlignment: Alignment.bottomCenter,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[

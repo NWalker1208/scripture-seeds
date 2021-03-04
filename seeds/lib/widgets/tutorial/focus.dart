@@ -20,6 +20,7 @@ class TutorialFocus extends StatefulWidget {
     this.overlayLabel,
     this.overlayShape = defaultOverlayShape,
     this.overlayPadding = 4.0,
+    this.overlayAlignment = Alignment.topCenter,
     @required this.child,
     Key key,
   }) : super(key: key);
@@ -29,6 +30,7 @@ class TutorialFocus extends StatefulWidget {
   final Widget overlayLabel;
   final ShapeBorder overlayShape;
   final double overlayPadding;
+  final Alignment overlayAlignment;
   final Widget child;
 
   @override
@@ -57,6 +59,7 @@ class TutorialFocusState extends State<TutorialFocus> {
         initialCutout: _getCutout(),
         label: widget.overlayLabel,
         shape: widget.overlayShape,
+        alignment: widget.overlayAlignment,
         onDismiss: _disposeOverlay,
       ),
     );
@@ -126,6 +129,7 @@ class _FocusOverlay extends StatefulWidget {
     this.initialCutout,
     this.label,
     this.shape,
+    this.alignment,
     this.onDismiss,
     Key key,
   }) : super(key: key);
@@ -133,6 +137,7 @@ class _FocusOverlay extends StatefulWidget {
   final Rect initialCutout;
   final Widget label;
   final ShapeBorder shape;
+  final Alignment alignment;
   final void Function() onDismiss;
 
   @override
@@ -182,15 +187,19 @@ class _FocusOverlayState extends State<_FocusOverlay>
             opacity: CurvedAnimation(parent: _controller, curve: Curves.ease),
             child: Stack(
               children: [
-                Container(color: Colors.black54),
+                Container(
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? Colors.black54
+                      : Colors.black87,
+                ),
                 if (widget.label != null)
-                  Positioned(
-                    top: _cutout.top - 8,
-                    left: _cutout.left,
-                    width: _cutout.width,
-                    height: 0,
+                  Positioned.fromRect(
+                    rect: widget.alignment.inscribe(Size.zero, _cutout),
                     child: OverflowBox(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment(
+                        -widget.alignment.x,
+                        -widget.alignment.y,
+                      ),
                       minWidth: 0,
                       minHeight: 0,
                       maxWidth: double.infinity,
@@ -198,11 +207,12 @@ class _FocusOverlayState extends State<_FocusOverlay>
                       child: Material(
                         type: MaterialType.transparency,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(12.0),
                           child: DefaultTextStyle.merge(
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 18,
+                              fontSize: 16,
                             ),
                             child: widget.label,
                           ),

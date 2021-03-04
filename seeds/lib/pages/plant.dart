@@ -64,9 +64,10 @@ class PlantPage extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: TutorialFocus(
               'grow_plant',
-              index: 0,
-              overlayLabel: Text('When your plant is fully grown, you can '
+              index: 2,
+              overlayLabel: Text('When your plant is fully grown,\nyou can '
                   'harvest it for more seeds.'),
+              overlayAlignment: Alignment.bottomCenter,
               child: PlantProgressIndicator(topic.id),
             ),
           )),
@@ -77,10 +78,10 @@ class PlantPage extends StatelessWidget {
         index: 0,
         title: 'Plants',
         helpText: 'To keep your plants healthy, you have to water them by '
-            'studying a scripture for their topic.',
+            'studying scriptures about their topic.',
         child: TutorialHelp(
           'grow_plant',
-          index: 1,
+          index: 3,
           title: 'Remember',
           helpText: 'If you forget to water your plant for too long, it will '
               'start to wilt and you will lose progress.\n\nRemember to '
@@ -95,15 +96,10 @@ class PlantPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            TutorialFocus(
-              'grow_plant',
-              index: 2,
-              overlayLabel: Text('Finally, tap here to view your journal.'),
-              child: LabeledIconButton(
-                icon: const Icon(Icons.book),
-                label: 'Journal',
-                onPressed: () => Go.from(context).toJournal(),
-              ),
+            LabeledIconButton(
+              icon: const Icon(Icons.book),
+              label: 'Journal',
+              onPressed: () => Go.from(context).toJournal(),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

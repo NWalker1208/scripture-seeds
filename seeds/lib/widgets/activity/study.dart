@@ -64,7 +64,8 @@ class _StudyActivityState extends State<StudyActivity> {
   Widget build(BuildContext context) => TutorialHelp(
         'activity0',
         title: 'Step 1 - Study',
-        helpText: 'Study and highlight the verses that are outlined in green.',
+        helpText: 'Study the verses outlined in green and highlight the parts '
+            'that are meaningful to you.',
         child: ChapterView(
           widget.reference,
           onHighlightChange: onHighlightChange,

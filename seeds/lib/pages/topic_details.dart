@@ -30,7 +30,7 @@ class TopicDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Details'),
-        actions: [TutorialButton()],
+        actions: [TutorialButton(tag: 'topic_details')],
       ),
       body: TutorialHelp(
         'topic_details',
@@ -106,7 +106,7 @@ class TopicDetailsPage extends StatelessWidget {
               child: TutorialFocus(
                 'topic_details',
                 index: 1,
-                overlayLabel: Text('Tap here to plant a seed for this topic.'),
+                overlayLabel: Text('Tap here to plant a\nseed for this topic.'),
                 overlayShape: const StadiumBorder(),
                 child: _PurchasePlantButton(topic),
               ),
@@ -200,7 +200,7 @@ class _PurchasePlantButton extends StatelessWidget {
           return AppBarThemed(
             TutorialFocus(
               'topic_plant',
-              overlayLabel: Text('Now tap again to view your plant.'),
+              overlayLabel: Text('Tap again to\nview your plant.'),
               overlayShape: const StadiumBorder(),
               child: ElevatedButton(
                 style: ButtonStyle(

@@ -20,7 +20,8 @@ class TopicsDashboard extends StatelessWidget {
             trailing: TutorialFocus(
               'dashboard',
               index: 1,
-              overlayLabel: Text('You will use seeds to unlock topics.'),
+              overlayLabel: Text('Use seeds to unlock topics.'),
+              overlayAlignment: Alignment.centerLeft,
               child: WalletIndicator(),
             ),
           ),
