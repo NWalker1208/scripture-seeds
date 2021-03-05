@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:social_share/social_share.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../extensions/string.dart';
 import '../services/progress/provider.dart';
@@ -46,8 +46,11 @@ class PlantPage extends StatelessWidget {
             onSelected: (action) => action(),
             itemBuilder: (context) => [
               PopupMenuItem(
-                value: () => SocialShare.shareOptions(
-                  'I\'m studying about ${topic.name} with Scripture Seeds!',
+                value: () => Share.share(
+                  'I\'m studying the topic "${topic.name}" with '
+                  'Scripture Seeds: https://nwalker1208.github.io/'
+                  'scripture-seeds/#/topics/${topic.name}',
+                  subject: topic.name.capitalize(),
                 ),
                 child: Text('Share'),
               ),
