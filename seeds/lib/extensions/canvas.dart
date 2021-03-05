@@ -42,7 +42,10 @@ extension CanvasExtension on Canvas {
       final direction = (current + previous).direction + pi / 2;
       final offset = Offset.fromDirection(direction, line[i].width);
       final position = line[i].offset;
-      vertices.addAll([position + offset, position - offset]);
+      vertices.insert(0, position - offset);
+      vertices.add(position + offset);
+      // Replace when drawVertices works properly
+      //vertices.addAll([position - offset, position + offset]);
 
       previous = current;
     }
@@ -51,11 +54,13 @@ extension CanvasExtension on Canvas {
       throw UnimplementedError('Square caps not implemented yet.');
     }
 
-    drawVertices(
+    drawPath(Path()..addPolygon(vertices, true), paint);
+    // Draw vertices is broken on some platforms. Switch back when patched.
+    /*drawVertices(
       Vertices(VertexMode.triangleStrip, vertices),
       BlendMode.srcOver,
       paint,
-    );
+    );*/
 
     if (endCaps == StrokeCap.round && line.last.width > 0) {
       _drawEndCap(line.first, line[1], paint);
@@ -70,19 +75,47 @@ extension CanvasExtension on Canvas {
     final arc = pi + atan(widthChange / vector.distance);
     // Calculate center
     final direction = vector.direction;
-    final offset = Offset.fromDirection(direction, tan((pi - arc) / 2));
-    final center = end.offset - offset * end.width;
+    final offsetDistance = tan((pi - arc) / 2) * end.width + 0.025;
+    final offset = Offset.fromDirection(direction, offsetDistance);
+    final center = end.offset - offset;
     // Draw the arc
-    final edges = (10 * arc / pi).ceil();
-    drawVertices(
-      Vertices(VertexMode.triangleFan, [
-        for (int i = 0; i < edges; i++)
-          center +
-              Offset.fromDirection(direction + arc * (i / (edges - 1) - 0.5)) *
-                  end.width,
-      ]),
+    final edgeCount = (5 * arc / pi).ceil();
+    final vertices = [
+      for (int i = 0; i < edgeCount; i++)
+        center +
+            Offset.fromDirection(
+              direction + arc * (i / (edgeCount - 1) - 0.5),
+              end.width,
+            ),
+    ];
+    drawPath(Path()..addPolygon(vertices, true), paint);
+    // Draw vertices is broken on some platforms. Switch back when patched.
+    /*drawVertices(
+      Vertices(VertexMode.triangleFan, vertices),
       BlendMode.srcOver,
       paint,
+    );*/
+  }
+
+  /// Draws the given vertices as a wireframe.
+  void drawDebugVertices(List<Offset> vertices, Color color) {
+    print('Painting ${vertices.length} with color $color');
+    final debugPaint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 0.15;
+    drawPoints(
+      PointMode.points,
+      vertices,
+      debugPaint,
     );
+    debugPaint.strokeWidth = 0;
+    for (var i = 0; i < vertices.length - 2; i++) {
+      drawPoints(
+        PointMode.polygon,
+        [vertices[i], vertices[i + 1], vertices[i + 2], vertices[i]],
+        debugPaint,
+      );
+    }
   }
 }
