@@ -23,14 +23,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: "0.7.0"
-  firebase_auth: "^0.20.0+1"
-  google_sign_in: ^4.1.0
-  flutter_secure_storage: ^3.3.1+1
-  googleapis: ^0.54.0
-  googleapis_auth: ^0.2.11
   pedantic: ^1.9.0
   built_collection: ^5.0.0
+  firebase_auth: ^1.0.0
+  firebase_core: ^1.0.0
+  google_sign_in: ^5.0.0
+  googleapis: ^2.0.0
+  googleapis_auth: ^1.0.0
   hive: ^2.0.0
   hive_flutter: ^1.0.0
   http: ^0.13.0
