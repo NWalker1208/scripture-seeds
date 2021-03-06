@@ -101,13 +101,13 @@ class _ChapterViewState extends State<ChapterView> {
   Widget _buildAppBar(BuildContext context) {
     final primary = widget.primaryAppBar;
     return SliverAppBar(
+      backwardsCompatibility: false,
       pinned: true,
       primary: primary,
       automaticallyImplyLeading: primary,
       backgroundColor:
           primary ? null : Theme.of(context).scaffoldBackgroundColor,
-      foregroundColor:
-          primary ? null : Theme.of(context).colorScheme.onBackground,
+      foregroundColor: primary ? null : Theme.of(context).colorScheme.onSurface,
       iconTheme: primary ? null : Theme.of(context).iconTheme,
       centerTitle: true,
       titleSpacing: 4,
@@ -125,7 +125,10 @@ class _ChapterViewState extends State<ChapterView> {
   Widget buildVerseGroup(_VerseGroup group) {
     final firstVerse = widget.reference.verses.first;
     final referenceDecoration = BoxDecoration(
-      border: Border.all(color: Theme.of(context).primaryColor, width: 3.0),
+      border: Border.all(
+        color: Theme.of(context).colorScheme.primary,
+        width: 3.0,
+      ),
       borderRadius: BorderRadius.circular(8.0),
     );
 
@@ -159,53 +162,49 @@ class _ChapterViewState extends State<ChapterView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final chapterTitle = _buildAppBar(context);
-
-    return Theme(
-      data: Theme.of(context).copyWith(
-        textTheme: Theme.of(context)
-            .textTheme
-            .apply(fontFamily: 'Buenard', fontSizeDelta: 5),
-      ),
-      child: FutureBuilder<Iterable<String>>(
-        future: _chapter,
-        builder: (context, snapshot) => Stack(
-          alignment: Alignment.center,
-          children: [
-            // Loading indicator
-            if (!snapshot.hasData && !snapshot.hasError)
-              CircularProgressIndicator(),
-            // Error message
-            if (snapshot.hasError)
-              Column(mainAxisSize: MainAxisSize.min, children: [
-                Icon(Icons.error),
-                Text(
-                  'An error occurred.\n'
-                  'Please exit and try again.',
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-            // Chapter text
-            CustomScrollView(slivers: [
-              chapterTitle,
-              if (snapshot.hasData)
-                SliverPadding(
-                  padding: widget.padding,
-                  sliver: SliverList(
-                    delegate: SliverChildListDelegate([
-                      Column(children: [
-                        for (var group in _VerseGroup.createList(
-                            snapshot.data.toList(), widget.reference))
-                          buildVerseGroup(group),
-                      ]),
-                    ]),
-                  ),
-                ),
-            ]),
-          ],
+  Widget build(BuildContext context) => Theme(
+        data: Theme.of(context).copyWith(
+          textTheme: Theme.of(context)
+              .textTheme
+              .apply(fontFamily: 'Buenard', fontSizeDelta: 5),
         ),
-      ),
-    );
-  }
+        child: FutureBuilder<Iterable<String>>(
+          future: _chapter,
+          builder: (context, snapshot) => Stack(
+            alignment: Alignment.center,
+            children: [
+              // Loading indicator
+              if (!snapshot.hasData && !snapshot.hasError)
+                CircularProgressIndicator(),
+              // Error message
+              if (snapshot.hasError)
+                Column(mainAxisSize: MainAxisSize.min, children: [
+                  Icon(Icons.error),
+                  Text(
+                    'An error occurred.\n'
+                    'Please exit and try again.',
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
+              // Chapter text
+              CustomScrollView(slivers: [
+                _buildAppBar(context),
+                if (snapshot.hasData)
+                  SliverPadding(
+                    padding: widget.padding,
+                    sliver: SliverList(
+                      delegate: SliverChildListDelegate([
+                        Column(children: [
+                          for (var group in _VerseGroup.createList(
+                              snapshot.data.toList(), widget.reference))
+                            buildVerseGroup(group),
+                        ]),
+                      ]),
+                    ),
+                  ),
+              ]),
+            ],
+          ),
+        ),
+      );
 }

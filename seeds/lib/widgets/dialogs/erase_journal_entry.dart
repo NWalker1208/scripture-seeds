@@ -19,18 +19,18 @@ class EraseEntryDialog extends StatelessWidget {
         actions: <Widget>[
           // Reset progress if user selects yes
           TextButton(
-            child: Text('CONTINUE'),
             onPressed: () {
               Navigator.of(context).pop(true);
               Provider.of<JournalProvider>(context, listen: false)
                   .deleteCollection(entriesToDelete);
             },
+            child: Text('CONTINUE'),
           ),
 
           // Close dialog if user selects no
           ElevatedButton(
-            child: Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
+            child: Text('CANCEL'),
           )
         ],
       );

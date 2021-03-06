@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utility/go.dart';
+
 class ActivityError extends StatelessWidget {
   const ActivityError({Key key}) : super(key: key);
 
@@ -20,8 +22,7 @@ class ActivityError extends StatelessWidget {
               ElevatedButton.icon(
                 icon: Icon(Icons.settings),
                 label: Text('Settings'),
-                onPressed: () =>
-                    Navigator.of(context).popAndPushNamed('/settings'),
+                onPressed: () => Go.from(context).toSettings(),
               )
             ],
           ),

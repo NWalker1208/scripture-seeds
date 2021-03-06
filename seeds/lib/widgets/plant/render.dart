@@ -1,115 +1,91 @@
-import 'dart:math' as math;
+import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
+import '../../extensions/canvas.dart';
+import 'branch.dart';
 
 class RenderPlant extends RenderBox {
-  /// Width of stem in percent of [size.height].
-  static const double _kStemWidth = 0.03;
+  RenderPlant(
+    PlantBranch root, {
+    double scaleOffset = 0,
+    double leafScale = 1,
+    double fruitScale = 1,
+    Color stemColor = Colors.brown,
+    Color leafColor = Colors.green,
+    Color fruitColor = Colors.red,
+  })  : _root = root,
+        _scaleOffset = scaleOffset,
+        _leafScale = leafScale,
+        _fruitScale = fruitScale,
+        _stemColor = stemColor,
+        _leafColor = leafColor,
+        _fruitColor = fruitColor;
 
-  /// Total number of leaves.
-  static const int _kLeafCount = 15;
+  PlantBranch _root;
+  double _scaleOffset;
+  double _leafScale;
+  double _fruitScale;
+  Color _stemColor;
+  Color _leafColor;
+  Color _fruitColor;
 
-  /// Length of leaf in percent of [size.height].
-  static const double _kLeafLength = 0.075;
-
-  /// Radius of leaf curvature in percent of [size.height].
-  static const double _kLeafRadius = 0.05;
-
-  /// Distance at which leaves taper in size.
-  /// Measured in percent of [size.height].
-  static const double _kLeafTaperDistance = 0.02;
-
-  /// Radius of fruit in percent of [size.height].
-  static const double _kFruitSize = 0.05;
-
-  /// Color of fruit.
-  static const Color _kFruitColor = Color(0xFFDD0000);
-
-  RenderPlant({
-    double growth = 0,
-    Color color = Colors.green,
-    bool hasFruit = false,
-    Gradient skyGradient,
-    Color dirtColor,
-    EdgeInsets padding,
-  })  : _growth = growth,
-        _color = color,
-        _hasFruit = hasFruit,
-        _skyGradient = skyGradient,
-        _dirtColor = dirtColor,
-        _padding = padding;
-
-  double _growth;
-  double get growth => _growth;
-  set growth(double value) {
-    if (_growth != value) {
-      _growth = value;
-      markNeedsPaint();
-    }
+  /// The root of the plant to render.
+  PlantBranch get root => _root;
+  set root(PlantBranch value) {
+    if (_root == value) return;
+    _root = value;
+    markNeedsPaint();
   }
 
-  Color _color;
-  Color get color => _color;
-  set color(Color value) {
-    if (_color != value) {
-      _color = value;
-      markNeedsPaint();
-    }
+  /// Reduces the scale of all PlantNodes. Hides any nodes that end up smaller
+  /// than zero.
+  double get scaleOffset => _scaleOffset;
+  set scaleOffset(double value) {
+    if (_scaleOffset == value) return;
+    _scaleOffset = value;
+    markNeedsPaint();
   }
 
-  bool _hasFruit;
-  bool get hasFruit => _hasFruit;
-  set hasFruit(bool value) {
-    if (_hasFruit == value) {
-      _hasFruit = value;
-      markNeedsPaint();
-    }
+  /// The scale multiplier for leaves. Leaves are not rendered if this equals 0.
+  double get leafScale => _leafScale;
+  set leafScale(double value) {
+    if (_leafScale == value) return;
+    _leafScale = value;
+    markNeedsPaint();
   }
 
-  Gradient _skyGradient;
-  Gradient get skyGradient => _skyGradient;
-  set skyGradient(Gradient value) {
-    if (_skyGradient != value) {
-      _skyGradient = value;
-      markNeedsPaint();
-    }
+  /// The scale multiplier for fruit. Fruit are not rendered if this equals 0.
+  double get fruitScale => _fruitScale;
+  set fruitScale(double value) {
+    if (_fruitScale == value) return;
+    _fruitScale = value;
+    markNeedsPaint();
   }
 
-  Color _dirtColor;
-  Color get dirtColor => _dirtColor;
-  set dirtColor(Color value) {
-    if (_dirtColor != value) {
-      _dirtColor = value;
-      markNeedsPaint();
-    }
+  /// The color of the stem/trunk.
+  Color get stemColor => _stemColor;
+  set stemColor(Color value) {
+    if (_stemColor == value) return;
+    _stemColor = value;
+    markNeedsPaint();
   }
 
-  EdgeInsets _padding;
-  EdgeInsets get padding => _padding;
-  set padding(EdgeInsets value) {
-    if (_padding != value) {
-      _padding = value;
-      markNeedsPaint();
-    }
+  /// The color of the leaves.
+  Color get leafColor => _leafColor;
+  set leafColor(Color value) {
+    if (_leafColor == value) return;
+    _leafColor = value;
+    markNeedsPaint();
   }
 
-  Shader get _skyShader => skyGradient.createShader(Offset.zero & size);
-  double get _dirtHeight => padding.bottom;
-
-  Offset get _stemStart => size.bottomCenter(Offset(0, -padding.bottom));
-  Offset get _stemEnd => _stemStart.translate(0, -_maxStemHeight * growth);
-  double get _stemWidth => size.height * _kStemWidth;
-  double get _maxStemHeight => size.height - padding.vertical;
-
-  int get _leafCount => _kLeafCount;
-  double get _leafLength => size.height * _kLeafLength;
-  double get _leafRadius => size.height * _kLeafRadius;
-  double _leafScale(double height) =>
-      math.min(1.0, (growth - height) / _kLeafTaperDistance);
-
-  double get _fruitRadius => size.height * _kFruitSize;
-  Color get _fruitColor => _kFruitColor;
+  /// The color of the fruit.
+  Color get fruitColor => _fruitColor;
+  set fruitColor(Color value) {
+    if (_fruitColor == value) return;
+    _fruitColor = value;
+    markNeedsPaint();
+  }
 
   @override
   bool get sizedByParent => true;
@@ -122,80 +98,106 @@ class RenderPlant extends RenderBox {
     final canvas = context.canvas;
     canvas.save();
     canvas.translate(offset.dx, offset.dy);
-
-    _paintSky(canvas);
-    _paintStem(canvas);
-    _paintLeaves(canvas);
-    if (hasFruit) _paintFruit(canvas);
-    _paintDirt(canvas);
-
+    canvas.translate(size.width / 2, size.height);
+    canvas.scale(size.height / 30);
+    _paintLeaves(canvas, root);
+    _paintBranch(canvas, root);
     canvas.restore();
   }
 
-  void _paintSky(Canvas canvas) {
-    final sky = Paint()
-      ..style = PaintingStyle.fill
-      ..shader = _skyShader;
-
-    canvas.drawRect(Offset.zero & size, sky);
+  double _getLeafScale(double position) {
+    final size = 4 * position * (1 - position);
+    return size * size * size;
   }
 
-  void _paintDirt(Canvas canvas) {
-    final dirt = Paint()
-      ..style = PaintingStyle.fill
-      ..color = dirtColor;
+  static const _leafSize = 10.0;
+  void _paintLeaves(Canvas canvas, PlantBranch branch) {
+    if (leafScale == 0 || branch.scale == 0) return;
+    if (branch.scale < scaleOffset || branch.nodes.isEmpty) return;
 
-    final rect = Rect.fromPoints(size.bottomLeft(Offset.zero),
-        size.bottomRight(Offset(0, -_dirtHeight)));
+    var nodes = branch.nodes.where((node) => node.scale >= scaleOffset);
 
-    canvas.drawRect(rect, dirt);
-  }
-
-  void _paintStem(Canvas canvas) {
-    final stem = Paint()
-      ..style = PaintingStyle.stroke
-      ..color = color
-      ..strokeWidth = _stemWidth
-      ..strokeCap = StrokeCap.round;
-
-    canvas.drawLine(_stemStart, _stemEnd, stem);
-  }
-
-  void _paintLeaves(Canvas canvas) {
-    for (var i = 0; i < _leafCount; i++) {
-      final height = (i + 1.0) / (_leafCount + 0.5);
-      if (height >= growth) break;
-
-      final scale = (i.isEven ? -1.0 : 1.0) * _leafScale(height);
-      final offset = _stemStart.translate(
-        _stemWidth / 2 * scale.sign,
-        -_maxStemHeight * height,
-      );
-
-      _paintLeaf(canvas, offset, scale);
+    // Paint children
+    for (final node in nodes) {
+      for (final branch in node.branches) {
+        _paintLeaves(canvas, branch);
+      }
     }
+
+    // Skip painting leaves on bottom of trunk
+    if (branch == root) nodes = nodes.skip((nodes.length * 0.6).round());
+
+    // Paint leaves of branch
+    final leaf = Paint()..color = leafColor;
+
+    var index = 0;
+    final count = nodes.length;
+    canvas.drawWideLine(
+      [
+        for (final node in nodes)
+          OffsetWidth(
+            node.position,
+            leafScale *
+                (_leafSize *
+                        (node.scale - scaleOffset) *
+                        _getLeafScale(index++ / count) *
+                        (count / root.nodes.length) +
+                    0.7),
+          ),
+      ],
+      leaf,
+      endCaps: StrokeCap.round,
+    );
   }
 
-  void _paintLeaf(Canvas canvas, Offset offset, [double scale = 1]) {
-    final leaf = Paint()
-      ..style = PaintingStyle.fill
-      ..color = color;
+  static const _branchRadius = 1.0;
+  void _paintBranch(Canvas canvas, PlantBranch branch) {
+    if (branch.isFruit) return _paintFruit(canvas, branch.origin);
+    if (branch.scale < scaleOffset || branch.nodes.isEmpty) return;
 
-    final length = _leafLength * scale;
-    final radius = _leafRadius * scale;
-    final path = Path()
-      ..moveTo(offset.dx, offset.dy)
-      ..relativeArcToPoint(Offset(length, 0), radius: Radius.circular(radius))
-      ..relativeArcToPoint(Offset(-length, 0), radius: Radius.circular(radius));
+    final nodes = branch.nodes.where((node) => node.scale >= scaleOffset);
 
-    canvas.drawPath(path, leaf);
+    // Paint children
+    for (final node in nodes) {
+      for (final branch in node.branches) {
+        _paintBranch(canvas, branch);
+      }
+    }
+
+    // Paint branch
+    final stem = Paint()..color = stemColor;
+
+    canvas.drawWideLine(
+      [
+        OffsetWidth(
+          branch.origin,
+          _branchRadius * (branch.scale - scaleOffset),
+        ),
+        for (final node in nodes)
+          OffsetWidth(
+            node.position,
+            _branchRadius * (node.scale - scaleOffset),
+          ),
+      ],
+      stem,
+      initialDirection: branch == root ? pi * 1.5 : null,
+    );
   }
 
-  void _paintFruit(Canvas canvas) {
+  static const _fruitRadius = 0.8;
+  void _paintFruit(Canvas canvas, Offset position) {
+    if (fruitScale == 0) return;
+    final radius = _fruitRadius * fruitScale;
+    position += Offset(0, radius * 1.2);
+    final rect = Rect.fromCircle(center: position, radius: radius);
     final fruit = Paint()
-      ..style = PaintingStyle.fill
-      ..color = _fruitColor;
+      ..color = fruitColor
+      ..shader = RadialGradient(
+        colors: [fruitColor, Color.lerp(Colors.white, fruitColor, 0.75)],
+        stops: [0.4, 1],
+      ).createShader(rect);
 
-    canvas.drawCircle(_stemEnd, _fruitRadius, fruit);
+    canvas.drawShadow(Path()..addOval(rect), Colors.black, 2.0, false);
+    canvas.drawCircle(position, radius, fruit);
   }
 }

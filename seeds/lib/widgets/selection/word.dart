@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 
 import '../../extensions/string.dart';
 
+/// Stores information about the location and state of a word.
 class Word {
   final TextRange range;
   bool highlighted;
@@ -35,6 +36,7 @@ class Word {
   String toString() => '$range [$highlighted]';
 }
 
+/// Stores information about a range of selected words.
 @immutable
 class WordSelection {
   final Word start;
@@ -53,6 +55,7 @@ class WordSelection {
 }
 
 extension IterableExtension on Iterable<Word> {
+  /// Find the word closest to the given text position.
   Word atPosition(TextPosition position) {
     if (position == null) return null;
     var offset = position.offset;
@@ -61,6 +64,7 @@ extension IterableExtension on Iterable<Word> {
 }
 
 extension SelectionExtension on TextSelection {
+  /// Convert this selection into a WordSelection.
   WordSelection toWordSelection(Iterable<Word> words) {
     final start = baseOffset <= extentOffset ? base : extent;
     final end = baseOffset <= extentOffset ? extent : base;

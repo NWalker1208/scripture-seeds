@@ -2,10 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-// Responsible for:
-//  - Rendering highlights
-//  - Animations
-
+/// Stores information about how to render a selection.
 @immutable
 class SelectionDecoration {
   final TextSelection selection;
@@ -31,6 +28,8 @@ class SelectionDecoration {
   int get hashCode => hashValues(selection, color, shape);
 }
 
+/// Render object for selection widget.
+/// TODO: Add animations
 class RenderSelectionParagraph extends RenderParagraph {
   RenderSelectionParagraph({
     InlineSpan text,

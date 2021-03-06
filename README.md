@@ -1,69 +1,42 @@
 # Scripture Seeds
 
-An app to encourage the development of Christ-like attributes and aid in personal scripture study.
+An app to encourage daily personal scripture study.
 
-## Development Plan Priorities
+Uses the KJV Bible and the standard works of the Church of Jesus Christ of Latter-Day Saints.
+This app is not associated with the Church and any views expressed do not represent those of the Church.
 
-### 1) Functionality (finish before alpha)
-These items are necessary for the app to serve it's purpose.
-- [x] Functioning activity share (1 week)
-- [x] Back-button use in activities (0.5 weeks)
-- [x] Finish home page
-- [x] Study journal
-  - [x] Share, delete, and filter journal items
+Uses the open-source scripture database created by Steve Dibb: https://scriptures.nephi.org/
 
-### 2) Content (finish before beta)
-These items are necessary, but can be built upon over time.
-- [x] Revamp library system to be more extensible (1 week)
-  - [x] Program library.xml editor with web crawler for scripture text
-- [x] Add more topics and scriptures (1 week)
-- [x] Create remote library system
-  - [x] Improve caching and refreshing of library
-- [x] Finalize library
-  - [x] Remove ID's
-  - [x] Store book information
-  - [x] Allow user to filter books
-  - [x] Add topic summary and version number to library header (1 day)
-  - [x] Collect a large library (3 days)
-  - [x] Submit library for approval
-- [x] Create topics page (1 day)
+Web App: http://nwalker1208.github.io/scripture-seeds/
 
-### 3) Features and Design (finish before wide release)
-These items are unnecessary, but improve the user experience.
-- [x] Improve home screen (longer views, status, sliverview)
-- [x] Add tutorial dialogs
-  - [x] Improve and expand tutorial system
-- [x] Fruit growth after reaching goal (1 week)
-  - [x] System to unlock new topics with fruit
-  - [x] Create way to sell topics after purchase
-  - [ ] Improve rendering of fruit
-- [x] Finish basic journal dashboard widget
-- [x] Show whole chapter while studying
-  - [x] Refactor library system to load only references
-  - [x] Create service for getting scripture text
-  - [x] Improve highlight widget performance
-  - [x] Add keepAlives to highlights
-- [x] Create topic page instead of immediately purchasing
-  - [x] Show list of scriptures
-  - [x] Purchase button/Link to plant
-- [x] Improve journal page
-- [x] Optimize plant renderer
-- [x] Create overlay based tutorial system
-- [ ] Add reminder notifications (0.5 weeks)
+## Current Features
+
+- Study scriptures for dozens of topics.
+- Plant seeds to study new topics.
+- Water your plants by studying.
+- Collect seeds from harvesting plants.
+- Keep a journal of what you've studied.
+
+## Future Features
+
+- [ ] Add reminder notifications
   - [ ] Setting for notification time
 - [ ] Intro page to configure default filter
-
-### 4) Bonus (future features)
 - [ ] Google Drive API for backup and sync
-- [ ] Web and Desktop
-- [ ] Define word in scripture (1 week)
+- [ ] Define word in scripture
 - [ ] Save highlights to database
 - [ ] Create custom topic based on keyword search
   - [ ] Create index of words in scriptures
-- [x] Refactor highlight to use render objects
-- [x] Refactor code to follow MVC
-- [x] Improve plant display (1 week)
-  - [x] Make scaling relative to size
-  - [x] Create actual plant graphic
-  - [x] Improve animation
 
+## Project Structure
+
+- seeds
+  - Flutter project for all platforms.
+- LibraryBackend
+  - Web crawler code for generating topic library.
+- Common Assets
+  - Icons, images, or other resources.
+
+## Contributing Code
+
+I will not have a lot of time to review pull requests, but any contributions are welcome.

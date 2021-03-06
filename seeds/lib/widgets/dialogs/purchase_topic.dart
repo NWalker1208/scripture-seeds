@@ -21,7 +21,6 @@ class PurchaseTopicDialog extends StatelessWidget {
             'to start studying the topic "${topic.name}?"'),
         actions: <Widget>[
           TextButton(
-            child: const Text('CONTINUE'),
             onPressed: () {
               if (Provider.of<WalletProvider>(context, listen: false)
                   .spend(topic.cost)) {
@@ -32,10 +31,11 @@ class PurchaseTopicDialog extends StatelessWidget {
                 Navigator.of(context).pop(false);
               }
             },
+            child: const Text('CONTINUE'),
           ),
           TextButton(
-            child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('CANCEL'),
           ),
         ],
       );

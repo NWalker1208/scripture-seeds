@@ -4,9 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import 'render.dart';
 
-// Responsible for:
-//  - Creating and updating render object
-
+/// Selection widget responsible for creating and updating the render object.
 class SelectionParagraph extends RichText {
   SelectionParagraph({
     @required InlineSpan text,

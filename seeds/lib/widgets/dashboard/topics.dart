@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utility/go.dart';
 import '../topics/list.dart';
 import '../tutorial/focus.dart';
 import 'indicators/wallet.dart';
@@ -16,23 +17,29 @@ class TopicsDashboard extends StatelessWidget {
           // Dashboard item title
           const ListTile(
             title: Text('Topics'),
-            trailing: WalletIndicator(),
+            trailing: TutorialFocus(
+              'dashboard',
+              index: 1,
+              overlayLabel: Text('Use seeds to unlock topics.'),
+              overlayAlignment: Alignment.centerLeft,
+              child: WalletIndicator(),
+            ),
           ),
 
           // Plant list
-          const TutorialFocus(
-            'dashboard',
-            index: 1,
-            overlayLabel: Text('Select a topic to begin.'),
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TutorialFocus(
+              'dashboard',
+              index: 2,
+              overlayLabel: Text('Select a topic that you want to study.'),
               child: TopicList(showPurchased: false, maxToShow: 8),
             ),
           ),
 
           ListTile(
             title: const Text('View All', textAlign: TextAlign.center),
-            onTap: () => Navigator.of(context).pushNamed('/topics'),
+            onTap: () => Go.from(context).toTopics(),
           ),
         ],
       );

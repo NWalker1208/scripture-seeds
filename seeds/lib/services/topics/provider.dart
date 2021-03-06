@@ -21,6 +21,8 @@ class TopicIndexProvider extends ChangeNotifier {
   DateTime _lastRefresh;
   DateTime get lastRefresh => _lastRefresh;
 
+  bool get isLoaded => _index != null;
+
   /// Refresh the cached topic index download. Returns true if successful.
   /// Does nothing when running from web.
   Future<bool> refresh() async {
