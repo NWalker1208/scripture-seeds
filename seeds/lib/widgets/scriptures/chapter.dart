@@ -101,8 +101,8 @@ class _ChapterViewState extends State<ChapterView> {
   Widget _buildAppBar(BuildContext context) {
     final primary = widget.primaryAppBar;
     return SliverAppBar(
-      pinned: true,
       backwardsCompatibility: false,
+      pinned: true,
       primary: primary,
       automaticallyImplyLeading: primary,
       backgroundColor:

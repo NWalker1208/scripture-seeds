@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../services/tutorial/provider.dart';
 
+import '../services/tutorial/provider.dart';
+import '../utility/go.dart';
 import '../widgets/dashboard/journal.dart';
 import '../widgets/dashboard/plants.dart';
 import '../widgets/dashboard/topics.dart';
@@ -20,6 +21,7 @@ class DashboardPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            backwardsCompatibility: false,
             expandedHeight: 160,
             pinned: true,
             stretch: true,
@@ -33,7 +35,7 @@ class DashboardPage extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.settings),
                 tooltip: 'Settings',
-                onPressed: () => Navigator.pushNamed(context, '/settings'),
+                onPressed: () => Go.from(context).toSettings(),
               ),
             ],
           ),
@@ -42,10 +44,10 @@ class DashboardPage extends StatelessWidget {
           TutorialHelp(
             'dashboard',
             index: 0,
-            title: 'Dashboard',
-            helpText: 'Welcome to Scripture Seeds!\n\nFrom this page, '
-                'you can check on your plants, explore new topics, and '
-                'review your journal entries.',
+            title: 'Tutorial',
+            helpText: 'Welcome to Scripture Seeds!\n\nTo begin, let us walk '
+                'you through how this app can help you remember to study the '
+                'scriptures every day.',
             child: SliverList(
               delegate: SliverChildListDelegate(
                 const [

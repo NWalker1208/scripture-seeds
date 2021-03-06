@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -66,7 +68,7 @@ class AppProvidersState extends State<AppProviders> {
 
   /// Upgrade data from old databases to the new systems.
   Future<void> attemptUpgrade() async {
-    if (!kIsWeb) {
+    if (!kIsWeb && Platform.isAndroid) {
       await progress.modify((data) => SqlProgressDatabase().upgrade(data));
       await journal.modify((data) => JsonJournalDatabase().upgrade(data));
       await history.modify((data) => SqlHistoryDatabase().upgrade(data));

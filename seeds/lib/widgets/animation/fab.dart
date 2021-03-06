@@ -26,13 +26,13 @@ class AnimatedFloatingActionButton extends StatelessWidget {
               ? Theme.of(context).disabledColor
               : backgroundColor ?? Theme.of(context).accentColor,
         ),
-        child: IconSwitcher(icon),
         builder: (context, color, child) => FloatingActionButton(
-          child: child,
           tooltip: tooltip,
           backgroundColor: color,
           disabledElevation: 2,
           onPressed: disabled ? null : onPressed,
+          child: child,
         ),
+        child: IconSwitcher(icon),
       );
 }

@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 
 import '../services/journal/entry.dart';
 import '../services/scriptures/reference.dart';
-import '../utility/social_share_system.dart';
 
 class JournalEntryView extends StatelessWidget {
   final JournalEntry entry;
@@ -99,9 +98,8 @@ class JournalEntryView extends StatelessWidget {
                   visualDensity: VisualDensity.compact,
                   icon: Icon(Icons.share),
                   tooltip: 'Share',
-                  onPressed: () => SocialShareSystem.shareJournalEntry(
-                    entry: entry,
-                    onReturn: (success) {
+                  onPressed: () => entry.shareAsString().then(
+                    (success) {
                       if (success && onShare != null) onShare();
                     },
                   ),

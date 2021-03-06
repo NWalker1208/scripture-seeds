@@ -17,17 +17,17 @@ class EraseJournalDialog extends StatelessWidget {
         actions: <Widget>[
           // Reset progress if user selects yes
           TextButton(
-            child: const Text('CONTINUE'),
             onPressed: () {
               Navigator.of(context).pop(true);
               Provider.of<JournalProvider>(context, listen: false).deleteAll();
             },
+            child: const Text('CONTINUE'),
           ),
 
           // Close dialog if user selects no
           ElevatedButton(
-            child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('CANCEL'),
           )
         ],
       );

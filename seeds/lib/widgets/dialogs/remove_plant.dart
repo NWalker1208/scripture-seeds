@@ -22,7 +22,6 @@ class RemovePlantDialog extends StatelessWidget {
                 'also lose any progress for this topic.'),
         actions: <Widget>[
           TextButton(
-            child: const Text('CONTINUE'),
             onPressed: () {
               if (Provider.of<ProgressProvider>(context, listen: false)
                   .remove(topic.id)) {
@@ -32,10 +31,11 @@ class RemovePlantDialog extends StatelessWidget {
                 Navigator.of(context).pop(false);
               }
             },
+            child: const Text('CONTINUE'),
           ),
           ElevatedButton(
-            child: const Text('CANCEL'),
             onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('CANCEL'),
           ),
         ],
       );

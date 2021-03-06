@@ -45,9 +45,9 @@ class _PonderActivityState extends State<PonderActivity>
     super.build(context);
     return TutorialHelp(
       'activity1',
-      title: 'Ponder',
-      helpText: 'Write down what you learned about ${widget.topic.name} '
-          'from the verses you read.',
+      title: 'Step 2 - Ponder',
+      helpText: 'Write down what those verses taught you about the topic '
+          '"${widget.topic.name}."',
       child: Center(
         child: ListView(
           shrinkWrap: true,
@@ -66,7 +66,7 @@ class _PonderActivityState extends State<PonderActivity>
                   maxLines: null,
                   controller: _textController,
                   decoration: InputDecoration(
-                    hintText: '${widget.topic.name.capitalize()}...',
+                    hintText: 'Type at least 8 words to continue.',
                     counterText: '$wordCount/${widget.minWords} words',
                     counterStyle: Theme.of(context).textTheme.caption.copyWith(
                         color: (wordCount < widget.minWords)

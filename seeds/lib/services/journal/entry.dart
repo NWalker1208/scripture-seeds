@@ -2,11 +2,12 @@ import 'package:built_collection/built_collection.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../utility/shareable.dart';
 part 'entry.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 1)
-class JournalEntry implements Comparable<JournalEntry> {
+class JournalEntry with Shareable implements Comparable<JournalEntry> {
   JournalEntry({
     DateTime created,
     this.category = 'other',
@@ -42,6 +43,9 @@ class JournalEntry implements Comparable<JournalEntry> {
   @override
   String toString() =>
       '"$quote" ($reference): "$commentary" [${tags.join(', ')}]';
+
+  @override
+  String toShareString() => '"$quote" - $reference\n$commentary';
 
   @override
   int compareTo(JournalEntry other) => created.compareTo(other.created);

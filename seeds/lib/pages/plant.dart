@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:social_share/social_share.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../extensions/string.dart';
 import '../services/progress/provider.dart';
@@ -8,6 +8,7 @@ import '../services/topics/topic.dart';
 import '../services/tutorial/provider.dart';
 import '../services/wallet/provider.dart';
 import '../utility/custom_icons.dart';
+import '../utility/go.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dialogs/extra_study.dart';
 import '../widgets/dialogs/remove_plant.dart';
@@ -29,9 +30,7 @@ class PlantPage extends StatelessWidget {
       barrierDismissible: true,
       builder: (_) => RemovePlantDialog(topic),
     ).then((removed) {
-      if (removed ?? false) {
-        Navigator.of(context).popUntil(ModalRoute.withName('/'));
-      }
+      if (removed ?? false) Go.from(context).toHome();
     });
   }
 
@@ -47,14 +46,17 @@ class PlantPage extends StatelessWidget {
             onSelected: (action) => action(),
             itemBuilder: (context) => [
               PopupMenuItem(
-                child: Text('Share'),
-                value: () => SocialShare.shareOptions(
-                  'I\'m studying about ${topic.name} with Scripture Seeds!',
+                value: () => Share.share(
+                  'I\'m studying the topic "${topic.name}" with '
+                  'Scripture Seeds: https://nwalker1208.github.io/'
+                  'scripture-seeds/#/topics/${topic.name}',
+                  subject: topic.name.capitalize(),
                 ),
+                child: Text('Share'),
               ),
               PopupMenuItem(
-                child: Text('Remove'),
                 value: () => removePlant(context),
+                child: Text('Remove'),
               ),
             ],
           ),
@@ -63,7 +65,14 @@ class PlantPage extends StatelessWidget {
           preferredSize: const Size(0, 50),
           child: AppBarThemed(Padding(
             padding: const EdgeInsets.all(12.0),
-            child: PlantProgressIndicator(topic.id),
+            child: TutorialFocus(
+              'grow_plant',
+              index: 2,
+              overlayLabel: Text('When your plant is fully grown,\nyou can '
+                  'harvest it for more seeds.'),
+              overlayAlignment: Alignment.bottomCenter,
+              child: PlantProgressIndicator(topic.id),
+            ),
           )),
         ),
       ),
@@ -71,12 +80,19 @@ class PlantPage extends StatelessWidget {
         'plant',
         index: 0,
         title: 'Plants',
-        helpText: 'To help your plants grow, water them each day by studying '
-            'the scriptures.\n\nClick the blue button below to study '
-            'a scripture about ${topic.name}.',
-        child: PlantView(
-          topic.id,
-          padding: EdgeInsets.symmetric(vertical: 50),
+        helpText: 'To keep your plants healthy, you have to water them by '
+            'studying scriptures about their topic.',
+        child: TutorialHelp(
+          'grow_plant',
+          index: 3,
+          title: 'Remember',
+          helpText: 'If you forget to water your plant for too long, it will '
+              'start to wilt and you will lose progress.\n\nRemember to '
+              'study every day so that you can collect your reward.',
+          child: PlantView(
+            topic.id,
+            padding: EdgeInsets.symmetric(vertical: 50),
+          ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -86,15 +102,14 @@ class PlantPage extends StatelessWidget {
             LabeledIconButton(
               icon: const Icon(Icons.book),
               label: 'Journal',
-              onPressed: () => Navigator.pushNamed(context, '/journal',
-                  arguments: topic.name),
+              onPressed: () => Go.from(context).toJournal(),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TutorialFocus(
                 'plant',
                 index: 1,
-                overlayLabel: Text('Water your plant to help it grow.'),
+                overlayLabel: Text('Tap here to water your plant.'),
                 overlayShape: const CircleBorder(),
                 child: _StudyButton(topic),
               ),
@@ -102,8 +117,7 @@ class PlantPage extends StatelessWidget {
             LabeledIconButton(
               icon: const Icon(Icons.article),
               label: 'Details',
-              onPressed: () => Navigator.pushNamed(context, '/topics/details',
-                  arguments: topic.id),
+              onPressed: () => Go.from(context).toDetails(),
             ),
           ],
         ),
@@ -128,9 +142,7 @@ class _StudyButton extends StatelessWidget {
     });
   }
 
-  void openActivity(BuildContext context) {
-    Navigator.pushNamed(context, '/plant/activity', arguments: topic.id);
-  }
+  void openActivity(BuildContext context) => Go.from(context).toActivity();
 
   void collectReward(BuildContext context) {
     var progress = Provider.of<ProgressProvider>(context, listen: false);
@@ -148,9 +160,13 @@ class _StudyButton extends StatelessWidget {
           var reward = record.rewardAvailable;
           var canMakeProgress = record.canMakeProgressToday;
 
+          if (!canMakeProgress) {
+            Provider.of<TutorialProvider>(context)
+                .maybeShow(ModalRoute.of(context).subtreeContext, 'grow_plant');
+          }
+
           return FloatingActionButton(
             tooltip: 'Study',
-            child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
             backgroundColor: (canMakeProgress || reward)
                 ? Theme.of(context).accentColor
                 : Theme.of(context).disabledColor,
@@ -163,6 +179,7 @@ class _StudyButton extends StatelessWidget {
                 openActivity(context);
               }
             },
+            child: Icon(reward ? CustomIcons.sickle : CustomIcons.water_drop),
           );
         },
       );

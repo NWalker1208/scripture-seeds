@@ -9,6 +9,7 @@ import '../services/topics/provider.dart';
 import '../services/topics/topic.dart';
 import '../services/tutorial/provider.dart';
 import '../services/wallet/provider.dart';
+import '../utility/go.dart';
 import '../widgets/animation/switcher.dart';
 import '../widgets/app_bar_themed.dart';
 import '../widgets/dashboard/indicators/wallet.dart';
@@ -29,21 +30,21 @@ class TopicDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Details'),
-        actions: [TutorialButton()],
+        actions: [TutorialButton(tag: 'topic_details')],
       ),
       body: TutorialHelp(
         'topic_details',
         index: 0,
         title: 'Topics',
-        helpText: 'Here you can read any scriptures associated with this '
-            'topic.\n\nTo create a plant that will help you study this topic '
-            'each day, press the button at the bottom of the screen.',
+        helpText: 'You can view all the scriptures for any topic, but to help '
+            'you remember to study it every day, you need to plant a seed.',
         child: Column(
           children: [
             Expanded(
               child: CustomScrollView(
                 slivers: [
                   SliverAppBar(
+                    backwardsCompatibility: false,
                     pinned: true,
                     primary: false,
                     automaticallyImplyLeading: false,
@@ -69,6 +70,7 @@ class TopicDetailsPage extends StatelessWidget {
                 primary: false,
                 slivers: [
                   SliverAppBar(
+                    backwardsCompatibility: false,
                     pinned: true,
                     primary: false,
                     automaticallyImplyLeading: false,
@@ -106,7 +108,7 @@ class TopicDetailsPage extends StatelessWidget {
               child: TutorialFocus(
                 'topic_details',
                 index: 1,
-                overlayLabel: Text('Press to plant seed.'),
+                overlayLabel: Text('Tap here to plant a\nseed for this topic.'),
                 overlayShape: const StadiumBorder(),
                 child: _PurchasePlantButton(topic),
               ),
@@ -149,11 +151,8 @@ class _VolumeRefList extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6.0),
                     child: ActionChip(
-                      elevation: 4,
                       label: Text(reference.toString()),
-                      onPressed: () => Navigator.of(context).pushNamed(
-                          '/scripture',
-                          arguments: reference.toString()),
+                      onPressed: () => Go.from(context).toScripture(reference),
                     ),
                   ),
               ],
@@ -184,43 +183,47 @@ class _PurchasePlantButton extends StatelessWidget {
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('You need to collect more seeds from other topics '
-            'before starting this one.'),
+        content: Text('You don\'t have enough seeds.'),
       ));
     }
   }
 
-  void _openPlant(BuildContext context) {
-    Navigator.of(context).pushNamedAndRemoveUntil(
-        '/plant', ModalRoute.withName('/'),
-        arguments: topic.id);
-  }
+  void _openPlant(BuildContext context) => Go.from(context).toPlant();
 
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
-          var purchased = progress.names.contains(topic.id);
+          final purchased = progress.names.contains(topic.id);
+          if (purchased) {
+            Provider.of<TutorialProvider>(context)
+                .maybeShow(context, 'topic_plant');
+          }
           return AppBarThemed(
-            ElevatedButton(
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(StadiumBorder()),
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            TutorialFocus(
+              'topic_plant',
+              overlayLabel: Text('Tap again to\nview your plant.'),
+              overlayShape: const StadiumBorder(),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(StadiumBorder()),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                onPressed: purchased
+                    ? () => _openPlant(context)
+                    : () => _purchase(context),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AnimatedSizeSwitcher(
+                      child: purchased
+                          ? const Icon(Icons.check)
+                          : WalletIndicator(required: topic.cost),
+                    ),
+                    SizedBox(width: 8),
+                    Text(purchased ? 'View Plant' : 'Plant Seed'),
+                  ],
+                ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  AnimatedSizeSwitcher(
-                    child: purchased
-                        ? const Icon(Icons.check)
-                        : WalletIndicator(required: topic.cost),
-                  ),
-                  SizedBox(width: 8),
-                  Text(purchased ? 'View Plant' : 'Plant Seed'),
-                ],
-              ),
-              onPressed: purchased
-                  ? () => _openPlant(context)
-                  : () => _purchase(context),
             ),
           );
         },
