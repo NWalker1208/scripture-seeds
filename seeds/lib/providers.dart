@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'services/firebase/provider.dart';
 import 'services/history/hive.dart';
 import 'services/history/provider.dart';
 import 'services/history/sql.dart';
@@ -14,6 +14,7 @@ import 'services/journal/provider.dart';
 import 'services/progress/hive.dart';
 import 'services/progress/provider.dart';
 import 'services/progress/sql.dart';
+import 'services/proxies/google_drive.dart';
 import 'services/proxies/study_library.dart';
 import 'services/scriptures/database.dart';
 import 'services/scriptures/json.dart';
@@ -38,8 +39,6 @@ class AppProviders extends StatefulWidget {
 }
 
 class AppProvidersState extends State<AppProviders> {
-  final _initialization = Firebase.initializeApp();
-
   // App Data
   ScriptureDatabase scriptures = JsonScriptureDatabase();
   final topicIndex = TopicIndexProvider();
@@ -49,6 +48,7 @@ class AppProvidersState extends State<AppProviders> {
   final filters = FilterProvider();
 
   // User Data
+  final firebase = FirebaseProvider();
   final tutorial = TutorialProvider(() => SharedPrefsTutorialDatabase());
   final wallet = WalletProvider(() => SharedPrefsWalletService());
   final progress = ProgressProvider(() => HiveProgressDatabase());
@@ -57,6 +57,7 @@ class AppProvidersState extends State<AppProviders> {
 
   /// Refreshes all user data services.
   Future<void> refreshAll() async {
+    await firebase.refresh();
     await tutorial.refresh();
     await wallet.refresh();
     await progress.refresh();
@@ -84,9 +85,10 @@ class AppProvidersState extends State<AppProviders> {
   @override
   void dispose() {
     scriptures.close();
+    topicIndex.dispose();
     themes.dispose();
     filters.dispose();
-    topicIndex.dispose();
+    firebase.dispose();
     tutorial.dispose();
     wallet.dispose();
     progress.dispose();
@@ -106,17 +108,20 @@ class AppProvidersState extends State<AppProviders> {
     return MultiProvider(
       providers: [
         // Providers
-        FutureProvider.value(value: _initialization),
         Provider.value(value: scriptures),
         ChangeNotifierProvider.value(value: topicIndex),
         ChangeNotifierProvider.value(value: themes),
         ChangeNotifierProvider.value(value: filters),
+        ChangeNotifierProvider.value(value: firebase),
         ChangeNotifierProvider.value(value: tutorial),
         ChangeNotifierProvider.value(value: wallet),
         ChangeNotifierProvider.value(value: progress),
         ChangeNotifierProvider.value(value: journal),
         ChangeNotifierProvider.value(value: history),
         // Proxy
+        ProxyProvider0<GoogleDriveProxy>(
+          update: (context, old) => GoogleDriveProxy.fromContext(context),
+        ),
         ProxyProvider0<StudyLibraryProxy>(
           update: (context, old) => StudyLibraryProxy.fromContext(context),
         ),

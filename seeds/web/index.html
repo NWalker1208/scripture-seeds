@@ -16,6 +16,7 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+  <meta name="google-signin-client_id" content="325127689157-389s89a5ekfejd4advh75qpfieevt0rd.apps.googleusercontent.com" />
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,6 +43,26 @@
       });
     }
   </script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAMztpieyGc92Tf52AZhKYI31FI5iJfp70",
+      authDomain: "scripture-seeds.firebaseapp.com",
+      databaseURL: "https://scripture-seeds.firebaseio.com",
+      projectId: "scripture-seeds",
+      storageBucket: "scripture-seeds.appspot.com",
+      messagingSenderId: "325127689157",
+      appId: "1:325127689157:web:1e9ba7af6fa65f17d531ac"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

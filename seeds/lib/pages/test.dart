@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+
+import '../services/proxies/google_drive.dart';
 
 /// Debug-only test page for testing new features.
 class TestPage extends StatefulWidget {
@@ -13,61 +12,52 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
-  List<DateTime> items = [];
-
-  void addItem() {
-    setState(() {
-      items.add(DateTime.now());
-    });
-  }
-
-  void removeItem(DateTime item) {
-    setState(() {
-      items.remove(item);
-    });
-  }
-
-  @override
-  void initState() {
-    addItem();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: Text('Test Page')),
         body: ListView(
           children: [
             ListTile(
-              onTap: signInWithGoogle,
-              title: Consumer<FirebaseApp>(
-                builder: (context, app, child) {
-                  if (app == null) return CircularProgressIndicator();
-                  return Text(FirebaseAuth.instance.currentUser.displayName);
-                },
-              ),
-            )
+              onTap: () => googleDriveUpload(context),
+              title: Text('Upload Google Drive Test'),
+            ),
+            ListTile(
+              onTap: () async {
+                final result = await googleDriveDownload(context);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(result ?? 'Download failed.'),
+                ));
+              },
+              title: Text('Download Google Drive Test'),
+            ),
+            ListTile(
+              onTap: () async {
+                final result = await googleDriveList(context);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(result ?? 'Download failed.'),
+                ));
+              },
+              title: Text('List Google Drive Files'),
+            ),
           ],
         ),
       );
 }
 
-// Test Functions
+void googleDriveUpload(BuildContext context) {
+  final googleDrive = Provider.of<GoogleDriveProxy>(context, listen: false);
+  if (!googleDrive.authenticated) return;
+  googleDrive.uploadFile('test_folder/sub/sub2/test.txt', 'Hello World');
+}
 
-Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
-  final googleUser = await GoogleSignIn().signIn();
-  if (googleUser == null) return null;
+Future<String> googleDriveDownload(BuildContext context) async {
+  final googleDrive = Provider.of<GoogleDriveProxy>(context, listen: false);
+  if (!googleDrive.authenticated) return null;
+  return await googleDrive.downloadFile('test.txt');
+}
 
-  // Obtain the auth details from the request
-  final googleAuth = await googleUser.authentication;
-
-  // Create a new credential
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth.accessToken,
-    idToken: googleAuth.idToken,
-  );
-
-  // Once signed in, return the UserCredential
-  return await FirebaseAuth.instance.signInWithCredential(credential);
+Future<String> googleDriveList(BuildContext context) async {
+  final googleDrive = Provider.of<GoogleDriveProxy>(context, listen: false);
+  if (!googleDrive.authenticated) return null;
+  return (await googleDrive.listFiles()).toString();
 }

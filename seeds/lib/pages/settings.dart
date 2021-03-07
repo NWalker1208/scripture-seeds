@@ -8,6 +8,7 @@ import '../widgets/dialogs/about.dart';
 import '../widgets/settings/data_management.dart';
 import '../widgets/settings/library_filter.dart';
 import '../widgets/settings/library_refresh.dart';
+import '../widgets/settings/sign_in.dart';
 import '../widgets/settings/theme_selector.dart';
 import 'test.dart';
 
@@ -21,7 +22,8 @@ class SettingsPage extends StatelessWidget {
         appBar: AppBar(title: Text('Settings')),
         body: ListView(
           children: <Widget>[
-            const ThemeSelector(),
+            const GoogleSignInTile(),
+            const ThemeSelectorTile(),
             const Divider(),
             const LibraryFilterSettings(),
             const Divider(),

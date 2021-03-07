@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../services/theme/provider.dart';
 
-class ThemeSelector extends StatelessWidget {
-  const ThemeSelector({
+class ThemeSelectorTile extends StatelessWidget {
+  const ThemeSelectorTile({
     Key key,
   }) : super(key: key);
 
