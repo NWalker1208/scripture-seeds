@@ -2,20 +2,29 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 import 'package:googleapis/drive/v3.dart';
-import 'package:provider/provider.dart';
 import 'package:path/path.dart' as p;
+import 'package:provider/provider.dart';
 
-import '../firebase/provider.dart';
+import '../../saved.dart';
+import '../provider.dart';
 
-class GoogleDriveProxy {
+/// Stores a cache of ID's for paths in Google Drive
+abstract class DriveCacheDatabase<D> extends SavedDatabase<D, String, String> {}
+
+/// Provides an interface for accessing files in the AppData portion of
+/// Google Drive.
+class DriveProxy {
   static final _appData = 'appDataFolder';
   static final _folderType = 'application/vnd.google-apps.folder';
 
-  const GoogleDriveProxy(this.api);
-  factory GoogleDriveProxy.fromContext(BuildContext context) =>
-      GoogleDriveProxy(Provider.of<FirebaseProvider>(context).driveApi);
+  const DriveProxy(this.api, this.cache);
+  factory DriveProxy.fromContext(BuildContext context) => DriveProxy(
+        Provider.of<FirebaseProvider>(context).driveApi,
+        Provider.of<DriveCacheDatabase>(context),
+      );
 
   final DriveApi api;
+  final DriveCacheDatabase cache;
 
   bool get authenticated => api != null;
 
@@ -37,7 +46,10 @@ class GoogleDriveProxy {
           ..parents = [parent],
         uploadMedia: media,
       );
-      print('Created file in Google Drive: "$path" (${file.id})');
+      final id = file.id;
+      // Save ID of new file to cache
+      print('Created file in Google Drive: "$path" ($id)');
+      await cache.save(path, id);
     } else {
       await api.files.update(File(), id, uploadMedia: media);
       print('Updated file in Google Drive: "$path" ($id)');
@@ -94,11 +106,23 @@ class GoogleDriveProxy {
     final id = await _findId(path);
     if (id == null) return;
     await _deleteById([id]);
+    await cache.remove(path);
   }
 
   /// Finds the Google Drive ID of the given path.
   /// Returns null if the path does not exist.
   Future<String> _findId(String path) async {
+    // Check cache
+    final cached = await cache.load(path);
+    if (cached != null) {
+      try {
+        if (await api.files.get(cached) != null) return cached;
+      } on ApiRequestError catch (e) {
+        print('Cached Google Drive ID invalid: ${e.message}');
+      }
+      // Delete invalid cache
+      await cache.remove(path);
+    }
     // Find parent folders
     final parent = await _findParent(path);
     if (parent == null) return null;
@@ -109,14 +133,18 @@ class GoogleDriveProxy {
       q: 'name = \'$name\' and \'$parent\' in parents',
       $fields: 'files(id,modifiedTime)',
     );
+    // Use most recent file from list. Delete old duplicates.
     final results = list.files.toList();
     if (results.isEmpty) return null;
     if (results.length > 1) {
       results.sort((a, b) => -a.modifiedTime.compareTo(b.modifiedTime));
-      // Delete old files with matching name
       await _deleteById(results.skip(1).map((f) => f.id));
     }
-    return results.first.id;
+    final id = results.first.id;
+    // Save result to cache
+    print('Found ID for path in Google Drive: "$path" ($id)');
+    await cache.save(path, id);
+    return id;
   }
 
   /// Returns the ID of the parent folder.
@@ -130,6 +158,7 @@ class GoogleDriveProxy {
       if (parentId != null) {
         return parentId;
       } else if (create) {
+        // The parent does not exist, so we should create it.
         final name = p.basename(parentPath);
         final folder = await api.files.create(
           File()
@@ -138,8 +167,11 @@ class GoogleDriveProxy {
             ..parents = [await _findParent(parentPath, create: true)],
         );
         if (folder == null) return null;
-        print('Created folder in Google Drive: "$parentPath" (${folder.id})');
-        return folder.id;
+        final id = folder.id;
+        // Save ID of new folder to cache
+        print('Created folder in Google Drive: "$parentPath" ($id)');
+        await cache.save(parentPath, id);
+        return id;
       } else {
         return null;
       }
@@ -149,8 +181,8 @@ class GoogleDriveProxy {
   /// Deletes all files in the given list.
   Future<void> _deleteById(Iterable<String> ids) async {
     print('Deleting ${ids.length} files from Google Drive.');
-    await Future.wait([
-      for (var file in ids) api.files.delete(file),
-    ]);
+    for (var id in ids) {
+      await api.files.delete(id);
+    }
   }
 }

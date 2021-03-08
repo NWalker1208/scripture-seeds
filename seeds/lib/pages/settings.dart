@@ -73,7 +73,7 @@ class DebugPageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListTile(
         tileColor: Colors.yellow,
-        title: Text('Debug Page'),
+        title: Text('Debug Page', style: TextStyle(color: Colors.black)),
         onTap: () => Navigator.of(context)
             .push(MaterialPageRoute<void>(builder: (context) => TestPage())),
       );
