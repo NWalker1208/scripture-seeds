@@ -16,13 +16,12 @@ class SelectionDecoration {
   });
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is SelectionDecoration &&
-        other.selection == selection &&
-        other.color == color &&
-        other.shape == shape;
-  }
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SelectionDecoration &&
+          other.selection == selection &&
+          other.color == color &&
+          other.shape == shape;
 
   @override
   int get hashCode => hashValues(selection, color, shape);

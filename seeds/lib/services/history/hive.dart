@@ -7,7 +7,7 @@ import 'database.dart';
 class HiveHistoryDatabase extends HistoryDatabase<Box<DateTime>>
     with HiveDatabaseMixin<ScriptureReference, DateTime> {
   @override
-  String get boxName => 'history';
+  final boxName = 'history';
 
   @override
   String keyToString(ScriptureReference key) => key.toString();

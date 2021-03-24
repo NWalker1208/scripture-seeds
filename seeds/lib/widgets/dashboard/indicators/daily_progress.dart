@@ -12,13 +12,13 @@ class DailyProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
-          var records = progress.records;
+          var topics = progress.topics;
 
           var completed = 0;
           var wilted = 0;
-          for (var record in records) {
-            if (!record.canMakeProgressToday) completed++;
-            if (record.progressLost != null) wilted++;
+          for (var topic in topics) {
+            if (!progress[topic].ready) completed++;
+            if (progress[topic].progressLost != null) wilted++;
           }
 
           return Row(
@@ -30,7 +30,7 @@ class DailyProgressIndicator extends StatelessWidget {
                 const Icon(Icons.error),
                 const SizedBox(width: 8),
               ],
-              Text('$completed / ${records.length}'),
+              Text('$completed / ${topics.length}'),
               const SizedBox(width: 4),
               const Icon(CustomIcons.water_drop),
             ],

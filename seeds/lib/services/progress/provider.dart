@@ -1,85 +1,78 @@
 import '../provider.dart';
 import 'database.dart';
+import 'event.dart';
+import 'ledger.dart';
 import 'record.dart';
 
-class ProgressProvider extends ServiceProvider<ProgressDatabase> {
-  ProgressProvider(ProgressDatabase Function() create) : super(create);
+const _rewardAmount = 2;
 
-  Map<String, ProgressRecord> _records;
+class ProgressProvider extends ServiceProvider<ProgressEventDatabase> {
+  ProgressProvider(ProgressEventDatabase Function() create) : super(create);
 
-  /// Get list of existing records.
-  Iterable<String> get names => _records?.keys ?? const [];
-  Iterable<ProgressRecord> get records => _records?.values ?? const [];
+  final ProgressLedger _ledger = ProgressLedger();
 
-  /// Gets the progress for a specific topic.
-  /// Returns a record with 0 progress if the record does not exist or if the
-  /// records have not been loaded.
-  ProgressRecord getRecord(String name) {
-    if (!isLoaded || !_records.containsKey(name)) return ProgressRecord(name);
-    return _records[name];
+  /// The list of all relevant events.
+  Iterable<ProgressEvent> get events => _ledger.compressedEvents;
+
+  /// The list of topics stored in the ledger.
+  Iterable<String> get topics => _ledger.topics;
+
+  /// Gets the current progress record for the topic.
+  ProgressRecord operator [](String topic) => _ledger[topic];
+
+  /// Creates a progress record for the topic if it doesn't exist.
+  void create(String topic) {
+    if (!topics.contains(topic)) set(topic, 0);
   }
 
-  /// Returns all progress records with topics from the set given.
-  Iterable<ProgressRecord> fromTopics(Iterable<String> topics) {
-    if (!isLoaded) return const [];
-    return records.where((record) => topics.contains(record.id));
+  /// Adds progress to the topic.
+  void add(String topic, [int value = 1]) =>
+      _addEvent(ProgressEvent(topic, value: value));
+
+  /// Sets the progress for the topic.
+  void set(String topic, [int value = 0]) =>
+      _addEvent(ProgressEvent(topic, value: value, reset: true));
+
+  /// Collects a reward from the topic, if available. Returns the amount
+  /// rewarded (currently a constant [_rewardAmount]).
+  int collectReward(String topic) {
+    if (_ledger[topic]?.hasReward == true) {
+      set(topic, 0);
+      return _rewardAmount;
+    }
+    return 0;
   }
 
-  /// Creates a progress record
-  bool create(ProgressRecord record) {
-    if (!isLoaded) return false;
-    _records[record.id] = record;
-    notifyService((data) => data.saveRecord(record));
+  /// Removes the progress record for a topic. Returns true if one was present.
+  bool remove(String topic) {
+    if (!topics.contains(topic)) return false;
+    _addEvent(ProgressEvent.remove(topic));
     return true;
   }
 
-  /// Increments progress by 1 and sets the date.
-  /// Returns true if progress could be incremented.
-  bool increment(String name, {bool force = false}) {
-    if (!isLoaded) return false;
-    final record = getRecord(name);
+  /// Adds reset events for all current topics with records.
+  void reset() => _addEvents([
+        for (var topic in topics) ProgressEvent.remove(topic),
+      ]);
 
-    if (force || record.canMakeProgressToday) {
-      record.updateProgress();
-      _records[name] = record;
-      notifyService((data) => data.saveRecord(record));
-      return true;
-    } else {
-      return false;
-    }
+  /// Adds an event to the internal ledger.
+  void _addEvent(ProgressEvent event) {
+    _ledger.add(event);
+    notifyService((data) => data.saveEvent(event));
   }
 
-  /// Deletes a record from progress data, such as when a plant is harvested.
-  bool remove(String name) {
-    if (isLoaded && _records.containsKey(name)) {
-      _records.remove(name);
-      notifyService((data) => data.remove(name));
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  /// Collects the reward from the given plant if available.
-  /// Returns the number of seeds granted.
-  int collectReward(String name) {
-    var progress = getRecord(name);
-    if (!progress.rewardAvailable) return 0;
-
-    final reward = progress.takeReward();
-    notifyService((data) => data.saveRecord(progress));
-    return reward;
-  }
-
-  /// Deletes all progress entries
-  void reset() {
-    if (!isLoaded) return;
-    _records.clear();
-    notifyService((data) => data.clear());
+  /// Adds an event to the internal ledger.
+  void _addEvents(Iterable<ProgressEvent> events) {
+    _ledger.addAll(events);
+    notifyService((data) async {
+      for (var event in events) {
+        await data.saveEvent(event);
+      }
+    });
   }
 
   @override
-  Future<void> loadData(ProgressDatabase data) async {
-    _records = await data.loadAll();
+  Future<void> loadData(ProgressEventDatabase data) async {
+    _ledger.addAll(await data.loadAllEvents());
   }
 }

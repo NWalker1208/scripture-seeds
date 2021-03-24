@@ -110,7 +110,7 @@ class _ActivityPageState extends State<ActivityPage> {
     Provider.of<HistoryProvider>(context, listen: false)
         .markStudied(_reference);
     Provider.of<ProgressProvider>(context, listen: false)
-        .increment(widget.topic.id);
+        .add(widget.topic.id);
     Navigator.pop(context, true);
   }
 

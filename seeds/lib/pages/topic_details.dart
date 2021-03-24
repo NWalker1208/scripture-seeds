@@ -193,7 +193,7 @@ class _PurchasePlantButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<ProgressProvider>(
         builder: (context, progress, child) {
-          final purchased = progress.names.contains(topic.id);
+          final purchased = progress.topics.contains(topic.id);
           if (purchased) {
             Provider.of<TutorialProvider>(context)
                 .maybeShow(context, 'topic_plant');

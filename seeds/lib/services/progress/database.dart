@@ -1,12 +1,12 @@
 import '../saved.dart';
-import 'record.dart';
+import 'event.dart';
 
-abstract class ProgressDatabase<D>
-    extends SavedDatabase<D, String, ProgressRecord> {
+abstract class ProgressEventDatabase<D>
+    extends SavedDatabase<D, DateTime, ProgressEvent> {
   /// Saves the progress record to the database, using the ID as the key.
-  Future<void> saveRecord(ProgressRecord record) => save(record.id, record);
+  Future<void> saveEvent(ProgressEvent event) => save(event.dateTime, event);
 
   /// Loads all records as an iterable.
-  Future<Iterable<ProgressRecord>> loadAllRecords() async =>
+  Future<Iterable<ProgressEvent>> loadAllEvents() async =>
       (await loadAll()).values;
 }

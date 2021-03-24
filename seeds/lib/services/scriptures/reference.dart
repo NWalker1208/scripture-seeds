@@ -82,14 +82,12 @@ class ScriptureReference implements Comparable<ScriptureReference> {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (other is ScriptureReference) {
-      return other.book == book &&
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ScriptureReference &&
+          other.book == book &&
           other.chapter == chapter &&
           other._verses == _verses;
-    }
-    return false;
-  }
 
   @override
   int get hashCode => hashValues(book, chapter, verses.hashCode);

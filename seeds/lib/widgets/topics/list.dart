@@ -38,7 +38,7 @@ class TopicList extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
 
-            var purchased = progress.names;
+            var purchased = progress.topics;
             topicList.removeWhere((topic) => purchased.contains(topic));
           }
 

@@ -7,6 +7,9 @@ import 'saved.dart';
 import 'service.dart';
 
 /// A ChangeNotifier that provides synchronous access to a service.
+/// All methods that retrieve data from the service are expected to return
+/// non-null values unless otherwise specified. If data has not yet been
+/// loaded, providers should return temporary filler values by default.
 abstract class ServiceProvider<S extends CustomService<dynamic>>
     extends ChangeNotifier {
   ServiceProvider(S Function() create) : _create = create {

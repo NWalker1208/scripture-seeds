@@ -1,16 +1,17 @@
 import 'package:hive/hive.dart';
+
 import '../mixins/hive.dart';
 import 'database.dart';
-import 'record.dart';
+import 'event.dart';
 
-class HiveProgressDatabase extends ProgressDatabase<Box<ProgressRecord>>
-    with HiveDatabaseMixin<String, ProgressRecord> {
+class HiveEventDatabase extends ProgressEventDatabase<Box<ProgressEvent>>
+    with HiveDatabaseMixin<DateTime, ProgressEvent> {
   @override
-  String get boxName => 'progress';
-
-  @override
-  String keyToString(String key) => key;
+  final boxName = 'progress_events';
 
   @override
-  String stringToKey(String string) => string;
+  String keyToString(DateTime key) => key.toIso8601String();
+
+  @override
+  DateTime stringToKey(String string) => DateTime.parse(string);
 }
