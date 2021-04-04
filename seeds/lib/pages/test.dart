@@ -3,15 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers.dart';
-import '../services/history/provider.dart';
-import '../services/history/sql.dart';
-import '../services/journal/entry.dart';
-import '../services/journal/json.dart';
-import '../services/journal/provider.dart';
 import '../services/progress/old/hive.dart';
 import '../services/progress/provider.dart';
 import '../services/progress/record.dart';
-import '../services/scriptures/reference.dart';
 import '../widgets/animation/appear_transition.dart';
 import '../widgets/animation/list.dart';
 
