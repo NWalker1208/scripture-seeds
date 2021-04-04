@@ -62,9 +62,13 @@ class ProgressLedger {
   Map<String, ProgressRecord> _processState() {
     final records = <String, ProgressRecord>{};
     for (final event in _events) {
-      final old = records[event];
-      final update = event.reset ? old?.lastUpdate : event.dateTime;
+      final old = records[event.topic];
+      // TODO: Account for progress lost
       final progress = (event.reset ? 0 : old?.progress ?? 0) + event.value;
+      // If progress increased with this event, the lastUpdate of this topic
+      // will be set to the dateTime of this event.
+      final update =
+          progress > (old?.progress ?? 0) ? event.dateTime : old?.lastUpdate;
       // If progress has fallen below zero, don't create a progress record.
       if (progress < 0) {
         records.remove(event.topic);

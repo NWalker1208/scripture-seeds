@@ -34,7 +34,8 @@ class ProgressProvider extends ServiceProvider<ProgressEventDatabase> {
       _addEvent(ProgressEvent(topic, value: value, reset: true));
 
   /// Collects a reward from the topic, if available. Returns the amount
-  /// rewarded (currently a constant [_rewardAmount]).
+  /// rewarded (currently the constant [_rewardAmount]).
+  /// If no reward is available, returns zero.
   int collectReward(String topic) {
     if (_ledger[topic]?.hasReward == true) {
       set(topic, 0);
@@ -50,7 +51,7 @@ class ProgressProvider extends ServiceProvider<ProgressEventDatabase> {
     return true;
   }
 
-  /// Adds reset events for all current topics with records.
+  /// Resets progress for all topics.
   void reset() => _addEvents([
         for (var topic in topics) ProgressEvent.remove(topic),
       ]);
