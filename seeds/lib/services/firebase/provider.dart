@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:googleapis/drive/v3.dart' as drive;
+import 'package:googleapis/drive/v3.dart' as google_drive;
 
 import '../provider.dart';
+import 'drive.dart';
 import 'service.dart';
 
 class FirebaseProvider extends ServiceProvider<FirebaseService> {
@@ -12,11 +13,11 @@ class FirebaseProvider extends ServiceProvider<FirebaseService> {
   StreamSubscription _authSubscription;
 
   User _currentUser;
-  drive.DriveApi _driveApi;
+  google_drive.DriveApi _driveApi;
 
   User get currentUser => _currentUser;
   bool get signedIn => _currentUser != null;
-  drive.DriveApi get driveApi => _driveApi;
+  DriveStorage get drive => _driveApi == null ? null : DriveStorage(_driveApi);
 
   /// Attempts to sign into Firebase. Returns true if successful.
   Future<bool> signIn() => access((service) => service.signIn());
@@ -27,7 +28,7 @@ class FirebaseProvider extends ServiceProvider<FirebaseService> {
   @override
   Future<void> loadData(FirebaseService service) async {
     _currentUser = await service.currentUser;
-    _driveApi = await service.driveApi;
+    _driveApi =  await service.driveApi;
     // Listen to authentication changes
     await _authSubscription?.cancel();
     _authSubscription = (await service.userChanges).listen((user) async {

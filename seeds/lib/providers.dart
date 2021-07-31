@@ -4,8 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'services/firebase/drive/hive.dart';
-import 'services/firebase/drive/proxy.dart';
+import 'services/cloud/provider.dart';
 import 'services/firebase/provider.dart';
 import 'services/history/hive.dart';
 import 'services/history/provider.dart';
@@ -120,15 +119,12 @@ class AppProvidersState extends State<AppProviders> {
         ChangeNotifierProvider.value(value: journal),
         ChangeNotifierProvider.value(value: history),
         // Proxy
-        Provider<DriveCacheDatabase>(
-          create: (context) => HiveDriveCacheDatabase(),
-          dispose: (context, data) => data.close(),
-        ),
-        ProxyProvider0<DriveProxy>(
-          update: (context, old) => DriveProxy.fromContext(context),
-        ),
         ProxyProvider0<StudyLibraryProxy>(
           update: (context, old) => StudyLibraryProxy.fromContext(context),
+        ),
+        ChangeNotifierProxyProvider<FirebaseProvider, CloudProvider>(
+          create: (context) => CloudProvider(),
+          update: (context, firebase, cloud) => cloud..update(firebase.drive),
         ),
       ],
       child: widget.app,

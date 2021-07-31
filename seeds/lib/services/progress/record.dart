@@ -14,12 +14,13 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   static const String kLastUpdate = 'lastUpdate';
   static const int kMaxInactiveDays = 3;
 
-  ProgressRecord(this.id,
-      {DateTime lastUpdate,
-      int progress = 0,
-      bool rewardAvailable = false,
-      this.maxProgress = 3})
-      : _lastUpdate = lastUpdate,
+  ProgressRecord(
+    this.id, {
+    DateTime lastUpdate,
+    int progress = 0,
+    bool rewardAvailable = false,
+    this.maxProgress = 3,
+  })  : _lastUpdate = lastUpdate,
         _lastProgress = progress,
         _rewardAvailable = rewardAvailable;
 
@@ -57,6 +58,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
       id.toLowerCase().compareTo(other.id.toLowerCase());
 
   // Getters
+  DateTime get lastUpdate => _lastUpdate;
   int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
   bool get canMakeProgressToday =>
       _lastUpdate == null || daysSinceLastUpdate > 0;
