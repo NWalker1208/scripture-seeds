@@ -8,12 +8,12 @@ import 'render.dart';
 class SelectionParagraph extends RichText {
   SelectionParagraph({
     @required InlineSpan text,
-    Iterable<SelectionDecoration> selections = const [],
+    Iterable<SelectionDecoration> selectionDecorations = const [],
     TextAlign textAlign = TextAlign.start,
     TextHeightBehavior textHeightBehavior,
     double textScaleFactor = 1.0,
     Key key,
-  })  : _selections = selections.toBuiltList(),
+  })  : _selectionDecorations = selectionDecorations.toBuiltList(),
         super(
           key: key,
           text: text,
@@ -22,14 +22,14 @@ class SelectionParagraph extends RichText {
           textScaleFactor: textScaleFactor,
         );
 
-  final BuiltList<SelectionDecoration> _selections;
-  Iterable<SelectionDecoration> get selections => _selections;
+  final BuiltList<SelectionDecoration> _selectionDecorations;
+  Iterable<SelectionDecoration> get selectionDecorations => _selectionDecorations;
 
   @override
   RenderSelectionParagraph createRenderObject(BuildContext context) =>
       RenderSelectionParagraph(
         text: text,
-        selections: selections,
+        selectionDecorations: selectionDecorations,
         textAlign: textAlign,
         textHeightBehavior: textHeightBehavior,
         textScaleFactor: textScaleFactor,
@@ -42,7 +42,7 @@ class SelectionParagraph extends RichText {
           BuildContext context, RenderSelectionParagraph renderObject) =>
       renderObject
         ..text = text
-        ..selections = selections
+        ..selectionDecorations = selectionDecorations
         ..textAlign = textAlign
         ..textHeightBehavior = textHeightBehavior
         ..textScaleFactor = textScaleFactor
@@ -52,6 +52,6 @@ class SelectionParagraph extends RichText {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('selections', selections));
+    properties.add(DiagnosticsProperty('selections', selectionDecorations));
   }
 }

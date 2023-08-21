@@ -155,7 +155,7 @@ class HighlightParagraphState extends State<HighlightParagraph>
         textAlign: widget.textAlign,
         textHeightBehavior: widget.textHeightBehavior,
         textScaleFactor: widget.textScaleFactor,
-        selections: [
+        selectionDecorations: [
           for (var highlight in _getHighlights())
             SelectionDecoration(
                 selection: highlight, color: color, shape: shape),

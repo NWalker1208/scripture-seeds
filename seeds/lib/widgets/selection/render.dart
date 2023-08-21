@@ -32,13 +32,13 @@ class SelectionDecoration {
 class RenderSelectionParagraph extends RenderParagraph {
   RenderSelectionParagraph({
     InlineSpan text,
-    Iterable<SelectionDecoration> selections,
+    Iterable<SelectionDecoration> selectionDecorations,
     TextAlign textAlign = TextAlign.start,
     TextHeightBehavior textHeightBehavior,
     double textScaleFactor = 1.0,
     @required TextDirection textDirection,
     Locale locale,
-  })  : _selections = selections.toBuiltList(),
+  })  : _selectionDecorations = selectionDecorations.toBuiltList(),
         super(
           text,
           textAlign: textAlign,
@@ -48,12 +48,12 @@ class RenderSelectionParagraph extends RenderParagraph {
           locale: locale,
         );
 
-  BuiltList<SelectionDecoration> _selections;
-  Iterable<SelectionDecoration> get selections => _selections;
-  set selections(Iterable<SelectionDecoration> values) {
+  BuiltList<SelectionDecoration> _selectionDecorations;
+  Iterable<SelectionDecoration> get selectionDecorations => _selectionDecorations;
+  set selectionDecorations(Iterable<SelectionDecoration> values) {
     var builtValues = values.toBuiltList();
-    if (_selections != builtValues) {
-      _selections = builtValues;
+    if (_selectionDecorations != builtValues) {
+      _selectionDecorations = builtValues;
       markNeedsPaint();
     }
   }
@@ -64,7 +64,7 @@ class RenderSelectionParagraph extends RenderParagraph {
     canvas.save();
     canvas.translate(offset.dx, offset.dy);
 
-    for (var selection in selections) {
+    for (var selection in selectionDecorations) {
       _paintSelection(canvas, selection);
     }
 
