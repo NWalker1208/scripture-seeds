@@ -1,0 +1,5 @@
+- Fix text scaling in about dialog
+- Check that changes in master since previous version are ready for release
+- Create build targeting SDK v33
+- Test build
+- Upload to Google Play
