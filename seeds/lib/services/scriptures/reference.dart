@@ -77,8 +77,13 @@ class ScriptureReference implements Comparable<ScriptureReference> {
   }
 
   Future<void> openInGospelLibrary() async {
-    print('Opening URL: $url');
-    if (await canLaunch(url)) await launch(url);
+    var gospelLibraryUrl = Uri.tryParse(url);
+    if (gospelLibraryUrl != null) {
+      print('Opening URL: $gospelLibraryUrl');
+      await launchUrl(gospelLibraryUrl, mode: LaunchMode.externalApplication);
+    } else {
+      print('URL was invalid: $url');
+    }
   }
 
   @override

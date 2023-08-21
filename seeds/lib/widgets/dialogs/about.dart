@@ -3,11 +3,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../utility/custom_icons.dart';
 
 const _scripturesUrl = 'https://scriptures.nephi.org';
-const _privacyUrl = 'https://walkergamedevelopment.com/p/'
+const _privacyUrl = 'https://nwalker1208.github.io/walker-game-development/p/'
     'scripture-seeds-privacy-policy.html';
 
 class CustomAboutDialog extends StatefulWidget {
@@ -22,9 +23,7 @@ class _CustomAboutDialogState extends State<CustomAboutDialog> {
   GestureRecognizer _gestureRecognizer;
 
   Future<void> _openUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    }
+    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
   }
 
   @override

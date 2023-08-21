@@ -54,7 +54,6 @@ class CustomThemeData {
       iconTheme: const IconThemeData(color: Colors.white),
       backgroundColor: colorsLight.primary,
       foregroundColor: colorsLight.onPrimary,
-      backwardsCompatibility: false,
       systemOverlayStyle: systemOverlayLight,
     );
     final appBarThemeDark = AppBarTheme(
@@ -63,7 +62,6 @@ class CustomThemeData {
       iconTheme: const IconThemeData(color: Colors.white),
       backgroundColor: colorsDark.surface,
       foregroundColor: colorsDark.onSurface,
-      backwardsCompatibility: false,
       systemOverlayStyle: systemOverlayDark,
     );
 
@@ -162,7 +160,6 @@ class CustomThemeData {
       textTheme: typography.black,
     ).copyWith(
       materialTapTargetSize: MaterialTapTargetSize.padded,
-      toggleableActiveColor: colorsLight.primary,
       highlightColor: colorsLight.onSurface.withOpacity(0.2),
       splashColor: colorsLight.onSurface.withOpacity(0.1),
       disabledColor: Colors.grey[500],
@@ -183,7 +180,6 @@ class CustomThemeData {
     ).copyWith(
       //applyElevationOverlayColor: false,
       materialTapTargetSize: MaterialTapTargetSize.padded,
-      toggleableActiveColor: colorsDark.primary,
       highlightColor: colorsDark.onSurface.withOpacity(0.2),
       splashColor: colorsDark.onSurface.withOpacity(0.1),
       disabledColor: Colors.grey[500],

@@ -21,7 +21,6 @@ class DashboardPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backwardsCompatibility: false,
             expandedHeight: 160,
             pinned: true,
             stretch: true,
