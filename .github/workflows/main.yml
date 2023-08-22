@@ -23,7 +23,7 @@ jobs:
         run: flutter pub get
       - name: Build Web Release
         working-directory: ./seeds
-        run: flutter build web --release --web-renderer canvaskit
+        run: flutter build web --release --base-href /scripture-seeds/ --web-renderer canvaskit
       - name: Push to GitHub Pages
         working-directory: ./seeds
         run: |
