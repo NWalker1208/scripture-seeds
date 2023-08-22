@@ -1,85 +1,113 @@
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 import '../../extensions/date_time.dart';
 
 part 'record.g.dart';
 
-const int _maxInactiveDays = 3;
-const int _maxProgress = 4;
-
-@immutable
-@JsonSerializable()
 @HiveType(typeId: 0)
 class ProgressRecord implements Comparable<ProgressRecord> {
-  const ProgressRecord(this.topic, {this.lastUpdate, this.lastProgress = 0});
+  static const String kId = 'name';
+  static const String kProgress = 'progress';
+  static const String kReward = 'rewardAvailable';
+  static const String kLastUpdate = 'lastUpdate';
+  static const int kMaxInactiveDays = 3;
 
-  /// The topic of this record.
+  ProgressRecord(this.id,
+      {DateTime lastUpdate,
+      int progress = 0,
+      bool rewardAvailable = false,
+      this.maxProgress = 3})
+      : _lastUpdate = lastUpdate,
+        _lastProgress = progress,
+        _rewardAvailable = rewardAvailable;
+
   @HiveField(0)
-  final String topic;
+  final String id;
+  final int maxProgress;
 
-  /// The date and time of the last update to this record.
   @HiveField(1)
-  final DateTime lastUpdate;
-
-  /// The last progress value given to this record. Progress may have been
-  /// lost since then.
+  DateTime _lastUpdate;
   @HiveField(2)
-  final int lastProgress;
+  int _lastProgress;
+  @HiveField(3)
+  bool _rewardAvailable;
 
-  /// True if the user can make progress on this topic today.
-  bool get ready => lastUpdate == null || lastUpdate.daysAgo > 0;
+  ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 3})
+      : id = data[kId] as String,
+        _lastProgress = data[kProgress] as int ?? 0,
+        _rewardAvailable = (data[kReward] ?? 0) == 1,
+        _lastUpdate = data[kLastUpdate] == 'null'
+            ? null
+            : DateTime.parse(data[kLastUpdate] as String);
 
-  /// True if there is a reward ready for this topic.
-  bool get hasReward => progress == _maxProgress;
+  Map<String, dynamic> toMap() => <String, dynamic>{
+        kId: id,
+        kProgress: _lastProgress,
+        kReward: _rewardAvailable ? 1 : 0,
+        kLastUpdate: _lastUpdate.toString(),
+      };
 
-  /// The amount of progress lost from inactivity, if any.
-  /// Null if no progress has been lost.
-  /// Zero if progress is about to be lost.
-  int get progressLost {
-    if (lastUpdate == null || lastProgress == 0) return null;
-    final lost = lastUpdate.daysAgo - _maxInactiveDays;
-    if (lost < 0) return null;
-    return min(lost, lastProgress);
-  }
-
-  /// The amount of progress made on the topic.
-  /// Accounts for progress lost due to inactivity.
-  /// Value will be between 0 and [_maxProgress] (inclusive).
-  int get progress =>
-      (lastProgress - (progressLost ?? 0)).clamp(0, _maxProgress).toInt();
-
-  /// The percentage of progress made, relative to [_maxProgress].
-  double get progressPercent => progress / _maxProgress;
-
-  /// The percentage of progress lost, relative to [_maxProgress].
-  /// Unlike [progressLost], this can be 0 instead of null.
-  double get lostPercent => (progressLost ?? 0) / _maxProgress;
-
-  factory ProgressRecord.fromJson(Map<String, dynamic> json) =>
-      _$ProgressRecordFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ProgressRecordToJson(this);
+  @override
+  String toString() => toMap().toString();
 
   @override
   int compareTo(ProgressRecord other) =>
-      topic.toLowerCase().compareTo(other.topic.toLowerCase());
+      id.toLowerCase().compareTo(other.id.toLowerCase());
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-          other is ProgressRecord &&
-              topic == other.topic &&
-              lastUpdate == other.lastUpdate &&
-              lastProgress == other.lastProgress;
+  // Getters
+  int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
+  bool get canMakeProgressToday =>
+      _lastUpdate == null || daysSinceLastUpdate > 0;
+  bool get rewardAvailable => _rewardAvailable;
 
-  @override
-  int get hashCode => hashValues(topic, lastUpdate, lastProgress);
+  // Returns null if the user will not lose progress.
+  // Returns 0 or greater if the user is about to lose progress.
+  int get progressLost {
+    var lost = daysSinceLastUpdate;
 
-  @override
-  String toString() => toJson().toString();
+    // If no lastUpdate is recorded or progress is 0, no progress has been lost
+    if (lost == null || _lastProgress == 0) return null;
+
+    // Subtract the time until progress can be lost
+    lost -= kMaxInactiveDays;
+
+    // If progress will not be lost after today, return null
+    if (lost < 0) return null;
+
+    // Limit progress lost to the amount of progress made
+    return min(lost, _lastProgress);
+  }
+
+  // Access progress adjusted for loss and limits
+  int get progress {
+    var total = _lastProgress - (progressLost ?? 0);
+    return max(0, min(maxProgress, total));
+  }
+
+  double get progressPercent => progress / maxProgress;
+  double get lostPercent => (progressLost ?? 0) / maxProgress;
+
+  // Setting progress automatically updates lastUpdate
+  // Leaving progress null automatically increments it
+  void updateProgress({int progress}) {
+    progress ??= this.progress + 1;
+
+    if (progress > maxProgress) {
+      _lastProgress = maxProgress;
+      _rewardAvailable = true;
+    } else {
+      _lastProgress = progress;
+    }
+
+    _lastUpdate = DateTime.now();
+  }
+
+  int takeReward() {
+    _rewardAvailable = false;
+    _lastProgress = 0;
+
+    return 2; // TODO: Randomize
+  }
 }

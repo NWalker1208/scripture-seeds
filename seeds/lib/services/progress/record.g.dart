@@ -18,21 +18,24 @@ class ProgressRecordAdapter extends TypeAdapter<ProgressRecord> {
     };
     return ProgressRecord(
       fields[0] as String,
-      lastUpdate: fields[1] as DateTime,
-      lastProgress: fields[2] as int,
-    );
+    )
+      .._lastUpdate = fields[1] as DateTime
+      .._lastProgress = fields[2] as int
+      .._rewardAvailable = fields[3] as bool;
   }
 
   @override
   void write(BinaryWriter writer, ProgressRecord obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.topic)
+      ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.lastUpdate)
+      ..write(obj._lastUpdate)
       ..writeByte(2)
-      ..write(obj.lastProgress);
+      ..write(obj._lastProgress)
+      ..writeByte(3)
+      ..write(obj._rewardAvailable);
   }
 
   @override
@@ -45,26 +48,3 @@ class ProgressRecordAdapter extends TypeAdapter<ProgressRecord> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-ProgressRecord _$ProgressRecordFromJson(Map<String, dynamic> json) {
-  return $checkedNew('ProgressRecord', json, () {
-    final val = ProgressRecord(
-      $checkedConvert(json, 'topic', (v) => v as String),
-      lastUpdate: $checkedConvert(json, 'lastUpdate',
-          (v) => v == null ? null : DateTime.parse(v as String)),
-      lastProgress: $checkedConvert(json, 'lastProgress', (v) => v as int),
-    );
-    return val;
-  });
-}
-
-Map<String, dynamic> _$ProgressRecordToJson(ProgressRecord instance) =>
-    <String, dynamic>{
-      'topic': instance.topic,
-      'lastUpdate': instance.lastUpdate?.toIso8601String(),
-      'lastProgress': instance.lastProgress,
-    };
