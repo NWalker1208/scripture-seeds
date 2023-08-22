@@ -9,20 +9,15 @@ class OldProgressWrapper
   final ProgressDatabase inner;
 
   @override
-  Future<Map<DateTime, ProgressEvent>> open() async {
-    var offset = 0; // Offset ensures events do not share the same dateTime
-    final events = <ProgressEvent>[
-      for (final record in await inner.loadAllRecords())
-        ProgressEvent(
-          record.topic,
-          dateTime: record.lastUpdate ??
-              DateTime.now().subtract(Duration(seconds: offset++)),
-          value: record.lastProgress,
-          reset: true,
-        ),
-    ];
-    return {for (final event in events) event.dateTime: event};
-  }
+  Future<Map<DateTime, ProgressEvent>> open() async => {
+    for (final record in await inner.loadAllRecords())
+      record.lastUpdate ?? DateTime.now(): ProgressEvent(
+        record.topic,
+        dateTime: record.lastUpdate ?? DateTime.now(),
+        value: record.lastProgress,
+        reset: record.lastUpdate == null,
+      )
+  };
 
   @override
   Future<ProgressEvent> load(DateTime key) async => (await data)[key];
