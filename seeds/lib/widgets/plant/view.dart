@@ -55,7 +55,7 @@ class PlantView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final progress = Provider.of<ProgressProvider>(context);
-    final record = progress[name];
+    final record = progress.getRecord(name);
 
     Widget growthAnimation(double fruit, double wilt) =>
         TweenAnimationBuilder<double>(
@@ -66,7 +66,7 @@ class PlantView extends StatelessWidget {
         );
 
     Widget fruitAnimation(double wilt) => TweenAnimationBuilder<double>(
-          tween: Tween(end: record.hasReward ? 1 : 0),
+          tween: Tween(end: record.rewardAvailable ? 1 : 0),
           duration: Duration(milliseconds: 1000),
           curve: Curves.easeOut,
           builder: (_, fruit, __) => growthAnimation(fruit, wilt),

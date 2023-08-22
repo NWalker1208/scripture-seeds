@@ -11,7 +11,7 @@ class PlantStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var canMakeProgress = progress.ready;
+    var canMakeProgress = progress.canMakeProgressToday;
     var isWilted = progress.progressLost != null;
     IconData icon;
 
@@ -35,7 +35,7 @@ class PlantStatus extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Consumer<TopicIndexProvider>(
                 builder: (context, topics, _) =>
-                    Text('${topics.index[progress.topic].name}')),
+                    Text('${topics.index[progress.id].name}')),
           ),
         ),
       ],

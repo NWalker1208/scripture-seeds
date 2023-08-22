@@ -11,9 +11,8 @@ import 'services/journal/hive.dart';
 import 'services/journal/json.dart';
 import 'services/journal/provider.dart';
 import 'services/progress/hive.dart';
-import 'services/progress/old/hive.dart';
-import 'services/progress/old/wrapper.dart';
 import 'services/progress/provider.dart';
+import 'services/progress/sql.dart';
 import 'services/proxies/study_library.dart';
 import 'services/scriptures/database.dart';
 import 'services/scriptures/json.dart';
@@ -49,7 +48,7 @@ class AppProvidersState extends State<AppProviders> {
   // User Data
   final tutorial = TutorialProvider(() => SharedPrefsTutorialDatabase());
   final wallet = WalletProvider(() => SharedPrefsWalletService());
-  final progress = ProgressProvider(() => HiveEventDatabase());
+  final progress = ProgressProvider(() => HiveProgressDatabase());
   final journal = JournalProvider(() => HiveJournalDatabase());
   final history = HistoryProvider(() => HiveHistoryDatabase());
 
@@ -64,11 +63,10 @@ class AppProvidersState extends State<AppProviders> {
 
   /// Upgrade data from old databases to the new systems.
   Future<void> attemptUpgrade() async {
-    await progress.modify(OldProgressWrapper(HiveProgressDatabase()).upgrade);
-    // Old Databases that were Android-only.
     if (!kIsWeb && Platform.isAndroid) {
-      await journal.modify(JsonJournalDatabase().upgrade);
-      await history.modify(SqlHistoryDatabase().upgrade);
+      await progress.modify((data) => SqlProgressDatabase().upgrade(data));
+      await journal.modify((data) => JsonJournalDatabase().upgrade(data));
+      await history.modify((data) => SqlHistoryDatabase().upgrade(data));
     }
   }
 

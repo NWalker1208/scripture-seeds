@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/progress/provider.dart';
+import '../../services/progress/record.dart';
 import '../../services/topics/provider.dart';
 import '../animation/appear_transition.dart';
 import '../animation/list.dart';
@@ -31,19 +32,16 @@ class PlantsDashboard extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 }
 
-                // Remove records that don't have topics in the index
-                var visible = topics.index.topics;
-                var recordTopics = progress.topics
-                    .where((t) => visible.contains(t))
-                    .toList()
-                      ..sort();
+                // Sort records so that incomplete ones go first
+                var records = progress.fromTopics(topics.index.topics).toList()
+                  ..sort();
 
-                return AnimatedListBuilder<String>(
-                  items: recordTopics,
+                return AnimatedListBuilder<ProgressRecord>(
+                  items: records,
                   duration: const Duration(milliseconds: 200),
                   insertDelay: const Duration(milliseconds: 200),
                   removeDelay: const Duration(milliseconds: 400),
-                  itemBuilder: (_, topic, animation) => AppearTransition(
+                  itemBuilder: (_, record, animation) => AppearTransition(
                     visibility: animation,
                     axis: Axis.horizontal,
                     child: Padding(
@@ -51,7 +49,10 @@ class PlantsDashboard extends StatelessWidget {
                           horizontal: 4.0, vertical: 8.0),
                       child: AspectRatio(
                         aspectRatio: 3 / 5,
-                        child: PlantButton(topic, key: ValueKey(topic)),
+                        child: PlantButton(
+                          record.id,
+                          key: ValueKey(record.id),
+                        ),
                       ),
                     ),
                   ),

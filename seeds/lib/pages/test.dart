@@ -2,10 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers.dart';
-import '../services/progress/old/hive.dart';
+import '../services/history/provider.dart';
+import '../services/history/sql.dart';
+import '../services/journal/entry.dart';
+import '../services/journal/json.dart';
+import '../services/journal/provider.dart';
 import '../services/progress/provider.dart';
 import '../services/progress/record.dart';
+import '../services/progress/sql.dart';
+import '../services/scriptures/reference.dart';
 import '../widgets/animation/appear_transition.dart';
 import '../widgets/animation/list.dart';
 
@@ -80,19 +85,38 @@ class _TestPageState extends State<TestPage> {
 // Test Functions
 
 void createOldData(BuildContext context) async {
-  final progress = HiveProgressDatabase();
-  await progress.saveRecord(ProgressRecord('agency'));
+  final progress = SqlProgressDatabase();
+  final journal = JsonJournalDatabase();
+  final history = SqlHistoryDatabase();
+
+  await progress.saveRecord(ProgressRecord(
+    'agency',
+    progress: 3,
+    rewardAvailable: true,
+  ));
   await progress.saveRecord(ProgressRecord(
     'apostles',
-    lastProgress: 2,
-    lastUpdate: DateTime.now().subtract(Duration(days: 3)),
+    progress: 2,
+    lastUpdate: DateTime.now().subtract(Duration(days: 7)),
   ));
-  await progress.saveRecord(ProgressRecord(
-    'hope',
-    lastProgress: 4,
-    lastUpdate: DateTime.now(),
-  ));
+  for (var i = 0; i < 10; i++) {
+    await journal.saveEntry(JournalEntry(
+      quote: 'quote #$i',
+      reference: '1 Nephi 1:$i',
+      commentary: 'commentary #$i',
+      tags: ['test'],
+    ));
+    await Future<void>.delayed(Duration(milliseconds: 200));
+  }
+
+  await history.save(
+    ScriptureReference.parse('1 Nephi 1:1'),
+    DateTime.now(),
+  );
+
   await progress.close();
+  await journal.close();
+  await history.close();
 
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     content: Text('Data Created'),
@@ -100,10 +124,21 @@ void createOldData(BuildContext context) async {
 }
 
 void upgradeOldData(BuildContext context) async {
-  await AppProviders.of(context).attemptUpgrade();
+  final progress = Provider.of<ProgressProvider>(context, listen: false);
+  final journal = Provider.of<JournalProvider>(context, listen: false);
+  final history = Provider.of<HistoryProvider>(context, listen: false);
+
+  await progress.modify((data) => SqlProgressDatabase().upgrade(data));
+  await journal.modify((data) => JsonJournalDatabase().upgrade(data));
+  await history.modify((data) => SqlHistoryDatabase().upgrade(data));
 }
 
 void readNewData(BuildContext context) {
   final progress = Provider.of<ProgressProvider>(context, listen: false);
-  print(progress.topics.map((t) => progress[t]));
+  final journal = Provider.of<JournalProvider>(context, listen: false);
+  final history = Provider.of<HistoryProvider>(context, listen: false);
+
+  print(progress.records);
+  print(journal.entries);
+  print(history.references);
 }

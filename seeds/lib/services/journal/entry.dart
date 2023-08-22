@@ -1,12 +1,10 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../utility/shareable.dart';
 part 'entry.g.dart';
 
-@immutable
 @JsonSerializable()
 @HiveType(typeId: 1)
 class JournalEntry with Shareable implements Comparable<JournalEntry> {

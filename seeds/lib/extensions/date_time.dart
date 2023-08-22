@@ -1,8 +1,18 @@
 extension DateTimeExtension on DateTime {
-  /// Returns the date component of this object (removes time).
-  DateTime get date => DateTime(year, month, day);
+  // Calculates the days until (pos) or since (neg) the given date. Days begin
+  // at midnight of the local timezone.
+  int daysUntil(DateTime date) {
+    if (this == null || date == null) return null;
 
-  /// Calculates the number of days ago that this date occurred, relative to
-  /// [DateTime.now]. If this date is in the future, the number is negative.
-  int get daysAgo => DateTime.now().date.difference(date).inDays;
+    // Convert dates to match local timezone
+    var past = toLocal();
+    var future = date.toLocal();
+
+    // Remove time component to get date
+    past = DateTime(past.year, past.month, past.day);
+    future = DateTime(future.year, future.month, future.day);
+
+    // Return the difference in days
+    return future.difference(past).inDays;
+  }
 }

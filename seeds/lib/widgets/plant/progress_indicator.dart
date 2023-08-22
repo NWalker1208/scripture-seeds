@@ -21,8 +21,8 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
 
   @override
   void initState() {
-    var progress = Provider.of<ProgressProvider>(context, listen: false);
-    var record = progress[widget.plantName];
+    var progressData = Provider.of<ProgressProvider>(context, listen: false);
+    var record = progressData.getRecord(widget.plantName);
     initialProgress = record.progressPercent;
     super.initState();
   }
@@ -35,7 +35,7 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
 
     return Consumer<ProgressProvider>(
       builder: (context, progressData, child) {
-        var record = progressData[widget.plantName];
+        var record = progressData.getRecord(widget.plantName);
 
         return TweenAnimationBuilder<double>(
           tween: Tween<double>(

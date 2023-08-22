@@ -7,10 +7,10 @@ import '../../extensions/string.dart';
 
 /// Stores information about the location and state of a word.
 class Word {
-  Word._(this.range, {this.highlighted = false});
-
   final TextRange range;
   bool highlighted;
+
+  Word._(this.range, {this.highlighted = false});
 
   static Iterable<Word> fromString(String text) {
     var words = <Word>[];
@@ -39,15 +39,16 @@ class Word {
 /// Stores information about a range of selected words.
 @immutable
 class WordSelection {
-  const WordSelection(this.start, this.end);
-
   final Word start;
   final Word end;
 
+  const WordSelection(this.start, this.end);
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is WordSelection && other.start == start && other.end == end;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is WordSelection && other.start == start && other.end == end;
+  }
 
   @override
   int get hashCode => hashValues(start.hashCode, end.hashCode);

@@ -7,7 +7,7 @@ import 'entry.dart';
 class HiveJournalDatabase extends JournalDatabase<Box<JournalEntry>>
     with HiveDatabaseMixin<DateTime, JournalEntry> {
   @override
-  final boxName = 'journal';
+  String get boxName => 'journal';
 
   @override
   String keyToString(DateTime key) => key.toIso8601String();
