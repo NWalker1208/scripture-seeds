@@ -44,7 +44,7 @@ class _CustomAboutDialogState extends State<CustomAboutDialog> {
     final children = <Widget>[
       const Text('App developed by Nathan Walker.'),
       const SizedBox(height: 8),
-      const Text('Topical information is compiled from '
+      const Text('Topics and references were obtained from '
           'ChurchOfJesusChrist.org and curated by Nathan Walker. '),
       const SizedBox(height: 8),
       Builder(
@@ -52,18 +52,18 @@ class _CustomAboutDialogState extends State<CustomAboutDialog> {
           final style = DefaultTextStyle.of(context).style;
           return RichText(
             text: TextSpan(
-              text: 'Scriptural text is made available by the '
-                  '"LDS Documentation Project" by Steve Dibb. ',
               style: style,
               children: [
+                TextSpan(text: 'Scriptural text was obtained from the '),
                 TextSpan(
-                  text: 'More Info',
+                  text: 'LDS Documentation Project',
                   style: style.copyWith(
                     color: Colors.green,
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: _gestureRecognizer,
-                )
+                ),
+                TextSpan(text: ' by Steve Dibb.')
               ],
             ),
           );
