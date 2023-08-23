@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: ${{secrets.commit_secret}}
+      my_secret: ${{secrets.commit_secret}} # Should contain a personal access token
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
