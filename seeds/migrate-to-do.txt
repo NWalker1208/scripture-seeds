@@ -1,4 +1,3 @@
-- Fix text scaling in about dialog
 - Create build targeting SDK v33
 - Test build
 - Upload to Google Play
