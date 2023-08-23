@@ -50,9 +50,8 @@ class _CustomAboutDialogState extends State<CustomAboutDialog> {
       Builder(
         builder: (context) {
           final style = DefaultTextStyle.of(context).style;
-          return RichText(
-            text: TextSpan(
-              style: style,
+          return Text.rich(
+            TextSpan(
               children: [
                 TextSpan(text: 'Scriptural text was obtained from the '),
                 TextSpan(
