@@ -55,8 +55,8 @@ flutter_icons:
   adaptive_icon_background: '../Common Assets/seeds-appicon-bg.png'
   adaptive_icon_foreground: '../Common Assets/seeds-appicon-fg.png'
   android: true
-  web:
-    generate: true
+#  web:
+#    generate: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
