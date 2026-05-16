@@ -7,7 +7,6 @@ import '../utility/go.dart';
 import '../widgets/dialogs/about.dart';
 import '../widgets/settings/data_management.dart';
 import '../widgets/settings/library_filter.dart';
-import '../widgets/settings/library_refresh.dart';
 import '../widgets/settings/theme_selector.dart';
 import 'test.dart';
 
@@ -25,8 +24,11 @@ class SettingsPage extends StatelessWidget {
             const Divider(),
             const LibraryFilterSettings(),
             const Divider(),
-            if (!kIsWeb) const LibraryRefreshTile(),
-            const Divider(),
+            // Firebase now requires pay-as-you-go pricing.
+            // Since I'm not actively working on this project, serving files
+            // from the cloud is overkill. I've chosen to disable it for now.
+            // if (!kIsWeb) const LibraryRefreshTile(),
+            // const Divider(),
             const TutorialTile(),
             const DataManagementSettings(),
             const Divider(),
