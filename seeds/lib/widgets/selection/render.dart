@@ -25,7 +25,7 @@ class SelectionDecoration {
   }
 
   @override
-  int get hashCode => hashValues(selection, color, shape);
+  int get hashCode => Object.hash(selection, color, shape);
 }
 
 /// Render object for selection widget.

@@ -20,7 +20,6 @@ class _AnimatedSizeSwitcherState extends State<AnimatedSizeSwitcher>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) => AnimatedSize(
-        vsync: this,
         curve: widget.curve,
         duration: widget.duration,
         child: AnimatedSwitcher(

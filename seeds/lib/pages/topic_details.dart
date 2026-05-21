@@ -50,7 +50,7 @@ class TopicDetailsPage extends StatelessWidget {
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     centerTitle: true,
                     title: Text('Scriptures',
-                        style: Theme.of(context).textTheme.subtitle1),
+                        style: Theme.of(context).textTheme.titleMedium),
                   ),
                   SliverList(
                     delegate: SliverChildListDelegate([
@@ -75,7 +75,7 @@ class TopicDetailsPage extends StatelessWidget {
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     centerTitle: true,
                     title: Text('Related Topics',
-                        style: Theme.of(context).textTheme.subtitle1),
+                        style: Theme.of(context).textTheme.titleMedium),
                   ),
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -132,7 +132,7 @@ class _VolumeRefList extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
-          child: Text(volume.title, style: Theme.of(context).textTheme.caption),
+          child: Text(volume.title, style: Theme.of(context).textTheme.bodySmall),
         ),
         if (refsInVolume.isEmpty)
           Padding(

@@ -114,7 +114,7 @@ class CustomThemeData {
     final chipThemeLight = ChipThemeData.fromDefaults(
       brightness: Brightness.light,
       secondaryColor: colorsLight.primary,
-      labelStyle: typography.black.bodyText1,
+      labelStyle: typography.black.bodyLarge,
     ).copyWith(
       elevation: 4.0,
       pressElevation: 6.0,
@@ -123,7 +123,7 @@ class CustomThemeData {
     final chipThemeDark = ChipThemeData.fromDefaults(
       brightness: Brightness.dark,
       secondaryColor: colorsDark.primary,
-      labelStyle: typography.white.bodyText1,
+      labelStyle: typography.white.bodyLarge,
     ).copyWith(
       elevation: 4.0,
       pressElevation: 6.0,

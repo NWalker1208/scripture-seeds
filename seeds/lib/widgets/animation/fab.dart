@@ -24,7 +24,7 @@ class AnimatedFloatingActionButton extends StatelessWidget {
         tween: ColorTween(
           end: disabled
               ? Theme.of(context).disabledColor
-              : backgroundColor ?? Theme.of(context).accentColor,
+              : backgroundColor ?? Theme.of(context).colorScheme.secondary,
         ),
         builder: (context, color, child) => FloatingActionButton(
           tooltip: tooltip,

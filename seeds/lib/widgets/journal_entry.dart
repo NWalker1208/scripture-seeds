@@ -88,7 +88,7 @@ class JournalEntryView extends StatelessWidget {
                       SizedBox(height: 8),
                       Text(
                         DateFormat('M/d/yyyy').format(entry.created),
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),

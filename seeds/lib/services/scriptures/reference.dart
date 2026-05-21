@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -97,7 +95,7 @@ class ScriptureReference implements Comparable<ScriptureReference> {
   }
 
   @override
-  int get hashCode => hashValues(book, chapter, verses.hashCode);
+  int get hashCode => Object.hash(book, chapter, verses.hashCode);
 
   @override
   int compareTo(ScriptureReference other) {

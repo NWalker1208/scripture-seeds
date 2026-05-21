@@ -45,7 +45,7 @@ class VerseView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _style = style ??
-        Theme.of(context).textTheme.bodyText1.copyWith(
+        Theme.of(context).textTheme.bodyLarge.copyWith(
               height: height,
             );
 

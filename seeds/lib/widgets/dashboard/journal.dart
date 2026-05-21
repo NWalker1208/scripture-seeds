@@ -32,7 +32,7 @@ class JournalDashboard extends StatelessWidget {
               return Column(
                 children: [
                   Text('Most recent entry',
-                      style: Theme.of(context).textTheme.caption),
+                      style: Theme.of(context).textTheme.bodySmall),
                   const SizedBox(height: 8),
                   JournalEntryView(journal.entries.last),
                 ],

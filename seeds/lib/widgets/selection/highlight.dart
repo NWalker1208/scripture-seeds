@@ -139,7 +139,7 @@ class HighlightParagraphState extends State<HighlightParagraph>
         Theme.of(context).textSelectionTheme.selectionColor;
     final shape = widget.highlightShape ?? const Border();
 
-    final background = Theme.of(context).backgroundColor;
+    final background = Theme.of(context).colorScheme.background;
     final selectionColor = _selectionAction ?? true
         ? color.withOpacity(0.5)
         : background.withOpacity(0.5);

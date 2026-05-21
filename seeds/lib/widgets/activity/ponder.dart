@@ -68,9 +68,9 @@ class _PonderActivityState extends State<PonderActivity>
                   decoration: InputDecoration(
                     hintText: 'Type at least 8 words to continue.',
                     counterText: '$wordCount/${widget.minWords} words',
-                    counterStyle: Theme.of(context).textTheme.caption.copyWith(
+                    counterStyle: Theme.of(context).textTheme.bodySmall.copyWith(
                         color: (wordCount < widget.minWords)
-                            ? Theme.of(context).errorColor
+                            ? Theme.of(context).colorScheme.error
                             : null),
                   ),
                 );

@@ -140,7 +140,7 @@ class _JournalPageState extends State<JournalPage> {
             : FloatingActionButton(
                 backgroundColor: selected.isEmpty
                     ? Theme.of(context).disabledColor
-                    : Theme.of(context).accentColor,
+                    : Theme.of(context).colorScheme.secondary,
                 disabledElevation: 2,
                 onPressed: selected.isEmpty ? null : deleteSelected,
                 child: const Icon(Icons.delete),

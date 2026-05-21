@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
@@ -51,7 +49,7 @@ class WordSelection {
   }
 
   @override
-  int get hashCode => hashValues(start.hashCode, end.hashCode);
+  int get hashCode => Object.hash(start.hashCode, end.hashCode);
 }
 
 extension IterableExtension on Iterable<Word> {

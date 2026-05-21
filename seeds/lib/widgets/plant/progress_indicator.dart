@@ -47,7 +47,7 @@ class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
           builder: (context, percent, child) => LinearPercentIndicator(
             backgroundColor: backgroundColor.withAlpha(50),
             progressColor: progressColor,
-            linearStrokeCap: LinearStrokeCap.roundAll,
+            barRadius: Radius.circular(2.5),
             animation: false,
             leading: Text('${(percent * 100).round()} %'),
             trailing: Icon(Icons.flag),

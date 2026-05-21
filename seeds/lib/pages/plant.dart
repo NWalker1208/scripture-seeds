@@ -168,7 +168,7 @@ class _StudyButton extends StatelessWidget {
           return FloatingActionButton(
             tooltip: 'Study',
             backgroundColor: (canMakeProgress || reward)
-                ? Theme.of(context).accentColor
+                ? Theme.of(context).colorScheme.secondary
                 : Theme.of(context).disabledColor,
             onPressed: () {
               if (reward) {

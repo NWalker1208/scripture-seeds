@@ -23,7 +23,7 @@ class AppBarThemed extends StatelessWidget {
         chipTheme: ChipThemeData.fromDefaults(
           secondaryColor: theme.primaryColor,
           brightness: brightness,
-          labelStyle: textTheme.bodyText1,
+          labelStyle: textTheme.bodyLarge,
         ),
         canvasColor: background,
         backgroundColor: background,

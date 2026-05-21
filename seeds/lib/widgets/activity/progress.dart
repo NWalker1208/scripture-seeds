@@ -30,7 +30,7 @@ class ActivityProgressMap extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: completed
-                          ? Theme.of(context).accentColor
+                          ? Theme.of(context).colorScheme.secondary
                           : Theme.of(context).disabledColor),
                 );
               } else {
@@ -40,7 +40,7 @@ class ActivityProgressMap extends StatelessWidget {
                     height: 4,
                     decoration: BoxDecoration(
                         color: completed
-                            ? Theme.of(context).accentColor
+                            ? Theme.of(context).colorScheme.secondary
                             : Theme.of(context).disabledColor),
                   ),
                 );

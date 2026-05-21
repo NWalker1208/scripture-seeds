@@ -15,7 +15,7 @@ class ActivityError extends StatelessWidget {
               Text(
                 'We couldn\'t find anything to study!\n'
                 'Try enabling more study sources in settings.',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 8),
