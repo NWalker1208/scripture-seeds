@@ -48,3 +48,6 @@ app.*.map.json
 /android/app/**/res/drawable-*/ic_launcher_foreground.png
 /android/app/**/res/mipmap-*/ic_launcher.png
 #/web/icons/Icon-*.png
+
+# FVM Version Cache
+.fvm/
