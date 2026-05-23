@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'database.dart';
 
 /// A database wrapper which stores a given database and caches values
@@ -15,13 +13,13 @@ class CachedDatabase<D extends CustomDatabase<dynamic, K, V>, K, V>
 
   @override
   Future<V> load(K key) async {
-    final c = await data;
+    final c = (await data)!;
     return c.data[key] ??= internal.load(key);
   }
 
   @override
   Future<Iterable<K>> loadKeys() async {
-    final c = await data;
+    final c = (await data)!;
     return c.keys ??= internal.loadKeys();
   }
 
@@ -36,6 +34,6 @@ class CachedDatabase<D extends CustomDatabase<dynamic, K, V>, K, V>
 }
 
 class _Cache<K, V> {
-  Future<Iterable<K>> keys;
+  Future<Iterable<K>>? keys;
   final data = <K, Future<V>>{};
 }

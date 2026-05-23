@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'service.dart';
 
 /// A database that stores user data based on keys and values.
