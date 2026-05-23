@@ -1,12 +1,10 @@
-// @dart=2.9
-
 import 'dart:math';
 
 extension ListExtension1<E extends T, T> on List<E> {
   static final Random _random = Random();
 
   // Returns a random item from the list
-  E randomItem([Random random]) =>
+  E? randomItem([Random? random]) =>
       length > 0 ? this[(random ?? _random).nextInt(length)] : null;
 
   // Removes the items from start [inclusive] to
@@ -23,8 +21,8 @@ extension ListExtension1<E extends T, T> on List<E> {
   // Creates a list comparison
   ListComparison<E, V> compareTo<V>(
     Iterable<V> other, {
-    Comparison<E, V> compare,
-    Converter<V, E> convert,
+    Comparison<E, V>? compare,
+    Converter<V, E>? convert,
   }) =>
       ListComparison(this, other, compare: compare, convert: convert);
 }
@@ -37,13 +35,13 @@ class ListComparison<E, V> {
   final List<E> newItems;
   final List<E> merged;
 
-  ListComparison._({this.oldItems, this.newItems, this.merged});
+  ListComparison._({required this.oldItems, required this.newItems, required this.merged});
 
   factory ListComparison(
     Iterable<E> oldList,
     Iterable<V> newList, {
-    Comparison<E, V> compare,
-    Converter<V, E> convert,
+    Comparison<E, V>? compare,
+    Converter<V, E>? convert,
   }) {
     // Default comparison and conversion
     compare ??= ((e, v) => e == v);
@@ -65,7 +63,7 @@ class ListComparison<E, V> {
     int index;
     var result = <E>[
       for (var item in a)
-        if ((index = b.indexWhere((v) => compare(item, v))) != -1) ...[
+        if ((index = b.indexWhere((v) => compare!(item, v))) != -1) ...[
           ...[
             // Takes the values between the start of b and the value of
             // the item from a. Removes those values from b and creates

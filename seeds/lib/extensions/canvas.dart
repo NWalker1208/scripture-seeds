@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math';
 import 'dart:ui';
 
@@ -14,7 +12,7 @@ extension CanvasExtension on Canvas {
   void drawWideLine(
     Iterable<OffsetWidth> points,
     Paint paint, {
-    double initialDirection,
+    double? initialDirection,
     StrokeCap endCaps = StrokeCap.butt,
   }) {
     if (points.length < 2) return;

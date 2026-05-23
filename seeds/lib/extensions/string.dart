@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 extension StringExtension on String {
@@ -24,7 +22,7 @@ extension StringExtension on String {
   // Returns a string of the enum's value (removes type prefix).
   static final _valueCache = <dynamic, String>{};
   static String fromEnum<T>(T value) {
-    if (_valueCache.containsKey(value)) return _valueCache[value];
+    if (_valueCache.containsKey(value)) return _valueCache[value]!;
     var str = value.toString();
     str = str.substring(str.lastIndexOf('.') + 1);
     return _valueCache[value] = str;
@@ -32,16 +30,16 @@ extension StringExtension on String {
 
   // Converts a string to an enum value.
   static final _enumCache = <Type, Map<dynamic, String>>{};
-  T toEnum<T>(List<T> values, {T Function() orElse}) {
+  T toEnum<T>(List<T> values, {T Function()? orElse}) {
     // Cache the string representations of the enum's values
     final enumType = values.first.runtimeType;
     _enumCache[enumType] ??= <T, String>{};
 
     // Find the matching enum value
     final lower = toLowerCase();
-    final cache = _enumCache[enumType] as Map<T, String>;
+    final cache = _enumCache[enumType] as Map<T, String>?;
     return values.firstWhere(
-      (v) => (cache[v] ??= fromEnum(v).toLowerCase()) == lower,
+      (v) => (cache![v] ??= fromEnum(v).toLowerCase()) == lower,
       orElse: orElse,
     );
   }
@@ -54,7 +52,7 @@ extension StringExtension on String {
   bool get isCapital => this == toUpperCase();
 
   // Returns true if this string can be parsed to a double
-  bool get isNumeric => double.tryParse(this ?? '') != null;
+  bool get isNumeric => double.tryParse(this) != null;
 
   // RegExp for finding letters
   static final _letter = RegExp(r'[a-z]', caseSensitive: false);
