@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 
 /// A service that stores some persistent state, such as preferences or points.
@@ -8,7 +6,7 @@ abstract class CustomService<D> {
   /// Opens the source by calling the open method.
   @mustCallSuper
   CustomService() {
-    _data = open().catchError((dynamic e) {
+    _data = open().then<D?>((d) => d).catchError((dynamic e) {
       print('Service failed to open: $e');
       return null;
     });
@@ -16,7 +14,7 @@ abstract class CustomService<D> {
 
   /// Stores the future given by the open function.
   /// Is set to null when the service is closed.
-  Future<D> _data;
+  Future<D?>? _data;
 
   /// Used to create the internal data service instance.
   /// Called during construction of CustomService class.
@@ -24,18 +22,19 @@ abstract class CustomService<D> {
   Future<D> open();
 
   /// Used to obtain the internal data service instance.
+  /// Returns null if the service failed to open.
   /// Throws an exception if the source is closed.
   @protected
-  Future<D> get data {
+  Future<D?> get data {
     assertOpen();
-    return _data;
+    return _data!;
   }
 
   /// Completes once the service is ready.
   /// Throws an exception if the service is closed.
   Future<void> get ready async {
     assertOpen();
-    await _data;
+    await _data!;
   }
 
   /// Closes the service. Must call before disposing.
