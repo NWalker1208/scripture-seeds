@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -120,7 +118,7 @@ class ScriptureReference implements Comparable<ScriptureReference> {
     var str = '';
 
     var range = false;
-    int lastVerse;
+    int? lastVerse;
     for (var verse in verses) {
       if (verse - 1 != lastVerse) {
         if (range) {

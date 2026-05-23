@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import '../../extensions/string.dart';
 import 'volumes.dart';
 
@@ -51,7 +49,7 @@ extension BookExtension on Book {
     for (var book in Book.values) book: _title(book)
   };
 
-  String get title => _titles[this];
+  String get title => _titles[this]!;
 
   // URL
   static const _urls = <Book, String>{
@@ -148,7 +146,7 @@ extension BookExtension on Book {
     Book.articlesOfFaith: 'a-of-f',
   };
 
-  String get url => _urls[this];
+  String get url => _urls[this]!;
 }
 
 enum Book {

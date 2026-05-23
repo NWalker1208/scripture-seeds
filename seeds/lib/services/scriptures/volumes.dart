@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import '../../extensions/string.dart';
 
 extension VolumeExtension on Volume {
@@ -18,7 +16,7 @@ extension VolumeExtension on Volume {
     for (var vol in Volume.values) vol: _title(vol)
   };
 
-  String get title => _titles[this];
+  String get title => _titles[this]!;
 
   // URL
   static const _urls = <Volume, String>{
@@ -29,7 +27,7 @@ extension VolumeExtension on Volume {
     Volume.pearlOfGreatPrice: 'pgp',
   };
 
-  String get url => _urls[this];
+  String get url => _urls[this]!;
 }
 
 enum Volume {
