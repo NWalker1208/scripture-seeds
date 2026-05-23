@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// @dart=2.9
-
 part of 'record.dart';
 
 // **************************************************************************
@@ -21,7 +19,7 @@ class ProgressRecordAdapter extends TypeAdapter<ProgressRecord> {
     return ProgressRecord(
       fields[0] as String,
     )
-      .._lastUpdate = fields[1] as DateTime
+      .._lastUpdate = fields[1] as DateTime?
       .._lastProgress = fields[2] as int
       .._rewardAvailable = fields[3] as bool;
   }

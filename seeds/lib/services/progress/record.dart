@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math';
 
 import 'package:hive/hive.dart';
@@ -17,7 +15,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   static const int kMaxInactiveDays = 3;
 
   ProgressRecord(this.id,
-      {DateTime lastUpdate,
+      {DateTime? lastUpdate,
       int progress = 0,
       bool rewardAvailable = false,
       this.maxProgress = 3})
@@ -30,7 +28,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
   final int maxProgress;
 
   @HiveField(1)
-  DateTime _lastUpdate;
+  DateTime? _lastUpdate;
   @HiveField(2)
   int _lastProgress;
   @HiveField(3)
@@ -38,7 +36,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
 
   ProgressRecord.fromMap(Map<String, dynamic> data, {this.maxProgress = 3})
       : id = data[kId] as String,
-        _lastProgress = data[kProgress] as int ?? 0,
+        _lastProgress = data[kProgress] as int? ?? 0,
         _rewardAvailable = (data[kReward] ?? 0) == 1,
         _lastUpdate = data[kLastUpdate] == 'null'
             ? null
@@ -59,14 +57,14 @@ class ProgressRecord implements Comparable<ProgressRecord> {
       id.toLowerCase().compareTo(other.id.toLowerCase());
 
   // Getters
-  int get daysSinceLastUpdate => _lastUpdate.daysUntil(DateTime.now());
+  int? get daysSinceLastUpdate => _lastUpdate?.daysUntil(DateTime.now());
   bool get canMakeProgressToday =>
-      _lastUpdate == null || daysSinceLastUpdate > 0;
+      _lastUpdate == null || daysSinceLastUpdate! > 0;
   bool get rewardAvailable => _rewardAvailable;
 
   // Returns null if the user will not lose progress.
   // Returns 0 or greater if the user is about to lose progress.
-  int get progressLost {
+  int? get progressLost {
     var lost = daysSinceLastUpdate;
 
     // If no lastUpdate is recorded or progress is 0, no progress has been lost
@@ -93,7 +91,7 @@ class ProgressRecord implements Comparable<ProgressRecord> {
 
   // Setting progress automatically updates lastUpdate
   // Leaving progress null automatically increments it
-  void updateProgress({int progress}) {
+  void updateProgress({int? progress}) {
     progress ??= this.progress + 1;
 
     if (progress > maxProgress) {
