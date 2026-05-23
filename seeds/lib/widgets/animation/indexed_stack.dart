@@ -1,4 +1,7 @@
 // Credit to: https://gist.github.com/Laim0n/e1b70f5d841e47c9d85ccdf6ae866984
+
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 
 class AnimatedIndexedStack extends StatefulWidget {

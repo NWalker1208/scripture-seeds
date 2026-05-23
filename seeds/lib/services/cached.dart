@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'database.dart';
 
 /// A database wrapper which stores a given database and caches values

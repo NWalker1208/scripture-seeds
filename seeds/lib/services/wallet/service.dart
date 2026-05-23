@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import '../service.dart';
 
 abstract class WalletService<S> extends CustomService<S> {

@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:sqflite/sqflite.dart';
 
 import '../mixins/sql.dart';

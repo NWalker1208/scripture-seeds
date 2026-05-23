@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import '../provider.dart';
 import '../scriptures/reference.dart';
 import 'database.dart';

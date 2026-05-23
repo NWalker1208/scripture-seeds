@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 
 typedef TutorialStarter = Future<void> Function(BuildContext);
