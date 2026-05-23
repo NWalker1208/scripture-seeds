@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:json_annotation/json_annotation.dart';
 
 import '../scriptures/reference.dart';
@@ -10,10 +8,10 @@ part 'topic.g.dart';
 @_CustomReferenceConverter()
 class Topic {
   Topic({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
     this.cost = 1,
-    Iterable<ScriptureReference> references,
+    required Iterable<ScriptureReference> references,
   }) : references = references.toSet();
 
   factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);

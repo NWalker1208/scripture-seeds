@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:json_annotation/json_annotation.dart';
 
 import 'topic.dart';
@@ -14,7 +12,7 @@ class TopicIndex {
   TopicIndex({
     this.language = 'eng',
     this.version = 0,
-    Iterable<Topic> topics,
+    required Iterable<Topic> topics,
   }) : _index = {for (var topic in topics) topic.id: topic};
 
   factory TopicIndex.fromJson(Map<String, dynamic> json) =>
@@ -25,17 +23,18 @@ class TopicIndex {
   final Map<String, Topic> _index;
 
   Iterable<String> get topics => _index.keys;
-  Topic operator [](String id) => _index[id];
+  Topic? operator [](String id) => _index[id];
 
-  Iterable<String> relatedTo(String id, {int maxCount}) {
+  Iterable<String> relatedTo(String id, {int? maxCount}) {
     final topic = _index[id];
+    if (topic == null) return const [];
     final otherTopics = _index.values.where((t) => t != topic).toList();
     final inCommon = {
       for (var other in otherTopics) other: topic.referencesInCommon(other),
     };
     // Remove topics that share no reference, sort by number in common
     otherTopics.removeWhere((t) => inCommon[t] == 0);
-    otherTopics.sort((a, b) => -inCommon[a].compareTo(inCommon[b]));
+    otherTopics.sort((a, b) => -inCommon[a]!.compareTo(inCommon[b]!));
     // Take only the most related topics, reduce to IDs, and sort by id.
     final related = maxCount == null ? otherTopics : otherTopics.take(maxCount);
     return related.map((t) => t.id).toList()..sort();

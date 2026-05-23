@@ -1,24 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// @dart=2.9
-
 part of 'index.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TopicIndex _$TopicIndexFromJson(Map<String, dynamic> json) {
-  return $checkedNew('TopicIndex', json, () {
-    final val = TopicIndex(
-      language: $checkedConvert(json, 'language', (v) => v as String),
-      version: $checkedConvert(json, 'version', (v) => v as int),
-      topics: $checkedConvert(
-          json,
-          'topics',
-          (v) => (v as List)?.map((e) =>
-              e == null ? null : Topic.fromJson(e as Map<String, dynamic>))),
+TopicIndex _$TopicIndexFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'TopicIndex',
+      json,
+      ($checkedConvert) {
+        final val = TopicIndex(
+          language: $checkedConvert('language', (v) => v as String? ?? 'eng'),
+          version: $checkedConvert('version', (v) => v as int? ?? 0),
+          topics: $checkedConvert(
+              'topics',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Topic.fromJson(e as Map<String, dynamic>))),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}

@@ -1,25 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// @dart=2.9
-
 part of 'topic.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Topic _$TopicFromJson(Map<String, dynamic> json) {
-  return $checkedNew('Topic', json, () {
-    final val = Topic(
-      id: $checkedConvert(json, 'id', (v) => v as String),
-      name: $checkedConvert(json, 'name', (v) => v as String),
-      cost: $checkedConvert(json, 'cost', (v) => v as int),
-      references: $checkedConvert(
-          json,
-          'references',
-          (v) => (v as List)?.map(
-              (e) => const _CustomReferenceConverter().fromJson(e as String))),
+Topic _$TopicFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Topic',
+      json,
+      ($checkedConvert) {
+        final val = Topic(
+          id: $checkedConvert('id', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          cost: $checkedConvert('cost', (v) => v as int? ?? 1),
+          references: $checkedConvert(
+              'references',
+              (v) => (v as List<dynamic>).map((e) =>
+                  const _CustomReferenceConverter().fromJson(e as String))),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}
