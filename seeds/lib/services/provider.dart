@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -11,8 +9,9 @@ import 'service.dart';
 /// A ChangeNotifier that provides synchronous access to a service.
 abstract class ServiceProvider<S extends CustomService<dynamic>>
     extends ChangeNotifier {
-  ServiceProvider(S Function() create) : _create = create {
-    _service = _create();
+  ServiceProvider(S Function() create)
+      : _create = create,
+        _service = create() {
     reload();
   }
 
@@ -30,7 +29,7 @@ abstract class ServiceProvider<S extends CustomService<dynamic>>
   /// [SavedDatabase.delete]. [isLoaded] will be false during reload.
   /// Optionally, subclasses may override this to reset any data they cache.
   @mustCallSuper
-  Future<void> refresh([FutureOr<void> Function(S) beforeClosing]) async {
+  Future<void> refresh([FutureOr<void> Function(S)? beforeClosing]) async {
     _isLoaded = false;
     notifyListeners();
     await beforeClosing?.call(_service);
@@ -88,7 +87,7 @@ abstract class ServiceProvider<S extends CustomService<dynamic>>
 
   @override
   void dispose() {
-    _service?.close();
+    _service.close();
     super.dispose();
   }
 }
