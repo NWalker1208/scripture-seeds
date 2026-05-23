@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
