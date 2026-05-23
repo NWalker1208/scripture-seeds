@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// @dart=2.9
-
 part of 'entry.dart';
 
 // **************************************************************************
@@ -19,13 +17,13 @@ class JournalEntryAdapter extends TypeAdapter<JournalEntry> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return JournalEntry(
-      created: fields[0] as DateTime,
+      created: fields[0] as DateTime?,
       category: fields[1] as String,
       quote: fields[2] as String,
       reference: fields[3] as String,
       url: fields[4] as String,
       commentary: fields[5] as String,
-      tags: (fields[6] as List)?.cast<String>(),
+      tags: (fields[6] as List).cast<String>(),
     );
   }
 
@@ -46,7 +44,7 @@ class JournalEntryAdapter extends TypeAdapter<JournalEntry> {
       ..writeByte(5)
       ..write(obj.commentary)
       ..writeByte(6)
-      ..write(obj.tags?.toList());
+      ..write(obj.tags.toList());
   }
 
   @override
@@ -64,30 +62,35 @@ class JournalEntryAdapter extends TypeAdapter<JournalEntry> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-JournalEntry _$JournalEntryFromJson(Map<String, dynamic> json) {
-  return $checkedNew('JournalEntry', json, () {
-    final val = JournalEntry(
-      created: $checkedConvert(json, 'created',
-          (v) => v == null ? null : DateTime.parse(v as String)),
-      category: $checkedConvert(json, 'category', (v) => v as String),
-      quote: $checkedConvert(json, 'quote', (v) => v as String),
-      reference: $checkedConvert(json, 'reference', (v) => v as String),
-      url: $checkedConvert(json, 'url', (v) => v as String),
-      commentary: $checkedConvert(json, 'commentary', (v) => v as String),
-      tags: $checkedConvert(
-          json, 'tags', (v) => (v as List)?.map((e) => e as String)),
+JournalEntry _$JournalEntryFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'JournalEntry',
+      json,
+      ($checkedConvert) {
+        final val = JournalEntry(
+          created: $checkedConvert(
+              'created', (v) => v == null ? null : DateTime.parse(v as String)),
+          category: $checkedConvert('category', (v) => v as String? ?? 'other'),
+          quote: $checkedConvert('quote', (v) => v as String? ?? ''),
+          reference: $checkedConvert('reference', (v) => v as String? ?? ''),
+          url: $checkedConvert('url', (v) => v as String? ?? ''),
+          commentary: $checkedConvert('commentary', (v) => v as String? ?? ''),
+          tags: $checkedConvert(
+              'tags',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String) ?? const []),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}
 
 Map<String, dynamic> _$JournalEntryToJson(JournalEntry instance) =>
     <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
+      'created': instance.created.toIso8601String(),
       'category': instance.category,
       'quote': instance.quote,
       'reference': instance.reference,
       'url': instance.url,
       'commentary': instance.commentary,
-      'tags': instance.tags?.toList(),
+      'tags': instance.tags.toList(),
     };

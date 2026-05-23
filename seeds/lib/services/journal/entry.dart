@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:built_collection/built_collection.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -11,7 +9,7 @@ part 'entry.g.dart';
 @HiveType(typeId: 1)
 class JournalEntry with Shareable implements Comparable<JournalEntry> {
   JournalEntry({
-    DateTime created,
+    DateTime? created,
     this.category = 'other',
     this.quote = '',
     this.reference = '',
