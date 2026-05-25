@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'service.dart';
@@ -11,14 +9,14 @@ class SharedPrefsWalletService extends WalletService<SharedPreferences> {
   Future<SharedPreferences> open() => SharedPreferences.getInstance();
 
   @override
-  Future<int> loadBalance() async {
-    final prefs = await data;
+  Future<int?> loadBalance() async {
+    final prefs = (await data)!;
     return prefs.getInt(_walletPref);
   }
 
   @override
   Future<void> setBalance(int amount) async {
-    final prefs = await data;
+    final prefs = (await data)!;
     await prefs.setInt(_walletPref, amount);
   }
 }
