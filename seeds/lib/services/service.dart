@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 /// A service that stores some persistent state, such as preferences or points.
 /// D - Internal data service class
-abstract class CustomService<D extends Object> {
+abstract class CustomService<D> {
   /// Opens the source by calling the open method.
   @mustCallSuper
   CustomService() {

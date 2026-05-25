@@ -1,7 +1,7 @@
 import '../saved.dart';
 import 'entry.dart';
 
-abstract class JournalDatabase<D extends Object>
+abstract class JournalDatabase<D>
     extends SavedDatabase<D, DateTime, JournalEntry> {
   /// Saves the journal entry to the database, using the name as the key.
   Future<void> saveEntry(JournalEntry entry) => save(entry.created, entry);

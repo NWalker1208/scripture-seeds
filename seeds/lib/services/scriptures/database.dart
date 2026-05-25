@@ -8,7 +8,7 @@ import 'verse.dart';
 
 /// Database for obtaining scriptural text.
 /// D - Internal database instance.
-abstract class ScriptureDatabase<D extends Object>
+abstract class ScriptureDatabase<D>
     extends CustomDatabase<D, ScriptureVerse, String> {
   /// Avoid calling of possible
   @override

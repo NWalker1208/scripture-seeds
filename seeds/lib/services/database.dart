@@ -4,8 +4,8 @@ import 'service.dart';
 /// D - Internal database class
 /// K - Key
 /// V - Value
-abstract class CustomDatabase<D extends Object, K extends Object,
-    V extends Object> extends CustomService<D> {
+abstract class CustomDatabase<D, K extends Object, V extends Object>
+    extends CustomService<D> {
   /// Loads the keys of every entry in the database.
   Future<Iterable<K>> loadKeys();
 
