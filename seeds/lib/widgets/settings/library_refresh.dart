@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../../services/topics/provider.dart';
 
 class LibraryRefreshTile extends StatefulWidget {
-  const LibraryRefreshTile({Key key}) : super(key: key);
+  const LibraryRefreshTile({Key? key}) : super(key: key);
 
   @override
   _LibraryRefreshTileState createState() => _LibraryRefreshTileState();
@@ -16,7 +14,7 @@ class LibraryRefreshTile extends StatefulWidget {
 class _LibraryRefreshTileState extends State<LibraryRefreshTile>
     with TickerProviderStateMixin {
   static final _dateFormat = DateFormat('h:mm a, M/d/yyyy');
-  AnimationController _controller;
+  late AnimationController _controller;
 
   void _refreshTopics(BuildContext context) {
     var topics = Provider.of<TopicIndexProvider>(context, listen: false);
@@ -59,7 +57,7 @@ class _LibraryRefreshTileState extends State<LibraryRefreshTile>
               return Text('Last refresh: Never');
             } else {
               return Text('Last refresh: '
-                  '${_dateFormat.format(topics.lastRefresh)}');
+                  '${_dateFormat.format(topics.lastRefresh!)}');
             }
           },
         ),

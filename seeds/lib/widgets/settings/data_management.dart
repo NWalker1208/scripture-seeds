@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../../utility/go.dart';
@@ -8,7 +6,7 @@ import '../dialogs/erase_journal.dart';
 import '../dialogs/reset_progress.dart';
 
 class DataManagementSettings extends StatelessWidget {
-  const DataManagementSettings({Key key}) : super(key: key);
+  const DataManagementSettings({Key? key}) : super(key: key);
 
   void _eraseJournal(BuildContext context) {
     showDialog<bool>(

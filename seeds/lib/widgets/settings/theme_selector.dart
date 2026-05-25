@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,7 +5,7 @@ import '../../services/theme/provider.dart';
 
 class ThemeSelector extends StatelessWidget {
   const ThemeSelector({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -17,7 +15,7 @@ class ThemeSelector extends StatelessWidget {
           builder: (context, theme, child) => DropdownButton<ThemeMode>(
             value: theme.mode,
             icon: const Icon(Icons.arrow_drop_down),
-            onChanged: (newMode) => theme.mode = newMode,
+            onChanged: (newMode) => theme.mode = newMode!,
             items: <DropdownMenuItem<ThemeMode>>[
               const DropdownMenuItem<ThemeMode>(
                 value: ThemeMode.system,
