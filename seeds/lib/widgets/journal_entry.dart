@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -10,17 +8,17 @@ import '../services/scriptures/reference.dart';
 
 class JournalEntryView extends StatelessWidget {
   final JournalEntry entry;
-  final FutureOr<void> Function() onShare;
+  final FutureOr<void> Function()? onShare;
 
   JournalEntryView(
     this.entry, {
     this.onShare,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ScriptureReference reference;
+    ScriptureReference? reference;
     try {
       reference = ScriptureReference.parse(entry.reference);
     } on Exception {
@@ -102,7 +100,7 @@ class JournalEntryView extends StatelessWidget {
                   tooltip: 'Share',
                   onPressed: () => entry.shareAsString().then(
                     (success) {
-                      if (success && onShare != null) onShare();
+                      if (success && onShare != null) onShare!();
                     },
                   ),
                 )
