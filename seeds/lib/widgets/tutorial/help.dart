@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../dialogs/help.dart';
@@ -11,16 +9,16 @@ class TutorialHelp extends StatelessWidget {
     this.tag, {
     this.index = 0,
     this.title = 'Help',
-    @required this.helpText,
+    required this.helpText,
     this.child,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final String tag;
   final int index;
   final String title;
   final String helpText;
-  final Widget child;
+  final Widget? child;
 
   Future<void> showHelp(BuildContext context) => showDialog<void>(
         context: context,

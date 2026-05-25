@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -16,12 +14,12 @@ class TutorialFocus extends StatefulWidget {
   const TutorialFocus(
     this.tag, {
     this.index = 0,
-    this.overlayLabel,
+    required this.overlayLabel,
     this.overlayShape = defaultOverlayShape,
     this.overlayPadding = 4.0,
     this.overlayAlignment = Alignment.topCenter,
-    @required this.child,
-    Key key,
+    required this.child,
+    Key? key,
   }) : super(key: key);
 
   final String tag;
@@ -39,8 +37,8 @@ class TutorialFocus extends StatefulWidget {
 class TutorialFocusState extends State<TutorialFocus> {
   final _childKey = GlobalKey();
   final _overlayKey = GlobalKey<_FocusOverlayState>();
-  OverlayEntry _overlayEntry;
-  Completer<void> _overlayCompleter;
+  OverlayEntry? _overlayEntry;
+  Completer<void>? _overlayCompleter;
 
   /// Show the tutorial overlay for this widget.
   Future<void> showOverlay(BuildContext context) async {
@@ -49,7 +47,7 @@ class TutorialFocusState extends State<TutorialFocus> {
       alignment: 0.5,
       duration: const Duration(milliseconds: 400),
     );
-    if (_overlayEntry != null) _overlayEntry.remove();
+    if (_overlayEntry != null) _overlayEntry!.remove();
     _overlayCompleter = Completer<void>();
     _overlayEntry = OverlayEntry(
       maintainState: true,
@@ -64,14 +62,14 @@ class TutorialFocusState extends State<TutorialFocus> {
     );
     _updateOverlay();
 
-    Overlay.of(context).insert(_overlayEntry);
-    return _overlayCompleter.future;
+    Overlay.of(context).insert(_overlayEntry!);
+    return _overlayCompleter!.future;
   }
 
-  Future<void> closeOverlay() => _overlayKey.currentState?.close();
+  Future<void>? closeOverlay() => _overlayKey.currentState?.close();
 
   Rect _getCutout() {
-    final render = _childKey.currentContext.findRenderObject() as RenderBox;
+    final render = _childKey.currentContext!.findRenderObject() as RenderBox;
     if (!render.hasSize) return Rect.zero;
     return (render.localToGlobal(Offset.zero) & render.size)
         .inflate(widget.overlayPadding);
@@ -125,12 +123,12 @@ class TutorialFocusState extends State<TutorialFocus> {
 
 class _FocusOverlay extends StatefulWidget {
   const _FocusOverlay({
-    this.initialCutout,
-    this.label,
-    this.shape,
-    this.alignment,
-    this.onDismiss,
-    Key key,
+    required this.initialCutout,
+    required this.label,
+    required this.shape,
+    required this.alignment,
+    required this.onDismiss,
+    Key? key,
   }) : super(key: key);
 
   final Rect initialCutout;
@@ -145,8 +143,8 @@ class _FocusOverlay extends StatefulWidget {
 
 class _FocusOverlayState extends State<_FocusOverlay>
     with SingleTickerProviderStateMixin {
-  Rect _cutout;
-  AnimationController _controller;
+  late Rect _cutout;
+  late AnimationController _controller;
 
   Rect get cutout => _cutout;
   set cutout(Rect value) => setState(() => _cutout = value);
@@ -191,34 +189,33 @@ class _FocusOverlayState extends State<_FocusOverlay>
                       ? Colors.black54
                       : Colors.black87,
                 ),
-                if (widget.label != null)
-                  Positioned.fromRect(
-                    rect: widget.alignment.inscribe(Size.zero, _cutout),
-                    child: OverflowBox(
-                      alignment: Alignment(
-                        -widget.alignment.x,
-                        -widget.alignment.y,
-                      ),
-                      minWidth: 0,
-                      minHeight: 0,
-                      maxWidth: double.infinity,
-                      maxHeight: double.infinity,
-                      child: Material(
-                        type: MaterialType.transparency,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: DefaultTextStyle.merge(
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                            child: widget.label,
+                Positioned.fromRect(
+                  rect: widget.alignment.inscribe(Size.zero, _cutout),
+                  child: OverflowBox(
+                    alignment: Alignment(
+                      -widget.alignment.x,
+                      -widget.alignment.y,
+                    ),
+                    minWidth: 0,
+                    minHeight: 0,
+                    maxWidth: double.infinity,
+                    maxHeight: double.infinity,
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: DefaultTextStyle.merge(
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
                           ),
+                          child: widget.label,
                         ),
                       ),
                     ),
                   ),
+                ),
               ],
             ),
           ),
