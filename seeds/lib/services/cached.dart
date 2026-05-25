@@ -12,7 +12,7 @@ class CachedDatabase<D extends CustomDatabase<dynamic, K, V>, K, V>
   final D internal;
 
   @override
-  Future<V> load(K key) async {
+  Future<V?> load(K key) async {
     final c = (await data)!;
     return c.data[key] ??= internal.load(key);
   }
@@ -35,5 +35,5 @@ class CachedDatabase<D extends CustomDatabase<dynamic, K, V>, K, V>
 
 class _Cache<K, V> {
   Future<Iterable<K>>? keys;
-  final data = <K, Future<V>>{};
+  final data = <K, Future<V?>>{};
 }
