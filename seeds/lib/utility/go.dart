@@ -34,8 +34,8 @@ class Go {
       _currentPage == AppPage.plant &&
           (topic == _currentTopic || topic == null)));
 
-  Future<void> toScripture(ScriptureReference reference, [String? topic]) =>
-      to(AppRoutePath.scripture(topic ?? _currentTopic!, reference, _fromPlant));
+  Future<void> toScripture(ScriptureReference reference, [String? topic]) => to(
+      AppRoutePath.scripture(topic ?? _currentTopic!, reference, _fromPlant));
 
   Future<void> toActivity([String? topic]) =>
       to(AppRoutePath.activity(topic ?? _currentTopic!));

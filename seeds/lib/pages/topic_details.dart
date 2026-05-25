@@ -132,7 +132,8 @@ class _VolumeRefList extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
-          child: Text(volume.title, style: Theme.of(context).textTheme.bodySmall),
+          child:
+              Text(volume.title, style: Theme.of(context).textTheme.bodySmall),
         ),
         if (refsInVolume.isEmpty)
           Padding(

@@ -23,7 +23,8 @@ class SelectionParagraph extends RichText {
         );
 
   final BuiltList<SelectionDecoration> _selectionDecorations;
-  Iterable<SelectionDecoration> get selectionDecorations => _selectionDecorations;
+  Iterable<SelectionDecoration> get selectionDecorations =>
+      _selectionDecorations;
 
   @override
   RenderSelectionParagraph createRenderObject(BuildContext context) =>

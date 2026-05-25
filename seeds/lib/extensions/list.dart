@@ -35,7 +35,8 @@ class ListComparison<E, V> {
   final List<E> newItems;
   final List<E> merged;
 
-  ListComparison._({required this.oldItems, required this.newItems, required this.merged});
+  ListComparison._(
+      {required this.oldItems, required this.newItems, required this.merged});
 
   factory ListComparison(
     Iterable<E> oldList,

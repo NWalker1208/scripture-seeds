@@ -8,10 +8,10 @@ mixin Shareable {
     print('Sharing $runtimeType...');
     try {
       await Share.share(toShareString(), subject: 'Scripture Seeds');
-    } on FormatException catch(e) {
+    } on FormatException catch (e) {
       print('FormatException thrown while sharing $runtimeType: $e');
       return false;
-    } on PlatformException catch(e) {
+    } on PlatformException catch (e) {
       print('PlatformException thrown while sharing $runtimeType: $e');
       return false;
     }

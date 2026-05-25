@@ -161,8 +161,8 @@ class _StudyButton extends StatelessWidget {
           var canMakeProgress = record.canMakeProgressToday;
 
           if (!canMakeProgress) {
-            Provider.of<TutorialProvider>(context)
-                .maybeShow(ModalRoute.of(context)!.subtreeContext!, 'grow_plant');
+            Provider.of<TutorialProvider>(context).maybeShow(
+                ModalRoute.of(context)!.subtreeContext!, 'grow_plant');
           }
 
           return FloatingActionButton(

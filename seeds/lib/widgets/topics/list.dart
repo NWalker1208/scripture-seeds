@@ -51,7 +51,9 @@ class TopicList extends StatelessWidget {
           }
 
           // Reduce to maxToShow topics if specified
-          if (maxToShow != null) topicList = topicList.take(maxToShow!).toList();
+          if (maxToShow != null) {
+            topicList = topicList.take(maxToShow!).toList();
+          }
 
           return AnimatedListBuilder<String>.list(
             items: topicList,
