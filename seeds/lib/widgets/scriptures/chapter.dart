@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +9,7 @@ import 'verse.dart';
 class ChapterView extends StatefulWidget {
   final ScriptureReference reference;
   final bool scrollToReference;
-  final VerseHighlightChangeHandler onHighlightChange;
+  final VerseHighlightChangeHandler? onHighlightChange;
   final EdgeInsets padding;
   final bool primaryAppBar;
 
@@ -21,7 +19,7 @@ class ChapterView extends StatefulWidget {
     this.onHighlightChange,
     this.padding = const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
     this.primaryAppBar = false,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -33,7 +31,10 @@ class _VerseGroup {
   final int startNumber;
   final List<String> verses;
 
-  _VerseGroup({this.important, this.startNumber, this.verses});
+  _VerseGroup(
+      {required this.important,
+      required this.startNumber,
+      required this.verses});
 
   static List<_VerseGroup> createList(
       List<String> chapter, ScriptureReference reference) {
@@ -62,14 +63,14 @@ class _VerseGroup {
 }
 
 class _ChapterViewState extends State<ChapterView> {
-  GlobalKey _referenceKey;
-  Future<Iterable<String>> _chapter;
+  late GlobalKey _referenceKey;
+  late Future<Iterable<String>> _chapter;
 
   void scrollToReference() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_referenceKey.currentContext != null) {
         Scrollable.ensureVisible(
-          _referenceKey.currentContext,
+          _referenceKey.currentContext!,
           duration: const Duration(milliseconds: 800),
           curve: Curves.easeInOut,
         );
@@ -197,7 +198,7 @@ class _ChapterViewState extends State<ChapterView> {
                       delegate: SliverChildListDelegate([
                         Column(children: [
                           for (var group in _VerseGroup.createList(
-                              snapshot.data.toList(), widget.reference))
+                              snapshot.data!.toList(), widget.reference))
                             buildVerseGroup(group),
                         ]),
                       ]),

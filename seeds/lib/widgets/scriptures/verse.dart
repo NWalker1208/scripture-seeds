@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../selection/highlight.dart';
@@ -14,21 +12,21 @@ class VerseView extends StatelessWidget {
     this.style,
     this.height = 1.6,
     this.onHighlightChange,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final int number;
   final String text;
-  final TextStyle style;
+  final TextStyle? style;
   final double height;
-  final VerseHighlightChangeHandler onHighlightChange;
+  final VerseHighlightChangeHandler? onHighlightChange;
 
   String _getQuote(Iterable<Word> words) {
     if (!words.any((word) => word.highlighted)) return '';
 
     final paragraph = '$number. $text';
     var quote = '';
-    bool continuous;
+    bool? continuous;
 
     for (var word in words) {
       if (word.highlighted) {
@@ -47,7 +45,7 @@ class VerseView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _style = style ??
-        Theme.of(context).textTheme.bodyLarge.copyWith(
+        Theme.of(context).textTheme.bodyLarge!.copyWith(
               height: height,
             );
 
