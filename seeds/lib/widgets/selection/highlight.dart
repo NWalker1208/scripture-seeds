@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +11,7 @@ typedef HighlightChangeHandler = Function(Iterable<Word> words);
 /// Selection widget responsible for handling selection state and events.
 class HighlightParagraph extends StatefulWidget {
   const HighlightParagraph({
-    @required this.text,
+    required this.text,
     this.style,
     this.textAlign = TextAlign.start,
     this.textHeightBehavior,
@@ -21,17 +19,17 @@ class HighlightParagraph extends StatefulWidget {
     this.highlightColor,
     this.highlightShape,
     this.onHighlightChange,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final String text;
-  final TextStyle style;
+  final TextStyle? style;
   final TextAlign textAlign;
-  final TextHeightBehavior textHeightBehavior;
+  final TextHeightBehavior? textHeightBehavior;
   final double textScaleFactor;
-  final Color highlightColor;
-  final ShapeBorder highlightShape;
-  final HighlightChangeHandler onHighlightChange;
+  final Color? highlightColor;
+  final ShapeBorder? highlightShape;
+  final HighlightChangeHandler? onHighlightChange;
 
   @override
   HighlightParagraphState createState() => HighlightParagraphState();
@@ -40,26 +38,26 @@ class HighlightParagraph extends StatefulWidget {
 class HighlightParagraphState extends State<HighlightParagraph>
     with AutomaticKeepAliveClientMixin {
   final _paragraphKey = GlobalKey();
-  BuiltList<Word> _words;
-  WordSelection _activeSelection;
-  bool _selectionAction;
+  late BuiltList<Word> _words;
+  WordSelection? _activeSelection;
+  bool? _selectionAction;
 
-  RenderSelectionParagraph _getParagraph() =>
-      _paragraphKey.currentContext.findRenderObject()
-          as RenderSelectionParagraph;
+  RenderSelectionParagraph? _getParagraph() =>
+      _paragraphKey.currentContext!.findRenderObject()
+          as RenderSelectionParagraph?;
 
   List<TextSelection> _getHighlights() {
     var highlights = <TextSelection>[];
-    int start, end;
+    int? start, end;
 
     for (var i = 0; i <= _words.length; i++) {
       final word = i < _words.length ? _words[i] : null;
 
       if (word?.highlighted ?? false) {
-        start ??= word.range.start;
-        end = word.range.end;
+        start ??= word!.range.start;
+        end = word!.range.end;
       } else if (start != null) {
-        highlights.add(TextSelection(baseOffset: start, extentOffset: end));
+        highlights.add(TextSelection(baseOffset: start, extentOffset: end!));
         start = null;
       }
     }
@@ -68,9 +66,12 @@ class HighlightParagraphState extends State<HighlightParagraph>
   }
 
   // Selection controls
-  void _updateSelection(TextSelection selection) {
+  void _updateSelection(TextSelection? selection) {
     final wordSelection = selection?.toWordSelection(_words);
-    var action = _words.atPosition(selection?.base)?.highlighted;
+    final basePosition = selection?.base;
+    var action = basePosition != null
+        ? _words.atPosition(basePosition).highlighted
+        : null;
     if (action != null) action = !action;
 
     if (_activeSelection != wordSelection || _selectionAction != action) {
@@ -85,13 +86,13 @@ class HighlightParagraphState extends State<HighlightParagraph>
     if (_activeSelection == null) return;
 
     final changingWords = _words.sublist(
-      _words.indexOf(_activeSelection.start),
-      _words.indexOf(_activeSelection.end) + 1,
+      _words.indexOf(_activeSelection!.start),
+      _words.indexOf(_activeSelection!.end) + 1,
     );
 
     setState(() {
       for (var word in changingWords) {
-        word.highlighted = _selectionAction;
+        word.highlighted = _selectionAction!;
       }
       _updateSelection(null);
       _notifyHighlightChange();
@@ -104,7 +105,7 @@ class HighlightParagraphState extends State<HighlightParagraph>
   }
 
   // Selection handlers
-  TextPosition _offsetToPosition(Offset localOffset) =>
+  TextPosition? _offsetToPosition(Offset localOffset) =>
       _getParagraph()?.getPositionForOffset(localOffset);
 
   void _handleSelectionStart(TextPosition position) =>
@@ -138,7 +139,7 @@ class HighlightParagraphState extends State<HighlightParagraph>
     super.build(context);
     final style = widget.style ?? DefaultTextStyle.of(context).style;
     final color = widget.highlightColor ??
-        Theme.of(context).textSelectionTheme.selectionColor;
+        Theme.of(context).textSelectionTheme.selectionColor!;
     final shape = widget.highlightShape ?? const Border();
 
     final background = Theme.of(context).colorScheme.background;
@@ -164,8 +165,8 @@ class HighlightParagraphState extends State<HighlightParagraph>
           if (_activeSelection != null)
             SelectionDecoration(
               selection: TextSelection(
-                baseOffset: _activeSelection.start.range.start,
-                extentOffset: _activeSelection.end.range.end,
+                baseOffset: _activeSelection!.start.range.start,
+                extentOffset: _activeSelection!.end.range.end,
               ),
               color: selectionColor,
               shape: shape,

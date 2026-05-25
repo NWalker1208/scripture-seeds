@@ -1,35 +1,33 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 /// Selection widget responsible for detecting gestures.
 class SelectionDetector extends StatefulWidget {
   const SelectionDetector({
     this.child,
-    @required this.offsetToPosition,
+    required this.offsetToPosition,
     this.onSelectionStart,
     this.onSelectionUpdate,
     this.onSelectionDone,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final Widget child;
-  final TextPosition Function(Offset offset) offsetToPosition;
-  final Function(TextPosition position) onSelectionStart;
-  final Function(TextSelection selection) onSelectionUpdate;
-  final Function(TextSelection selection) onSelectionDone;
+  final Widget? child;
+  final TextPosition? Function(Offset offset) offsetToPosition;
+  final Function(TextPosition position)? onSelectionStart;
+  final Function(TextSelection? selection)? onSelectionUpdate;
+  final Function(TextSelection selection)? onSelectionDone;
 
   @override
   _SelectionDetectorState createState() => _SelectionDetectorState();
 }
 
 class _SelectionDetectorState extends State<SelectionDetector> {
-  TextPosition startPosition;
-  TextPosition lastPosition;
+  late TextPosition startPosition;
+  TextPosition? lastPosition;
 
   /// Converts an offset to a text position and passes it to action.
   /// If the offset is not a valid text position, it does nothing.
-  void select(Offset offset, Function(TextPosition) action) {
+  void select(Offset offset, Function(TextPosition)? action) {
     var pos = widget.offsetToPosition(offset);
     if (pos != null) action?.call(pos);
   }
@@ -56,12 +54,12 @@ class _SelectionDetectorState extends State<SelectionDetector> {
   }
 
   /// End the selection at the given position, or the last position updated.
-  void end([TextPosition pos]) {
+  void end([TextPosition? pos]) {
     if (pos != null) setState(() => lastPosition = pos);
     pos ??= lastPosition;
     widget.onSelectionDone?.call(TextSelection(
       baseOffset: startPosition.offset,
-      extentOffset: pos.offset,
+      extentOffset: pos!.offset,
     ));
   }
 

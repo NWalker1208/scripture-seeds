@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,12 +7,12 @@ import 'render.dart';
 /// Selection widget responsible for creating and updating the render object.
 class SelectionParagraph extends RichText {
   SelectionParagraph({
-    @required InlineSpan text,
+    required InlineSpan text,
     Iterable<SelectionDecoration> selectionDecorations = const [],
     TextAlign textAlign = TextAlign.start,
-    TextHeightBehavior textHeightBehavior,
+    TextHeightBehavior? textHeightBehavior,
     double textScaleFactor = 1.0,
-    Key key,
+    Key? key,
   })  : _selectionDecorations = selectionDecorations.toBuiltList(),
         super(
           key: key,

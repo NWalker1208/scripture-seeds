@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -12,7 +10,7 @@ class SelectionDecoration {
   final ShapeBorder shape;
 
   const SelectionDecoration({
-    @required this.selection,
+    required this.selection,
     this.color = Colors.blue,
     this.shape = const Border(),
   });
@@ -34,13 +32,13 @@ class SelectionDecoration {
 /// TODO: Add animations
 class RenderSelectionParagraph extends RenderParagraph {
   RenderSelectionParagraph({
-    InlineSpan text,
-    Iterable<SelectionDecoration> selectionDecorations,
+    required InlineSpan text,
+    required Iterable<SelectionDecoration> selectionDecorations,
     TextAlign textAlign = TextAlign.start,
-    TextHeightBehavior textHeightBehavior,
+    TextHeightBehavior? textHeightBehavior,
     double textScaleFactor = 1.0,
-    @required TextDirection textDirection,
-    Locale locale,
+    required TextDirection textDirection,
+    Locale? locale,
   })  : _selectionDecorations = selectionDecorations.toBuiltList(),
         super(
           text,
@@ -52,7 +50,8 @@ class RenderSelectionParagraph extends RenderParagraph {
         );
 
   BuiltList<SelectionDecoration> _selectionDecorations;
-  Iterable<SelectionDecoration> get selectionDecorations => _selectionDecorations;
+  Iterable<SelectionDecoration> get selectionDecorations =>
+      _selectionDecorations;
   set selectionDecorations(Iterable<SelectionDecoration> values) {
     var builtValues = values.toBuiltList();
     if (_selectionDecorations != builtValues) {

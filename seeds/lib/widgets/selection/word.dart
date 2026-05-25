@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
@@ -14,7 +12,7 @@ class Word {
 
   static Iterable<Word> fromString(String text) {
     var words = <Word>[];
-    int start;
+    int? start;
 
     for (var i = 0; i <= text.length; i++) {
       var char = i < text.length ? text[i] : '';
@@ -57,7 +55,6 @@ class WordSelection {
 extension IterableExtension on Iterable<Word> {
   /// Find the word closest to the given text position.
   Word atPosition(TextPosition position) {
-    if (position == null) return null;
     var offset = position.offset;
     return firstWhere((word) => offset <= word.range.end, orElse: () => last);
   }
