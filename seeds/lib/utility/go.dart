@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +11,7 @@ class Go {
   final AppRouterDelegate _delegate;
 
   AppPage get _currentPage => _delegate.currentConfiguration.page;
-  String get _currentTopic => _delegate.currentConfiguration.topic;
+  String? get _currentTopic => _delegate.currentConfiguration.topic;
   bool get _fromPlant => _delegate.currentConfiguration.fromPlant;
 
   static Go from(BuildContext context) =>
@@ -25,20 +23,20 @@ class Go {
   Future<void> toSettings() => to(AppRoutePath.settings());
   Future<void> toTopics() => to(AppRoutePath.topics());
 
-  Future<void> toPlant([String topic]) =>
-      to(AppRoutePath.plant(topic ?? _currentTopic));
+  Future<void> toPlant([String? topic]) =>
+      to(AppRoutePath.plant(topic ?? _currentTopic!));
 
-  Future<void> toJournal([String topic]) =>
+  Future<void> toJournal([String? topic]) =>
       to(AppRoutePath.journal(topic ?? _currentTopic));
 
-  Future<void> toDetails([String topic]) => to(AppRoutePath.details(
-      topic ?? _currentTopic,
+  Future<void> toDetails([String? topic]) => to(AppRoutePath.details(
+      topic ?? _currentTopic!,
       _currentPage == AppPage.plant &&
           (topic == _currentTopic || topic == null)));
 
-  Future<void> toScripture(ScriptureReference reference, [String topic]) =>
-      to(AppRoutePath.scripture(topic ?? _currentTopic, reference, _fromPlant));
+  Future<void> toScripture(ScriptureReference reference, [String? topic]) =>
+      to(AppRoutePath.scripture(topic ?? _currentTopic!, reference, _fromPlant));
 
-  Future<void> toActivity([String topic]) =>
-      to(AppRoutePath.activity(topic ?? _currentTopic));
+  Future<void> toActivity([String? topic]) =>
+      to(AppRoutePath.activity(topic ?? _currentTopic!));
 }
