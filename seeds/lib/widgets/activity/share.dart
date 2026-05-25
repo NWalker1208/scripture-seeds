@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +12,9 @@ class ShareActivity extends StatelessWidget {
   final Topic topic;
   final ScriptureReference reference;
 
-  const ShareActivity(this.topic, this.reference, {Key key}) : super(key: key);
+  const ShareActivity(this.topic, this.reference, {Key? key}) : super(key: key);
 
-  void _notifyCompleted(BuildContext context, [bool saveToJournal]) {
+  void _notifyCompleted(BuildContext context, [bool? saveToJournal]) {
     var activity = Provider.of<ActivityProvider>(context, listen: false);
     if (!activity[2]) activity[2] = true;
     if (saveToJournal != null) activity.saveToJournal = saveToJournal;

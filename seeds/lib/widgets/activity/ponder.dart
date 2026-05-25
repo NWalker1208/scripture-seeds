@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +10,7 @@ class PonderActivity extends StatefulWidget {
   final Topic topic;
   final int minWords;
 
-  const PonderActivity(this.topic, {this.minWords = 8, Key key})
+  const PonderActivity(this.topic, {this.minWords = 8, Key? key})
       : super(key: key);
 
   @override
@@ -70,7 +68,7 @@ class _PonderActivityState extends State<PonderActivity>
                   decoration: InputDecoration(
                     hintText: 'Type at least 8 words to continue.',
                     counterText: '$wordCount/${widget.minWords} words',
-                    counterStyle: Theme.of(context).textTheme.bodySmall.copyWith(
+                    counterStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: (wordCount < widget.minWords)
                             ? Theme.of(context).colorScheme.error
                             : null),

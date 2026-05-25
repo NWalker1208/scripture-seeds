@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +12,9 @@ import '../activity/study.dart';
 /// Manages stages of activities with PageView
 class ActivityStages extends StatefulWidget {
   const ActivityStages({
-    this.reference,
-    this.topic,
-    Key key,
+    required this.reference,
+    required this.topic,
+    Key? key,
   }) : super(key: key);
 
   final ScriptureReference reference;
@@ -42,7 +40,7 @@ class _ActivityStagesState extends State<ActivityStages> {
         .maybeShow(context, 'activity${activity.stage}');
 
     // Animate to correct stage if changed
-    if (controller.hasClients && activity.stage != controller.page.round()) {
+    if (controller.hasClients && activity.stage != controller.page!.round()) {
       FocusScope.of(context).unfocus();
       controller.animateToPage(
         activity.stage,

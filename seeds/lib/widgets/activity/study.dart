@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +7,7 @@ import '../scriptures/chapter.dart';
 import '../tutorial/help.dart';
 
 class StudyActivity extends StatefulWidget {
-  const StudyActivity(this.reference, {Key key}) : super(key: key);
+  const StudyActivity(this.reference, {Key? key}) : super(key: key);
 
   final ScriptureReference reference;
 
@@ -25,11 +23,11 @@ class _VerseQuote {
 }
 
 class _StudyActivityState extends State<StudyActivity> {
-  Map<int, _VerseQuote> _verses;
+  late Map<int, _VerseQuote> _verses;
 
   String getSharableQuote() => widget.reference.verses
       .map((verse) => _verses[verse]?.quote)
-      .where((str) => str != null)
+      .whereType<String>()
       .join(' ')
       .replaceAll('... ...', '...');
 

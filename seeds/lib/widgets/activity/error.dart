@@ -1,11 +1,9 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../../utility/go.dart';
 
 class ActivityError extends StatelessWidget {
-  const ActivityError({Key key}) : super(key: key);
+  const ActivityError({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Padding(

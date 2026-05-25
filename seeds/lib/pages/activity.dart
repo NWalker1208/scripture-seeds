@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -24,7 +22,7 @@ import '../widgets/tutorial/button.dart';
 class ActivityPage extends StatefulWidget {
   final Topic topic;
 
-  ActivityPage(this.topic, {Key key}) : super(key: key);
+  ActivityPage(this.topic, {Key? key}) : super(key: key);
 
   @override
   _ActivityPageState createState() => _ActivityPageState();
@@ -92,7 +90,7 @@ class ActivityProvider extends ChangeNotifier {
 }
 
 class _ActivityPageState extends State<ActivityPage> {
-  ScriptureReference _reference;
+  ScriptureReference? _reference;
 
   /// Advances the activity to the next stage, or ends the activity.
   void nextStage(ActivityProvider activity) {
@@ -106,11 +104,11 @@ class _ActivityPageState extends State<ActivityPage> {
   void _endActivity(ActivityProvider activity) {
     if (activity.saveToJournal) {
       Provider.of<JournalProvider>(context, listen: false)
-          .save(activity.createJournalEntry(widget.topic, _reference));
+          .save(activity.createJournalEntry(widget.topic, _reference!));
     }
 
     Provider.of<HistoryProvider>(context, listen: false)
-        .markStudied(_reference);
+        .markStudied(_reference!);
     Provider.of<ProgressProvider>(context, listen: false)
         .increment(widget.topic.id);
     Navigator.pop(context, true);
@@ -142,7 +140,7 @@ class _ActivityPageState extends State<ActivityPage> {
           ),
           body: _reference == null
               ? const ActivityError()
-              : ActivityStages(reference: _reference, topic: widget.topic),
+              : ActivityStages(reference: _reference!, topic: widget.topic),
           floatingActionButton: Consumer<ActivityProvider>(
             builder: (context, activity, child) => AnimatedFloatingActionButton(
               icon: (activity.stage == 2) ? Icons.check : Icons.navigate_next,

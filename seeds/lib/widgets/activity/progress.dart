@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +6,7 @@ import '../../pages/activity.dart';
 class ActivityProgressMap extends StatelessWidget {
   ActivityProgressMap({
     this.stages = 3,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final int stages;
