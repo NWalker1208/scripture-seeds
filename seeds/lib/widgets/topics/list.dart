@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,15 +8,15 @@ import '../animation/list.dart';
 import 'chip.dart';
 
 class TopicList extends StatelessWidget {
-  final Iterable<String> topics;
+  final Iterable<String>? topics;
   final bool showPurchased;
-  final int maxToShow;
+  final int? maxToShow;
 
   const TopicList({
     this.topics,
     this.showPurchased = true,
     this.maxToShow,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -53,7 +51,7 @@ class TopicList extends StatelessWidget {
           }
 
           // Reduce to maxToShow topics if specified
-          if (maxToShow != null) topicList = topicList.take(maxToShow).toList();
+          if (maxToShow != null) topicList = topicList.take(maxToShow!).toList();
 
           return AnimatedListBuilder<String>.list(
             items: topicList,
@@ -65,7 +63,7 @@ class TopicList extends StatelessWidget {
               axis: Axis.horizontal,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
-                child: TopicChip(indexProvider.index[topic]),
+                child: TopicChip(indexProvider.index![topic]!),
               ),
             ),
             viewBuilder: (context, children) => Wrap(

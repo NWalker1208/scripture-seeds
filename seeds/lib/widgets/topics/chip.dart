@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +8,7 @@ import '../../utility/go.dart';
 class TopicChip extends StatelessWidget {
   final Topic topic;
 
-  const TopicChip(this.topic, {Key key}) : super(key: key);
+  const TopicChip(this.topic, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ActionChip(
@@ -22,7 +20,7 @@ class TopicChip extends StatelessWidget {
                 Icon(Icons.check),
                 SizedBox(width: 8)
               ],
-              child,
+              child!,
             ],
           ),
           child: Text(topic.name),
