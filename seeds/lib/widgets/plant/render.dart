@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -195,7 +193,7 @@ class RenderPlant extends RenderBox {
     final fruit = Paint()
       ..color = fruitColor
       ..shader = RadialGradient(
-        colors: [fruitColor, Color.lerp(Colors.white, fruitColor, 0.75)],
+        colors: [fruitColor, Color.lerp(Colors.white, fruitColor, 0.75)!],
         stops: [0.4, 1],
       ).createShader(rect);
 

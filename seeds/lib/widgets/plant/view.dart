@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -12,7 +10,7 @@ class PlantView extends StatelessWidget {
   PlantView(
     this.name, {
     this.padding = const EdgeInsets.all(20),
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final String name;
@@ -33,14 +31,14 @@ class PlantView extends StatelessWidget {
               final val = animation.value;
               return _PlantViewDelegate(
                 seed: name,
-                growth: lerpDouble(viewA.growth, viewB.growth, val),
-                fruit: lerpDouble(viewA.fruit, viewB.fruit, val),
-                wilt: lerpDouble(viewA.wilt, viewB.wilt, val),
+                growth: lerpDouble(viewA.growth, viewB.growth, val)!,
+                fruit: lerpDouble(viewA.fruit, viewB.fruit, val)!,
+                wilt: lerpDouble(viewA.wilt, viewB.wilt, val)!,
                 padding: EdgeInsetsGeometry.lerp(
                   viewA.padding,
                   viewB.padding,
                   val,
-                ),
+                )!,
               );
             },
           );
@@ -87,12 +85,12 @@ class PlantView extends StatelessWidget {
 // Renders the view and the surrounding decorations.
 class _PlantViewDelegate extends StatelessWidget {
   const _PlantViewDelegate({
-    this.seed,
-    this.growth,
-    this.wilt,
-    this.fruit,
-    this.padding,
-    Key key,
+    required this.seed,
+    required this.growth,
+    required this.wilt,
+    required this.fruit,
+    required this.padding,
+    Key? key,
   }) : super(key: key);
 
   final Object seed;
@@ -104,15 +102,15 @@ class _PlantViewDelegate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Background colors
-    final dayColor = Colors.lightBlue[200];
-    final nightColor = Colors.indigo[900];
-    final dirtColor = Colors.brown[900];
+    final dayColor = Colors.lightBlue[200]!;
+    final nightColor = Colors.indigo[900]!;
+    final dirtColor = Colors.brown[900]!;
 
     // Foreground colors
     final stemColor = Colors.lightGreen;
-    final trunkColor = Colors.brown[500];
-    final leafColor = Colors.green[700];
-    final fruitColor = Colors.red[700];
+    final trunkColor = Colors.brown[500]!;
+    final leafColor = Colors.green[700]!;
+    final fruitColor = Colors.red[700]!;
     final wiltedStemColor = Colors.brown;
     final wiltedLeafColor = Color(0xFFB98D51);
 
@@ -123,7 +121,7 @@ class _PlantViewDelegate extends StatelessWidget {
       begin: Alignment.bottomCenter,
       end: Alignment.topCenter,
       colors: [
-        Color.lerp(Theme.of(context).scaffoldBackgroundColor, skyColor, 0.5),
+        Color.lerp(Theme.of(context).scaffoldBackgroundColor, skyColor, 0.5)!,
         skyColor,
       ],
       stops: const [0, 1],
@@ -134,7 +132,7 @@ class _PlantViewDelegate extends StatelessWidget {
       bottom: BorderSide(
         width: padding.resolve(Directionality.of(context)).bottom,
         color: Color.lerp(
-            Theme.of(context).scaffoldBackgroundColor, dirtColor, 0.9),
+            Theme.of(context).scaffoldBackgroundColor, dirtColor, 0.9)!,
       ),
     );
 
@@ -156,8 +154,8 @@ class _PlantViewDelegate extends StatelessWidget {
             Color.lerp(stemColor, trunkColor, colorGrowth),
             wiltedStemColor,
             colorWilt,
-          ),
-          leafColor: Color.lerp(leafColor, wiltedLeafColor, colorWilt),
+          )!,
+          leafColor: Color.lerp(leafColor, wiltedLeafColor, colorWilt)!,
           fruitColor: fruitColor,
         ),
       ),

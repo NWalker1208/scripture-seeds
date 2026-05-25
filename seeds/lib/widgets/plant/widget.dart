@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'branch.dart';
@@ -7,14 +5,14 @@ import 'render.dart';
 
 class PlantWidget extends LeafRenderObjectWidget {
   PlantWidget({
-    @required this.seed,
+    required this.seed,
     this.growth = 1.0,
     this.leafScale = 1.0,
     this.fruitScale = 1.0,
     this.stemColor = Colors.brown,
     this.leafColor = Colors.green,
     this.fruitColor = Colors.red,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final Object seed;

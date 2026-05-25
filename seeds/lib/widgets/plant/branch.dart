@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
@@ -90,9 +88,9 @@ class PlantNode {
 
   factory PlantNode._generate(
     Random random, {
-    double scale,
-    Offset position,
-    double direction,
+    required double scale,
+    required Offset position,
+    required double direction,
     bool hasFruit = false,
   }) {
     // Probability multiplier for branch

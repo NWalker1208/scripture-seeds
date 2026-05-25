@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +9,7 @@ class PlantProgressIndicator extends StatefulWidget {
 
   PlantProgressIndicator(
     this.plantName, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -19,7 +17,7 @@ class PlantProgressIndicator extends StatefulWidget {
 }
 
 class _PlantProgressIndicatorState extends State<PlantProgressIndicator> {
-  double initialProgress;
+  late double initialProgress;
 
   @override
   void initState() {

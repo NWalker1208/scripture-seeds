@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +35,7 @@ class PlantStatus extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Consumer<TopicIndexProvider>(
                 builder: (context, topics, _) =>
-                    Text('${topics.index[progress.id].name}')),
+                    Text('${topics.index![progress.id]!.name}')),
           ),
         ),
       ],

@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,12 +10,12 @@ import 'view.dart';
 class PlantButton extends StatelessWidget {
   final String topic;
 
-  PlantButton(this.topic, {Key key}) : super(key: key);
+  PlantButton(this.topic, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Material(
         type: MaterialType.card,
-        elevation: Theme.of(context).cardTheme.elevation,
+        elevation: Theme.of(context).cardTheme.elevation!,
         shape: Theme.of(context).cardTheme.shape,
         clipBehavior: Clip.antiAlias,
         child: Stack(
