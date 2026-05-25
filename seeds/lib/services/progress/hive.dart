@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:hive/hive.dart';
 import '../mixins/hive.dart';
 import 'database.dart';

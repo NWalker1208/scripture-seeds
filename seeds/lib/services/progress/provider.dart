@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import '../provider.dart';
 import 'database.dart';
 import 'record.dart';
@@ -7,7 +5,7 @@ import 'record.dart';
 class ProgressProvider extends ServiceProvider<ProgressDatabase> {
   ProgressProvider(ProgressDatabase Function() create) : super(create);
 
-  Map<String, ProgressRecord> _records;
+  Map<String, ProgressRecord>? _records;
 
   /// Get list of existing records.
   Iterable<String> get names => _records?.keys ?? const [];
@@ -17,8 +15,8 @@ class ProgressProvider extends ServiceProvider<ProgressDatabase> {
   /// Returns a record with 0 progress if the record does not exist or if the
   /// records have not been loaded.
   ProgressRecord getRecord(String name) {
-    if (!isLoaded || !_records.containsKey(name)) return ProgressRecord(name);
-    return _records[name];
+    if (!isLoaded || !_records!.containsKey(name)) return ProgressRecord(name);
+    return _records![name]!;
   }
 
   /// Returns all progress records with topics from the set given.
@@ -30,7 +28,7 @@ class ProgressProvider extends ServiceProvider<ProgressDatabase> {
   /// Creates a progress record
   bool create(ProgressRecord record) {
     if (!isLoaded) return false;
-    _records[record.id] = record;
+    _records![record.id] = record;
     notifyService((data) => data.saveRecord(record));
     return true;
   }
@@ -43,7 +41,7 @@ class ProgressProvider extends ServiceProvider<ProgressDatabase> {
 
     if (force || record.canMakeProgressToday) {
       record.updateProgress();
-      _records[name] = record;
+      _records![name] = record;
       notifyService((data) => data.saveRecord(record));
       return true;
     } else {
@@ -53,8 +51,8 @@ class ProgressProvider extends ServiceProvider<ProgressDatabase> {
 
   /// Deletes a record from progress data, such as when a plant is harvested.
   bool remove(String name) {
-    if (isLoaded && _records.containsKey(name)) {
-      _records.remove(name);
+    if (isLoaded && _records!.containsKey(name)) {
+      _records!.remove(name);
       notifyService((data) => data.remove(name));
       return true;
     } else {
@@ -76,7 +74,7 @@ class ProgressProvider extends ServiceProvider<ProgressDatabase> {
   /// Deletes all progress entries
   void reset() {
     if (!isLoaded) return;
-    _records.clear();
+    _records!.clear();
     notifyService((data) => data.clear());
   }
 
