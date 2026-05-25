@@ -17,7 +17,7 @@ class StudyActivity extends StatefulWidget {
 
 class _VerseQuote {
   final String quote;
-  bool get hasHighlight => (quote?.length ?? 0) > 0;
+  bool get hasHighlight => quote.isNotEmpty;
 
   _VerseQuote(this.quote);
 }
