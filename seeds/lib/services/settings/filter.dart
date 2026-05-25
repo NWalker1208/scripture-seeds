@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,7 +6,7 @@ import '../scriptures/volumes.dart';
 class FilterProvider extends ChangeNotifier {
   static const String kCategoryPref = 'study_';
 
-  Map<Volume, bool> _filter;
+  late Map<Volume, bool> _filter;
 
   FilterProvider() {
     _filter = <Volume, bool>{};
@@ -26,7 +24,7 @@ class FilterProvider extends ChangeNotifier {
     });
   }
 
-  bool operator [](Volume volume) => _filter[volume];
+  bool operator [](Volume volume) => _filter[volume]!;
 
   void operator []=(Volume volume, bool enabled) {
     if (enabled != _filter[volume]) {
