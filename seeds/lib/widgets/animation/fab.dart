@@ -1,27 +1,25 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'switcher.dart';
 
 class AnimatedFloatingActionButton extends StatelessWidget {
   const AnimatedFloatingActionButton({
-    this.icon,
+    required this.icon,
     this.tooltip,
     this.disabled = false,
     this.backgroundColor,
-    @required this.onPressed,
-    Key key,
+    required this.onPressed,
+    Key? key,
   }) : super(key: key);
 
   final IconData icon;
-  final String tooltip;
+  final String? tooltip;
   final bool disabled;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final void Function() onPressed;
 
   @override
-  Widget build(BuildContext context) => TweenAnimationBuilder<Color>(
+  Widget build(BuildContext context) => TweenAnimationBuilder<Color?>(
         duration: const Duration(milliseconds: 200),
         tween: ColorTween(
           end: disabled

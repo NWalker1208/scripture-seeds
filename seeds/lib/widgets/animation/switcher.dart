@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 class AnimatedSizeSwitcher extends StatefulWidget {
@@ -7,10 +5,10 @@ class AnimatedSizeSwitcher extends StatefulWidget {
     this.child,
     this.duration = const Duration(milliseconds: 200),
     this.curve = Curves.ease,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
   final Duration duration;
   final Curve curve;
 
@@ -35,7 +33,7 @@ class IconSwitcher extends StatelessWidget {
   const IconSwitcher(
     this.icon, {
     this.duration = const Duration(milliseconds: 200),
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final IconData icon;

@@ -1,7 +1,5 @@
 // Credit to: https://gist.github.com/Laim0n/e1b70f5d841e47c9d85ccdf6ae866984
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 class AnimatedIndexedStack extends StatefulWidget {
@@ -11,11 +9,11 @@ class AnimatedIndexedStack extends StatefulWidget {
   final List<Widget> children;
 
   const AnimatedIndexedStack({
-    Key key,
-    this.duration,
+    Key? key,
+    required this.duration,
     this.curve = Curves.ease,
-    this.index,
-    this.children,
+    required this.index,
+    required this.children,
   }) : super(key: key);
 
   @override
@@ -24,9 +22,9 @@ class AnimatedIndexedStack extends StatefulWidget {
 
 class _AnimatedIndexedStackState extends State<AnimatedIndexedStack>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
-  int _index;
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  late int _index;
 
   @override
   void initState() {

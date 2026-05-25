@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 class AppearTransition extends StatelessWidget {
@@ -9,16 +7,16 @@ class AppearTransition extends StatelessWidget {
 
   final Axis axis;
   final double axisAlignment;
-  final Widget child;
+  final Widget? child;
 
   const AppearTransition({
-    @required this.visibility,
+    required this.visibility,
     this.axis = Axis.vertical,
     this.axisAlignment = 0.0,
     this.fadeCurve = Curves.linear,
     this.sizeCurve = Curves.easeInOut,
     this.child,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

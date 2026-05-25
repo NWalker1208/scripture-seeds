@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/widgets.dart';
 
 import '../../extensions/list.dart';
@@ -30,22 +28,22 @@ IndexedViewBuilder _listToIndexedViewBuilder(ListViewBuilder viewBuilder) =>
 class AnimatedListBuilder<T> extends StatefulWidget {
   AnimatedListBuilder({
     this.items = const [],
-    @required this.viewBuilder,
-    @required this.itemBuilder,
-    @required this.duration,
+    required this.viewBuilder,
+    required this.itemBuilder,
+    required this.duration,
     this.insertDelay = const Duration(),
     this.removeDelay = const Duration(),
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   AnimatedListBuilder.list({
     this.items = const [],
-    @required ListViewBuilder viewBuilder,
-    @required this.itemBuilder,
-    @required this.duration,
+    required ListViewBuilder viewBuilder,
+    required this.itemBuilder,
+    required this.duration,
     this.insertDelay = const Duration(),
     this.removeDelay = const Duration(),
-    Key key,
+    Key? key,
   })  : viewBuilder = _listToIndexedViewBuilder(viewBuilder),
         super(key: key);
 
@@ -69,9 +67,9 @@ class _ItemController<T> {
 
 class _AnimatedListBuilderState<T> extends State<AnimatedListBuilder<T>>
     with TickerProviderStateMixin {
-  List<_ItemController<T>> visibleItems;
-  Interval forwardInterval;
-  Interval reverseInterval;
+  late List<_ItemController<T>> visibleItems;
+  late Interval forwardInterval;
+  late Interval reverseInterval;
 
   /// Creates an item controller for the given item.
   _ItemController<T> createController(T item, {bool startVisible = false}) =>
