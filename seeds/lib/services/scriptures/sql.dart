@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -30,7 +28,7 @@ const String _databaseAsset =
     'assets/lds-scriptures/sqlite/lds-scriptures-sqlite.db';
 
 class SqlScriptureDatabase extends ScriptureDatabase<Database> {
-  SqlScriptureDatabase({AssetBundle assets}) : _assets = assets ?? rootBundle;
+  SqlScriptureDatabase({AssetBundle? assets}) : _assets = assets ?? rootBundle;
 
   final AssetBundle _assets;
 
@@ -42,7 +40,7 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
 
   @override
   Future<int> getChapterCount(Book book) async {
-    var db = await data;
+    var db = (await data)!;
     var chapters = await db.query(
       _chapterTable,
       where: '$_chapterBook=?',
@@ -54,7 +52,7 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
 
   @override
   Future<int> getVerseCount(Book book, int chapter) async {
-    var db = await data;
+    var db = (await data)!;
     var verses = await db.query(
       _verseTable,
       where: '$_verseChapter=?',
@@ -65,8 +63,8 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
   }
 
   @override
-  Future<String> load(ScriptureVerse verse) async {
-    var db = await data;
+  Future<String?> load(ScriptureVerse verse) async {
+    var db = (await data)!;
     final text = (await db.query(
       _verseTable,
       columns: [_verseText],
@@ -76,8 +74,8 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
       ],
       limit: 1,
     ))
-        .first[_verseText] as String;
-    return text.replaceAll('\n', '').replaceAll('--', '\u{2013}');
+        .first[_verseText] as String?;
+    return text?.replaceAll('\n', '').replaceAll('--', '\u{2013}');
   }
 
   Future<File> _createTempDatabaseCopy() async {
@@ -98,8 +96,8 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
     return copyFile;
   }
 
-  Future<int> _getBookId(Book book) async {
-    var db = await data;
+  Future<int?> _getBookId(Book book) async {
+    var db = (await data)!;
     return (await db.query(
       _bookTable,
       columns: [_bookId],
@@ -107,11 +105,11 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
       whereArgs: <dynamic>[book.title.replaceAll('\u2014', '--').toLowerCase()],
       limit: 1,
     ))
-        .first[_bookId] as int;
+        .first[_bookId] as int?;
   }
 
-  Future<int> _getChapterId(Book book, int chapter) async {
-    var db = await data;
+  Future<int?> _getChapterId(Book book, int chapter) async {
+    var db = (await data)!;
     return (await db.query(
       _chapterTable,
       columns: [_chapterId],
@@ -119,11 +117,11 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
       whereArgs: <dynamic>[await _getBookId(book), chapter],
       limit: 1,
     ))
-        .first[_chapterId] as int;
+        .first[_chapterId] as int?;
   }
 
-  Future<int> _getVerseId(Book book, int chapter, int verse) async {
-    var db = await data;
+  Future<int?> _getVerseId(Book book, int chapter, int verse) async {
+    var db = (await data)!;
     return (await db.query(
       _verseTable,
       columns: [_verseId],
@@ -131,6 +129,6 @@ class SqlScriptureDatabase extends ScriptureDatabase<Database> {
       whereArgs: <dynamic>[await _getChapterId(book, chapter), verse],
       limit: 1,
     ))
-        .first[_chapterId] as int;
+        .first[_chapterId] as int?;
   }
 }

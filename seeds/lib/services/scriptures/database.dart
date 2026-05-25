@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import '../../extensions/iterable.dart';
@@ -10,7 +8,7 @@ import 'verse.dart';
 
 /// Database for obtaining scriptural text.
 /// D - Internal database instance.
-abstract class ScriptureDatabase<D>
+abstract class ScriptureDatabase<D extends Object>
     extends CustomDatabase<D, ScriptureVerse, String> {
   /// Avoid calling of possible
   @override
@@ -28,7 +26,7 @@ abstract class ScriptureDatabase<D>
   Future<int> getVerseCount(Book book, int chapter);
 
   /// Loads the text for a verse.
-  Future<String> loadVerse(Book book, int chapter, int verse) =>
+  Future<String?> loadVerse(Book book, int chapter, int verse) =>
       load(ScriptureVerse(book, chapter, verse));
 
   /// Loads the text for an entire chapter.
@@ -37,7 +35,7 @@ abstract class ScriptureDatabase<D>
 
     return [
       for (var verse = 1; verse <= verseCount; verse++)
-        await loadVerse(book, chapter, verse),
+        (await loadVerse(book, chapter, verse))!,
     ];
   }
 

@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
@@ -17,7 +15,7 @@ const String _verseText = 'scripture_text';
 
 class JsonScriptureDatabase
     extends ScriptureDatabase<Map<ScriptureVerse, String>> {
-  JsonScriptureDatabase({AssetBundle assets}) : _assets = assets ?? rootBundle;
+  JsonScriptureDatabase({AssetBundle? assets}) : _assets = assets ?? rootBundle;
 
   final AssetBundle _assets;
 
@@ -37,19 +35,19 @@ class JsonScriptureDatabase
 
   @override
   Future<int> getChapterCount(Book book) async {
-    final db = await data;
+    final db = (await data)!;
     return db.keys.where((v) => v.book == book && v.number == 1).length;
   }
 
   @override
   Future<int> getVerseCount(Book book, int chapter) async {
-    final db = await data;
+    final db = (await data)!;
     return db.keys.where((v) => v.book == book && v.chapter == chapter).length;
   }
 
   @override
-  Future<String> load(ScriptureVerse key) async {
-    final db = await data;
+  Future<String?> load(ScriptureVerse key) async {
+    final db = (await data)!;
     return db[key];
   }
 }
