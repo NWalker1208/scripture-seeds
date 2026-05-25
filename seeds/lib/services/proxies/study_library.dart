@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -11,10 +9,10 @@ import '../topics/provider.dart';
 
 class StudyLibraryProxy {
   StudyLibraryProxy({
-    this.scriptures,
-    this.topics,
-    this.filter,
-    this.history,
+    required this.scriptures,
+    required this.topics,
+    required this.filter,
+    required this.history,
   });
 
   factory StudyLibraryProxy.fromContext(BuildContext context) =>
@@ -31,7 +29,7 @@ class StudyLibraryProxy {
   final HistoryProvider history;
 
   List<ScriptureReference> availableReferences(String topic) {
-    var references = topics.index[topic].references.toList();
+    var references = topics.index![topic]!.references.toList();
     references.removeWhere((ref) => !filter[ref.volume]);
     return references;
   }
@@ -39,7 +37,7 @@ class StudyLibraryProxy {
   List<ScriptureReference> leastRecent(String topic) {
     var references = availableReferences(topic);
     var leastRecent = <ScriptureReference>[];
-    DateTime leastRecentDate;
+    DateTime? leastRecentDate;
 
     for (var ref in references) {
       var lastStudied = history.lastStudied(ref);
