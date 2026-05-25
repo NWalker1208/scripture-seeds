@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,24 +42,30 @@ class AppRoutePath {
         topic = null,
         fromPlant = false,
         reference = null;
-  const AppRoutePath.plant(this.topic)
+  const AppRoutePath.plant(String requiredTopic)
       : page = AppPage.plant,
+        topic = requiredTopic,
         fromPlant = false,
         reference = null;
   const AppRoutePath.journal([this.topic])
       : page = AppPage.journal,
         fromPlant = topic != null,
         reference = null;
-  const AppRoutePath.details(this.topic, [this.fromPlant = false])
+  const AppRoutePath.details(String requiredTopic, [this.fromPlant = false])
       : page = AppPage.details,
+        topic = requiredTopic,
         reference = null;
-  const AppRoutePath.activity(this.topic)
+  const AppRoutePath.activity(String requiredTopic)
       : page = AppPage.activity,
+        topic = requiredTopic,
         fromPlant = true,
         reference = null;
-  const AppRoutePath.scripture(this.topic, this.reference,
+  const AppRoutePath.scripture(
+      String requiredTopic, ScriptureReference requiredReference,
       [this.fromPlant = false])
-      : page = AppPage.scripture;
+      : page = AppPage.scripture,
+        topic = requiredTopic,
+        reference = requiredReference;
 
   factory AppRoutePath.parse(String location) {
     // TODO: Implement parsing
@@ -77,18 +81,18 @@ class AppRoutePath {
         if (page.length == 1) return AppRoutePath.topics();
         final topic = page[1];
         if (page.length == 2) return AppRoutePath.details(topic);
-        final reference = ScriptureReference.parse(url.queryParameters['ref']);
+        final reference = ScriptureReference.parse(url.queryParameters['ref']!);
         return AppRoutePath.scripture(topic, reference);
       } else {
         // Other pages
         final topic = url.queryParameters['topic'];
         switch (page.first) {
           case 'plant':
-            return AppRoutePath.plant(topic);
+            return AppRoutePath.plant(topic!);
           case 'journal':
             return AppRoutePath.journal(topic);
           case 'activity':
-            return AppRoutePath.activity(topic);
+            return AppRoutePath.activity(topic!);
         }
       }
     } on Exception catch (e) {
@@ -98,9 +102,9 @@ class AppRoutePath {
   }
 
   final AppPage page;
-  final String topic;
+  final String? topic;
   final bool fromPlant;
-  final ScriptureReference reference;
+  final ScriptureReference? reference;
 
   String get location {
     var str = '/';
@@ -125,7 +129,7 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoutePath> {
   @override
   Future<AppRoutePath> parseRouteInformation(
           RouteInformation information) async =>
-      AppRoutePath.parse(information.location);
+      AppRoutePath.parse(information.location!);
 
   @override
   RouteInformation restoreRouteInformation(AppRoutePath route) =>
@@ -140,7 +144,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
   AppRoutePath _configuration = AppRoutePath.home();
 
   AppPage get _page => _configuration.page;
-  String get _topicId => _configuration.topic;
+  String? get _topicId => _configuration.topic;
   bool get _fromPlant => _configuration.fromPlant;
 
   @override
@@ -156,7 +160,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
   Widget build(BuildContext context) {
     final topics = Provider.of<TopicIndexProvider>(context);
     final topic =
-        (_topicId != null && topics.isLoaded) ? topics.index[_topicId] : null;
+        (_topicId != null && topics.isLoaded) ? topics.index![_topicId!] : null;
     return Navigator(
       key: navigatorKey,
       pages: [
@@ -189,7 +193,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
         if (_page == AppPage.scripture)
           MaterialPage<void>(
             key: ValueKey(_configuration.reference),
-            child: ScripturePage(_configuration.reference),
+            child: ScripturePage(_configuration.reference!),
           ),
         if (_page == AppPage.activity)
           MaterialPage<void>(
@@ -202,9 +206,9 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
         if (_page == AppPage.home) return false;
 
         if (_page == AppPage.scripture) {
-          _configuration = AppRoutePath.details(_topicId, _fromPlant);
+          _configuration = AppRoutePath.details(_topicId!, _fromPlant);
         } else if (_fromPlant) {
-          _configuration = AppRoutePath.plant(_topicId);
+          _configuration = AppRoutePath.plant(_topicId!);
         } else {
           _configuration = AppRoutePath.home();
         }
