@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'services/journal/entry.dart';

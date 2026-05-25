@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -29,9 +27,9 @@ import 'services/wallet/shared_prefs.dart';
 class AppProviders extends StatefulWidget {
   final Widget app;
 
-  const AppProviders(this.app, {Key key}) : super(key: key);
+  const AppProviders(this.app, {Key? key}) : super(key: key);
 
-  static AppProvidersState of(BuildContext context) =>
+  static AppProvidersState? of(BuildContext context) =>
       context.findAncestorStateOfType<AppProvidersState>();
 
   @override
