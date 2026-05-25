@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'database.dart';
@@ -12,7 +10,7 @@ class SharedPrefsTutorialDatabase extends TutorialDatabase<SharedPreferences> {
 
   @override
   Future<Iterable<String>> loadKeys() async {
-    final prefs = await data;
+    final prefs = (await data)!;
     return prefs
         .getKeys()
         .where((key) => key.startsWith(_tutorialPrefs))
@@ -20,9 +18,9 @@ class SharedPrefsTutorialDatabase extends TutorialDatabase<SharedPreferences> {
   }
 
   @override
-  Future<bool> load(String key) async {
+  Future<bool?> load(String key) async {
     final p = '$_tutorialPrefs$key';
-    final prefs = await data;
+    final prefs = (await data)!;
     if (prefs.containsKey(p)) {
       return prefs.getBool(p);
     } else {
@@ -33,14 +31,14 @@ class SharedPrefsTutorialDatabase extends TutorialDatabase<SharedPreferences> {
   @override
   Future<void> save(String key, bool value) async {
     final p = '$_tutorialPrefs$key';
-    final prefs = await data;
+    final prefs = (await data)!;
     await prefs.setBool(p, value);
   }
 
   @override
   Future<bool> remove(String key) async {
     final p = '$_tutorialPrefs$key';
-    final prefs = await data;
+    final prefs = (await data)!;
     return prefs.remove(p);
   }
 }
