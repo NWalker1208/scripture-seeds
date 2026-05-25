@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +6,7 @@ class CustomThemeData {
   final ThemeData light;
   final ThemeData dark;
 
-  const CustomThemeData._({this.light, this.dark});
+  const CustomThemeData._({required this.light, required this.dark});
 
   factory CustomThemeData() {
     // ColorSchemes
@@ -116,7 +114,7 @@ class CustomThemeData {
     final chipThemeLight = ChipThemeData.fromDefaults(
       brightness: Brightness.light,
       secondaryColor: colorsLight.primary,
-      labelStyle: typography.black.bodyLarge,
+      labelStyle: typography.black.bodyLarge!,
     ).copyWith(
       elevation: 4.0,
       pressElevation: 6.0,
@@ -125,7 +123,7 @@ class CustomThemeData {
     final chipThemeDark = ChipThemeData.fromDefaults(
       brightness: Brightness.dark,
       secondaryColor: colorsDark.primary,
-      labelStyle: typography.white.bodyLarge,
+      labelStyle: typography.white.bodyLarge!,
     ).copyWith(
       elevation: 4.0,
       pressElevation: 6.0,

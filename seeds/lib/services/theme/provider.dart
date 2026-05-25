@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'data.dart';
@@ -7,9 +5,9 @@ import 'preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
   final ThemePreferences _preferences;
-  CustomThemeData _themeData;
+  late CustomThemeData _themeData;
 
-  ThemeMode _mode;
+  late ThemeMode _mode;
 
   ThemeProvider({ThemeMode defaultMode = ThemeMode.system})
       : _preferences = ThemePreferences(defaultMode: defaultMode) {
