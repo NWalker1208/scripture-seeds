@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../../widgets/tutorial/step.dart';
@@ -9,7 +7,7 @@ import 'database.dart';
 class TutorialProvider extends ServiceProvider<TutorialDatabase> {
   TutorialProvider(TutorialDatabase Function() create) : super(create);
 
-  Set<String> _tagsShown;
+  Set<String>? _tagsShown;
 
   /// Check if the given tutorial tag has been completed.
   bool operator [](String tag) => _tagsShown?.contains(tag) ?? true;
@@ -17,20 +15,20 @@ class TutorialProvider extends ServiceProvider<TutorialDatabase> {
   /// Mark the given tutorial tag as having been completed or not.
   void operator []=(String tag, bool value) {
     if (!isLoaded) return;
-    if (value && !this[tag]) _tagsShown.add(tag);
-    if (!value && this[tag]) _tagsShown.remove(tag);
+    if (value && !this[tag]) _tagsShown!.add(tag);
+    if (!value && this[tag]) _tagsShown!.remove(tag);
     notifyService((data) => data.save(tag, value));
   }
 
   /// Reset all tutorials.
   void reset() {
-    _tagsShown.clear();
+    _tagsShown!.clear();
     notifyService((data) => data.clear());
   }
 
   /// Shows the tutorial for the given tag, using all tutorial widgets under
   /// the given context.
-  Future<void> show(BuildContext context, [String tag]) async {
+  Future<void> show(BuildContext context, [String? tag]) async {
     for (var step in TutorialStep.of(context, tag)) {
       await step.onStart(context);
     }

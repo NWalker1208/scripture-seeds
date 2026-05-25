@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 typedef TutorialStarter = Future<void> Function(BuildContext);
@@ -9,17 +7,17 @@ class TutorialStep extends StatelessWidget {
   const TutorialStep(
     this.tag, {
     this.index = 0,
-    @required this.onStart,
+    required this.onStart,
     this.child,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final String tag;
   final int index;
   final TutorialStarter onStart;
-  final Widget child;
+  final Widget? child;
 
-  static Iterable<TutorialStep> of(BuildContext context, [String tag]) {
+  static Iterable<TutorialStep> of(BuildContext context, [String? tag]) {
     final result = <TutorialStep>[];
 
     void visitor(Element element) {
