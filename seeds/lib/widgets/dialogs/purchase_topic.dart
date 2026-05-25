@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +11,7 @@ class PurchaseTopicDialog extends StatelessWidget {
 
   const PurchaseTopicDialog(
     this.topic, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

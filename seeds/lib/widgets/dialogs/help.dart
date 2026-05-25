@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 class HelpDialog extends StatelessWidget {
@@ -8,8 +6,8 @@ class HelpDialog extends StatelessWidget {
 
   HelpDialog(
     this.text, {
-    String title,
-    Key key,
+    String? title,
+    Key? key,
   })  : title = title ?? 'Help',
         super(key: key);
 

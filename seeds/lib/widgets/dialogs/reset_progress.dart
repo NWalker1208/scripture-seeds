@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +8,7 @@ import '../../services/wallet/provider.dart';
 
 class ResetProgressDialog extends StatelessWidget {
   const ResetProgressDialog({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

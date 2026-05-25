@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +11,15 @@ const _privacyUrl = 'https://nwalker1208.github.io/walker-game-development/p/'
     'scripture-seeds-privacy-policy.html';
 
 class CustomAboutDialog extends StatefulWidget {
-  const CustomAboutDialog({Key key}) : super(key: key);
+  const CustomAboutDialog({Key? key}) : super(key: key);
 
   @override
   _CustomAboutDialogState createState() => _CustomAboutDialogState();
 }
 
 class _CustomAboutDialogState extends State<CustomAboutDialog> {
-  Future<PackageInfo> _packageInfo;
-  GestureRecognizer _gestureRecognizer;
+  late Future<PackageInfo> _packageInfo;
+  late GestureRecognizer _gestureRecognizer;
 
   Future<void> _openUrl(String url) async {
     await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
@@ -77,7 +75,7 @@ class _CustomAboutDialogState extends State<CustomAboutDialog> {
       const SizedBox(height: 8),
       ListTile(
         onTap: () => _openUrl(_privacyUrl),
-        shape: ElevatedButtonTheme.of(context).style.shape.resolve({}),
+        shape: ElevatedButtonTheme.of(context).style!.shape!.resolve({}),
         leading: const Icon(Icons.open_in_new),
         title: const Text('Privacy Policy'),
       )

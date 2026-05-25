@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,7 +5,7 @@ import '../../services/journal/provider.dart';
 
 class EraseJournalDialog extends StatelessWidget {
   const EraseJournalDialog({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
