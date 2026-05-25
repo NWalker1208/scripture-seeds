@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -13,21 +11,21 @@ const String _webStorageURL =
     'https://firebasestorage.googleapis.com/v0/b/scripture-seeds.appspot.com/o/';
 
 /// Loads the TopicIndex from firebase.
-class WebTopicIndexService extends TopicIndexService<File> {
+class WebTopicIndexService extends TopicIndexService<File?> {
   WebTopicIndexService({String languageCode = 'eng'}) : super(languageCode);
 
   @override
-  Future<File> open() async {
+  Future<File?> open() async {
     if (kIsWeb) return null;
     var tempDirectory = await getTemporaryDirectory();
     return File('${tempDirectory.path}/lib_cache/$filename');
   }
 
   @override
-  Future<TopicIndex> loadIndex() async {
+  Future<TopicIndex?> loadIndex() async {
     var cache = await data;
     if (await cache?.exists() ?? false) {
-      return parseIndexJson(await cache.readAsString());
+      return parseIndexJson(await cache!.readAsString());
     }
     return refresh();
   }
@@ -35,27 +33,27 @@ class WebTopicIndexService extends TopicIndexService<File> {
   /// Attempt to download a fresh version of the topic index.
   /// If cache is true, caches the result if successful.
   /// If unable to download, return null.
-  Future<TopicIndex> refresh({bool cache = true}) async {
+  Future<TopicIndex?> refresh({bool cache = true}) async {
     final json = await _download();
     if (!kIsWeb && cache && json != null) await _saveToCache(json);
     return parseIndexJson(json);
   }
 
   /// Gets the last modified date of the cache file.
-  Future<DateTime> get cacheLastModified async {
+  Future<DateTime?> get cacheLastModified async {
     var cache = await data;
-    if (await cache?.exists() ?? false) return cache.lastModified();
+    if (await cache?.exists() ?? false) return cache!.lastModified();
     return null;
   }
 
   /// Deletes the cache file.
   Future<void> clearCache() async {
     var cache = await data;
-    if (await cache?.exists() ?? false) await cache.delete();
+    if (await cache?.exists() ?? false) await cache!.delete();
   }
 
   /// Downloads the library. Returns file as bytes.
-  Future<String> _download() async {
+  Future<String?> _download() async {
     var url = Uri.parse('$_webStorageURL$filename?alt=media');
     print('Downloading topics from "$url"...');
     try {
@@ -75,7 +73,7 @@ class WebTopicIndexService extends TopicIndexService<File> {
   /// Should not be run from web app.
   Future<void> _saveToCache(String json) async {
     assert(!kIsWeb);
-    final cache = await data;
+    final cache = (await data)!;
     if (!await cache.exists()) await cache.create(recursive: true);
     await cache.writeAsString(json, flush: true);
   }

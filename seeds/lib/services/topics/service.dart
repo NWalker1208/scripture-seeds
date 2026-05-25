@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -19,13 +17,13 @@ abstract class TopicIndexService<D> extends CustomService<D> {
   String get filename => 'topics_$language.json';
 
   /// Loads the TopicIndex. Returns null upon failure.
-  Future<TopicIndex> loadIndex();
+  Future<TopicIndex?> loadIndex();
 }
 
 /// Parse a JSON string into a TopicIndex.
 /// If the JSON is formatted incorrectly, or if the TopicIndex cannot
 /// be created from the decoded object, this will return null.
-TopicIndex parseIndexJson(String json) {
+TopicIndex? parseIndexJson(String? json) {
   if (json == null) {
     print('Failed to obtain JSON for TopicIndex, received null.');
     return null;
