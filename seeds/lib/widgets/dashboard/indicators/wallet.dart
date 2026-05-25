@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,11 +5,11 @@ import '../../../services/wallet/provider.dart';
 import '../../../utility/custom_icons.dart';
 
 class WalletIndicator extends StatelessWidget {
-  final int required;
+  final int? required;
 
   const WalletIndicator({
     this.required,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
