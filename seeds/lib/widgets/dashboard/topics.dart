@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../../utility/go.dart';
@@ -9,7 +7,7 @@ import 'indicators/wallet.dart';
 
 class TopicsDashboard extends StatelessWidget {
   const TopicsDashboard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

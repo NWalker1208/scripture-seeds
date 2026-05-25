@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +11,7 @@ import 'indicators/daily_progress.dart';
 
 class PlantsDashboard extends StatelessWidget {
   const PlantsDashboard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -35,7 +33,7 @@ class PlantsDashboard extends StatelessWidget {
                 }
 
                 // Sort records so that incomplete ones go first
-                var records = progress.fromTopics(topics.index.topics).toList()
+                var records = progress.fromTopics(topics.index!.topics).toList()
                   ..sort();
 
                 return AnimatedListBuilder<ProgressRecord>(
