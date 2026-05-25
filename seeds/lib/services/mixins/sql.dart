@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:sqflite/sqflite.dart';
@@ -7,7 +5,8 @@ import 'package:sqflite/sqflite.dart';
 import '../saved.dart';
 
 /// Mixin for databases that use an SQL database for storage.
-mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
+mixin SqlDatabaseMixin<K extends Object, V extends Object>
+    on SavedDatabase<Database, K, V> {
   /// Filename of the database file.
   String get databaseFileName;
 
@@ -73,14 +72,14 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
 
   @override
   Future<Iterable<K>> loadKeys() async {
-    final db = await data;
+    final db = (await data)!;
     var entries = await db.query(table, columns: [keyColumn]);
     return [for (var entry in entries) resultToKey(entry[keyColumn])];
   }
 
   @override
-  Future<V> load(K key) async {
-    final db = await data;
+  Future<V?> load(K key) async {
+    final db = (await data)!;
     var records = await db.query(
       table,
       columns: valueColumns.toList(),
@@ -94,7 +93,7 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
 
   @override
   Future<void> save(K key, V value) async {
-    final db = await data;
+    final db = (await data)!;
     final entry = valueToArgs(value);
     entry[keyColumn] = keyToArg(key);
 
@@ -103,7 +102,7 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
 
   @override
   Future<bool> remove(K key) async {
-    final db = await data;
+    final db = (await data)!;
     final count = await db.delete(
       table,
       where: '$keyColumn = ?',
@@ -114,7 +113,7 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
 
   @override
   Future<void> clear() async {
-    final db = await data;
+    final db = (await data)!;
     await db.delete(table);
   }
 
@@ -127,7 +126,7 @@ mixin SqlDatabaseMixin<K, V> on SavedDatabase<Database, K, V> {
 
   @override
   Future<void> close() async {
-    final db = await data;
+    final db = (await data)!;
     await db.close();
     await super.close();
   }

@@ -1,12 +1,11 @@
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
 import '../saved.dart';
 
 /// Mixin for databases that use a Hive database for storage.
-mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
+mixin HiveDatabaseMixin<K extends Object, V extends Object>
+    on SavedDatabase<Box<V>, K, V> {
   /// Name of Hive box to store data.
   @protected
   String get boxName;
@@ -18,34 +17,34 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
   /// Convert a string from storage back to a key.
   /// Return null for invalid keys.
   @protected
-  K stringToKey(String string);
+  K? stringToKey(String string);
 
   @override
   Future<Box<V>> open() => Hive.openBox<V>(boxName);
 
   @override
-  Future<V> load(K key) async {
-    final box = await data;
+  Future<V?> load(K key) async {
+    final box = (await data)!;
     return box.get(keyToString(key));
   }
 
   @override
   Future<Iterable<K>> loadKeys() async {
-    final box = await data;
+    final box = (await data)!;
     return [
       for (var key in box.keys) stringToKey(key as String),
-    ].where((key) => key != null);
+    ].whereType<K>();
   }
 
   @override
   Future<void> save(K key, V value) async {
-    final box = await data;
+    final box = (await data)!;
     return box.put(keyToString(key), value);
   }
 
   @override
   Future<bool> remove(K key) async {
-    final box = await data;
+    final box = (await data)!;
     final str = keyToString(key);
     if (box.containsKey(str)) {
       await box.delete(str);
@@ -56,7 +55,7 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
 
   @override
   Future<void> clear() async {
-    final box = await data;
+    final box = (await data)!;
     await box.clear();
   }
 
@@ -68,7 +67,7 @@ mixin HiveDatabaseMixin<K, V> on SavedDatabase<Box<V>, K, V> {
 
   @override
   Future<void> close() async {
-    final box = await data;
+    final box = (await data)!;
     await box.close();
     await super.close();
   }
