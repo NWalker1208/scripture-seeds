@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +15,7 @@ import '../widgets/animation/list.dart';
 
 /// Debug-only test page for testing new features.
 class TestPage extends StatefulWidget {
-  const TestPage({Key key}) : super(key: key);
+  const TestPage({Key? key}) : super(key: key);
 
   @override
   _TestPageState createState() => _TestPageState();

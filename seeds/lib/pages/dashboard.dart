@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +11,7 @@ import '../widgets/tutorial/help.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

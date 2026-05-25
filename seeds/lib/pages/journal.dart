@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,20 +14,20 @@ import '../widgets/journal_entry.dart';
 import '../widgets/tutorial/help.dart';
 
 class JournalPage extends StatefulWidget {
-  final String defaultFilter;
+  final String? defaultFilter;
 
-  JournalPage({this.defaultFilter, Key key}) : super(key: key);
+  JournalPage({this.defaultFilter, Key? key}) : super(key: key);
 
   @override
   _JournalPageState createState() => _JournalPageState();
 }
 
 class _JournalPageState extends State<JournalPage> {
-  String filter;
-  bool editMode;
-  Set<JournalEntry> selected;
+  String? filter;
+  late bool editMode;
+  late Set<JournalEntry> selected;
 
-  void toggleEditMode({JournalEntry selectedEntry}) {
+  void toggleEditMode({JournalEntry? selectedEntry}) {
     setState(() {
       editMode = !editMode;
       selected = <JournalEntry>{};
@@ -155,13 +153,13 @@ class _JournalPageState extends State<JournalPage> {
 class _JournalView extends StatelessWidget {
   const _JournalView({
     this.filter,
-    this.editMode,
-    this.selected,
-    this.onSelect,
-    Key key,
+    required this.editMode,
+    required this.selected,
+    required this.onSelect,
+    Key? key,
   }) : super(key: key);
 
-  final String filter;
+  final String? filter;
   final bool editMode;
   final Set<JournalEntry> selected;
   final void Function(JournalEntry, bool) onSelect;
@@ -190,7 +188,7 @@ class _JournalView extends StatelessWidget {
                   Checkbox(
                     key: ValueKey(entry),
                     value: selected.contains(entry),
-                    onChanged: (value) => onSelect(entry, value),
+                    onChanged: (value) => onSelect(entry, value!),
                   ),
                   TweenAnimationBuilder<double>(
                     tween: Tween<double>(

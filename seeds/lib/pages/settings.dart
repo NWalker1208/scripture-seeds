@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +12,7 @@ import 'test.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -42,7 +40,7 @@ class SettingsPage extends StatelessWidget {
 }
 
 class TutorialTile extends StatelessWidget {
-  const TutorialTile({Key key}) : super(key: key);
+  const TutorialTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ListTile(
@@ -56,7 +54,7 @@ class TutorialTile extends StatelessWidget {
 }
 
 class AboutTile extends StatelessWidget {
-  const AboutTile({Key key}) : super(key: key);
+  const AboutTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ListTile(
@@ -70,7 +68,7 @@ class AboutTile extends StatelessWidget {
 }
 
 class DebugPageTile extends StatelessWidget {
-  const DebugPageTile({Key key}) : super(key: key);
+  const DebugPageTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ListTile(

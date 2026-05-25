@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -84,7 +82,7 @@ class TopicDetailsPage extends StatelessWidget {
                     sliver: SliverToBoxAdapter(
                       child: Consumer<TopicIndexProvider>(
                         builder: (context, indexProvider, child) => TopicList(
-                            topics: indexProvider.index
+                            topics: indexProvider.index!
                                 .relatedTo(topic.id, maxCount: 8)),
                       ),
                     ),
@@ -124,7 +122,7 @@ class _VolumeRefList extends StatelessWidget {
   final Volume volume;
   final Iterable<ScriptureReference> references;
 
-  _VolumeRefList(this.volume, this.references, {Key key}) : super(key: key);
+  _VolumeRefList(this.volume, this.references, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +164,7 @@ class _VolumeRefList extends StatelessWidget {
 class _PurchasePlantButton extends StatelessWidget {
   final Topic topic;
 
-  _PurchasePlantButton(this.topic, {Key key}) : super(key: key);
+  _PurchasePlantButton(this.topic, {Key? key}) : super(key: key);
 
   void _purchase(BuildContext context) {
     if (Provider.of<WalletProvider>(context, listen: false)

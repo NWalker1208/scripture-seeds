@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -24,7 +22,7 @@ import '../widgets/tutorial/help.dart';
 class PlantPage extends StatelessWidget {
   final Topic topic;
 
-  PlantPage(this.topic, {Key key}) : super(key: key);
+  PlantPage(this.topic, {Key? key}) : super(key: key);
 
   void removePlant(BuildContext context) {
     showDialog<bool>(
@@ -131,7 +129,7 @@ class PlantPage extends StatelessWidget {
 class _StudyButton extends StatelessWidget {
   final Topic topic;
 
-  const _StudyButton(this.topic, {Key key}) : super(key: key);
+  const _StudyButton(this.topic, {Key? key}) : super(key: key);
 
   // Opens a dialog for when today's activity has already been completed
   void openActivityDialog(BuildContext context) {
@@ -164,7 +162,7 @@ class _StudyButton extends StatelessWidget {
 
           if (!canMakeProgress) {
             Provider.of<TutorialProvider>(context)
-                .maybeShow(ModalRoute.of(context).subtreeContext, 'grow_plant');
+                .maybeShow(ModalRoute.of(context)!.subtreeContext!, 'grow_plant');
           }
 
           return FloatingActionButton(

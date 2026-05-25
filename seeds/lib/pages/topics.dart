@@ -1,12 +1,10 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import '../widgets/dashboard/indicators/wallet.dart';
 import '../widgets/topics/list.dart';
 
 class TopicsPage extends StatelessWidget {
-  const TopicsPage({Key key}) : super(key: key);
+  const TopicsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
