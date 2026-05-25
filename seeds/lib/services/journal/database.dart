@@ -1,9 +1,7 @@
-// @dart=2.9
-
 import '../saved.dart';
 import 'entry.dart';
 
-abstract class JournalDatabase<D>
+abstract class JournalDatabase<D extends Object>
     extends SavedDatabase<D, DateTime, JournalEntry> {
   /// Saves the journal entry to the database, using the name as the key.
   Future<void> saveEntry(JournalEntry entry) => save(entry.created, entry);
@@ -12,9 +10,6 @@ abstract class JournalDatabase<D>
   Future<bool> removeEntry(JournalEntry entry) => remove(entry.created);
 
   /// Loads all journal entries as an iterable.
-  /// Automatically removes entries which loaded as null.
-  Future<Iterable<JournalEntry>> loadAllEntries() async => [
-        for (var entry in (await loadAll()).values)
-          if (entry != null) entry,
-      ];
+  Future<Iterable<JournalEntry>> loadAllEntries() async =>
+      (await loadAll()).values;
 }

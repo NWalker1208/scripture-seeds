@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -28,7 +26,7 @@ class JsonJournalDatabase extends JournalDatabase<Directory>
       key.toIso8601String().replaceAll(RegExp(r'[:.]'), '_');
 
   @override
-  DateTime filenameToKey(String file) {
+  DateTime? filenameToKey(String file) {
     // Reformat filename to get removed characters
     var i = file.lastIndexOf('_');
     var key = file.replaceAll('_', ':').replaceRange(i, i + 1, '.');
@@ -44,7 +42,7 @@ class JsonJournalDatabase extends JournalDatabase<Directory>
   String writeValue(JournalEntry value) => jsonEncode(value.toJson());
 
   @override
-  JournalEntry parseValue(String str) {
+  JournalEntry? parseValue(String str) {
     try {
       return JournalEntry.fromJson(jsonDecode(str) as Map<String, dynamic>);
     } on Exception {

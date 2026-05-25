@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:hive/hive.dart';
 
 import '../mixins/hive.dart';
@@ -15,7 +13,7 @@ class HiveJournalDatabase extends JournalDatabase<Box<JournalEntry>>
   String keyToString(DateTime key) => key.toIso8601String();
 
   @override
-  DateTime stringToKey(String string) {
+  DateTime? stringToKey(String string) {
     try {
       return DateTime.parse(string);
     } on FormatException {

@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:collection';
 
 import '../provider.dart';
@@ -9,8 +7,8 @@ import 'entry.dart';
 class JournalProvider extends ServiceProvider<JournalDatabase> {
   JournalProvider(JournalDatabase Function() create) : super(create);
 
-  SplayTreeSet<JournalEntry> _entries;
-  SplayTreeSet<String> _tagCache;
+  SplayTreeSet<JournalEntry>? _entries;
+  SplayTreeSet<String>? _tagCache;
 
   /// Get all the entries stored in the journal.
   /// Sorted oldest to newest.
@@ -21,14 +19,14 @@ class JournalProvider extends ServiceProvider<JournalDatabase> {
   Iterable<String> get allTags {
     if (!isLoaded) return const Iterable.empty();
     return _tagCache ??= SplayTreeSet.of({
-      for (var entry in _entries) ...entry.tags,
+      for (var entry in _entries!) ...entry.tags,
     });
   }
 
   /// Save a new journal entry.
   void save(JournalEntry entry) {
     _tagCache?.addAll(entry.tags);
-    _entries.add(entry);
+    _entries!.add(entry);
     notifyService((data) => data.saveEntry(entry));
   }
 
@@ -37,7 +35,7 @@ class JournalProvider extends ServiceProvider<JournalDatabase> {
     if (!entries.contains(entry)) return false;
 
     _tagCache = null; // Clear tag cache
-    _entries.remove(entry);
+    _entries!.remove(entry);
     notifyService((data) => data.removeEntry(entry));
 
     return true;
@@ -46,7 +44,7 @@ class JournalProvider extends ServiceProvider<JournalDatabase> {
   /// Deletes all journal entries in the given iterable.
   void deleteCollection(Iterable<JournalEntry> entries) {
     _tagCache = null; // Clear tag cache
-    _entries.removeAll(entries);
+    _entries!.removeAll(entries);
     notifyService((data) => Future.wait([
           for (var entry in entries) data.removeEntry(entry),
         ]));
@@ -55,7 +53,7 @@ class JournalProvider extends ServiceProvider<JournalDatabase> {
   /// Deletes every journal entry.
   void deleteAll() {
     _tagCache = SplayTreeSet();
-    _entries.clear();
+    _entries!.clear();
     notifyService((data) => data.clear());
   }
 
