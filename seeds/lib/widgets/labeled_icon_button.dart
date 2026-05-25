@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 class LabeledIconButton extends StatelessWidget {
@@ -8,10 +6,10 @@ class LabeledIconButton extends StatelessWidget {
   final String label;
 
   const LabeledIconButton({
-    @required this.icon,
-    @required this.onPressed,
+    required this.icon,
+    required this.onPressed,
     this.label = '',
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

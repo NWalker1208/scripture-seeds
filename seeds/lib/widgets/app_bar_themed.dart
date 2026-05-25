@@ -1,11 +1,9 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 class AppBarThemed extends StatelessWidget {
   final Widget child;
 
-  const AppBarThemed(this.child, {Key key}) : super(key: key);
+  const AppBarThemed(this.child, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class AppBarThemed extends StatelessWidget {
         chipTheme: ChipThemeData.fromDefaults(
           secondaryColor: theme.primaryColor,
           brightness: brightness,
-          labelStyle: textTheme.bodyLarge,
+          labelStyle: textTheme.bodyLarge!,
         ),
         canvasColor: background,
         backgroundColor: background,
