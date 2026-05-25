@@ -5,8 +5,8 @@ import 'database.dart';
 /// D - Internal database class
 /// K - Key
 /// V - Value
-class CachedDatabase<D extends CustomDatabase<dynamic, K, V>, K, V>
-    extends CustomDatabase<_Cache<K, V>, K, V> {
+class CachedDatabase<D extends CustomDatabase<dynamic, K, V>, K extends Object,
+    V extends Object> extends CustomDatabase<_Cache<K, V>, K, V> {
   CachedDatabase(this.internal);
 
   final D internal;

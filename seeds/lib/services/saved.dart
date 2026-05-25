@@ -6,7 +6,8 @@ import 'database.dart';
 /// D - Internal database class
 /// K - Key
 /// V - Value
-abstract class SavedDatabase<D, K, V> extends CustomDatabase<D, K, V> {
+abstract class SavedDatabase<D extends Object, K extends Object,
+    V extends Object> extends CustomDatabase<D, K, V> {
   /// Associates the given value with the key.
   Future<void> save(K key, V value);
 

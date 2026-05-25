@@ -1,6 +1,6 @@
 import '../service.dart';
 
-abstract class WalletService<S> extends CustomService<S> {
+abstract class WalletService<S extends Object> extends CustomService<S> {
   /// Load the current balance.
   Future<int?> loadBalance();
 
