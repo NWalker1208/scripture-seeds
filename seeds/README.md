@@ -1,6 +1,6 @@
 # Scripture Seeds
 
-This project was last built using Flutter v3.7.12.
+This project was last built using Flutter v3.41.9.
 
 ## Build (Android)
 
