@@ -50,7 +50,6 @@ class CustomThemeData {
     // AppBars
     final appBarThemeLight = AppBarTheme(
       elevation: null,
-      textTheme: typography.white,
       iconTheme: const IconThemeData(color: Colors.white),
       backgroundColor: colorsLight.primary,
       foregroundColor: colorsLight.onPrimary,
@@ -58,7 +57,6 @@ class CustomThemeData {
     );
     final appBarThemeDark = AppBarTheme(
       elevation: 4,
-      textTheme: typography.white,
       iconTheme: const IconThemeData(color: Colors.white),
       backgroundColor: colorsDark.surface,
       foregroundColor: colorsDark.onSurface,
