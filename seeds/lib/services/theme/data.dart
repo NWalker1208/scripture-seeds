@@ -16,6 +16,8 @@ class CustomThemeData {
       accentColor: Colors.blue,
       backgroundColor: Colors.grey[50],
       errorColor: Colors.red,
+    ).copyWith(
+      primaryContainer: Colors.green[200],
     );
     final colorsDark = ColorScheme.fromSwatch(
       primarySwatch: Colors.green,
@@ -25,6 +27,8 @@ class CustomThemeData {
       cardColor: Color(0xFF101010),
       errorColor: Colors.red[600],
       brightness: Brightness.dark,
+    ).copyWith(
+      primaryContainer: Colors.green[900],
     );
 
     // Typography

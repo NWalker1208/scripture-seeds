@@ -27,7 +27,7 @@ class JournalEntryView extends StatelessWidget {
     }
 
     return Card(
-      color: Theme.of(context).colorScheme.primaryVariant,
+      color: Theme.of(context).colorScheme.primaryContainer,
       margin: EdgeInsets.zero,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
