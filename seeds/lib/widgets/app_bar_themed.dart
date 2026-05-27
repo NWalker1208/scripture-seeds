@@ -8,28 +8,35 @@ class AppBarThemed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final appBarTheme = theme.appBarTheme;
 
-    final textTheme = theme.appBarTheme.textTheme ?? theme.primaryTextTheme;
-    final brightness =
-        theme.appBarTheme.brightness ?? theme.primaryColorBrightness;
-    final background = theme.appBarTheme.backgroundColor ?? theme.primaryColor;
+    final background = appBarTheme.backgroundColor ?? theme.primaryColor;
     final foreground =
-        theme.appBarTheme.foregroundColor ?? theme.colorScheme.onPrimary;
+        appBarTheme.foregroundColor ?? theme.colorScheme.onPrimary;
+    final brightness = ThemeData.estimateBrightnessForColor(background);
+
+    final textTheme = theme.primaryTextTheme.apply(
+      bodyColor: foreground,
+      displayColor: foreground,
+    );
+    final iconTheme = appBarTheme.iconTheme ?? theme.primaryIconTheme;
 
     return Theme(
       data: theme.copyWith(
         textTheme: textTheme,
-        iconTheme: theme.appBarTheme.iconTheme ?? theme.primaryIconTheme,
+        iconTheme: iconTheme,
         chipTheme: ChipThemeData.fromDefaults(
           secondaryColor: theme.primaryColor,
           brightness: brightness,
           labelStyle: textTheme.bodyLarge!,
         ),
         canvasColor: background,
-        backgroundColor: background,
+        colorScheme: theme.colorScheme.copyWith(
+          surface: background,
+          brightness: brightness,
+        ),
         splashColor: foreground.withOpacity(0.2),
         highlightColor: foreground.withOpacity(0.1),
-        brightness: brightness,
       ),
       child: DefaultTextStyle(
         style: DefaultTextStyle.of(context).style.copyWith(color: foreground),
