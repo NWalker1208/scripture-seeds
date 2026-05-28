@@ -129,7 +129,7 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoutePath> {
   @override
   Future<AppRoutePath> parseRouteInformation(
           RouteInformation information) async =>
-      AppRoutePath.parse(information.location!);
+      AppRoutePath.parse(information.location);
 
   @override
   RouteInformation restoreRouteInformation(AppRoutePath route) =>

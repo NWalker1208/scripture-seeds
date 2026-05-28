@@ -30,7 +30,6 @@ linter:
 
     # DOCUMENTATION
     - slash_for_doc_comments
-    - package_api_docs # prefer
     # - public_member_api_docs # prefer
 
     # USAGE
@@ -47,7 +46,6 @@ linter:
     - prefer_iterable_whereType
     - prefer_function_declarations_over_variables
     - unnecessary_lambdas
-    - prefer_equal_for_default_values
     - avoid_init_to_null
     - unnecessary_getters_setters
     - prefer_expression_function_bodies
@@ -82,7 +80,6 @@ linter:
     # - avoid_positional_boolean_parameters # avoid
     - hash_and_equals
     - avoid_equals_and_hash_code_on_mutable_classes # avoid
-    - avoid_null_checks_in_equality_operators
 
     # Flutter Rules
 

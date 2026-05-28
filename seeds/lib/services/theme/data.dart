@@ -12,7 +12,6 @@ class CustomThemeData {
     // ColorSchemes
     final colorsLight = ColorScheme.fromSwatch(
       primarySwatch: Colors.green,
-      primaryColorDark: Colors.green[200],
       accentColor: Colors.blue,
       backgroundColor: Colors.grey[50],
       errorColor: Colors.red,
@@ -21,7 +20,6 @@ class CustomThemeData {
     );
     final colorsDark = ColorScheme.fromSwatch(
       primarySwatch: Colors.green,
-      primaryColorDark: Colors.green[900],
       accentColor: Colors.blue,
       backgroundColor: Colors.black,
       cardColor: Color(0xFF101010),
@@ -67,20 +65,20 @@ class CustomThemeData {
       systemOverlayStyle: systemOverlayDark,
     );
 
-    final bottomAppBarThemeLight = BottomAppBarTheme(
+    final bottomAppBarThemeLight = BottomAppBarThemeData(
       elevation: null,
       color: colorsLight.surface,
     );
-    final bottomAppBarThemeDark = BottomAppBarTheme(
+    final bottomAppBarThemeDark = BottomAppBarThemeData(
       elevation: 4,
       color: colorsDark.surface,
     );
 
     // Dialog Theme
-    final dialogThemeLight = DialogTheme(
+    final dialogThemeLight = DialogThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
-    final dialogThemeDark = DialogTheme(
+    final dialogThemeDark = DialogThemeData(
       backgroundColor: colorsDark.surface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
@@ -144,7 +142,7 @@ class CustomThemeData {
     );
 
     // Card Theme
-    final cardTheme = CardTheme(
+    final cardTheme = CardThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 4.0,
     );
