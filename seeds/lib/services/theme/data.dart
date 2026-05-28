@@ -16,6 +16,7 @@ class CustomThemeData {
       backgroundColor: Colors.grey[50],
       errorColor: Colors.red,
     ).copyWith(
+      surface: Colors.grey[50],
       primaryContainer: Colors.green[200],
     );
     final colorsDark = ColorScheme.fromSwatch(
@@ -26,6 +27,7 @@ class CustomThemeData {
       errorColor: Colors.red[600],
       brightness: Brightness.dark,
     ).copyWith(
+      surface: Colors.black,
       primaryContainer: Colors.green[900],
     );
 
@@ -125,6 +127,7 @@ class CustomThemeData {
       secondaryColor: colorsDark.primary,
       labelStyle: typography.white.bodyLarge!,
     ).copyWith(
+      backgroundColor: Color(0xFF1D1D1D),
       elevation: 4.0,
       pressElevation: 6.0,
     );
