@@ -158,6 +158,7 @@ class CustomThemeData {
     final light = ThemeData.from(
       colorScheme: colorsLight,
       textTheme: typography.black,
+      useMaterial3: false,
     ).copyWith(
       materialTapTargetSize: MaterialTapTargetSize.padded,
       highlightColor: colorsLight.onSurface.withOpacity(0.2),
@@ -177,6 +178,7 @@ class CustomThemeData {
     final dark = ThemeData.from(
       colorScheme: colorsDark,
       textTheme: typography.white,
+      useMaterial3: false,
     ).copyWith(
       //applyElevationOverlayColor: false,
       materialTapTargetSize: MaterialTapTargetSize.padded,
