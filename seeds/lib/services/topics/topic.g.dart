@@ -13,7 +13,7 @@ Topic _$TopicFromJson(Map<String, dynamic> json) => $checkedCreate(
         final val = Topic(
           id: $checkedConvert('id', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          cost: $checkedConvert('cost', (v) => v as int? ?? 1),
+          cost: $checkedConvert('cost', (v) => (v as num?)?.toInt() ?? 1),
           references: $checkedConvert(
               'references',
               (v) => (v as List<dynamic>).map((e) =>
