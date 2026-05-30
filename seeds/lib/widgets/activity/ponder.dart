@@ -11,7 +11,7 @@ class PonderActivity extends StatefulWidget {
   final int minWords;
 
   const PonderActivity(this.topic, {this.minWords = 8, Key? key})
-      : super(key: key);
+    : super(key: key);
 
   @override
   _PonderActivityState createState() => _PonderActivityState();
@@ -46,7 +46,8 @@ class _PonderActivityState extends State<PonderActivity>
     return TutorialHelp(
       'activity1',
       title: 'Step 2 - Ponder',
-      helpText: 'Write down what those verses taught you about the topic '
+      helpText:
+          'Write down what those verses taught you about the topic '
           '"${widget.topic.name}."',
       child: Center(
         child: ListView(
@@ -54,12 +55,21 @@ class _PonderActivityState extends State<PonderActivity>
           primary: false,
           padding: const EdgeInsets.fromLTRB(40, 40, 40, 80),
           children: [
-            Selector<ActivityProvider, String>(
-              selector: (context, activity) => activity.commentary,
-              builder: (context, commentary, child) {
+            Selector<ActivityProvider, (String, bool)>(
+              selector: (context, activity) =>
+                  (activity.commentary, activity.stage <= 1),
+              builder: (context, commentaryAndShouldEnable, child) {
+                var (commentary, shouldEnable) = commentaryAndShouldEnable;
                 var wordCount = commentary.wordCount;
 
                 return TextField(
+                  // We disable the text field when the activity is on the last
+                  // stage as a workaround for a bug where dismissing the
+                  // tutorial dialog on the last stage causes the text field
+                  // to receive focus, unexpectedly moving the screen back to
+                  // the second stage midway through the tutorial sequence.
+                  // TODO: Find root cause of the bug and remove workaround.
+                  enabled: shouldEnable,
                   onChanged: (text) => _updateCommentary(context, text),
                   textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.text,
@@ -68,13 +78,12 @@ class _PonderActivityState extends State<PonderActivity>
                   decoration: InputDecoration(
                     hintText: 'Type at least 8 words to continue.',
                     counterText: '$wordCount/${widget.minWords} words',
-                    counterStyle: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
+                    counterStyle: Theme.of(context).textTheme.bodySmall!
                         .copyWith(
-                            color: (wordCount < widget.minWords)
-                                ? Theme.of(context).colorScheme.error
-                                : null),
+                          color: (wordCount < widget.minWords)
+                              ? Theme.of(context).colorScheme.error
+                              : null,
+                        ),
                   ),
                 );
               },
